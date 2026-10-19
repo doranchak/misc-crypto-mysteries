@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XMR Wallet Cipher</title>
+<style>
+@font-face {
+  font-family: "Z408";
+  src: url("z340-z408-combined-font-monospaced-webfont.woff2") format("woff2"),
+       url("z340-z408-combined-font-monospaced-webfont.woff") format("woff");
+}
+:root {
+  --bg: #f6f5f1; --panel: #fff; --ink: #1d1d22; --muted: #6b6b75; --line: #dcdad2;
+  --hl: #ffd23f; --hl-ink: #000; --ok: #1a7f37; --bad: #b42318;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #17171c; --panel: #212128; --ink: #ececf1; --muted: #9a9aa6; --line: #34343e;
+          --hl: #e0a800; --hl-ink: #000; --ok: #4ac26b; --bad: #ff7b72; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 1.6rem; margin: 0 0 4px; }
+h2 { font-size: 1.1rem; margin: 0 0 12px; }
+.sub { color: var(--muted); margin: 0 0 20px; }
+section { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 16px 18px; margin-bottom: 18px; }
+.top { display: grid; grid-template-columns: 260px 1fr; gap: 18px; align-items: start; }
+@media (max-width: 760px) { .top { grid-template-columns: 1fr; } }
+.top section { margin: 0; }
+.thumb { display: block; width: 100%; border-radius: 6px; border: 1px solid var(--line); }
+.cap { font-size: .85rem; color: var(--muted); margin-top: 6px; }
+blockquote { margin: 0; padding: 10px 14px; border-left: 3px solid var(--line); color: var(--ink); }
+.hdr { font-size: .85rem; color: var(--muted); margin-bottom: 8px; white-space: pre-line; }
+
+/* grids */
+.line { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-bottom: 14px; }
+.word { display: flex; gap: 2px; }
+.cell { display: flex; flex-direction: column; align-items: center; min-width: 30px;
+  padding: 2px 3px; border-radius: 5px; cursor: default; border: 1px solid transparent; }
+.cell .g { font-family: "Z408", monospace; font-size: 30px; line-height: 38px; }
+.cell .p { font: 600 14px/20px ui-monospace, Menlo, monospace; color: var(--muted); text-transform: uppercase; }
+.cell.unmatched .p { color: var(--bad); }
+.cell.unmatched { border: 1px dashed var(--bad); }
+.hl { background: var(--hl); color: var(--hl-ink); border-color: var(--hl); }
+.hl .p { color: var(--hl-ink); }
+tr.hl td { background: var(--hl); color: var(--hl-ink); }
+
+/* plaintext panel */
+.plain { font: 600 17px/1.9 ui-monospace, Menlo, monospace; word-break: break-word; }
+.plain .ch { padding: 1px 1px; border-radius: 3px; }
+.plain .ch.unmatched { color: var(--bad); text-decoration: underline wavy; }
+.plain .seed .w { margin-right: .6em; display: inline-block; }
+.seedhead { margin-top: 8px; }
+
+/* tables */
+.tables { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 900px) { .tables { grid-template-columns: 1fr; } }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { text-align: left; padding: 3px 8px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; }
+td.g { font-family: "Z408", monospace; font-size: 26px; line-height: 32px; width: 48px; }
+td.l { font: 600 15px ui-monospace, Menlo, monospace; text-transform: uppercase; }
+td.n { text-align: right; font-variant-numeric: tabular-nums; }
+.bar { height: 10px; background: var(--ink); opacity: .55; border-radius: 3px; min-width: 2px; }
+tbody tr { cursor: default; }
+.result { font-weight: 600; }
+.ok { color: var(--ok); } .bad { color: var(--bad); }
+ul.notes { margin: 8px 0 0; padding-left: 20px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>XMR Wallet Cipher</h1>
+  <p class="sub">A symbol-substitution cipher claimed to encode a 25-word Monero seed. Hover any symbol, letter or table row to highlight every occurrence.</p>
+
+  <div class="top">
+    <section>
+      <h2>Original image</h2>
+      <a href="cipher.png" target="_blank" rel="noopener"><img class="thumb" src="cipher.png" alt="Original cipher image"></a>
+      <div class="cap">cipher.png (click for full size)</div>
+    </section>
+    <section>
+      <h2>Original email</h2>
+      <div class="hdr">from:	porotacompany25 &lt;porotacompany25@proton.me&gt;
+date:	Dec 29, 2024, 6:50 PM
+subject:	Hello,A Cyper for you</div>
+      <blockquote>Hello im a big fan of your channel and content and consider your work to be ground breaking<br>
+      I've come up across this Cypher while browsing the web,only i clue i have is its susposed to be a 25 Seed word list for an XMR Wallet.</blockquote>
+      <i>Note: As of the time of this writing, that email address no longer works.</i>
+    </section>
+  </div>
+
+  <section style="margin-top:18px">
+    <h2>Cipher transcription (original symbols, with plaintext beneath)</h2>
+    <div id="grid"></div>
+  </section>
+
+  <section>
+    <h2>Plaintext</h2>
+    <div class="plain" id="plain"></div>
+  </section>
+
+  <section>
+    <h2>Substitution check</h2>
+    <div id="verify"></div>
+  </section>
+
+  <div class="tables">
+    <section>
+      <h2>Substitution key</h2>
+      <table id="key"><thead><tr><th>Symbol</th><th>Letter</th><th>Count</th></tr></thead><tbody></tbody></table>
+    </section>
+    <section>
+      <h2>Frequency analysis</h2>
+      <table id="freq"><thead><tr><th>Symbol</th><th>Letter</th><th>Count</th><th>%</th><th style="width:30%"></th></tr></thead><tbody></tbody></table>
+    </section>
+  </div>
+</main>
+
+<script>
+// Transcription of cipher.png, one entry per line of the image; words separated by spaces.
+// Characters are keys into the Z408 font (the font's own glyphs are the cipher symbols).
+// Plaintext is the line-aligned reading supplied by the user.
+const CIPHER_LINES = [
+  String.raw`L-K%G95^z95M-Kf< Q-^G B-K\G-`,
+  String.raw`09zz\5 f\\N Mf —`,
+  String.raw`\G\L5\N +M-K\\G +\9L)\f GMN%\f`,
+  String.raw`9Kf0\Gf fQKNG-B\ XGQMK% G--BQ`,
+  String.raw`LQLzMK% LMGLz\ zM+f5ML_`,
+  String.raw`9+)MN z-X5Q +M+\zMK\ %9Vz\f`,
+  String.raw`L-0z 9B^f\N fMN\_ML_ NMKK\G`,
+  String.raw`f-^5)\GK %--NVQ\ +\\z\N fMY5\\K`,
+  String.raw`5\\BMK% 9Kf0\Gf`,
+];
+const PLAINTEXT = "CONGRATULATIONS! YOUR MONERO WALLET SEED IS ——\n" +
+  "erected pioneer peaches ridges answers syndrome frying roomy cycling circle lipstick aphid lofty pipeline gables cowl amused sidekick dinner southern goodbye peeled sixteen teeming answers";
+
+const norm = s => s.toUpperCase();
+const cipherWords = CIPHER_LINES.map(l => l.split(" "));
+const flatCipherWords = cipherWords.flat();
+
+// Plaintext words; a run of em-dashes is drawn as one long-dash symbol in the image.
+const plainWords = PLAINTEXT.split(/\s+/).map(w => /^—+$/.test(w) ? "—" : norm(w));
+
+// Align plaintext words to cipher words in order. A plaintext word with no
+// same-length counterpart at the current cipher position is left unmatched.
+const aligned = [];            // per cipher word: plaintext word string
+const unmatchedPlain = new Set(); // indices into plainWords
+{
+  let ci = 0;
+  plainWords.forEach((pw, pi) => {
+    const cw = flatCipherWords[ci];
+    if (cw !== undefined && [...cw].length === [...pw.replace(/[!]/g,"!")].length) { aligned[ci++] = pw; }
+    else unmatchedPlain.add(pi);
+  });
+}
+
+// Build symbol <-> letter maps.
+const symToLetter = new Map(), letterToSym = new Map(), conflicts = [];
+const counts = new Map();
+flatCipherWords.forEach((cw, i) => {
+  [...cw].forEach((s, j) => {
+    const L = [...aligned[i]][j];
+    counts.set(s, (counts.get(s) || 0) + 1);
+    if (symToLetter.has(s) && symToLetter.get(s) !== L) conflicts.push(`symbol ${s} → ${symToLetter.get(s)} and ${L}`);
+    if (letterToSym.has(L) && letterToSym.get(L) !== s) conflicts.push(`letter ${L} ← ${letterToSym.get(L)} and ${s}`);
+    symToLetter.set(s, L); letterToSym.set(L, s);
+  });
+});
+const total = [...counts.values()].reduce((a, b) => a + b, 0);
+
+// ---- rendering helpers ----
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const tag = (node, sym) => { node.dataset.sym = sym; return node; };
+
+// cipher grid
+const grid = document.getElementById("grid");
+let wi = 0;
+cipherWords.forEach(words => {
+  const line = el("div", "line");
+  words.forEach(cw => {
+    const w = el("div", "word");
+    [...cw].forEach((s, j) => {
+      const c = tag(el("div", "cell"), s);
+      c.append(el("span", "g", s), el("span", "p", [...aligned[wi]][j]));
+      w.append(c);
+    });
+    wi++;
+    line.append(w);
+  });
+  grid.append(line);
+});
+
+// plaintext panel (each aligned letter carries its cipher symbol)
+const plainEl = document.getElementById("plain");
+{
+  let ci = 0;
+  const lines = PLAINTEXT.split("\n");
+  let pi = 0;
+  lines.forEach((ln, li) => {
+    const box = el("div", li ? "seedhead" : "");
+    ln.split(/\s+/).forEach(rawWord => {
+      const w = el("span", "w"); w.style.marginRight = ".6em"; w.style.display = "inline-block";
+      const word = /^—+$/.test(rawWord) ? "—" : rawWord;
+      const matched = !unmatchedPlain.has(pi);
+      const syms = matched ? [...flatCipherWords[ci]] : null;
+      [...word].forEach((ch, j) => {
+        const s = el("span", "ch", ch);
+        if (matched) tag(s, syms[j]); else s.classList.add("unmatched");
+        w.append(s);
+      });
+      if (rawWord !== word) w.title = "Drawn as a single long line in the image";
+      if (!matched) w.title = "No counterpart in the cipher image";
+      if (matched) ci++;
+      pi++;
+      box.append(w);
+    });
+    plainEl.append(box);
+  });
+}
+
+// verification
+{
+  const v = document.getElementById("verify");
+  const nSyms = counts.size;
+  const letters = new Set(letterToSym.keys());
+  const ok = conflicts.length === 0;
+  const p = el("p", "result " + (ok ? "ok" : "bad"),
+    ok ? `✔ Consistent one-to-one substitution: ${nSyms} cipher symbols ↔ ${letters.size} plaintext characters over ${total} aligned positions, with no conflicts.`
+       : `✘ ${conflicts.length} conflict(s) found.`);
+  v.append(p);
+  const ul = el("ul", "notes");
+  conflicts.forEach(c => ul.append(el("li", "bad", c)));
+  const skipped = [...unmatchedPlain].map(i => plainWords[i]);
+  if (skipped.length) ul.append(el("li", null,
+    `Plaintext word(s) with no counterpart in the image: ${skipped.map(s => `“${s}”`).join(", ")}. ` +
+    `The cipher reads “CONGRATULATIONS! YOUR MONERO WALLET SEED IS —”, so the supplied text has “ON” (shown in red) that the image does not contain; everything else aligns symbol-for-symbol.`));
+  ul.append(el("li", null, "The trailing “——” in the plaintext corresponds to the single long line drawn in the image, treated as one symbol."));
+  const seed = plainWords.slice(plainWords.indexOf("IS") + 2);
+  ul.append(el("li", null, `Seed list contains ${seed.length} words (the 25th repeats word 5, “${seed[4].toLowerCase()}”, as the Monero checksum word does).`));
+  v.append(ul);
+}
+
+// key + frequency tables
+const byLetter = [...symToLetter.entries()].sort((a, b) => a[1].localeCompare(b[1]));
+const keyBody = document.querySelector("#key tbody");
+byLetter.forEach(([s, L]) => {
+  const tr = tag(el("tr"), s);
+  tr.append(el("td", "g", s), el("td", "l", L), el("td", "n", counts.get(s)));
+  keyBody.append(tr);
+});
+const freqBody = document.querySelector("#freq tbody");
+const max = Math.max(...counts.values());
+[...counts.entries()].sort((a, b) => b[1] - a[1] || symToLetter.get(a[0]).localeCompare(symToLetter.get(b[0]))).forEach(([s, n]) => {
+  const tr = tag(el("tr"), s);
+  const bar = el("div", "bar"); bar.style.width = (n / max * 100) + "%";
+  const bt = el("td"); bt.append(bar);
+  tr.append(el("td", "g", s), el("td", "l", symToLetter.get(s)), el("td", "n", n), el("td", "n", (n / total * 100).toFixed(1)), bt);
+  freqBody.append(tr);
+});
+
+// hover highlighting
+document.addEventListener("mouseover", e => {
+  const t = e.target.closest("[data-sym]");
+  if (!t) return;
+  document.querySelectorAll(`[data-sym="${CSS.escape(t.dataset.sym)}"]`).forEach(n => n.classList.add("hl"));
+});
+document.addEventListener("mouseout", e => {
+  const t = e.target.closest("[data-sym]");
+  if (!t) return;
+  document.querySelectorAll(".hl").forEach(n => n.classList.remove("hl"));
+});
+</script>
+</body>
+</html>
