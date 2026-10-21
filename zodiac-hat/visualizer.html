@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zodiac Hat Cipher</title>
+<style>
+:root{--bg:#120505;--panel:#1d0b0b;--line:#4a2020;--text:#f1dede;--dim:#b08a8a;--yellow:#ffe14a;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 var(--mono)}
+.wrap{max-width:1300px;margin:0 auto;padding:12px 16px 40px}
+h1{font-size:17px;color:var(--yellow);margin:0 0 4px}h2{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin:0 0 8px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 14px;margin:0 0 12px}
+.cols{display:grid;grid-template-columns:minmax(300px,1fr) minmax(320px,1fr);gap:14px}
+@media(max-width:860px){.cols{grid-template-columns:1fr}}
+.hat{position:relative}.hat img{width:100%;display:block;border-radius:4px}
+.box{position:absolute;border:2px solid transparent;border-radius:3px;pointer-events:none}
+.box.on{border-color:var(--yellow);background:rgba(255,225,74,.28);box-shadow:0 0 10px 2px rgba(255,225,74,.8)}
+table.grid{border-collapse:separate;border-spacing:4px}
+table.grid td{background:#2a1010;border:1px solid var(--line);border-radius:4px;text-align:center;padding:2px 2px 0;cursor:default}
+table.grid td.on,.pt span.on{background:var(--yellow);color:#000;border-color:var(--yellow)}
+table.grid img{width:66px;height:66px;display:block;border-radius:3px}
+table.grid .l{font-size:20px;font-weight:700;color:var(--yellow);line-height:1.2}table.grid td.on .l{color:#000}
+.pt{font-size:26px;letter-spacing:2px;margin:6px 0}.pt .w{display:inline-block;white-space:nowrap;margin-right:16px}.pt span.c{padding:0 1px;border-radius:3px;cursor:default}
+.note{color:var(--dim)}b{color:var(--yellow)}
+table.r{border-collapse:collapse;width:100%;font-size:13px}table.r th,table.r td{border-bottom:1px solid var(--line);padding:3px 6px;text-align:left;vertical-align:middle}table.r th{color:var(--dim)}
+table.r tr.on td{background:#3a2a0a}
+.keys img{max-width:100%;background:#fff;border-radius:4px;margin:4px 0}
+a{color:#8fd8ff}
+.tabs{display:flex;gap:6px;margin:0 0 12px}.tab{background:var(--panel);color:var(--dim);border:1px solid var(--line);border-radius:6px;padding:6px 14px;font:inherit;cursor:pointer}.tab.on{color:var(--yellow);border-color:var(--yellow)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}.gal figure{margin:0;cursor:zoom-in}.gal img{width:100%;height:230px;object-fit:cover;border-radius:4px;border:1px solid var(--line);display:block}.gal figcaption{font-size:12px;color:var(--dim);margin-top:3px}
+#lb{display:none;position:fixed;inset:0;background:#000d;z-index:20;align-items:center;justify-content:center;cursor:zoom-out}#lb img{max-width:96vw;max-height:96vh}
+</style></head><body><div class="wrap">
+<h1>THE ZODIAC HAT CIPHER</h1>
+<div class="note">Image: <a href="hat1.webp" target="_blank" rel="noopener">hat1.webp</a>. Embroidered caption: “THE ZODIAC KILLER — Sorry I haven't written, but I just washed my pen…”, above/around a 6×4 block of Zodiac symbols.</div>
+
+<div class="card" style="margin-top:10px"><h2>Source</h2>
+<div>eBay listing: <a href="https://www.ebay.com/itm/137860766005" target="_blank" rel="noopener">ebay.com/itm/137860766005</a></div>
+<div class="note">“ERD Paly Hollywood Inspired Zodiac Killer Hat - JDDC FIT - Maroon Red”<br>“James Dean Death Cult fit. Limited edition run by Kyle Patrick Farber of Price De Fame.”</div></div>
+<div class="tabs"><button class="tab on" data-p="decode">Decode</button><button class="tab" data-p="gallery">Gallery (8 photos)</button></div>
+<div id="gallery" class="pane" style="display:none"><div class="card"><h2>All eight hat photos (click to enlarge)</h2><div class="gal" id="gal"></div>
+<div class="note" style="margin-top:8px">Besides the front cipher block (photos 1, 3, 4) the hat has a side patch “NO FACE · NO CASE” around a crosshair-marked outline (2, 5), “KYLEPATRICKFARBER™” on the back (6), and a printed pattern inside the crown (7, 8) that has not been examined here.</div></div></div>
+<div id="decode" class="pane">
+<div class="card"><h2>Result</h2>
+<div class="pt" id="pt"></div>
+<div>Yes, it holds a real message, enciphered with the <b>Z408 key</b> (the Hardens' solution). Read row by row, left to right, the 24 symbols decode to <b>THE HOLLYWOOD HILL HAVE EYES</b>, i.e. “The Hills Have Eyes” with the S of HILLS missing (24 symbols fit only if it is dropped; probably a maker's slip or a space-saving shortcut). The Z340 key gives no English in any reading order.</div></div>
+
+<div class="cols">
+ <div class="card"><h2>Hat (hover a symbol, a letter or a table row)</h2><div class="hat" id="hat"><img src="hat1.webp" alt="Zodiac hat"></div></div>
+ <div class="card"><h2>Symbols → Z408 letters</h2><table class="grid" id="grid"></table>
+  <div class="note" style="margin-top:6px">Letter-shaped symbols: Z (×3) → E, B (×2) → L, M (×2) → H, A → W, T → O, X → O. The rest are matched by shape (table below).</div></div>
+</div>
+
+<div class="card"><h2>How each symbol was read (Z408 key)</h2>
+<table class="r" id="why"><tr><th>#</th><th>symbol on hat</th><th>letter</th><th>Z408 key entry</th></tr></table></div>
+
+<div class="card"><h2>What was tested</h2>
+<table class="r">
+<tr><td>Z408 key, 9 reading orders (rows, columns, snake, reversed, bottom-up)</td><td>Row-major left→right gives English. Automatic reading with ambiguous glyphs scored −6.0 per quadgram versus about −5.7 for shuffled glyphs; after fixing two glyphs by eye (reversed D → O, reversed C → V) the whole line reads <b>THEHOLLYWOODHILLHAVEEYES</b>.</td></tr>
+<tr><td>Z340 key (Oranchak–Blake–Van Eycke, 2020), same orders</td><td>Best −5.6 per letter, gibberish such as “TRPARRORWLEBDDEROBLRVTWS”; shuffled glyphs reach −5.5. No message.</td></tr>
+<tr><td>Direct decryption without a key</td><td>Not needed. With only 24 symbols (19 distinct) an unkeyed solution would not be reliable anyway.</td></tr>
+<tr><td>Chance?</td><td>A 24-letter coincidence of this kind (five words, “HOLLYWOOD”, “HAVE EYES”) is far outside what random glyph shuffles give.</td></tr></table></div>
+
+<div class="card keys"><h2>Keys used (figures from Raddum et al., arXiv 2403.17350: Z408 = Fig. 4, Z340 = Fig. 44)</h2>
+<div>Z408 key</div><img src="z408-key.png" alt="Z408 key"><div>Z340 key</div><img src="z340-key.png" alt="Z340 key"></div>
+</div></div>
+<script>
+const L='THEHOLLYWOODHILLHAVEEYES';
+const SYM=['solid circle','M','circle with dot','circle with bar','X','solid square','solid square','open square','A','reversed D','T','crosshair','circle with bar (small)','triangle with dot','B','B','M','solid triangle','reversed C','Z','Z','open square','Z','square with dot'];
+const KEY=['T: H I ● L','H: M ⊖','E: Z 9 W + ⊙ O N E','H: M ⊖','O: X I T ᗡ','L: ◩ B ■','L: ◩ B ■','Y: □','W: A','O: X I T ᗡ','O: X I T ᗡ','D: ꟻ ⊕','H: M ⊖','I: Δ P U K','L: ◩ B ■','L: ◩ B ■','H: M ⊖','A: 6 S J ⅃ ▲','V: Ɔ','E: Z 9 W + ⊙ O N E','E: Z 9 W + ⊙ O N E','Y: □','E: Z 9 W + ⊙ O N E','S: F ⊡ K Δ'];
+const C=[[343,300],[413,283],[493,280],[580,278],[660,282],[723,290],[340,347],[410,333],[492,328],[573,327],[657,330],[727,340],[335,392],[400,378],[487,368],[570,367],[658,375],[728,388],[335,437],[397,422],[482,413],[573,413],[658,418],[730,427]];
+const hat=document.getElementById('hat'),boxes=[],els=[...Array(24)].map(()=>[]);
+C.forEach(([x,y])=>{const b=document.createElement('div');b.className='box';b.style.cssText=`left:${(x-30)/11.47}%;top:${(y-30)/10.27}%;width:${60/11.47}%;height:${60/10.27}%`;hat.appendChild(b);boxes.push(b)});
+function on(i){off();boxes[i].classList.add('on');els[i].forEach(e=>e.classList.add('on'))}
+function off(){document.querySelectorAll('.on').forEach(e=>e.classList.remove('on'))}
+function wire(e,i){e.addEventListener('mouseenter',()=>on(i));e.addEventListener('mouseleave',off);els[i].push(e)}
+const grid=document.getElementById('grid');
+for(let r=0;r<4;r++){const tr=grid.insertRow();for(let c=0;c<6;c++){const i=r*6+c,td=tr.insertCell();td.innerHTML=`<img src="cells/r${r+1}c${c+1}.png" alt=""><div class="l">${L[i]}</div>`;wire(td,i)}}
+const pt=document.getElementById('pt');let k=0;
+for(const w of ['THE','HOLLYWOOD','HILL','HAVE','EYES']){const s=document.createElement('span');s.className='w';for(const ch of w){const e=document.createElement('span');e.className='c';e.textContent=ch;wire(e,k++);s.appendChild(e)}pt.appendChild(s)}
+const why=document.getElementById('why');
+for(let i=0;i<24;i++){const tr=why.insertRow();tr.innerHTML=`<td>${i+1}</td><td><img src="cells/r${Math.floor(i/6)+1}c${i%6+1}.png" style="width:36px;vertical-align:middle;border-radius:3px"> ${SYM[i]}</td><td><b>${L[i]}</b></td><td>${KEY[i]}</td>`;wire(tr,i)}
+const CAP=['Front, cipher block','Side view with “NO FACE · NO CASE” patch','Front close-up','Front close-up, angled','Side patch close-up','Back: KYLEPATRICKFARBER™','Inside crown, printed lining','Inside crown from below'];
+const gal=document.getElementById('gal'),lb=document.createElement('div');lb.id='lb';lb.innerHTML='<img alt="">';document.body.appendChild(lb);lb.onclick=()=>lb.style.display='none';
+CAP.forEach((c,i)=>{const f=document.createElement('figure');f.innerHTML=`<img src="hat${i+1}.webp" alt="${c}" loading="lazy"><figcaption>${i+1}. ${c}</figcaption>`;f.onclick=()=>{lb.firstChild.src=`hat${i+1}.webp`;lb.style.display='flex'};gal.appendChild(f)});
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));document.querySelectorAll('.pane').forEach(p=>p.style.display=p.id===t.dataset.p?'block':'none')});
+</script></body></html>
