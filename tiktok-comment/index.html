@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decoding a TikTok comment: a grid-walk cipher</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f6f6f3;
+  --surface: #ffffff;
+  --surface-2: #efefea;
+  --text: #1b1b19;
+  --muted: #5d5d57;
+  --border: #d6d6cd;
+  --accent: #2457d6;
+  --accent-tint: #d9e4fc;
+  --on-accent: #ffffff;
+  --anchor: #9a4a06;
+  --anchor-tint: #fbe8d0;
+  --ok: #17703f;
+  --bad: #b42318;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131315;
+    --surface: #1c1c1f;
+    --surface-2: #26262a;
+    --text: #ececea;
+    --muted: #a5a59d;
+    --border: #38383d;
+    --accent: #86a8ff;
+    --accent-tint: #25325c;
+    --on-accent: #0c1226;
+    --anchor: #f0a24b;
+    --anchor-tint: #3e2b13;
+    --ok: #6fd49b;
+    --bad: #ff8a7a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding: 36px 20px 72px; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.15; margin: 0 0 .5rem; }
+h2 { font-size: 1.4rem; margin: 3rem 0 .6rem; line-height: 1.25; }
+h3 { font-size: 1.05rem; margin: 1.2rem 0 .3rem; }
+p { margin: .5rem 0; }
+.lede { color: var(--muted); max-width: 64ch; font-size: 1.05rem; }
+.muted { color: var(--muted); }
+a { color: var(--accent); text-underline-offset: 2px; }
+kbd, .sym {
+  font-family: inherit; background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0 .35em; white-space: nowrap;
+}
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: start; margin-top: 8px; }
+@media (max-width: 820px) { .hero { grid-template-columns: 1fr; } }
+figure { margin: 0; }
+figure img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--border); }
+figcaption { font-size: .85rem; color: var(--muted); margin-top: .4rem; }
+.answer {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 16px 18px; margin-top: 14px;
+}
+.answer .label { font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.answer .ru { font-size: 1.35rem; font-weight: 650; margin: .15rem 0; }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: .25rem 1rem; margin: 14px 0 0; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; }
+
+/* rules */
+.rules { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: start; }
+@media (max-width: 760px) { .rules { grid-template-columns: 1fr; } }
+.rules ol { margin: .4rem 0; padding-left: 1.2rem; }
+.rules li { margin: .55rem 0; }
+.kgrid { display: grid; grid-template-columns: repeat(5, 50px); gap: 4px; }
+.k {
+  position: relative; height: 50px; display: grid; place-items: center;
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px;
+  font-weight: 650; font-size: 1.15rem;
+}
+.k i { position: absolute; top: 2px; left: 5px; font-size: .62rem; color: var(--muted); font-style: normal; font-weight: 400; }
+.kcap { font-size: .82rem; color: var(--muted); margin-top: 6px; max-width: 262px; }
+.callout {
+  border-left: 4px solid var(--anchor); background: var(--anchor-tint);
+  padding: .6rem .9rem; border-radius: 0 10px 10px 0; margin: 1rem 0;
+}
+
+/* buttons */
+button {
+  font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: .4rem .85rem; cursor: pointer;
+}
+button:hover:not(:disabled) { border-color: var(--accent); }
+button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+button:disabled { opacity: .45; cursor: default; }
+button.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 600; }
+
+/* word cards */
+.cards { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 20px; }
+.wc { text-align: left; min-width: 112px; max-width: 220px; padding: .55rem .8rem; }
+.wc .tag { display: block; font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.wc .pt { display: block; font-size: 1.3rem; font-weight: 700; line-height: 1.25; }
+.wc .ct { display: block; font-size: .78rem; color: var(--muted); overflow-wrap: anywhere; }
+.wc[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.wc.name { border-style: dashed; }
+
+/* stepper */
+.stepper {
+  display: grid; grid-template-columns: minmax(280px, 340px) 1fr; gap: 28px; align-items: start;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px;
+}
+@media (max-width: 800px) { .stepper { grid-template-columns: 1fr; } }
+#grid { width: 100%; max-width: 340px; height: auto; display: block; font-family: inherit; margin: 0 auto; }
+.caption { min-height: 3em; margin-top: 8px; font-size: .95rem; }
+.c-rect { fill: var(--surface-2); stroke: var(--border); stroke-width: 1.5; }
+.c-rect.visited { fill: var(--accent-tint); stroke: var(--accent); }
+.c-rect.anchor:not(.current) { fill: var(--anchor-tint); }
+.c-rect.current { fill: var(--accent); stroke: var(--accent); }
+.c-rect.anchor { stroke: var(--anchor); stroke-width: 3; }
+.c-ch { fill: var(--text); font-size: 24px; font-weight: 650; text-anchor: middle; dominant-baseline: central; }
+.c-ch.current { fill: var(--on-accent); }
+.c-ix { fill: var(--muted); font-size: 9px; }
+.c-ix.current { fill: var(--on-accent); }
+.badge rect { fill: var(--text); }
+.badge text { fill: var(--bg); font-size: 10px; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+.path { fill: none; stroke: var(--accent); stroke-linejoin: round; stroke-linecap: round; }
+.path.past { stroke-width: 2.5; opacity: .4; }
+.path.cur { stroke-width: 4; animation: fade .4s ease; }
+.ah { fill: var(--accent); }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .path.cur { animation: none; } }
+
+.wl { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
+.wl span {
+  width: 2.4rem; height: 2.8rem; display: grid; place-items: center; border: 1.5px dashed var(--border);
+  border-radius: 8px; font-size: 1.4rem; font-weight: 700; color: var(--muted);
+}
+.wl span.on { border-style: solid; color: var(--text); background: var(--surface-2); }
+.wl span.cur { background: var(--accent); color: var(--on-accent); border-color: var(--accent); border-style: solid; }
+.segs { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 0 0 12px; font-size: 1.05rem; }
+.segs button { padding: .2rem .55rem; border-radius: 8px; font-size: 1.05rem; }
+.segs button.start { border-color: var(--anchor); color: var(--anchor); font-weight: 700; }
+.segs button.done { background: var(--accent-tint); border-color: var(--accent); }
+.segs button.cur { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 650; }
+.segs .bar { color: var(--muted); }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; align-items: center; }
+.hint { font-size: .82rem; color: var(--muted); }
+.tablewrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { padding: .38rem .5rem; border-bottom: 1px solid var(--border); text-align: left; white-space: nowrap; font-variant-numeric: tabular-nums; }
+th { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; }
+tr.cur { background: var(--accent-tint); }
+tr.future td { color: var(--muted); }
+td.ltr { font-weight: 700; font-size: 1.05rem; }
+td button { padding: 0 .5rem; border-radius: 6px; min-width: 2rem; }
+
+/* lab */
+.lab { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; }
+.lab .row { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; margin-bottom: 10px; }
+.lab label { display: inline-flex; gap: .45rem; align-items: center; }
+.lab input[type=range] { width: 200px; accent-color: var(--accent); }
+.lab output.w { font-weight: 700; font-size: 1.1rem; min-width: 1.5em; display: inline-block; }
+.labout { font-size: 1.25rem; font-weight: 650; overflow-wrap: anywhere; margin: .4rem 0; min-height: 1.6em; }
+.meter { height: 10px; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--border); overflow: hidden; max-width: 360px; }
+.meter div { height: 100%; background: var(--accent); }
+.verdict { margin-top: .5rem; font-weight: 600; }
+.verdict.ok { color: var(--ok); }
+.verdict.bad { color: var(--bad); }
+.score { margin-top: 14px; }
+.score table { width: auto; font-size: .85rem; }
+.score td.full { font-weight: 700; color: var(--ok); }
+.score td.pick { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* playground */
+.play { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 800px) { .play { grid-template-columns: 1fr; } }
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+.panel h3 { margin-top: 0; }
+textarea {
+  width: 100%; min-height: 6.5rem; font: inherit; font-size: 1.05rem; color: var(--text); background: var(--bg);
+  border: 1px solid var(--border); border-radius: 10px; padding: .55rem .7rem; resize: vertical;
+}
+textarea[readonly] { background: var(--surface-2); }
+.warn { color: var(--bad); font-size: .88rem; min-height: 1.3em; }
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: .7rem 1.1rem; }
+details summary { cursor: pointer; font-weight: 600; }
+footer { margin-top: 3rem; color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Decoding a TikTok comment</h1>
+  <p class="lede">A Russian comment where every word after its first letter has been replaced by numbers and arrows.
+  The arrows are directions for walking across a grid of the alphabet. This page shows how it works, step by step.</p>
+  <noscript><p class="callout">This page needs JavaScript for the interactive parts.</p></noscript>
+
+  <div class="hero">
+    <figure>
+      <img src="code.jpeg" alt="Screenshot of a dark-themed TikTok comment. The display name and the comment text are Cyrillic capital letters followed by number-and-arrow sequences separated by vertical bars, ending with three smiling-face-with-hearts emoji.">
+      <figcaption>The original comment (<code>code.jpeg</code>).
+        Source: <a href="https://www.reddit.com/r/codes/comments/1xom07b/unknown_code_from_a_random_tiktok_comment/" rel="noopener noreferrer">r/codes, “Unknown code from a random TikTok comment”</a>.</figcaption>
+    </figure>
+    <div>
+      <div class="answer">
+        <div class="label">Decoded comment</div>
+        <div class="ru" id="answer-ru">…</div>
+        <div class="en">“I really love my guinea pig.”</div>
+        <p class="hint">Морская свинка (“sea pig”) is Russian for guinea pig.</p>
+      </div>
+      <dl class="facts">
+        <dt>Cipher type</dt><dd>Grid-walk substitution: a Polybius-style grid with <em>relative</em> addressing</dd>
+        <dt>Alphabet</dt><dd>33 Russian letters (including Ё), 5 per row</dd>
+        <dt>Key</dt><dd>None. The grid layout is the whole system</dd>
+        <dt>Display name</dt><dd id="answer-name">…</dd>
+      </dl>
+    </div>
+  </div>
+</header>
+
+<main>
+<section aria-labelledby="h-rules">
+  <h2 id="h-rules">1 · The rules</h2>
+  <div class="rules">
+    <div>
+      <ol>
+        <li><strong>Each word starts with its first letter, in plain Cyrillic.</strong> That letter is the <em>anchor</em>: where the walk begins.</li>
+        <li><strong>Every <span class="sym">|</span>-separated chunk is one move to the next letter.</strong> Moves are relative to the <em>previous</em> letter, not to a fixed origin.</li>
+        <li><strong>A number multiplies the arrow right after it.</strong> A bare arrow means 1.
+          So <span class="sym">3↑4←</span> is “up 3, left 4”, and <span class="sym">↓4→</span> is “down 1, right 4”.</li>
+      </ol>
+      <p>Vertical moves are written before horizontal ones. One step down is <strong>+5</strong> places in the alphabet, and one step right is <strong>+1</strong>, so every move is also just an addition.</p>
+      <div class="callout">
+        <strong>Why “number before the arrow”?</strong> <span class="sym">↓4→</span> could be read as ↓1 →4 or as ↓4 →1.
+        From <b>О</b>, “down 4” falls off the bottom of the grid, so only the first reading works. “Try to break it” in part 3 lets you test this yourself.
+      </div>
+    </div>
+    <div>
+      <div class="kgrid" id="kgrid" role="img" aria-label="The Russian alphabet in rows of five letters: АБВГД, ЕЁЖЗИ, ЙКЛМН, ОПРСТ, УФХЦЧ, ШЩЪЫЬ, ЭЮЯ."></div>
+      <div class="kcap">The key. Small numbers are alphabet positions (Ё is 7th). Moving down one row adds 5.</div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-walk">
+  <h2 id="h-walk">2 · Walk a word through the grid</h2>
+  <p class="muted">Pick a word, then step through it. The amber ring is the anchor letter. Badges show which step reached each cell.
+  Use the arrow keys to step.</p>
+  <div class="cards" id="cards" role="group" aria-label="Words in the message"></div>
+
+  <div class="stepper" id="stepper">
+    <div>
+      <svg id="grid" viewBox="0 0 320 448" role="img" aria-label="Alphabet grid"></svg>
+      <div class="caption" id="caption" aria-live="polite"></div>
+    </div>
+    <div>
+      <div class="wl" id="wordline" aria-label="Letters decoded so far"></div>
+      <div class="segs" id="segs"></div>
+      <div class="controls">
+        <button id="b-reset">⏮ Reset</button>
+        <button id="b-prev">◀ Back</button>
+        <button id="b-next" class="primary">Next ▶</button>
+        <button id="b-play">▶ Play</button>
+        <span class="hint" id="stephint"></span>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Step</th><th>Chunk</th><th>Reads as</th><th>Shift</th><th>Letter</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-crack">
+  <h2 id="h-crack">3 · How it was cracked</h2>
+  <ol>
+    <li><strong>Read the shape.</strong> Each word is one Cyrillic capital followed only by digits and the four arrows. Spaces split words and bars split chunks. Directions plus counts suggests “turtle” moves on a grid.</li>
+    <li><strong>Count the chunks.</strong> After their anchors, the words have 4, 4, 3, 6 and 5 moves, so they are 5, 5, 4, 7 and 6 letters long. With a lone <b>Я</b> (“I”) in front, the comment reads as <i>Я О···· Л···· С··· М······· С·····</i>. “Я очень люблю свою …” fits, and the 🥰 emoji suggest affection.</li>
+    <li><strong>Find the grid width.</strong> If the first word is ОЧЕНЬ, then О→Ч is the 16th letter to the 25th, a gap of 9. The chunk is “down 1, right 4”, which is <i>W</i> + 4 = 9, so the width is 5.</li>
+    <li><strong>Test it on everything else.</strong> The same grid turns the other words into ЛЮБЛЮ, СВОЮ, МОРСКУЮ and СВИНКУ. All 22 moves in the comment land on a letter, and the endings agree grammatically (свою морскую свинку, all accusative). The display name decodes to real letters too, but ПОТАТУЕВ isn’t a word I recognise. It may be a surname or invented handle.</li>
+  </ol>
+
+  <h3>Try to break it</h3>
+  <p class="muted">Change the grid width or the number rule and watch what happens to the comment.</p>
+  <div class="lab">
+    <div class="row">
+      <label>Grid width <input type="range" id="lab-w" min="3" max="10" value="5"> <output class="w" id="lab-wv">5</output></label>
+      <fieldset style="border:0;padding:0;margin:0;display:flex;gap:18px;flex-wrap:wrap">
+        <legend class="sr" style="position:absolute;left:-9999px">Which arrow does a number belong to</legend>
+        <label><input type="radio" name="bind" value="prefix" checked> number <em>before</em> its arrow (<span class="sym">3↑</span>)</label>
+        <label><input type="radio" name="bind" value="suffix"> number <em>after</em> its arrow (<span class="sym">↑3</span>)</label>
+      </fieldset>
+    </div>
+    <div class="labout" id="lab-out"></div>
+    <div class="meter" aria-hidden="true"><div id="lab-meter"></div></div>
+    <div class="verdict" id="lab-verdict" aria-live="polite"></div>
+    <div class="score">
+      <p class="hint">Moves that land on a letter, for every setting (widths 3–10):</p>
+      <div class="tablewrap"><table id="score"></table></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-play">
+  <h2 id="h-play">4 · Try it yourself</h2>
+  <div class="play">
+    <div class="panel">
+      <h3>Russian → arrows</h3>
+      <label for="enc-in" class="hint">Type Russian text</label>
+      <textarea id="enc-in" spellcheck="false">Я очень люблю свою морскую свинку</textarea>
+      <label for="enc-out" class="hint">Encoded</label>
+      <textarea id="enc-out" readonly></textarea>
+      <p class="hint">Other characters pass through unchanged. A doubled letter (such as ММ) never occurs in the original, so this tool writes it as <span class="sym">0→</span>. That is my own extension.</p>
+    </div>
+    <div class="panel">
+      <h3>Arrows → Russian</h3>
+      <label for="dec-in" class="hint">Paste encoded text</label>
+      <textarea id="dec-in" spellcheck="false"></textarea>
+      <label for="dec-out" class="hint">Decoded</label>
+      <textarea id="dec-out" readonly></textarea>
+      <div class="warn" id="dec-warn" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><strong>Source of the puzzle:</strong>
+    <a href="https://www.reddit.com/r/codes/comments/1xom07b/unknown_code_from_a_random_tiktok_comment/" rel="noopener noreferrer">r/codes: “Unknown code from a random TikTok comment”</a>
+    (https://www.reddit.com/r/codes/comments/1xom07b/unknown_code_from_a_random_tiktok_comment/).
+    The screenshot is from that post; the analysis and decoder on this page are separate work.</p>
+  <p>Self-contained: no network access or libraries needed. All decoding on this page is computed live from the encoded text, not typed in.</p>
+</footer>
+</div>
+
+<script id="core">
+// ===== core: pure functions, no DOM =====
+const ALPHA = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+const W = 5;
+const DIR = { "↑": [-1, 0], "↓": [1, 0], "←": [0, -1], "→": [0, 1] };
+const DIRNAME = { "↑": "up", "↓": "down", "←": "left", "→": "right" };
+const WORD_RE = /^([А-ЯЁа-яё])([\d↑↓←→|]*)(.*)$/;
+
+function parseSeg(seg, binding) {
+  const suffix = binding === "suffix";
+  const re = suffix ? /([↑↓←→])(\d*)/g : /(\d*)([↑↓←→])/g;
+  const moves = [];
+  let m;
+  while ((m = re.exec(seg)) !== null) {
+    const arrow = suffix ? m[1] : m[2];
+    const ds = suffix ? m[2] : m[1];
+    const n = ds === "" ? 1 : parseInt(ds, 10);
+    moves.push({ arrow, n, dr: DIR[arrow][0] * n, dc: DIR[arrow][1] * n });
+  }
+  return moves;
+}
+
+function letterAt(r, c, width) {
+  if (r < 0 || c < 0 || c >= width) return null;
+  const i = r * width + c;
+  return i < ALPHA.length ? ALPHA[i] : null;
+}
+
+function decodeWord(token, opts) {
+  const width = (opts && opts.width) || W;
+  const binding = (opts && opts.binding) || "prefix";
+  const m = WORD_RE.exec(token);
+  if (!m) return null;
+  const start = m[1].toUpperCase();
+  const si = ALPHA.indexOf(start);
+  let r = Math.floor(si / width), c = si % width;
+  const startPos = { r, c };
+  const steps = [];
+  let text = start, valid = 0;
+  for (const seg of m[2].split("|").filter(s => s !== "")) {
+    const moves = parseSeg(seg, binding);
+    const via = [{ r, c }];
+    let dr = 0, dc = 0;
+    for (const mv of moves) { r += mv.dr; c += mv.dc; dr += mv.dr; dc += mv.dc; via.push({ r, c }); }
+    const letter = moves.length ? letterAt(r, c, width) : null;
+    steps.push({ seg, moves, via, to: { r, c }, dr, dc, shift: dr * width + dc, letter });
+    text += letter || "?";
+    if (letter) valid++;
+  }
+  return { start, startPos, steps, text, valid, total: steps.length, tail: m[3] };
+}
+
+function fmtMove(dr, dc) {
+  let s = "";
+  if (dr) s += (Math.abs(dr) > 1 ? Math.abs(dr) : "") + (dr > 0 ? "↓" : "↑");
+  if (dc) s += (Math.abs(dc) > 1 ? Math.abs(dc) : "") + (dc > 0 ? "→" : "←");
+  return s || "0→";
+}
+
+function encodeWord(word) {
+  const pos = ch => { const i = ALPHA.indexOf(ch); return { r: Math.floor(i / W), c: i % W }; };
+  let prev = pos(word[0]);
+  const segs = [];
+  for (const ch of word.slice(1)) {
+    const p = pos(ch);
+    segs.push(fmtMove(p.r - prev.r, p.c - prev.c));
+    prev = p;
+  }
+  return word[0] + segs.join("|");
+}
+
+function encodeText(s) {
+  return s.replace(/[А-ЯЁа-яё]+/g, w => encodeWord(w.toUpperCase()));
+}
+
+function decodeText(s, opts) {
+  let bad = 0;
+  const out = s.split(/(\s+)/).map(tok => {
+    if (tok === "" || /^\s+$/.test(tok)) return tok;
+    const r = decodeWord(tok, opts);
+    if (!r) return tok;
+    bad += r.total - r.valid;
+    return r.text + r.tail;
+  }).join("");
+  return { text: out, bad };
+}
+
+function describeMoves(moves) {
+  return moves.map(m => DIRNAME[m.arrow] + " " + m.n).join(", ");
+}
+
+// The message as transcribed from the screenshot.
+const MESSAGE = [
+  { kind: "name", cipher: "П←|4→|3↑4←|3↓4→|↓4←|3↑|↑2→" },
+  { cipher: "Я" },
+  { cipher: "О↓4→|3↑4←|↓4→|3↓" },
+  { cipher: "Л4↓←|6↑|2↓→|4↓←" },
+  { cipher: "С3↑←|3↓2←|3↓→" },
+  { cipher: "М↓3←|2→|→|↑2←|2↓←|2↓→" },
+  { cipher: "С3↑←|↓2→|↓|3←|2↓←" },
+];
+const EMOJI = "🥰🥰🥰";
+</script>
+
+<script>
+// ===== UI =====
+const $ = id => document.getElementById(id);
+const words = MESSAGE.map(w => Object.assign({}, w, { res: decodeWord(w.cipher) }));
+const commentWords = words.filter(w => w.kind !== "name");
+const nameWord = words.find(w => w.kind === "name");
+
+// hero + key grid
+$("answer-ru").textContent = commentWords.map(w => w.res.text).join(" ") + " " + EMOJI;
+$("answer-name").textContent = nameWord.res.text + " (decodes cleanly, but I can’t tell what it means)";
+$("kgrid").innerHTML = [...ALPHA].map((ch, i) => `<div class="k"><i>${i + 1}</i>${ch}</div>`).join("");
+
+// ----- stepper -----
+const P = 64, C = 58;
+const state = { word: 2, step: 0 };
+let timer = null;
+const cur = () => words[state.word].res;
+const maxStep = () => cur().steps.length;
+const cx = c => c * P + P / 2, cy = r => r * P + P / 2;
+const signed = n => n > 0 ? "+" + n : n < 0 ? "−" + (-n) : "0";
+
+function trimPath(points) {
+  const pts = [];
+  points.forEach(p => { const q = { x: cx(p.c), y: cy(p.r) }; const l = pts[pts.length - 1]; if (!l || l.x !== q.x || l.y !== q.y) pts.push(q); });
+  if (pts.length < 2) return null;
+  const shorten = (a, b, d) => { const len = Math.hypot(b.x - a.x, b.y - a.y); const k = Math.min(d, len * 0.45) / len; return { x: a.x + (b.x - a.x) * k, y: a.y + (b.y - a.y) * k }; };
+  pts[0] = shorten(pts[0], pts[1], 17);
+  const n = pts.length;
+  pts[n - 1] = shorten(pts[n - 1], pts[n - 2], 24);
+  return pts.map((q, i) => (i ? "L" : "M") + q.x.toFixed(1) + " " + q.y.toFixed(1)).join(" ");
+}
+
+function renderGrid() {
+  const res = cur(), step = state.step;
+  const reached = [res.startPos, ...res.steps.slice(0, step).map(s => s.to)];
+  const key = p => p.r + "," + p.c;
+  const badges = {};
+  reached.forEach((p, i) => (badges[key(p)] = badges[key(p)] || []).push(i));
+  const here = key(reached[reached.length - 1]);
+  const anchor = key(res.startPos);
+
+  let rects = "", paths = "", texts = "";
+  [...ALPHA].forEach((ch, i) => {
+    const r = Math.floor(i / W), c = i % W, k = r + "," + c;
+    const cls = [badges[k] ? "visited" : "", k === anchor ? "anchor" : "", k === here ? "current" : ""].join(" ");
+    const x = c * P + 3, y = r * P + 3;
+    rects += `<rect class="c-rect ${cls}" x="${x}" y="${y}" width="${C}" height="${C}" rx="10"/>`;
+    texts += `<text class="c-ix ${cls}" x="${x + 6}" y="${y + 13}">${i + 1}</text>`;
+    texts += `<text class="c-ch ${cls}" x="${x + C / 2}" y="${y + C / 2 + 3}">${ch}</text>`;
+    if (badges[k]) {
+      const label = badges[k].join("·"), w = Math.max(18, label.length * 7 + 10);
+      texts += `<g class="badge"><rect x="${x + C - w - 3}" y="${y + 3}" width="${w}" height="16" rx="8"/><text x="${x + C - w / 2 - 3}" y="${y + 11.5}">${label}</text></g>`;
+    }
+  });
+  res.steps.slice(0, step).forEach((s, i) => {
+    const d = trimPath(s.via);
+    if (!d) return;
+    const isCur = i === step - 1;
+    paths += `<path class="path ${isCur ? "cur" : "past"}" d="${d}" marker-end="url(#${isCur ? "ah-cur" : "ah-past"})"/>`;
+  });
+  const defs = `<defs>
+    <marker id="ah-cur" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto"><path class="ah" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="ah-past" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto"><path class="ah past" d="M0 0 L10 5 L0 10 z"/></marker></defs>`;
+  const grid = $("grid");
+  grid.innerHTML = defs + rects + paths + texts;
+  grid.setAttribute("aria-label", `Alphabet grid. Decoding ${res.text}; ${step} of ${maxStep()} moves shown.`);
+}
+
+function renderPanels() {
+  const res = cur(), step = state.step, n = maxStep();
+  // word line
+  $("wordline").innerHTML = [...res.text].map((ch, i) =>
+    `<span class="${i < step ? "on" : i === step ? "cur" : ""}"${i === step ? ' aria-current="step"' : ""}>${i <= step ? ch : "?"}</span>`).join("");
+  // chunk buttons
+  let segs = `<button class="start" data-step="0" title="Anchor letter">${res.start}</button>`;
+  res.steps.forEach((s, i) => {
+    segs += `<span class="bar">${i === 0 ? "" : "|"}</span><button class="${i + 1 === step ? "cur" : i + 1 < step ? "done" : ""}" data-step="${i + 1}">${s.seg}</button>`;
+  });
+  $("segs").innerHTML = segs;
+  // table
+  let rows = `<tr class="${step === 0 ? "cur" : ""}"><td><button data-step="0">0</button></td><td>(anchor)</td><td>plain letter, no move</td><td>–</td><td class="ltr">${res.start}</td></tr>`;
+  res.steps.forEach((s, i) => {
+    const k = i + 1, c = k === step ? "cur" : k > step ? "future" : "";
+    rows += `<tr class="${c}"${k === step ? ' aria-current="step"' : ""}><td><button data-step="${k}">${k}</button></td><td>${s.seg}</td><td>${describeMoves(s.moves)}</td><td>${signed(s.shift)}</td><td class="ltr">${k <= step ? s.letter || "?" : "·"}</td></tr>`;
+  });
+  $("rows").innerHTML = rows;
+  // caption
+  let cap;
+  if (n === 0) cap = `<b>${res.start}</b> is a one-letter word, so there is nothing to walk. (It means “I”.)`;
+  else if (step === 0) cap = `Start at the anchor <b>${res.start}</b> (alphabet position ${ALPHA.indexOf(res.start) + 1}). Press <b>Next</b> to follow the first chunk, <span class="sym">${res.steps[0].seg}</span>.`;
+  else {
+    const s = res.steps[step - 1], from = step === 1 ? res.start : res.steps[step - 2].letter;
+    cap = `Step ${step} of ${n}: from <b>${from}</b>, <span class="sym">${s.seg}</span> means ${describeMoves(s.moves)} (shift ${signed(s.shift)}), landing on <b>${s.letter || "?"}</b>.` +
+      (step === n ? ` Done: <b>${res.text}</b>.` : "");
+  }
+  $("caption").innerHTML = cap;
+  $("b-prev").disabled = step === 0;
+  $("b-next").disabled = step >= n;
+  $("b-reset").disabled = step === 0;
+  $("b-play").disabled = n === 0;
+  $("stephint").textContent = n ? `Step ${step} of ${n}` : "";
+}
+
+function renderCards() {
+  $("cards").innerHTML = words.map((w, i) =>
+    `<button class="wc ${w.kind === "name" ? "name" : ""}" data-word="${i}" aria-pressed="${i === state.word}">` +
+    `<span class="tag">${w.kind === "name" ? "display name" : "word " + (i)}</span>` +
+    `<span class="pt">${w.res.text}</span><span class="ct">${w.cipher}</span></button>`).join("");
+}
+
+function render() { renderCards(); renderGrid(); renderPanels(); }
+function stop() { clearInterval(timer); timer = null; $("b-play").textContent = "▶ Play"; }
+function setStep(n) { state.step = Math.max(0, Math.min(maxStep(), n)); render(); }
+
+$("cards").addEventListener("click", e => {
+  const b = e.target.closest("[data-word]"); if (!b) return;
+  stop(); state.word = +b.dataset.word; state.step = 0; render();
+});
+$("stepper").addEventListener("click", e => {
+  const b = e.target.closest("[data-step]"); if (!b) return;
+  stop(); setStep(+b.dataset.step);
+});
+$("b-next").onclick = () => { stop(); setStep(state.step + 1); };
+$("b-prev").onclick = () => { stop(); setStep(state.step - 1); };
+$("b-reset").onclick = () => { stop(); setStep(0); };
+$("b-play").onclick = () => {
+  if (timer) return stop();
+  if (state.step >= maxStep()) state.step = 0;
+  render();
+  $("b-play").textContent = "⏸ Pause";
+  timer = setInterval(() => { if (state.step >= maxStep()) return stop(); setStep(state.step + 1); if (state.step >= maxStep()) stop(); }, 1100);
+};
+document.addEventListener("keydown", e => {
+  if (e.target.closest("textarea, input")) return;
+  if (e.key === "ArrowRight") { stop(); setStep(state.step + 1); }
+  if (e.key === "ArrowLeft") { stop(); setStep(state.step - 1); }
+});
+render();
+
+// ----- try to break it -----
+function labRun(width, binding) {
+  let valid = 0, total = 0;
+  const out = commentWords.map(w => { const r = decodeWord(w.cipher, { width, binding }); valid += r.valid; total += r.total; return r.text; });
+  return { valid, total, text: out.join(" ") };
+}
+function renderLab() {
+  const width = +$("lab-w").value, binding = document.querySelector("input[name=bind]:checked").value;
+  $("lab-wv").textContent = width;
+  const r = labRun(width, binding);
+  $("lab-out").textContent = r.text;
+  $("lab-meter").style.width = (100 * r.valid / r.total) + "%";
+  const v = $("lab-verdict");
+  const readable = r.text === commentWords.map(w => w.res.text).join(" ");
+  if (readable) { v.className = "verdict ok"; v.textContent = `✔ ${r.valid} of ${r.total} moves land on a letter, and the result is readable Russian.`; }
+  else if (r.valid === r.total) { v.className = "verdict bad"; v.textContent = `${r.valid} of ${r.total} moves land on a letter, but the result is gibberish.`; }
+  else { v.className = "verdict bad"; v.textContent = `✘ Only ${r.valid} of ${r.total} moves land on a letter. The rest fall off the grid (shown as ?).`; }
+  // scoreboard
+  let html = "<thead><tr><th>Number goes…</th>";
+  for (let w = 3; w <= 10; w++) html += `<th>w=${w}</th>`;
+  html += "</tr></thead><tbody>";
+  for (const b of ["prefix", "suffix"]) {
+    html += `<tr><th>${b === "prefix" ? "before arrow" : "after arrow"}</th>`;
+    for (let w = 3; w <= 10; w++) {
+      const s = labRun(w, b);
+      html += `<td class="${s.valid === s.total ? "full" : ""} ${w === width && b === binding ? "pick" : ""}">${s.valid}/${s.total}</td>`;
+    }
+    html += "</tr>";
+  }
+  $("score").innerHTML = html + "</tbody>";
+}
+$("lab-w").addEventListener("input", renderLab);
+document.querySelectorAll("input[name=bind]").forEach(el => el.addEventListener("change", renderLab));
+renderLab();
+
+// ----- playground -----
+$("dec-in").value = commentWords.map(w => w.cipher).join(" ") + EMOJI;
+function runEnc() { $("enc-out").value = encodeText($("enc-in").value); }
+function runDec() {
+  const r = decodeText($("dec-in").value);
+  $("dec-out").value = r.text;
+  $("dec-warn").textContent = r.bad ? `${r.bad} move${r.bad > 1 ? "s" : ""} landed off the grid (shown as ?).` : "";
+}
+$("enc-in").addEventListener("input", runEnc);
+$("dec-in").addEventListener("input", runDec);
+runEnc(); runDec();
+</script>
+</body>
+</html>
