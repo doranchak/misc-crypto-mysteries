@@ -3,7 +3,7 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 
 - [Bulgarian treasure hunt](https://doranchak.github.io/misc-crypto-mysteries/bulgarian-treasure-hunt-cipher)
 - [Rudranshkh's Caesar-shift-per-word cipher](https://doranchak.github.io/misc-crypto-mysteries/caesar-shift-per-word)
-- [tbstewa's custom cipher](https://doranchak.github.io/misc-crypto-mysteries/tbstewa-custom-cipher)
+- [tbstewa's custom cipher](https://doranchak.github.io/misc-crypto-mysteries/tbstewa-custom-cipher/report.html)
 - [TikTok comment (Russian)](https://doranchak.github.io/misc-crypto-mysteries/tiktok-comment)
 - [XMR Monero wallet cipher](https://doranchak.github.io/misc-crypto-mysteries/xmr-monero-wallet)
 - [Zodiac hat cipher](https://doranchak.github.io/misc-crypto-mysteries/zodiac-hat)
