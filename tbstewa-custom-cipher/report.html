@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cracking tbstewa's custom cipher — solved</title>
+<style>
+  :root {
+    color-scheme: light;
+    --page:#f9f9f7; --surface-1:#fcfcfb;
+    --text-primary:#0b0b0b; --text-secondary:#52514e; --muted:#898781;
+    --grid:#e1e0d9; --axis:#c3c2b7; --border:rgba(11,11,11,0.10);
+    --series-1:#2a78d6; --series-2:#eb6834;
+    --tint-1:rgba(42,120,214,0.16); --tint-2:rgba(235,104,52,0.20);
+    --good:#006300; --good-fill:#0ca30c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page:#0d0d0d; --surface-1:#1a1a19;
+      --text-primary:#f0efec; --text-secondary:#c3c2b7; --muted:#898781;
+      --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,0.10);
+      --series-1:#3987e5; --series-2:#d95926;
+      --tint-1:rgba(57,135,229,0.22); --tint-2:rgba(217,89,38,0.28);
+      --good:#0ca30c; --good-fill:#0ca30c;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page:#0d0d0d; --surface-1:#1a1a19;
+    --text-primary:#f0efec; --text-secondary:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,0.10);
+    --series-1:#3987e5; --series-2:#d95926;
+    --tint-1:rgba(57,135,229,0.22); --tint-2:rgba(217,89,38,0.28);
+    --good:#0ca30c; --good-fill:#0ca30c;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--page); color:var(--text-primary);
+         font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; }
+  main { max-width:1000px; margin:0 auto; padding:32px 20px 80px; }
+  h1 { font-size:30px; line-height:1.2; margin:0 0 6px; font-weight:650; }
+  h2 { font-size:20px; margin:44px 0 6px; font-weight:650; }
+  h3 { font-size:15px; margin:0 0 4px; font-weight:650; }
+  p  { margin:8px 0; }
+  .sub { color:var(--text-secondary); margin:0; max-width:74ch; }
+  .mono, code, pre { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  code { font-size:.92em; background:var(--grid); padding:1px 5px; border-radius:4px; }
+  .badge { display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:650;
+           color:var(--good); border:1px solid var(--good); border-radius:999px; padding:2px 10px 2px 8px; vertical-align:middle; }
+  .badge svg { width:14px; height:14px; }
+  .card { background:var(--surface-1); border:1px solid var(--border); border-radius:12px; padding:18px 20px; }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin-top:22px; }
+  .tile .label { font-size:13px; color:var(--text-secondary); }
+  .tile .value { font-size:28px; font-weight:650; line-height:1.15; margin-top:2px; }
+  .tile .note { font-size:12.5px; color:var(--muted); margin-top:2px; }
+  .plain { max-height:340px; overflow:auto; white-space:pre-wrap; font-size:14px; line-height:1.6; }
+  .grid2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(420px,1fr)); gap:16px; }
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:14px; }
+  .step .n { display:inline-grid; place-items:center; width:24px; height:24px; border-radius:50%;
+             background:var(--series-1); color:#fff; font-weight:650; font-size:13px; margin-bottom:8px; }
+  .step p { font-size:14px; color:var(--text-secondary); }
+  .eq { font-family:ui-monospace,Menlo,monospace; font-size:13.5px; background:var(--grid);
+        border-radius:8px; padding:8px 10px; margin:8px 0; overflow-x:auto; white-space:pre; color:var(--text-primary); }
+  .legend { display:flex; gap:18px; flex-wrap:wrap; font-size:13px; color:var(--text-secondary); margin:6px 0 2px; }
+  .legend span { display:inline-flex; align-items:center; gap:6px; }
+  .key-dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+  .key-line { width:16px; height:2px; display:inline-block; border-radius:1px; }
+  .key-box { width:14px; height:10px; display:inline-block; border-radius:2px; }
+  svg text { font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  svg { width:100%; height:auto; display:block; overflow:visible; }
+  .ax { fill:var(--muted); font-size:11.5px; }
+  .axl { fill:var(--text-secondary); font-size:12px; }
+  .vl { fill:var(--text-primary); font-size:12.5px; font-weight:600; }
+  .annot { fill:var(--text-primary); font-size:12.5px; }
+  details { margin-top:10px; font-size:13px; color:var(--text-secondary); }
+  summary { cursor:pointer; }
+  table { border-collapse:collapse; font-size:12.5px; margin-top:8px; width:100%; }
+  th,td { text-align:right; padding:3px 8px; border-bottom:1px solid var(--grid); }
+  th:first-child,td:first-child { text-align:left; }
+  th { color:var(--text-secondary); font-weight:600; }
+  td.l, th.l { text-align:left; }
+  #tip { position:fixed; z-index:10; pointer-events:none; background:var(--surface-1); color:var(--text-primary);
+         border:1px solid var(--border); border-radius:8px; padding:8px 10px; font-size:12.5px;
+         box-shadow:0 4px 18px rgba(0,0,0,.16); max-width:360px; display:none; }
+  #tip .v { font-weight:650; font-size:14px; }
+  #tip .s { color:var(--text-secondary); }
+  #tip .row { display:flex; align-items:center; gap:8px; margin-top:3px; }
+  #tip pre { margin:4px 0 0; white-space:pre-wrap; word-break:break-all; font-size:12px; }
+  /* S-box grid */
+  .sbox { display:grid; grid-template-columns:repeat(19,minmax(0,1fr)); gap:2px; margin-top:10px; }
+  .sbox div { background:var(--grid); border-radius:4px; text-align:center; padding:5px 0 3px;
+              font-family:ui-monospace,Menlo,monospace; font-size:15px; position:relative; cursor:default; }
+  .sbox div small { display:block; font-size:9.5px; color:var(--muted); line-height:1; margin-top:2px; font-family:system-ui,sans-serif; }
+  .sbox div:hover, .sbox div:focus { outline:2px solid var(--series-1); outline-offset:0; }
+  /* aligned view */
+  .align { overflow-x:auto; }
+  .arow { display:grid; grid-template-columns:48px max-content; column-gap:10px; margin-bottom:8px; font-family:ui-monospace,Menlo,monospace; font-size:12.5px; line-height:1.45; }
+  .arow .idx { color:var(--muted); grid-row:1 / span 2; align-self:center; text-align:right; }
+  .arow .c { color:var(--muted); white-space:pre; }
+  .arow .p { color:var(--text-primary); white-space:pre; }
+  .h1 { background:var(--tint-1); } .h2 { background:var(--tint-2); }
+  .btn { font:inherit; font-size:13px; padding:5px 12px; border-radius:8px; border:1px solid var(--axis);
+         background:var(--surface-1); color:var(--text-primary); cursor:pointer; margin-top:8px; }
+  .btn:hover { background:var(--grid); }
+  ul.clean { margin:8px 0; padding-left:20px; } ul.clean li { margin:5px 0; color:var(--text-secondary); }
+  ul.clean b { color:var(--text-primary); }
+  a { color:var(--text-primary); text-decoration:underline; text-underline-offset:2px; text-decoration-color:var(--muted); }
+  a:hover { text-decoration-color:var(--text-primary); }
+  a.ext::after { content:"\00a0\2197"; font-size:.85em; color:var(--muted); }
+  .src { margin-top:10px; font-size:14px; }
+  /* ---- cipher lab ---- */
+  .lab-controls { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; align-items:end; }
+  .field { display:flex; flex-direction:column; gap:4px; min-width:0; }
+  .field > label, fieldset legend { font-size:12.5px; color:var(--text-secondary); font-weight:600; padding:0; }
+  fieldset { border:0; margin:0; padding:0; min-width:0; }
+  .seg { display:flex; flex-wrap:wrap; gap:6px 14px; }
+  .seg legend { width:100%; margin-bottom:4px; }
+  .seg label { font-size:13.5px; display:inline-flex; align-items:center; gap:6px; cursor:pointer; }
+  input[type=text], input[type=number], textarea {
+    font:13.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:var(--text-primary);
+    background:var(--page); border:1px solid var(--axis); border-radius:8px; padding:7px 9px; width:100%; }
+  input[type=text]:disabled { opacity:.5; }
+  textarea { resize:vertical; min-height:92px; line-height:1.45; word-break:break-all; }
+  input:focus-visible, textarea:focus-visible, button:focus-visible { outline:2px solid var(--series-1); outline-offset:1px; }
+  .lab-io { display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center; margin-top:14px; }
+  .lab-mid { display:flex; align-items:center; }
+  .lab-status { min-height:22px; margin-top:8px; font-size:13px; color:var(--text-secondary); }
+  .lab-status .ok { color:var(--good); font-weight:600; }
+  .lab-status .err { color:var(--text-primary); font-weight:600; }
+  .lab-status div { margin:2px 0; }
+  .lab-presets { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:6px; font-size:13px; color:var(--text-secondary); }
+  .lab-presets .btn { margin-top:0; }
+  .lab-sep { border:0; border-top:1px solid var(--grid); margin:18px 0 14px; }
+  .stepbar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+  .stepbar input[type=range] { flex:1 1 220px; accent-color:var(--series-1); min-width:140px; }
+  .stepbar .btn { margin-top:0; padding:5px 10px; }
+  .stepbar .n { font-size:13px; color:var(--text-secondary); min-width:120px; }
+  .pipe { display:flex; flex-wrap:wrap; align-items:stretch; gap:6px; margin-top:12px; }
+  .node { flex:1 1 140px; min-width:130px; background:var(--grid); border-radius:10px; padding:9px 11px; }
+  .node .t { font-size:11.5px; color:var(--text-secondary); font-weight:600; }
+  .node .big { font:650 17px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; margin:3px 0 2px; white-space:nowrap; }
+  .node .sm { font-size:12px; color:var(--muted); }
+  .node.in { outline:2px solid var(--series-1); outline-offset:-2px; }
+  .node.out { outline:2px solid var(--series-2); outline-offset:-2px; }
+  .arrow { align-self:center; color:var(--muted); font-size:18px; flex:0 0 auto; }
+  .pipe-note { font-size:13px; color:var(--text-secondary); margin-top:10px; }
+  .lab-sbox { grid-template-columns:repeat(19,minmax(0,1fr)); }
+  .lab-sbox div.in { outline:2px solid var(--series-1); background:var(--tint-1); }
+  .lab-sbox div.out { outline:2px solid var(--series-2); background:var(--tint-2); }
+  .lab-sbox div { padding:4px 0 2px; font-size:14px; }
+  .lab-sbox div small { font-size:9px; }
+  .lab-table-wrap { overflow-x:auto; }
+  #lab-table td, #lab-table th { text-align:right; font-family:ui-monospace,Menlo,monospace; font-size:12.5px; white-space:nowrap; }
+  #lab-table th { font-family:system-ui,sans-serif; font-size:12px; }
+  #lab-table tr.sel td { background:var(--tint-1); }
+  #lab-table tbody tr { cursor:pointer; }
+  #lab-table td.hl-in { color:var(--text-primary); font-weight:650; }
+  #lab-table td.hl-out { color:var(--text-primary); font-weight:650; }
+  @media (max-width:700px) { .lab-io { grid-template-columns:1fr; } .lab-mid { justify-content:center; } .arrow { display:none; } }
+  @media (max-width:520px) { .grid2 { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Cracking the custom cipher <span class="badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Solved</span></h1>
+  <p class="sub">tbstewa's challenge — an autokey cipher hidden behind a keyed 95-character S-box. It falls to a ciphertext-only <b>linear-algebra attack</b>: no key guessing, no dictionary, about a second of Python. The plaintext is the opening of the <b>Bee Movie script</b>.</p>
+
+  <p class="sub src"><b>Source:</b> <a class="ext" href="https://www.reddit.com/r/codes/comments/1xi8s97/challenge_can_you_crack_my_custom_cipher_5000/" target="_blank" rel="noopener noreferrer">r/codes — &ldquo;Challenge: Can you crack my custom cipher? ~5,000 characters, unknown key&rdquo;</a></p>
+
+  <div class="tiles" id="tiles"></div>
+
+  <h2>Recovered plaintext</h2>
+  <p class="sub">All 3,792 characters of the posted ciphertext, decoded. Re-encrypting this text with the author's own <code>encrypt()</code> (S-box swapped in) reproduces the ciphertext character for character.</p>
+  <div class="card plain mono" id="plain" tabindex="0" aria-label="Recovered plaintext"></div>
+
+  <h2>How the cipher works — and why the S-box doesn't help</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>What <code>crypt.py</code> does</h3>
+      <p>Let <b>L</b> be the secret permutation of the 95 printable ASCII symbols (the S-box). Write <i>x<sub>i</sub></i> = L(plaintext<sub>i</sub>) and <i>y<sub>i</sub></i> = L(ciphertext<sub>i</sub>). Encryption is</p>
+      <div class="eq">y<sub>i</sub> = x<sub>i</sub> + x<sub>i−1</sub>   (mod 95)      x<sub>−1</sub> = init</div>
+      <p class="sub">The S-box only <i>relabels</i> symbols. Underneath it is an ordinary autokey recurrence over ℤ<sub>95</sub> — a linear system wearing a mask.</p>
+    </div>
+    <div class="card">
+      <h3>The leak</h3>
+      <p>Unrolling the recurrence gives a closed form that depends on the ciphertext only through L:</p>
+      <div class="eq">x<sub>i</sub> = (−1)<sup>i</sup> · ( A<sub>i</sub> − init ),   A<sub>i</sub> = Σ<sub>t≤i</sub> (−1)<sup>t</sup> · L(c<sub>t</sub>)</div>
+      <p class="sub">So the plaintext label at position <i>i</i> is a signed sum of ciphertext labels. Because addition is commutative, bigrams <code>ab</code> and <code>ba</code> also encrypt to the same symbol.</p>
+    </div>
+  </div>
+
+  <h2 id="lab">Try it: encrypt and decrypt, step by step</h2>
+  <p class="sub">This runs <code>crypt.py</code>'s algorithm live in your browser. Use the recovered challenge key, or type any passphrase to rebuild the S-box exactly as Python's <code>random.Random(passphrase).shuffle</code> does. Then step through the pipeline one character at a time.</p>
+  <div class="card" id="lab-card" style="margin-top:12px">
+    <div class="lab-controls">
+      <fieldset class="seg"><legend>Key</legend>
+        <label><input type="radio" name="keysrc" value="challenge" checked> Challenge key (recovered)</label>
+        <label><input type="radio" name="keysrc" value="passphrase"> Passphrase</label>
+      </fieldset>
+      <div class="field"><label for="lab-pass">Passphrase (secret_key)</label>
+        <input id="lab-pass" type="text" value="erxxdmjfirc6mk5dfrf86jsi" spellcheck="false" autocomplete="off" disabled></div>
+      <div class="field"><label for="lab-init">Initial shift (0–94)</label>
+        <input id="lab-init" type="number" min="0" max="94" step="1" value="21"></div>
+      <fieldset class="seg"><legend>Direction</legend>
+        <label><input type="radio" name="dir" value="enc" checked> Encrypt</label>
+        <label><input type="radio" name="dir" value="dec"> Decrypt</label>
+      </fieldset>
+    </div>
+    <div class="lab-io">
+      <div class="field"><label for="lab-in" id="lab-in-label">Plaintext</label>
+        <textarea id="lab-in" rows="4" spellcheck="false"></textarea></div>
+      <div class="lab-mid"><button class="btn" id="lab-swap" type="button" title="Use the output as the new input and flip direction" style="margin-top:0">⇄ Swap</button></div>
+      <div class="field"><label for="lab-out" id="lab-out-label">Ciphertext</label>
+        <textarea id="lab-out" rows="4" readonly spellcheck="false"></textarea></div>
+    </div>
+    <div class="lab-status" id="lab-status" aria-live="polite"></div>
+    <div class="lab-presets">
+      <span>Presets:</span>
+      <button class="btn" type="button" id="p-enc">Challenge: encrypt first sentence</button>
+      <button class="btn" type="button" id="p-dec">Challenge: decrypt the posted ciphertext</button>
+      <button class="btn" type="button" id="p-self"><code>crypt.py</code> self-test</button>
+      <button class="btn" type="button" id="lab-copy">Copy output</button>
+    </div>
+
+    <hr class="lab-sep">
+    <div class="stepbar">
+      <button class="btn" type="button" id="lab-first" aria-label="First character">⏮</button>
+      <button class="btn" type="button" id="lab-prev" aria-label="Previous character">◀</button>
+      <input type="range" id="lab-slider" min="0" max="0" value="0" aria-label="Character position">
+      <button class="btn" type="button" id="lab-next" aria-label="Next character">▶</button>
+      <button class="btn" type="button" id="lab-play">Play</button>
+      <span class="n" id="lab-stepno"></span>
+    </div>
+    <div class="pipe" id="lab-pipe"></div>
+    <div class="pipe-note" id="lab-pipenote"></div>
+
+    <h3 style="margin-top:18px">S-box lookup table</h3>
+    <p class="sub" style="font-size:13px; margin:0 0 4px">Each cell is a symbol with its S-box value <i>S</i>[symbol] underneath (ASCII order). <span class="legend" style="display:inline-flex; margin:0 0 0 6px"><span><i class="key-box" style="background:var(--tint-1); outline:2px solid var(--series-1); outline-offset:-2px"></i>input symbol</span><span><i class="key-box" style="background:var(--tint-2); outline:2px solid var(--series-2); outline-offset:-2px"></i>output symbol</span></span></p>
+    <div class="sbox lab-sbox" id="lab-sbox"></div>
+
+    <h3 style="margin-top:18px">Every intermediate value</h3>
+    <p class="sub" style="font-size:13px; margin:0 0 4px">Click a row to jump to it. Notice the labelled columns: in label space the cipher is just <b>y = x + prev (mod 95)</b>. The S-box only renames symbols, and that is the leak the attack uses.</p>
+    <div class="lab-table-wrap"><table id="lab-table"></table></div>
+  </div>
+
+  <h2>The attack in four steps</h2>
+  <div class="steps">
+    <div class="card step"><div class="n">1</div><h3>Repeats leak equalities</h3>
+      <p>If a ciphertext substring of length <i>m</i> repeats, the aligned plaintext labels differ by a constant <i>±d</i>. For real English <i>d</i> = 0: the plaintext repeated too. (All 22 copies of ciphertext <code>VdP/</code> turned out to be the plaintext <code>" the "</code>.)</p></div>
+    <div class="card step"><div class="n">2</div><h3>Each equality is linear</h3>
+      <p><i>x<sub>i</sub></i> = <i>x<sub>j</sub></i> is one homogeneous linear equation in the 95 unknown labels plus <i>init</i>. Its coefficients are read straight off the ciphertext. Repeats of ≥ 5 characters give <b>438 equations</b>.</p></div>
+    <div class="card step"><div class="n">3</div><h3>Solve mod 5 and mod 19</h3>
+      <p>95 = 5 · 19, so Gaussian elimination runs over two small fields. Rank <b>94</b> of 96 in both, leaving a <b>2-dimensional</b> nullspace: the true key plus a meaningless "all labels equal" direction.</p></div>
+    <div class="card step"><div class="n">4</div><h3>Rank 95 shifts, pick English</h3>
+      <p>The meaningless direction leaves 5 × 19 = <b>95 shifted keys</b>. Decode all, score with a character-trigram model: one is English, the other 94 are noise.</p></div>
+  </div>
+
+  <h2>How fast the unknowns collapse</h2>
+  <p class="sub">The "unknown dimension" is the size of the nullspace — how many free parameters remain in the key. <b>2 means fully determined</b> (true key + the harmless constant direction).</p>
+  <div class="grid2" style="margin-top:12px">
+    <div class="card">
+      <h3>Shorter repeats = more equations</h3>
+      <p class="sub" style="font-size:13px">Full 3,792-character ciphertext, using only repeats at least this long.</p>
+      <svg id="chart-minlen" viewBox="0 0 480 280" role="img" aria-label="Unknown dimension by minimum repeat length"></svg>
+      <details><summary>Table view</summary><table id="tbl-minlen"></table></details>
+    </div>
+    <div class="card">
+      <h3>How much ciphertext is enough?</h3>
+      <p class="sub" style="font-size:13px">Same attack run on only the first <i>n</i> characters.</p>
+      <div class="legend"><span><i class="key-line" style="background:var(--series-1)"></i>repeats ≥ 4</span><span><i class="key-line" style="background:var(--series-2)"></i>repeats ≥ 5</span></div>
+      <svg id="chart-prefix" viewBox="0 0 520 280" role="img" aria-label="Unknown dimension versus ciphertext length"></svg>
+      <details><summary>Table view</summary><table id="tbl-prefix"></table></details>
+    </div>
+  </div>
+
+  <h2>One candidate stands out</h2>
+  <p class="sub">After step 3 there are 95 possible keys. Each point is one candidate's average log-probability per character under a trigram model trained on public-domain books (higher is more English). Hover for the decoded text.</p>
+  <div class="card" style="margin-top:12px">
+    <div class="legend"><span><i class="key-dot" style="background:var(--series-2)"></i>Best candidate</span><span><i class="key-dot" style="background:var(--series-1)"></i>Other 94 candidates</span></div>
+    <svg id="chart-cands" viewBox="0 0 940 300" role="img" aria-label="Language-model score of the 95 candidate keys"></svg>
+    <details><summary>Table view (top 10)</summary><table id="tbl-cands"></table></details>
+  </div>
+
+  <h2>The recovered key</h2>
+  <p class="sub">The 95 printable symbols in S-box order (label 0 → 94, left to right, 19 per row). The cipher is a bijection onto ℤ<sub>5</sub> × ℤ<sub>19</sub>, which is exactly the structure the attack exploits. Hover a cell for the symbol's label.</p>
+  <div class="card">
+    <div class="sbox" id="sbox"></div>
+    <p class="sub" style="font-size:13px; margin-top:12px">Recovered <code>initial_shift</code> = <b id="init"></b> for this particular scaling of the key (see caveats). <code>␣</code> is the space character.</p>
+    <details><summary>Table view — symbol → label</summary><div id="tbl-sbox" class="mono" style="font-size:12px; line-height:1.9; margin-top:6px"></div></details>
+  </div>
+
+  <h2>Ciphertext against plaintext</h2>
+  <p class="sub">The periodic stretch in the ciphertext is <i>Yellow, black.</i> typed four times. Repeated phrases in the plaintext show up as repeated ciphertext — the weakness the attack feeds on.</p>
+  <div class="card">
+    <div class="legend"><span><i class="key-box" style="background:var(--tint-2)"></i>"Yellow, black. " ×4  (ciphertext period 15)</span><span><i class="key-box" style="background:var(--tint-1)"></i>" the "  ↔  ciphertext <code>VdP/</code> (22×)</span></div>
+    <div class="align" id="align"></div>
+    <button class="btn" id="more">Show the full text</button>
+  </div>
+
+  <h2>Caveats and honest notes</h2>
+  <div class="card">
+    <ul class="clean">
+      <li><b>The key is recovered up to scaling.</b> If (L, init) is a key then (k·L mod 95, k·init mod 95) is too, for any k coprime to 95 — 72 equivalent keys, all verified to decrypt identically. The attack cannot tell which one the author drew, and it does not recover the passphrase string (Python seeds its generator from a hash of it), but that is not needed to decrypt.</li>
+      <li><b>The posted ciphertext is 3,792 characters</b>, not ~5,000, and the plaintext stops mid-sentence ("…I can autograph that. A little"). Everything posted is decoded.</li>
+      <li><b>The ciphertext was used exactly as pasted</b>, including its 10 double-backslashes. It decrypts perfectly, so no escaping was lost.</li>
+      <li><b>"ourjob"</b> (no space) appears in the recovered text. Re-encryption reproduces the ciphertext exactly, so that quirk was in the text fed to the cipher, not a decoding error.</li>
+      <li>Neither the sample key nor the sample <code>initial_shift</code> in the repository was used, and nothing about the plaintext was assumed. The lead-in line <code>V sbyybjrq gur ehyrf</code> is ROT13 for "I followed the rules" and played no part.</li>
+      <li>The English-scoring step only needs to pick one of 95 shifts. The best scored −2.32 and the runner-up −4.73, so the choice is not close; the decode is also visibly the Bee Movie script.</li>
+    </ul>
+  </div>
+
+  <h2>Reproduce</h2>
+  <div class="card">
+    <div class="eq">python3 algebraic_attack.py cipher.txt 5          # rank / nullity of the equation system
+python3 solve.py cipher.txt 5 &lt;corpus_dir&gt;      # 95 candidate keys, ranked → result.json
+python3 build_data.py &lt;corpus_dir&gt; &amp;&amp; python3 build_report.py</div>
+    <p class="sub" style="font-size:13px">Challenge source: <a class="ext" href="https://www.reddit.com/r/codes/comments/1xi8s97/challenge_can_you_crack_my_custom_cipher_5000/" target="_blank" rel="noopener noreferrer">r/codes thread</a>.</p>
+    <p class="sub" style="font-size:13px">Files: <code>cipher.txt</code> (the challenge), <code>algebraic_attack.py</code> (equation builder + F<sub>p</sub> nullspace), <code>solve.py</code> (candidate keys + scoring), <code>result.json</code> (key and plaintext), <code>crypt-test/</code> (author's code).</p>
+  </div>
+</main>
+<div id="tip"></div>
+<script id="data" type="application/json">{"cipher": "Z2MFV\u003cfSA]Va.+:\\NXBC$dzN:M}2.h-+Ogz'b(CM8VdPGG/)Q2zC.BM;_++>Bo/2NWjs7w>B/+tC5/Va.-6B4|\\QF2B-SAa2+yG/VaN.2wJ:\\NVa.]I,V)bF2-d'VNxb5D5/>zu!_.hG-VdP/]PVj*^$|(~P/>Boa8.h-3Fj@3Oa8-6xEO2+-5lM;_>BX13{O/>BoO2wuC]xV31yG/Bcu'VD 5J-%2VdKSBX)Q2)A),gtQ,C5`|nu5\\R$98>C:1f6|nu5\\R$98>C:1f6|nu5\\R$98>C:1f6|nu5\\R$98>C:1f6|HIWY8>C:1fX+-^w_q5\\R$7lMf,x?22Nu8 /)bV$ZG++Nxb5D5`|k,y/)wlk;Gi8Md|FV)Q2\"GiL!wlol=ASA8lR#-A].Cz++2OXFC^$|R]5\\R~Kaak,y/)gKaag:LJHKaaoD-z_[j$>B5xEZZ/VdKQ2)Q2DuRUt$SSApKaa\\\\31-]x+|\\s$\\NG'*fX_[j$$Z8|M3N/+SA]2Nuyo8|&\"O/VdP/2F'zq3]|nKj@\"-d'dPG\"GRzfw]dNuwv=C$q_-hV\"VdWgO`|iTV/)4|\\s/v/0%*b,Y$|R]GGb?2VdP/]PyLV3',`|:\u003cb(G/@ZG)_GoVjVw.h-_[jf82gCo|ggGtG23X\"V\"Gt,V&V31y\u003cZ8+:\\NkR?]|18G)_GoVjV$|,\\Wl\\\\]daV++VdKSA]]d(SA]DPGG`|aanKj$]daVNxS9V.Cz_[j@\"->uz.|aaH%7l(~u'x?2v_2laa:jOZ/Va.${Gl:\u003cb$\\N>B/)Sz\"V$BY9L[l$$V|aakNq2lk,y/){8\\\\VaR7w_[jf82Fa,G-6BrSA])SzVdP/DWj{O2laaR]q{8g:LJL|aaR]q{8k,y/)4|aa\\i2Vdu'V->uz ]I5JKaaggNxb5D5`|i]tX*z:NwL;{8]PyLV3'b(Co|myZZG\"VdWjrqdV\\sOwvJ8 /)b+|(~]Go/wL;Y2]PyLY/2UaWNRT8Vd]Go/wL;Y2DKZqD2UaWNRq|(~WgO/BnGG/+MbbMy\u003c$|(~]Go/wL;Y23FR\\5II`|\\s/v]*:Lw\\\\VaN/X++wL;_+-^wDKb\"a)K+ Yw+yVj*^wVdP/DKgZ`|nKj$wffw3F=_/>t1fXwfYG3GG$9+|aaR@B8k,y/)4|aagF&bEa8]PV$-SA]++v5{F'1aP7KM3N/!2]dNu$|aaR]iy\"+tzjLVPIy-B+E7Kaanuiu:|aanKj$]d(SA]Va.VdP/->*$Gy:JKaamqi8\\s/vzCaV]d(SAw|}IZG)&zu!_XBC$}682FbSA]2g=_&C$a8_[j$wfE`|E:C]xVBM|F,/)bV.Cz++2u]hq/G5q|iXBaD++DWadPiL$|\\\\]rKOt2DP/3Fjs7wDuOZ/U}{FV]da5,$z.jLV.h-VdP/BM;4|\\\\NRLZ/VdKQ2)S>FVo,Vy'bSA]+-z+J5{O__$9VGRyAX)S9a..j@\"wL;4|(~u'x?2Bc@_Bn/wuC]xVz$oYw@O11'b(C%]|ke[{8=]hb,/++>,bV.h-G,=)8vv|$*^YG\"VdP/3*qOB5wF'->XO]|aa:\u003c5\\T8g:LJ%8VauL;_Bn/+yG/v_$o|aa:\u003c/+yG2laakzoS{_$o|aagu_$~lR#:\\55s}Pu`li\\LVY$9F68-d1BsD({8wfQFbSArhQNPYw>BoO68GS5i|O/Bn5.F=_/ETi-zkYuzwn5\\q|:\u003c5.F=_a8mynBR@gZ/oTb(_]PyLV3'bSA]3.:|t2.hDvv||vvau/%[|(~u'V3FC>.sVYO2.j@\"3XGG_=CSEO]|g;^w>BIZS%2_[j@\"31yGoG\"+'VR\\C$0;\\\"^V{F&qEOGl:!x\\NBn/G'*fX.j@M2z>VauL;gK\\\\DPiy\u003cw)bx?2U}{FV.VqE$9''b(Co|R]iLE2$Z3lR]GG/Bn/]dm|CjotG_[j@\"Du-^E2+-^w+-9,$Y-|2)S%QfY/VdP/V&yJv+'V+:\\NVbA_O]|aa:#C^YG\"Bcu'V)bx$\\N>B/Nx+ 7KaaggNxb5D5/2U1y)4|:\u003c5.F=_/Va.R\\C$0U8++wfggQQ(Cz.h-R\\C$OUF.+-^w++GRy&V.h-VdP/R]0lvdCz^.VjZ8|(~KQ2)Q2)bhl:#$e|:#$e|:\u003c/XBC$BVdu'V_[jf8+|2++>Boa8DuOZ/B$VA Yw_[j@\"BcWR5/NxY3/Va.]I,VVa.VdP/G,(S9VBcPGG/_[j$31-zB$VAX-hV\"_[j@\"BcWR5/NxY3`|R\\C$q_>BIZS%2BcP$z.j@\"@O:xz-9VT\u003cR\\5$zO\"Ff!2>{qSA]VdP/z$X\"'y\"Va.VdP/DKgZ`|H;@\"Va,H.OXOG,V-hV?5s:+)Q2+3La=J'b*1:\\B_3FRRV5VFV/GX\",YZ82UX$9]wL+}{F,Yw+-^w>ddRC5SVFC9aj@GYw)S9a.VdKQ22gNadKSA]2}no,V2Y)@ZGB-bdD)bF2wfQFbS>\"bgZ/]dR7Y$z]*R$B_[j$XBC$B+|]vv|R\\C$qwlaa(~u'V]ZqaNBM|2DWa+|aai?Pb?2vX_3Fj{QS~laai?P/)QxKaanuO68Bnb(G/+:\\N3Fj{QS%]|aaqpZqd+|nKjI(G/\"qZqd+|aag.VR\\C$0U8Bn/3FC%F'-9DB_2F&qgZ/Va.)A)oVLZ//ZZG)_+|XtX\"V.h->Bo//05QF,$>X`|(~POO/>BoO2+yG/2F&GOt.],OFbSA]++z$nBDP5>_,VV,XaXCRRdK4|aa:%u'Vwu._[j$VdKSBXDP/vJ8 OxKaamqaV/$Cjrq:|R]GG/Bn/DuOZ/.j@\"N:',OFV+L&O->X__$9R8VdP/C9G5>J-o|aa:%u'Vwu&O2Vdu'Vwu~KaaoD'\"aPO2Vdu'VNxb5D5/2F&y-^w.h-DWC$q_Vdu'VDu-Aa2+dg,G\"_[j$G,j@\")b+|inOZO2${2vAx\\x(C%]|oD-z+-5[C$/B$VAX.CzVdP/C9G5>J-+KH&-3Fj@3O`|,SgFV>Bo/U2z72+yG/2wJ:\\N.C$O]|kYLV>BoO2XBC$BVdu'V/ZZG)_2wJ:\\NU2zp8)Y-)bx?2wuC$/Bn5\\T8v_i-%2++NRa+|kYLV3aWNgO/31yG3>s\\B_>BX13{O/_[jI$\\N2F';_)SzVdP/U2z>_[j$G'*fX-hV\"VdP/\"GOFV.h-_[j@\"NxY3`|(~P/2|J_/U2z>VdP/\"GOFV.h-_[j@\"NxY37K\\\\wff^]xVXBC$BVdu'+|:%u'x?2VdP/wfYG3GG$>X7KnKjI$\\N>B/DuRUE_Va.XBC$BVdu'V>BoO68+|2++2XtX*EO68DuOZ$]xVDuLw.C$/wL;_.hG-)Sz5rjvAx\\x(Cz_qiy3]|iT._[jI(G/BniyqSA])bV+-^wVdP/N:LfEO22Oo/_[j$BniyqSA])b+|(~WgO/N:LfEOxKgFG$]xVVdPq_.j@\"3Fj{QS%2VaN~KECQF'-9+|ECQF'-9+|M3N/X+'VVdPOO/V@$m|aaoljZS5/.h-R@gZ/R#y/)Y]|aaMf,x?2DuOZ/->*zB-bdDVdP_L|\\QVv5{FV>B/wL-AIGVj{2>BESA]++T\u003cR\\5$zO\"Ff6|nuiu:|HJ>X/++>Biy\"G'SY$Ywv_/+vvzS%FV++v5{N]VN=blR]/DuLw++GRMB.CzvX_Vd]VE'R8+-^wB-bdDVdP/.adPGN8DP/BM|22^:RU'SA]v_2laaHyY8vXwlaa\\\\z$ZZG\"VdWjrqdV\\sOwXBCFfXDKAv.jL+|:%u'VBnGG/_[j$wu(SA]wV@qSA]VdKQxK(b)rSA]Va.+:5G&VVdP/+3LdWVqbbEO]|\\\\31-z+3LadPyRIDVdu'+|ggNxb5D5", "plain": "According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh, black and yellow! Let's shake it up a little. Barry! Breakfast is ready! Coming! Hang on a second. Hello? - Barry? - Adam? - Can you believe this is happening? - I can't. I'll pick you up. Looking sharp. Use the stairs. Your father paid good money for those. Sorry. I'm excited. Here's the graduate. We're very proud of you, son. A perfect report card, all B's. Very proud. Ma! I got a thing going here. - You got lint on your fuzz. - Ow! That's me! - Wave to us! We'll be in row 118,000. - Bye! Barry, I told you, stop flying in the house! - Hey, Adam. - Hey, Barry. - Is that fuzz gel? - A little. Special day, graduation. Never thought I'd make it. Three days grade school, three days high school. Those were awkward. Three days college. I'm glad I took a day and hitchhiked around the hive. You did come back different. - Hi, Barry. - Artie, growing a mustache? Looks good. - Hear about Frankie? - Yeah. - You going to the funeral? - No, I'm not going. Everybody knows, sting someone, you die. Don't waste it on a squirrel. Such a hothead. I guess he could have just gotten out of the way. I love this incorporating an amusement park into our day. That's why we don't need vacations. Boy, quite a bit of pomp... under the circumstances. - Well, Adam, today we are men. - We are! - Bee-men. - Amen! Hallelujah! Students, faculty, distinguished bees, please welcome Dean Buzzwell. Welcome, New Hive City graduating class of... ...9:15. That concludes our ceremonies. And begins your career at Honex Industries! Will we pick ourjob today? I heard it's just orientation. Heads up! Here we go. Keep your hands and antennas inside the tram at all times. - Wonder what it'll be like? - A little scary. Welcome to Honex, a division of Honesco and a part of the Hexagon Group. This is it! Wow. Wow. We know that you, as a bee, have worked your whole life to get to the point where you can work for your whole life. Honey begins when our valiant Pollen Jocks bring the nectar to the hive. Our top-secret formula is automatically color-corrected, scent-adjusted and bubble-contoured into this soothing sweet syrup with its distinctive golden glow you know as... Honey! - That girl was hot. - She's my cousin! - She is? - Yes, we're all cousins. - Right. You're right. - At Honex, we constantly strive to improve every aspect of bee existence. These bees are stress-testing a new helmet technology. - What do you think he makes? - Not enough. Here we have our latest advancement, the Krelman. - What does that do? - Catches that little strand of honey that hangs after you pour it. Saves us millions. Can anyone work on the Krelman? Of course. Most bee jobs are small ones. But bees know that every small job, if it's done well, means a lot. But choose carefully because you'll stay in the job you pick for the rest of your life. The same job the rest of your life? I didn't know that. What's the difference? You'll be happy to know that bees, as a species, haven't had one day off in 27 million years. So you're wearing it and the ladies see you wearing it. Those ladies? Aren't they our cousins too? Distant. Distant. Look at these two. - Couple of Hive Harrys. - Let's have fun with them. It must be dangerous being a Pollen Jock. Yeah. Once a bear pinned me against a mushroom! He had a paw on my throat, and with the other, he was slapping me! - Oh, my! - I never thought I'd knock him out. What were you doing during this? Trying to alert the authorities. I can autograph that. A little", "init": 21, "forward": [20, 63, 31, 66, 77, 25, 6, 89, 5, 21, 37, 19, 92, 74, 24, 22, 86, 35, 65, 56, 34, 85, 42, 41, 17, 70, 82, 9, 64, 32, 16, 39, 68, 29, 93, 79, 78, 3, 40, 13, 67, 51, 27, 59, 52, 72, 8, 47, 60, 46, 87, 76, 80, 81, 15, 62, 38, 55, 50, 14, 71, 69, 33, 30, 26, 94, 91, 36, 53, 2, 54, 49, 58, 1, 61, 18, 83, 28, 75, 4, 88, 12, 11, 45, 90, 57, 48, 73, 84, 10, 0, 7, 44, 23, 43], "inverse": [90, 73, 69, 37, 79, 8, 6, 91, 46, 27, 89, 82, 81, 39, 59, 54, 30, 24, 75, 11, 0, 9, 15, 93, 14, 5, 64, 42, 77, 33, 63, 2, 29, 62, 20, 17, 67, 10, 56, 31, 38, 23, 22, 94, 92, 83, 49, 47, 86, 71, 58, 41, 44, 68, 70, 57, 19, 85, 72, 43, 48, 74, 55, 1, 28, 18, 3, 40, 32, 61, 25, 60, 45, 87, 13, 78, 51, 4, 36, 35, 52, 53, 26, 76, 88, 21, 16, 50, 80, 7, 84, 66, 12, 34, 65], "by_minlen": [{"minlen": 10, "equations": 77, "rank5": 14, "null5": 82, "rank19": 14, "null19": 82}, {"minlen": 8, "equations": 129, "rank5": 32, "null5": 64, "rank19": 32, "null19": 64}, {"minlen": 7, "equations": 178, "rank5": 49, "null5": 47, "rank19": 49, "null19": 47}, {"minlen": 6, "equations": 267, "rank5": 89, "null5": 7, "rank19": 89, "null19": 7}, {"minlen": 5, "equations": 438, "rank5": 94, "null5": 2, "rank19": 94, "null19": 2}, {"minlen": 4, "equations": 764, "rank5": 94, "null5": 2, "rank19": 94, "null19": 2}], "series": {"4": [{"n": 500, "equations": 54, "rank": 7, "nullity": 89}, {"n": 750, "equations": 70, "rank": 17, "nullity": 79}, {"n": 1000, "equations": 108, "rank": 35, "nullity": 61}, {"n": 1250, "equations": 156, "rank": 55, "nullity": 41}, {"n": 1500, "equations": 188, "rank": 73, "nullity": 23}, {"n": 1750, "equations": 218, "rank": 92, "nullity": 4}, {"n": 2000, "equations": 259, "rank": 94, "nullity": 2}, {"n": 2250, "equations": 330, "rank": 94, "nullity": 2}, {"n": 2500, "equations": 364, "rank": 94, "nullity": 2}, {"n": 2750, "equations": 415, "rank": 94, "nullity": 2}, {"n": 3000, "equations": 498, "rank": 94, "nullity": 2}, {"n": 3250, "equations": 604, "rank": 94, "nullity": 2}, {"n": 3792, "equations": 764, "rank": 94, "nullity": 2}], "5": [{"n": 500, "equations": 47, "rank": 4, "nullity": 92}, {"n": 750, "equations": 53, "rank": 6, "nullity": 90}, {"n": 1000, "equations": 73, "rank": 14, "nullity": 82}, {"n": 1250, "equations": 101, "rank": 23, "nullity": 73}, {"n": 1500, "equations": 114, "rank": 29, "nullity": 67}, {"n": 1750, "equations": 125, "rank": 36, "nullity": 60}, {"n": 2000, "equations": 146, "rank": 47, "nullity": 49}, {"n": 2250, "equations": 187, "rank": 63, "nullity": 33}, {"n": 2500, "equations": 205, "rank": 72, "nullity": 24}, {"n": 2750, "equations": 229, "rank": 87, "nullity": 9}, {"n": 3000, "equations": 279, "rank": 94, "nullity": 2}, {"n": 3250, "equations": 348, "rank": 94, "nullity": 2}, {"n": 3792, "equations": 438, "rank": 94, "nullity": 2}]}, "candidates": [{"shift": [0, 1], "score": -2.3205532037063596, "snippet": "According to all known laws of aviation, there is no way a bee s", "rank": 1}, {"shift": [0, 3], "score": -4.7280814046307515, "snippet": ";>>C0^SYAz9Cz-!!zBYCdYz!-d%zC4z-mS-9SCYMz9X$0$zS%zYCzd-5z-z\\$$z%", "rank": 2}, {"shift": [3, 17], "score": -4.733727988156484, "snippet": "FOOV/\u003cq0P\"&V\"yaa\"A0Vx0\"ayx3\"V2\"yKqy&qV0N\"&]G/G\"q3\"0V\"xy)\"y\"{GG\"3", "rank": 3}, {"shift": [1, 0], "score": -4.751723434076017, "snippet": "iNN\\D%@O)RW\\R#YYR5O\\sORY#s8R\\`R# @#W@\\O\u003cRW_]D]R@8RO\\Rs#$R#R!]]R8", "rank": 4}, {"shift": [0, 4], "score": -4.751945240349042, "snippet": "a&&]S}#s+5P]5\u003cdd5ls]~s5d\u003c~V5].5\u003ck#\u003cP#]sW5PmHSH5#V5s]5~\u003cn5\u003c5jHH5V", "rank": 5}, {"shift": [2, 18], "score": -4.756028034475155, "snippet": "@nn~Z,F+pK4~KXJJKu+~8+KJX8xK~BKXRFX4F~+cK4e7Z7KFxK+~K8XgKXK177Kx", "rank": 6}, {"shift": [0, 17], "score": -4.7600553786981195, "snippet": "K##47l\"yCZ%4ZAkkZvy4NyZkANnZ4xZAD\"A%\"4yJZ%p=7=Z\"nZy4ZNAFZAZ`==Zn", "rank": 7}, {"shift": [2, 15], "score": -4.76195907335722, "snippet": "EyywTJ9g}'\u003cw'@uu'RgwOg'u@O+'wm'@/9@\u003c9wg#'\u003c=\\T\\'9+'gw'O@C'@'2\\\\'+", "rank": 8}, {"shift": [4, 13], "score": -4.769985892444968, "snippet": "6gg8.#[pW^N8^qii^\"p80p^iq0h^8H^qj[qN[8py^N\\V.V^[h^p8^0q}^q^;VV^h", "rank": 9}, {"shift": [2, 11], "score": -4.774609405384237, "snippet": "~ZZk%HV'!4;k4Gee4='kR'4eGRK4k@4GWVG;Vk'r4;M>%>4VK4'k4RG.4G4y>>4K", "rank": 10}, {"shift": [0, 14], "score": -4.776721709569426, "snippet": "'ii\u003c\\kjF[TY\u003cTKvvTDF\u003cXFTvKXyT\u003c+TKGjKYj\u003cFuTY}W\\WTjyTF\u003cTXK9TKT3WWTy", "rank": 11}, {"shift": [1, 8], "score": -4.778180779574258, "snippet": ">}}0BFlWc{$0{U99{(W0PW{9UP={07{U1lU$l0WC{$sxBx{l={W0{PU,{U{Dxx{=", "rank": 12}, {"shift": [4, 2], "score": -4.7896503553464065, "snippet": "u\u003c\u003c=?UAN$v}=vJ>>vQN=&Nv>J&wv=:vJSAJ}A=N%v}0_?_vAwvN=v&JXvJv.__vw", "rank": 13}, {"shift": [1, 15], "score": -4.795145910639558, "snippet": "7vv>}2GRj={>=rzz=_R>5R=zr5u=>#=rPGr{G>R;={9[}[=Gu=R>=5r/=r=N[[=u", "rank": 14}, {"shift": [0, 9], "score": -4.795833294179781, "snippet": "|II+`@>t\u003c1y+1[EE1^t+pt1E[pP1+]1[!>[y>+tq1yw8`81>P1t+1p[%1[1r881P", "rank": 15}, {"shift": [2, 6], "score": -4.804884040543511, "snippet": "B((@n/2|kxK@x!LLx:|@6|xL!6[x@}x!82!K2@|jxKJ#n#x2[x|@x6!-x!xP##x[", "rank": 16}, {"shift": [1, 12], "score": -4.811135811725458, "snippet": "\\DDQdz~/bW*QW7__WP/Q /W_7 RWQiW7t~7*~Q/?W*(|d|W~RW/QW 7LW7WX||WR", "rank": 17}, {"shift": [3, 6], "score": -4.82594351226907, "snippet": "YWW_*CJ&nQ)_Q%[[Q|&_o&Q[%o\\Q_TQ%-J%)J_&}Q)xm*mQJ\\Q&_Qo%cQ%Q/mmQ\\", "rank": 18}, {"shift": [1, 5], "score": -4.828354185525554, "snippet": "Qdd)m9k,#*q)*>((*1,)t,*(>tW*)\\*>2k>qk),[*qn+m+*kW*,)*t>J*>*G++*W", "rank": 19}, {"shift": [3, 8], "score": -4.834212913543085, "snippet": "166y8K{UY`iy`(''`.UyCU`'(CI`yP`(f{(i{yUE`i\u003cN8N`{I`Uy`C(>`(`eNN`I", "rank": 20}, {"shift": [3, 2], "score": -4.8372219882402865, "snippet": "z{{9$.HQ 0j902ff0xQ9|Q0f2|>09%02+H2jH9Q!0jA@$@0H>0Q90|2S020W@@0>", "rank": 21}, {"shift": [0, 7], "score": -4.837303163210835, "snippet": "\u003c\\\\?QpcVxY_?Y4}}YdV?GVY}4GTY?'Y4lc4_c?V=Y_B*Q*YcTYV?YG4sY4Y\"**YT", "rank": 22}, {"shift": [0, 18], "score": -4.84656512274731, "snippet": "g33.\"w)z]FV.F+NNFXz.BzFN+B2F.-F+@)+V).z8FVD/\"/F)2Fz.FB+_F+F>//F2", "rank": 23}, {"shift": [2, 10], "score": -4.847946000706477, "snippet": "dPPm1$%ow|+m|}qq|6omeo|q}e]|mD|}M%}+%mo)|+:`1`|%]|om|e}4|}| ``|]", "rank": 24}, {"shift": [1, 10], "score": -4.853219670555013, "snippet": "bEE#w !6>:u#:jZZ:T6#F6:ZjFq:#):jV!ju!#6K:u%\u003cw\u003c:!q:6#:FjM:j:h\u003c\u003c:q", "rank": 25}, {"shift": [2, 8], "score": -4.85457019282411, "snippet": "wTTvYes.B\u003c?v\u003c~==\u003cW.v/.\u003c=~/'\u003cvE\u003c~,s~?sv.7\u003c?{QYQ\u003cs'\u003c.v\u003c/~f\u003c~\u003cFQQ\u003c'", "rank": 26}, {"shift": [0, 6], "score": -4.854969668113241, "snippet": "-UUg3EQ%a2Fg2|^^2!%g}%2^|}t2go2|BQ|FQg%62FNO3O2Qt2%g2}|Y2|27OO2t", "rank": 27}, {"shift": [4, 17], "score": -4.860264414884573, "snippet": "e;;MC`]v/p!MpH33p0vMQvp3HQkpMJpH)]H!]Mv2p!\"9C9p]kpvMpQHDpHp\u003c99pk", "rank": 28}, {"shift": [3, 10], "score": -4.860497000599471, "snippet": "V//5,?:j1&S5&T]]&oj5Kj&]TK\"&5F&T4:TS:5jD&S|l,l&:\"&j5&KTb&T&$ll&\"", "rank": 29}, {"shift": [3, 5], "score": -4.865910453264625, "snippet": "2MMFO'*>53\"F31..3f>F[>3.1[U3Ft31x*1\"*F>^3\"aXOX3*U3>F3[1Q313=XX3U", "rank": 30}, {"shift": [4, 0], "score": -4.8794431485451, "snippet": "$xxLK&gme@~L@Occ@#mL`m@cO`B@L{@OigO~gLms@~rZKZ@gB@mL@`Oh@O@|ZZ@B", "rank": 31}, {"shift": [1, 4], "score": -4.8825037818129156, "snippet": "3!!\"XTm{SO/\"O`VVOs{\"({OV`(MO\"UO`nm`/m\"{.O/5AXAOmMO{\"O(`*O`O}AAOM", "rank": 32}, {"shift": [3, 13], "score": -4.882640685996296, "snippet": "TRRYW;L\"(\\QY\\Z??\\]\"YA\"\\?ZAi\\Yy\\ZoLZQLY\"v\\Q[dWd\\Li\\\"Y\\AZj\\Z\\Odd\\i", "rank": 33}, {"shift": [2, 4], "score": -4.888409461784068, "snippet": "k%%pz65\u003cX;Cp;lMM;{\u003cpW\u003c;MlW4;p~;l*5lC5p\u003cU;CO0z0;54;\u003cp;Wla;l;T00;4", "rank": 34}, {"shift": [0, 10], "score": -4.8885014031505065, "snippet": "477;>h&Tf%z;%opp%}T;DT%poDZ%;K%od&oz&;Te%z!{>{%&Z%T;%DoV%o%i{{%Z", "rank": 35}, {"shift": [4, 6], "score": -4.889588274036724, "snippet": "8..Ra7x!*NDRN:\\\\N&!Rj!N\\:j^NR6N:cx:DxR!TNDQ5a5Nx^N!RNj:BN:NC55N^", "rank": 36}, {"shift": [4, 14], "score": -4.889618669949359, "snippet": "=??{[3oDL}B{}e00})D{SD}0eSv}{u}eIoeBo{Dz}Bj([(}ov}D{}SeG}e}a((}v", "rank": 37}, {"shift": [2, 16], "score": -4.897445077773161, "snippet": "pzz!98P?GCf!ChOOC$?!*?COh*;C!kChqPhfP!?3Cf/j9jCP;C?!C*h]ChCYjjC;", "rank": 38}, {"shift": [3, 9], "score": -4.900825199496241, "snippet": "%==z{g,\\s>0z>tCC>[\\z]\\>Ct]7>zZ>t|,t0,z\\p>0fB{B>,7>\\z>]t&>t>RBB>7", "rank": 39}, {"shift": [4, 12], "score": -4.902718804376186, "snippet": "LKKJ4S.EM~kJ~/rr~7EJiE~r/i@~J$~/\\./k.JE ~kU%4%~.@~EJ~i/^~/~+%%~@", "rank": 40}, {"shift": [3, 4], "score": -4.903561923776732, "snippet": "n::ZuoO`z#7Z#s44#\u003c`Z.`#4s.b#Z(#saOs7OZ`~#7;vuv#Ob#`Z#.s3#s#6vv#b", "rank": 41}, {"shift": [3, 15], "score": -4.904213907447711, "snippet": "PHH16x=rTI`1I_++Igr1;rI+_;SI15I_C=_`=1rmI`'^6^I=SIr1I;_7I_IJ^^IS", "rank": 42}, {"shift": [2, 13], "score": -4.908253486196044, "snippet": "}__B(Ot]~[xB[p$$[q]BH][$pH?[Bv[p6tpxtB]0[xLb(b[t?[]B[Hpo[p[5bb[?", "rank": 43}, {"shift": [4, 9], "score": -4.913044056726483, "snippet": ":''u\u003crf^{wvuwL77w\\^u\"^w7L\"EwuqwL&fLvfu^Zwv>Y\u003cYwfEw^uw\"L!wLwgYYwE", "rank": 44}, {"shift": [1, 1], "score": -4.929280631487562, "snippet": "0BBj@Vh*r$Lj$3ss$n*j1*$s31{$j>$3yh3Lhj*f$L K@K$h{$*j$13H$3$dKK${", "rank": 45}, {"shift": [1, 14], "score": -4.930166641288401, "snippet": "Ihh`^n}e\\68`6)yy6Fe`ze6y)zH6`S6)9})8}`e+68T.^.6}H6e`6z)=6)6k..6H", "rank": 46}, {"shift": [2, 17], "score": -4.93163525267565, "snippet": "D55dP{ZAE]|d]v**]HAdJA]*vJa]dN]veZv|ZdAQ]|qIPI]Za]Ad]JvK]v]sII]a", "rank": 47}, {"shift": [2, 1], "score": -4.943730269622871, "snippet": "vYY}_M a@?[}?k{{?*a},a?{k,\u003c?}w?kH k[ }a>?[$)_)? \u003c?a}?,kA?k?V))?\u003c", "rank": 48}, {"shift": [1, 13], "score": -4.944404977513589, "snippet": "j@@c~5^qULJcL\"  LZqcyqL \"y$Lc0L\"T^\"J^cqALJt4~4L^$LqcLy\"6L\"Lm44L$", "rank": 49}, {"shift": [0, 12], "score": -4.9462108464990875, "snippet": "[))xbXUP4(nx(C@@(EPxhP(@Ch_(x?(C^UCnUxP$(n~:b:(U_(Px(hCt(C(S::(_", "rank": 50}, {"shift": [3, 11], "score": -4.949047732465026, "snippet": "(qqn:AMI%b#nb9KKb'IngIbK9g)bn_b9.M9#MnI@b#4w:wbM)bInbg9Ub9bHwwb)", "rank": 51}, {"shift": [3, 16], "score": -4.967820428391863, "snippet": "Zuu%=-/i97>%7 ;;7?i%ai7; a#7%n7 ]/ >/%ik7>C}=}7/#7i%7a \"7 78}}7#", "rank": 52}, {"shift": [0, 0], "score": -4.967830122285689, "snippet": "?QQ[)!r5K_([_;BB_m5[l5_B;lY_[\u003c_;hr;(r[5{_(@q)q_rY_5[_l; _;_&qq_Y", "rank": 53}, {"shift": [0, 2], "score": -4.972115070493271, "snippet": "+``'i~02?yT'yxwwyN2'!2ywx!1y'|yxX0xT0'2:yTvRiRy01y2'y!xzyxyURRy1", "rank": 54}, {"shift": [0, 11], "score": -4.97531399352729, "snippet": ".\"\"a&vb9|V5aV'DDVG9a@9VD'@FVagV'~b'5ba9RV5d,&,VbFV9aV@'(V'V0,,VF", "rank": 55}, {"shift": [3, 12], "score": -4.975883538575772, "snippet": "tee2M+W7VU32UPggUC72?7UgP?rU2 UP[WP3W27hU3.!M!UWrU72U?P\\UPUu!!Ur", "rank": 56}, {"shift": [3, 18], "score": -4.975979360868274, "snippet": "_**(qfeSZ)b()zxx)+S(-S)xz-Q)(Y)zgezbe(SB)bKEqE)eQ)S()-zr)z),EE)Q", "rank": 57}, {"shift": [3, 3], "score": -4.986138887318097, "snippet": "5,,PH[ucySIPSY||S-cP4cS|Y4&SPVSY;uYIuPcdSI+hHhSu&ScPS4Y#SYSLhhS&", "rank": 58}, {"shift": [0, 16], "score": -4.991654862123582, "snippet": "]SS|IB7 'P1|P?mmPh |k Pm?k5P|aP?p7?17| *P1E6I6P75P |Pk?ZP?Pc66P5", "rank": 59}, {"shift": [0, 15], "score": -5.004439760276114, "snippet": "C00fjNI_o9sf9gXX9@_fm_9Xgmz9f;9gEIgsIf_O9sGLjL9Iz9_f9mgP9g9QLL9z", "rank": 60}, {"shift": [4, 16], "score": -5.013386288406874, "snippet": "q++:'cCh=Ew:E$##Eih:3hE#$3mE:*E$\"C$wC:hnEw7T'TECmEh:E3$pE$E-TTEm", "rank": 61}, {"shift": [1, 16], "score": -5.0136942879262225, "snippet": "\"XX&GYE$I/,&/i55/ $&n$/5inO/&3/iZEi,E&$a/,PoGo/EO/$&/niq/i/Boo/O", "rank": 62}, {"shift": [1, 9], "score": -5.0252462029398846, "snippet": "&GGSl_wL`,HS,\\PP,tLSZL,P\\Z/,S\",\\%w\\HwSL],H1-l-,w/,LS,Z\\:,\\,@--,/", "rank": 63}, {"shift": [4, 3], "score": -5.036558860593481, "snippet": "Off/A\\+BHXG/X8&&XcB/bBX&8b!X/MX8#+8G+/BVXGS A X+!XB/Xb8mX8X[  X!", "rank": 64}, {"shift": [2, 3], "score": -5.041731525996898, "snippet": "m11EyLz-v+'E+B::+8-EM-+:BM|+Ed+BOzB'zE-b+'uiyi+z|+-E+MB;+B+tii+|", "rank": 65}, {"shift": [4, 7], "score": -5.043668901969675, "snippet": "{[[$x\"-dJB@$BMjjBbd$IdBjMI}B$=BM`-M@-$d9B@cnxnB-}Bd$BIMlBMB]nnB}", "rank": 66}, {"shift": [1, 6], "score": -5.053620145179785, "snippet": "c~~rkPN:3JerJ&ttJ%:rT:Jt&TLJrjJ&YN&eNr:oJe2;k;JNLJ:rJT&8J&JE;;JL", "rank": 67}, {"shift": [1, 2], "score": -5.066976684515834, "snippet": "SllIh(vJiH6IHQ11H2JI%JH1Q%,HI&HQzvQ6vIJ|H6yghgHv,HJIH%QuHQH~ggH,", "rank": 68}, {"shift": [1, 17], "score": -5.0705263134077105, "snippet": ")mmbEspH7q:bq0nnqyHb2Hqn02*qbQq0Fp0:pbHxq:Z'E'qp*qHbq20eq0ql''q*", "rank": 69}, {"shift": [4, 18], "score": -5.0750098552362255, "snippet": "RaaW]>KXqDdWDuQQDSXWcXDQucNDW8DurKudKWXYDd)P]PDKNDXWDcu@DuDfPPDN", "rank": 70}, {"shift": [4, 10], "score": -5.078097511796314, "snippet": "MCCOfi|},!XO!6\"\"!j}O)}!\"6)p!Oe!6b|6X|O}F!X&sfs!|p!}O!)6d!6!?ss!p", "rank": 71}, {"shift": [1, 7], "score": -5.092162859345036, "snippet": "`^^iNZBMQ8Ri8bTT8VMi9M8Tb968iI8bsBbRBiM'8RYaNa8B68Mi89b{8b8paa86", "rank": 72}, {"shift": [3, 14], "score": -5.107121612352095, "snippet": "9$$sLa6)tjcsjFAAjK)s+)jAF+0jszjF'6Fc6s)Xjco~L~j60j)sj+FIjFj*~~j0", "rank": 73}, {"shift": [1, 11], "score": -5.10894704064834, "snippet": "Upp3!yd=&MO3MIFFM9=3_=MFI_eM3rMI(dIOd3=gMOVf!fMdeM=3M_IWMIMvffMe", "rank": 74}, {"shift": [4, 1], "score": -5.132419072519776, "snippet": "H--6gb?kRh^6h*``h3k6>kh`*>lh6,h*0?*^?6k1h^iFgFh?lhk6h>*vh*h4FFhl", "rank": 75}, {"shift": [4, 11], "score": -5.135386512856181, "snippet": "W]]*|04G:dm*d=))dIG*rGd)=rDd*Rd=U4=m4*G_dmb1|1d4DdG*dr=~d=dA11dD", "rank": 76}, {"shift": [4, 8], "score": -5.1433151802416655, "snippet": ",ooH-)\u003c~8lhHlWIIlU~H7~lIW7GlH/lW>\u003cWh\u003cH~Plh`2-2l\u003cGl~Hl7WwlWlK22lG", "rank": 77}, {"shift": [2, 7], "score": -5.199499084377681, "snippet": "ltth2qY4N-gh-d66-M4h=4-6d=o-hG-d{YdgYh4I-g8323-Yo-4h-=d\u003c-d-Z33-o", "rank": 78}, {"shift": [3, 1], "score": -5.218892905733652, "snippet": "y88TR4$3_i\\Tin\u003c\u003cia3Tf3i\u003cnf`iT1inA$n\\$T3wi\\?DRDi$`i3Tifn0iniMDDi`", "rank": 79}, {"shift": [4, 5], "score": -5.225515327919602, "snippet": "J44e;IawOkpek,UUk>we\\wkU,\\~keLk,Qa,paewtkp3z;zka~kwek\\,Nk,k'zzk~", "rank": 80}, {"shift": [0, 5], "score": -5.228244238405012, "snippet": "xbbK#G31;nZKnf~~nw1K^1n~f^(nK[nfN3fZ3K1LnZku#un3(n1Kn^f2nfnIuun(", "rank": 81}, {"shift": [2, 9], "score": -5.229266908683352, "snippet": "!99XsR1[lfAXf^//fL[Xq[f/^qCfXpf^:1^A1X[\"fA,cscf1Cf[Xfq^|f^f_ccfC", "rank": 82}, {"shift": [1, 3], "score": -5.244053290668836, "snippet": "#ww7vtX80u=7uc%%uY87V8u%cV:u7buc5Xc=X784u=z?v?uX:u87uVcOucu^??u:", "rank": 83}, {"shift": [4, 15], "score": -5.294536403153063, "snippet": "/AA,oQ'@6Gl,GRSSGr@,#@GSR#XG,OGR7'Rl',@5GlItotG'XG@,G#REGRGxttGX", "rank": 84}, {"shift": [2, 0], "score": -5.323263673298305, "snippet": "h22^F:_;Dg.^gm88gO;^{;g8m{-g^lgm$_m._^;`g.R\"F\"g_-g;^g{m?gmg%\"\"g-", "rank": 85}, {"shift": [2, 12], "score": -5.324050812001576, "snippet": "^FFNVu(Cd.aN.ERR./CN$C.RE$g.Nh.EL(Ea(NCi.aW&V&.(g.CN.$E[.E.z&&.g", "rank": 86}, {"shift": [2, 5], "score": -5.361659671726505, "snippet": "NVVD5=nfma]DawWWa,fDLfaWwL.aD^awJnw]nDf\\a]*S5San.afDaLwxawa9SSa.", "rank": 87}, {"shift": [4, 4], "score": -5.372248199917208, "snippet": "*||q+j;lumEqm{bbm`lqUlmb{UdmqWm{3;{E;ql(mE#y+ym;dmlqmU{km{moyymd", "rank": 88}, {"shift": [1, 18], "score": -5.3868052983518355, "snippet": "rkkUp1Du\"eMUeS22ezuUYue2SYJeUceS_DSMDUu-eMFCpCeDJeuUeYSReSewCCeJ", "rank": 89}, {"shift": [0, 13], "score": -5.439522414255216, "snippet": "orr-Um\\Z.t2-t]hhtpZ-vZth]v t-At]}\\]2\\-ZHt2^MUMt\\ tZ-tv]Tt]t#MMt ", "rank": 90}, {"shift": [2, 2], "score": -5.523618957062382, "snippet": "XssG WyxhAoGAN,,AJxG:xA,N:fAG!ANuyNoyGx&AoHr rAyfAxGA:N+ANA(rrAf", "rank": 91}, {"shift": [2, 14], "score": -5.572495728497115, "snippet": "G  lt*TK^o-loDHHoeKluKoHDuAolXoD=TD-TlKSo-6UtUoTAoKlouD'oDonUUoA", "rank": 92}, {"shift": [0, 8], "score": -5.593219165950809, "snippet": "fjjAcD`(-s As.GGs~(AE(sG.E9sACs.w`. `A(/s lJcJs`9s(AsE.1s.s)JJs9", "rank": 93}, {"shift": [3, 7], "score": -5.613054051109235, "snippet": "sLL J]8b2cr cVooc4b 'bcoV'jc 9cV\u003c8Vr8 bGcr-kJkc8jcb c'V`cVcqkkcj", "rank": 94}, {"shift": [3, 0], "score": -5.677676679728227, "snippet": " JJte|R#FrUtr5--r;#t\u003c#r-5\u003ccrtsr5?R5URt#lrUgpeprRcr#tr\u003c5ir5r:pprc", "rank": 95}], "the_hits": [141, 516, 594, 838, 1093, 1231, 1393, 1530, 1937, 2061, 2168, 2267, 2281, 2780, 2920, 3086, 3107, 3143, 3193, 3328, 3618, 3745], "the_ok": 22, "block": {"plain_start": 243, "cipher_start": 242, "length": 60}, "stats": {"cipher_len": 3792, "pairs5": 438, "distinct_symbols": 95, "double_backslashes": 10}}</script>
+<script>
+(function () {
+  const D = JSON.parse(document.getElementById('data').textContent);
+  const NS = 'http://www.w3.org/2000/svg';
+  const fmt = n => n.toLocaleString('en-US');
+  function el(tag, attrs, parent, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function h(tag, cls, text, parent) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  const tip = document.getElementById('tip');
+  function showTip(evt, build) {
+    tip.replaceChildren();
+    build(tip);
+    tip.style.display = 'block';
+    const r = tip.getBoundingClientRect();
+    let x = evt.clientX + 14, y = evt.clientY + 14;
+    if (x + r.width > window.innerWidth - 8) x = evt.clientX - r.width - 14;
+    if (y + r.height > window.innerHeight - 8) y = evt.clientY - r.height - 14;
+    tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px';
+  }
+  function hideTip() { tip.style.display = 'none'; }
+  function tipRow(parent, color, label, value, line) {
+    const r = h('div', 'row', undefined, parent);
+    const k = h('i', line ? 'key-line' : 'key-dot', undefined, r);
+    k.style.background = color;
+    h('span', 'v', value, r); h('span', 's', label, r);
+  }
+  function clip(s) { return s; }
+
+  /* ---------- tiles ---------- */
+  const best = D.candidates[0], second = D.candidates[1];
+  const m5 = D.by_minlen.find(m => m.minlen === 5);
+  const tilesData = [
+    ['Characters recovered', fmt(D.plain.length), 'all of the posted ciphertext; re-encrypts exactly'],
+    ['Equations from repeats ≥ 5', fmt(m5.equations), 'rank ' + m5.rank5 + ' of 96 unknowns'],
+    ['Candidate keys left', '95 → 1', 'best −' + Math.abs(best.score).toFixed(2) + ' vs next −' + Math.abs(second.score).toFixed(2)],
+    ['Ciphertext needed', '≈ 2,000', 'characters (repeats ≥ 4)'],
+    ['Runtime', '~1 s', 'pure Python, no key search']
+  ];
+  const tiles = document.getElementById('tiles');
+  tilesData.forEach(t => {
+    const c = h('div', 'card tile', undefined, tiles);
+    h('div', 'label', t[0], c); h('div', 'value', t[1], c); h('div', 'note', t[2], c);
+  });
+  document.getElementById('plain').textContent = D.plain;
+  document.getElementById('init').textContent = D.init;
+
+  /* ---------- chart 1: nullity by min repeat length ---------- */
+  (function () {
+    const rows = D.by_minlen.slice().sort((a, b) => b.minlen - a.minlen);
+    const svg = document.getElementById('chart-minlen');
+    const W = 480, H = 280, ml = 46, mr = 12, mt = 22, mb = 58;
+    const pw = W - ml - mr, ph = H - mt - mb, ymax = 100;
+    const Y = v => mt + ph - v / ymax * ph;
+    [0, 25, 50, 75, 100].forEach(t => {
+      el('line', { x1: ml, x2: W - mr, y1: Y(t), y2: Y(t), stroke: t === 0 ? 'var(--axis)' : 'var(--grid)', 'stroke-width': 1 }, svg);
+      el('text', { x: ml - 8, y: Y(t) + 4, 'text-anchor': 'end', class: 'ax' }, svg, t);
+    });
+    el('text', { x: 4, y: mt - 10, class: 'axl' }, svg, 'unknown dimension (2 = solved)');
+    const band = pw / rows.length;
+    rows.forEach((r, i) => {
+      const v = r.null19, cx = ml + band * (i + .5), bw = 24, x = cx - bw / 2;
+      const y = Y(v), y0 = Y(0), rr = Math.min(4, (y0 - y));
+      const d = `M${x},${y0} V${y + rr} Q${x},${y} ${x + rr},${y} H${x + bw - rr} Q${x + bw},${y} ${x + bw},${y + rr} V${y0} Z`;
+      el('path', { d, fill: 'var(--series-1)' }, svg);
+      el('text', { x: cx, y: y - 6, 'text-anchor': 'middle', class: 'vl' }, svg, v);
+      el('text', { x: cx, y: H - mb + 18, 'text-anchor': 'middle', class: 'axl' }, svg, '≥ ' + r.minlen);
+      el('text', { x: cx, y: H - mb + 33, 'text-anchor': 'middle', class: 'ax' }, svg, r.equations + ' eq.');
+      const hit = el('rect', { x: ml + band * i, y: mt, width: band, height: ph + 6, fill: 'transparent', tabindex: 0 }, svg);
+      const show = e => showTip(e, t => {
+        h('div', 'v', 'Unknown dimension ' + v, t);
+        h('div', 's', 'repeats ≥ ' + r.minlen + ' chars → ' + r.equations + ' equations', t);
+        h('div', 's', 'rank ' + r.rank19 + ' of 96 (same mod 5 and mod 19)', t);
+      });
+      hit.addEventListener('pointermove', show); hit.addEventListener('pointerleave', hideTip);
+      hit.addEventListener('focus', () => { const b = hit.getBoundingClientRect(); show({ clientX: b.left + b.width / 2, clientY: b.top + 30 }); });
+      hit.addEventListener('blur', hideTip);
+    });
+    el('text', { x: ml + pw / 2, y: H - 2, 'text-anchor': 'middle', class: 'axl' }, svg, 'shortest ciphertext repeat used (characters)');
+    const tb = document.getElementById('tbl-minlen');
+    const hr = h('tr', '', undefined, h('thead', '', undefined, tb));
+    ['Min repeat', 'Equations', 'Rank (mod 5)', 'Rank (mod 19)', 'Unknown dim'].forEach(x => h('th', '', x, hr));
+    const tbody = h('tbody', '', undefined, tb);
+    D.by_minlen.forEach(r => { const tr = h('tr', '', undefined, tbody);
+      [r.minlen, r.equations, r.rank5, r.rank19, r.null19].forEach(x => h('td', '', x, tr)); });
+  })();
+
+  /* ---------- chart 2: nullity vs prefix length ---------- */
+  (function () {
+    const svg = document.getElementById('chart-prefix');
+    const W = 520, H = 280, ml = 46, mr = 14, mt = 22, mb = 46;
+    const pw = W - ml - mr, ph = H - mt - mb, xmax = 3792, ymax = 100;
+    const X = v => ml + v / xmax * pw, Y = v => mt + ph - v / ymax * ph;
+    [0, 25, 50, 75, 100].forEach(t => {
+      el('line', { x1: ml, x2: W - mr, y1: Y(t), y2: Y(t), stroke: t === 0 ? 'var(--axis)' : 'var(--grid)', 'stroke-width': 1 }, svg);
+      el('text', { x: ml - 8, y: Y(t) + 4, 'text-anchor': 'end', class: 'ax' }, svg, t);
+    });
+    [0, 1000, 2000, 3000].forEach(t => el('text', { x: X(t), y: H - mb + 18, 'text-anchor': 'middle', class: 'ax' }, svg, fmt(t)));
+    el('text', { x: ml + pw / 2, y: H - 4, 'text-anchor': 'middle', class: 'axl' }, svg, 'ciphertext characters used (first n)');
+    el('text', { x: 4, y: mt - 10, class: 'axl' }, svg, 'unknown dimension');
+    const S = [['4', 'var(--series-1)', 'repeats ≥ 4'], ['5', 'var(--series-2)', 'repeats ≥ 5']];
+    S.forEach(([k, col]) => {
+      const pts = D.series[k];
+      el('path', { d: pts.map((p, i) => (i ? 'L' : 'M') + X(p.n) + ',' + Y(p.nullity)).join(' '), fill: 'none', stroke: col, 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
+      // mark the first point where the system is fully determined
+      const first = pts.find(p => p.nullity === 2);
+      el('circle', { cx: X(first.n), cy: Y(2), r: 5, fill: col, stroke: 'var(--surface-1)', 'stroke-width': 2 }, svg);
+    });
+    // key for the "fully determined" points, parked in the empty upper-right of the plot
+    el('text', { x: X(2150), y: Y(93), class: 'annot' }, svg, 'Fully determined (2) by:');
+    S.forEach(([k, col, name], j) => {
+      const first = D.series[k].find(p => p.nullity === 2);
+      el('circle', { cx: X(2150) + 5, cy: Y(83 - 10 * j) - 4, r: 5, fill: col, stroke: 'var(--surface-1)', 'stroke-width': 2 }, svg);
+      el('text', { x: X(2150) + 16, y: Y(83 - 10 * j), class: 'annot' }, svg, fmt(first.n) + ' chars  (' + name + ')');
+    });
+    const cross = el('line', { y1: mt, y2: mt + ph, stroke: 'var(--axis)', 'stroke-width': 1, visibility: 'hidden' }, svg);
+    const dots = S.map(([k, col]) => el('circle', { r: 5, fill: col, stroke: 'var(--surface-1)', 'stroke-width': 2, visibility: 'hidden' }, svg));
+    const ov = el('rect', { x: ml, y: mt, width: pw, height: ph, fill: 'transparent' }, svg);
+    function move(e) {
+      const b = svg.getBoundingClientRect();
+      const mx = (e.clientX - b.left) / b.width * W;
+      const pts = D.series['4'];
+      let bi = 0, bd = 1e9;
+      pts.forEach((p, i) => { const d = Math.abs(X(p.n) - mx); if (d < bd) { bd = d; bi = i; } });
+      const n = pts[bi].n;
+      cross.setAttribute('x1', X(n)); cross.setAttribute('x2', X(n)); cross.setAttribute('visibility', 'visible');
+      S.forEach(([k], j) => { const p = D.series[k][bi]; dots[j].setAttribute('cx', X(n)); dots[j].setAttribute('cy', Y(p.nullity)); dots[j].setAttribute('visibility', 'visible'); });
+      showTip(e, t => {
+        h('div', 's', 'first ' + fmt(n) + ' characters', t);
+        S.forEach(([k, col, name]) => { const p = D.series[k][bi]; tipRow(t, col, name + ' (' + p.equations + ' eq.)', p.nullity, true); });
+      });
+    }
+    ov.addEventListener('pointermove', move);
+    ov.addEventListener('pointerleave', () => { hideTip(); cross.setAttribute('visibility', 'hidden'); dots.forEach(d => d.setAttribute('visibility', 'hidden')); });
+    const tb = document.getElementById('tbl-prefix');
+    const hr = h('tr', '', undefined, h('thead', '', undefined, tb));
+    ['First n chars', 'Eq. (≥4)', 'Unknown (≥4)', 'Eq. (≥5)', 'Unknown (≥5)'].forEach(x => h('th', '', x, hr));
+    const tbody = h('tbody', '', undefined, tb);
+    D.series['4'].forEach((p, i) => { const q = D.series['5'][i]; const tr = h('tr', '', undefined, tbody);
+      [fmt(p.n), p.equations, p.nullity, q.equations, q.nullity].forEach(x => h('td', '', x, tr)); });
+  })();
+
+  /* ---------- chart 3: candidates ---------- */
+  (function () {
+    const svg = document.getElementById('chart-cands');
+    const C = D.candidates;
+    const W = 940, H = 300, ml = 56, mr = 20, mt = 26, mb = 50;
+    const pw = W - ml - mr, ph = H - mt - mb;
+    const ymin = Math.floor(Math.min(...C.map(c => c.score)) * 2) / 2 - 0.5, ymax = -2;
+    const X = r => ml + (r - 1) / (C.length - 1) * pw, Y = v => mt + ph - (v - ymin) / (ymax - ymin) * ph;
+    for (let t = Math.ceil(ymin * 2) / 2; t <= ymax + 1e-9; t += 0.5) {
+      el('line', { x1: ml, x2: W - mr, y1: Y(t), y2: Y(t), stroke: 'var(--grid)', 'stroke-width': 1 }, svg);
+      el('text', { x: ml - 8, y: Y(t) + 4, 'text-anchor': 'end', class: 'ax' }, svg, t.toFixed(1).replace('-', '−'));
+    }
+    el('line', { x1: ml, x2: W - mr, y1: mt + ph, y2: mt + ph, stroke: 'var(--axis)' }, svg);
+    el('text', { x: 4, y: mt - 12, class: 'axl' }, svg, 'avg log-prob per character (higher = more English)');
+    el('text', { x: ml + pw / 2, y: H - 6, 'text-anchor': 'middle', class: 'axl' }, svg, 'candidate keys, ranked best → worst');
+    [1, 25, 50, 75, 95].forEach(r => el('text', { x: X(r), y: mt + ph + 18, 'text-anchor': 'middle', class: 'ax' }, svg, '#' + r));
+    C.forEach(c => el('circle', { cx: X(c.rank), cy: Y(c.score), r: c.rank === 1 ? 5.5 : 4, fill: c.rank === 1 ? 'var(--series-2)' : 'var(--series-1)', stroke: 'var(--surface-1)', 'stroke-width': 2 }, svg));
+    el('text', { x: X(1) + 14, y: Y(C[0].score) + 4, class: 'annot' }, svg, 'Best: ' + C[0].score.toFixed(2).replace('-', '−') + ' — reads as English');
+    el('text', { x: X(2) + 14, y: Y(C[1].score) - 12, class: 'ax' }, svg, 'next best ' + C[1].score.toFixed(2).replace('-', '−') + ' (noise)');
+    const ring = el('circle', { r: 8, fill: 'none', stroke: 'var(--text-primary)', 'stroke-width': 1.5, visibility: 'hidden' }, svg);
+    const ov = el('rect', { x: ml - 6, y: mt, width: pw + 12, height: ph, fill: 'transparent' }, svg);
+    ov.addEventListener('pointermove', e => {
+      const b = svg.getBoundingClientRect(); const mx = (e.clientX - b.left) / b.width * W;
+      const r = Math.min(C.length, Math.max(1, Math.round((mx - ml) / pw * (C.length - 1)) + 1)); const c = C[r - 1];
+      ring.setAttribute('cx', X(r)); ring.setAttribute('cy', Y(c.score)); ring.setAttribute('visibility', 'visible');
+      showTip(e, t => {
+        h('div', 'v', c.score.toFixed(3).replace('-', '−'), t);
+        h('div', 's', 'rank #' + c.rank + ' · shift (' + c.shift.join(', ') + ')', t);
+        h('pre', 'mono', c.snippet, t);
+      });
+    });
+    ov.addEventListener('pointerleave', () => { hideTip(); ring.setAttribute('visibility', 'hidden'); });
+    const tb = document.getElementById('tbl-cands');
+    const hr = h('tr', '', undefined, h('thead', '', undefined, tb));
+    ['Rank', 'Shift', 'Score'].forEach(x => h('th', '', x, hr));
+    h('th', 'l', 'First 64 decoded characters', hr);
+    const tbody = h('tbody', '', undefined, tb);
+    C.slice(0, 10).forEach(c => { const tr = h('tr', '', undefined, tbody);
+      [c.rank, '(' + c.shift.join(', ') + ')', c.score.toFixed(3)].forEach(x => h('td', '', x, tr));
+      h('td', 'l mono', c.snippet, tr); });
+  })();
+
+  /* ---------- S-box grid ---------- */
+  (function () {
+    const g = document.getElementById('sbox');
+    const showSp = ch => ch === ' ' ? '␣' : ch;
+    D.inverse.forEach((sym, label) => {
+      const ch = String.fromCharCode(sym + 32);
+      const d = h('div', '', undefined, g); d.tabIndex = 0;
+      h('span', '', showSp(ch), d); h('small', '', label, d);
+      const show = e => showTip(e, t => { h('div', 'v', (ch === ' ' ? 'space' : ch) + '  →  label ' + label, t);
+        h('div', 's', 'ASCII ' + (sym + 32) + ' · mod 5 = ' + (label % 5) + ' · mod 19 = ' + (label % 19), t); });
+      d.addEventListener('pointermove', show); d.addEventListener('pointerleave', hideTip);
+      d.addEventListener('focus', () => { const b = d.getBoundingClientRect(); show({ clientX: b.left + 10, clientY: b.top + 10 }); });
+      d.addEventListener('blur', hideTip);
+    });
+    const t = document.getElementById('tbl-sbox');
+    const pairs = D.forward.map((l, s) => [s, l]);
+    t.textContent = pairs.map(([s, l]) => (s === 0 ? '␣' : String.fromCharCode(s + 32)) + '→' + l).join('   ');
+  })();
+
+  /* ---------- aligned view ---------- */
+  (function () {
+    const host = document.getElementById('align');
+    const C = D.cipher, P = D.plain, W = 60;
+    const cls = new Array(C.length).fill(0), pcls = new Array(C.length).fill(0);
+    D.the_hits.forEach(i => { for (let k = 0; k < 4; k++) cls[i + k] = 1; for (let k = -1; k < 4; k++) pcls[i + k] = 1; });
+    const b = D.block;
+    for (let k = 0; k < b.length; k++) { cls[b.cipher_start + k] = 2; pcls[b.plain_start + k] = 2; }
+    function row(start) {
+      const r = h('div', 'arow');
+      h('div', 'idx', start, r);
+      [[C, cls, 'c'], [P, pcls, 'p']].forEach(([txt, cl, kind]) => {
+        const line = h('div', kind, undefined, r);
+        for (let i = start; i < Math.min(start + W, txt.length); i++) {
+          const s = h('span', cl[i] === 1 ? 'h1' : cl[i] === 2 ? 'h2' : '', txt[i] === ' ' ? ' ' : txt[i], line);
+        }
+      });
+      return r;
+    }
+    const total = Math.ceil(C.length / W);
+    function render(n) { host.replaceChildren(); for (let i = 0; i < Math.min(n, total); i++) host.appendChild(row(i * W)); }
+    // start around the periodic block so the highlight is visible
+    render(10);
+    const btn = document.getElementById('more'); let full = false;
+    btn.addEventListener('click', () => { full = !full; render(full ? total : 10); btn.textContent = full ? 'Show only the first 10 rows' : 'Show the full text'; });
+  })();
+})();
+</script>
+<script>
+(function () {
+/* ==LAB-ENGINE-START== */
+// Pure-JS re-implementation of crypt.py, including Python's random.Random(str).shuffle
+// (MT19937 seeded from sha512), so a typed passphrase gives the same S-box as the Python code.
+const MASK64 = (1n << 64n) - 1n;
+const bitlen = n => n.toString(2).length;
+function icbrt(n) { let x = 1n << BigInt(Math.ceil(bitlen(n) / 3)); for (;;) { const y = (2n * x + n / (x * x)) / 3n; if (y >= x) break; x = y; } return x; }
+function isqrt(n) { let x = 1n << BigInt(Math.ceil(bitlen(n) / 2)); for (;;) { const y = (x + n / x) >> 1n; if (y >= x) break; x = y; } return x; }
+const PRIMES = [];
+for (let p = 2; PRIMES.length < 80; p++) { let ok = true; for (const q of PRIMES) { if (q * q > p) break; if (p % q === 0) { ok = false; break; } } if (ok) PRIMES.push(p); }
+const K512 = PRIMES.map(p => icbrt(BigInt(p) << 192n) & MASK64);
+const H512 = PRIMES.slice(0, 8).map(p => isqrt(BigInt(p) << 128n) & MASK64);
+const rotr = (x, n) => ((x >> n) | (x << (64n - n))) & MASK64;
+function sha512(msg) {
+  const ml = msg.length, padLen = ((ml + 17 + 127) >> 7) << 7;
+  const buf = new Uint8Array(padLen); buf.set(msg); buf[ml] = 0x80;
+  const bits = BigInt(ml) * 8n;
+  for (let i = 0; i < 16; i++) buf[padLen - 1 - i] = Number((bits >> BigInt(8 * i)) & 0xffn);
+  let H = H512.slice();
+  for (let off = 0; off < padLen; off += 128) {
+    const W = new Array(80);
+    for (let t = 0; t < 16; t++) { let w = 0n; for (let b = 0; b < 8; b++) w = (w << 8n) | BigInt(buf[off + t * 8 + b]); W[t] = w; }
+    for (let t = 16; t < 80; t++) {
+      const w15 = W[t - 15], w2 = W[t - 2];
+      const s0 = rotr(w15, 1n) ^ rotr(w15, 8n) ^ (w15 >> 7n), s1 = rotr(w2, 19n) ^ rotr(w2, 61n) ^ (w2 >> 6n);
+      W[t] = (W[t - 16] + s0 + W[t - 7] + s1) & MASK64;
+    }
+    let [a, b, c, d, e, f, g, h] = H;
+    for (let t = 0; t < 80; t++) {
+      const S1 = rotr(e, 14n) ^ rotr(e, 18n) ^ rotr(e, 41n), ch = (e & f) ^ ((~e & MASK64) & g);
+      const T1 = (h + S1 + ch + K512[t] + W[t]) & MASK64;
+      const S0 = rotr(a, 28n) ^ rotr(a, 34n) ^ rotr(a, 39n), mj = (a & b) ^ (a & c) ^ (b & c);
+      const T2 = (S0 + mj) & MASK64;
+      h = g; g = f; f = e; e = (d + T1) & MASK64; d = c; c = b; b = a; a = (T1 + T2) & MASK64;
+    }
+    H = [a, b, c, d, e, f, g, h].map((v, i) => (H[i] + v) & MASK64);
+  }
+  const out = new Uint8Array(64);
+  H.forEach((v, i) => { for (let b = 0; b < 8; b++) out[i * 8 + b] = Number((v >> BigInt(56 - 8 * b)) & 0xffn); });
+  return out;
+}
+// CPython: seed(str) -> n = int.from_bytes(s_utf8 + sha512(s_utf8).digest(), 'big'); key = 32-bit LE words of n
+function pyKeyWords(s) {
+  const b = new TextEncoder().encode(s), d = sha512(b), all = new Uint8Array(b.length + 64);
+  all.set(b); all.set(d, b.length);
+  let n = 0n; for (const x of all) n = (n << 8n) | BigInt(x);
+  const key = []; while (n > 0n) { key.push(Number(n & 0xffffffffn)); n >>= 32n; }
+  if (!key.length) key.push(0);
+  return key;
+}
+function mt19937(key) {
+  const mt = new Uint32Array(624); let idx = 624;
+  mt[0] = 19650218; for (let i = 1; i < 624; i++) { const p = mt[i - 1] ^ (mt[i - 1] >>> 30); mt[i] = (Math.imul(1812433253, p) + i) >>> 0; }
+  let i = 1, j = 0;
+  for (let k = Math.max(624, key.length); k > 0; k--) {
+    const p = mt[i - 1] ^ (mt[i - 1] >>> 30); mt[i] = ((mt[i] ^ Math.imul(p, 1664525)) + key[j] + j) >>> 0;
+    i++; j++; if (i >= 624) { mt[0] = mt[623]; i = 1; } if (j >= key.length) j = 0;
+  }
+  for (let k = 623; k > 0; k--) {
+    const p = mt[i - 1] ^ (mt[i - 1] >>> 30); mt[i] = ((mt[i] ^ Math.imul(p, 1566083941)) - i) >>> 0;
+    i++; if (i >= 624) { mt[0] = mt[623]; i = 1; }
+  }
+  mt[0] = 0x80000000;
+  function gen() {
+    const U = 0x80000000, Lm = 0x7fffffff; let y, kk;
+    for (kk = 0; kk < 624 - 397; kk++) { y = (mt[kk] & U) | (mt[kk + 1] & Lm); mt[kk] = mt[kk + 397] ^ (y >>> 1) ^ ((y & 1) ? 0x9908b0df : 0); }
+    for (; kk < 623; kk++) { y = (mt[kk] & U) | (mt[kk + 1] & Lm); mt[kk] = mt[kk + (397 - 624)] ^ (y >>> 1) ^ ((y & 1) ? 0x9908b0df : 0); }
+    y = (mt[623] & U) | (mt[0] & Lm); mt[623] = mt[396] ^ (y >>> 1) ^ ((y & 1) ? 0x9908b0df : 0); idx = 0;
+  }
+  return function next32() {
+    if (idx >= 624) gen();
+    let y = mt[idx++]; y ^= y >>> 11; y ^= (y << 7) & 0x9d2c5680; y ^= (y << 15) & 0xefc60000; y ^= y >>> 18; return y >>> 0;
+  };
+}
+// crypt.py generate_sbox(): indices = list(range(95)); random.Random(key).shuffle(indices)
+function pySbox(pass) {
+  const next = mt19937(pyKeyWords(pass));
+  const randbelow = n => { const k = n.toString(2).length; let r = next() >>> (32 - k); while (r >= n) r = next() >>> (32 - k); return r; };
+  const forward = Array.from({ length: 95 }, (_, i) => i);
+  for (let i = 94; i >= 1; i--) { const j = randbelow(i + 1); const t = forward[i]; forward[i] = forward[j]; forward[j] = t; }
+  const inverse = new Array(95); forward.forEach((sub, std) => { inverse[sub] = std; });
+  return { forward, inverse };
+}
+// encrypt / decrypt exactly as in crypt.py, recording every intermediate value.
+function runCipher(text, forward, inverse, init, dir) {
+  const steps = []; let prev = init, out = '';
+  const chars = Array.from(text);
+  for (let n = 0; n < chars.length; n++) {
+    const idx = chars[n].codePointAt(0) - 32;
+    if (idx < 0 || idx > 94) return { error: { pos: n, ch: chars[n] }, steps: [], out: '' };
+    const sub = forward[idx];
+    const mid = dir === 'enc' ? (sub + prev) % 95 : (((sub - prev) % 95) + 95) % 95;
+    const outIdx = inverse[mid], outCh = String.fromCharCode(outIdx + 32);
+    const x = dir === 'enc' ? sub : mid;           // the "rolling state" for the next step
+    steps.push({ i: n, inCh: chars[n], inIdx: idx, sub, prev, mid, outIdx, outCh, next: x });
+    out += outCh; prev = x;
+  }
+  return { steps, out, error: null };
+}
+/* ==LAB-ENGINE-END== */
+
+  // ---------------- UI ----------------
+  const $ = id => document.getElementById(id);
+  const D = JSON.parse($('data').textContent);
+  const vis = ch => ch === ' ' ? '␣' : ch;          // ␣ for space
+  const SELF_KEY = 'erxxdmjfirc6mk5dfrf86jsi';
+  const st = { src: 'challenge', dir: 'enc', init: D.init, pass: SELF_KEY, fwd: D.forward, inv: D.inverse, res: null, sel: 0, timer: null };
+  const WINDOW = 12;
+  function h(tag, cls, text, parent) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  const normInit = v => { const n = parseInt(v, 10); return Number.isFinite(n) ? ((n % 95) + 95) % 95 : 0; };
+
+  // S-box grid (built once per key)
+  let cells = [];
+  function buildGrid() {
+    const g = $('lab-sbox'); g.replaceChildren(); cells = [];
+    for (let i = 0; i < 95; i++) {
+      const ch = String.fromCharCode(i + 32);
+      const d = h('div', '', undefined, g);
+      h('span', '', vis(ch), d); h('small', '', st.fwd[i], d);
+      d.title = (ch === ' ' ? 'space' : ch) + '  (ASCII ' + (i + 32) + ')  →  S = ' + st.fwd[i];
+      cells.push(d);
+    }
+  }
+  function setKey() {
+    if (st.src === 'challenge') { st.fwd = D.forward; st.inv = D.inverse; }
+    else { const k = pySbox(st.pass); st.fwd = k.forward; st.inv = k.inverse; }
+    buildGrid();
+  }
+
+  function syncControls() {
+    document.querySelectorAll('input[name=keysrc]').forEach(r => { r.checked = r.value === st.src; });
+    document.querySelectorAll('input[name=dir]').forEach(r => { r.checked = r.value === st.dir; });
+    $('lab-pass').disabled = st.src !== 'passphrase';
+    $('lab-pass').value = st.pass;
+    $('lab-init').value = st.init;
+    $('lab-in-label').textContent = st.dir === 'enc' ? 'Plaintext (input)' : 'Ciphertext (input)';
+    $('lab-out-label').textContent = st.dir === 'enc' ? 'Ciphertext (output)' : 'Plaintext (output)';
+  }
+
+  function status(lines) {
+    const s = $('lab-status'); s.replaceChildren();
+    lines.forEach(l => { const d = h('div', '', undefined, s); if (l.cls) { h('span', l.cls, l.text, d); if (l.rest) d.appendChild(document.createTextNode(l.rest)); } else d.textContent = l.text; if (l.button) { const b = h('button', 'btn', l.button.label, d); b.type = 'button'; b.style.margin = '0 0 0 8px'; b.addEventListener('click', l.button.fn); } });
+  }
+
+  function recalc() {
+    const text = $('lab-in').value;
+    const res = runCipher(text, st.fwd, st.inv, st.init, st.dir);
+    st.res = res;
+    const lines = [];
+    if (res.error) {
+      $('lab-out').value = '';
+      const cp = res.error.ch.codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
+      lines.push({ cls: 'err', text: 'Unsupported character U+' + cp + ' at position ' + res.error.pos, rest: ' — like crypt.py, only printable ASCII (32–126) is allowed.',
+        button: { label: 'Remove unsupported characters', fn: () => { $('lab-in').value = Array.from($('lab-in').value).filter(c => { const k = c.codePointAt(0); return k >= 32 && k <= 126; }).join(''); recalc(); } } });
+    } else {
+      $('lab-out').value = res.out;
+      if (text.length) {
+        const back = runCipher(res.out, st.fwd, st.inv, st.init, st.dir === 'enc' ? 'dec' : 'enc').out;
+        lines.push(back === text
+          ? { cls: 'ok', text: '✓ Round trip OK', rest: ' — running the opposite direction on the output returns the input (' + text.length.toLocaleString('en-US') + ' characters).' }
+          : { text: 'Round trip failed.' });
+        if (st.src === 'challenge' && st.init === D.init) {
+          if (st.dir === 'enc' && res.out.length && D.cipher.startsWith(res.out))
+            lines.push({ cls: 'ok', text: '✓ Matches the posted ciphertext', rest: ' — the output is identical to the first ' + res.out.length.toLocaleString('en-US') + ' characters of the challenge.' });
+          if (st.dir === 'dec' && D.cipher.startsWith(text))
+            lines.push({ cls: 'ok', text: '✓ This is the start of the posted ciphertext', rest: ' — the output is the start of the recovered plaintext.' });
+        }
+      }
+      lines.push({ text: st.src === 'challenge'
+        ? 'Key: the S-box recovered by the attack (one of 72 equivalent scalings — it encrypts identically to the author’s secret one).'
+        : 'Key: S-box rebuilt from random.Random(passphrase).shuffle — re-implemented in JS and checked against crypt.py on 40 test cases.' });
+    }
+    status(lines);
+    st.sel = Math.min(st.sel, Math.max(0, res.steps.length - 1));
+    stopPlay();
+    renderStep();
+  }
+
+  function renderStep() {
+    const steps = st.res ? st.res.steps : [];
+    const n = steps.length;
+    const sl = $('lab-slider');
+    sl.max = Math.max(0, n - 1); sl.value = st.sel; sl.disabled = n === 0;
+    ['lab-first', 'lab-prev', 'lab-next', 'lab-play'].forEach(id => { $(id).disabled = n === 0; });
+    cells.forEach(c => { c.classList.remove('in', 'out'); });
+    const pipe = $('lab-pipe'); pipe.replaceChildren();
+    const note = $('lab-pipenote'); note.replaceChildren();
+    const table = $('lab-table'); table.replaceChildren();
+    if (!n) { $('lab-stepno').textContent = ''; pipe.appendChild(h('div', 'sub', st.res && st.res.error ? 'Fix the input to see the steps.' : 'Type something above to see the steps.')); return; }
+    const s = steps[st.sel], enc = st.dir === 'enc';
+    $('lab-stepno').textContent = 'Character ' + (st.sel + 1).toLocaleString('en-US') + ' of ' + n.toLocaleString('en-US');
+    cells[s.inIdx].classList.add('in'); cells[s.outIdx].classList.add('out');
+    const prevChar = st.sel === 0 ? null : (enc ? steps[st.sel - 1].inCh : steps[st.sel - 1].outCh);
+    const prevNote = st.sel === 0 ? 'prev = the initial shift' : 'prev = S-value of the previous plaintext character “' + vis(prevChar) + '”';
+    function node(cls, t, big, sm) { const d = h('div', 'node ' + cls, undefined, pipe); h('div', 't', t, d); h('div', 'big', big, d); h('div', 'sm', sm, d); }
+    const arrow = () => h('div', 'arrow', '→', pipe);
+    node('in', enc ? 'Plaintext character' : 'Ciphertext character', vis(s.inCh), 'index ' + s.inIdx + ' (ASCII ' + (s.inIdx + 32) + ')');
+    arrow();
+    node('', '1. S-box substitution', 'S[' + s.inIdx + '] = ' + s.sub, enc ? 'x: the plaintext symbol’s S-value' : 'y: the ciphertext symbol’s S-value');
+    arrow();
+    node('', enc ? '2. Autokey add (mod 95)' : '2. Autokey subtract (mod 95)', enc ? (s.sub + ' + ' + s.prev + ' = ' + s.mid) : (s.sub + ' − ' + s.prev + ' = ' + s.mid), prevNote);
+    arrow();
+    node('', '3. Inverse S-box', 'S⁻¹[' + s.mid + '] = ' + s.outIdx, 'the symbol whose S-value is ' + s.mid);
+    arrow();
+    node('out', enc ? 'Ciphertext character' : 'Plaintext character', vis(s.outCh), 'index ' + s.outIdx + ' (ASCII ' + (s.outIdx + 32) + ')');
+    note.appendChild(document.createTextNode('Next step’s '));
+    h('b', '', 'prev', note);
+    note.appendChild(document.createTextNode(' = ' + s.next + (enc ? ' (this step’s substituted plaintext value x).' : ' (the value x just recovered).') + ' In label space: ' + (enc ? 'y = x + prev' : 'x = y − prev') + ', where y = S[ciphertext symbol] and x = S[plaintext symbol].'));
+
+    // table window
+    const start = Math.max(0, Math.min(st.sel - Math.floor(WINDOW / 3), n - WINDOW)), end = Math.min(n, start + WINDOW);
+    const heads = enc
+      ? ['#', 'Plain', 'idx', 'x = S[idx]', 'prev', 'y = x + prev', 'idx′ = S⁻¹[y]', 'Cipher']
+      : ['#', 'Cipher', 'idx', 'y = S[idx]', 'prev', 'x = y − prev', 'idx′ = S⁻¹[x]', 'Plain'];
+    const tr0 = h('tr', '', undefined, h('thead', '', undefined, table));
+    heads.forEach(x => h('th', '', x, tr0));
+    const tb = h('tbody', '', undefined, table);
+    for (let i = start; i < end; i++) {
+      const r = steps[i], tr = h('tr', i === st.sel ? 'sel' : '', undefined, tb);
+      [i + 1, vis(r.inCh), r.inIdx, r.sub, r.prev, r.mid, r.outIdx, vis(r.outCh)].forEach((v, k) => h('td', k === 1 ? 'hl-in' : k === 7 ? 'hl-out' : '', v, tr));
+      tr.addEventListener('click', () => { st.sel = i; stopPlay(); renderStep(); });
+    }
+    if (n > WINDOW) { const cap = h('caption', '', 'Showing steps ' + (start + 1) + '–' + end + ' of ' + n.toLocaleString('en-US') + '.', table); cap.style.cssText = 'text-align:left; font-size:12px; color:var(--muted); caption-side:bottom; padding-top:6px'; }
+  }
+
+  function stopPlay() { if (st.timer) { clearInterval(st.timer); st.timer = null; } $('lab-play').textContent = 'Play'; }
+  function startPlay() {
+    if (!st.res || !st.res.steps.length) return;
+    if (st.sel >= st.res.steps.length - 1) st.sel = 0;
+    $('lab-play').textContent = 'Pause'; renderStep();
+    st.timer = setInterval(() => { if (st.sel >= st.res.steps.length - 1) { stopPlay(); return; } st.sel++; renderStep(); $('lab-play').textContent = 'Pause'; }, 600);
+  }
+  const goto = k => { stopPlay(); st.sel = Math.max(0, Math.min(k, (st.res ? st.res.steps.length : 1) - 1)); renderStep(); };
+
+  // wiring
+  document.querySelectorAll('input[name=keysrc]').forEach(r => r.addEventListener('change', () => {
+    st.src = r.value; st.init = st.src === 'challenge' ? D.init : 45; syncControls(); setKey(); recalc();
+  }));
+  document.querySelectorAll('input[name=dir]').forEach(r => r.addEventListener('change', () => { st.dir = r.value; syncControls(); recalc(); }));
+  $('lab-pass').addEventListener('input', e => { st.pass = e.target.value; setKey(); recalc(); });
+  $('lab-init').addEventListener('input', e => { st.init = normInit(e.target.value); recalc(); });
+  $('lab-in').addEventListener('input', () => { st.sel = 0; recalc(); });
+  $('lab-swap').addEventListener('click', () => { if (st.res && !st.res.error) { $('lab-in').value = st.res.out; st.dir = st.dir === 'enc' ? 'dec' : 'enc'; st.sel = 0; syncControls(); recalc(); } });
+  $('lab-first').addEventListener('click', () => goto(0));
+  $('lab-prev').addEventListener('click', () => goto(st.sel - 1));
+  $('lab-next').addEventListener('click', () => goto(st.sel + 1));
+  $('lab-slider').addEventListener('input', e => goto(parseInt(e.target.value, 10)));
+  $('lab-play').addEventListener('click', () => { if (st.timer) stopPlay(); else startPlay(); });
+  $('lab-copy').addEventListener('click', () => { const b = $('lab-copy'), t = $('lab-out').value; (navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { b.textContent = 'Copied'; }, () => { $('lab-out').select(); b.textContent = 'Selected — press Ctrl/Cmd+C'; }); setTimeout(() => { b.textContent = 'Copy output'; }, 1800); });
+  function preset(src, dir, init, pass, text) { st.src = src; st.dir = dir; st.init = init; st.pass = pass; st.sel = 0; $('lab-in').value = text; syncControls(); setKey(); recalc(); }
+  const firstSentence = D.plain.slice(0, D.plain.indexOf('. ') + 1);
+  $('p-enc').addEventListener('click', () => preset('challenge', 'enc', D.init, st.pass, firstSentence));
+  $('p-dec').addEventListener('click', () => preset('challenge', 'dec', D.init, st.pass, D.cipher));
+  $('p-self').addEventListener('click', () => preset('passphrase', 'enc', 45, SELF_KEY, 'test text'));
+  preset('challenge', 'enc', D.init, SELF_KEY, firstSentence);
+})();
+</script>
+</body>
+</html>
