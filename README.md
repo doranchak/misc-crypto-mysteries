@@ -4,6 +4,7 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 - [Base-64 and Ceasar cipher](https://doranchak.github.io/misc-crypto-mysteries/base-64-and-caesar-cipher)
 - [Bulgarian treasure hunt](https://doranchak.github.io/misc-crypto-mysteries/bulgarian-treasure-hunt-cipher)
 - [Rudranshkh's Caesar-shift-per-word cipher](https://doranchak.github.io/misc-crypto-mysteries/caesar-shift-per-word)
+- [Solid-Camp6739's code of triples](https://doranchak.github.io/misc-crypto-mysteries/solid-camp6739-code)
 - [tbstewa's custom cipher](https://doranchak.github.io/misc-crypto-mysteries/tbstewa-custom-cipher/report.html)
 - [TikTok comment (Russian)](https://doranchak.github.io/misc-crypto-mysteries/tiktok-comment)
 - [XMR Monero wallet cipher](https://doranchak.github.io/misc-crypto-mysteries/xmr-monero-wallet)
