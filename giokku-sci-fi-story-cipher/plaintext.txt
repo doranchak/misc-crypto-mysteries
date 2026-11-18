@@ -1,0 +1,49 @@
+SOLUTION - u/Giokku "Encrypted transmission of a dialogue, intercepted from a spaceship"
+https://www.reddit.com/r/codes/comments/1xx7wn3/encrypted_transmission_of_a_dialogue_intercepted/
+
+Method: 2-digit numbers -> letters (shuffled 26-letter key), every word spelled backwards, language = Esperanto,
+apostrophe inside a number = diacritic (0'9=ŭ, 1'9=ŝ, 2'1=ĉ, 0'1=ĝ), digits written as capital Greek numerals.
+
+KEY  (number -> letter)
+  01=g  02=l  03=·  04=v  05=a  06=f  07=k  08=p  09=u  10=·  11=e  12=j  13=o  14=t  15=·  16=d  17=i  18=n  19=s  20=·  21=c  22=h  23=m  24=r  25=z  26=b
+  accents: 0'9=ŭ 1'9=ŝ 2'1=ĉ 0'1=ĝ ; Greek numerals: Δ(D)=4 Ε(E)=5 ϛ(ST)=6 Ζ(Z)=7 Β(B)=2
+
+Internacia savspaca floto patrinŝipo una. Voĉa transskriba sistemo aktivigita. Aŭtomata kodada sistemo aktivigita – aŭtomata koda elekto: kodo D – bonvenon!
+    International Space Rescue Fleet, Mothership One. Voice-transcription system activated. Automatic encoding system activated – automatic code selection: code D – welcome!
+
+Dato - tempo: sistemo handikapita. Koordinatoj: shstemo handikapita.
+    Date – time: system disabled. Coordinates: system disabled.
+
+[Adm] [Do]: Lee! Raportu pri la stato, tuj!
+    [Adm] [Do]: Lee! Report on the status, immediately!
+
+[Kpt] [Zlm]: "Raus" estas detruita, sinjoro! Ŝajnas, ke "Lilith" malfermis fajron kontraŭ ĝi. Ni provis kontakti kapitanon Pontes, sed ni ricevis neniun respondon.
+    [Kpt] [Zlm]: "Raus" has been destroyed, sir! It seems that "Lilith" opened fire on it. We tried to contact Captain Pontes, but we received no response.
+
+[Adm] [Do]: Antonio…
+    [Adm] [Do]: Antonio…
+
+[Kpt] [Zlm]: Kapitano Ramov retiriĝis. Li kondukas "Lilith" ekster la gravitkampon de Kepler-5627b.
+    [Kpt] [Zlm]: Captain Ramov has withdrawn. He is leading "Lilith" out of the gravity field of Kepler-5627b.
+
+[Adm] [Do]: Mi avertis lin! Mi avertis lin ne defii min!
+    [Adm] [Do]: I warned him! I warned him not to defy me!
+
+[Kadm] [Rdo]: Kiaj estas viaj ordonoj, sinjoro?
+    [Kadm] [Rdo]: What are your orders, sir?
+
+[Adm] [Do]: Mi ne permesos al tiu malsaĝulo forlasi nin! Ne kiam ni estas tiel proksimaj! Sendu "Erebus"! Revenigu Ramov al mi, mortan aŭ vivan!
+    [Adm] [Do]: I will not let that fool leave us! Not when we are so close! Send "Erebus"! Bring Ramov back to me, dead or alive!
+
+[Kadm] [Rdo]: David, tio estas malbona ideo.
+    [Kadm] [Rdo]: David, that is a bad idea.
+
+[Adm] [Do]: Roland, ĉu vi pretas morti pro tio? Mi pensis, ke ne. Kapitano Lee, tuj sendu kapitanon Pratt!
+    [Adm] [Do]: Roland, are you ready to die for this? I thought not. Captain Lee, send Captain Pratt immediately!
+
+[Kpt] [Zlm]: Jes, admiralo.
+    [Kpt] [Zlm]: Yes, Admiral.
+
+Voĉa transskriba sistemo malaktivigita. Aŭtomata kodada sistemo malaktivigita.
+    Voice-transcription system deactivated. Automatic encoding system deactivated.
+

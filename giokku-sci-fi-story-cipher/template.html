@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solved: u/Giokku's intercepted spaceship dialogue (Esperanto, reversed words)</title>
+<style>
+:root{
+  color-scheme: light;
+  --bg:#f5f4f0; --surface-1:#fcfcfb; --surface-2:#f0efea;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --muted:#67665f;
+  --line:#dedcd5; --grid:#e6e4de;
+  --series-1:#2a78d6; --series-2:#eb6834;
+  --ok:#0b6b2a; --warn:#8a5a00;
+}
+@media (prefers-color-scheme: dark){
+  :root:where(:not([data-theme="light"])){
+    color-scheme: dark;
+    --bg:#121211; --surface-1:#1a1a19; --surface-2:#232321;
+    --text-primary:#f0efec; --text-secondary:#c3c2b7; --muted:#a09f96;
+    --line:#34332f; --grid:#2b2a27;
+    --series-1:#3987e5; --series-2:#d95926;
+    --ok:#6fd08c; --warn:#e3b24a;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#121211; --surface-1:#1a1a19; --surface-2:#232321;
+  --text-primary:#f0efec; --text-secondary:#c3c2b7; --muted:#a09f96;
+  --line:#34332f; --grid:#2b2a27;
+  --series-1:#3987e5; --series-2:#d95926;
+  --ok:#6fd08c; --warn:#e3b24a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text-primary);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.mono,.n,.l,code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+main{max-width:1040px;margin:0 auto;padding:28px 20px 80px}
+h1{font-size:26px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:19px;margin:0 0 4px;letter-spacing:-.005em}
+h3{font-size:15px;margin:18px 0 6px}
+p{margin:8px 0}
+a{color:var(--text-primary);text-underline-offset:3px}
+.sub{color:var(--text-secondary);margin:0}
+.top{display:flex;gap:16px;align-items:flex-start;justify-content:space-between}
+.top>div{flex:1 1 auto;min-width:0}
+.top>.btn{flex:0 0 auto}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--ok);color:var(--ok);padding:2px 9px;border-radius:99px}
+.btn{font:inherit;font-size:13px;color:var(--text-secondary);background:var(--surface-1);border:1px solid var(--line);border-radius:8px;padding:5px 11px;cursor:pointer}
+.btn:hover{border-color:var(--text-secondary)}
+.btn:focus-visible,.col:focus-visible,rect:focus-visible{outline:2px solid var(--series-1);outline-offset:2px}
+section{background:var(--surface-1);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:20px 0}
+section>.sub{margin-bottom:12px}
+.cite{font-size:13.5px;color:var(--text-secondary);margin:10px 0 0}
+.cite a{color:var(--text-secondary)}
+
+/* answer */
+.ans{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+.ans>div{padding:9px 14px 9px 0;border-bottom:1px solid var(--line)}
+.ans>div.en{padding:9px 0 9px 14px;color:var(--text-secondary);border-left:1px solid var(--line)}
+.ans .hd{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;padding-top:6px;padding-bottom:6px}
+.ans .tag{font-weight:700;color:var(--text-primary)}
+.ans .eo{font-size:15.5px}
+.sect{grid-column:1/-1;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;padding:12px 0 4px!important;border-left:0!important}
+@media (max-width:760px){.ans{grid-template-columns:1fr}.ans>div.en{border-left:0;padding-left:0}}
+
+/* layers + hints */
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:12px 0}
+.layer{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface-2)}
+.layer b{display:block;margin-bottom:2px}
+.layer span{font-size:13.5px;color:var(--text-secondary)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.pill{font-size:11.5px;font-weight:600;border:1px solid var(--line);border-radius:99px;padding:1px 8px;white-space:nowrap}
+.pill.ok{color:var(--ok);border-color:var(--ok)}
+.pill.warn{color:var(--warn);border-color:var(--warn)}
+
+/* interlinear */
+.ctrl{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:6px 0 10px;font-size:13.5px;color:var(--text-secondary)}
+.ctrl label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.para{border-top:1px solid var(--line);padding:8px 0 4px}
+.para:first-of-type{border-top:0}
+.para>.pi{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.flow{display:flex;flex-wrap:wrap;align-items:flex-start;gap:4px 14px}
+.w{display:inline-flex;flex-direction:column;align-items:flex-start}
+.cols{display:flex}
+.col{display:flex;flex-direction:column;align-items:center;min-width:25px;padding:2px 1px;border-radius:5px;cursor:default}
+.col .n{font-size:11px;color:var(--text-secondary);line-height:1.3}
+.col .l{font-size:14.5px;font-weight:600;line-height:1.35}
+.col.acc{box-shadow:inset 0 0 0 1.5px var(--series-2)}
+.col.lit{box-shadow:inset 0 0 0 1.5px var(--series-2);background:color-mix(in srgb,var(--series-2) 10%,transparent)}
+.col.hl{background:color-mix(in srgb,var(--series-1) 24%,transparent);box-shadow:inset 0 0 0 1.5px var(--series-1)}
+.col.pinned{box-shadow:inset 0 0 0 2px var(--text-primary)}
+.fin{font-size:16px;font-weight:700;border-top:1px solid var(--line);margin-top:3px;padding-top:2px;width:100%}
+.fin small{font-weight:400;font-size:11px;color:var(--muted);margin-left:5px}
+.col.pc{min-width:13px;cursor:default}
+.col.pc .n{visibility:hidden}
+.col.pc .l{color:var(--muted);font-weight:500}
+.hide-n .col .n{display:none}.hide-l .col .l{display:none}.hide-f .fin{display:none}
+.hide-n.hide-l .cols{display:none}
+.demo{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.demo .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.demo .cap{font-size:12.5px;color:var(--muted);width:210px}
+
+/* key */
+.keygrid{display:grid;grid-template-columns:repeat(13,1fr);gap:6px}
+.kc{border:1px solid var(--line);border-radius:9px;text-align:center;padding:5px 2px 5px;background:var(--surface-2);cursor:default;min-height:84px}
+.kc .kn{font-size:11.5px;color:var(--text-secondary)}
+.kc .kl{font-size:22px;font-weight:700;line-height:1.2}
+.kc .kk{font-size:11px;color:var(--muted)}
+.kc.un{border-style:dashed;background:transparent}
+.kc.un .kl{color:var(--muted);font-weight:400}
+.kc.hl{outline:2px solid var(--series-1)}
+.kc .ac{display:block;margin-top:2px;font-size:11px;border-top:1px dashed var(--line);padding-top:2px}
+.kc .ac.hl{outline:2px solid var(--series-1);border-radius:3px}
+.kc.hint{box-shadow:inset 0 0 0 1.5px var(--series-2)}
+@media (max-width:900px){.keygrid{grid-template-columns:repeat(7,1fr)}}
+.legend{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--text-secondary);margin:6px 0}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+/* evidence */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:12px;margin:10px 0 18px}
+.tile{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface-2)}
+.tile .big{font-size:26px;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+.tile .cap{font-size:13px;color:var(--text-secondary);margin-top:2px}
+#chart{position:relative}
+#chart svg{width:100%;height:auto;display:block}
+#chart text{fill:var(--text-secondary);font-size:11.5px}
+#chart .lbl{font-size:13px;font-weight:600;fill:var(--text-primary)}
+#chart .bar{cursor:default}
+#chart .bar:hover,#chart .bar.on{stroke:var(--text-primary);stroke-width:1.5}
+#tip{position:absolute;pointer-events:none;background:var(--surface-1);color:var(--text-primary);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:13px;box-shadow:0 4px 14px rgba(0,0,0,.18);display:none;white-space:nowrap;z-index:5}
+#tip b{font-size:15px}
+#tip .r{display:flex;gap:8px;align-items:center}
+#tip .k{display:inline-block;width:14px;height:3px;border-radius:2px}
+details{margin-top:12px}
+summary{cursor:pointer;color:var(--text-secondary);font-size:13.5px}
+ul{margin:6px 0;padding-left:22px}
+li{margin:4px 0}
+code{font-size:13px;background:var(--surface-2);padding:1px 5px;border-radius:5px}
+.small{font-size:13px;color:var(--text-secondary)}
+footer{color:var(--muted);font-size:13px;margin-top:26px}
+</style>
+</head>
+<body>
+<main>
+<div class="top">
+  <div>
+    <span class="badge">&#10003; Solved</span>
+    <h1>An intercepted dialogue from a spaceship</h1>
+    <p class="sub">Numbers → shuffled alphabet · every word spelled backwards · plaintext is <b>Esperanto</b></p>
+    <p class="cite">Puzzle by <b>u/Giokku</b> on r/codes: <a href="https://www.reddit.com/r/codes/comments/1xx7wn3/encrypted_transmission_of_a_dialogue_intercepted/">“Encrypted transmission of a dialogue, intercepted from a spaceship”</a>. Their hints: <i>Five · epo · 05=A · 06=F · Words reversed · Account for accents · Numbers: Capitals, Greek, Shuffled</i>.</p>
+  </div>
+  <button class="btn" id="theme" type="button">Toggle dark / light</button>
+</div>
+
+<section id="answer">
+  <h2>The decoded transmission</h2>
+  <p class="sub">Esperanto on the left, English on the right. A star-fleet scene: an admiral orders his subordinates to hunt down a renegade captain.</p>
+  <div class="ans" id="ansgrid"></div>
+  <p class="small" style="margin-top:12px">Capitalisation and spacing are mine (the cipher has no case). The speaker tags (<code>Adm</code> = admiralo, <code>Kadm</code> = kontradmiralo, <code>Kpt</code> = kapitano) are read straight off the key; what the second tag in each pair stands for is not resolved (see Caveats).</p>
+</section>
+
+<section id="how">
+  <h2>How the cipher works</h2>
+  <p class="sub">Five stacked tricks; the hints name most of them.</p>
+  <div class="layers">
+    <div class="layer"><b>1 · Number alphabet</b><span>Each letter is a two-digit number 01–26 from a shuffled key. 22 different numbers occur; 03, 10, 15, 20 never do (Esperanto has no q, w, x, y).</span></div>
+    <div class="layer"><b>2 · Every word backwards</b><span>Letters of each word are written in reverse order; word order is untouched. Hyphens separate words, dots join letters, punctuation sits in parentheses.</span></div>
+    <div class="layer"><b>3 · Esperanto</b><span><code>epo</code> is its ISO 639-3 code. Its six diacritic letters ĉ ĝ ĥ ĵ ŝ ŭ need extra marks.</span></div>
+    <div class="layer"><b>4 · Apostrophe = accent</b><span>An apostrophe inside a number (<code>0'9</code>, <code>1'9</code>, <code>2'1</code>, <code>0'1</code>) puts the circumflex / breve on that number's letter.</span></div>
+    <div class="layer"><b>5 · Digits as Greek numerals</b><span>A digit in the plaintext is written as a capital Greek numeral letter (<code>E</code>=5, <code>ST</code>=ϛ=6, <code>Z</code>=7, <code>B</code>=2, <code>D</code>=Δ=4) and the whole word is then reversed like any other.</span></div>
+  </div>
+  <h3>One word, step by step</h3>
+  <div class="demo" id="demo"></div>
+  <h3>What each hint turned out to mean</h3>
+  <table>
+    <tr><th>#</th><th>Hint</th><th>Use</th><th></th></tr>
+    <tr><td>1</td><td>Five</td><td>Not needed. Possibly nudges toward <code>05</code> (the most frequent symbol, = A), or counts the five tricks above. I could not pin it down.</td><td><span class="pill warn">unclear</span></td></tr>
+    <tr><td>2</td><td>epo</td><td>ISO 639-3 code for Esperanto: the plaintext language. Decisive.</td><td><span class="pill ok">essential</span></td></tr>
+    <tr><td>3</td><td>05=A</td><td>Confirmed independently: the solver given <i>no</i> cribs also lands on 05 = a.</td><td><span class="pill ok">confirmed</span></td></tr>
+    <tr><td>4</td><td>06=F</td><td>Likewise recovered without being told.</td><td><span class="pill ok">confirmed</span></td></tr>
+    <tr><td>5</td><td>Words reversed</td><td>Letters inside each word run backwards. Decisive: reading forwards scores about 1,800 log-units worse (see Evidence).</td><td><span class="pill ok">essential</span></td></tr>
+    <tr><td>6</td><td>Account for accents</td><td>The four primed numbers decode to ŭ ŝ ĉ ĝ, each the accented twin of the unprimed number's letter (09=u, 19=s, 21=c, 01=g).</td><td><span class="pill ok">confirmed 4/4</span></td></tr>
+    <tr><td>7</td><td>Numbers: Capitals, Greek, Shuffled</td><td>Explains the stray capitals <code>D</code> and <code>Z.B.ST.E</code> (Greek numerals; <code>ST</code> = stigma ϛ = 6). “Shuffled” is the part I can only partly confirm (see Caveats).</td><td><span class="pill warn">partly</span></td></tr>
+  </table>
+</section>
+
+<section id="explorer">
+  <h2>Word-by-word decoder</h2>
+  <p class="sub">Hover a number to light up every occurrence of that symbol (and its cell in the key). Click to pin it.</p>
+  <div class="ctrl">
+    <label><input type="checkbox" id="cn" checked> cipher number</label>
+    <label><input type="checkbox" id="cl" checked> letter, read left → right</label>
+    <label><input type="checkbox" id="cf" checked> word after reversing</label>
+    <span><span style="box-shadow:inset 0 0 0 1.5px var(--series-2);padding:0 6px;border-radius:4px">&nbsp;</span> accented / Greek-numeral symbol</span>
+  </div>
+  <div id="flowwrap"></div>
+</section>
+
+<section id="key">
+  <h2>The recovered key</h2>
+  <p class="sub">Number → letter, with how often each symbol occurs. Orange outline marks the two numbers the hints give (05, 06).</p>
+  <div class="keygrid" id="keygrid"></div>
+  <p class="small" style="margin-top:10px">Letters present: a b c d e f g h i j k l m n o p r s t u v z (all 22 plain Esperanto letters) plus ĉ ĝ ŝ ŭ via apostrophes. ĥ and ĵ never appear. Numbers 03, 10, 15, 20 are unused.</p>
+</section>
+
+<section id="evidence">
+  <h2>Evidence the decode is right</h2>
+  <div class="tiles" id="tiles"></div>
+  <h3>Letter frequencies: decoded cipher vs. real Esperanto</h3>
+  <div class="legend">
+    <span><i style="background:var(--series-1)"></i>Decoded transmission</span>
+    <span><i style="background:var(--series-2)"></i>Esperanto reference (<span id="nsent"></span> Tatoeba sentences)</span>
+  </div>
+  <div id="chart"><div id="tip"></div></div>
+  <details><summary>Table view</summary><div style="overflow-x:auto"><table id="ftable"></table></div></details>
+</section>
+
+<section id="caveats">
+  <h2>Caveats and loose ends</h2>
+  <ul>
+    <li><b>22 = h and 25 = z are hand-corrected.</b> The statistical solver first returned them the other way round (22 = z, 25 = h). Number 22 occurs only in <i>“Lilith”</i> (a ship, named for the mythological figure, like <i>“Erebus”</i>) and twice in <i>handikapita</i> “disabled”; as z those would read “Lilitz” and “zandikapita”. So 22 = h, and with 22 numbers for 22 Esperanto letters, 25 = z by elimination. 25 only appears in one speaker tag, <code>[Kpt] [?lm]</code>, so “Zlm” (or a non-Esperanto letter) can't be checked.</li>
+    <li><b>Likely typo in the puzzle:</b> the second “sistemo” in the coordinates line is <code>…19.22.19</code> where the first is <code>…19.17.19</code>, so it decodes as “shstemo”. Presumably 17 was meant.</li>
+    <li><b>Missing dot:</b> the last token of the first line is written <code>…18.1326</code>. With the dot restored (<code>13.26</code>) the word reads b-o-n-v-e-n-o-n, <i>bonvenon</i> “welcome”.</li>
+    <li><b>“kodo D”.</b> The lone <code>D</code> is a literal capital. Under hint 7 it is delta, Δ = 4 (“code 4”); it may equally be NATO-style “Delta”. Not determinable.</li>
+    <li><b>“Kepler-5627b”.</b> <code>26 . Z . B . ST . E . – . kepler</code> is one dot-joined word, so the hyphen is inside it and the whole word is reversed: <i>b</i>, then digits 7-2-6-5, then <i>relpek</i>. Reversed that is Kepler-<b>5627</b>b (the planet suffix b = key 26). Since hint 7 says the numbers are “shuffled”, the digit order of the original could differ from what I read; I have no way to test it. Presumably a fictional planet either way.</li>
+    <li><b>Speaker tags.</b> <code>[Adm] [Do]</code>, <code>[Kadm] [Rdo]</code>, <code>[Kpt] [Zlm]</code>: the first tags are plainly ranks; the second tags look like initials of the speaker's full name (the admiral is addressed as David, the rear admiral as Roland, the captain as Lee), but that is a guess.</li>
+    <li>“Antonio…” trails off in the original.</li>
+    <li>This page's English is my translation; the Esperanto is the cipher's own.</li>
+  </ul>
+  <h3>Notes for the author (“how difficult, is it fun?”)</h3>
+  <ul>
+    <li>With the hints it falls quickly: the key is a plain monoalphabetic substitution, and once the language (epo) and the reversal are known a simple hill-climber solves it in seconds (about 18 s for all four configurations in <code>solve.py</code>). Without hints 2 and 5 I would expect English-oriented tools to find nothing: the letters are backwards, the language is unusual, and the numbering is shuffled (I did not test that). The index of coincidence (0.070) still shows “one alphabet, natural language”.</li>
+    <li>Nice touches: the repeated header/footer (“…aktivigita” / “…malaktivigita”) hand a solver a free crib, and the Greek-numeral planet number is a good surprise.</li>
+    <li>Accidental difficulty: the <code>1326</code> missing dot and the <code>22</code> typo both break clean decoding at exactly the spots a solver would check.</li>
+  </ul>
+</section>
+
+<section id="method">
+  <h2>Method</h2>
+  <ol>
+    <li>Tokenised the cipher into 154 hyphen-separated words made of dot-joined numbers. Counted 22 distinct plain numbers, 4 primed ones, and the capitals D, Z, B, ST, E. Symbol frequencies and an index of coincidence of 0.070 point to one substitution alphabet over natural text.</li>
+    <li>Read <code>epo</code> as Esperanto. Built a smoothed letter-quadgram model from 825,032 Esperanto sentences (Tatoeba).</li>
+    <li>Hill-climbed the number → letter key (all pairwise swaps, 300 random restarts), once reading words forwards, once backwards, each with and without the 05=A, 06=F cribs. Forwards the best log-likelihood is −3,919; backwards −2,121; and the backwards key is identical with or without the cribs.</li>
+    <li>Checked by hand: all four primed numbers came out as the accented twin of their base letter; the capitals resolved as Greek numerals; every ordinary word read as Esperanto.</li>
+  </ol>
+  <p class="small">Files in this folder: <code>cipher.txt</code> (as posted, fixed nothing), <code>solve.py</code> (solver), <code>evidence.py</code>, <code>build.py</code> + <code>template.html</code> (this page), <code>key.json</code> (solver output), <code>plaintext.txt</code>. The 44 MB corpus is downloaded from <a href="https://downloads.tatoeba.org/exports/per_language/epo/epo_sentences.tsv.bz2">Tatoeba</a>, not stored here.</p>
+</section>
+
+<footer>Cipher © u/Giokku, reproduced from <a href="https://www.reddit.com/r/codes/comments/1xx7wn3/encrypted_transmission_of_a_dialogue_intercepted/">r/codes</a> for analysis. Solution by Claude Code.</footer>
+</main>
+
+<script>
+const DATA = /*__DATA__*/null;
+const $ = (s, r=document) => r.querySelector(s);
+function el(tag, cls, text){ const e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+const SVGNS='http://www.w3.org/2000/svg';
+function sv(tag, attrs){ const e=document.createElementNS(SVGNS,tag); for(const k in attrs) e.setAttribute(k, attrs[k]); return e; }
+
+/* theme toggle */
+$('#theme').addEventListener('click', ()=>{
+  const r=document.documentElement;
+  const dark = r.dataset.theme ? r.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  r.dataset.theme = dark ? 'light' : 'dark';
+});
+
+/* ---------- answer ---------- */
+(function(){
+  const g=$('#ansgrid');
+  g.appendChild(el('div','hd','Esperanto (decoded)')); g.appendChild(el('div','hd en','English (translation)'));
+  const sect = {0:'Transmission header', 2:'Dialogue', 12:'Closing'};
+  DATA.paras.forEach((p,i)=>{
+    if(sect[i]){ g.appendChild(el('div','sect',sect[i])); }
+    const a=el('div','eo'), b=el('div','en');
+    const m = p.kind==='talk' ? p.plain.match(/^(\[[^\]]+\] \[[^\]]+\]:)\s*(.*)$/s) : null;
+    if(m){ a.appendChild(el('span','tag',m[1])); a.appendChild(document.createTextNode(' '+m[2])); }
+    else a.textContent=p.plain;
+    const mb = p.kind==='talk' ? p.en.match(/^(\[[^\]]+\] \[[^\]]+\]:)\s*(.*)$/s) : null;
+    if(mb){ b.appendChild(el('span','tag',mb[1])); b.appendChild(document.createTextNode(' '+mb[2])); }
+    else b.textContent=p.en;
+    g.appendChild(a); g.appendChild(b);
+  });
+})();
+
+/* ---------- highlight registry ---------- */
+const byKey=new Map(); let pinned=null;
+function reg(k,e){ if(!byKey.has(k)) byKey.set(k,[]); byKey.get(k).push(e); }
+function setHl(k,on){ (byKey.get(k)||[]).forEach(e=>e.classList.toggle('hl',on)); }
+
+function pcol(ch){ const c=el('div','col pc'); c.appendChild(el('span','n','0')); c.appendChild(el('span','l',ch)); return c; }
+function renderWord(it, opts={}){
+  const w=el('div','w'); const cols=el('div','cols');
+  (opts.pre||[]).forEach(ch=>cols.appendChild(pcol(ch)));
+  it.chips.forEach(c=>{
+    if(c.pn){ const col=el('div','col'); col.appendChild(el('span','n','·')); col.appendChild(el('span','l','-')); cols.appendChild(col); return; }
+    const k=c.n; const col=el('div','col'+(k.includes("'")?' acc':'')+(c.lit?' lit':''));
+    col.tabIndex=0; col.dataset.k=k;
+    col.title = c.lit ? `${c.n} = Greek numeral ${c.g} = ${c.l==='D'?'4 (Δ)':c.l}` : `${k} → ${c.l}`;
+    col.appendChild(el('span','n',k)); col.appendChild(el('span','l',c.l));
+    if(!opts.noReg){
+      reg(k,col);
+      const on=()=>setHl(k,true), off=()=>{ if(pinned!==k) setHl(k,false); };
+      col.addEventListener('pointerenter',on); col.addEventListener('pointerleave',off);
+      col.addEventListener('focus',on); col.addEventListener('blur',off);
+      col.addEventListener('click',()=>{ if(pinned===k){ pinned=null; } else { if(pinned) setHl(pinned,false); pinned=k; setHl(k,true);} });
+      col.addEventListener('keydown',ev=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); col.click(); }});
+    }
+    cols.appendChild(col);
+  });
+  (opts.post||[]).forEach(ch=>cols.appendChild(pcol(ch)));
+  w.appendChild(cols);
+  const fin=el('div','fin',it.plain);
+  if(it.chips.some(c=>c.lit)&&it.plain==='D'){ fin.appendChild(el('small',null,'Δ = 4?')); }
+  w.appendChild(fin);
+  return w;
+}
+
+/* ---------- demo ---------- */
+(function(){
+  const it=DATA.paras[0].items.find(x=>x.t==='w');
+  const d=$('#demo');
+  const r1=el('div','row'); r1.appendChild(el('div','cap','1. Cipher word, numbers as given')); r1.appendChild(Object.assign(el('div','mono'),{textContent:it.chips.map(c=>c.n).join('.')}));
+  const r2=el('div','row'); r2.appendChild(el('div','cap','2. Each number → its key letter')); r2.appendChild(Object.assign(el('div','mono'),{textContent:it.chips.map(c=>c.l).join(' ')}));
+  const r3=el('div','row'); r3.appendChild(el('div','cap','3. Read the word backwards')); r3.appendChild(Object.assign(el('div','mono'),{textContent:[...it.chips].reverse().map(c=>c.l).join(' ')+'  →  '+it.plain}));
+  r3.lastChild.style.fontWeight='700';
+  d.append(r1,r2,r3);
+})();
+
+/* ---------- explorer ---------- */
+(function(){
+  const wrap=$('#flowwrap');
+  DATA.paras.forEach((p,i)=>{
+    const box=el('div','para'); box.appendChild(el('div','pi',`¶ ${i+1} · ${p.kind==='talk'?'dialogue':'system line'}`));
+    const flow=el('div','flow');
+    const entries=[]; let pend=[];
+    p.items.forEach(it=>{
+      if(it.t==='w'){ entries.push({k:'w',it,pre:pend,post:[]}); pend=[]; }
+      else if(it.t==='p'){
+        if(it.open) pend.push(it.ch);
+        else if(it.sa) entries.push({k:'s',ch:it.ch});
+        else { const last=entries[entries.length-1]; if(last&&last.k==='w') last.post.push(it.ch); else entries.push({k:'s',ch:it.ch}); }
+      }
+    });
+    entries.forEach(e=>{
+      if(e.k==='w') flow.appendChild(renderWord(e.it,{pre:e.pre,post:e.post}));
+      else { const w=el('div','w'); const cols=el('div','cols'); cols.appendChild(pcol(e.ch)); w.appendChild(cols); flow.appendChild(w); }
+    });
+    box.appendChild(flow); wrap.appendChild(box);
+  });
+  const upd=()=>{ wrap.classList.toggle('hide-n',!$('#cn').checked); wrap.classList.toggle('hide-l',!$('#cl').checked); wrap.classList.toggle('hide-f',!$('#cf').checked); };
+  ['cn','cl','cf'].forEach(id=>$('#'+id).addEventListener('change',upd));
+})();
+
+/* ---------- key ---------- */
+(function(){
+  const g=$('#keygrid');
+  DATA.keyrows.forEach(r=>{
+    const c=el('div','kc'+(r.l?'':' un')+((r.n==='05'||r.n==='06')?' hint':'')); c.id='kc'+r.n;
+    c.appendChild(el('div','kn',r.n)); c.appendChild(el('div','kl',r.l||'·'));
+    c.appendChild(el('div','kk',r.l?`× ${r.c}`:'unused'));
+    r.acc.forEach(a=>{ const s=el('span','ac mono',`${a.n} → ${a.l}`); c.appendChild(s); reg(a.n,s); });
+    if(r.l) reg(r.n,c);
+    g.appendChild(c);
+  });
+})();
+
+/* ---------- evidence ---------- */
+(function(){
+  const ev=DATA.ev;
+  $('#nsent').textContent=ev.n_sentences_corpus.toLocaleString('en-US');
+  const perFwd=(DATA.ll_fwd/DATA.n_trans), perRev=(DATA.ll_rev/DATA.n_trans);
+  const tiles=[
+    [`${(DATA.ll_rev-DATA.ll_fwd).toFixed(0)}`,`log-units better reading words backwards (−2,121 vs −3,919); ${perRev.toFixed(2)} vs ${perFwd.toFixed(2)} per letter`],
+    [`r = ${ev.pearson.toFixed(2)}`,`correlation of decoded letter frequencies with real Esperanto (26 letters)`],
+    [`${ev.n_attested} / ${ev.n_ordinary}`,`ordinary words found in the corpus. The other ${ev.n_ordinary-ev.n_attested}: 7 valid compounds (${ev.missing.filter(w=>w!=='shstemo').join(', ')}) and 1 typo`],
+    [`4 / 4`,`primed numbers decode to the accented twin of their base letter`],
+    [`same key`,`with and without the 05=A, 06=F cribs: the hints are independently confirmed`],
+  ];
+  const t=$('#tiles');
+  tiles.forEach(([b,c])=>{ const d=el('div','tile'); d.appendChild(el('div','big',b)); d.appendChild(el('div','cap',c)); t.appendChild(d); });
+
+  /* grouped bar chart */
+  const rows=ev.rows; const W=940,H=300,L=44,R=8,T=30,B=34;
+  const maxV=14, gw=(W-L-R)/rows.length, bw=11, gap=2;
+  const y=v=>T+(H-T-B)*(1-v/maxV);
+  const svg=sv('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'Grouped bar chart: letter frequency of the decoded transmission against Esperanto reference, per letter'});
+  [0,5,10].forEach(v=>{
+    svg.appendChild(sv('line',{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:'var(--grid)','stroke-width':1}));
+    const tx=sv('text',{x:L-8,y:y(v)+4,'text-anchor':'end'}); tx.textContent=v+'%'; svg.appendChild(tx);
+  });
+  const tip=$('#tip'), host=$('#chart');
+  function showTip(ev2,r){
+    tip.replaceChildren();
+    const h=el('div'); h.appendChild(el('b',null,r[0])); tip.appendChild(h);
+    [['var(--series-1)','Decoded',r[1]],['var(--series-2)','Esperanto',r[2]]].forEach(([c,n,v])=>{
+      const row=el('div','r'); const k=el('span','k'); k.style.background=c; row.appendChild(k);
+      row.appendChild(el('b',null,v.toFixed(1)+'%')); row.appendChild(el('span',null,n)); tip.appendChild(row);
+    });
+    tip.style.display='block';
+    const hb=host.getBoundingClientRect();
+    let x=ev2.clientX-hb.left+14, yy=ev2.clientY-hb.top-10;
+    if(x+160>hb.width) x-=190;
+    tip.style.left=x+'px'; tip.style.top=yy+'px';
+  }
+  function bar(x,v,cls,color,r,label){
+    const h=Math.max(0,(H-B)-y(v)); const rad=Math.min(4,h/2,bw/2);
+    const x0=x, x1=x+bw, yt=y(v), yb=H-B;
+    const d=`M${x0},${yb} V${yt+rad} Q${x0},${yt} ${x0+rad},${yt} H${x1-rad} Q${x1},${yt} ${x1},${yt+rad} V${yb} Z`;
+    const p=sv('path',{d,fill:color,class:'bar',tabindex:0,'aria-label':label});
+    const mv=e=>showTip(e,r), out=()=>{tip.style.display='none';};
+    p.addEventListener('pointermove',mv); p.addEventListener('pointerleave',out);
+    p.addEventListener('focus',()=>{ const b=p.getBoundingClientRect(), hb=host.getBoundingClientRect(); showTip({clientX:b.left+bw,clientY:b.top},r); });
+    p.addEventListener('blur',out);
+    return p;
+  }
+  rows.forEach((r,i)=>{
+    const gx=L+i*gw+(gw-(2*bw+gap))/2;
+    const lab=`${r[0]}: decoded ${r[1].toFixed(1)} percent, Esperanto ${r[2].toFixed(1)} percent`;
+    svg.appendChild(bar(gx,r[1],'a','var(--series-1)',r,lab));
+    svg.appendChild(bar(gx+bw+gap,r[2],'b','var(--series-2)',r,lab));
+    const tx=sv('text',{x:L+i*gw+gw/2,y:H-B+18,'text-anchor':'middle'}); tx.textContent=r[0]; svg.appendChild(tx);
+  });
+  /* selective direct labels on the tallest group */
+  const top=rows[0]; const tl=sv('text',{x:L+gw/2,y:y(Math.max(top[1],top[2]))-7,'text-anchor':'middle',class:'lbl'}); tl.textContent=`${top[0]}  ${top[1].toFixed(1)} / ${top[2].toFixed(1)}`;
+  tl.setAttribute('x',L+gw*1.9);
+  svg.appendChild(tl);
+  const ax=sv('text',{x:L,y:16}); ax.textContent='share of all letters, sorted by decoded frequency (hover or focus a bar)'; svg.appendChild(ax);
+  host.insertBefore(svg,tip);
+
+  const tb=$('#ftable'); const hr=el('tr'); ['Letter','Decoded %','Esperanto %'].forEach(h=>hr.appendChild(el('th',null,h))); tb.appendChild(hr);
+  rows.forEach(r=>{ const tr=el('tr'); tr.appendChild(el('td',null,r[0])); tr.appendChild(el('td','num',r[1].toFixed(1))); tr.appendChild(el('td','num',r[2].toFixed(1))); tb.appendChild(tr); });
+})();
+</script>
+</body>
+</html>
