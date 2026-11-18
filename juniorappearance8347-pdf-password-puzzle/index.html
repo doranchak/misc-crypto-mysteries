@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF password puzzle (juniorappearance8347): solved</title>
+<style>
+  :root { --bg:#fafaf8; --fg:#1c1c1a; --muted:#66665f; --line:#dcdcd4; --card:#fff; --accent:#0b5cad; --ok:#1a7f37; --warn:#9a6700; --code:#f1f1ec; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161614; --fg:#ececE6; --muted:#9b9b92; --line:#33332f; --card:#1e1e1b; --accent:#6cb0f5; --ok:#4cc26a; --warn:#e0b341; --code:#26261f; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  main { max-width:860px; margin:0 auto; padding:32px 20px 80px; }
+  h1 { font-size:1.7rem; margin:0 0 4px; }
+  h2 { font-size:1.2rem; margin:40px 0 10px; padding-top:8px; border-top:1px solid var(--line); }
+  h3 { font-size:1rem; margin:22px 0 6px; }
+  .sub { color:var(--muted); margin:0 0 24px; }
+  code, pre, .mono { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  code { background:var(--code); padding:1px 5px; border-radius:4px; font-size:.92em; }
+  pre { background:var(--code); padding:12px 14px; border-radius:8px; overflow-x:auto; font-size:.88rem; line-height:1.45; margin:10px 0; }
+  .answer { background:var(--card); border:2px solid var(--ok); border-radius:10px; padding:16px 20px; margin:20px 0; }
+  .answer .pw { font:700 2rem ui-monospace,Menlo,Consolas,monospace; letter-spacing:.08em; color:var(--ok); }
+  .answer p { margin:4px 0 0; color:var(--muted); }
+  table { border-collapse:collapse; width:100%; margin:10px 0; font-size:.92rem; }
+  th, td { border:1px solid var(--line); padding:5px 8px; text-align:left; }
+  th { background:var(--code); font-weight:600; }
+  td.c, th.c { text-align:center; }
+  .letter { font-weight:700; color:var(--accent); }
+  .scroll { overflow-x:auto; }
+  .note { border-left:3px solid var(--warn); background:var(--card); padding:8px 14px; margin:14px 0; border-radius:0 6px 6px 0; }
+  .ok { color:var(--ok); font-weight:600; }
+  img.shot { max-width:360px; width:100%; border:1px solid var(--line); border-radius:8px; display:block; margin:10px 0; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin:12px 0; }
+  .tile { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
+  .tile b { display:block; font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin-bottom:2px; }
+  .tile span { font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.95rem; word-break:break-all; }
+  ul { padding-left:1.2em; }
+  footer { margin-top:50px; color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>PDF password puzzle: solved</h1>
+<p class="sub">Puzzle posted by <a href="https://www.reddit.com/user/JuniorAppearance8347/">u/JuniorAppearance8347</a> on r/Decoders (<a href="https://www.reddit.com/r/Decoders/comments/1xzcxjb/try_to_decode/">original thread</a>). Hints from the OP: <b>BACON</b>, <b>HEX</b>, <b>BIBLE</b>. Files: <a href="decode1.txt">decode1.txt</a>, <a href="decode1.pdf">decode1.pdf</a>.</p>
+
+<div class="answer">
+  <div class="pw">77777777</div>
+  <p>The digit <b>7</b> written <b>8</b> times. Verified: this opens <code>decode1.pdf</code> (the other ~60 candidates I tried did not).</p>
+</div>
+
+<h2>1. What the text file contains</h2>
+<p>Three pieces of data, followed by about 30 blank lines and a stray <code>8x</code> on the very last line:</p>
+<pre>47 65 6E 65 73 69 73 20 32 3A 32 2013 33
+
+4C 65 76 69 74 69 63 75 73 20 32 35 3A 38 2013 31 30
+
+aabab abaaa abbaa aaabb baaba aabbb aabaa aaaba abbab ababb ababb abbab abbaa baaba aabbb abaaa abbaa aabba
+
+(about 30 blank lines)
+8x</pre>
+
+<h2>2. HEX → Bible references</h2>
+<p>Each two-digit token is an ASCII byte in hex:</p>
+<div class="scroll"><table>
+<tr><th>Hex</th><th>Decodes to</th></tr>
+<tr><td class="mono">47 65 6E 65 73 69 73 20 32 3A 32</td><td class="mono">Genesis 2:2</td></tr>
+<tr><td class="mono">4C 65 76 69 74 69 63 75 73 20 32 35 3A 38</td><td class="mono">Leviticus 25:8</td></tr>
+</table></div>
+<p>The odd four-digit token <code>2013</code> is not a byte. It is <b>U+2013, the EN DASH</b>, the typographic mark for a range. The trailing tokens are the end of the range: <code>33</code> = "3" and <code>31 30</code> = "10". So the two passages are:</p>
+<ul>
+  <li><b>Genesis 2:2–3</b>: God rests on the <em>seventh</em> day and blesses it.</li>
+  <li><b>Leviticus 25:8–10</b>: seven sabbaths of years, "seven times seven", the <em>seventh</em> month, the jubilee.</li>
+</ul>
+
+<h2>3. BACON → the instruction</h2>
+<p>Each 5-symbol group is a 5-bit number (a=0, b=1). Using the 24-letter Baconian alphabet (I=J, U=V) gives plain English:</p>
+<div class="scroll"><table>
+<tr><th>Group</th><td class="mono">aabab</td><td class="mono">abaaa</td><td class="mono">abbaa</td><td class="mono">aaabb</td><td class="mono">baaba</td><td class="mono">aabbb</td><td class="mono">aabaa</td><td class="mono">aaaba</td><td class="mono">abbab</td><td class="mono">ababb</td><td class="mono">ababb</td><td class="mono">abbab</td><td class="mono">abbaa</td><td class="mono">baaba</td><td class="mono">aabbb</td><td class="mono">abaaa</td><td class="mono">abbaa</td><td class="mono">aabba</td></tr>
+<tr><th>Value</th><td class="c">5</td><td class="c">8</td><td class="c">12</td><td class="c">3</td><td class="c">18</td><td class="c">7</td><td class="c">4</td><td class="c">2</td><td class="c">13</td><td class="c">11</td><td class="c">11</td><td class="c">13</td><td class="c">12</td><td class="c">18</td><td class="c">7</td><td class="c">8</td><td class="c">12</td><td class="c">6</td></tr>
+<tr><th>Letter</th><td class="c letter">F</td><td class="c letter">I</td><td class="c letter">N</td><td class="c letter">D</td><td class="c letter">T</td><td class="c letter">H</td><td class="c letter">E</td><td class="c letter">C</td><td class="c letter">O</td><td class="c letter">M</td><td class="c letter">M</td><td class="c letter">O</td><td class="c letter">N</td><td class="c letter">T</td><td class="c letter">H</td><td class="c letter">I</td><td class="c letter">N</td><td class="c letter">G</td></tr>
+</table></div>
+<p><b>FIND THE COMMON THING</b>, meaning the thing the two Bible passages have in common.</p>
+<p>The 26-letter version of the same cipher gives <code>FIMDSHECNLLNMSHIMG</code> (gibberish), and the inverted bit assignments give junk with out-of-range values, so the 24-letter reading is the intended one.</p>
+
+<h2>4. The common thing: "seven"</h2>
+<p>The shared idea is the <b>seventh</b>: the seventh day (Gen 2:2–3), and the sabbaths, seven-times-seven, and seventh month (Lev 25:8–10). Counting every word that starts with "seven" in the King James text:</p>
+<div class="scroll"><table>
+<tr><th>Passage</th><th class="c">"seven…" count</th><th>Where</th></tr>
+<tr><td>Genesis 2:2–3</td><td class="c">3</td><td>"the <b>seventh</b> day" ×3 (2:2 twice, 2:3 once)</td></tr>
+<tr><td>Leviticus 25:8–10</td><td class="c">5</td><td>"<b>seven</b> sabbaths", "<b>seven</b> times <b>seven</b> years", "the <b>seven</b> sabbaths" (25:8); "the <b>seventh</b> month" (25:9)</td></tr>
+<tr><th>Total</th><th class="c">8</th><td></td></tr>
+</table></div>
+<p>That total of <b>8</b> matches the stray <code>8x</code> hidden at the bottom of the file after the blank lines: <b>"seven", 8 times</b>. The password is therefore the number 7 repeated 8 times.</p>
+<div class="note"><b>Caveat on the count.</b> I counted from the KJV text as I remember it, not from a fetched copy, so treat the 3 + 5 = 8 tally as supporting evidence rather than proof. The proof is that <code>77777777</code> actually opens the PDF. Other readings of "8x" were tried and failed (e.g. <code>seven</code>, <code>seventh</code>, <code>sevenseven…</code>, <code>7</code>, <code>8x</code>, <code>56</code>, hex of "seven").</div>
+
+<h2>5. Unlocking the PDF</h2>
+<p><code>decode1.pdf</code> uses the standard security handler (V2, R3, 128-bit RC4). Only about 60 candidates derived from the puzzle were tested, not a dictionary run. Exactly one worked:</p>
+<pre>$ qpdf --check --password=77777777 decode1.pdf    # opens
+$ qpdf --password=77777777 --decrypt decode1.pdf unlocked.pdf</pre>
+
+<h2>6. What is inside the PDF</h2>
+<div class="grid">
+  <div class="tile"><b>Page 1 text</b><span>NICE ONE!<br>redeem this code</span></div>
+  <div class="tile"><b>Page 2</b><span>blank (all white, no links)</span></div>
+  <div class="tile"><b>Author / Creator</b><span>John Russel Papilla / Canva</span></div>
+  <div class="tile"><b>Title</b><span>NICE ONE!</span></div>
+  <div class="tile"><b>Keywords (metadata)</b><span>DAHZfOxrgvM,BAHWwKBnU7g</span></div>
+</div>
+<img class="shot" src="page-1-unlocked.png" alt="Page 1 of the unlocked PDF: NICE ONE! and an underlined 'redeem this code'">
+<p>The underlined "redeem this code" is a clickable link annotation. Its target (shown here as plain text, <b>not opened or fetched</b>) is a Google Drive folder:</p>
+<pre>https://drive.google.com/drive/folders/1QtKYfmiUtcBg9-LoLdA8t9fsRK69UYQd?usp=sharing</pre>
+<p>The Keywords field holds two 11-character strings in the format of YouTube video IDs. I did not look them up and have no confirmation that they are anything more than that. All the metadata fields were encrypted until the password was applied.</p>
+
+<div class="note"><b>Safety note.</b> "Redeem this code" pointing to a shared Drive folder from an unknown poster is a typical lure for downloads of unknown content. If you open it, do so with the usual caution (don't run or install anything from it, and don't enter credentials). The puzzle itself is fully solved without it.</div>
+
+<h2>Summary of the chain</h2>
+<table>
+<tr><th>Hint</th><th>Role</th><th>Result</th></tr>
+<tr><td>HEX</td><td>Decode byte values; <code>2013</code> = en dash</td><td>Genesis 2:2–3, Leviticus 25:8–10</td></tr>
+<tr><td>BACON</td><td>24-letter Baconian decode</td><td>FIND THE COMMON THING</td></tr>
+<tr><td>BIBLE</td><td>Compare the two passages</td><td>"seven" / the seventh</td></tr>
+<tr><td>(<code>8x</code>)</td><td>"seven" occurs 8 times; repeat the 7, 8 times</td><td class="ok">77777777</td></tr>
+</table>
+
+<h2>Source</h2>
+<p>Puzzle and hints by <b>u/JuniorAppearance8347</b>, posted to r/Decoders:
+  <a href="https://www.reddit.com/r/Decoders/comments/1xzcxjb/try_to_decode/">https://www.reddit.com/r/Decoders/comments/1xzcxjb/try_to_decode/</a>.
+  The OP's post text: "Ive Make This Short And Easy Puzzle Youll Just Need To Find The Password For The PDF File. Here Some Plenty Hints: BACON, HEX, BIBLE". All puzzle content (<code>decode1.txt</code>, <code>decode1.pdf</code>) belongs to the original poster; the decoding and this write-up are the solver's work. I did not open the Reddit thread while solving, so any further discussion or confirmation there is not reflected here.</p>
+
+<footer>
+  Files in this folder: <code>decode1.txt</code> and <code>decode1.pdf</code> (the original puzzle, unchanged), <code>page-1-unlocked.png</code> (render of page 1), <code>solve.py</code> (reproduces the decode and password check; needs <code>qpdf</code>).
+</footer>
+
+</main>
+</body>
+</html>
