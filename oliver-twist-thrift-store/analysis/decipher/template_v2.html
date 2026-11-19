@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Oliver Twist thrift-store cipher — deciphered text, glyph table and frequency analysis</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{--ink:#1d2330;--mute:#5b6577;--line:#d9dde5;--bg:#f6f7f9;--card:#fff;--acc:#1f5fbf;--key:#1740c7;--ver:#0a6e4c;--dr:#b4530a;--keyd:#0b24a0;--verd:#065a3c;--drd:#9a4400;--warn:#a15c00;--warnbg:#fff6e6;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  main{max-width:1240px;margin:0 auto;padding:28px 20px 90px}
+  h1{font-size:26px;margin:0 0 4px}
+  h2{font-size:21px;margin:46px 0 10px;padding-top:8px;border-top:1px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 6px}
+  .sub{color:var(--mute);margin:0 0 16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:14px 0}
+  .status{border-left:5px solid var(--ver)}
+  .status h3{margin-top:0}
+  blockquote{margin:8px 0;padding:6px 12px;border-left:3px solid var(--line);color:#333;background:#fafbfc}
+  a{color:var(--acc)}
+  code,.mono,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  table{border-collapse:collapse;width:100%;font-size:14px}
+  th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:middle}
+  th{background:#f0f2f6;font-weight:600;position:sticky;top:0}
+  .legend span{display:inline-block;margin-right:14px}
+  .u{color:#7a8190}.k{color:var(--key);font-weight:700}.v{color:var(--ver);font-weight:600}.d{color:var(--dr);font-style:italic}
+  .d.lo{border-bottom:1px dotted var(--dr)}
+  .sw{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+  /* alphabet */
+  .alpha td.L{font-size:30px;font-weight:700;width:54px;text-align:center;color:var(--key)}
+  .tiles{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+  .tiles img{height:58px;border:1px solid var(--line);background:#fff;border-radius:3px}
+  .joined .tiles img{height:52px}
+  .small{font-size:13px;color:var(--mute)}
+  /* visualizer */
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+  .tab{border:1px solid var(--line);background:#fff;border-radius:6px;padding:5px 12px;cursor:pointer;font-size:14px}
+  .tab.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+  .ctrl{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:8px 0;font-size:14px}
+  .vwrap{overflow-x:auto;overflow-y:hidden;border:1px solid var(--line);background:#222;border-radius:6px}
+  .vstage{position:relative;margin:0 auto;padding-bottom:64px}
+  .vstage img{display:block;width:100%}
+  .wl{position:absolute;white-space:nowrap;line-height:1;font-weight:800;font-family:ui-monospace,Menlo,Consolas,monospace;padding:1px 3px;border-radius:3px;background:rgba(255,255,255,.90);box-shadow:0 0 0 1px rgba(0,0,0,.35);transform-origin:left top;cursor:default}
+  .wl.K{color:var(--keyd)} .wl.V{color:var(--verd)} .wl.D{color:var(--drd);font-style:italic}
+  .wl.lo{outline:1px dotted var(--dr)}
+  .gl{position:absolute;font-weight:800;font-family:ui-monospace,Menlo,Consolas,monospace;white-space:nowrap;line-height:1;transform:translateX(-50%);padding:1px 3px 0;cursor:default;background:rgba(255,255,255,.88);border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+  .gl.K{color:var(--keyd)} .gl.V{color:var(--verd)} .gl.D{color:var(--drd);font-style:italic}
+  .gl.lo{text-decoration:underline dotted var(--dr) 2px;text-underline-offset:3px}
+  .gb{position:absolute;height:6px;border:3px solid;border-top:none;border-radius:0 0 3px 3px;opacity:.9;pointer-events:none}
+  .gb.K{border-color:var(--key)} .gb.V{border-color:var(--ver)} .gb.D{border-color:var(--dr)}
+  .sc{position:relative;max-width:900px;border:1px solid var(--line);background:#fff}
+  .sc img{display:block;width:100%}
+  .sc .sl{position:absolute;transform:translateX(-50%);font:800 18px ui-monospace,Menlo,Consolas,monospace;line-height:1;white-space:nowrap;letter-spacing:.02em}
+  .sc .sl.K{color:var(--keyd)} .sc .sl.V{color:var(--verd)} .sc .sl.D{color:var(--drd);font-style:italic}
+  .sc .sb{position:absolute;height:0;border-top:3px solid;opacity:.85}
+  .sc .sb.K{border-color:var(--key)} .sc .sb.V{border-color:var(--ver)} .sc .sb.D{border-color:var(--dr)}
+  .bx{position:absolute;border:1px solid rgba(220,30,30,.65);pointer-events:none}
+  /* transcription */
+  .page-h{margin:26px 0 6px;font-size:17px}
+  .ltab td{vertical-align:top}
+  .ltab td.n{width:44px;color:var(--mute);font-size:13px}
+  .ltab td.s{width:56%}
+  .ltab td.s{width:58%}
+  .rd{font-size:17px;line-height:1.6}
+  .rd .k,.rd .v,.rd .d{margin-right:.45em}
+  .pt{font-size:16px;line-height:1.75;background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px 14px}
+  .pt .ln{display:block}
+  .pt .ln b{color:var(--mute);font-weight:500;font-size:12px;display:inline-block;width:36px}
+  /* stats */
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+  .num td,.num th{text-align:right} .num td:first-child,.num th:first-child{text-align:left}
+  svg text{font-family:inherit}
+  .photo-row{display:flex;gap:12px;flex-wrap:wrap}
+  .photo-row figure{margin:0;width:230px} .photo-row img{width:100%;border:1px solid var(--line);border-radius:4px}
+  .photo-row figcaption{font-size:12.5px;color:var(--mute)}
+  .bigcrop img{max-width:100%;border:1px solid var(--line);background:#fff;margin:4px 0}
+  footer{margin-top:50px;color:var(--mute);font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<h1>Oliver Twist thrift-store cipher — deciphered text, glyph table and frequency analysis</h1>
+<p class="sub">Handwritten substitution cipher found inside a thrift-store copy of <i>Oliver Twist</i>.
+Source: <a href="https://www.reddit.com/r/codes/comments/1xx6vjb/found_at_a_thrift_store_how_do_i_decode_this/">r/codes thread “Found at a thrift store. How do I decode this?”</a> by <b>u/jar_of_spiders_</b>.
+The partial key for page&nbsp;1 (<code>key.jpg</code>) was supplied with the task.</p>
+
+<blockquote><b>u/jar_of_spiders_:</b> “Found at a thrift store. How do I decode this? There's about 5 more pages of writing after this. Some letters appear on their own often so I assume it's A or I, but beyond that I'm not sure how to figure it out. Any help would be appreciated!”</blockquote>
+
+<div class="card status" id="summary"></div>
+
+<h2 id="alphabet">1. Glyph → plaintext table</h2>
+<p>Every letter is one hand-drawn glyph. The exemplars below are real glyph crops taken from the pages (page&nbsp;1 labelled with the key, the rest from words checked by eye). Neighbouring glyphs are often joined in cursive, so a connected blob can hold two or three letters; a few very common units are always written as one glyph (see “joined forms”).</p>
+<div class="card"><table class="alpha" id="atable"></table></div>
+<h3>Joined forms, logograms and marks</h3>
+<div class="card joined"><table id="jtable"></table></div>
+
+<h2 id="viz">2. Visualizer</h2>
+<p>Every letter of the plaintext sits <b>directly under the glyph that stands for it</b>; a thin line under the glyph shows how much of the ink belongs to that letter (fused glyphs carry two or three letters, e.g. <span class="mono">TH</span>, <span class="mono">ING</span>, <span class="mono">AND</span>; the apostrophe is the small raised loop). Zoom in for detail, or switch on the glyph boxes to see how the page was cut into glyphs. Blue = from the key (page&nbsp;1), green = verified, orange italic = machine-suggested (dotted outline = low confidence). Letters are placed automatically from the classifier and the reading; where a glyph was cut into two pieces the label may sit under one half.</p>
+<div class="tabs" id="vtabs"></div>
+<div class="ctrl">
+  <label><input type="checkbox" id="c_gl" checked> letters under each glyph</label>
+  <label><input type="checkbox" id="c_lab"> whole words above the lines</label>
+  <label><input type="checkbox" id="c_box"> glyph boxes</label>
+  <label><input type="checkbox" id="c_dr" checked> show machine-suggested words</label>
+  <label>zoom <input type="range" id="c_zoom" min="25" max="220" value="100"> <span id="zv">100%</span></label>
+  <button type="button" class="tab" id="c_fit" title="shrink the page image so that all of it fits in the window height">fit page to window</button>
+  <label>letter size <input type="range" id="c_ls" min="70" max="300" value="140"> <span id="lsv">140%</span></label>
+  <span class="legend"><span><i class="sw" style="background:var(--key)"></i>key</span><span><i class="sw" style="background:var(--ver)"></i>verified</span><span><i class="sw" style="background:var(--dr)"></i>machine-suggested</span></span>
+</div>
+<div class="vwrap" id="vwrap"><div class="vstage" id="vstage"></div></div>
+
+<h2 id="text">3. Full transcription</h2>
+<p>The plain-text reading of every page, followed by a line-by-line table pairing each cipher line (straightened crop) with its reading. Under every glyph of each cipher line the table shows the letter(s) it stands for. The apostrophe is written as a small raised loop (<span class="mono">I'M</span>, <span class="mono">IT'S</span>, <span class="mono">DON'T</span>); the key leaves a gap there, and the apostrophes are restored in the page-1 reading. “∴” closes a sentence and “~” is a flourish that behaves like a comma.</p>
+<div class="legend card"><b>Reading legend:</b>
+  <span class="k">KEY</span> word given by the supplied key ·
+  <span class="v">verified</span> word checked glyph by glyph ·
+  <span class="d">suggested</span> dictionary suggestion from a glyph classifier (<span class="d lo">dotted</span> = low confidence, may be wrong) · <span class="mono">?</span> = unresolved.</div>
+<div id="plain"></div>
+<div id="lines"></div>
+
+<h2 id="freq">4. Frequency analysis</h2>
+<div id="freqbox"></div>
+
+<h2 id="open">5. Items not deciphered</h2>
+<div id="openbox"></div>
+
+<h2 id="photos">6. Photographs and key</h2>
+<div class="photo-row" id="photos"></div>
+
+<h2 id="sources">7. Sources and files</h2>
+<div class="card">
+<ul>
+<li>Reddit thread: <a href="https://www.reddit.com/r/codes/comments/1xx6vjb/found_at_a_thrift_store_how_do_i_decode_this/">r/codes/comments/1xx6vjb</a> — poster <b>u/jar_of_spiders_</b>. (The thread's replies could not be fetched, so nothing here depends on them.)</li>
+<li>Partial key: <code>key.jpg</code> (blue annotation of page&nbsp;1, supplied with the task).</li>
+<li>Photographs: <code>book1.jpeg</code> … <code>book5.jpeg</code>. Plain-text export: <code>transcription.txt</code>. Scripts: <code>analysis/</code>.</li>
+</ul>
+</div>
+<footer>Generated locally. Glyph crops, page images and line strips are embedded in this file; no network access is needed.</footer>
+</main>
+<script>
+const PAGES=/*DATA_PAGES*/;
+const ALPHA=/*DATA_ALPHA*/;
+const STATS=/*DATA_STATS*/;
+const EXTRA=/*DATA_EXTRA*/;
+const META=/*DATA_META*/;
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const ORDER=['b1','b2L','b2R','b3L','b3R','b4L','b4R','b5'];
+const SORDER=['b1','b2L','b2R','b3L','b3R'];   // pages that enter the letter statistics
+const NAMES={b1:'Page 1 (photo 1)',b2L:'Spread 2, left page (photo 2)',b2R:'Spread 2, right page (photo 2)',b3L:'Spread 3, left page (photo 3)',b3R:'Spread 3, right page (photo 3)',b4L:'Inside cover, left (photo 4)',b4R:'Title page, right (photo 4)',b5:'Back cover digit row (photo 5)'};
+function wcls(w){return w.f==='K'?'k':w.f==='V'?'v':w.f==='U'?'u':'d'+(w.c<0.55?' lo':'');}
+function wtxt(w){return w.f==='D'&&w.c<0.55? w.t+'?' : w.t;}
+// ---------- summary
+(function(){
+  const pp=STATS.perpage; let K=0,V=0,D=0,Dh=0;
+  for(const p of SORDER){K+=pp[p].K;V+=pp[p].V;D+=pp[p].D;Dh+=pp[p].Dhi;}
+  const tot=K+V+D;
+  let rows='';
+  for(const p of SORDER){const q=pp[p];const t=q.K+q.V+q.D; rows+=`<tr><td>${NAMES[p]}</td><td>${q.lines}</td><td>${q.K+q.V}</td><td>${q.D}</td><td>${t?Math.round(100*(q.K+q.V)/t):0}%</td></tr>`;}
+  $('#summary').innerHTML=`<h3>Result</h3>
+  <p>The cipher is a <b>monoalphabetic substitution</b>: one glyph per letter, with word spaces, in a cursive hand that joins neighbouring glyphs; a small raised loop is the apostrophe. A few glyphs stand for several letters: <b>THE</b> and <b>AND</b> (whole words), the digraphs <b>TH, WH, SH, CH, GH, ST, OU</b>, the ending <b>–ING</b>, and the <b>doubled letters</b> EE, TT, LL, SS, FF, CC, OO (each one glyph). Numbers use a separate upright “block” hand: ten digit glyphs, whose order is given by a row on the back cover (<b>decoded</b>: the year is <b>1996</b> and the two headings of spread&nbsp;3 are time stamps, see section 5). Using the supplied key for page&nbsp;1 as the starting alphabet, I built the glyph table below (24 of 26 letters observed; Q and Z do not occur) and read the remaining pages. <b>Every page is now read</b> (page&nbsp;1 from the key; spread&nbsp;2 glyph by glyph; spread&nbsp;3 from the reading supplied by the requester, aligned to the glyphs and corrected where the glyphs disagreed). Words marked <span class="v">verified</span> were checked glyph by glyph; the few words marked <span class="d">suggested</span> (a “?”) remain uncertain.</p>
+  <table class="num"><tr><th>Page</th><th>Lines</th><th>Letters key/verified</th><th>Letters suggested</th><th>Share verified</th></tr>${rows}
+  <tr><td><b>Total</b></td><td>${SORDER.reduce((a,p)=>a+pp[p].lines,0)}</td><td><b>${K+V}</b></td><td>${D}</td><td><b>${Math.round(100*(K+V)/tot)}%</b></td></tr></table>
+  <p class="small">Counts are letters in the readings. “Verified” includes the ${K} letters of page&nbsp;1 given by the key.</p>
+  <h3>What the text says (verified parts)</h3>
+  <p>Page&nbsp;1 is a diary entry: the writer bought the book on the day of Sean Fleckenstein's wedding to Gweneth Lurid at the Leach Botanical Gardens (June ninth, 1996), attended with Melanie Bud and Nick, and had been thinking about getting a special book “to chronicle my trials and tribulations as an expectant father” (the sentence runs onto the next leaf). The dedication reads “I would like to dedicate this book to Melanie, my love, my partner, my future wife.” “Chapter One” (“There's Jim”) then says “thirty years old and expecting this first accidental offspring. Apparently, I have less than nine months to get my life together and start acting like …”, and later “I have to start accepting the reality of this situation. Whenever talk does come clear in my head I experience strong fear that, of course, tends to send me back into that gray area of no thought. Somewhere in the back of my mind the problem still exists. My brain, however, refuses to devote more than passing thought.”</p>
+  <p>Spread&nbsp;3 is two time-stamped entries of 11 June 1996. Left page (<span class="mono">960611.18:11</span>): “Sitting at home preparing to leave for final managing shift at Old Town (Pipaco?). The day has started off badly for Melanie and I. I just can't seem to keep myself from being selfish in the face of what must be a nearly overwhelming fear for her, but I am scared too. So I can't help it if I want a certain amount of affirmation to make me feel that this is all worthwhile. I am ready to give her everything, but only if I get what little I need.” Right page (<span class="mono">960611.18:31</span>): “Now I'm at Old Town. One would think I would be experiencing some depth of emotion, this being my last bar shift. I don't really feel anything. Naturally Melanie is occupying her normal place at the bar. One would think she would be good and tired of that by now, but I know her better than that. I get the feeling that she would be entirly [sic] comfortable sitting in that same spot eight hours at a shot if I stayed here. At this time I am on my break. Melanie is a pale whimpering mess, continuously half tearful and non-responsive. She made her normal ‘I'm hungry’ statement, which really means pamper me so I don't have to …”. The inside cover and title page (photo&nbsp;4) carry the lettering <span class="mono">JAMES ANDERSEN</span>, a large decorated <span class="mono">D??IAN</span> over <span class="mono">DESIGNS</span>, <span class="mono">JIMANDERSEN</span> and the year <span class="mono">1996</span>.</p>`;
+})();
+// ---------- alphabet
+(function(){
+  const desc={A:'ring with a centre dot',B:'arch / triangle with a hooked foot (varies)',C:'wide zig-zag with a long tail',D:'slanted stem with two crossbars',E:'hooked 7 (left tick, top bar, diagonal)',F:'three-bar variant of D (zig-zag head)',G:'figure-8 loop (also forms “GH”)',H:'small hooked loop; joins the T-cup as “TH”',I:'ellipse with a diagonal slash',J:'large zig-zag with a curl (JUNE, JIM, JUST, JAMES)',K:'H-like: two stems and a cross-stroke',L:'open “3”, often with a tail',M:'tall loop (ɓ / 6 shape)',N:'wave ending in an S-curve (ꙍ)',O:'zig-zag crossed by a bar',P:'7 with a single crossbar',Q:'not observed',R:'“(” with a dot',S:'C / Z shape with a dot at the right',T:'cup (ɥ / Y-shape) with a bar; filled-in variant',U:'plain V',V:'plain Z shape with a hooked foot (an S without the dot)',W:'slash with dots',X:'“3” with a tick (EXPECTING, EXPECTANT)',Y:'plus sign “+”',Z:'not observed'};
+  let h='<tr><th>Letter</th><th>Glyph exemplars (from the pages)</th><th>Shape</th><th class="num">Uses (all text)</th></tr>';
+  const cnt=STATS.ALL.counts;
+  for(const L of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'){
+    const a=ALPHA.alpha[L]||{tiles:[]};
+    h+=`<tr><td class="L">${L}</td><td><div class="tiles">${a.tiles.map(t=>`<img src="data:image/jpeg;base64,${t}">`).join('')||'<span class="small">—</span>'}</div></td><td>${desc[L]}</td><td class="num">${cnt[L]||0}</td></tr>`;
+  }
+  $('#atable').innerHTML=h;
+  const jd={TH:'T-cup + H hook fused into one blob (THIS, THAT, THAN, WITH…)',THE:'T+H+E written as a single hooked glyph (the word “the”)',AND:'the word “and” is a single glyph (a “9”-like hook)',ING:'the ending “-ing” is a fused “wave + loop” (N+G, the I is not drawn)',CH:'C and H joined',GH:'G loop and H joined',ST:'S and T joined',OU:'O and U joined',OO:'double O: one glyph (GOOD, TOO)',SH:'S and H joined (SHE, SHIFT, SHOT, SELFISH)',EE:'double E: one glyph (SEEM, KEEP, FEEL)',TT:'double T: one glyph (SITTING, BETTER, LITTLE)',LL:'double L: one glyph (ALL, REALLY, STILL)',SS:'double S: one glyph (MESS, PASSING)',FF:'double F: one glyph (OFF, AFFIRMATION)',CC:'double C: one glyph (ACCIDENTAL, OCCUPYING)',WH:'W (slash with its dot) and H (small loop) written as one glyph: WHENEVER, WHAT, WHILE, WHERE…'};
+  let j='<tr><th>Unit</th><th>Examples</th><th>Meaning</th></tr>';
+  for(const k of ['THE','AND','TH','WH','SH','ING','CH','GH','ST','OU','OO','EE','TT','LL','SS','FF','CC']){
+    const t=ALPHA.joined[k]; if(!t) continue;
+    j+=`<tr><td class="L" style="font-size:20px;font-weight:700;color:var(--key)">${k}</td><td><div class="tiles">${t.map(x=>`<img src="data:image/jpeg;base64,${x}">`).join('')}</div></td><td>${jd[k]}</td></tr>`;
+  }
+  j+=`<tr><td class="L" style="font-size:20px;font-weight:700;color:var(--key)">0–9</td><td><img style="max-width:520px;height:auto" src="data:image/jpeg;base64,${EXTRA.b5row}"></td><td>block-hand digits, read left to right <b>1 2 3 4 5 6 7 8 9 0</b> (the row on the back cover; order checked on the year and the date headings, section 5)</td></tr><tr><td class="L" style="font-size:20px;font-weight:700;color:var(--key)">∴</td><td><span class="mono">∴</span></td><td>sentence end (three dots)</td></tr><tr><td class="L" style="font-size:20px;font-weight:700;color:var(--key)">~</td><td><span class="mono">~</span></td><td>flourish after a word (comma-like)</td></tr>`;
+  const ap=(ALPHA.alpha["'"]||{tiles:[]}).tiles;
+  j+=`<tr><td class="L" style="font-size:24px;font-weight:700;color:var(--key)">'</td><td><div class="tiles">${ap.map(x=>`<img src="data:image/jpeg;base64,${x}">`).join('')}</div></td><td>the apostrophe: a small raised loop (superscript “8”) between letters: I'M, I'VE, IT'S, DON'T, CAN'T, THERE'S</td></tr>`;
+  $('#jtable').innerHTML=j;
+})();
+// ---------- visualizer
+let curPage=(new URLSearchParams(location.search).get('p')||'b1'); if(!PAGES[curPage]) curPage='b1';
+(function(){
+  const t=$('#vtabs');
+  for(const p of ORDER){const b=document.createElement('div');b.className='tab'+(p===curPage?' on':'');b.textContent=NAMES[p];b.onclick=()=>{curPage=p;document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');drawViz();};t.appendChild(b);}
+  ['c_gl','c_lab','c_box','c_dr'].forEach(i=>$('#'+i).onchange=drawViz);
+  $('#c_ls').oninput=()=>{$('#lsv').textContent=$('#c_ls').value+'%';drawViz();};
+  $('#c_zoom').oninput=()=>{$('#zv').textContent=$('#c_zoom').value+'%';drawViz();};
+  $('#c_fit').onclick=()=>{   // zoom so that the whole page image (plus the strip under the last line) fits the window height
+    const P=PAGES[curPage], baseW=Math.min($('#vwrap').clientWidth-4,1200)||900, avail=innerHeight-24-64;
+    const z=Math.max(25,Math.min(220,Math.floor(100*avail/(baseW*P.h/P.w))));
+    $('#c_zoom').value=z; $('#zv').textContent=z+'%'; drawViz(); $('#vwrap').scrollIntoView({block:'start'});
+  };
+  drawViz();
+})();
+function rowFit(gs){   // straight row under a line: least-squares through glyph bottoms with one outlier pass
+  if(!gs.length) return null;
+  const hs=gs.map(g=>g.h).sort((a,b)=>a-b), h=hs[Math.floor(hs.length/2)];
+  let pts=gs.map(g=>[g.x+g.w/2,g.y+g.h]);
+  const ls=P=>{ const n=P.length; if(n<3){ const m=P.reduce((s,p)=>s+p[1],0)/n; return {a:m,b:0}; } const mx=P.reduce((s,p)=>s+p[0],0)/n,my=P.reduce((s,p)=>s+p[1],0)/n; let sxx=0,sxy=0; for(const p of P){sxx+=(p[0]-mx)**2;sxy+=(p[0]-mx)*(p[1]-my);} const b=sxx?sxy/sxx:0; return {a:my-b*mx,b}; };
+  let f=ls(pts); const keep=pts.filter(p=>Math.abs(p[1]-(f.a+f.b*p[0]))<0.45*h); if(keep.length>=3) f=ls(keep);
+  return {a:f.a,b:f.b,h};
+}
+function drawViz(){
+  const P=PAGES[curPage],st=$('#vstage');
+  const z=$('#c_zoom').value/100; const baseW=Math.min($('#vwrap').clientWidth-4,1200)||900; const ls=$('#c_ls').value/100; const zs=Math.min(1,Math.max(0.5,z));   // below 100% zoom the minimum letter size shrinks too, so a whole-page overview stays readable
+  const W=baseW*z; st.style.width=W+'px';
+  st.innerHTML=`<img src="data:image/jpeg;base64,${P.img}">`;
+  const sc=W/P.w;
+  if($('#c_box').checked){for(const L of P.lines)for(const b of L.boxes){const d=document.createElement('div');d.className='bx';d.style.cssText=`left:${b[0]*sc}px;top:${b[1]*sc}px;width:${b[2]*sc}px;height:${b[3]*sc}px`;st.appendChild(d);}}
+  const showD=$('#c_dr').checked;
+  if($('#c_gl').checked){
+    for(const L of P.lines){
+      const fit=rowFit(L.glyphs); if(!fit) continue;
+      const fs0=Math.max(13*zs,Math.min(28,fit.h*sc*0.30))*ls;
+      for(const g of L.glyphs){
+        if(g.f==='D'&&!showD) continue;
+        const xc=g.x+g.w/2, rowY=(fit.a+fit.b*xc+0.08*fit.h)*sc;
+        const bx=document.createElement('div'); bx.className='gb '+g.f; bx.style.cssText=`left:${g.x*sc}px;width:${Math.max(6,g.w*sc)}px;top:${rowY}px`; st.appendChild(bx);
+        const fs=g.t.length>1?Math.min(fs0,Math.max(12*zs*ls,g.w*sc*1.25/(0.62*g.t.length))):fs0;   // multi-letter fused glyphs: shrink only as far as needed
+        const s=document.createElement('span'); s.className='gl '+g.f+(g.f==='D'&&g.c<0.55?' lo':''); s.textContent=g.t; s.style.fontSize=fs+'px';
+        s.style.left=(xc*sc)+'px'; s.style.top=(rowY+5)+'px';
+        s.title=(g.f==='K'?'from key':g.f==='V'?'verified':'suggested, confidence '+(g.c*100).toFixed(0)+'%')+': '+g.t;
+        st.appendChild(s);
+      }
+    }
+  }
+  {
+    const made=[], labOn=$('#c_lab').checked;
+    for(const L of P.lines)for(const w of L.words){
+      if(!labOn&&!L.wo) continue;     // lines without glyph boxes (cover lettering) always show their word label
+      if((w.f==='D'&&!showD)||w.f==='U') continue;
+      const s=document.createElement('span'); s.className='wl '+w.f+(w.f==='D'&&w.c<0.55?' lo':''); s.textContent=w.t;
+      const fs=Math.max(13*zs,Math.min(28,(w.h||100)*0.30*sc*1.1))*ls; s.style.fontSize=fs+'px';
+      s.style.left=(w.x*sc)+'px'; s.style.top=(w.y*sc-fs*0.2)+'px';
+      s.title=(w.f==='K'?'from key':w.f==='V'?'verified':'suggested, confidence '+(w.c*100).toFixed(0)+'%')+': '+w.t;
+      st.appendChild(s); made.push([s,w.w*sc]);
+    }
+    for(const [s,tw] of made){const r=s.getBoundingClientRect().width; if(r>0&&tw>10){const k=Math.max(0.55,Math.min(1.5,tw/r)); s.style.transform=`scaleX(${k})`;}}
+  }
+}
+window.addEventListener('resize',()=>drawViz());
+const BAND=46;   // blank label band under each strip image (must equal band= in make_strip)
+function stripHTML(L){
+  const tot=L.sh+BAND; let h=`<div class="sc"><img loading="lazy" src="data:image/jpeg;base64,${L.strip}">`;
+  for(const g of L.sg){
+    const left=(100*g[0]/L.sw).toFixed(2), top=(100*(L.sh+9)/tot).toFixed(2), bw=(100*g[4]/L.sw).toFixed(2), btop=(100*(L.sh+2)/tot).toFixed(2);
+    h+=`<div class="sb ${g[2]}" style="left:${(100*(g[0]-g[4]/2)/L.sw).toFixed(2)}%;width:${bw}%;top:${btop}%"></div><div class="sl ${g[2]}" style="left:${left}%;top:${top}%" title="${esc(g[1])}">${esc(g[1])}</div>`;
+  }
+  return h+'</div>';
+}
+// ---------- plain text + line tables
+(function(){
+  let h='';
+  for(const p of ORDER){
+    h+=`<h3 class="page-h">${NAMES[p]}</h3><div class="pt">`;
+    for(const L of PAGES[p].lines){
+      if(!L.words.length) continue;
+      h+=`<span class="ln"><b>L${L.n}</b> ${L.words.map(w=>`<span class="${wcls(w)}">${esc(wtxt(w))}</span>`).join(' ')}</span>`;
+    }
+    h+='</div>';
+  }
+  $('#plain').innerHTML=h;
+  let t='<h3 class="page-h">Line-by-line: cipher crop and reading</h3>';
+  for(const p of ORDER){
+    t+=`<h3 class="page-h">${NAMES[p]}</h3><table class="ltab"><tr><th>#</th><th>Cipher line (straightened crop, letters under their glyphs)</th><th>Reading</th></tr>`;
+    for(const L of PAGES[p].lines){
+      t+=`<tr><td class="n">L${L.n}</td><td class="s">${stripHTML(L)}</td><td class="rd">${L.words.map(w=>`<span class="${wcls(w)}">${esc(wtxt(w))}</span>`).join(' ')||'<span class="small">—</span>'}</td></tr>`;
+    }
+    t+='</table>';
+  }
+  $('#lines').innerHTML=t;
+})();
+// ---------- frequency
+(function(){
+  const EN=STATS.EN, sets=[['K','Page 1 only (key)',STATS.K],['ALL','All deciphered text',STATS.ALL]];
+  const letters=Object.keys(EN).sort((a,b)=>EN[b]-EN[a]);
+  const W=1100,H=300,m={l:44,r:10,t:16,b:34}; const bw=(W-m.l-m.r)/letters.length;
+  const mx=14;
+  let svg=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Letter frequencies">`;
+  for(let g=0;g<=mx;g+=2){const y=H-m.b-(H-m.t-m.b)*g/mx;svg+=`<line x1="${m.l}" x2="${W-m.r}" y1="${y}" y2="${y}" stroke="#e3e6ec"/><text x="${m.l-6}" y="${y+4}" font-size="11" text-anchor="end" fill="#5b6577">${g}%</text>`;}
+  letters.forEach((L,i)=>{
+    const x0=m.l+i*bw; const vals=[EN[L],sets[0][2].freq[L],sets[1][2].freq[L]]; const cols=['#b9c0cd','#1740c7','#b4530a'];
+    vals.forEach((v,k)=>{const hh=(H-m.t-m.b)*Math.min(v,mx)/mx;svg+=`<rect x="${x0+3+k*((bw-6)/3)}" y="${H-m.b-hh}" width="${(bw-6)/3-1}" height="${hh}" fill="${cols[k]}"><title>${L}: ${['English','page 1','all'][k]} ${v.toFixed(2)}%</title></rect>`;});
+    svg+=`<text x="${x0+bw/2}" y="${H-m.b+16}" font-size="13" font-weight="600" text-anchor="middle" fill="#1d2330">${L}</text>`;
+  });
+  svg+=`</svg>`;
+  const S=STATS;
+  const rowsF=letters.map(L=>`<tr><td>${L}</td><td>${EN[L].toFixed(2)}</td><td>${S.K.counts[L]}</td><td>${S.K.freq[L].toFixed(2)}</td><td>${S.ALL.counts[L]}</td><td>${S.ALL.freq[L].toFixed(2)}</td></tr>`).join('');
+  const bi=a=>a.map(x=>`<tr><td class="mono">${x[0]}</td><td>${x[1]}</td></tr>`).join('');
+  const wd=a=>a.map(x=>`<tr><td class="mono">${x[0]}</td><td>${x[1]}</td></tr>`).join('');
+  const wl=S.ALL.wordlen; const wmax=Math.max(...wl.map(x=>x[1]));
+  let hist=`<svg viewBox="0 0 520 150" width="100%">`+wl.filter(x=>x[0]<=14).map((x,i)=>{const hh=110*x[1]/wmax;return `<rect x="${20+i*34}" y="${125-hh}" width="28" height="${hh}" fill="#6b7a99"><title>${x[0]} letters: ${x[1]} words</title></rect><text x="${34+i*34}" y="142" font-size="11" text-anchor="middle" fill="#5b6577">${x[0]}</text>`;}).join('')+`</svg>`;
+  const st=(s)=>`<tr><td>${s[1]}</td><td>${s[2].N}</td><td>${s[2].nwords}</td><td>${s[2].ic.toFixed(4)}</td><td>${s[2].r.toFixed(3)}</td></tr>`;
+  const th=S.ALL.bigrams.slice(0,1);
+  $('#freqbox').innerHTML=`
+  <p>The deciphered text has the statistical profile of English: its letter frequencies correlate with standard English at <b>r = ${S.ALL.r.toFixed(2)}</b> (page 1 alone: ${S.K.r.toFixed(2)}) and the index of coincidence is <b>${S.ALL.ic.toFixed(3)}</b> (English ≈ 0.067; a random 26-letter text ≈ 0.038). This is what a one-glyph-per-letter substitution of English should look like.</p>
+  <div class="card"><div style="display:flex;gap:18px;flex-wrap:wrap;font-size:13px;margin-bottom:4px"><span><i class="sw" style="background:#b9c0cd"></i>English (standard)</span><span><i class="sw" style="background:#1740c7"></i>page 1 (key only)</span><span><i class="sw" style="background:#b4530a"></i>all deciphered text</span></div>${svg}</div>
+  <div class="grid2">
+   <div class="card"><h3 style="margin-top:0">Summary</h3><table class="num"><tr><th>Text set</th><th>Letters</th><th>Words</th><th>IC</th><th>r vs English</th></tr>${st(sets[0])}${st(sets[1])}</table>
+    <p class="small">Reference English: IC ≈ 0.0667. Words include the single-glyph units THE and AND.</p>
+    <h3>Letter table</h3><table class="num"><tr><th>Letter</th><th>English %</th><th>p1 n</th><th>p1 %</th><th>all n</th><th>all %</th></tr>${rowsF}</table></div>
+   <div class="card"><h3 style="margin-top:0">Most frequent bigrams (all text)</h3><table class="num"><tr><th>Bigram</th><th>n</th></tr>${bi(S.ALL.bigrams)}</table>
+    <h3>Most frequent trigrams</h3><table class="num"><tr><th>Trigram</th><th>n</th></tr>${bi(S.ALL.trigrams)}</table></div>
+   <div class="card"><h3 style="margin-top:0">Most frequent words</h3><table class="num"><tr><th>Word</th><th>n</th></tr>${wd(S.ALL.words)}</table>
+    <h3>Word-length distribution</h3>${hist}
+    <h3>Doubled letters</h3><p class="mono">${S.ALL.doubles.map(x=>x[0]+' ×'+x[1]).join(' · ')||'none'}</p>
+    <h3>Word-initial / word-final letters</h3><p class="small">initial: <span class="mono">${S.ALL.first.map(x=>x[0]+' '+x[1]).join(' · ')}</span><br>final: <span class="mono">${S.ALL.last.map(x=>x[0]+' '+x[1]).join(' · ')}</span></p></div>
+  </div>
+  <p class="small">Frequencies in the “all” columns include machine-suggested words, which are biased toward English by the dictionary used to suggest them; the page-1 columns come only from the key and are independent of any dictionary.</p>`;
+})();
+// ---------- open items
+(function(){
+  $('#openbox').innerHTML=`
+  <div class="card"><ul>
+   <li><b>Block-hand digits — decoded.</b> Numbers are written in a separate, upright hand. The back cover (photo&nbsp;5) carries a row of ten block glyphs; the key reads the page-1 year as “1&nbsp;9&nbsp;9&nbsp;?”, where the first glyph is the first glyph of the row and the two repeated glyphs are the ninth, so the row is <b>1 2 3 4 5 6 7 8 9 0</b> and the unknown fourth year glyph is the sixth, <b>6</b>. The headings of spread&nbsp;3 then read <span class="mono">960611.18:11</span> (left) and <span class="mono">960611.18:31</span> (right), i.e. YYMMDD.HH:MM: year 96, month 06 (page&nbsp;1 says June), day 11, at 18:11 and 18:31, and the title page repeats <span class="mono">1996</span>. The digits 1, 9, 6 and 0 are confirmed by those dates; 2–5, 7 and 8 follow the row order only (3 and 8 occur in the times).
+     <div class="bigcrop"><img src="data:image/jpeg;base64,${EXTRA.year}"> <img src="data:image/jpeg;base64,${EXTRA.head_b3L}"> <img src="data:image/jpeg;base64,${EXTRA.head_b3R}"> <img src="data:image/jpeg;base64,${EXTRA.b5row}"></div></li>
+   <li><b>Corrections to the supplied reading of spread 3.</b> The glyphs show three words that the supplied reading omitted: <span class="mono">MELANIE AND I ∴ I JUST CAN'T SEEM</span> (the ∴ ends a sentence and a second I follows), <span class="mono">BUT I AM SCARED TOO SO I CAN'T</span> (CANT is written at the right margin of that line in a looser hand) and <span class="mono">I CAN'T HELP IT IF I WANT …</span> (an I+T glyph before IF). The writer spells <span class="mono">ENTIRLY</span> (7 glyphs; ENTIRELY would need one more) and <span class="mono">SHOT</span> is written with the fused SH glyph. Four glyphs of the curved left page were lost from the automatic segmentation (the I of “I AM READY TO”, the F of “IF”, the T of “BUT” in “BUT ONLY”, and the CAN'T above) and are shown with hand-placed boxes; so is the final ONE of the first right-page paragraph line.</li>
+   <li><b>Uncertain words.</b> <span class="mono">PIPACO</span> (left page, after “Old Town”; probably a proper noun, no dictionary word fits the glyphs better), <span class="mono">GET</span> (left page, last line: the first glyph is cut by the page edge) and <span class="mono">IS</span> (right page, “Melanie IS occupying”) are shown with a “?”. In the b2R/b3 readings nothing else is machine-suggested.</li>
+   <li><b>Cover lettering (photo 4).</b> The inside cover reads <span class="mono">JAMES ANDERSEN</span> (13 glyphs; the J and A are repeated large as a logo beside the portrait). The title page has a large decorated <span class="mono">D??IAN</span> (the two middle glyphs and the glyphs after the N are not read), <span class="mono">DESIGNS</span>, <span class="mono">JIMANDERSEN</span> and <span class="mono">1996</span>. Glyph-level boxes are placed only for JAMES ANDERSEN and the digits; the other lines have a word label.</li>
+   <li><b>Spread 2, right page, title line</b> (under “CHAPTER ONE”) reads <span class="mono">THERE'S JIM</span> (the J, I and M are read by shape against the key's J, I and M).</li>
+   <li>On spread&nbsp;3, left page, the paper curls into the gutter shadow: the first glyph or two of some lines are cut off or lost, and a few glyph boxes there are approximate.</li>
+  </ul></div>`;
+  let ph='';
+  const cap={photo1:'Photo 1 — first leaf (page 1)',photo2:'Photo 2 — spread 2',photo3:'Photo 3 — spread 3',photo4:'Photo 4 — inside cover and title page (JAMES ANDERSEN · D??IAN DESIGNS · JIMANDERSEN 1996)',photo5:'Photo 5 — back cover: the block-hand digit row 1 2 3 4 5 6 7 8 9 0',key:'key.jpg — supplied partial key'};
+  for(const k of ['photo1','photo2','photo3','photo4','photo5','key']) ph+=`<figure><img loading="lazy" src="data:image/jpeg;base64,${EXTRA[k]}"><figcaption>${cap[k]}</figcaption></figure>`;
+  $('#photos').innerHTML=ph;
+})();
+</script>
+</body>
+</html>

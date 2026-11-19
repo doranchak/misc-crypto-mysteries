@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Oliver Twist thrift-store cipher — decipherment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{--ink:#1d2330;--mute:#5b6577;--line:#cfd4de;--bg:#f3f4f7;--acc:#1f5fbf;--hl:#e8a200;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  header{padding:18px 20px 4px}
+  h1{font-size:22px;margin:0 0 4px}
+  .sub{margin:0;color:var(--mute);max-width:1100px}
+  .sub a{color:var(--acc)}
+  .note{margin:6px 0 0;color:var(--mute);font-size:13px}
+  section{padding:0 20px 22px}
+  h2{font-size:15px;margin:20px 0 8px;padding-top:12px;border-top:1px solid var(--line);font-weight:600}
+  h2 small{font-weight:400;color:var(--mute);margin-left:8px}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+  .cipher,.plain{position:relative;overflow:hidden;box-shadow:0 0 0 1px var(--line);background:#fff}
+  .cipher{line-height:0}
+  .cipher img{display:block;width:100%;height:auto}
+  .plain{container-type:inline-size;background:#fffdf8}
+  /* cipher-word hit boxes over the photo */
+  .cw{position:absolute;cursor:pointer;border-radius:5px;transition:background .08s}
+  .cw.hl{background:rgba(232,162,0,.26);outline:2px solid var(--hl)}
+  .cw.sel{background:rgba(31,95,191,.22);outline:2px solid var(--acc)}
+  /* plaintext words */
+  .pw{position:absolute;white-space:nowrap;line-height:1;font-weight:650;letter-spacing:.01em;
+      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#17202e;cursor:pointer;
+      padding:.06em .1em;border-radius:.12em;transform-origin:50% 50%}
+  .pw.u{color:#9a4400;font-style:italic}
+  .pw.hl{background:#ffe08a;box-shadow:0 0 0 .05em var(--hl)}
+  .pw.sel{background:#cfe0ff;box-shadow:0 0 0 .05em var(--acc)}
+  /* substitution key (same cells as substitution-key.html) */
+  #key .keycard{background:#fff;color:#000;box-shadow:0 0 0 1px var(--line);padding:16px 18px 8px}
+  #key h3{font-size:13px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;margin:18px 0 6px}
+  #key h3:first-child{margin-top:0}
+  #key .kgrid,#key .kgrid2{display:grid;border-top:1px solid #777;border-left:1px solid #777}
+  #key .kgrid{grid-template-columns:repeat(auto-fill,minmax(172px,1fr))}
+  #key .kgrid2{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+  #key .c{position:relative;height:190px;border-right:1px solid #777;border-bottom:1px solid #777}
+  #key .c .l{position:absolute;left:8px;top:2px;font-size:42px;font-weight:800;line-height:1}
+  #key .c .g{position:absolute;left:46px;right:3px;top:8px;height:140px;display:flex;align-items:center;justify-content:center;gap:6px}
+  #key .c .g svg{fill:#000;display:block;flex:none}
+  #key .c .d{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-size:13.5px;color:#222}
+  #key .c.stack .g{flex-direction:column;gap:2px}
+  #key .c.blank{background:repeating-linear-gradient(135deg,#fff 0 9px,#f1f1f1 9px 10px)}
+  #key .c .none{color:#888;font-size:13px}
+  #key .kgrid2 .c{height:150px}
+  #key .kgrid2 .c .l{font-size:27px;left:6px;top:4px}
+  #key .kgrid2 .c .g{left:6px;right:6px;top:30px;height:94px}
+  #key .kgrid2 .c .d{font-size:12.5px;bottom:5px}
+  #key .kdig{grid-template-columns:repeat(10,minmax(0,1fr))}
+  @media (max-width:720px){#key .kdig{grid-template-columns:repeat(5,minmax(0,1fr))}}
+  #key .knotes{margin-top:14px;font-size:14px;line-height:1.5;color:#111;max-width:1150px}
+  #key .knotes div{margin-bottom:9px}
+  #key .m{font-family:ui-monospace,Menlo,monospace;font-weight:700}
+  @media (max-width:720px){.pair{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>Oliver Twist thrift-store cipher — decipherment</h1>
+<p class="sub">The handwritten glyph cipher (left) beside its plaintext (right), each plaintext word set over the cipher word it stands for.
+Hover or click a word on either side to light up its counterpart (click again to release).
+The substitution key is at the bottom of the page (<a href="#key">jump to it</a>). Full analysis, glyph table and statistics: <a href="report.html">report.html</a>.</p>
+<p class="note">Italic orange words ending in “?” are uncertain readings. The cover lettering (photo 4) follows the requester’s reading; only JAMES ANDERSEN and the digits were checked glyph by glyph.</p>
+</header>
+<main id="main"></main>
+__KEY__
+<script>
+const DATA=__DATA__;
+const FONT='"Helvetica Neue",Helvetica,Arial,sans-serif';
+const cv=document.createElement('canvas').getContext('2d'); cv.font='650 100px '+FONT;
+const unit=t=>cv.measureText(t).width/100;       // text width per 1px of font size
+const KMIN=0.72, KMAX=1.10;                       // horizontal squeeze / stretch limits for a word
+const f1=x=>(+x.toFixed(3));
+const med=a=>{const s=[...a].sort((x,y)=>x-y),n=s.length;return n%2?s[(n-1)/2]:(s[n/2-1]+s[n/2])/2;};
+// push neighbouring words apart (left to right order) until each pair has at least `gap` between them, staying inside [lo,hi]
+function spread(cs,wd,lo,hi,gap){
+  const x=cs.slice();
+  for(let it=0;it<300;it++){
+    let moved=false;
+    for(let i=0;i<x.length-1;i++){
+      const need=(wd[i]+wd[i+1])/2+gap-(x[i+1]-x[i]);
+      if(need>0.01){x[i]-=need/2;x[i+1]+=need/2;moved=true;}
+    }
+    for(let i=0;i<x.length;i++)x[i]=Math.max(lo+wd[i]/2,Math.min(hi-wd[i]/2,x[i]));
+    if(!moved)break;
+  }
+  return x;
+}
+const groups={};                                  // key -> elements of the cipher word and its plaintext word
+let hover=null,pinned=null;
+function paint(){
+  for(const k in groups) for(const e of groups[k]){e.classList.toggle('hl',k===hover);e.classList.toggle('sel',k===pinned);}
+}
+const main=document.getElementById('main');
+for(const P of DATA){
+  const sec=document.createElement('section');
+  const nw=P.lines.reduce((n,L)=>n+L.words.length,0);
+  sec.innerHTML=`<h2>${P.name}<small>${P.lines.length} line${P.lines.length>1?'s':''}, ${nw} word${nw>1?'s':''}</small></h2><div class="pair"><div class="cipher"><img alt="${P.name}" src="data:image/jpeg;base64,${P.img}"></div><div class="plain" style="aspect-ratio:${P.w}/${P.h}"></div></div>`;
+  main.appendChild(sec);
+  const cip=sec.querySelector('.cipher'), pl=sec.querySelector('.plain');
+  const px=x=>f1(100*x/P.w)+'%', py=y=>f1(100*y/P.h)+'%';
+  // first pass: the largest font each line allows (body height of its cipher glyphs; width of its cipher slots with a mild squeeze).
+  // Short lines (few, small or clipped glyphs) would come out tiny, so both limits are floored at a share of the page's typical value.
+  const body=P.lines.filter(L=>!L.wo), pageH=body.length>2?med(body.map(L=>L.H)):0;
+  P.lines.forEach(L=>{
+    L.us=L.words.map(w=>unit(w.t)); L.fit=L.words.map((w,i)=>w.sw/L.us[i]);
+    L.Fh=1.15*(L.wo?L.H:Math.max(L.H,0.95*pageH)); L.F0=Math.min(L.Fh,(L.words.length>1?med(L.fit):L.fit[0])/0.85);
+  });
+  const pageF=body.length>2?med(body.map(L=>L.F0)):0;
+  body.forEach(L=>{L.F0=Math.min(L.Fh,Math.max(L.F0,0.88*pageF));});
+  P.lines.forEach((L,li)=>{
+    const us=L.us, fit=L.fit, F0=L.F0;
+    const lo=0.012*P.w, hi=0.988*P.w;
+    let F=F0, kx, xs, ok=false;
+    for(let it=0;it<30&&!ok;it++){
+      kx=L.words.map((w,i)=>Math.max(KMIN,Math.min(KMAX,fit[i]/F)));
+      const wd=L.words.map((w,i)=>us[i]*F*kx[i]);
+      const ideal=L.words.map((w,i)=>Math.max(lo+wd[i]/2,Math.min(hi-wd[i]/2,w.cx)));   // cipher word centre, kept inside the page
+      xs=spread(ideal,wd,lo,hi,0.24*F);
+      // accept when nothing had to move more than about a letter, and nothing still overlaps
+      const mv=Math.max(...xs.map((x,i)=>Math.abs(x-ideal[i])));
+      const gapOK=xs.every((x,i)=>i===0||x-xs[i-1]-(wd[i]+wd[i-1])/2>=0.18*F);
+      ok=(L.words.length===1||(gapOK&&mv<=0.9*F))||F<0.55*F0;
+      if(!ok)F*=0.94;
+    }
+    L.Fused=F;
+    L.words.forEach((w,wi)=>{
+      const k='p'+P.key+'-'+li+'-'+wi;
+      const c=document.createElement('div'); c.className='cw'; c.dataset.k=k;
+      const bw=w.sw+0.18*L.H, bh=w.bh;
+      c.style.cssText=`left:${px(w.cx)};top:${py(w.cy)};width:${f1(100*bw/P.w)}%;height:${f1(100*bh/P.h)}%;transform:translate(-50%,-50%) rotate(${f1(w.ang)}deg)`;
+      cip.appendChild(c);
+      const dx=xs[wi]-w.cx, cy=Math.max(0.45*F,Math.min(P.h-0.45*F,w.cy+dx*Math.tan(w.ang*Math.PI/180)));     // slide along the (tilted) line, keep inside the page
+      const s=document.createElement('div'); s.className='pw'+(w.t.endsWith('?')?' u':''); s.dataset.k=k; s.textContent=w.t;
+      s.style.cssText=`left:${px(xs[wi])};top:${py(cy)};font-size:${f1(100*F/P.w)}cqw;transform:translate(-50%,-50%) rotate(${f1(w.ang)}deg) scaleX(${f1(kx[wi])})`;
+      pl.appendChild(s);
+      (groups[k]=groups[k]||[]).push(c,s);
+    });
+  });
+}
+document.addEventListener('mouseover',e=>{const t=e.target.closest('[data-k]');const k=t?t.dataset.k:null;if(k!==hover){hover=k;paint();}});
+document.addEventListener('mouseout',e=>{if(!e.relatedTarget&&hover){hover=null;paint();}});
+document.addEventListener('click',e=>{const t=e.target.closest('[data-k]');pinned=t&&t.dataset.k!==pinned?t.dataset.k:null;paint();});
+</script>
+</body>
+</html>

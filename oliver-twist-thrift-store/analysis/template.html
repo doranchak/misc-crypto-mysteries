@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Oliver Twist thrift-store book — handwritten glyph cipher: transcription &amp; visualizer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{--ink:#1d2330;--mute:#5b6577;--line:#d9dde5;--bg:#f6f7f9;--card:#fff;--acc:#1f5fbf;--warn:#a15c00;--warnbg:#fff6e6;--okbg:#eef6ee;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  main{max-width:1200px;margin:0 auto;padding:28px 20px 80px}
+  h1{font-size:26px;margin:0 0 4px}
+  h2{font-size:20px;margin:42px 0 10px;padding-top:6px;border-top:1px solid var(--line)}
+  h3{font-size:16px;margin:22px 0 6px}
+  .sub{color:var(--mute);margin:0 0 18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:14px 0}
+  .status{border-left:5px solid var(--warn);background:var(--warnbg)}
+  .status h3{margin-top:0}
+  .src{font-size:14px}
+  blockquote{margin:8px 0;padding:6px 12px;border-left:3px solid var(--line);color:#333;background:#fafbfc}
+  a{color:var(--acc)}
+  code,.mono,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  pre{background:#fbfbfc;border:1px solid var(--line);border-radius:6px;padding:10px 12px;overflow:auto;font-size:14px;line-height:1.7;white-space:pre}
+  table{border-collapse:collapse;width:100%;font-size:14px}
+  th,td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:middle}
+  th{background:#eef0f4;font-weight:600;position:sticky;top:0}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .glyphch{font-size:24px;line-height:1;font-family:"Noto Sans","DejaVu Sans","Segoe UI Symbol",Arial,sans-serif}
+  .figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+  figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px}
+  figure img{width:100%;height:auto;display:block;border-radius:4px}
+  figcaption{font-size:13px;color:var(--mute);margin-top:6px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:860px){.two{grid-template-columns:1fr}}
+  /* viewer */
+  .tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .tabs button,.btn{border:1px solid var(--line);background:#fff;border-radius:6px;padding:6px 10px;cursor:pointer;font:inherit}
+  .tabs button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+  .viewer{display:grid;grid-template-columns:1fr 290px;gap:14px;align-items:start}
+  @media(max-width:980px){.viewer{grid-template-columns:1fr}}
+  #scroller{height:min(78vh,880px);min-height:420px;overflow:auto;background:#222;border-radius:8px;border:1px solid var(--line)}
+  #stage{position:relative;transform-origin:0 0}
+  #stage img{display:block}
+  .box{position:absolute;border:2px solid;border-radius:2px;pointer-events:auto}
+  .box.dim{opacity:.12}
+  .box.hl{background:rgba(255,230,0,.45)}
+  .box.hit{background:rgba(255,80,80,.35);outline:3px solid #ff3b3b}
+  .box .lab{position:absolute;left:0;top:-1.25em;font:700 15px/1 "Noto Sans","DejaVu Sans",Arial,sans-serif;color:#fff;background:rgba(0,0,0,.65);padding:1px 3px;border-radius:3px;display:none;white-space:nowrap}
+  .showlab .box .lab{display:block}
+  .pmark{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border:2px dashed #7fd;border-radius:50%;pointer-events:none}
+  #tip{position:fixed;z-index:50;background:#111;color:#fff;font-size:12px;padding:5px 8px;border-radius:5px;pointer-events:none;display:none;max-width:260px}
+  .ctrl{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:8px 0;font-size:14px}
+  .ctrl input[type=text]{border:1px solid var(--line);border-radius:6px;padding:5px 8px;font:inherit;width:150px}
+  #legend{max-height:min(78vh,880px);overflow:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+  .lrow{display:grid;grid-template-columns:18px 30px 1fr 38px;gap:6px;align-items:center;padding:5px 8px;border-bottom:1px solid #eef0f4;cursor:pointer;font-size:13px}
+  .lrow:hover{background:#f3f6fb}.lrow.on{background:#e4eeff}
+  .sw{width:14px;height:14px;border-radius:3px}
+  .lrow .glyphch{font-size:20px}
+  .lrow small{color:var(--mute)}
+  details{margin:10px 0}summary{cursor:pointer;font-weight:600}
+  .thumbs img{height:34px;margin-right:4px;border:1px solid #eee;background:#fff}
+  .pill{display:inline-block;padding:1px 8px;border-radius:10px;background:#eef0f4;font-size:12px;color:#333}
+  ul{padding-left:20px}li{margin:4px 0}
+  .small{font-size:13px;color:var(--mute)}
+  .hide{display:none}
+  .good{background:var(--okbg)}
+</style>
+</head>
+<body>
+<main>
+<h1>Handwritten glyph cipher in a thrift-store <em>Oliver Twist</em></h1>
+<p class="sub">Transcription, analysis and interactive visualizer for five photographs of a hand-annotated copy of <em>Oliver Twist</em>.</p>
+
+<div class="card src">
+  <strong>Source.</strong> r/codes post
+  <a href="https://www.reddit.com/r/codes/comments/1xx6vjb/found_at_a_thrift_store_how_do_i_decode_this/">“Found at a thrift store. How do I decode this?”</a>
+  by <strong>u/jar_of_spiders_</strong>. The poster’s text:
+  <blockquote>Found at a thrift store. How do I decode this?<br><br>There’s about 5 more pages of writing after this. Some letters appear on their own often so I assume it’s A or I, but beyond that I’m not sure how to figure it out. Any help would be appreciated!</blockquote>
+  <span class="small">The thread itself could not be opened from the environment this analysis ran in (reddit.com refused the fetch), so nothing from the replies was used. Everything below comes from the five photographs only; the poster’s text above is quoted as supplied.</span>
+</div>
+
+<div class="card status">
+  <h3>Where this stands</h3>
+  <ul>
+    <li><strong>Transcribed: yes (machine-assisted, shape-level).</strong> All five photos were processed. The text pages were segmented into <strong>{{TOTG}} glyphs</strong> in 5 page regions, grouped into lines and words, and classed into <strong>19 shape families</strong>. Every glyph is a box in the visualizer below, and the full coded transcription is in <a href="#transcription">§4</a>. My rough estimate is that a quarter to two-fifths of the classifications are wrong or ambiguous (see §6), so treat it as a working transcription, not a verified one.</li>
+    <li><strong>Solved: no.</strong> I did <em>not</em> recover a verified glyph→letter key or any readable plaintext. I am not offering a decipherment, because the evidence I have does not support one.</li>
+    <li><strong>What the data does support:</strong> the writing is a <em>real, sequentially structured</em> system (not noise): adjacent-glyph mutual information is 0.51 bits against 0.315 ± 0.014 for shuffled copies. It is word-spaced, written with a limited set of letter shapes (19 families, ~30 shape clusters), and punctuated with “∴” marks. A few word shapes repeat in ways that look like short function words (§5), consistent with the poster’s A/I guess, but unconfirmed.</li>
+  </ul>
+</div>
+
+<h2 id="photos">1 · What is in the photographs</h2>
+<div class="figs">
+  <figure><img src="{{photo1}}" alt=""><figcaption><strong>book1.jpeg</strong> — printed title “Oliver Twist” with a small engraving, then the first page of handwriting (about 13 lines; the last is cut off by the page edge).</figcaption></figure>
+  <figure><img src="{{photo2}}" alt=""><figcaption><strong>book2.jpeg</strong> — spread. Left: two handwritten lines, a short five-line block and a lone glyph above the printed excerpt “…though I am not disposed to maintain that being born in a workhouse…”. Right: decorated initial, engraving and ~22 handwritten lines. The OP’s notebook with pencil notes is under the book at lower left.</figcaption></figure>
+  <figure><img src="{{photo3}}" alt=""><figcaption><strong>book3.jpeg</strong> — spread. Left: printed excerpt “The room in which the boys were fed, was a large stone hall…”, then a block-letter heading and a full page of handwriting. Right: another block-letter heading and a full page.</figcaption></figure>
+  <figure><img src="{{photo4}}" alt=""><figcaption><strong>book4.jpeg</strong> — inside front cover and title page: a large decorated glyph, a portrait, a big outlined word and a small signature-like line (also repeated on the cover).</figcaption></figure>
+  <figure><img src="{{photo5}}" alt=""><figcaption><strong>book5.jpeg</strong> — inside back cover (photographed upside down): a single row of ten block-style glyphs.</figcaption></figure>
+</div>
+<p class="small">The printed excerpts are from Chapters 1–2 of the novel. The handwritten text does not obviously reproduce them: one word-length search of the novel around a partly decoded context found no match (a weak test, given the transcription noise).</p>
+
+<h2 id="viewer">2 · Visualizer</h2>
+<p>Each box is one machine-segmented glyph, coloured by its shape family. Click a family in the list to isolate it, hover a box for its class, or type a string of family characters (e.g. <code>ɓ+</code>) to light up every word containing that sequence. Dashed circles are “∴” sentence marks. The page images are background-flattened and de-skewed.</p>
+<div class="tabs" id="tabs"></div>
+<div class="ctrl">
+  <label>Zoom <input type="range" id="zoom" min="30" max="140" value="62"></label>
+  <label><input type="checkbox" id="labels"> show family characters</label>
+  <label><input type="checkbox" id="boxes" checked> show boxes</label>
+  <label>Find word: <input type="text" id="q" placeholder="e.g. ɓ+"></label>
+  <label><input type="checkbox" id="exact" checked> whole word</label>
+  <span id="qres" class="small"></span>
+  <button class="btn" id="clearf">Clear filter</button>
+</div>
+<div class="viewer">
+  <div id="scroller"><div id="stage"></div></div>
+  <div id="legend"></div>
+</div>
+<div id="tip"></div>
+<div class="hide" id="imgstore"><!--PAGEIMGS--></div>
+
+<h2 id="inventory">3 · Glyph inventory</h2>
+<p>Shape families, with the number of glyphs found across all five page regions and where in a word they stand (a “word” is a run of glyphs separated by gaps smaller than a calibrated threshold, so word boundaries are approximate). Letters of the alphabet are <em>not</em> assigned here. The columns only describe behaviour.</p>
+<div style="max-height:520px;overflow:auto;border:1px solid var(--line);border-radius:8px">
+<table id="inv"><thead><tr><th>Family</th><th>Looks like</th><th>Examples</th><th>Count</th><th>Alone</th><th>Word-initial</th><th>Medial</th><th>Word-final</th></tr></thead><tbody></tbody></table>
+</div>
+<p class="small">Reading the table: “Alone” = one-glyph words. A glyph that is almost never word-initial but often word-final (e.g. +) behaves like a suffix-type letter; one that is often alone (ϕ 17 times, ɥ 9, ⊙ 6) is a candidate for A or I. Singleton counts move by several when the line grouping is changed, so some are probably segmentation artefacts (see §6). “mix” is an impure catch-all cluster and “~” is the flourish at line ends.</p>
+
+<h2 id="transcription">4 · Full transcription</h2>
+<p>Coding: one character per glyph, chosen only to <em>resemble</em> the shape (these are not letter values); a space is a word gap; <code>∴</code> is the three-dot sentence mark; <code>~</code> is the line-end flourish or an unclassifiable fragment; <code>§</code> is the impure mixed-shape class. Lines follow the order on the page. The same text is in <code>transcription.txt</code> next to this file.</p>
+<div id="tx"></div>
+
+<h3>Headings, numerals and front matter (read by eye)</h3>
+<div class="two">
+  <div class="card">
+    <strong>Block-letter headings on spread 3.</strong> A different, upright “block” hand is used for a short heading at the top of both handwritten pages, and nothing else on the text pages. Approximately:
+    <pre>right page:  ꟻ ‡ L ‡ ∩ ∩ . ∩ ∩ ⊥ : G ∩</pre>
+    The left page’s heading is partly cut off in the photo but appears to share the same prefix with a different tail. Digit-like symbols separated by “.” and “:” look like a numbering or date/time-stamp format. <em>Unverified.</em>
+    <img src="{{headR}}" style="width:100%;margin-top:8px" alt="">
+  </div>
+  <div class="card">
+    <strong>Row of ten block glyphs on the back cover</strong> (the image is rotated 180° so the glyphs are upright; the sequence below is as it appears in the photo):
+    <pre>∩ U G T ⊥ ‡ ʒ ꟻ Ǝ ʌ   (approximate, in the orientation of the photo)</pre>
+    Ten distinct symbols in the same block hand as the headings suggest a digit key (0–9), which would let the headings be read as numbers. I could not confirm the order or values from the photo alone.
+    <img src="{{b5_row}}" style="width:100%;margin-top:8px" alt="">
+  </div>
+  <div class="card">
+    <strong>Title page (book4.jpeg).</strong> A large decorated word of about eight glyphs, a second smaller line and a signature-like line repeated on the inside cover. These look like the owner’s name or a title in the same cursive alphabet, but I did not transcribe them at glyph level.
+    <img src="{{b4_title}}" style="width:100%;margin-top:8px" alt="">
+  </div>
+  <div class="card">
+    <strong>Signature-like line on the inside front cover</strong> (book4.jpeg). Two words in the same cursive alphabet; it is repeated on the title page. Not transcribed at glyph level. <em>Not segmented:</em> the large looped initial and the small heading line at the top of spread 2’s right page; everything below them is in the transcription.
+    <img src="{{b4_left}}" style="width:100%;margin-top:8px" alt="">
+  </div>
+</div>
+
+<h2 id="findings">5 · What the data shows</h2>
+<h3>Repeated word shapes</h3>
+<p>These word shapes recur verbatim (same glyph families in the same order) on more than one page. The crops show the actual handwriting.</p>
+<div class="two">
+  <div><img src="{{wordcmp}}" style="width:100%;border:1px solid var(--line);border-radius:6px" alt=""></div>
+  <div>
+  <table>
+    <tr><th>Word shape</th><th>Times</th><th>Suggestive of</th></tr>
+    <tr><td class="glyphch">ϕ</td><td class="num">17</td><td>one-letter word (A / I); ɥ stands alone 9 times and ⊙ 6 times</td></tr>
+    <tr><td class="glyphch">ɣ⊙ɥ &nbsp; vs &nbsp; ⊙ɥ</td><td class="num">4 &nbsp;/&nbsp; 6</td><td>a 3-glyph word whose last two glyphs are also a stand-alone word, like <em>the/he</em> or <em>she/he</em></td></tr>
+    <tr><td class="glyphch">ɓ+</td><td class="num">5</td><td>a two-letter word, e.g. <em>is/it/in</em> (ɓ is rarely alone: 2 times)</td></tr>
+    <tr><td class="glyphch">ʞʓ</td><td class="num">4</td><td>a two-letter word, e.g. <em>of/on/or</em></td></tr>
+    <tr><td class="glyphch">ɣϕƶ</td><td class="num">4</td><td>a three-letter word of the form ?A?</td></tr>
+    <tr><td class="glyphch">⊙ϕʓɥ</td><td class="num">2</td><td>a four-letter word on two pages (looked like <em>have</em>, but its first glyph is a curl rather than a true ⊙, so the clustering label is unreliable)</td></tr>
+  </table>
+  <p class="small">I tried “ɣ⊙ɥ = the, ⊙ɥ = he, ϕ = a” as anchors and propagated them with a dictionary-pattern (hangman) search over the whole transcription. The results did not converge to a consistent reading, and several implied words (<em>ha?e</em> “have”, <em>ʞʓ</em> “of”) demanded two different letters for the same glyph. Those are the two reasons I am not calling them a key.</p>
+  </div>
+</div>
+
+<h3>Sequence structure</h3>
+<ul>
+  <li><strong>Not random.</strong> On pages 1 and 3 with the first-pass segmentation (969 glyphs, 1,218 adjacent pairs, 20 families) the mutual information between neighbouring glyphs is 0.513 bits, versus 0.315 ± 0.014 (200 shuffles that keep word lengths). That is about 14 standard deviations above chance.</li>
+  <li><strong>Word-edge behaviour is lopsided.</strong> + occurs word-finally in 22 of 34 cases and word-initially once; ⊙ is word-final only 15 times out of 162; ɥ is word-final in 31 of 90. These are letter-like, non-uniform distributions (the ⊙ and ɥ figures are affected by cluster impurity).</li>
+  <li><strong>Common ligature.</strong> The cursive “ꙍ” (a w-shaped stroke) is almost always joined to the next glyph, most often to an “S”-like or “3”-like glyph, forming the most frequent wide unit on the pages (51 glyphs in the ꙍ family).</li>
+</ul>
+
+<h2 id="method">6 · Method, limits and what failed</h2>
+<ol>
+  <li><strong>Image preparation.</strong> Each text page was cropped, de-skewed (rotation chosen to maximise row-profile variance) and background-flattened (CLAHE + division by a heavy Gaussian blur). The flattening is what made the blurry lower half of spread 2 right usable.</li>
+  <li><strong>Segmentation.</strong> Adaptive threshold → connected components; dots enclosed in a ring (⊙) are merged into their host. Components wider than 1.5× the typical glyph were split at ink-projection minima by dynamic programming. Lines are built by chaining each glyph to its nearest left neighbour at a similar height (the left page of spread 3 is strongly curved, so its line order and breaks are the least reliable); words come from gap size.</li>
+  <li><strong>Classification.</strong> Skeletons were compared by a symmetric Chamfer distance and clustered spectrally into 36 clusters, then grouped by eye into 19 shape families. Cluster purity is imperfect: the looped-Y (ɣ), the mixed “§” class and the circles (⊙ vs ϕ) contain look-alikes, and some pieces from mis-split ligatures are in the wrong class. My estimate is that 25–40% of glyphs carry a wrong or ambiguous class, which is the main thing blocking a statistical solve.</li>
+  <li><strong>Language-model attacks (all negative).</strong> A homophonic simulated-annealing solver with character 3-gram models and a homophone-entropy penalty was run with models built from <em>Oliver Twist</em> (English), <em>Don Quijote</em> (Spanish), <em>Les Trois Mousquetaires</em> (French), Dante (Italian) and German, Portuguese and Dutch texts from Project Gutenberg (5 restarts each). No run produced recognisable words in any language. With the noise level above, that does <em>not</em> rule English out; it just means the transcription is not clean enough.</li>
+  <li><strong>Anchor/dictionary search.</strong> Described in §5; inconclusive.</li>
+  <li><strong>Pencil notes.</strong> The OP’s notebook is visible under the book in photos 2–4. Its pencil marks appear (low confidence) to read “ϕ = A”, “∴ = ?e” and “⊙ = A…” (the rest is hidden under the book). They are the poster’s own guesses, so I did not use them.<br><img src="{{pencil}}" style="display:block;height:150px;margin-top:6px;border:1px solid var(--line)" alt="Pencil notes under the book, rotated"></li>
+  <li><strong>Not done.</strong> The OP says there are about five more pages; those are not in the photos. The decorated initials, title page and signature were not segmented, and the block-numeral system was only transcribed by eye.</li>
+</ol>
+<h3>What would most likely finish it</h3>
+<ul>
+  <li>A hand-verified glyph alphabet: someone with the book labelling ~30 exemplar glyphs (and which are ligatures). A clean transcription of even 300–400 letters should fall to a standard substitution/homophone solver.</li>
+  <li>The remaining five pages, and the unobscured part of the OP’s notebook, would add text and possibly a partial key.</li>
+  <li>Decide whether ϕ, ɥ and ⊙ (all of which stand alone as words) are different letters or one letter written in different styles; that single decision changes the singleton-word story and the alphabet size.</li>
+</ul>
+
+<h2 id="files">7 · Files</h2>
+<ul>
+  <li><code>index.html</code> — this report (self-contained).</li>
+  <li><code>transcription.txt</code> — the coded transcription, one line per page line.</li>
+  <li><code>analysis/</code> — the Python used for segmentation, clustering and solver experiments (needs numpy, opencv, scikit-image, scikit-learn, scipy; paths reflect the original working layout).</li>
+</ul>
+</main>
+
+<script>
+const V = /*VIEWDATA*/;
+const ROWS = /*ROWS*/;
+const THUMBS = /*THUMBS*/;
+const fams = Object.keys(V.fam);
+const color = {}; fams.forEach((f,i)=>{ color[f] = f==='junk' ? 'hsl(0,0%,60%)' : `hsl(${(i*53)%360},75%,${i%2?52:42}%)`; });
+const CH = f => V.fam[f] ? V.fam[f].ch : '?';
+let cur = Object.keys(V.pages)[0], focus = null, hits = [];
+const $ = id => document.getElementById(id);
+
+function buildTabs(){
+  const t=$('tabs'); t.innerHTML='';
+  Object.keys(V.pages).forEach(k=>{
+    const b=document.createElement('button'); b.textContent=V.pages[k].title.replace(/ \(.*\)/,''); b.className=k===cur?'on':'';
+    b.onclick=()=>{cur=k; buildTabs(); render();}; t.appendChild(b);
+  });
+}
+function buildLegend(){
+  const L=$('legend'); L.innerHTML='';
+  const counts={};
+  fams.forEach(f=>counts[f]=0);
+  Object.values(V.pages[cur].lines).forEach(items=>items.forEach(it=>{ if(it.t==='w') it.g.forEach(g=>counts[g[5]]++); }));
+  fams.slice().sort((a,b)=>counts[b]-counts[a]).forEach(f=>{
+    if(!counts[f]) return;
+    const r=document.createElement('div'); r.className='lrow'+(focus===f?' on':'');
+    r.innerHTML=`<span class="sw" style="background:${color[f]}"></span><span class="glyphch">${CH(f)}</span><span>${V.fam[f].desc}</span><small>${counts[f]}</small>`;
+    r.onclick=()=>{ focus = focus===f?null:f; render(); };
+    L.appendChild(r);
+  });
+}
+function wordStr(g){ return g.map(x=>CH(x[5])).join(''); }
+function render(){
+  const P=V.pages[cur], img=$('pg-'+cur);
+  const z=$('zoom').value/100, s=P.scale*z/ P.scale; // image drawn at natural(downscaled)*z
+  const stage=$('stage'); stage.innerHTML='';
+  const im=img.cloneNode(); im.removeAttribute('id'); const nw=img.naturalWidth||P.w*P.scale; im.style.width=(nw*z)+'px'; stage.appendChild(im);
+  stage.classList.toggle('showlab',$('labels').checked);
+  const k=P.scale*z, q=$('q').value.replace(/\s+/g,''), exact=$('exact').checked; let nhit=0;
+  P.lines.forEach((items,li)=>{
+    items.forEach((it,wi)=>{
+      if(it.t==='p'){ const m=document.createElement('div'); m.className='pmark'; m.style.left=(it.x*k)+'px'; m.style.top=(it.y*k)+'px'; stage.appendChild(m); return; }
+      const ws=wordStr(it.g); const hit=q && (exact? ws===q : ws.includes(q)); if(hit) nhit++;
+      it.g.forEach((g,gi)=>{
+        const b=document.createElement('div'); b.className='box'+(focus&&g[5]!==focus?' dim':'')+(hit?' hit':'');
+        b.style.cssText=`left:${g[0]*k}px;top:${g[1]*k}px;width:${g[2]*k}px;height:${g[3]*k}px;border-color:${color[g[5]]};display:${$('boxes').checked||hit?'block':'none'}`;
+        b.dataset.tip=`line ${li+1}, word ${wi+1}, glyph ${gi+1} · class #${g[4]} · ${g[5]} (${CH(g[5])})`;
+        b.innerHTML=`<span class="lab">${CH(g[5])}</span>`;
+        stage.appendChild(b);
+      });
+    });
+  });
+  $('qres').textContent = q ? `${nhit} word${nhit===1?'':'s'} on this page` : '';
+  buildLegend();
+}
+const tip=$('tip');
+document.addEventListener('mousemove',e=>{
+  const b=e.target.closest&&e.target.closest('.box');
+  if(b&&b.dataset.tip){ tip.style.display='block'; tip.textContent=b.dataset.tip; tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY+14)+'px'; } else tip.style.display='none';
+});
+['zoom','labels','boxes','exact'].forEach(id=>$(id).addEventListener('input',render));
+$('q').addEventListener('input',render);
+$('clearf').onclick=()=>{focus=null;$('q').value='';render();};
+
+// inventory table
+(function(){
+  const tb=document.querySelector('#inv tbody');
+  ROWS.forEach(r=>{
+    const th=(THUMBS[r.f]||[]).map(t=>`<img src="data:image/png;base64,${t}" alt="">`).join('');
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><span class="glyphch">${r.ch}</span> <span class="pill">${r.f}</span></td><td>${r.desc}</td><td class="thumbs">${th}</td><td class="num">${r.n}</td><td class="num">${r.single}</td><td class="num">${r.first}</td><td class="num">${r.mid}</td><td class="num">${r.last}</td>`;
+    tb.appendChild(tr);
+  });
+})();
+// transcription
+(function(){
+  const box=$('tx');
+  Object.keys(V.pages).forEach(k=>{
+    const P=V.pages[k]; const d=document.createElement('details'); if(k==='b1') d.open=true;
+    const lines=P.lines.map((items,li)=>{
+      const s=items.map(it=> it.t==='p' ? '∴' : wordStr(it.g)).join(' ');
+      return String(li+1).padStart(2,'0')+'  '+s;
+    }).join('\n');
+    const words=P.lines.reduce((a,items)=>a+items.filter(i=>i.t==='w').length,0);
+    const gl=P.lines.reduce((a,items)=>a+items.reduce((b,i)=>b+(i.t==='w'?i.g.length:0),0),0);
+    d.innerHTML=`<summary>${P.title} — ${P.lines.length} lines, ${words} words, ${gl} glyphs</summary><pre>${lines.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</pre>`;
+    box.appendChild(d);
+  });
+})();
+window.addEventListener('load',()=>{buildTabs();render();});
+</script>
+</body>
+</html>

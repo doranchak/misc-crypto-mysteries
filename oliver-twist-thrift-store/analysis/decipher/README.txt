@@ -1,0 +1,58 @@
+Pipeline used for the key-assisted decipherment (see ../../report.html; the plain side-by-side decipherment view is ../../index.html, built by build_index.py).
+1. blue.py / bluelines.py / bluealign2.py : extract the blue annotation letters from key.jpg and align them to page-1 letters.
+2. pieces1.py / label1.py : segment page 1 into glyph pieces and label them with the key letters (DP alignment).
+3. allpieces.py / strips.py : segment pages 2-3 into glyph pieces / lines.
+4. feats.py / lat.py / boot.py : glyph features (Chamfer + HOG), classifier, training labels (page 1 + verified words in fixed_spans.json).
+5. decode.py / decode2.py / vocab.py / bigram.py : dictionary + bigram beam decoder over classifier probabilities.
+6. mkann.py / zoom.py : numbered-glyph line images used to read and verify words by eye; fixed_spans.json holds the words so verified.
+7. final_decode.py -> align.py (letters aligned to glyph pieces) -> build_data2.py / build_alpha2.py / build_stats.py / build_extra.py -> build_html2.py + template_v2.html : produce the report. explicit_labels.json holds hand-checked glyph labels (apostrophes, V); fixed_spans.json holds the verified words.
+Scripts expect the scratch-pad layout used during the session (paths are absolute in places).
+
+8. build_editor_data.py + editor_template.html : build ../../glyph-editor.html (standalone per-glyph letter entry tool; reads strips from the segmentation pickles and reference words from index.html).
+
+Note: the apostrophe glyph (small raised loop) is symbol 29 in decode.py; contractions are in vocab.py / bigram.py. Language-model texts (Oliver Twist, Pride and Prejudice) come from Project Gutenberg (mirror gutenberg.pglaf.org); see vocab.py.
+
+Update (key sheet, WH glyph, recovered line ends):
+9. rescue.py / apply_rescue.py : page 2 (right) was segmented with a rectangle blanked out to hide a drawing; that also hid the ends of two lines (OLD, and the M of JIM). The rescue pass re-extracts with a tighter mask and appends the five new pieces to those lines (existing piece indices unchanged). orphans.py lists glyph-sized pieces that never made it into a line (all remaining ones are gutter shadow, page edge or the drawing).
+10. WH is symbol 30 in decode.py (W slash + dot + H loop written as ONE glyph; align.py groups 'WH' and 'NE'). decode2.py now lets a word cover one extra piece when a glyph was split in two touching pieces (merge) and lets a narrow stray piece be skipped; final_decode.py folds zero-confidence one-piece "words" into the touching neighbour (these were the spurious "I?"). evaldec.py = held-out word accuracy of the decoder on the verified lines (used to tune MERGE_BASE etc.). forced_suggest.json = WH words that are only suggestions (flagged ?). topwords.py / whwords.py = dictionary candidates for a span.
+11. build_transcription.py writes ../../transcription.txt from report_pages.json.
+12. keyglyphs.py + build_key.py + make_key_html.py : ../../substitution-key.html (16:9 printable key; glyphs are vector outlines traced from the page images; @page 13.333in x 7.5in).
+Edge artefacts: gutter shadow can look like a glyph (b2R line 0 piece 0, b3R line 9 piece 0); fixed_spans.json now starts those lines at the first real glyph.
+
+13. substitution-key.html (printable key): exemplars are traced as WHOLE glyphs (keyglyphs2.py: all ink inside the aligner's
+    glyph box, small fragments cut by the box edge dropped), picked by hand in build_key3.py (MAN dict; A, C, N, R, U) because
+    piece-level tracing lost strokes of multi-piece glyphs (N wave, A dot, R dot). Pick boxes whose width covers the whole glyph:
+    the aligner sometimes boxes only the S-curve half of N. -ING is the last two pieces (wave "w" + loop "3") of verified words
+    ending in -ING, exactly as report.html shows it. Order: build_key.py -> build_key3.py -> make_key_html.py.
+
+14. Re-reading of spread 2 right page (end) and spread 3 (user correction: lines 12-14 of the page were read wrongly).
+    Tools for reading a line by eye: showline.py / zoomline.py (line crop with piece numbers and boxes), showband.py (all pieces of all lines in a band -- reveals pieces filed under the wrong line), nn.py / nnline.py (nearest labelled neighbours per piece with Chamfer+HOG distance; distance < ~2 is a reliable match, > 3.5 is not), rank.py (dictionary words ranked by alignment cost on a span of pieces; parallel), cost.py (alignment cost + piece assignment of explicit hypotheses), verify_words.py (re-scores every fixed span against alternatives).
+    Lessons: (a) the aligner cost of the right word is far below the wrong one (CONTINUOUSLY 8.0 vs UNCONTROLLABLY 29.6; PROBLEM aligns 1 piece per letter) -- test explicit hypotheses with cost.py; (b) fused glyphs OU (zigzag + bar + V), GH, TH, ST, ING, WH, CK each take ONE piece, so a 7-letter word may span 4 pieces (THOUGHT = TH+OU+GH+T); (c) the glyph I first called K (small hump + cross) is O/OU; (d) apply_rescue2.py: b2R line 16 piece 15 was the tall glyph of line 15 fused with the dot/foot of line 16's R -- split and moved; feats.py must be re-run after any piece move; (e) block-hand header lines (b3R line 0, b3L line 3) are numerals and are skipped (EXCL in final_decode.py).
+    fixed_spans.json = verified; forced_suggest.json = suggestions (shown with ?). Build order unchanged.
+
+15. glyph-editor.html gained FREE LETTER BOXES (editor_template.html + build_editor_data.py, which now also embeds a full-resolution page image per page: full/fw/fh/fs and per-line frect in flat coordinates). Storage stays key 'oliver-twist-glyph-editor-v1', v:1; free boxes are an extra top-level field S.free = {page:{nid,m:[{i,x,y,t,b}]}} in flat (piece) pixel coordinates, so existing S.lines data is never touched. First load also copies the old saved state to '<key>-backup-before-free-boxes'; unreadable/unknown-version data is never overwritten (noSave). ?selftest now uses its own '<key>-selftest' key. The line strips/markers are rebuilt byte-identically (checked: 74 lines, 0 differences) so saved marker x positions stay valid -- if build_editor_data.py is ever changed in a way that alters strips, saved markers would shift.
+
+16. User-supplied reading of the last four lines of spread 2 right page (b2R lines 14-17: THOUGHT SOMEWHERE IN THE BACK OF MY / MIND THE PROBLEM STILL EXISTS / MY BRAIN HOWEVER REFUSES TO / DEVOTE MORE THAN PASSING THOUGHT). It fits the piece counts exactly (e.g. HOWEVER = 7 glyphs = 7 pieces, REFUSES = 7/7, DEVOTE = 6/6). New in the pipeline:
+    glyph_map.json = hand-specified glyph partition per line ([piece, ..., "TEXT"], e.g. [0,"TH"],[1,"OU"],[2,"GH"],[3,"T"]); build_data2.py uses it instead of the aligner when it matches the span's word, so fused glyphs (TH OU GH ST SS ING WH) get their letters under the right shape. labels_from_glyphmap.py turns single-piece entries into explicit_labels.json training labels (retrains the classifier); label_from_spans.py is the aligner-based variant. final_decode.py has NMAX (trailing gutter-shadow pieces dropped: b3R line 13 pieces 25-26) next to EXCL.
+    Spread 3 right page, tested with cost.py (explicit-hypothesis alignment): ON MY BREAK (MYBREAK 3.7 vs MYSELF 11.6), NORMAL (3.7 vs FORMAL 7.8), ENTIRELY (7.6 vs EAGERLY 13.6) are now verified; first word of b3R line 8 is suggested OUR? (HER 7.8, OUR 6.3). THINK IT in b3R line 2 reads TH+I+N+K / I+T by eye but stays suggested. Spread 3 left page (curved) is still machine-suggested; rank_unver.py ranks dictionary words for every unverified span (costs there are >10, i.e. segmentation, not vocabulary, is the problem).
+    Report viewer (template_v2.html): letters under the glyphs are now 14-28 px bold pills (letter size slider, default 140%), line-table labels 18 px with a 46 px label band (band= in build_data2.make_strip must equal BAND in the template), extra space under the last line. shot_viz.py / shot_tab.py = headless-Chrome screenshots of the viewer / a line table for checking.
+    Viewer follow-up: .vwrap no longer has a max-height / inner vertical scroll box (whole page image shown at full height; only horizontal scroll if zoomed wider than the column). "fit page to window" button (#c_fit) picks the zoom (25-220%) so the image plus the label strip under the last line fits the window height; the minimum letter size shrinks with zoom below 100% (zs) so the overview does not bury the glyphs.
+
+17. 2026-11-18 (spread 3 + covers; requester supplied a reading of photos 3-5)
+    - user_b3.py = the supplied reading keyed by (page, my line index) + DROP (shadow pieces), MANUAL (hand glyph partitions / explicit boxes), EXTRA (words whose pieces were lost: I of "I AM READY TO", CANT after "SO I", ONE ending b3R:8) and UNCERTAIN words.
+      make_b3_data.py aligns every line (align_user.py -> align.align with word breaks) and writes fixed_spans.json (V), forced_suggest.json ('?'), glyph_map.json and extra_glyphs.json. '' spans = pieces that are shadow/blotch (final_decode skips them).
+      Corrections found while aligning: duplicated I (MELANIE AND I . I JUST), SO I CAN'T (written in a looser hand at the right margin of that line), HELP IT IF (I+T glyph); ENTIRLY (cost 2.7 vs ENTIRELY 7.7); SHOT 2.9 vs 6.0; TOWN 5.3 vs 6.7.
+    - New fused glyph SH (decode.py SYM/variants/PRIOR class 31, align.py GROUPS). Doubled letters EE TT LL SS FF CC OO are single glyphs (>=3 consistent instances each); b2R:15 STILL now ST,I,LL / EXISTS E(2 pieces),X,I,ST,S. CK left out (fused once, split once).
+    - Block-hand = DIGITS. Row on photo 5 = 1 2 3 4 5 6 7 8 9 0 (1 and 9 from key.jpg's "199?", 6 and 0 confirmed by the headings): year 1996; headings = YYMMDD.HH:MM = 960611.18:11 (b3L:3) and 960611.18:31 (b3R:0). build_data2.py HEADS draws them; page-1 year is now 1996.
+    - Covers: build_covers.py -> report_pages_covers.json (pages b4L, b4R, b5; merged into PAGES by build_html2/build_transcription only, so they do not enter the letter statistics). JAMES ANDERSEN and the digit rows have glyph boxes (cover_seg.py components, merged blob NDER split equally); D??IAN / DESIGNS / JIMANDERSEN are word-level labels (wo=true lines).
+    - build_key4.py adds SH/EE/TT/LL/SS/FF/CC/OU/OO + digit traces to key_glyphs.json; make_key_html.py now writes a 2-slide substitution-key.html (slide 2 = doubles, marks, digits).
+    - build_data2 orders b3L line 21 (THIS IS ALL WORTHWHILE) before line 20 (I AM READY TO) = one physical line; the transcription prints them as one line.
+    - glyph-editor.html rebuilt: 74 lines, 0 strip/marker diffs vs the previous build, only 'ref' readings changed (35 lines), selftest PASS.
+
+18. 2026-11-18 (plain decipherment view = ../../index.html; the full report moved to ../../report.html)
+    - build_index.py (+ geom.py, index_template.html) builds index.html from PAGES in report.html: page photo left, plaintext right, each word set over its cipher
+      word (line fitted through glyph centres; font size/spacing fitted in the browser with canvas text measurement), hover/click highlights a word on both sides.
+    - The substitution key at the end of index.html uses keycells.py (glyph cells shared with make_key_html.py; substitution-key.html regenerates byte-identical).
+      Order after any change to the decipherment: build_html2.py -> build_index.py (and make_key_html.py if key_glyphs.json changed).
+    - Spelling corrections REALY -> REALLY, FITING -> FITTING (b1 line 10) were patched directly into report.html (words, glyph labels LL / I+TT+ING, STATS) because the
+      pickles were not available; build_data2.py / bluealign2.py still hold the old key spelling and would revert it on a full rebuild.
