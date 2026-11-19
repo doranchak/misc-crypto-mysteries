@@ -56,3 +56,13 @@ Edge artefacts: gutter shadow can look like a glyph (b2R line 0 piece 0, b3R lin
       Order after any change to the decipherment: build_html2.py -> build_index.py (and make_key_html.py if key_glyphs.json changed).
     - Spelling corrections REALY -> REALLY, FITING -> FITTING (b1 line 10) were patched directly into report.html (words, glyph labels LL / I+TT+ING, STATS) because the
       pickles were not available; build_data2.py / bluealign2.py still hold the old key spelling and would revert it on a full rebuild.
+
+19. 2026-11-19 (requester corrections; patched directly into report.html, then build_index.py)
+    - PIPACO? -> PIZZA CO (b3L line 4: two words; glyphs P I ZZ A | C O, the third glyph labelled as a doubled Z by the "letter glyph with an extra line" rule),
+      GET? and IS? (b3R "MELANIE IS OCCUPYING") -> verified, no "?"; b3R IS = ONE fused glyph (slashed ellipse + top bar/zig-zag); D??IAN -> DEVIANT (cover).
+      After this no word/glyph is flagged 'D' (suggested); the report's narrative bullets were edited to match. STATS recomputed with the build_stats.py logic.
+    - Key: build_key5.py (+ retrace.py: traces a hand-chosen rectangle straight from the flattened pages embedded in glyph-editor.html, no pickles) re-traced FF[0]
+      (thin middle bar was lost at threshold 0.92 -> 3 bars), CC[0] (old box started at the 2nd hump; glyph spans x 1286-1397) and added fx['IS'] (b3L, b3R).
+      keycells.make_letters / make_joined take overrides; the IS cell and the Z caption are index-only (build_index.py), so substitution-key.html (not regenerated) still
+      lacks IS and has the old FF/CC until make_key_html.py is re-run.
+    - Still stale on purpose: transcription.txt, glyph-editor.html ref, build_data2.py / bluealign2.py key text, page-1 IS (key-labelled I+S) and GETTING (T,T,I,NG) glyph labels.

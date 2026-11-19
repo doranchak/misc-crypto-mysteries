@@ -29,7 +29,6 @@
   .pw{position:absolute;white-space:nowrap;line-height:1;font-weight:650;letter-spacing:.01em;
       font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#17202e;cursor:pointer;
       padding:.06em .1em;border-radius:.12em;transform-origin:50% 50%}
-  .pw.u{color:#9a4400;font-style:italic}
   .pw.hl{background:#ffe08a;box-shadow:0 0 0 .05em var(--hl)}
   .pw.sel{background:#cfe0ff;box-shadow:0 0 0 .05em var(--acc)}
   /* substitution key (same cells as substitution-key.html) */
@@ -65,7 +64,7 @@
 <p class="sub">The handwritten glyph cipher (left) beside its plaintext (right), each plaintext word set over the cipher word it stands for.
 Hover or click a word on either side to light up its counterpart (click again to release).
 The substitution key is at the bottom of the page (<a href="#key">jump to it</a>). Full analysis, glyph table and statistics: <a href="report.html">report.html</a>.</p>
-<p class="note">Italic orange words ending in “?” are uncertain readings. The cover lettering (photo 4) follows the requester’s reading; only JAMES ANDERSEN and the digits were checked glyph by glyph.</p>
+<p class="note">The cover lettering (photo 4) follows the requester’s reading; only JAMES ANDERSEN and the digits were checked glyph by glyph.</p>
 </header>
 <main id="main"></main>
 __KEY__
@@ -136,7 +135,7 @@ for(const P of DATA){
       c.style.cssText=`left:${px(w.cx)};top:${py(w.cy)};width:${f1(100*bw/P.w)}%;height:${f1(100*bh/P.h)}%;transform:translate(-50%,-50%) rotate(${f1(w.ang)}deg)`;
       cip.appendChild(c);
       const dx=xs[wi]-w.cx, cy=Math.max(0.45*F,Math.min(P.h-0.45*F,w.cy+dx*Math.tan(w.ang*Math.PI/180)));     // slide along the (tilted) line, keep inside the page
-      const s=document.createElement('div'); s.className='pw'+(w.t.endsWith('?')?' u':''); s.dataset.k=k; s.textContent=w.t;
+      const s=document.createElement('div'); s.className='pw'; s.dataset.k=k; s.textContent=w.t;
       s.style.cssText=`left:${px(xs[wi])};top:${py(cy)};font-size:${f1(100*F/P.w)}cqw;transform:translate(-50%,-50%) rotate(${f1(w.ang)}deg) scaleX(${f1(kx[wi])})`;
       pl.appendChild(s);
       (groups[k]=groups[k]||[]).push(c,s);

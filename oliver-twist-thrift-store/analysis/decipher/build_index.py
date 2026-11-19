@@ -55,6 +55,15 @@ for pg in pages:
 
 import keycells as K
 
+# index-only changes on top of the shared cells: the word IS is one fused glyph (listed after AND), and Z only occurs
+# as the doubled ZZ of PIZZA (no ZZ exemplar traced yet, so the Z cell stays hatched)
+_desc = dict(K.DESC)
+_desc['Z'] = 'only as ZZ (PIZZA)'
+_jd = list(K.JD)
+_jd.insert([k for k, _, _ in _jd].index('AND') + 1, ('IS', 'IS', 'the word \u201cis\u201d'))
+LETTERS = K.make_letters(_desc)
+JOINED = K.make_joined(_jd)
+
 KEY = """<section id="key">
 <h2>Substitution key<small>one handwritten glyph per letter, joined in cursive; printable 16:9 version: <a href="substitution-key.html">substitution-key.html</a></small></h2>
 <div class="keycard">
@@ -68,13 +77,14 @@ KEY = """<section id="key">
  <div class="kgrid2 kdig">%(digits)s</div>
  <div class="knotes">
   <div><b>Source of the key.</b> Page 1 of the book comes with a partial key (blue letters over the glyphs); every other letter was checked glyph by glyph in words on pages 2&ndash;3 and on the cover pages. Two examples are shown per letter; the hand varies a little.</div>
-  <div><b>Cautions.</b> J, V and X are rare; Q and Z have not been seen. N and E are sometimes cut in two by the joins. Touching neighbours (IN, IS, AN &hellip;) are <i>not</i> special glyphs.</div>
+  <div><b>Cautions.</b> J, V and X are rare; Q has not been seen, and Z only once, as the doubled ZZ of PIZZA. N and E are sometimes cut in two by the joins. Touching neighbours (IN, AN &hellip;) are <i>not</i> special glyphs.</div>
+  <div><b>IS.</b> The word IS is written as one fused glyph: a slashed ellipse (the I) with a bar and zig-zag on top (THIS IS ALL, MELANIE IS OCCUPYING). In MELANIE IS A PALE it is written as a separate I and S.</div>
   <div><b>Doubled letters.</b> EE, TT, LL, SS, FF, CC and OO are each drawn as one glyph that looks like the letter with an extra stroke. TT is the T glyph with an extra line through it, and LL is the L glyph with an extra line through it (SEEM, KEEP, FEEL &middot; LITTLE, SITTING, FITTING &middot; STILL, REALLY &middot; MESS, PASSING &middot; OFFSPRING &middot; ACCIDENTAL &middot; GOOD, TOO). PP in APPARENTLY is written as two separate P&rsquo;s, and a few other doubles are ambiguous, so this list is only the pairs seen at least three times with a consistent shape.</div>
   <div><b>Where the digits come from.</b> The back cover carries a row of ten block glyphs. The page-1 key reads the year as &ldquo;1&nbsp;9&nbsp;9&nbsp;?&rdquo;: the first glyph matches the first glyph of the row, and the two repeated glyphs match the ninth, so the row runs 1&hellip;9, 0. The fourth year glyph is then the sixth in the row, <b>6</b>. This is confirmed by the two headings on spread 3, which read <span class="m">960611.18:31</span> and <span class="m">960611.18:11</span> (YYMMDD.HH:MM): year 96, month 06 = June (page 1 says &ldquo;June ninth&rdquo;), day 11, and times 18:11 and 18:31. The title page repeats &ldquo;1996&rdquo;. Digits 2, 3, 4, 5, 7 and 8 rest on the row order only (3 and 8 occur in the time stamps).</div>
   <div><b>Not listed.</b> CK looks fused in one BACK but separate in the other, so it is left out. ION and similar endings are two touching glyphs, not a special one.</div>
  </div>
 </div>
-</section>""" % dict(letters=K.letters, joined=K.joined, doubles=K.doubles, digits=K.digits)
+</section>""" % dict(letters=LETTERS, joined=JOINED, doubles=K.doubles, digits=K.digits)
 
 tpl = open(os.path.join(HERE, 'index_template.html')).read()
 out = tpl.replace('__KEY__', KEY).replace('__DATA__', json.dumps(data, ensure_ascii=False, separators=(',', ':')))
