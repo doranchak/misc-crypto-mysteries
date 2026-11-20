@@ -1,0 +1,224 @@
+{
+ "red": {
+  "P=46.0": {
+   "total": {
+    "expected": 169,
+    "exact": 115,
+    "one_trit": 35,
+    "two_plus": 11,
+    "missing": 8,
+    "extra": 9
+   },
+   "lines": [
+    {
+     "expected": 46,
+     "exact": 27,
+     "one_trit": 10,
+     "two_plus": 5,
+     "missing": 4,
+     "extra": 1
+    },
+    {
+     "expected": 39,
+     "exact": 33,
+     "one_trit": 4,
+     "two_plus": 1,
+     "missing": 1,
+     "extra": 1
+    },
+    {
+     "expected": 46,
+     "exact": 28,
+     "one_trit": 11,
+     "two_plus": 4,
+     "missing": 3,
+     "extra": 5
+    },
+    {
+     "expected": 38,
+     "exact": 27,
+     "one_trit": 10,
+     "two_plus": 1,
+     "missing": 0,
+     "extra": 2
+    }
+   ]
+  },
+  "P=47.0": {
+   "total": {
+    "expected": 169,
+    "exact": 119,
+    "one_trit": 32,
+    "two_plus": 9,
+    "missing": 9,
+    "extra": 8
+   },
+   "lines": [
+    {
+     "expected": 46,
+     "exact": 27,
+     "one_trit": 10,
+     "two_plus": 5,
+     "missing": 4,
+     "extra": 1
+    },
+    {
+     "expected": 39,
+     "exact": 34,
+     "one_trit": 3,
+     "two_plus": 0,
+     "missing": 2,
+     "extra": 1
+    },
+    {
+     "expected": 46,
+     "exact": 28,
+     "one_trit": 11,
+     "two_plus": 4,
+     "missing": 3,
+     "extra": 4
+    },
+    {
+     "expected": 38,
+     "exact": 30,
+     "one_trit": 8,
+     "two_plus": 0,
+     "missing": 0,
+     "extra": 2
+    }
+   ]
+  }
+ },
+ "black": {
+  "total": {
+   "expected": 47,
+   "exact": 34,
+   "one_trit": 5,
+   "two_plus": 7,
+   "missing": 1,
+   "extra": 7
+  },
+  "glyphs": {
+   "t1": {
+    "expected": 2,
+    "exact": 2,
+    "one_trit": 0,
+    "two_plus": 0,
+    "missing": 0,
+    "extra": 2
+   },
+   "t2": {
+    "expected": 3,
+    "exact": 3,
+    "one_trit": 0,
+    "two_plus": 0,
+    "missing": 0,
+    "extra": 1
+   },
+   "t3": {
+    "expected": 2,
+    "exact": 2,
+    "one_trit": 0,
+    "two_plus": 0,
+    "missing": 0,
+    "extra": 1
+   },
+   "t4": {
+    "expected": 3,
+    "exact": 3,
+    "one_trit": 0,
+    "two_plus": 0,
+    "missing": 0,
+    "extra": 1
+   },
+   "t5": {
+    "expected": 4,
+    "exact": 4,
+    "one_trit": 0,
+    "two_plus": 0,
+    "missing": 0,
+    "extra": 0
+   },
+   "t6": {
+    "expected": 5,
+    "exact": 3,
+    "one_trit": 0,
+    "two_plus": 2,
+    "missing": 0,
+    "extra": 0
+   },
+   "u1": {
+    "expected": 2,
+    "exact": 2,
+    "one_trit": 0,
+    "two_plus": 0,
+    "missing": 0,
+    "extra": 1
+   },
+   "u2": {
+    "expected": 2,
+    "exact": 2,
+    "one_trit": 0,
+    "two_plus": 0,
+    "missing": 0,
+    "extra": 0
+   },
+   "b1": {
+    "expected": 2,
+    "exact": 2,
+    "one_trit": 0,
+    "two_plus": 0,
+    "missing": 0,
+    "extra": 1
+   },
+   "b2": {
+    "expected": 3,
+    "exact": 1,
+    "one_trit": 1,
+    "two_plus": 1,
+    "missing": 0,
+    "extra": 0
+   },
+   "b3": {
+    "expected": 3,
+    "exact": 3,
+    "one_trit": 0,
+    "two_plus": 0,
+    "missing": 0,
+    "extra": 0
+   },
+   "b4": {
+    "expected": 3,
+    "exact": 1,
+    "one_trit": 0,
+    "two_plus": 2,
+    "missing": 0,
+    "extra": 0
+   },
+   "b5": {
+    "expected": 4,
+    "exact": 1,
+    "one_trit": 2,
+    "two_plus": 0,
+    "missing": 1,
+    "extra": 0
+   },
+   "b6": {
+    "expected": 3,
+    "exact": 1,
+    "one_trit": 1,
+    "two_plus": 1,
+    "missing": 0,
+    "extra": 0
+   },
+   "b7": {
+    "expected": 6,
+    "exact": 4,
+    "one_trit": 1,
+    "two_plus": 1,
+    "missing": 0,
+    "extra": 0
+   }
+  }
+ }
+}
