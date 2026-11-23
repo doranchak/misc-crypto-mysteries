@@ -2,6 +2,7 @@
 A place for a random assortment of crypto mysteries and curiosities (solved and unsolved).
 
 - [Base-64 and Ceasar cipher](https://doranchak.github.io/misc-crypto-mysteries/base-64-and-caesar-cipher)
+- [Base-64 and Ceasar cipher 2](https://doranchak.github.io/misc-crypto-mysteries/friend-two-ciphers-base64-caesar)
 - [Bulgarian treasure hunt](https://doranchak.github.io/misc-crypto-mysteries/bulgarian-treasure-hunt-cipher)
 - [Base3 code from a Spanish class](https://doranchak.github.io/misc-crypto-mysteries/spanish-class-checkerboard-cipher)
 - [Cipher leads to an image](https://doranchak.github.io/misc-crypto-mysteries/cipher-leads-to-an-image)

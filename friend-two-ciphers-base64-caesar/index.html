@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Friend's two-cipher puzzle — solved: Base64 + Caesar</title>
+<style>
+  :root {
+    --bg:#fafaf8; --fg:#1d1d1b; --muted:#6b6b66; --line:#dcdcd4; --card:#fff;
+    --accent:#0b6e4f; --accent-bg:#e3f3ec; --warn:#a4400f; --warn-bg:#fbeadf;
+    --c0:#d6e4ff; --c1:#ffe3c4;
+    --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#17181a; --fg:#e8e8e3; --muted:#9a9a92; --line:#333537; --card:#1f2022;
+      --accent:#5fd1a2; --accent-bg:#173326; --warn:#f0a070; --warn-bg:#3a2416; --c0:#24385e; --c1:#5a3b17; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+  main{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+  h1{font-size:1.6rem;margin:0 0 4px}
+  h2{font-size:1.15rem;margin:40px 0 8px;padding-top:8px;border-top:1px solid var(--line)}
+  p{margin:8px 0} .sub{color:var(--muted);margin-bottom:20px}
+  code,.mono{font-family:var(--mono);font-size:.9em}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
+  .answer{background:var(--accent-bg);border-color:var(--accent)}
+  .answer .pt{font-size:1.3rem;font-weight:600;margin-top:4px}
+  .label{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .ctline{font-family:var(--mono);word-break:break-all;font-size:.95rem}
+  .note{background:var(--warn-bg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;font-size:.92rem;margin:12px 0}
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:12px 0}
+  .box{flex:1 1 180px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--card)}
+  .box.c0{background:var(--c0)} .box.c1{background:var(--c1)}
+  .box b{display:block;margin-bottom:2px} .box .mono{word-break:break-all;font-size:.8rem}
+  .arrow{align-self:center;color:var(--muted);font-size:1.3rem}
+  table{border-collapse:collapse;width:100%;font-size:.86rem}
+  th,td{border-bottom:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600}
+  td.wrap{word-break:break-all} tr.hit td{background:var(--accent-bg);font-weight:600}
+  .bad{color:var(--warn)} .pt{color:var(--accent)}
+  label.field{display:block;margin:10px 0 2px;font-size:.85rem;color:var(--muted)}
+  input[type=text],textarea{width:100%;font-family:var(--mono);font-size:.9rem;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+  .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;align-items:center}
+  button{font:inherit;font-size:.85rem;padding:6px 12px;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:6px;cursor:pointer}
+  button:hover{border-color:var(--accent)}
+  .out{font-family:var(--mono);padding:10px 12px;background:var(--bg);border:1px dashed var(--line);border-radius:6px;word-break:break-all;white-space:pre-wrap;min-height:2.6em}
+  ul{margin:6px 0 6px 20px;padding:0}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<main>
+<h1>Friend's two-cipher puzzle &mdash; solved</h1>
+<p class="sub">"Cipher a friend made. It's made of 2 different ciphers &hellip; I think one of them is base64." &mdash; the guess was right, and the other cipher is a Caesar shift.</p>
+
+<p class="sub" style="margin-top:-8px">Source: <a href="https://www.reddit.com/r/Cipher/comments/1y3aq83/cipher_a_friend_made/">r/Cipher &ldquo;Cipher a friend made&rdquo;</a>, posted by u/Maleficent-Mango5262.</p>
+
+<div class="card">
+  <div class="label">Ciphertext (52 characters)</div>
+  <div class="ctline">FQrvSQXyIGviSQPtmw9jmiL0kQEqnQPslQEqm3BroGFuSQFdmRB5</div>
+</div>
+
+<div class="card answer">
+  <div class="label">Plaintext</div>
+  <div class="pt">The chair across the table stayed empty</div>
+  <p class="sub" style="margin:6px 0 0">Recovered by <b>Caesar &minus;10</b> (written as +16) on the letters, then <b>Base64</b>. Re-encoding the plaintext reproduces the ciphertext exactly.</p>
+</div>
+
+<h2>How it was made (and undone)</h2>
+<div class="flow">
+  <div class="box"><b>Plaintext</b><span class="mono">The chair across the table stayed empty</span></div>
+  <div class="arrow">&rarr;</div>
+  <div class="box c0"><b>1. Base64</b><span class="mono">VGhlIGNoYWlyIGFjcm9zcyB0aGUgdGFibGUgc3RheWVkIGVtcHR5</span></div>
+  <div class="arrow">&rarr;</div>
+  <div class="box c1"><b>2. Caesar +10 <small>(letters only)</small></b><span class="mono">FQrvSQXyIGviSQPtmw9jmiL0kQEqnQPslQEqm3BroGFuSQFdmRB5</span></div>
+</div>
+<p>To decode, run it backwards: shift every letter back 10 places (A&ndash;Z and a&ndash;z each wrap within their own case; digits unchanged), then Base64-decode the result. Equivalently, shift forward 16, which is how the brute-force below lists it.</p>
+
+<div class="note"><b>About "two halves".</b> The puzzle description suggested one half uses one cipher and the other half another. That isn't the structure: both ciphers apply to the <em>whole</em> string, stacked as layers (Base64 first, Caesar on top). I also tested every split point with a Caesar shift and Base64 on either side alone, and found nothing except the whole-string shift +16 (see <code>solve.py</code>). Half-and-half is how it looks when you don't yet know the layers are stacked: the first thing you see is a Base64-looking string that won't decode.</div>
+
+<h2>Step by step, four characters at a time</h2>
+<p>Base64 reads four characters as three bytes. After undoing the Caesar shift, each group of four turns into three readable letters:</p>
+<table>
+<tr><th>#</th><th>Ciphertext</th><th>Shift &minus;10 (Base64)</th><th>Bytes (hex)</th><th>Text</th></tr>
+<tr><td class=mono>1</td><td class='mono ct'>FQrv</td><td class=mono>VGhl</td><td class=mono>54 68 65</td><td class='mono pt'>The</td></tr>
+<tr><td class=mono>2</td><td class='mono ct'>SQXy</td><td class=mono>IGNo</td><td class=mono>20 63 68</td><td class='mono pt'>&nbsp;ch</td></tr>
+<tr><td class=mono>3</td><td class='mono ct'>IGvi</td><td class=mono>YWly</td><td class=mono>61 69 72</td><td class='mono pt'>air</td></tr>
+<tr><td class=mono>4</td><td class='mono ct'>SQPt</td><td class=mono>IGFj</td><td class=mono>20 61 63</td><td class='mono pt'>&nbsp;ac</td></tr>
+<tr><td class=mono>5</td><td class='mono ct'>mw9j</td><td class=mono>cm9z</td><td class=mono>72 6f 73</td><td class='mono pt'>ros</td></tr>
+<tr><td class=mono>6</td><td class='mono ct'>miL0</td><td class=mono>cyB0</td><td class=mono>73 20 74</td><td class='mono pt'>s&nbsp;t</td></tr>
+<tr><td class=mono>7</td><td class='mono ct'>kQEq</td><td class=mono>aGUg</td><td class=mono>68 65 20</td><td class='mono pt'>he&nbsp;</td></tr>
+<tr><td class=mono>8</td><td class='mono ct'>nQPs</td><td class=mono>dGFi</td><td class=mono>74 61 62</td><td class='mono pt'>tab</td></tr>
+<tr><td class=mono>9</td><td class='mono ct'>lQEq</td><td class=mono>bGUg</td><td class=mono>6c 65 20</td><td class='mono pt'>le&nbsp;</td></tr>
+<tr><td class=mono>10</td><td class='mono ct'>m3Br</td><td class=mono>c3Rh</td><td class=mono>73 74 61</td><td class='mono pt'>sta</td></tr>
+<tr><td class=mono>11</td><td class='mono ct'>oGFu</td><td class=mono>eWVk</td><td class=mono>79 65 64</td><td class='mono pt'>yed</td></tr>
+<tr><td class=mono>12</td><td class='mono ct'>SQFd</td><td class=mono>IGVt</td><td class=mono>20 65 6d</td><td class='mono pt'>&nbsp;em</td></tr>
+<tr><td class=mono>13</td><td class='mono ct'>mRB5</td><td class=mono>cHR5</td><td class=mono>70 74 79</td><td class='mono pt'>pty</td></tr>
+</table>
+<p>The last group ends cleanly with no <code>=</code> padding because the plaintext is 39 bytes, a multiple of 3.</p>
+
+<h2>Why shift 16 and no other: the brute force</h2>
+<p>All 26 Caesar shifts, applied to the whole string and then Base64-decoded:</p>
+<table>
+<tr><th>Shift</th><th>String after shift</th><th>Base64 decode</th></tr>
+<tr><td class=mono>+0</td><td class='mono wrap'>FQrvSQXyIGviSQPtmw9jmiL0kQEqnQPslQEqm3BroGFuSQFdmRB5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+1</td><td class='mono wrap'>GRswTRYzJHwjTRQunx9knjM0lRFroRQtmRFrn3CspHGvTRGenSC5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+2</td><td class='mono wrap'>HStxUSZaKIxkUSRvoy9lokN0mSGspSRunSGso3DtqIHwUSHfoTD5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+3</td><td class='mono wrap'>ITuyVTAbLJylVTSwpz9mplO0nTHtqTSvoTHtp3EurJIxVTIgpUE5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+4</td><td class='mono wrap'>JUvzWUBcMKzmWUTxqa9nqmP0oUIurUTwpUIuq3FvsKJyWUJhqVF5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+5</td><td class='mono wrap'>KVwaXVCdNLanXVUyrb9ornQ0pVJvsVUxqVJvr3GwtLKzXVKirWG5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+6</td><td class='mono wrap'>LWxbYWDeOMboYWVzsc9psoR0qWKwtWVyrWKws3HxuMLaYWLjsXH5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+7</td><td class='mono wrap'>MXycZXEfPNcpZXWatd9qtpS0rXLxuXWzsXLxt3IyvNMbZXMktYI5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+8</td><td class='mono wrap'>NYzdAYFgQOdqAYXbue9ruqT0sYMyvYXatYMyu3JzwONcAYNluZJ5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+9</td><td class='mono wrap'>OZaeBZGhRPerBZYcvf9svrU0tZNzwZYbuZNzv3KaxPOdBZOmvAK5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+10</td><td class='mono wrap'>PAbfCAHiSQfsCAZdwg9twsV0uAOaxAZcvAOaw3LbyQPeCAPnwBL5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+11</td><td class='mono wrap'>QBcgDBIjTRgtDBAexh9uxtW0vBPbyBAdwBPbx3MczRQfDBQoxCM5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+12</td><td class='mono wrap'>RCdhECJkUShuECBfyi9vyuX0wCQczCBexCQcy3NdaSRgECRpyDN5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+13</td><td class='mono wrap'>SDeiFDKlVTivFDCgzj9wzvY0xDRdaDCfyDRdz3OebTShFDSqzEO5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+14</td><td class='mono wrap'>TEfjGELmWUjwGEDhak9xawZ0yESebEDgzESea3PfcUTiGETraFP5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+15</td><td class='mono wrap'>UFgkHFMnXVkxHFEibl9ybxA0zFTfcFEhaFTfb3QgdVUjHFUsbGQ5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr class=hit><td class=mono>+16</td><td class='mono wrap'>VGhlIGNoYWlyIGFjcm9zcyB0aGUgdGFibGUgc3RheWVkIGVtcHR5</td><td>The chair across the table stayed empty</td></tr>
+<tr><td class=mono>+17</td><td class='mono wrap'>WHimJHOpZXmzJHGkdn9adzC0bHVheHGjcHVhd3SifXWlJHWudIS5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+18</td><td class='mono wrap'>XIjnKIPqAYnaKIHleo9beaD0cIWifIHkdIWie3TjgYXmKIXveJT5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+19</td><td class='mono wrap'>YJkoLJQrBZobLJImfp9cfbE0dJXjgJIleJXjf3UkhZYnLJYwfKU5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+20</td><td class='mono wrap'>ZKlpMKRsCApcMKJngq9dgcF0eKYkhKJmfKYkg3VliAZoMKZxgLV5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+21</td><td class='mono wrap'>ALmqNLStDBqdNLKohr9ehdG0fLZliLKngLZlh3WmjBApNLAyhMW5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+22</td><td class='mono wrap'>BMnrOMTuECreOMLpis9fieH0gMAmjMLohMAmi3XnkCBqOMBziNX5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+23</td><td class='mono wrap'>CNosPNUvFDsfPNMqjt9gjfI0hNBnkNMpiNBnj3YolDCrPNCajOY5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+24</td><td class='mono wrap'>DOptQOVwGEtgQONrku9hkgJ0iOColONqjOCok3ZpmEDsQODbkPZ5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+<tr><td class=mono>+25</td><td class='mono wrap'>EPquRPWxHFuhRPOslv9ilhK0jPDpmPOrkPDpl3AqnFEtRPEclQA5</td><td><span class=bad>bytes not printable ASCII</span></td></tr>
+</table>
+<p>Only one shift gives printable ASCII. Chance of a random 39-byte decode being all printable ASCII is about (95/256)<sup>39</sup> &asymp; 1.6e-17, so this isn't a coincidence. The shifted text is also the textbook Base64 of English: <code>VGhl</code> = "The".</p>
+
+<h2>A tell you could have spotted</h2>
+<ul>
+  <li>The ciphertext contains digits <code>9 0 3 5</code> but no <code>+</code>, <code>/</code> or <code>=</code>, and it's a multiple of 4 long (52). That fits Base64 with a letter-only substitution on top.</li>
+  <li><code>SQ</code> occurs 3 times. In Base64, <code>IG</code> is what a space at the start of a 3-byte group looks like when followed by a letter from a&ndash;o. <code>I</code>&rarr;<code>S</code> and <code>G</code>&rarr;<code>Q</code> are both +10, so the shift can be read straight off that pair.</li>
+  <li>Digits stay put, so the substitution isn't a rotation of the whole 64-symbol Base64 alphabet. I tried that first (all 64 rotations, all split points) and it failed. It's ROT-style on letters only.</li>
+</ul>
+
+<h2>Try it</h2>
+<div class="card">
+  <label class="field" for="inp">Input (ciphertext to decode, or plaintext to encode)</label>
+  <textarea id="inp" rows="2">FQrvSQXyIGviSQPtmw9jmiL0kQEqnQPslQEqm3BroGFuSQFdmRB5</textarea>
+  <div class="row">
+    <label class="field" for="shift" style="margin:0">Caesar shift</label>
+    <input id="shift" type="text" value="10" style="width:70px">
+    <button id="dec">Decode (shift back, then Base64)</button>
+    <button id="enc">Encode (Base64, then shift)</button>
+  </div>
+  <div class="label">Result</div>
+  <div class="out" id="out"></div>
+</div>
+
+<h2>Files</h2>
+<ul>
+  <li><code>cipher.txt</code> &mdash; the ciphertext</li>
+  <li><code>solve.py</code> &mdash; brute force over all shifts and split points, plus re-encode check</li>
+  <li><code>build.py</code> &mdash; generates this page</li>
+</ul>
+</main>
+<script>
+const U="ABCDEFGHIJKLMNOPQRSTUVWXYZ", Lw=U.toLowerCase();
+function rot(s,n){
+  n=((n%26)+26)%26;
+  return s.replace(/[A-Za-z]/g,ch=>{
+    const base=ch<'a'?U:Lw; return base[(base.indexOf(ch)+n)%26];
+  });
+}
+function shiftVal(){ const v=parseInt(document.getElementById('shift').value,10); return isNaN(v)?0:v; }
+function show(t,bad){ const o=document.getElementById('out'); o.textContent=t; o.className='out'+(bad?' bad':''); }
+function decode(){
+  const s=document.getElementById('inp').value.trim();
+  try{
+    let t=rot(s,-shiftVal()); t+= '='.repeat((4-t.length%4)%4);
+    const bin=atob(t); const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));
+    show(new TextDecoder('utf-8').decode(bytes),false);
+  }catch(e){ show('Not valid Base64 after shifting back '+shiftVal()+'.',true); }
+}
+function encode(){
+  const s=document.getElementById('inp').value;
+  const bytes=new TextEncoder().encode(s); let bin=''; bytes.forEach(b=>bin+=String.fromCharCode(b));
+  show(rot(btoa(bin).replace(/=+$/,''),shiftVal()),false);
+}
+document.getElementById('dec').onclick=decode;
+document.getElementById('enc').onclick=encode;
+decode();
+</script>
+</body>
+</html>
