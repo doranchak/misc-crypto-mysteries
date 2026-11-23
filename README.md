@@ -1,6 +1,7 @@
 # misc-crypto-mysteries
 A place for a random assortment of crypto mysteries and curiosities (solved and unsolved).
 
+- [Artfight profile - odd cipher](https://doranchak.github.io/misc-crypto-mysteries/artfight-odd-cipher)
 - [Base-64 and Ceasar cipher](https://doranchak.github.io/misc-crypto-mysteries/base-64-and-caesar-cipher)
 - [Base-64 and Ceasar cipher 2](https://doranchak.github.io/misc-crypto-mysteries/friend-two-ciphers-base64-caesar)
 - [Bulgarian treasure hunt](https://doranchak.github.io/misc-crypto-mysteries/bulgarian-treasure-hunt-cipher)

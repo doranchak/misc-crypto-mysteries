@@ -1,0 +1,26 @@
+{
+ "line1": {
+  "plain": "FAILED TO LOAD USER DATA",
+  "cipher": "UFDAILD TOSER ATAAE LOD",
+  "n": 20,
+  "bigram_hits": 10,
+  "random_mean": 4.54,
+  "p_ge": 0.0027
+ },
+ "line2": {
+  "plain": "SUBVERTING SYSTEM BACKUPS TO",
+  "cipher": "YERSSTEMTO BTING CKSUBVP ASU",
+  "n": 25,
+  "bigram_hits": 12,
+  "random_mean": 2.95,
+  "p_ge": 0.0
+ },
+ "line3": {
+  "plain": "Processing",
+  "cipher": "cesriPosng",
+  "n": 10,
+  "bigram_hits": 3,
+  "random_mean": 1.19,
+  "p_ge": 0.10605
+ }
+}
