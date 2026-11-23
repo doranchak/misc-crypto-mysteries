@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vowel cipher &mdash; solved: THIS IS A VOWEL CIPHER</title>
+<style>
+  :root {
+    --bg:#fafaf8; --fg:#1d1d1b; --muted:#6b6b66; --line:#dcdcd4; --card:#fff;
+    --accent:#0b6e4f; --accent-bg:#e3f3ec; --warn:#a4400f; --warn-bg:#fbeadf;
+    --c0:#d6e4ff; --c1:#ffe3c4; --spare:#efeee9;
+    --mono: Menlo,Consolas,"DejaVu Sans Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#17181a; --fg:#e8e8e3; --muted:#9a9a92; --line:#333537; --card:#1f2022;
+      --accent:#5fd1a2; --accent-bg:#173326; --warn:#f0a070; --warn-bg:#3a2416;
+      --c0:#24385e; --c1:#5a3b17; --spare:#2a2b2d; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+  main{max-width:980px;margin:0 auto;padding:32px 20px 80px}
+  h1{font-size:1.6rem;margin:0 0 4px}
+  h2{font-size:1.15rem;margin:40px 0 8px;padding-top:8px;border-top:1px solid var(--line)}
+  p{margin:8px 0} .sub{color:var(--muted);margin-bottom:20px}
+  code,.mono{font-family:var(--mono);font-size:.9em}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
+  .answer{background:var(--accent-bg);border-color:var(--accent)}
+  .answer .pt{font-size:1.5rem;font-weight:700;letter-spacing:.04em;margin-top:2px}
+  .label{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .ctline{font-family:var(--mono);word-break:break-all;font-size:.95rem}
+  .note{background:var(--warn-bg);border:1px solid var(--warn);border-radius:8px;padding:10px 14px;font-size:.92rem;margin:12px 0}
+  .strip{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
+  .tok{font-family:var(--mono);font-size:.95rem;min-width:2.2em;text-align:center;padding:4px 6px;border-radius:6px;border:1px solid var(--line)}
+  .tok.w0{background:var(--c0)} .tok.w1{background:var(--c1)}
+  .tok.sep{background:var(--spare);color:var(--muted);border-style:dashed}
+  .tok.end{background:var(--warn-bg);border-color:var(--warn);color:var(--warn)}
+  table{border-collapse:collapse;width:100%;font-size:.88rem}
+  th,td{border-bottom:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600}
+  tr.sp td{background:var(--spare)}
+  .pt{color:var(--accent)}
+  table.cb td{text-align:center;padding:6px 4px;width:12%}
+  table.cb td .c{display:block;font-size:.75rem;color:var(--muted)}
+  table.cb td .p{display:block;font-size:1.25rem;font-weight:700}
+  table.cb td.u{background:var(--accent-bg)}
+  table.cb td.spare .p{color:var(--muted);font-weight:400}
+  table.cb td.spare.u{background:var(--warn-bg)}
+  table.cb th{white-space:nowrap} .arrow{color:var(--muted)}
+  label.field{display:block;margin:10px 0 2px;font-size:.85rem;color:var(--muted)}
+  input[type=text]{width:100%;font-family:var(--mono);font-size:.9rem;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+  .out{font-family:var(--mono);padding:10px 12px;background:var(--bg);border:1px dashed var(--line);border-radius:6px;word-break:break-all;white-space:pre-wrap;min-height:2.6em}
+  ul{margin:6px 0 6px 20px;padding:0} li{margin:3px 0}
+  a{color:var(--accent)}
+  /* ---- interactive visualizer ---- */
+  :root { --err:#b3261e; --err-bg:#fde7e4; }
+  @media (prefers-color-scheme: dark) { :root { --err:#ff8a80; --err-bg:#3d1f1c; } }
+  .vz label.vz-l{display:block;margin:0 0 3px;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .vz textarea{width:100%;min-height:84px;font-family:var(--mono);font-size:.95rem;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);resize:vertical}
+  .vz select,.vz input[type=text]{font:inherit;font-size:.85rem;padding:4px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+  .vz input#vz-key{width:7.5em;font-family:var(--mono);text-transform:uppercase;letter-spacing:.12em}
+  .vz-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:720px){.vz-grid{grid-template-columns:1fr}}
+  .vz-row{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:8px 0;font-size:.85rem}
+  .vz-row .grow{flex:1 1 auto}
+  .vz-btns{display:flex;gap:6px;margin-top:4px}
+  .vz-btns button,.vz-row button{padding:3px 10px}
+  .vz-keymsg{color:var(--muted);font-family:var(--mono);font-size:.8rem}
+  .vz-keymsg.bad{color:var(--err)}
+  .vz-spare{display:flex;flex-wrap:wrap;gap:6px 14px;margin:6px 0}
+  .vz-spare span.c{font-family:var(--mono);font-weight:700;margin-right:4px}
+  .vz-status{font-size:.85rem;margin:10px 0 4px;color:var(--muted)}
+  .vz-status .ok{color:var(--accent);font-weight:600} .vz-status .bad{color:var(--err);font-weight:600}
+  .vz-cards{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+  .vz-card{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:52px;padding:5px 7px 6px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+  .vz-card .ct{font-family:var(--mono);font-weight:700;font-size:.95rem}
+  .vz-card .kk{font-family:var(--mono);font-size:.66rem;color:var(--muted)}
+  .vz-card .run{display:flex;gap:1px;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+  .vz-card .run span{padding:0 2px}
+  .vz-card .run b{background:var(--accent);color:var(--bg);border-radius:3px;padding:0 3px}
+  .vz-card .pt{font-family:var(--mono);font-size:1.2rem;font-weight:700;color:var(--accent);min-height:1.4em}
+  .vz-card .tag{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .vz-card.k-space{border-style:dashed;background:var(--spare)}
+  .vz-card.k-punct,.vz-card.k-alt{background:var(--c1)}
+  .vz-card.k-spare{border-color:var(--warn);background:var(--warn-bg)} .vz-card.k-spare .pt{color:var(--warn);font-size:.95rem}
+  .vz-card.k-err{border-color:var(--err);background:var(--err-bg)} .vz-card.k-err .pt,.vz-card.k-err .tag{color:var(--err)}
+  .vz-card.k-lit{background:var(--spare)} .vz-card.k-lit .pt{color:var(--fg)}
+  .vz-card.k-skip{opacity:.55;border-style:dotted} .vz-card.k-skip .pt{color:var(--muted)}
+  .vz-card.hl{outline:2px solid var(--accent);outline-offset:1px}
+  .vz-empty{color:var(--muted);font-size:.88rem;padding:6px 0}
+  .vz-rib{display:grid;grid-template-columns:auto repeat(6,minmax(0,1fr));gap:3px;margin-top:6px}
+  .vz-rh{font-size:.72rem;color:var(--muted);text-align:center;align-self:end;padding:0 2px}
+  .vz-rl{font-family:var(--mono);font-size:.82rem;color:var(--muted);align-self:center;padding-right:6px;white-space:nowrap}
+  .vz-cell{display:flex;flex-direction:column;align-items:center;padding:4px 2px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer;font:inherit}
+  .vz-cell .p{font-size:1.1rem;font-weight:700;line-height:1.2}
+  .vz-cell .c{font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+  .vz-cell.spare{background:var(--spare)} .vz-cell.spare .p{color:var(--muted);font-weight:400}
+  .vz-cell.used{border-color:var(--accent);background:var(--accent-bg)}
+  .vz-cell.run{background:var(--c0)} .vz-cell.hit{background:var(--accent);border-color:var(--accent)}
+  .vz-cell.hit .p,.vz-cell.hit .c{color:var(--bg)}
+  .vz details summary{cursor:pointer;font-size:.88rem;color:var(--muted);margin:6px 0}
+
+</style>
+</head>
+<body>
+<main>
+<h1>Vowel cipher &mdash; solved</h1>
+<p class="sub">Ciphertext of 23 letter+digit pairs. The cipher letters <b>V O W E L</b> stand for the five vowels, and each digit counts letters forward from that vowel.</p>
+<p class="sub" style="margin-top:-12px">Source: puzzle posted by <b>u/killmealready145</b> on r/ciphers, <a href="https://www.reddit.com/r/ciphers/s/tGyZUbWSzY">&ldquo;very first cipher go brrrr&rdquo;</a>. &middot; <a href="#visualizer">Jump to the interactive visualizer</a></p>
+
+<div class="card">
+  <div class="label">Ciphertext (typo corrected)</div>
+  <div class="ctline">E6O4W1E5V5W1E5V5V1V5L2E1L3O1W4V5V3W1E2O4O1E4V6</div>
+  <div class="label" style="margin-top:10px">As first posted (typo)</div>
+  <div class="ctline">E6O4W1E5V5W1E5V5V1V5L2E1L5O1W4V5V3W1E2O4O1E4V6</div>
+  <p class="sub" style="margin:8px 0 0;font-size:.85rem">In monospace the letter O looks like a zero. There are no zeros here: digits only run 1&ndash;6, so <span class="mono">O4</span> is the letter O followed by 4.</p>
+</div>
+
+<div class="card answer">
+  <div class="label">Plaintext</div>
+  <div class="pt">THIS IS A VOWEL CIPHER</div>
+  <p style="margin-top:6px;font-size:.92rem">The last pair, <span class="mono">V6</span>, is a spare code with no letter value. It is probably an end-of-message or punctuation marker; see <a href="#v6">the V6 caveat</a>.</p>
+</div>
+
+<div class="strip"><span class="tok w0">E6</span><span class="tok w0">O4</span><span class="tok w0">W1</span><span class="tok w0">E5</span><span class="tok sep">V5</span><span class="tok w1">W1</span><span class="tok w1">E5</span><span class="tok sep">V5</span><span class="tok w0">V1</span><span class="tok sep">V5</span><span class="tok w1">L2</span><span class="tok w1">E1</span><span class="tok w1">L3</span><span class="tok w1">O1</span><span class="tok w1">W4</span><span class="tok sep">V5</span><span class="tok w0">V3</span><span class="tok w0">W1</span><span class="tok w0">E2</span><span class="tok w0">O4</span><span class="tok w0">O1</span><span class="tok w0">E4</span><span class="tok end">V6</span></div>
+<div class="strip"><span class="tok w0">T</span><span class="tok w0">H</span><span class="tok w0">I</span><span class="tok w0">S</span><span class="tok sep">&nbsp;</span><span class="tok w1">I</span><span class="tok w1">S</span><span class="tok sep">&nbsp;</span><span class="tok w0">A</span><span class="tok sep">&nbsp;</span><span class="tok w1">V</span><span class="tok w1">O</span><span class="tok w1">W</span><span class="tok w1">E</span><span class="tok w1">L</span><span class="tok sep">&nbsp;</span><span class="tok w0">C</span><span class="tok w0">I</span><span class="tok w0">P</span><span class="tok w0">H</span><span class="tok w0">E</span><span class="tok w0">R</span><span class="tok end">?</span></div>
+<p class="sub" style="margin-top:2px">Blue/orange alternate by word. Dashed boxes are <span class="mono">V5</span>, which behaves as the word space in all four places a word break is needed.</p>
+
+<h2>1. How the cipher works</h2>
+<ul>
+  <li><b>Five cipher letters, five vowels.</b> The ciphertext uses exactly five distinct letters: E, L, O, V, W. Taken in the order A, E, I, O, U they spell the keyword <b>V&middot;O&middot;W&middot;E&middot;L</b>: A&rarr;V, E&rarr;O, I&rarr;W, O&rarr;E, U&rarr;L.</li>
+  <li><b>The digit is a position in the run that starts at that vowel.</b> Every plaintext letter belongs to the run of the nearest vowel at or before it (A&ndash;D belong to A, E&ndash;H to E, I&ndash;N to I, O&ndash;T to O, U&ndash;Z to U). It is written as <i>the vowel's key letter + its 1-based position in that run</i>. So the vowel itself is digit 1: <span class="mono">W1</span> = I, <span class="mono">E6</span> = O,P,Q,R,S,<b>T</b> = T.</li>
+  <li><b>Spare codes.</b> A and E only own four letters each, so digits 5 and 6 on V and O would run into the next vowel and are never the canonical code of any letter. The cipher uses two of these: <span class="mono">V5</span> as a word space and <span class="mono">V6</span> once at the end.</li>
+</ul>
+
+<h2>2. Codebook</h2>
+<p>Green cells are codes that appear in this message; a dot marks a spare code. Orange = a spare code that was used.</p>
+<table class="cb">
+<tr><th>vowel &rarr; cipher letter</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+<tr><th>A <span class="arrow">&rarr;</span> <span class="mono">V</span></th><td class="u"><span class="mono c">V1</span><span class="p">A</span></td><td class=""><span class="mono c">V2</span><span class="p">B</span></td><td class="u"><span class="mono c">V3</span><span class="p">C</span></td><td class=""><span class="mono c">V4</span><span class="p">D</span></td><td class="spare u"><span class="mono c">V5</span><span class="p">&middot;</span></td><td class="spare u"><span class="mono c">V6</span><span class="p">&middot;</span></td></tr>
+<tr><th>E <span class="arrow">&rarr;</span> <span class="mono">O</span></th><td class="u"><span class="mono c">O1</span><span class="p">E</span></td><td class=""><span class="mono c">O2</span><span class="p">F</span></td><td class=""><span class="mono c">O3</span><span class="p">G</span></td><td class="u"><span class="mono c">O4</span><span class="p">H</span></td><td class="spare"><span class="mono c">O5</span><span class="p">&middot;</span></td><td class="spare"><span class="mono c">O6</span><span class="p">&middot;</span></td></tr>
+<tr><th>I <span class="arrow">&rarr;</span> <span class="mono">W</span></th><td class="u"><span class="mono c">W1</span><span class="p">I</span></td><td class=""><span class="mono c">W2</span><span class="p">J</span></td><td class=""><span class="mono c">W3</span><span class="p">K</span></td><td class="u"><span class="mono c">W4</span><span class="p">L</span></td><td class=""><span class="mono c">W5</span><span class="p">M</span></td><td class=""><span class="mono c">W6</span><span class="p">N</span></td></tr>
+<tr><th>O <span class="arrow">&rarr;</span> <span class="mono">E</span></th><td class="u"><span class="mono c">E1</span><span class="p">O</span></td><td class="u"><span class="mono c">E2</span><span class="p">P</span></td><td class=""><span class="mono c">E3</span><span class="p">Q</span></td><td class="u"><span class="mono c">E4</span><span class="p">R</span></td><td class="u"><span class="mono c">E5</span><span class="p">S</span></td><td class="u"><span class="mono c">E6</span><span class="p">T</span></td></tr>
+<tr><th>U <span class="arrow">&rarr;</span> <span class="mono">L</span></th><td class=""><span class="mono c">L1</span><span class="p">U</span></td><td class="u"><span class="mono c">L2</span><span class="p">V</span></td><td class="u"><span class="mono c">L3</span><span class="p">W</span></td><td class=""><span class="mono c">L4</span><span class="p">X</span></td><td class=""><span class="mono c">L5</span><span class="p">Y</span></td><td class=""><span class="mono c">L6</span><span class="p">Z</span></td></tr>
+</table>
+
+<h2>3. Step-by-step decode</h2>
+<table>
+<tr><th>#</th><th>pair</th><th>key letter &rarr; vowel</th><th>digit</th><th>run from vowel</th><th>letter</th><th>note</th></tr>
+<tr><td>1</td><td class="mono">E6</td><td class="mono">E &rarr; O</td><td>6</td><td class="mono">O P Q R S T</td><td class="pt mono"><b>T</b></td><td></td></tr>
+<tr><td>2</td><td class="mono">O4</td><td class="mono">O &rarr; E</td><td>4</td><td class="mono">E F G H</td><td class="pt mono"><b>H</b></td><td></td></tr>
+<tr><td>3</td><td class="mono">W1</td><td class="mono">W &rarr; I</td><td>1</td><td class="mono">I</td><td class="pt mono"><b>I</b></td><td></td></tr>
+<tr><td>4</td><td class="mono">E5</td><td class="mono">E &rarr; O</td><td>5</td><td class="mono">O P Q R S</td><td class="pt mono"><b>S</b></td><td></td></tr>
+<tr class="sp"><td>5</td><td class="mono">V5</td><td class="mono">V &rarr; A</td><td>5</td><td class="mono">A B C D E</td><td class="mono"><i>space</i></td><td>spare code (A+4 would be E, but E is already <span class="mono">O1</span>)</td></tr>
+<tr><td>6</td><td class="mono">W1</td><td class="mono">W &rarr; I</td><td>1</td><td class="mono">I</td><td class="pt mono"><b>I</b></td><td></td></tr>
+<tr><td>7</td><td class="mono">E5</td><td class="mono">E &rarr; O</td><td>5</td><td class="mono">O P Q R S</td><td class="pt mono"><b>S</b></td><td></td></tr>
+<tr class="sp"><td>8</td><td class="mono">V5</td><td class="mono">V &rarr; A</td><td>5</td><td class="mono">A B C D E</td><td class="mono"><i>space</i></td><td>spare code (A+4 would be E, but E is already <span class="mono">O1</span>)</td></tr>
+<tr><td>9</td><td class="mono">V1</td><td class="mono">V &rarr; A</td><td>1</td><td class="mono">A</td><td class="pt mono"><b>A</b></td><td></td></tr>
+<tr class="sp"><td>10</td><td class="mono">V5</td><td class="mono">V &rarr; A</td><td>5</td><td class="mono">A B C D E</td><td class="mono"><i>space</i></td><td>spare code (A+4 would be E, but E is already <span class="mono">O1</span>)</td></tr>
+<tr><td>11</td><td class="mono">L2</td><td class="mono">L &rarr; U</td><td>2</td><td class="mono">U V</td><td class="pt mono"><b>V</b></td><td></td></tr>
+<tr><td>12</td><td class="mono">E1</td><td class="mono">E &rarr; O</td><td>1</td><td class="mono">O</td><td class="pt mono"><b>O</b></td><td></td></tr>
+<tr><td>13</td><td class="mono">L3</td><td class="mono">L &rarr; U</td><td>3</td><td class="mono">U V W</td><td class="pt mono"><b>W</b></td><td></td></tr>
+<tr><td>14</td><td class="mono">O1</td><td class="mono">O &rarr; E</td><td>1</td><td class="mono">E</td><td class="pt mono"><b>E</b></td><td></td></tr>
+<tr><td>15</td><td class="mono">W4</td><td class="mono">W &rarr; I</td><td>4</td><td class="mono">I J K L</td><td class="pt mono"><b>L</b></td><td></td></tr>
+<tr class="sp"><td>16</td><td class="mono">V5</td><td class="mono">V &rarr; A</td><td>5</td><td class="mono">A B C D E</td><td class="mono"><i>space</i></td><td>spare code (A+4 would be E, but E is already <span class="mono">O1</span>)</td></tr>
+<tr><td>17</td><td class="mono">V3</td><td class="mono">V &rarr; A</td><td>3</td><td class="mono">A B C</td><td class="pt mono"><b>C</b></td><td></td></tr>
+<tr><td>18</td><td class="mono">W1</td><td class="mono">W &rarr; I</td><td>1</td><td class="mono">I</td><td class="pt mono"><b>I</b></td><td></td></tr>
+<tr><td>19</td><td class="mono">E2</td><td class="mono">E &rarr; O</td><td>2</td><td class="mono">O P</td><td class="pt mono"><b>P</b></td><td></td></tr>
+<tr><td>20</td><td class="mono">O4</td><td class="mono">O &rarr; E</td><td>4</td><td class="mono">E F G H</td><td class="pt mono"><b>H</b></td><td></td></tr>
+<tr><td>21</td><td class="mono">O1</td><td class="mono">O &rarr; E</td><td>1</td><td class="mono">E</td><td class="pt mono"><b>E</b></td><td></td></tr>
+<tr><td>22</td><td class="mono">E4</td><td class="mono">E &rarr; O</td><td>4</td><td class="mono">O P Q R</td><td class="pt mono"><b>R</b></td><td></td></tr>
+<tr class="sp"><td>23</td><td class="mono">V6</td><td class="mono">V &rarr; A</td><td>6</td><td class="mono">A B C D E F</td><td class="mono"><i>end?</i></td><td>spare code (A+5 would be F, but F is already <span class="mono">O2</span>)</td></tr>
+</table>
+
+<h2>4. Why I trust it</h2>
+<ul>
+  <li><b>Search.</b> I tried all 120 ways to assign the five cipher letters to A, E, I, O, U, reading each digit as a forward or backward offset (240 models) and scored each by dictionary-word segmentation. One reading was clearly English: <span class="mono">THISEISEAEVOWELECIPHERF</span> (score 94). The runner-up scored 78 and read <span class="mono">JBAKEAKEIETOSEXEGANBELD</span>, which is gibberish.</li>
+  <li><b>The key says what the message says.</b> The assignment that wins is A&rarr;V, E&rarr;O, I&rarr;W, O&rarr;E, U&rarr;L, which spells <i>VOWEL</i>, and the plaintext is "this is a <i>vowel</i> cipher".</li>
+  <li><b>Canonical codes everywhere else.</b> The brute-force reading has an extra <span class="mono">E</span> between each pair of words. But under the rule that a letter is coded from its nearest vowel at or before it, a real E is always <span class="mono">O1</span> (as in VOWEL and CIPHER). The four extra Es are all <span class="mono">V5</span> (A+4), a non-canonical way to write E, and they sit exactly where the word breaks go. The other 18 codes are all canonical.</li>
+  <li><b>The typo confirms the model.</b> The originally posted <span class="mono">L5</span> decodes to <b>Y</b> and makes the word <i>VOYEL</i>. <span class="mono">L3</span> (= W) gives VOWEL, which is the corrected ciphertext.</li>
+</ul>
+
+<h2 id="v6">5. The V6 caveat</h2>
+<div class="note">The final <span class="mono">V6</span> is not a letter code under the model: A+5 would be F, but F is already <span class="mono">O2</span>. It occurs only once, at the very end, so its meaning can't be confirmed from this message. The most natural reading is an end-of-message mark or a period, in the same family as <span class="mono">V5</span> = space. The spare codes the scheme leaves free are <span class="mono">V5</span>, <span class="mono">V6</span>, <span class="mono">O5</span> and <span class="mono">O6</span>, which would be enough for a space plus a few punctuation marks. If the encoder instead meant a literal F, the text would read "THIS IS A VOWEL CIPHERF", which is not a word. I could not read the <a href="https://www.reddit.com/r/ciphers/s/tGyZUbWSzY">Reddit thread</a> (automated access is blocked), so anything the poster said there about <span class="mono">V6</span> is not reflected here. In the visualizer below you can map <span class="mono">V6</span> to a period or to the arithmetic letter F and see the effect.</div>
+
+<h2 id="visualizer">6. Interactive visualizer</h2>
+<p>Type in either box and the other one updates. Plaintext is encoded and ciphertext is decoded live, and each pair gets a card showing the run of letters it points into. The input can be any text: characters the cipher can't represent are flagged rather than silently dropped.</p>
+<div class="card vz" id="vz">
+  <div class="vz-row">
+    <span><label class="vz-l" for="vz-key" style="display:inline">Key (for A E I O U)</label>
+      <input type="text" id="vz-key" value="VOWEL" maxlength="5" spellcheck="false" autocomplete="off"></span>
+    <span class="vz-keymsg" id="vz-keymsg"></span>
+    <span class="grow"></span>
+    <span>Load:
+      <button type="button" data-ct="E6O4W1E5V5W1E5V5V1V5L2E1L3O1W4V5V3W1E2O4O1E4V6">puzzle ciphertext</button>
+      <button type="button" data-ct="E6O4W1E5V5W1E5V5V1V5L2E1L5O1W4V5V3W1E2O4O1E4V6">original (typo)</button>
+      <button type="button" data-pt="This is a vowel cipher">plaintext</button>
+      <button type="button" data-pt="The quick brown fox jumps over the lazy dog">pangram</button>
+      <button type="button" data-pt="" data-ct="">clear</button>
+    </span>
+  </div>
+
+  <div class="vz-grid">
+    <div>
+      <label class="vz-l" for="vz-pt">Plaintext</label>
+      <textarea id="vz-pt" spellcheck="false" autocomplete="off" placeholder="type plaintext here"></textarea>
+      <div class="vz-btns"><button type="button" data-copy="vz-pt">Copy</button></div>
+    </div>
+    <div>
+      <label class="vz-l" for="vz-ct">Ciphertext</label>
+      <textarea id="vz-ct" spellcheck="false" autocomplete="off" placeholder="type or paste ciphertext here, e.g. E6O4W1E5"></textarea>
+      <div class="vz-btns"><button type="button" data-copy="vz-ct">Copy</button></div>
+    </div>
+  </div>
+
+  <details open>
+    <summary>Options: spare codes and input handling</summary>
+    <p style="font-size:.85rem;margin:4px 0">Spare codes are key-letter + digit pairs that no letter uses. In this puzzle <span class="mono">V5</span> is the word space; the others are unexplained, so they are left unmapped by default. Mapping one to a punctuation mark lets you test a hypothesis, e.g. <span class="mono">V6</span> = period.</p>
+    <div class="vz-spare" id="vz-spare"></div>
+    <div class="vz-row">
+      <label><input type="checkbox" id="vz-ws"> Word breaks are literal spaces in the ciphertext (instead of a spare code)</label>
+    </div>
+    <div class="vz-row">
+      <label>Ciphertext layout <select id="vz-layout"><option value="compact">compact (E6O4W1)</option><option value="pairs">pairs separated by spaces (E6 O4 W1)</option></select></label>
+      <label>Plaintext characters with no code <select id="vz-other"><option value="skip">skip them</option><option value="pass">pass punctuation through unchanged</option></select></label>
+    </div>
+  </details>
+
+  <div class="vz-status" id="vz-status"></div>
+  <div class="vz-cards" id="vz-cards"></div>
+
+  <div class="label" style="margin-top:6px">Codebook for the current key &mdash; click a letter to append it to the plaintext; hover to link with the cards</div>
+  <div class="vz-rib" id="vz-rib"></div>
+</div>
+
+
+<p class="sub" style="margin-top:32px">Source: <b>u/killmealready145</b> on r/ciphers, <a href="https://www.reddit.com/r/ciphers/s/tGyZUbWSzY">https://www.reddit.com/r/ciphers/s/tGyZUbWSzY</a>. Code: <a href="solve.py">solve.py</a> (decoder + brute-force check) and <a href="build.py">build.py</a> (generates this page from <a href="visualizer.html">visualizer.html</a>, <a href="visualizer.css">visualizer.css</a> and <a href="visualizer.js">visualizer.js</a>).</p>
+</main>
+<script>
+(function () {
+  "use strict";
+  const A = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", VOW = "AEIOU", DEFAULT_KEY = "VOWEL";
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, text) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  };
+  const KIND_CHAR = { space: " ", period: ".", comma: ",", question: "?", exclaim: "!" };
+  const KIND_LABEL = { none: "unmapped", space: "word space", period: "period .", comma: "comma ,",
+    question: "question ?", exclaim: "exclaim !", arith: "arithmetic letter" };
+
+  let keyWord = DEFAULT_KEY, book = null, spareCfg = {}, last = "ct", cardsNow = [];
+
+  // ---------- codebook ----------
+  // key: plaintext vowel -> cipher letter.  A letter = key[nearest vowel at/before it] + 1-based offset.
+  function makeBook(word) {
+    const key = {}, inv = {}, enc = {}, dec = {}, spare = [];
+    [...VOW].forEach((v, i) => { key[v] = word[i]; inv[word[i]] = v; });
+    for (let i = 0; i < 26; i++) {
+      let j = i;
+      while (!VOW.includes(A[j])) j--;
+      const code = key[A[j]] + (i - j + 1);
+      enc[A[i]] = { code, vowel: A[j], off: i - j + 1, start: j };
+      dec[code] = A[i];
+    }
+    for (const v of VOW) for (let d = 1; d <= 6; d++) {
+      const code = key[v] + d;
+      if (!(code in dec)) spare.push({ code, vowel: v, off: d, start: A.indexOf(v) });
+    }
+    return { key, inv, enc, dec, spare };
+  }
+
+  function resetSpare() {
+    spareCfg = {};
+    book.spare.forEach((s) => (spareCfg[s.code] = "none"));
+    // puzzle convention: key[A] + 5 is the word space
+    const sp = book.key.A + "5";
+    if (sp in spareCfg) spareCfg[sp] = "space";
+  }
+
+  // ---------- cards ----------
+  const runOf = (start, off) => A.slice(start, start + off).split("");
+
+  function codeCard(code, kind, extra) {
+    const v = book.inv[code[0]], d = +code.slice(1), start = A.indexOf(v);
+    return Object.assign({ kind, ct: code, vowel: v, off: d, start, key: code[0], code }, extra);
+  }
+
+  function err(ct, note) { return { kind: "err", ct, pt: "⟨?⟩", tag: "error", note }; }
+
+  function resolveCode(raw) {
+    const L = raw[0].toUpperCase(), digits = raw.slice(1), shown = L + digits;
+    const keyLetters = [...VOW].map((v) => book.key[v]).join(" ");
+    if (!digits) return err(shown, "A cipher letter with no digit after it.");
+    if (!(L in book.inv)) return err(shown, `"${L}" is not one of the key letters (${keyLetters}).`);
+    if (!/^[1-6]$/.test(digits)) return err(shown, `The digit must be 1–6 (got "${digits}").`);
+    const code = L + digits;
+    if (code in book.dec) {
+      const c = codeCard(code, "letter", { pt: book.dec[code] });
+      c.note = `${L} = vowel ${c.vowel}; digit ${c.off} = ${c.off === 1 ? "the vowel itself" : "the letter " + (c.off - 1) + " after it"}.`;
+      return c;
+    }
+    const kind = spareCfg[code] || "none";
+    const base = codeCard(code, "spare", {});
+    const arith = A[base.start + base.off - 1];
+    if (kind === "arith")
+      return Object.assign(base, { kind: "alt", pt: arith, tag: "spare",
+        note: `Spare code read arithmetically: ${base.vowel}+${base.off - 1} = ${arith}.` });
+    if (kind in KIND_CHAR)
+      return Object.assign(base, { kind: kind === "space" ? "space" : "punct", pt: KIND_CHAR[kind],
+        tag: KIND_LABEL[kind], note: `Spare code mapped to ${KIND_LABEL[kind]}.` });
+    return Object.assign(base, { pt: "⟨" + code + "⟩", tag: "spare",
+      note: `Spare code: no letter uses it (${base.vowel}+${base.off - 1} would be ${arith}, which already has its own code). Map it in the options to test a hypothesis.` });
+  }
+
+  // ---------- decode: any ciphertext string -> cards ----------
+  function decodeCT(s) {
+    const chars = Array.from(s), cards = [], wsBreak = $("vz-ws").checked;
+    let i = 0;
+    while (i < chars.length) {
+      const c = chars[i];
+      if (/[A-Za-z]/.test(c)) {
+        let j = i + 1;
+        while (j < chars.length && /[0-9]/.test(chars[j])) j++;
+        cards.push(resolveCode(chars.slice(i, j).join("")));
+        i = j;
+      } else if (/\s/.test(c)) {
+        let j = i;
+        while (j < chars.length && /\s/.test(chars[j])) j++;
+        if (wsBreak && cards.length && j < chars.length)
+          cards.push({ kind: "space", ct: "␣", pt: " ", tag: "space", note: "Whitespace in the ciphertext, read as a word break." });
+        i = j;
+      } else if (/[0-9]/.test(c)) {
+        let j = i;
+        while (j < chars.length && /[0-9]/.test(chars[j])) j++;
+        cards.push(err(chars.slice(i, j).join(""), "Digits with no cipher letter in front of them."));
+        i = j;
+      } else {
+        cards.push({ kind: "lit", ct: c, pt: c, tag: "literal", note: "Not part of the cipher; passed through unchanged." });
+        i++;
+      }
+    }
+    return cards;
+  }
+
+  // ---------- encode: any plaintext string -> cards ----------
+  function encodePT(s) {
+    const cards = [], pass = $("vz-other").value === "pass", wsBreak = $("vz-ws").checked;
+    const rev = {}; // character -> spare entry
+    book.spare.forEach((sp) => {
+      const k = spareCfg[sp.code];
+      if (k in KIND_CHAR && !(KIND_CHAR[k] in rev)) rev[KIND_CHAR[k]] = sp;
+    });
+    let prevWs = false;
+    for (const c of Array.from(s.trim())) {
+      if (/\s/.test(c)) {
+        if (prevWs) continue;
+        prevWs = true;
+        if (wsBreak) cards.push({ kind: "space", ct: " ", pt: " ", tag: "space", note: "Word break written as a literal space." });
+        else if (" " in rev) cards.push(codeCard(rev[" "].code, "space", { pt: " ", tag: "space", note: "Word space." }));
+        else cards.push({ kind: "skip", ct: "–", pt: "␣", tag: "skipped", note: "No spare code is mapped to word space, so the space was dropped." });
+        continue;
+      }
+      // only characters that actually get encoded end a run of spaces; skipped ones don't
+      if (/^[A-Za-z]$/.test(c) || c in rev || (pass && !/[0-9]/.test(c))) prevWs = false;
+      if (/^[A-Za-z]$/.test(c)) {
+        const u = c.toUpperCase(), e = book.enc[u];
+        cards.push(codeCard(e.code, "letter", { pt: u, note: `${u} is in the run starting at vowel ${e.vowel}, position ${e.off}.` }));
+      } else if (c in rev) {
+        cards.push(codeCard(rev[c].code, "punct", { pt: c, tag: "mapped", note: `"${c}" uses the spare code you mapped.` }));
+      } else if (pass && !/[0-9]/.test(c)) {
+        cards.push({ kind: "lit", ct: c, pt: c, tag: "literal", note: "No code for this character; passed through unchanged." });
+      } else {
+        const digit = /[0-9]/.test(c);
+        cards.push({ kind: "skip", ct: "–", pt: c, tag: "skipped",
+          note: digit ? "Digits can't be encoded: they would merge with the cipher's own digits."
+                      : "No code for this character; skipped." });
+      }
+    }
+    // a word space with nothing encoded before or after it (e.g. next to skipped digits) is meaningless: drop it
+    const kept = () => cards.map((c, i) => (c.kind !== "skip" ? i : -1)).filter((i) => i >= 0);
+    let idx = kept();
+    if (idx.length && cards[idx[0]].kind === "space") { cards.splice(idx[0], 1); idx = kept(); }
+    if (idx.length && cards[idx[idx.length - 1]].kind === "space") cards.splice(idx[idx.length - 1], 1);
+    return cards;
+  }
+
+  const ctString = (cards) => {
+    const toks = cards.filter((c) => c.kind !== "skip").map((c) => c.ct);
+    return $("vz-ws").checked || $("vz-layout").value === "compact" ? toks.join("") : toks.join(" ");
+  };
+  const ptString = (cards) => cards.map((c) => c.pt).join("");
+
+  // ---------- rendering ----------
+  function render(cards) {
+    cardsNow = cards;
+    const box = $("vz-cards");
+    box.textContent = "";
+    if (!cards.length) box.appendChild(el("div", "vz-empty", "Nothing to show yet."));
+    cards.forEach((c) => {
+      const d = el("div", "vz-card k-" + c.kind);
+      d.title = c.note || "";
+      if (c.code) d.dataset.code = c.code;
+      d.appendChild(el("div", "ct", c.ct));
+      if (c.vowel) {
+        d.appendChild(el("div", "kk", `${c.key} → ${c.vowel}`));
+        const run = el("div", "run");
+        runOf(c.start, c.off).forEach((ch, i, a) => run.appendChild(el(i === a.length - 1 ? "b" : "span", null, ch)));
+        d.appendChild(run);
+      }
+      d.appendChild(el("div", "pt", c.pt === " " ? "␣" : c.pt));
+      if (c.tag) d.appendChild(el("div", "tag", c.tag));
+      if (c.vowel) {
+        d.addEventListener("mouseenter", () => ribbonHover(c.code, true));
+        d.addEventListener("mouseleave", () => ribbonHover(c.code, false));
+      }
+      box.appendChild(d);
+    });
+    // mark codes used in the current message on the codebook
+    const used = new Set(cards.filter((c) => c.code).map((c) => c.code));
+    document.querySelectorAll("#vz-rib .vz-cell").forEach((b) => b.classList.toggle("used", used.has(b.dataset.code)));
+  }
+
+  function ribbonHover(code, on) {
+    const v = book.inv[code[0]], d = +code.slice(1);
+    document.querySelectorAll(`#vz-rib .vz-cell[data-v="${v}"]`).forEach((b) => {
+      const o = +b.dataset.o;
+      b.classList.toggle("run", on && o < d);
+      b.classList.toggle("hit", on && o === d);
+    });
+  }
+
+  function cardsHover(code, on) {
+    document.querySelectorAll(`#vz-cards .vz-card[data-code="${code}"]`).forEach((c) => c.classList.toggle("hl", on));
+  }
+
+  function renderRibbon() {
+    const rib = $("vz-rib");
+    rib.textContent = "";
+    rib.appendChild(el("div", "vz-rh", ""));
+    for (let d = 1; d <= 6; d++) rib.appendChild(el("div", "vz-rh", String(d)));
+    for (const v of VOW) {
+      rib.appendChild(el("div", "vz-rl", `${v} → ${book.key[v]}`));
+      for (let d = 1; d <= 6; d++) {
+        const code = book.key[v] + d, letter = book.dec[code];
+        const b = el("button", "vz-cell" + (letter ? "" : " spare"));
+        b.type = "button";
+        b.dataset.code = code; b.dataset.v = v; b.dataset.o = d;
+        b.appendChild(el("span", "p", letter || "·"));
+        b.appendChild(el("span", "c", code));
+        b.title = letter ? `${code} = ${letter}` : `${code} is a spare code (${KIND_LABEL[spareCfg[code]]})`;
+        b.addEventListener("mouseenter", () => cardsHover(code, true));
+        b.addEventListener("mouseleave", () => cardsHover(code, false));
+        b.addEventListener("click", () => {
+          const ch = letter || KIND_CHAR[spareCfg[code]];
+          if (ch == null) return;
+          $("vz-pt").value += ch;
+          run("pt");
+        });
+        rib.appendChild(b);
+      }
+    }
+  }
+
+  function renderSpare() {
+    const box = $("vz-spare");
+    box.textContent = "";
+    book.spare.forEach((s) => {
+      const w = el("label", null, "");
+      w.appendChild(el("span", "c mono", s.code));
+      const sel = el("select");
+      Object.keys(KIND_LABEL).forEach((k) => {
+        const o = el("option", null, k === "arith" ? `arithmetic letter (${A[s.start + s.off - 1]})` : KIND_LABEL[k]);
+        o.value = k;
+        sel.appendChild(o);
+      });
+      sel.value = spareCfg[s.code];
+      sel.addEventListener("change", () => { spareCfg[s.code] = sel.value; renderRibbon(); run(last); });
+      w.appendChild(sel);
+      box.appendChild(w);
+    });
+  }
+
+  function status(cards, dir) {
+    const n = (k) => cards.filter((c) => c.kind === k).length;
+    const parts = [`${cards.filter((c) => c.kind !== "skip" && c.kind !== "lit").length} cipher units`,
+      `${n("letter")} letters`, `${n("space")} spaces`];
+    if (n("punct") + n("alt")) parts.push(`${n("punct") + n("alt")} mapped spare`);
+    if (n("spare")) parts.push(`${n("spare")} unmapped spare`);
+    if (n("lit")) parts.push(`${n("lit")} literal`);
+    if (n("skip")) parts.push(`${n("skip")} skipped`);
+    const html = [parts.join(" · ")];
+    if (n("err")) html.push(`<span class="bad">${n("err")} invalid</span>`);
+    if (dir === "pt") {
+      const back = ptString(decodeCT($("vz-ct").value));
+      const want = ptString(cards.filter((c) => c.kind !== "skip"));
+      html.push(back === want ? '<span class="ok">round trip ✓</span>'
+                              : '<span class="bad">round trip ✗</span>');
+    }
+    $("vz-status").innerHTML = html.join(" · ");
+  }
+
+  // ---------- control flow ----------
+  function run(dir) {
+    last = dir;
+    let cards;
+    if (dir === "pt") {
+      cards = encodePT($("vz-pt").value);
+      $("vz-ct").value = ctString(cards);
+    } else {
+      cards = decodeCT($("vz-ct").value);
+      $("vz-pt").value = ptString(cards);
+    }
+    render(cards);
+    status(cards, dir);
+  }
+
+  function setKey(word) {
+    keyWord = word;
+    book = makeBook(word);
+    resetSpare();
+    renderSpare();
+    renderRibbon();
+  }
+
+  function resetAll() {
+    $("vz-key").value = DEFAULT_KEY;
+    $("vz-ws").checked = false;
+    $("vz-layout").value = "compact";
+    $("vz-other").value = "skip";
+    keyMsg("", false);
+    setKey(DEFAULT_KEY);
+  }
+
+  function keyMsg(text, bad) {
+    const m = $("vz-keymsg");
+    m.textContent = text;
+    m.classList.toggle("bad", !!bad);
+  }
+
+  $("vz-key").addEventListener("input", () => {
+    const k = $("vz-key").value.toUpperCase().replace(/[^A-Z]/g, "");
+    $("vz-key").value = k;
+    if (k.length === 5 && new Set(k).size === 5) {
+      keyMsg([...VOW].map((v, i) => `${v}→${k[i]}`).join(" "), false);
+      setKey(k);
+      run(last);
+    } else {
+      keyMsg("need 5 distinct letters (" + k.length + " so far)", true);
+    }
+  });
+  $("vz-pt").addEventListener("input", () => run("pt"));
+  $("vz-ct").addEventListener("input", () => run("ct"));
+  ["vz-ws", "vz-layout", "vz-other"].forEach((id) => $(id).addEventListener("change", () => run(last)));
+
+  document.querySelectorAll("#vz [data-ct],#vz [data-pt]").forEach((b) => {
+    b.addEventListener("click", () => {
+      resetAll();
+      if (b.dataset.ct != null) { $("vz-ct").value = b.dataset.ct; if (b.dataset.pt != null) $("vz-pt").value = b.dataset.pt; run("ct"); }
+      else { $("vz-pt").value = b.dataset.pt; run("pt"); }
+    });
+  });
+
+  document.querySelectorAll("#vz [data-copy]").forEach((b) => {
+    b.addEventListener("click", () => {
+      const t = $(b.dataset.copy);
+      t.select();
+      const old = b.textContent;
+      const done = () => { b.textContent = "Copied"; setTimeout(() => (b.textContent = old), 1200); };
+      if (navigator.clipboard) navigator.clipboard.writeText(t.value).then(done, () => { document.execCommand("copy"); done(); });
+      else { document.execCommand("copy"); done(); }
+    });
+  });
+
+  // start with the puzzle ciphertext
+  resetAll();
+  $("vz-ct").value = "E6O4W1E5V5W1E5V5V1V5L2E1L3O1W4V5V3W1E2O4O1E4V6";
+  run("ct");
+
+  // exposed for testing from the console
+  window.vowelCipher = { run, setKey, decodeCT, encodePT, get book() { return book; }, get cards() { return cardsNow; } };
+})();
+
+</script>
+</body>
+</html>

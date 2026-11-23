@@ -1,0 +1,49 @@
+<h2 id="visualizer">6. Interactive visualizer</h2>
+<p>Type in either box and the other one updates. Plaintext is encoded and ciphertext is decoded live, and each pair gets a card showing the run of letters it points into. The input can be any text: characters the cipher can't represent are flagged rather than silently dropped.</p>
+<div class="card vz" id="vz">
+  <div class="vz-row">
+    <span><label class="vz-l" for="vz-key" style="display:inline">Key (for A E I O U)</label>
+      <input type="text" id="vz-key" value="VOWEL" maxlength="5" spellcheck="false" autocomplete="off"></span>
+    <span class="vz-keymsg" id="vz-keymsg"></span>
+    <span class="grow"></span>
+    <span>Load:
+      <button type="button" data-ct="%%CT%%">puzzle ciphertext</button>
+      <button type="button" data-ct="%%CT_ORIG%%">original (typo)</button>
+      <button type="button" data-pt="This is a vowel cipher">plaintext</button>
+      <button type="button" data-pt="The quick brown fox jumps over the lazy dog">pangram</button>
+      <button type="button" data-pt="" data-ct="">clear</button>
+    </span>
+  </div>
+
+  <div class="vz-grid">
+    <div>
+      <label class="vz-l" for="vz-pt">Plaintext</label>
+      <textarea id="vz-pt" spellcheck="false" autocomplete="off" placeholder="type plaintext here"></textarea>
+      <div class="vz-btns"><button type="button" data-copy="vz-pt">Copy</button></div>
+    </div>
+    <div>
+      <label class="vz-l" for="vz-ct">Ciphertext</label>
+      <textarea id="vz-ct" spellcheck="false" autocomplete="off" placeholder="type or paste ciphertext here, e.g. E6O4W1E5"></textarea>
+      <div class="vz-btns"><button type="button" data-copy="vz-ct">Copy</button></div>
+    </div>
+  </div>
+
+  <details open>
+    <summary>Options: spare codes and input handling</summary>
+    <p style="font-size:.85rem;margin:4px 0">Spare codes are key-letter + digit pairs that no letter uses. In this puzzle <span class="mono">V5</span> is the word space; the others are unexplained, so they are left unmapped by default. Mapping one to a punctuation mark lets you test a hypothesis, e.g. <span class="mono">V6</span> = period.</p>
+    <div class="vz-spare" id="vz-spare"></div>
+    <div class="vz-row">
+      <label><input type="checkbox" id="vz-ws"> Word breaks are literal spaces in the ciphertext (instead of a spare code)</label>
+    </div>
+    <div class="vz-row">
+      <label>Ciphertext layout <select id="vz-layout"><option value="compact">compact (E6O4W1)</option><option value="pairs">pairs separated by spaces (E6 O4 W1)</option></select></label>
+      <label>Plaintext characters with no code <select id="vz-other"><option value="skip">skip them</option><option value="pass">pass punctuation through unchanged</option></select></label>
+    </div>
+  </details>
+
+  <div class="vz-status" id="vz-status"></div>
+  <div class="vz-cards" id="vz-cards"></div>
+
+  <div class="label" style="margin-top:6px">Codebook for the current key &mdash; click a letter to append it to the plaintext; hover to link with the cards</div>
+  <div class="vz-rib" id="vz-rib"></div>
+</div>

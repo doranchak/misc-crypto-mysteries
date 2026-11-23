@@ -1,0 +1,47 @@
+  /* ---- interactive visualizer ---- */
+  :root { --err:#b3261e; --err-bg:#fde7e4; }
+  @media (prefers-color-scheme: dark) { :root { --err:#ff8a80; --err-bg:#3d1f1c; } }
+  .vz label.vz-l{display:block;margin:0 0 3px;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .vz textarea{width:100%;min-height:84px;font-family:var(--mono);font-size:.95rem;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);resize:vertical}
+  .vz select,.vz input[type=text]{font:inherit;font-size:.85rem;padding:4px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+  .vz input#vz-key{width:7.5em;font-family:var(--mono);text-transform:uppercase;letter-spacing:.12em}
+  .vz-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:720px){.vz-grid{grid-template-columns:1fr}}
+  .vz-row{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:8px 0;font-size:.85rem}
+  .vz-row .grow{flex:1 1 auto}
+  .vz-btns{display:flex;gap:6px;margin-top:4px}
+  .vz-btns button,.vz-row button{padding:3px 10px}
+  .vz-keymsg{color:var(--muted);font-family:var(--mono);font-size:.8rem}
+  .vz-keymsg.bad{color:var(--err)}
+  .vz-spare{display:flex;flex-wrap:wrap;gap:6px 14px;margin:6px 0}
+  .vz-spare span.c{font-family:var(--mono);font-weight:700;margin-right:4px}
+  .vz-status{font-size:.85rem;margin:10px 0 4px;color:var(--muted)}
+  .vz-status .ok{color:var(--accent);font-weight:600} .vz-status .bad{color:var(--err);font-weight:600}
+  .vz-cards{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+  .vz-card{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:52px;padding:5px 7px 6px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+  .vz-card .ct{font-family:var(--mono);font-weight:700;font-size:.95rem}
+  .vz-card .kk{font-family:var(--mono);font-size:.66rem;color:var(--muted)}
+  .vz-card .run{display:flex;gap:1px;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+  .vz-card .run span{padding:0 2px}
+  .vz-card .run b{background:var(--accent);color:var(--bg);border-radius:3px;padding:0 3px}
+  .vz-card .pt{font-family:var(--mono);font-size:1.2rem;font-weight:700;color:var(--accent);min-height:1.4em}
+  .vz-card .tag{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .vz-card.k-space{border-style:dashed;background:var(--spare)}
+  .vz-card.k-punct,.vz-card.k-alt{background:var(--c1)}
+  .vz-card.k-spare{border-color:var(--warn);background:var(--warn-bg)} .vz-card.k-spare .pt{color:var(--warn);font-size:.95rem}
+  .vz-card.k-err{border-color:var(--err);background:var(--err-bg)} .vz-card.k-err .pt,.vz-card.k-err .tag{color:var(--err)}
+  .vz-card.k-lit{background:var(--spare)} .vz-card.k-lit .pt{color:var(--fg)}
+  .vz-card.k-skip{opacity:.55;border-style:dotted} .vz-card.k-skip .pt{color:var(--muted)}
+  .vz-card.hl{outline:2px solid var(--accent);outline-offset:1px}
+  .vz-empty{color:var(--muted);font-size:.88rem;padding:6px 0}
+  .vz-rib{display:grid;grid-template-columns:auto repeat(6,minmax(0,1fr));gap:3px;margin-top:6px}
+  .vz-rh{font-size:.72rem;color:var(--muted);text-align:center;align-self:end;padding:0 2px}
+  .vz-rl{font-family:var(--mono);font-size:.82rem;color:var(--muted);align-self:center;padding-right:6px;white-space:nowrap}
+  .vz-cell{display:flex;flex-direction:column;align-items:center;padding:4px 2px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer;font:inherit}
+  .vz-cell .p{font-size:1.1rem;font-weight:700;line-height:1.2}
+  .vz-cell .c{font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+  .vz-cell.spare{background:var(--spare)} .vz-cell.spare .p{color:var(--muted);font-weight:400}
+  .vz-cell.used{border-color:var(--accent);background:var(--accent-bg)}
+  .vz-cell.run{background:var(--c0)} .vz-cell.hit{background:var(--accent);border-color:var(--accent)}
+  .vz-cell.hit .p,.vz-cell.hit .c{color:var(--bg)}
+  .vz details summary{cursor:pointer;font-size:.88rem;color:var(--muted);margin:6px 0}
