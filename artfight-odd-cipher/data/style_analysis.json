@@ -1,0 +1,586 @@
+{
+ "components": [
+  {
+   "cls": "red",
+   "x0": 1104,
+   "x1": 1121,
+   "y0": 241,
+   "y1": 245,
+   "h": 5,
+   "px": 42,
+   "rgb": [
+    156,
+    56,
+    50
+   ],
+   "kind": "E"
+  },
+  {
+   "cls": "red",
+   "x0": 1178,
+   "x1": 1195,
+   "y0": 241,
+   "y1": 245,
+   "h": 5,
+   "px": 41,
+   "rgb": [
+    157,
+    56,
+    50
+   ],
+   "kind": "E"
+  },
+  {
+   "cls": "red",
+   "x0": 328,
+   "x1": 338,
+   "y0": 310,
+   "y1": 323,
+   "h": 14,
+   "px": 94,
+   "rgb": [
+    201,
+    65,
+    56
+   ],
+   "kind": "R"
+  },
+  {
+   "cls": "purple",
+   "x0": 235,
+   "x1": 255,
+   "y0": 315,
+   "y1": 323,
+   "h": 9,
+   "px": 77,
+   "rgb": [
+    152,
+    63,
+    177
+   ],
+   "kind": "P"
+  },
+  {
+   "cls": "red",
+   "x0": 204,
+   "x1": 222,
+   "y0": 319,
+   "y1": 323,
+   "h": 5,
+   "px": 47,
+   "rgb": [
+    147,
+    54,
+    48
+   ],
+   "kind": "E"
+  },
+  {
+   "cls": "blue",
+   "x0": 859,
+   "x1": 883,
+   "y0": 359,
+   "y1": 377,
+   "h": 19,
+   "px": 199,
+   "rgb": [
+    86,
+    183,
+    225
+   ],
+   "kind": "B"
+  },
+  {
+   "cls": "red",
+   "x0": 116,
+   "x1": 160,
+   "y0": 422,
+   "y1": 440,
+   "h": 19,
+   "px": 333,
+   "rgb": [
+    203,
+    65,
+    56
+   ],
+   "kind": "R"
+  },
+  {
+   "cls": "red",
+   "x0": 58,
+   "x1": 76,
+   "y0": 436,
+   "y1": 440,
+   "h": 5,
+   "px": 49,
+   "rgb": [
+    139,
+    53,
+    47
+   ],
+   "kind": "E"
+  },
+  {
+   "cls": "red",
+   "x0": 1063,
+   "x1": 1080,
+   "y0": 436,
+   "y1": 440,
+   "h": 5,
+   "px": 41,
+   "rgb": [
+    157,
+    56,
+    50
+   ],
+   "kind": "E"
+  },
+  {
+   "cls": "blue",
+   "x0": 689,
+   "x1": 705,
+   "y0": 500,
+   "y1": 518,
+   "h": 19,
+   "px": 129,
+   "rgb": [
+    85,
+    182,
+    224
+   ],
+   "kind": "B"
+  },
+  {
+   "cls": "purple",
+   "x0": 1165,
+   "x1": 1195,
+   "y0": 509,
+   "y1": 518,
+   "h": 10,
+   "px": 106,
+   "rgb": [
+    165,
+    66,
+    192
+   ],
+   "kind": "P"
+  },
+  {
+   "cls": "red",
+   "x0": 1092,
+   "x1": 1109,
+   "y0": 514,
+   "y1": 518,
+   "h": 5,
+   "px": 41,
+   "rgb": [
+    157,
+    56,
+    50
+   ],
+   "kind": "E"
+  },
+  {
+   "cls": "purple",
+   "x0": 914,
+   "x1": 927,
+   "y0": 545,
+   "y1": 551,
+   "h": 7,
+   "px": 52,
+   "rgb": [
+    146,
+    61,
+    169
+   ],
+   "kind": "P"
+  },
+  {
+   "cls": "yellow",
+   "x0": 1182,
+   "x1": 1195,
+   "y0": 604,
+   "y1": 617,
+   "h": 14,
+   "px": 128,
+   "rgb": [
+    209,
+    167,
+    76
+   ],
+   "kind": "Y"
+  },
+  {
+   "cls": "purple",
+   "x0": 127,
+   "x1": 152,
+   "y0": 606,
+   "y1": 615,
+   "h": 10,
+   "px": 99,
+   "rgb": [
+    163,
+    65,
+    190
+   ],
+   "kind": "P"
+  },
+  {
+   "cls": "red",
+   "x0": 666,
+   "x1": 683,
+   "y0": 611,
+   "y1": 615,
+   "h": 5,
+   "px": 41,
+   "rgb": [
+    157,
+    56,
+    50
+   ],
+   "kind": "E"
+  }
+ ],
+ "component_counts": {
+  "E": 7,
+  "R": 2,
+  "P": 4,
+  "B": 2,
+  "Y": 1
+ },
+ "pieces": [
+  {
+   "par": 2,
+   "text": "tes:",
+   "style": "P",
+   "a": 19,
+   "b": 23,
+   "g": 46
+  },
+  {
+   "par": 4,
+   "text": "tional",
+   "style": "P",
+   "a": 378,
+   "b": 384,
+   "g": 676
+  },
+  {
+   "par": 4,
+   "text": "no",
+   "style": "P",
+   "a": 385,
+   "b": 387,
+   "g": 683
+  },
+  {
+   "par": 5,
+   "text": "Addi",
+   "style": "P",
+   "a": 4,
+   "b": 8,
+   "g": 737
+  },
+  {
+   "par": 2,
+   "text": "n",
+   "style": "R",
+   "a": 33,
+   "b": 34,
+   "g": 60
+  },
+  {
+   "par": 4,
+   "text": "Do't",
+   "style": "R",
+   "a": 12,
+   "b": 16,
+   "g": 310
+  },
+  {
+   "par": 3,
+   "text": "ye",
+   "style": "B",
+   "a": 40,
+   "b": 42,
+   "g": 249
+  },
+  {
+   "par": 4,
+   "text": "A",
+   "style": "B",
+   "a": 303,
+   "b": 304,
+   "g": 601
+  },
+  {
+   "par": 5,
+   "text": "😎",
+   "style": "Y",
+   "a": 185,
+   "b": 186,
+   "g": 918
+  }
+ ],
+ "n_errors": 7,
+ "error_positions": [
+  {
+   "par": 1,
+   "a": 7,
+   "g": 7
+  },
+  {
+   "par": 1,
+   "a": 21,
+   "g": 21
+  },
+  {
+   "par": 2,
+   "a": 12,
+   "g": 39
+  },
+  {
+   "par": 4,
+   "a": 0,
+   "g": 298
+  },
+  {
+   "par": 4,
+   "a": 166,
+   "g": 464
+  },
+  {
+   "par": 4,
+   "a": 363,
+   "g": 661
+  },
+  {
+   "par": 5,
+   "a": 95,
+   "g": 828
+  }
+ ],
+ "reunite": {
+  "P": {
+   "chunks": [
+    "tes:",
+    "tional",
+    "no",
+    "Addi"
+   ],
+   "n_orderings": 24,
+   "hits": [
+    {
+     "order": [
+      "no",
+      "tes:",
+      "Addi",
+      "tional"
+     ],
+     "words": [
+      "notes",
+      "additional"
+     ]
+    },
+    {
+     "order": [
+      "Addi",
+      "tional",
+      "no",
+      "tes:"
+     ],
+     "words": [
+      "additional",
+      "notes"
+     ]
+    }
+   ]
+  },
+  "R": {
+   "chunks": [
+    "n",
+    "Do't"
+   ],
+   "candidates": [
+    "nDo't",
+    "Dno't",
+    "Don't",
+    "Do'nt",
+    "Do'tn"
+   ],
+   "word_candidates": [
+    "Don't"
+   ]
+  },
+  "B": {
+   "chunks": [
+    "ye",
+    "A"
+   ],
+   "n_orderings": 2,
+   "hits": [
+    {
+     "order": [
+      "ye",
+      "A"
+     ],
+     "words": [
+      "yea"
+     ]
+    }
+   ],
+   "orderings": {
+    "Aye": "capital A is word-initial (natural)",
+    "yeA": "would be \"yea\" with a capital A in the middle (unnatural)"
+   }
+  }
+ },
+ "mc_purple": {
+  "trials": 100000,
+  "hits": 78,
+  "sizes": [
+   4,
+   6,
+   2,
+   4
+  ]
+ },
+ "displacement": {
+  "P": [
+   {
+    "par": 2,
+    "text": "tes:",
+    "g": 46
+   },
+   {
+    "par": 4,
+    "text": "tional",
+    "g": 676
+   },
+   {
+    "par": 4,
+    "text": "no",
+    "g": 683
+   },
+   {
+    "par": 5,
+    "text": "Addi",
+    "g": 737
+   }
+  ],
+  "R": [
+   {
+    "par": 2,
+    "text": "n",
+    "g": 60
+   },
+   {
+    "par": 4,
+    "text": "Do't",
+    "g": 310
+   }
+  ],
+  "B": [
+   {
+    "par": 3,
+    "text": "ye",
+    "g": 249
+   },
+   {
+    "par": 4,
+    "text": "A",
+    "g": 601
+   }
+  ]
+ },
+ "crops": [
+  {
+   "kind": "R",
+   "text": "n",
+   "file": "images/crops/R_n.png",
+   "box": [
+    258,
+    292,
+    408,
+    337
+   ]
+  },
+  {
+   "kind": "P",
+   "text": "tes:",
+   "file": "images/crops/P_tescolon.png",
+   "box": [
+    165,
+    297,
+    325,
+    337
+   ]
+  },
+  {
+   "kind": "B",
+   "text": "ye",
+   "file": "images/crops/B_ye.png",
+   "box": [
+    789,
+    341,
+    953,
+    391
+   ]
+  },
+  {
+   "kind": "R",
+   "text": "Do't",
+   "file": "images/crops/R_Doapost.png",
+   "box": [
+    46,
+    404,
+    230,
+    454
+   ]
+  },
+  {
+   "kind": "B",
+   "text": "A",
+   "file": "images/crops/B_A.png",
+   "box": [
+    619,
+    482,
+    775,
+    532
+   ]
+  },
+  {
+   "kind": "P",
+   "text": "tional",
+   "file": "images/crops/P_tional.png",
+   "box": [
+    1095,
+    491,
+    1222,
+    532
+   ]
+  },
+  {
+   "kind": "P",
+   "text": "no",
+   "file": "images/crops/P_no.png",
+   "box": [
+    844,
+    527,
+    997,
+    565
+   ]
+  },
+  {
+   "kind": "P",
+   "text": "Addi",
+   "file": "images/crops/P_Addi.png",
+   "box": [
+    57,
+    588,
+    222,
+    629
+   ]
+  }
+ ]
+}

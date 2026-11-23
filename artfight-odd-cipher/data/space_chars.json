@@ -1,0 +1,196 @@
+{
+ "line1": {
+  "cipher": "UFDAILD TOSER ATAAE  LOD",
+  "plain": "FAILED TO LOAD USER DATA",
+  "n_chars": 24,
+  "n_spaces": 4,
+  "pairs": 23,
+  "hits": 13,
+  "rand_mean": 5.36,
+  "p": 0.0003,
+  "space_pairs": 8,
+  "space_hits": 4,
+  "space_rand_mean": 2.2,
+  "space_p": 0.12425,
+  "K": 12,
+  "secs": 0.0
+ },
+ "line2": {
+  "cipher": "YERSSTEMTO BTING CKSUBVP ASU",
+  "plain": "SUBVERTING SYSTEM BACKUPS TO",
+  "n_chars": 28,
+  "n_spaces": 3,
+  "pairs": 27,
+  "hits": 14,
+  "rand_mean": 3.9,
+  "p": 0.0,
+  "space_pairs": 6,
+  "space_hits": 2,
+  "space_rand_mean": 1.5,
+  "space_p": 0.4794,
+  "K": 14,
+  "secs": 0.0
+ },
+ "line3": {
+  "cipher": "cesriPosng",
+  "plain": "Processing",
+  "n_chars": 10,
+  "n_spaces": 0,
+  "pairs": 9,
+  "hits": 3,
+  "rand_mean": 1.21,
+  "p": 0.11235,
+  "space_pairs": 0,
+  "space_hits": 0,
+  "space_rand_mean": 0.0,
+  "space_p": 1.0,
+  "K": 7,
+  "secs": 0.0
+ },
+ "line2_orders": [
+  {
+   "order": "SUBVERTING SYSTEM TO BACKUPS",
+   "hits": 15,
+   "space_hits": 3,
+   "K": 13
+  },
+  {
+   "order": "SUBVERTING TO BACKUPS SYSTEM",
+   "hits": 15,
+   "space_hits": 3,
+   "K": 13
+  },
+  {
+   "order": "SYSTEM SUBVERTING TO BACKUPS",
+   "hits": 15,
+   "space_hits": 3,
+   "K": 13
+  },
+  {
+   "order": "TO BACKUPS SUBVERTING SYSTEM",
+   "hits": 15,
+   "space_hits": 3,
+   "K": 13
+  },
+  {
+   "order": "SUBVERTING BACKUPS TO SYSTEM",
+   "hits": 15,
+   "space_hits": 3,
+   "K": 14
+  },
+  {
+   "order": "SUBVERTING TO SYSTEM BACKUPS",
+   "hits": 15,
+   "space_hits": 3,
+   "K": 14
+  },
+  {
+   "order": "SYSTEM TO SUBVERTING BACKUPS",
+   "hits": 15,
+   "space_hits": 3,
+   "K": 14
+  },
+  {
+   "order": "TO SUBVERTING SYSTEM BACKUPS",
+   "hits": 15,
+   "space_hits": 3,
+   "K": 14
+  },
+  {
+   "order": "TO SUBVERTING BACKUPS SYSTEM",
+   "hits": 15,
+   "space_hits": 3,
+   "K": 14
+  },
+  {
+   "order": "TO SYSTEM SUBVERTING BACKUPS",
+   "hits": 15,
+   "space_hits": 3,
+   "K": 14
+  },
+  {
+   "order": "SUBVERTING SYSTEM BACKUPS TO",
+   "hits": 14,
+   "space_hits": 2,
+   "K": 14
+  },
+  {
+   "order": "SYSTEM BACKUPS SUBVERTING TO",
+   "hits": 14,
+   "space_hits": 2,
+   "K": 14
+  },
+  {
+   "order": "SYSTEM TO BACKUPS SUBVERTING",
+   "hits": 14,
+   "space_hits": 2,
+   "K": 14
+  },
+  {
+   "order": "BACKUPS SUBVERTING TO SYSTEM",
+   "hits": 14,
+   "space_hits": 2,
+   "K": 14
+  },
+  {
+   "order": "BACKUPS TO SUBVERTING SYSTEM",
+   "hits": 14,
+   "space_hits": 2,
+   "K": 14
+  },
+  {
+   "order": "TO BACKUPS SYSTEM SUBVERTING",
+   "hits": 14,
+   "space_hits": 2,
+   "K": 14
+  },
+  {
+   "order": "SUBVERTING BACKUPS SYSTEM TO",
+   "hits": 14,
+   "space_hits": 2,
+   "K": 15
+  },
+  {
+   "order": "SYSTEM SUBVERTING BACKUPS TO",
+   "hits": 14,
+   "space_hits": 2,
+   "K": 15
+  },
+  {
+   "order": "SYSTEM BACKUPS TO SUBVERTING",
+   "hits": 14,
+   "space_hits": 2,
+   "K": 15
+  },
+  {
+   "order": "TO SYSTEM BACKUPS SUBVERTING",
+   "hits": 14,
+   "space_hits": 2,
+   "K": 15
+  },
+  {
+   "order": "BACKUPS SUBVERTING SYSTEM TO",
+   "hits": 13,
+   "space_hits": 1,
+   "K": 15
+  },
+  {
+   "order": "BACKUPS SYSTEM SUBVERTING TO",
+   "hits": 13,
+   "space_hits": 1,
+   "K": 15
+  },
+  {
+   "order": "BACKUPS SYSTEM TO SUBVERTING",
+   "hits": 13,
+   "space_hits": 1,
+   "K": 15
+  },
+  {
+   "order": "BACKUPS TO SYSTEM SUBVERTING",
+   "hits": 13,
+   "space_hits": 1,
+   "K": 15
+  }
+ ]
+}

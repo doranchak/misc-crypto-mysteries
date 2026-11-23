@@ -1,12 +1,15 @@
 """Best-effort restoration of the glitched ArtFight "rules" paragraph.
 
 Each paragraph (same order as corrupted.txt) is a list of segments:  (tier, text, [source patterns])
-  tier  k = recovered   (words survive in the garbled text, at most ~1 letter off)
+  tier  c = colour-matched (pieces that share a colour/size in the original screenshot, reunited; see styles.py)
+        k = recovered   (words survive in the garbled text, at most ~1 letter off)
         r = repaired    (recognisable word(s) with several letters missing, swapped or displaced)
         i = inferred    (a guess assembled from context and displaced fragments; NOT verifiable)
         g = gap         (a fragment I could not read; shown as an ellipsis)
   source patterns: strings from the garbled paragraph; the part in {braces} is what gets highlighted, the rest is
-  context used to find the right occurrence. build_rules.py asserts every pattern exists.
+  context used to find the right occurrence. A pattern may start with "§N|" to point into paragraph N instead of the
+  paragraph the segment is listed in (colour-matched words are made of pieces from several paragraphs).
+  rules_view.py asserts every pattern exists.
 """
 
 PARAS = [
@@ -16,10 +19,10 @@ PARAS = [
 
 # ---- P2 ---------------------------------------------------------------------------------------------------
 [("g", "…", ["{Gesitputt}No"]),
- ("k", "No hate.", ["gtes:{No hate}be"]),
+ ("k", "No hate.", ["tes:{No hate}be"]),
  ("r", "Be", ["hate{be}An"]),
- ("g", "…", ["be{An}Please"]),
- ("r", "Please be", ["An{Please b}"]),
+ ("g", "…", ["be{A}nPlease"]),
+ ("r", "Please be", ["n{Please b}"]),
  ("g", "…", ["{I} hgorms", "{hgorms)}"]),
  ("r", "ONLY if", ["{LY if}"]),
  ("g", "…", []),
@@ -43,7 +46,7 @@ PARAS = [
 
 # ---- P3 ---------------------------------------------------------------------------------------------------
 [("r", "Please don't draw", ["{lease don't draw}"]),
- ("r", "my non-human chars (e.g. werewolf)", ["Dev{my non-human chye werewolf)}"]),
+ ("r", "my non-human chars (e.g. werewolf)", ["Dev{my non-human ch}ye", "ye {werewolf)}"]),
  ("r", "as human or vice versa.", ["werewolf) {or vicevearaers.}", "expNSFW {as}"]),
  ("g", "…", ["amp. {Dev}my", "{amp.}", "vicevearaers.{nender}No"]),
  ("k", "No", ["nender{No} exp"]),
@@ -53,7 +56,7 @@ PARAS = [
 
 # ---- P4 ---------------------------------------------------------------------------------------------------
 [("g", "…", ["{igher}"]),
- ("r", "Don't", ["{Do't}"]),
+ ("c", "Don't", ["{Do't}", "§2|beA{n}Please"]),
  ("g", "…", ["{ing} thnds", "{thnds}/cigs"]),
  ("k", "…/cigs", ["thnds{/cigs}lving"]),
  ("r", "involving my chars", ["cigs{lving my char}"]),
@@ -78,7 +81,9 @@ PARAS = [
  ("r", "don't draw their", ["ins {thon't draw meir}"]),
  ("i", "prey", ["{orey} unless"]),
  ("k", "unless", ["{unless} theexen"]),
- ("g", "…", ["unless {theexen -Arsa;d}"]),
+ ("g", "…", ["unless {theexen -}A"]),
+ ("c", "Aye", ["-{A}rsa", "§3|ch{ye} werewolf"]),
+ ("g", "…", ["-A{rsa;d}"]),
  ("k", "human", ["d {human} f-ap"]),
  ("g", "…", ["human {f-ap} aphbe", "{aph}be happy"]),
  ("r", "be happy to see", ["aph{be happy to see}"]),
@@ -87,7 +92,7 @@ PARAS = [
  ("r", "with", ["{wi h} migth"]),
  ("r", "might", ["{migth}"]),
  ("k", "me", ["migth {me}"]),
- ("g", "…", ["{er oat ottional nog ther}"]),
+ ("g", "…", ["{er oat ot}tional", "no{g ther}"]),
  ("k", "and", ["ther {and} havetive"]),
  ("r", "have", ["and {have}tive"]),
  ("g", "…", ["have{tive} is"]),
@@ -95,7 +100,7 @@ PARAS = [
  ("r", "you", ["ideas {yu}"])],
 
 # ---- P5 ---------------------------------------------------------------------------------------------------
-[("r", "Additionally,", ["bi{Addi}in"]),
+[("c", "Additional notes:", ["bi{Addi}in", "§4|ot{tional}", "§4|{no}g ther", "§2|g{tes:}No hate"]),
  ("g", "…", ["{D} biAddi", "Addi{in} smrc", "{smrc okatction or bsc isy}"]),
  ("i", "character battle", ["isy {alacter haraattle} so"]),
  ("k", "so go ham,", ["{so go ham,}"]),
