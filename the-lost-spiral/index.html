@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Lost Spiral — solved</title>
+<style>
+  :root{
+    --bg:#faf6ee; --card:#fffdf8; --ink:#2b2118; --muted:#6f6254; --line:#e2d7c3;
+    --red:#9b2c24; --redbg:#f6e3df; --gold:#b98a2e; --goldbg:#f7ecd1; --ok:#2f6b3a; --okbg:#e3f0e4;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+  main{max-width:1040px;margin:0 auto;padding:28px 20px 80px}
+  h1{font:700 2rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px;letter-spacing:.02em}
+  h2{font:700 1.35rem/1.25 Georgia,serif;margin:44px 0 10px;padding-top:10px;border-top:2px solid var(--line)}
+  h3{font-size:1.02rem;margin:22px 0 6px}
+  p{margin:.55em 0}
+  .sub{color:var(--muted);margin:0 0 18px}
+  code,.mono{font-family:var(--mono);font-size:.92em}
+  a{color:var(--red)}
+  .answers{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:18px 0}
+  .ans{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--red);border-radius:8px;padding:12px 16px}
+  .ans .lbl{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .ans .txt{font:700 1.45rem/1.3 var(--mono);margin-top:4px;letter-spacing:.04em}
+  .ans .note{font-size:.88rem;color:var(--muted);margin-top:4px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:14px 0}
+  ol.rules{padding-left:1.2em;margin:.4em 0}
+  ol.rules li{margin:.3em 0}
+  table{border-collapse:collapse}
+  .gridwrap{overflow-x:auto}
+  table.grid{font-family:var(--mono);margin:8px 0}
+  table.grid th{color:var(--muted);font-weight:600;padding:3px 10px;font-size:.85rem}
+  table.grid td{position:relative;border:1px solid var(--line);background:#fff;text-align:center;padding:7px 9px;min-width:46px;font-size:.98rem}
+  table.grid.static td{background:#fff}
+  table.grid td .tag{position:absolute;top:1px;right:3px;font-size:.62rem;color:var(--gold);font-weight:700}
+  table.grid td.crossed{color:#b7aa97;background:#f1ece1;text-decoration:line-through}
+  table.grid td.cnt{background:var(--goldbg)}
+  table.grid td.cur{background:var(--ink);color:#fff;text-decoration:none}
+  table.grid td.tgt{outline:3px solid var(--red);outline-offset:-3px;background:var(--redbg);color:var(--ink);text-decoration:none;font-weight:700}
+  table.grid td.start{box-shadow:inset 0 0 0 2px var(--gold)}
+  .stepper{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+  .stepper.both{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:start}
+  @media(max-width:860px){.stepper.both{grid-template-columns:minmax(0,1fr)}}
+  .ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0}
+  button{font:inherit;font-size:.92rem;padding:5px 12px;border:1px solid var(--ink);background:var(--card);color:var(--ink);border-radius:6px;cursor:pointer}
+  button:hover{background:var(--goldbg)}
+  input[type=range]{flex:1;min-width:160px;accent-color:var(--red)}
+  .readout{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-height:5.2em}
+  .readout .big{font:700 1.15rem var(--mono)}
+  .decoded{font:600 1.15rem var(--mono);letter-spacing:.06em;white-space:pre-wrap;word-break:break-word;margin-top:6px}
+  .decoded .pad{color:#a79a88;font-weight:400}
+  .decoded .sp{color:var(--gold)}
+  .badge{display:inline-block;font-size:.72rem;padding:1px 7px;border-radius:99px;background:var(--okbg);color:var(--ok);font-family:system-ui;vertical-align:middle;margin-left:6px}
+  .badge.pad{background:#eee8dc;color:var(--muted)}
+  svg.spiral{width:100%;height:auto;background:#f3e7c8;border:1px solid var(--line);border-radius:8px}
+  svg.spiral .link{stroke:#8d7b57;stroke-width:1.5;stroke-dasharray:5 5;fill:none}
+  svg.spiral g.node circle{fill:#fffdf8;stroke:#a8946a;stroke-width:1.3}
+  svg.spiral g.node text{font:700 12.5px var(--mono);text-anchor:middle;dominant-baseline:central;fill:var(--ink)}
+  svg.spiral g.node.crossed circle{fill:#e7dcc4;stroke:#cdbd9b}
+  svg.spiral g.node.crossed text{fill:#a79a88}
+  svg.spiral g.node.cnt circle{fill:var(--goldbg);stroke:var(--gold)}
+  svg.spiral g.node.cur circle{fill:var(--ink);stroke:var(--ink)}
+  svg.spiral g.node.cur text{fill:#fff}
+  svg.spiral g.node.tgt circle{fill:var(--redbg);stroke:var(--red);stroke-width:3}
+  svg.spiral g.node.tgt text{fill:var(--ink)}
+  svg.spiral .tag{font:700 10px var(--mono);fill:var(--red);text-anchor:middle}
+  svg.spiral .xmark{stroke:var(--red);stroke-width:5;stroke-linecap:round}
+  .hoptable{font-family:var(--mono);font-size:.84rem;width:100%}
+  .hoptable th{text-align:left;color:var(--muted);font-weight:600;padding:3px 8px;border-bottom:1px solid var(--line)}
+  .hoptable td{padding:2px 8px;border-bottom:1px solid #f0e9da}
+  .hoptable tr{cursor:pointer}
+  .hoptable tr.pad td{color:#9a8d7b}
+  .hoptable tr.act td{background:var(--goldbg)}
+  .hoptable td.l{font-weight:700}
+  details{margin:8px 0}
+  summary{cursor:pointer;color:var(--red);font-weight:600}
+  .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;align-items:start}
+  img.orig{max-width:100%;border:1px solid var(--line);border-radius:8px}
+  table.abl{width:100%;font-size:.9rem}
+  table.abl th{text-align:left;color:var(--muted);font-weight:600;padding:4px 8px;border-bottom:1px solid var(--line)}
+  table.abl td{padding:4px 8px;border-bottom:1px solid #f0e9da;vertical-align:top}
+  table.abl td.m{font-family:var(--mono)}
+  .ok{color:var(--ok);font-weight:700}
+  .bad{color:var(--red)}
+  textarea,input[type=text],input[type=number]{font-family:var(--mono);font-size:.92rem;border:1px solid var(--line);border-radius:6px;padding:6px 8px;background:#fff;color:var(--ink)}
+  textarea{width:100%;min-height:128px}
+  input[type=text]{width:100%}
+  .out{background:#fff;border:1px dashed var(--line);border-radius:6px;padding:8px 10px;margin-top:8px;font-family:var(--mono);white-space:pre-wrap;word-break:break-word}
+  table.grid.mini td{padding:4px 5px;min-width:36px;font-size:.86rem}
+  table.grid.mini th{padding:2px 6px}
+  table.grid td.msgc{background:var(--okbg);color:var(--ink)}
+  table.grid td.padc{background:#ece5d6;color:#8a7d6b}
+  table.grid td.closec{background:#ece5d6;color:#8a7d6b;box-shadow:inset 0 0 0 2px var(--gold)}
+  .legend{font-family:system-ui;font-size:.8rem;color:var(--muted);margin:6px 0 0}
+  .legend i{display:inline-block;width:.9em;height:.9em;border:1px solid var(--line);vertical-align:-1px;margin:0 3px 0 10px}
+  .legend i:first-child{margin-left:0}
+  .encinfo{font-family:var(--mono);font-size:.86rem;margin-top:8px;white-space:pre-wrap;word-break:break-word}
+  .encinfo .pad{color:#8a7d6b}
+  .warn{color:var(--red)}
+  .small{font-size:.86rem;color:var(--muted)}
+  ul.tight{margin:.3em 0;padding-left:1.2em}
+  ul.tight li{margin:.2em 0}
+</style>
+</head>
+<body>
+<main>
+
+<h1>The Lost Spiral — solved</h1>
+<p class="sub">A spiral of 54 coordinates and a 9×6 grid, both posted to r/codes by <a href="https://www.reddit.com/user/ViezeVingertjes/">u/ViezeVingertjes</a> and both built on the same hop-counting pointer cipher. Reproduced and verified in this folder.</p>
+<div class="card small" style="margin-top:0">
+  <b>Sources</b> (both by <a href="https://www.reddit.com/user/ViezeVingertjes/">u/ViezeVingertjes</a>):
+  <ul class="tight">
+    <li><a href="https://www.reddit.com/r/codes/comments/1y15s46/the_lost_spiral_or_isnt_it/">The Lost Spiral</a> — r/codes, <code>…/comments/1y15s46/the_lost_spiral_or_isnt_it/</code>. The spiral image (copy: <a href="lost-spiral.png">lost-spiral.png</a>).</li>
+    <li><a href="https://www.reddit.com/r/codes/comments/1wjxj5u/thank_god_its_friday/">Thank god its friday!</a> — r/codes, <code>…/comments/1wjxj5u/thank_god_its_friday/</code>. The 9×6 grid, with the comment by u/Parking_Witness1832 that gives the method (saved copy: <a href="Thank god its friday! _ r_codes.pdf">PDF</a>).</li>
+  </ul>
+</div>
+
+<div class="answers">
+  <div class="ans">
+    <div class="lbl">Spiral plaintext</div>
+    <div class="txt">THANK GOD ITS FRIDAY</div>
+    <div class="note">20 symbols, then 33 hops of random-looking padding.</div>
+  </div>
+  <div class="ans" style="border-left-color:var(--gold)">
+    <div class="lbl">Friday-thread cipher plaintext</div>
+    <div class="txt">YOU HAVE FOUND THE SECRET␣</div>
+    <div class="note">26 symbols (the last is a space), then 27 hops of padding. Matches the Parking_Witness1832 comment (“you-a have-a found-a the-a secret-a”): their “a” is hop&nbsp;27 = a space.</div>
+  </div>
+</div>
+
+<div class="card">
+<b>The scheme in one paragraph.</b> A 9×6 grid (columns A–I, rows 1–6) is read in book order (A1, B1 … I1, A2 … I6). Every cell stores a <i>pointer</i> to another cell, and the pointers form a single loop through all 54 cells. Start at A1, follow its pointer, and <b>count the hops</b> from where you stand to the pointed-to cell, going forward in book order (wrapping from I6 back to A1), <b>skipping cells already crossed out</b> and counting the destination. A count of 1–26 is a letter A–Z and <b>27 is a space</b>. Cross out the destination and repeat. The spiral is the same grid with its 54 cells laid out along a spiral instead of in rows.
+</div>
+
+<!-- ======================================================================= -->
+<h2>1. The Friday-thread cipher</h2>
+<p>Source: <a href="https://www.reddit.com/r/codes/comments/1wjxj5u/thank_god_its_friday/">“Thank god its friday!”</a> by <a href="https://www.reddit.com/user/ViezeVingertjes/">u/ViezeVingertjes</a> on r/codes (<a href="Thank god its friday! _ r_codes.pdf">saved copy as PDF</a>), flagged <i>Unsolved</i>. The post is just this grid and the line <code>V sbyybjrq gur ehyrf!</code>, which is ROT13 for <b>“I followed the rules!”</b>. I re-checked my transcription against a render of the PDF page.</p>
+<div class="gridwrap"><div id="friday-static"></div></div>
+
+<h3>The rules, as given by Parking_Witness1832</h3>
+<ol class="rules">
+  <li><b>Start at A1.</b> It says H3, so count forward to H3 “like a book”. H3 is the 26th cell in reading order, so it is 25 hops away, and the 25th letter is <b>Y</b>.</li>
+  <li><b>Each hop adds one to the letter.</b> The count <i>is</i> the letter: 15 → O, 21 → U.</li>
+  <li><b>Skip cells you have already visited</b> (they cross them out on a whiteboard), including A1 itself.</li>
+  <li>Keep going from the cell you just reached, using the pointer stored <i>there</i>.</li>
+</ol>
+<p>Two details their comment leaves open turned out to be pinned down by the output:</p>
+<ul class="tight">
+  <li><b>Wrap-around.</b> Hop 3 goes from E5 to I1, which is “behind” it in book order, so counting continues past I6 into A1 and onwards: 21 hops, i.e. <b>U</b>.</li>
+  <li><b>27 is a space, not “A”.</b> Hops of exactly 27 appear after YOU, HAVE, FOUND, THE and SECRET. They are the word gaps; a 27-symbol alphabet (A–Z plus space) explains every “a” in the commenter's result.</li>
+  <li>The gibberish the commenter hit afterwards is <b>padding</b> (see §3). The message ends after the 26th hop.</li>
+</ul>
+
+<h3>Step through it</h3>
+<div class="stepper" id="stepper-friday"></div>
+
+<!-- ======================================================================= -->
+<h2>2. Identifying the scheme in the spiral</h2>
+<div class="two">
+  <div>
+    <img class="orig" src="lost-spiral.png" alt="The Lost Spiral puzzle image">
+    <p class="small">Original image, from <a href="https://www.reddit.com/r/codes/comments/1y15s46/the_lost_spiral_or_isnt_it/">“The Lost Spiral”</a> by <a href="https://www.reddit.com/user/ViezeVingertjes/">u/ViezeVingertjes</a> on r/codes. The subtitle reads: <i>“Begin where X marks the spot. Count your steps. Never tread the same ground twice.”</i></p>
+  </div>
+  <div>
+    <h3 style="margin-top:0">Reading the spiral</h3>
+    <ul class="tight">
+      <li>54 labels, each a red letter A–I and a black digit 1–6 (colour is decoration: all 54 are red-letter + black-digit). All 54 are different, so they are exactly the 54 cells of a 9×6 grid.</li>
+      <li>The order comes from following the dashed connectors out from the X (they form a single path with two ends). The sequence is unrolled into the grid further down.</li>
+      <li>Because every cell occurs exactly once, the <i>only</i> information is the order, which is also true of the Friday grid when read as a pointer table.</li>
+    </ul>
+    <h3>The mapping that makes it click</h3>
+    <ol class="rules">
+      <li><b>Spiral node <i>k</i> is the pointer stored in cell <i>k</i> of the grid in book order</b> (node 1 = A1, node 2 = B1 … node 54 = I6): the spiral is the same grid flattened along a path starting at the X.</li>
+      <li>That grid's pointers form <b>one 54-cycle</b> (a random permutation does that only 1 time in 54). Filled column-major the loop closes after 9 cells; read inward it closes after 36. Only the book-order, outward reading gives the loop the Friday-thread commenters noticed.</li>
+      <li><b>Using it directly on the spiral.</b> Node 1 (at the X) carries the label <b>C3</b>. Cell C3 is position (3−1)×9+3 = 21 in reading order, i.e. spiral node 21, so walk <b>20 steps</b> along the spiral → <b>T</b>. Node 21 carries <b>B4</b> = node 29; 8 steps further, skipping the two nodes already trodden → <b>H</b>, and so on.</li>
+      <li>The subtitle is the rule set: <i>begin where X marks the spot</i> = start at the first node (A1); <i>count your steps</i> = the hop counts; <i>never tread the same ground twice</i> = skip cells already crossed out.</li>
+    </ol>
+  </div>
+</div>
+
+<h3>The spiral unrolled into the 9×6 grid</h3>
+<p class="small">Row 1 is nodes 1–9, row 2 is nodes 10–18, and so on. The header letters and digits are the <i>cell</i> names and each box holds the pointer stored there, exactly as in the Friday post.</p>
+<div class="gridwrap"><div id="spiral-static"></div></div>
+
+<h3>Step through the spiral</h3>
+<p class="small">Left: the spiral redrawn at its real node positions, with the X at the centre. Right: the same state on the grid. Gold boxes and red numbers are the cells counted for the current hop; the red-outlined one is the destination.</p>
+<div class="stepper both" id="stepper-spiral"></div>
+
+<h3>Result</h3>
+<p>Counting the hops gives <b>20, 8, 1, 14, 11, 27, 7, 15, 4, 27, 9, 20, 19, 27, 6, 18, 9, 4, 1, 25</b> → <code>T H A N K ␣ G O D ␣ I T S ␣ F R I D A Y</code>. The next hop (4 = D) starts the padding. The plaintext repeats the title of the same author's other post, “Thank god its friday!”.</p>
+
+<!-- ======================================================================= -->
+<h2>3. Checks</h2>
+<div class="card">
+<ul class="tight">
+  <li><b>Round trip.</b> An independent encoder (<code>hopcipher.encode</code>) rebuilds both pointer grids <i>exactly</i> from their hop counts, and each loop closes back at A1 after all 54 cells.</li>
+  <li><b>Alphabet bound.</b> Every hop in both messages is ≤ 27. Random hops in this grid would reach up to 53 early on (my first, wrong, attempt, which read the spiral as the visited path, produced 29 and 31).</li>
+  <li><b>English, not noise.</b> 20 and 26 consecutive hops decode to clean words with the same spaces convention in both puzzles.</li>
+  <li><b>Padding.</b> After the message, every hop stays inside the legal range 1…(cells left), as required. The hop sums sit at z = <span id="zf"></span> (Friday) and z = <span id="zs"></span> (spiral) relative to uniform random draws, so they look like random fill. I found no second message in them.</li>
+</ul>
+</div>
+<h3>Variants that fail</h3>
+<table class="abl" id="abl"><thead><tr><th>Variant</th><th>First 22 symbols</th><th>Outcome</th></tr></thead><tbody></tbody></table>
+<p class="small">Not crossing out the start cell shifts the first wrap-around hop by one (Friday breaks at hop 3, the spiral at hop 5), which confirms rule 3.</p>
+
+<h3>All hops</h3>
+<details><summary>Friday thread: 53 hops</summary><div id="hops-friday"></div></details>
+<details open><summary>Spiral: 53 hops</summary><div id="hops-spiral"></div></details>
+
+<!-- ======================================================================= -->
+<h2>4. Decode / encode tool</h2>
+<div class="two">
+  <div class="card">
+    <b>Decode</b> — paste 54 labels in book order (A1, B1 … I1, A2 … I6), any whitespace.
+    <textarea id="dec-in" spellcheck="false"></textarea>
+    <div class="ctl"><button id="dec-go">Decode</button><button id="dec-fri">Load Friday grid</button><button id="dec-sp">Load spiral grid</button></div>
+    <div class="out" id="dec-out">—</div>
+  </div>
+  <div class="card">
+    <b>Encode</b> — letters and spaces only, up to 53 symbols (late symbols must fit in the cells still uncrossed).
+    <input type="text" id="enc-in" value="THANK GOD ITS FRIDAY" spellcheck="false">
+    <div class="ctl">Padding seed <input type="number" id="enc-seed" value="1" style="width:6em"><button id="enc-go">Encode</button></div>
+    <div class="out" id="enc-out" style="white-space:normal">—</div>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<h2>5. Notes and caveats</h2>
+<ul class="tight">
+  <li><b>Trailing space.</b> The Friday plaintext ends with a 27 after SECRET. It is probably the same “word separator” the encoder puts between words, but I can't tell whether it is meant. The spiral message has none.</li>
+  <li><b>Padding is not decoded.</b> The tails (<code id="tf"></code> and <code id="ts"></code>) are the free hops the encoder needs to close the loop through the remaining cells. Nothing I tried reads as a message.</li>
+  <li><b>Inference vs. proof.</b> “Spiral node <i>k</i> = cell <i>k</i>” is an inference. It is confirmed by three independent signals: a single 54-cycle (1/54 by chance), clean English from the first hop, and the exact round trip.</li>
+  <li><b>Sources and what I read.</b> I worked from the spiral image and from the saved PDF of the Friday thread (post and comments). I did not read the spiral thread's own page or comments (<a href="https://www.reddit.com/r/codes/comments/1y15s46/the_lost_spiral_or_isnt_it/">link</a>), so nothing here relies on what is said there. Both posts are credited to <a href="https://www.reddit.com/user/ViezeVingertjes/">u/ViezeVingertjes</a> as the author.</li>
+  <li><b>Not read:</b> the OP cipher whose hints Parking_Witness1832 mentions (<code>reddit.com/r/codes/s/fYm5W7Cr2C</code>). It wasn't needed.</li>
+  <li><b>Files.</b> <code>hopcipher.py</code> (algorithm + data), <code>verify.py</code> (checks above), <code>build_report.py</code> + <code>template.html</code> (this page), <code>spiral_coords.json</code> (traced node positions), <code>lost-spiral.png</code> (the puzzle).</li>
+</ul>
+
+</main>
+
+<script id="core">
+const COLS="ABCDEFGHI";
+const NAMES=[]; for(let r=1;r<=6;r++) for(let c=0;c<9;c++) NAMES.push(COLS[c]+r);
+const POS={}; NAMES.forEach((n,i)=>POS[n]=i);
+const sym=n=>n===27?" ":(n>=1&&n<=26?String.fromCharCode(64+n):"?");
+
+// follow pointers from `start`; returns the hop list and the pointer left over at the end
+function decode(ptr,start="A1"){
+  const crossed=new Set([start]), seen=new Set([start]);
+  let cur=start; const steps=[];
+  while(!seen.has(ptr[cur])){
+    const tgt=ptr[cur]; let i=POS[cur], n=0; const counted=[];
+    for(;;){ i=(i+1)%54; const nm=NAMES[i]; if(crossed.has(nm)) continue; n++; counted.push(nm); if(nm===tgt) break; }
+    steps.push({from:cur,to:tgt,n,counted});
+    crossed.add(tgt); seen.add(tgt); cur=tgt;
+  }
+  return {steps,closing:ptr[cur]};
+}
+// inverse: hop counts -> pointer grid
+function encodeHops(hops,start="A1"){
+  const crossed=new Set([start]); let cur=start; const ptr={};
+  for(const n of hops){
+    let i=POS[cur],k=0;
+    for(;;){ i=(i+1)%54; if(crossed.has(NAMES[i])) continue; if(++k===n) break; }
+    ptr[cur]=NAMES[i]; crossed.add(NAMES[i]); cur=NAMES[i];
+  }
+  ptr[cur]=start; return ptr;
+}
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function encodeMessage(text,seed){
+  const syms=[...text.toUpperCase()].filter(ch=>/[A-Z ]/.test(ch)).map(ch=>ch===" "?27:ch.charCodeAt(0)-64);
+  if(!syms.length) throw new Error("Nothing to encode (use letters A–Z and spaces).");
+  if(syms.length>53) throw new Error("At most 53 symbols.");
+  syms.forEach((n,j)=>{ if(n>54-(j+1)) throw new Error(`Symbol ${j+1} needs ${n} cells but only ${54-(j+1)} are uncrossed at that point.`); });
+  const rng=mulberry32(seed), hops=syms.slice();
+  for(let j=syms.length+1;j<=53;j++) hops.push(1+Math.floor(rng()*(54-j)));
+  return {ptr:encodeHops(hops), hops, msgLen:syms.length};
+}
+</script>
+
+<script>
+const DATA={"friday":{"ptr":{"A1":"H3","B1":"E2","C1":"D4","D1":"B4","E1":"H1","F1":"F5","G1":"G3","H1":"F3","I1":"A5","A2":"A4","B2":"I2","C2":"I4","D2":"D6","E2":"A3","F2":"B3","G2":"A1","H2":"D3","I2":"E3","A3":"C4","B3":"C1","C3":"E4","D3":"I6","E3":"G6","F3":"H5","G3":"F6","H3":"E5","I3":"H4","A4":"C5","B4":"G2","C4":"D1","D4":"D5","E4":"H6","F4":"C2","G4":"B2","H4":"G5","I4":"D2","A5":"A6","B5":"C3","C5":"F4","D5":"C6","E5":"I1","F5":"B5","G5":"E1","H5":"B1","I5":"E6","A6":"B6","B6":"H2","C6":"G4","D6":"I5","E6":"I3","F6":"F2","G6":"F1","H6":"A2","I6":"G1"},"msgLen":26},"spiral":{"ptr":{"A1":"C3","B1":"E4","C1":"G1","D1":"A2","E1":"A5","F1":"G2","G1":"B5","H1":"F5","I1":"D2","A2":"H4","B2":"F6","C2":"I6","D2":"F4","E2":"H6","F2":"H2","G2":"D3","H2":"E6","I2":"I3","A3":"I5","B3":"H1","C3":"B4","D3":"E3","E3":"I1","F3":"C2","G3":"G4","H3":"D4","I3":"G5","A4":"E2","B4":"C4","C4":"H5","D4":"B3","E4":"C5","F4":"E1","G4":"F1","H4":"E5","I4":"F3","A5":"I2","B5":"D6","C5":"C1","D5":"A1","E5":"H3","F5":"C6","G5":"A4","H5":"B1","I5":"G3","A6":"B2","B6":"F2","C6":"A6","D6":"A3","E6":"D1","F6":"D5","G6":"B6","H6":"I4","I6":"G6"},"msgLen":20,"coords":{"x_mark":[447,494],"nodes":[[454.7,532.7],[424.4,585.9],[361.7,579.4],[334.7,521.3],[363.7,465.5],[423.8,448.9],[480.2,479.1],[500.9,538.1],[480.0,597.5],[428.5,632.6],[365.3,632.3],[313.8,596.3],[289.4,539.2],[298.3,476.6],[337.2,428.0],[394.9,403.8],[457.0,410.3],[509.4,444.8],[540.5,499.2],[543.9,560.0],[520.6,618.9],[475.0,661.7],[417.0,681.2],[353.3,675.9],[299.5,645.9],[260.9,597.6],[243.3,537.1],[250.4,475.6],[280.0,420.5],[326.6,379.8],[385.4,359.2],[448.2,360.5],[504.4,383.1],[551.5,423.8],[581.7,479.1],[591.7,540.5],[580.3,601.9],[550.2,656.1],[504.4,697.1],[447.1,721.1],[385.1,728.0],[324.0,713.9],[271.7,680.8],[231.0,636.4],[204.6,578.5],[197.6,517.5],[208.6,456.1],[238.2,400.9],[281.4,356.5],[333.1,326.7],[394.6,312.2],[456.7,315.9],[514.7,336.4],[565.9,372.7]]}},"ablations":[["Spiral, rules as stated","THANK GOD ITS FRIDAYDK","English"],["Spiral, A1 not crossed out","THANL GPD IUS?FSIDAZDK","breaks at hop 5"],["Spiral filled column-major","N?PDX??M","loop closes after 9 of 54 cells"],["Spiral read inward (reversed)","?H?R??J???LCD?AZLIGPWI","loop closes after 36 of 54 cells"],["Friday, A1 not crossed out","YOV HAWE GOUOD?THE?TEC","breaks at hop 3"],["Friday, rules as stated","YOU HAVE FOUND THE SEC","English"]],"z":{"friday":-2.05,"spiral":0.59}};
+const $=(s,r=document)=>r.querySelector(s);
+const el=(t,c,h)=>{const e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e;};
+
+function gridTable(ptr,cls){
+  const t=el("table","grid "+(cls||"")); let h="<tr><th></th>"+[...COLS].map(c=>`<th>${c}</th>`).join("")+"</tr>";
+  for(let r=1;r<=6;r++){ h+=`<tr><th>${r}</th>`+[...COLS].map(c=>`<td data-n="${c+r}"><span class="ptr">${ptr[c+r]}</span><span class="tag"></span></td>`).join("")+"</tr>"; }
+  t.innerHTML=h; return t;
+}
+$("#friday-static").appendChild(gridTable(DATA.friday.ptr,"static"));
+$("#spiral-static").appendChild(gridTable(DATA.spiral.ptr,"static"));
+
+function symHTML(n){return n===27?'<span class="sp">␣</span>':sym(n);}
+
+function makeStepper(root,key,withSpiral){
+  const cfg=DATA[key], ptr=cfg.ptr, dec=decode(ptr).steps, msgLen=cfg.msgLen;
+  let k=0, timer=null;
+  const left=el("div"), right=el("div");
+  const table=gridTable(ptr,""); const gridBox=el("div","gridwrap"); gridBox.appendChild(table);
+  let svg=null, nodeG={}, tags={};
+  if(withSpiral){
+    const pts=cfg.coords.nodes, [xm,ym]=cfg.coords.x_mark;
+    const xs=pts.map(p=>p[0]).concat(xm), ys=pts.map(p=>p[1]).concat(ym);
+    const pad=26, x0=Math.min(...xs)-pad, y0=Math.min(...ys)-pad, w=Math.max(...xs)-x0+pad, h=Math.max(...ys)-y0+pad;
+    const NS="http://www.w3.org/2000/svg";
+    svg=document.createElementNS(NS,"svg"); svg.setAttribute("viewBox",`${x0} ${y0} ${w} ${h}`); svg.setAttribute("class","spiral");
+    const link=document.createElementNS(NS,"polyline"); link.setAttribute("class","link");
+    link.setAttribute("points",pts.map(p=>p.join(",")).join(" ")); svg.appendChild(link);
+    const xg=document.createElementNS(NS,"g");
+    [[-9,-9,9,9],[-9,9,9,-9]].forEach(a=>{const l=document.createElementNS(NS,"line"); l.setAttribute("class","xmark"); l.setAttribute("x1",xm+a[0]); l.setAttribute("y1",ym+a[1]); l.setAttribute("x2",xm+a[2]); l.setAttribute("y2",ym+a[3]); xg.appendChild(l);});
+    svg.appendChild(xg);
+    pts.forEach((p,i)=>{
+      const g=document.createElementNS(NS,"g"); g.setAttribute("class","node"); g.setAttribute("transform",`translate(${p[0]},${p[1]})`);
+      const nm=NAMES[i];
+      g.innerHTML=`<title>spiral node ${i+1} = cell ${nm}, stores ${ptr[nm]}</title><circle r="15.5"></circle><text>${ptr[nm]}</text><text class="tag" y="-20"></text>`;
+      svg.appendChild(g); nodeG[nm]=g; tags[nm]=$(".tag",g);
+    });
+    left.appendChild(svg); right.appendChild(gridBox);
+  } else { left.appendChild(gridBox); }
+
+  const ctl=el("div","ctl");
+  const bPrev=el("button",null,"◀ Back"), bNext=el("button",null,"Next hop ▶"), bPlay=el("button",null,"Play"), bReset=el("button",null,"Reset");
+  const range=el("input"); range.type="range"; range.min=0; range.max=dec.length; range.value=0;
+  ctl.append(bPrev,bNext,bPlay,bReset,range);
+  const readout=el("div","readout"), decoded=el("div","decoded");
+  const info=el("div"); info.append(ctl,readout);
+  if(withSpiral){ right.append(info); } else { left.append(info); }
+  (withSpiral?right:left).append(decoded);
+  root.append(left); if(withSpiral) root.append(right);
+
+  const cellEls={}; table.querySelectorAll("td").forEach(td=>cellEls[td.dataset.n]=td);
+
+  function render(){
+    const crossed=new Set(["A1"]); for(let i=0;i<k;i++) crossed.add(dec[i].to);
+    const cur=k===0?"A1":dec[k-1].to, act=k<dec.length?dec[k]:null;
+    const counted=new Map(); if(act) act.counted.forEach((nm,i)=>counted.set(nm,i+1));
+    for(const nm of NAMES){
+      const cls=[]; if(crossed.has(nm)) cls.push("crossed"); if(counted.has(nm)) cls.push("cnt");
+      if(nm===cur) cls.push("cur"); if(act&&nm===act.to) cls.push("tgt"); if(nm==="A1") cls.push("start");
+      cellEls[nm].className=cls.join(" ");
+      $(".tag",cellEls[nm]).textContent=counted.has(nm)?counted.get(nm):"";
+      if(withSpiral){ nodeG[nm].setAttribute("class","node "+cls.filter(c=>c!=="start").join(" ")); tags[nm].textContent=counted.has(nm)?counted.get(nm):""; }
+    }
+    if(act){
+      const isMsg=k<msgLen;
+      readout.innerHTML=`<div class="big">Hop ${k+1}: ${act.from} → ${act.to} <span class="badge ${isMsg?"":"pad"}">${isMsg?"message":"padding"}</span></div>
+        Cell <b>${act.from}</b> stores <b>${act.to}</b>. <b>${act.to}</b> is position ${POS[act.to]+1} in reading order${withSpiral?` (spiral node ${POS[act.to]+1})`:""}. Counting forward over uncrossed cells (wrapping after I6), it is the <b>${act.n}${act.n===1?"st":act.n===2?"nd":act.n===3?"rd":"th"}</b> one → <b class="mono">${act.n===27?"space":sym(act.n)}</b>.`;
+    } else {
+      readout.innerHTML=`<div class="big">Loop complete</div>Cell <b>${cur}</b> stores <b>A1</b>, so the path closes after visiting all 54 cells. Everything after the message was padding.`;
+    }
+    let msg="", pad="";
+    for(let i=0;i<k;i++){ const s=symHTML(dec[i].n); if(i<msgLen) msg+=s; else pad+=s; }
+    decoded.innerHTML=`<span class="msg">${msg}</span><span class="pad">${pad}</span>`||"&nbsp;";
+    range.value=k; bPrev.disabled=k===0; bNext.disabled=k===dec.length;
+    document.querySelectorAll(`#hops-${key} tr`).forEach(tr=>tr.classList.toggle("act",+tr.dataset.k===k));
+  }
+  function go(n){k=Math.max(0,Math.min(dec.length,n)); render();}
+  bNext.onclick=()=>go(k+1); bPrev.onclick=()=>go(k-1); bReset.onclick=()=>{stop();go(0);};
+  range.oninput=()=>go(+range.value);
+  function stop(){ if(timer){clearInterval(timer);timer=null;bPlay.textContent="Play";} }
+  bPlay.onclick=()=>{ if(timer){stop();return;} if(k>=dec.length) go(0); bPlay.textContent="Pause"; timer=setInterval(()=>{ if(k>=dec.length) stop(); else go(k+1); },500); };
+  render();
+  return {go};
+}
+const steppers={friday:makeStepper($("#stepper-friday"),"friday",false), spiral:makeStepper($("#stepper-spiral"),"spiral",true)};
+
+function hopTable(key){
+  const dec=decode(DATA[key].ptr).steps, msgLen=DATA[key].msgLen;
+  let h=`<table class="hoptable"><tr><th>#</th><th>from</th><th>→ to</th><th>hops</th><th>sym</th><th></th></tr>`;
+  dec.forEach((s,i)=>{ h+=`<tr data-k="${i}" class="${i<msgLen?"":"pad"}"><td>${i+1}</td><td>${s.from}</td><td>${s.to}</td><td>${s.n}</td><td class="l">${s.n===27?"␣":sym(s.n)}</td><td>${i<msgLen?"":"padding"}</td></tr>`; });
+  const box=$("#hops-"+key); box.innerHTML=h+"</table>";
+  box.querySelectorAll("tr[data-k]").forEach(tr=>tr.onclick=()=>{steppers[key].go(+tr.dataset.k); (key==="spiral"?$("#stepper-spiral"):$("#stepper-friday")).scrollIntoView({behavior:"smooth",block:"center"});});
+  return dec.map(s=>sym(s.n)).slice(msgLen).join("");
+}
+const _tf=hopTable("friday"), _ts=hopTable("spiral"); steppers.friday.go(0); steppers.spiral.go(0);
+$("#tf").textContent=_tf.replace(/ /g,"␣");
+$("#ts").textContent=_ts.replace(/ /g,"␣");
+$("#zf").textContent=(DATA.z.friday>0?"+":"")+DATA.z.friday;
+$("#zs").textContent=(DATA.z.spiral>0?"+":"")+DATA.z.spiral;
+for(const [name,text,res] of DATA.ablations){
+  const tr=el("tr",null,`<td>${name}</td><td class="m">${text.replace(/ /g,"␣")}</td><td class="${res==="English"?"ok":"bad"}">${res}</td>`);
+  $("#abl tbody").appendChild(tr);
+}
+
+// ---- tool ----
+const gridToText=ptr=>{let s=[];for(let r=1;r<=6;r++)s.push([...COLS].map(c=>ptr[c+r]).join(" "));return s.join("\n");};
+$("#dec-in").value=gridToText(DATA.friday.ptr);
+$("#dec-fri").onclick=()=>{$("#dec-in").value=gridToText(DATA.friday.ptr);};
+$("#dec-sp").onclick=()=>{$("#dec-in").value=gridToText(DATA.spiral.ptr);};
+$("#dec-go").onclick=()=>{
+  const out=$("#dec-out"), labs=($("#dec-in").value.toUpperCase().match(/[A-I][1-6]/g)||[]);
+  if(labs.length!==54){out.innerHTML=`<span class="warn">Found ${labs.length} labels; need exactly 54.</span>`;return;}
+  if(new Set(labs).size!==54){out.innerHTML=`<span class="warn">Labels are not all distinct, so this is not a pointer permutation.</span>`;return;}
+  const ptr={}; NAMES.forEach((n,i)=>ptr[n]=labs[i]);
+  const d=decode(ptr), steps=d.steps;
+  const text=steps.map(s=>s.n===27?"␣":sym(s.n)).join("");
+  let h=`<b>${steps.length+1} of 54 cells visited</b>`+(steps.length===53&&d.closing==="A1"?" — single loop ✔":` — <span class="warn">the pointers split into several loops; the decode stops early</span>`);
+  h+=`\n\nSymbols: ${text}\nHops:    ${steps.map(s=>s.n).join(" ")}\n\n<span class="small">The message is the readable prefix; the rest is padding.</span>`;
+  out.innerHTML=h;
+};
+$("#enc-go").onclick=()=>{
+  const out=$("#enc-out");
+  try{
+    const seed=+$("#enc-seed").value||0;
+    const r=encodeMessage($("#enc-in").value,seed);
+    const steps=decode(r.ptr).steps, m=r.msgLen;
+    const symS=n=>n===27?"␣":n>27?"·":sym(n);
+    const msgHops=r.hops.slice(0,m), padHops=r.hops.slice(m);
+    const back=steps.slice(0,m).map(x=>symS(x.n)).join("");
+    // which cell's pointer belongs to the message, to the padding, or closes the loop
+    const role={}; steps.forEach((st,j)=>role[st.from]=j<m?"msgc":"padc"); role[steps[steps.length-1].to]="closec";
+    const tbl=gridTable(r.ptr,"mini"); tbl.querySelectorAll("td").forEach(td=>td.className=role[td.dataset.n]||"");
+    out.innerHTML="";
+    const pre=el("div"); pre.style.whiteSpace="pre-wrap"; pre.textContent=gridToText(r.ptr); out.appendChild(pre);
+    const info=el("div","encinfo");
+    info.innerHTML=
+      `<b>Message</b> (${m} symbols, hops 1–${m}):\n${msgHops.join(" ")}\n${[...back].join(" ")}\n\n`+
+      `<b>Padding</b> (${padHops.length} hops, hops ${m+1}–${m+padHops.length}; random with seed ${seed}, each ≤ the cells left; “·” = hop above 27, which has no symbol):\n`+
+      `<span class="pad">${padHops.join(" ")}</span>\n<span class="pad">${padHops.map(symS).join(" ")}</span>\n\n`+
+      `The last cell (<b>${steps[steps.length-1].to}</b>) is forced to point back to <b>A1</b> to close the loop.\n`+
+      `<span class="small">Self-check: decoding this grid gives “${back}” followed by the padding above. Changing the seed changes only the padding.</span>`;
+    out.appendChild(info);
+    const gw=el("div","gridwrap"); gw.style.marginTop="8px"; gw.appendChild(tbl); out.appendChild(gw);
+    out.appendChild(el("div","legend",`<i style="background:var(--okbg)"></i>pointer carries the message<i style="background:#ece5d6"></i>padding<i style="background:#ece5d6;box-shadow:inset 0 0 0 2px var(--gold)"></i>loop-closing cell`));
+  }catch(e){out.innerHTML=`<span class="warn">${e.message}</span>`;}
+};
+$("#dec-go").click(); $("#enc-go").click();
+{ const m=location.hash.match(/friday=(\d+)/), n=location.hash.match(/spiral=(\d+)/); if(m) steppers.friday.go(+m[1]); if(n) steppers.spiral.go(+n[1]); }
+window.__ready=true;
+</script>
+</body>
+</html>
