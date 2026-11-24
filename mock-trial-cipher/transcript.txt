@@ -1,0 +1,27 @@
+# glyph codes; " | " = visible gap; see transcript.json for the alphabet
+ 1: X R H H t A W t R H D R | S V R N | A a D R W | D t
+ 2: R S R T D H r S | R A | D t r a R R A | l V R
+ 3: t A P L R H A t d | A U R | A R R R U R a t d
+ 4: R H L d | R H L d V l | R V p a t R A U R
+ 5: W R p | W R p A R a t | D H a V W q R L D
+ 6: R l | A V P | A U a V P r U | L A | L a R R N D l r
+ 7: A U S t | R V L R d | A V P | p V P W L | R R T D H | t D r N A
+ 8: D a A V | A U R | R R t R d | A V P | R a R
+ 9: p a V | H r | r L P Q | p R a R R W A | R A A a -
+10: R R D R A | R | A U R | R L L | V a A | D H | T a A | D H r S
+11: X R P W | R H L R | U R a R | L R R L
+12: p V a N D | H r | V L | A U R | R R t R | b R A R a D R d
+13: L V a | r V D H r | V L | A p V | L R R R L R t
+14: H V | p S | L R V | A V P | a R R W W A | P U D H N | p R
+15: p V P W L | r D a R | R H | R L a | R L a R r R
+16: A V | R | T R R S | L R R P p | R | T U R A | r | V P
+17: R | t V a N D L | u H r | L D | H r | L j
+18: D b W p V | d | S R A R L | R L L r | u D | A U | A U R P
+19: t R D L b D | u R | W V a R | A U R A | t R D L b D | u R
+20: W V p R | ? | L D L | A U D t S D | u R
+21: V L t R | t t | L L R A W P | R L V P Q | D V R N | A t R S D
+22: R H L | p R t A | R H L | D V H A U a | p D A U | P A D t
+23: A a V | L W R S d D
+24: E a V S | P U R | S D P R D H t | A V | A U R | q V r a | r
+25: l a V t | A U R | R a R R N a | A U | A V | A U R | A R a N a d
+26: S R A | S R A | D t R p R L R | D l | A V P | a U R A

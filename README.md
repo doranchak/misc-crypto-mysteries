@@ -9,6 +9,7 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 - [Cipher leads to an image](https://doranchak.github.io/misc-crypto-mysteries/cipher-leads-to-an-image)
 - [Enciphered diary in thrift store book](https://doranchak.github.io/misc-crypto-mysteries/oliver-twist-thrift-store)
 - [Giokku's sci fi story cipher](https://doranchak.github.io/misc-crypto-mysteries/giokku-sci-fi-story-cipher)
+- [Mock trial cipher](https://doranchak.github.io/misc-crypto-mysteries/mock-trial-cipher)
 - [PDF password puzzle](https://doranchak.github.io/misc-crypto-mysteries/juniorappearance8347-pdf-password-puzzle)
 - [Pigpen notebook cipher](https://doranchak.github.io/misc-crypto-mysteries/pigpen-notebook-cipher)
 - [Rudranshkh's Caesar-shift-per-word cipher](https://doranchak.github.io/misc-crypto-mysteries/caesar-shift-per-word)

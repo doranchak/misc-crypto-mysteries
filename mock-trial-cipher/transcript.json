@@ -1,0 +1,438 @@
+{
+ "source": "https://www.reddit.com/r/ciphers/comments/1y3u3zu/need_assistance_with_cipher/",
+ "poster": "u/Tinman886",
+ "note": "Hand transcription of a halftone scan; one letter per glyph class (see alphabet); \" | \" / chunk boundaries = visible gaps; ? = hidden by a black bar; X = blob; - = dash. Accuracy not verified.",
+ "alphabet": {
+  "R": {
+   "unicode": "⇒",
+   "description": "double-line arrow pointing right (looks like an outlined block arrow)"
+  },
+  "r": {
+   "unicode": "→",
+   "description": "thin single-line arrow pointing right"
+  },
+  "L": {
+   "unicode": "⇐",
+   "description": "double-line arrow pointing left"
+  },
+  "l": {
+   "unicode": "←",
+   "description": "thin arrow pointing left"
+  },
+  "H": {
+   "unicode": "↔",
+   "description": "double-headed horizontal arrow"
+  },
+  "V": {
+   "unicode": "↕",
+   "description": "double-headed vertical arrow"
+  },
+  "U": {
+   "unicode": "↑",
+   "description": "arrow pointing up"
+  },
+  "D": {
+   "unicode": "↓",
+   "description": "arrow pointing down"
+  },
+  "d": {
+   "unicode": "↧",
+   "description": "down arrow with a foot / underline (⊥)"
+  },
+  "S": {
+   "unicode": "↘",
+   "description": "diagonal arrow pointing down-right"
+  },
+  "W": {
+   "unicode": "↙",
+   "description": "diagonal arrow pointing down-left"
+  },
+  "N": {
+   "unicode": "↗",
+   "description": "diagonal arrow pointing up-right"
+  },
+  "E": {
+   "unicode": "⇆",
+   "description": "two stacked opposite arrows (⇆)"
+  },
+  "b": {
+   "unicode": "↳",
+   "description": "down stroke that hooks right (L-shaped)"
+  },
+  "u": {
+   "unicode": "⊔↓",
+   "description": "down arrow rising from a cup (⊔)"
+  },
+  "j": {
+   "unicode": "↱",
+   "description": "7-shaped hook after a left arrow"
+  },
+  "A": {
+   "unicode": "▲",
+   "description": "filled triangle, apex up (often drawn as a right-angle ◢)"
+  },
+  "Q": {
+   "unicode": "◀",
+   "description": "filled triangle pointing left"
+  },
+  "P": {
+   "unicode": "▶",
+   "description": "filled triangle pointing right"
+  },
+  "T": {
+   "unicode": "▼",
+   "description": "filled triangle pointing down"
+  },
+  "a": {
+   "unicode": "△",
+   "description": "hollow triangle, apex up"
+  },
+  "q": {
+   "unicode": "◁",
+   "description": "hollow triangle pointing left"
+  },
+  "p": {
+   "unicode": "▷",
+   "description": "hollow triangle pointing right (drawn like a “D”)"
+  },
+  "t": {
+   "unicode": "▽",
+   "description": "hollow triangle pointing down"
+  },
+  "X": {
+   "unicode": "◯",
+   "description": "large hand-drawn oval/blob (only at the start of two lines)"
+  },
+  "-": {
+   "unicode": "–",
+   "description": "short horizontal dash"
+  },
+  "?": {
+   "unicode": "█",
+   "description": "hidden under a black redaction bar"
+  }
+ },
+ "lines": [
+  {
+   "line": 1,
+   "chunks": [
+    "XRHHtAWtRHDR",
+    "SVRN",
+    "AaDRW",
+    "Dt"
+   ],
+   "code": "X R H H t A W t R H D R | S V R N | A a D R W | D t",
+   "unicode": "◯⇒↔↔▽▲↙▽⇒↔↓⇒ ↘↕⇒↗ ▲△↓⇒↙ ↓▽"
+  },
+  {
+   "line": 2,
+   "chunks": [
+    "RSRTDHrS",
+    "RA",
+    "DtraRRA",
+    "lVR"
+   ],
+   "code": "R S R T D H r S | R A | D t r a R R A | l V R",
+   "unicode": "⇒↘⇒▼↓↔→↘ ⇒▲ ↓▽→△⇒⇒▲ ←↕⇒"
+  },
+  {
+   "line": 3,
+   "chunks": [
+    "tAPLRHAtd",
+    "AUR",
+    "ARRRURatd"
+   ],
+   "code": "t A P L R H A t d | A U R | A R R R U R a t d",
+   "unicode": "▽▲▶⇐⇒↔▲▽↧ ▲↑⇒ ▲⇒⇒⇒↑⇒△▽↧"
+  },
+  {
+   "line": 4,
+   "chunks": [
+    "RHLd",
+    "RHLdVl",
+    "RVpatRAUR"
+   ],
+   "code": "R H L d | R H L d V l | R V p a t R A U R",
+   "unicode": "⇒↔⇐↧ ⇒↔⇐↧↕← ⇒↕▷△▽⇒▲↑⇒"
+  },
+  {
+   "line": 5,
+   "chunks": [
+    "WRp",
+    "WRpARat",
+    "DHaVWqRLD"
+   ],
+   "code": "W R p | W R p A R a t | D H a V W q R L D",
+   "unicode": "↙⇒▷ ↙⇒▷▲⇒△▽ ↓↔△↕↙◁⇒⇐↓"
+  },
+  {
+   "line": 6,
+   "chunks": [
+    "Rl",
+    "AVP",
+    "AUaVPrU",
+    "LA",
+    "LaRRNDlr"
+   ],
+   "code": "R l | A V P | A U a V P r U | L A | L a R R N D l r",
+   "unicode": "⇒← ▲↕▶ ▲↑△↕▶→↑ ⇐▲ ⇐△⇒⇒↗↓←→"
+  },
+  {
+   "line": 7,
+   "chunks": [
+    "AUSt",
+    "RVLRd",
+    "AVP",
+    "pVPWL",
+    "RRTDH",
+    "tDrNA"
+   ],
+   "code": "A U S t | R V L R d | A V P | p V P W L | R R T D H | t D r N A",
+   "unicode": "▲↑↘▽ ⇒↕⇐⇒↧ ▲↕▶ ▷↕▶↙⇐ ⇒⇒▼↓↔ ▽↓→↗▲"
+  },
+  {
+   "line": 8,
+   "chunks": [
+    "DaAV",
+    "AUR",
+    "RRtRd",
+    "AVP",
+    "RaR"
+   ],
+   "code": "D a A V | A U R | R R t R d | A V P | R a R",
+   "unicode": "↓△▲↕ ▲↑⇒ ⇒⇒▽⇒↧ ▲↕▶ ⇒△⇒"
+  },
+  {
+   "line": 9,
+   "chunks": [
+    "paV",
+    "Hr",
+    "rLPQ",
+    "pRaRRWA",
+    "RAAa-"
+   ],
+   "code": "p a V | H r | r L P Q | p R a R R W A | R A A a -",
+   "unicode": "▷△↕ ↔→ →⇐▶◀ ▷⇒△⇒⇒↙▲ ⇒▲▲△–"
+  },
+  {
+   "line": 10,
+   "chunks": [
+    "RRDRA",
+    "R",
+    "AUR",
+    "RLL",
+    "VaA",
+    "DH",
+    "TaA",
+    "DHrS"
+   ],
+   "code": "R R D R A | R | A U R | R L L | V a A | D H | T a A | D H r S",
+   "unicode": "⇒⇒↓⇒▲ ⇒ ▲↑⇒ ⇒⇐⇐ ↕△▲ ↓↔ ▼△▲ ↓↔→↘"
+  },
+  {
+   "line": 11,
+   "chunks": [
+    "XRPW",
+    "RHLR",
+    "URaR",
+    "LRRL"
+   ],
+   "code": "X R P W | R H L R | U R a R | L R R L",
+   "unicode": "◯⇒▶↙ ⇒↔⇐⇒ ↑⇒△⇒ ⇐⇒⇒⇐"
+  },
+  {
+   "line": 12,
+   "chunks": [
+    "pVaND",
+    "Hr",
+    "VL",
+    "AUR",
+    "RRtR",
+    "bRARaDRd"
+   ],
+   "code": "p V a N D | H r | V L | A U R | R R t R | b R A R a D R d",
+   "unicode": "▷↕△↗↓ ↔→ ↕⇐ ▲↑⇒ ⇒⇒▽⇒ ↳⇒▲⇒△↓⇒↧"
+  },
+  {
+   "line": 13,
+   "chunks": [
+    "LVa",
+    "rVDHr",
+    "VL",
+    "ApV",
+    "LRRRLRt"
+   ],
+   "code": "L V a | r V D H r | V L | A p V | L R R R L R t",
+   "unicode": "⇐↕△ →↕↓↔→ ↕⇐ ▲▷↕ ⇐⇒⇒⇒⇐⇒▽"
+  },
+  {
+   "line": 14,
+   "chunks": [
+    "HV",
+    "pS",
+    "LRV",
+    "AVP",
+    "aRRWWA",
+    "PUDHN",
+    "pR"
+   ],
+   "code": "H V | p S | L R V | A V P | a R R W W A | P U D H N | p R",
+   "unicode": "↔↕ ▷↘ ⇐⇒↕ ▲↕▶ △⇒⇒↙↙▲ ▶↑↓↔↗ ▷⇒"
+  },
+  {
+   "line": 15,
+   "chunks": [
+    "pVPWL",
+    "rDaR",
+    "RH",
+    "RLa",
+    "RLaRrR"
+   ],
+   "code": "p V P W L | r D a R | R H | R L a | R L a R r R",
+   "unicode": "▷↕▶↙⇐ →↓△⇒ ⇒↔ ⇒⇐△ ⇒⇐△⇒→⇒"
+  },
+  {
+   "line": 16,
+   "chunks": [
+    "AV",
+    "R",
+    "TRRS",
+    "LRRPp",
+    "R",
+    "TURA",
+    "r",
+    "VP"
+   ],
+   "code": "A V | R | T R R S | L R R P p | R | T U R A | r | V P",
+   "unicode": "▲↕ ⇒ ▼⇒⇒↘ ⇐⇒⇒▶▷ ⇒ ▼↑⇒▲ → ↕▶"
+  },
+  {
+   "line": 17,
+   "chunks": [
+    "R",
+    "tVaNDL",
+    "uHr",
+    "LD",
+    "Hr",
+    "Lj"
+   ],
+   "code": "R | t V a N D L | u H r | L D | H r | L j",
+   "unicode": "⇒ ▽↕△↗↓⇐ ⊔↓↔→ ⇐↓ ↔→ ⇐↱"
+  },
+  {
+   "line": 18,
+   "chunks": [
+    "DbWpV",
+    "d",
+    "SRARL",
+    "RLLr",
+    "uD",
+    "AU",
+    "AURP"
+   ],
+   "code": "D b W p V | d | S R A R L | R L L r | u D | A U | A U R P",
+   "unicode": "↓↳↙▷↕ ↧ ↘⇒▲⇒⇐ ⇒⇐⇐→ ⊔↓↓ ▲↑ ▲↑⇒▶"
+  },
+  {
+   "line": 19,
+   "chunks": [
+    "tRDLbD",
+    "uR",
+    "WVaR",
+    "AURA",
+    "tRDLbD",
+    "uR"
+   ],
+   "code": "t R D L b D | u R | W V a R | A U R A | t R D L b D | u R",
+   "unicode": "▽⇒↓⇐↳↓ ⊔↓⇒ ↙↕△⇒ ▲↑⇒▲ ▽⇒↓⇐↳↓ ⊔↓⇒"
+  },
+  {
+   "line": 20,
+   "chunks": [
+    "WVpR",
+    "?",
+    "LDL",
+    "AUDtSD",
+    "uR"
+   ],
+   "code": "W V p R | ? | L D L | A U D t S D | u R",
+   "unicode": "↙↕▷⇒ █ ⇐↓⇐ ▲↑↓▽↘↓ ⊔↓⇒"
+  },
+  {
+   "line": 21,
+   "chunks": [
+    "VLtR",
+    "tt",
+    "LLRAWP",
+    "RLVPQ",
+    "DVRN",
+    "AtRSD"
+   ],
+   "code": "V L t R | t t | L L R A W P | R L V P Q | D V R N | A t R S D",
+   "unicode": "↕⇐▽⇒ ▽▽ ⇐⇐⇒▲↙▶ ⇒⇐↕▶◀ ↓↕⇒↗ ▲▽⇒↘↓"
+  },
+  {
+   "line": 22,
+   "chunks": [
+    "RHL",
+    "pRtA",
+    "RHL",
+    "DVHAUa",
+    "pDAU",
+    "PADt"
+   ],
+   "code": "R H L | p R t A | R H L | D V H A U a | p D A U | P A D t",
+   "unicode": "⇒↔⇐ ▷⇒▽▲ ⇒↔⇐ ↓↕↔▲↑△ ▷↓▲↑ ▶▲↓▽"
+  },
+  {
+   "line": 23,
+   "chunks": [
+    "AaV",
+    "LWRSdD"
+   ],
+   "code": "A a V | L W R S d D",
+   "unicode": "▲△↕ ⇐↙⇒↘↧↓"
+  },
+  {
+   "line": 24,
+   "chunks": [
+    "EaVS",
+    "PUR",
+    "SDPRDHt",
+    "AV",
+    "AUR",
+    "qVra",
+    "r"
+   ],
+   "code": "E a V S | P U R | S D P R D H t | A V | A U R | q V r a | r",
+   "unicode": "⇆△↕↘ ▶↑⇒ ↘↓▶⇒↓↔▽ ▲↕ ▲↑⇒ ◁↕→△ →"
+  },
+  {
+   "line": 25,
+   "chunks": [
+    "laVt",
+    "AUR",
+    "RaRRNa",
+    "AU",
+    "AV",
+    "AUR",
+    "ARaNad"
+   ],
+   "code": "l a V t | A U R | R a R R N a | A U | A V | A U R | A R a N a d",
+   "unicode": "←△↕▽ ▲↑⇒ ⇒△⇒⇒↗△ ▲↑ ▲↕ ▲↑⇒ ▲⇒△↗△↧"
+  },
+  {
+   "line": 26,
+   "chunks": [
+    "SRA",
+    "SRA",
+    "DtRpRLR",
+    "Dl",
+    "AVP",
+    "aURA"
+   ],
+   "code": "S R A | S R A | D t R p R L R | D l | A V P | a U R A",
+   "unicode": "↘⇒▲ ↘⇒▲ ↓▽⇒▷⇒⇐⇒ ↓← ▲↕▶ △↑⇒▲"
+  }
+ ]
+}

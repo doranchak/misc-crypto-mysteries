@@ -1,0 +1,167 @@
+{
+ "free": {
+  "score": 705.29,
+  "coverage": 0.06998158379373849,
+  "mapping": {
+   "R": "E",
+   "A": "T",
+   "L": "D",
+   "V": "O",
+   "D": "I",
+   "a": "R",
+   "t": "S",
+   "H": "N",
+   "U": "H",
+   "P": "U",
+   "r": "G",
+   "p": "W",
+   "W": "L",
+   "S": "M",
+   "d": "C",
+   "N": "A",
+   "l": "F",
+   "T": "P",
+   "u": "K",
+   "b": "B",
+   "q": "V",
+   "Q": "X",
+   "j": "J",
+   "E": "Y"
+  },
+  "plain": "ENNSTLSENIEMOEATRIELISEMEPINGMETISGREETFOESTUDENTSCTHETEEEHERSCENDCENDCOFEOWRSETHELEWLEWTERSINROLVEDIEFTOUTHROUGHDTDREEAIFGTHMSEODECTOUWOULDEEPINSIGATIRTOTHEEESECTOUEREWRONGGDUXWEREELTETTREEIETETHEEDDORTINPRTINGMEULENDEHEREDEEDWORAINGODTHEEESEBETERIECDORGOINGODTWODEEEDESNOWMDEOTOUREELLTUHINAWEWOULDGIREENEDREDREGETOEPEEMDEEUWEPHETGOUESORAIDKNGDINGDJIBLWOCMETEDEDDGKITHTHEUSEIDBIKELORETHETSEIDBIKELOWEDIDTHISMIKEODSESSDDETLUEDOUXIOEATSEMIENDWESTENDIONTHRWITHUTISTRODLEMCIYROMUHEMIUEINSTOTHEVOGRGFROSTHEEREEARTHTOTHETERARCMETMETISEWEDEIFTOURHET"
+ },
+ "real_25restarts": [
+  694.89375,
+  6.094362020548152
+ ],
+ "null_glyph_shuffle": [
+  552.66625,
+  19.68638484936987
+ ],
+ "null_chunk_shuffle": [
+  669.63375,
+  7.5056627580447515
+ ],
+ "null_within_chunk_shuffle": [
+  578.145,
+  9.992061849288172
+ ],
+ "null_reverse_each_chunk": [
+  658.8933333333333,
+  6.429859165556335
+ ],
+ "reversed_stream": 671.32,
+ "null_coverage": [
+  0.02578268876611418,
+  0.013719764664596077
+ ],
+ "crib_the": {
+  "score": 705.29,
+  "coverage": 0.06998158379373849,
+  "mapping": {
+   "R": "E",
+   "A": "T",
+   "L": "D",
+   "V": "O",
+   "D": "I",
+   "a": "R",
+   "t": "S",
+   "H": "N",
+   "U": "H",
+   "P": "U",
+   "r": "G",
+   "p": "W",
+   "W": "L",
+   "S": "M",
+   "d": "C",
+   "N": "A",
+   "l": "F",
+   "T": "P",
+   "u": "K",
+   "b": "B",
+   "q": "V",
+   "Q": "X",
+   "j": "J",
+   "E": "Y"
+  },
+  "plain": "ENNSTLSENIEMOEATRIELISEMEPINGMETISGREETFOESTUDENTSCTHETEEEHERSCENDCENDCOFEOWRSETHELEWLEWTERSINROLVEDIEFTOUTHROUGHDTDREEAIFGTHMSEODECTOUWOULDEEPINSIGATIRTOTHEEESECTOUEREWRONGGDUXWEREELTETTREEIETETHEEDDORTINPRTINGMEULENDEHEREDEEDWORAINGODTHEEESEBETERIECDORGOINGODTWODEEEDESNOWMDEOTOUREELLTUHINAWEWOULDGIREENEDREDREGETOEPEEMDEEUWEPHETGOUESORAIDKNGDINGDJIBLWOCMETEDEDDGKITHTHEUSEIDBIKELORETHETSEIDBIKELOWEDIDTHISMIKEODSESSDDETLUEDOUXIOEATSEMIENDWESTENDIONTHRWITHUTISTRODLEMCIYROMUHEMIUEINSTOTHEVOGRGFROSTHEEREEARTHTOTHETERARCMETMETISEWEDEIFTOURHET"
+ },
+ "crib_are_and": {
+  "score": 621.71,
+  "coverage": 0.05156537753222836,
+  "mapping": {
+   "R": "E",
+   "A": "A",
+   "L": "T",
+   "V": "N",
+   "D": "I",
+   "a": "S",
+   "t": "M",
+   "H": "C",
+   "U": "R",
+   "P": "D",
+   "r": "O",
+   "p": "U",
+   "W": "H",
+   "S": "L",
+   "d": "P",
+   "N": "K",
+   "l": "B",
+   "T": "F",
+   "u": "V",
+   "b": "G",
+   "q": "Y",
+   "Q": "Q",
+   "j": "W",
+   "E": "X"
+  }
+ },
+ "subsets": {
+  "arrows only": {
+   "n": 378,
+   "score": 722.98,
+   "null_mean": 674.145,
+   "null_sd": 10.226783055617565,
+   "coverage": 0.021164021164021163,
+   "null_cov": 0.04497354497354497
+  },
+  "triangles only": {
+   "n": 165,
+   "score": 810.19,
+   "null_mean": 774.0816666666667,
+   "null_sd": 22.400046440924086,
+   "coverage": 0.12727272727272726,
+   "null_cov": 0.05656565656565656
+  },
+  "every 2nd glyph (phase 0)": {
+   "n": 276,
+   "score": 632.08,
+   "null_mean": 616.72,
+   "null_sd": 17.022458694324982,
+   "coverage": 0.043478260869565216,
+   "null_cov": 0.035024154589371984
+  },
+  "every 2nd glyph (phase 1)": {
+   "n": 267,
+   "score": 597.48,
+   "null_mean": 612.9616666666667,
+   "null_sd": 18.59180143384591,
+   "coverage": 0.07865168539325842,
+   "null_cov": 0.05305867665418227
+  },
+  "every 3rd glyph (phase 0)": {
+   "n": 188,
+   "score": 692.2,
+   "null_mean": 687.6483333333333,
+   "null_sd": 30.486771129276537,
+   "coverage": 0.05319148936170213,
+   "null_cov": 0.05230496453900709
+  }
+ },
+ "sim": {
+  "0.0": 0.539963167587477,
+  "0.1": 0.2832412523020258,
+  "0.2": 0.16906077348066298,
+  "0.3": 0.06593001841620626
+ }
+}

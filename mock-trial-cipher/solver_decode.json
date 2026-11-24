@@ -1,0 +1,4460 @@
+{
+ "model": "R3,A2",
+ "dropped": "-?Edj",
+ "score": -1700.42,
+ "glyphs": [
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 0,
+   "code": "X",
+   "letter": "J",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 2,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 3,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 4,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 5,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 6,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 7,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 8,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 9,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 10,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 0,
+   "pos": 11,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 1,
+   "chunk": 1,
+   "pos": 0,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 1,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 1,
+   "pos": 2,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 1,
+   "chunk": 1,
+   "pos": 3,
+   "code": "N",
+   "letter": "K",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 2,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 1,
+   "chunk": 2,
+   "pos": 1,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 2,
+   "pos": 2,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 2,
+   "pos": 3,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 1,
+   "chunk": 2,
+   "pos": 4,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 3,
+   "pos": 0,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 1,
+   "chunk": 3,
+   "pos": 1,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 0,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 2,
+   "chunk": 0,
+   "pos": 1,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 0,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 2,
+   "chunk": 0,
+   "pos": 3,
+   "code": "T",
+   "letter": "P",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 0,
+   "pos": 4,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 0,
+   "pos": 5,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 0,
+   "pos": 6,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 0,
+   "pos": 7,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 1,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 2,
+   "chunk": 1,
+   "pos": 1,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 2,
+   "chunk": 2,
+   "pos": 0,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 2,
+   "pos": 1,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 2,
+   "pos": 2,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 2,
+   "pos": 3,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 2,
+   "pos": 4,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 2,
+   "chunk": 2,
+   "pos": 5,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 2,
+   "chunk": 2,
+   "pos": 6,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 2,
+   "chunk": 3,
+   "pos": 0,
+   "code": "l",
+   "letter": "F",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 3,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 2,
+   "chunk": 3,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 3,
+   "chunk": 0,
+   "pos": 0,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 3,
+   "chunk": 0,
+   "pos": 1,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 3,
+   "chunk": 0,
+   "pos": 2,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 3,
+   "chunk": 0,
+   "pos": 3,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 3,
+   "chunk": 0,
+   "pos": 4,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 3,
+   "chunk": 0,
+   "pos": 5,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 3,
+   "chunk": 0,
+   "pos": 6,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 3,
+   "chunk": 0,
+   "pos": 7,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 3,
+   "chunk": 0,
+   "pos": 8,
+   "code": "d",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 3,
+   "chunk": 1,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 3,
+   "chunk": 1,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 3,
+   "chunk": 1,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 3,
+   "chunk": 2,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 3,
+   "chunk": 2,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 3,
+   "chunk": 2,
+   "pos": 2,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 3,
+   "chunk": 2,
+   "pos": 3,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 3,
+   "chunk": 2,
+   "pos": 4,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 3,
+   "chunk": 2,
+   "pos": 5,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 3,
+   "chunk": 2,
+   "pos": 6,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 3,
+   "chunk": 2,
+   "pos": 7,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 3,
+   "chunk": 2,
+   "pos": 8,
+   "code": "d",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 0,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 4,
+   "chunk": 0,
+   "pos": 1,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 0,
+   "pos": 2,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 0,
+   "pos": 3,
+   "code": "d",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 1,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 4,
+   "chunk": 1,
+   "pos": 1,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 1,
+   "pos": 2,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 1,
+   "pos": 3,
+   "code": "d",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 1,
+   "pos": 4,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 1,
+   "pos": 5,
+   "code": "l",
+   "letter": "F",
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 2,
+   "pos": 0,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 4,
+   "chunk": 2,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 2,
+   "pos": 2,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 2,
+   "pos": 3,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 2,
+   "pos": 4,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 2,
+   "pos": 5,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 4,
+   "chunk": 2,
+   "pos": 6,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 4,
+   "chunk": 2,
+   "pos": 7,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 4,
+   "chunk": 2,
+   "pos": 8,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 5,
+   "chunk": 0,
+   "pos": 0,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 0,
+   "pos": 1,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 5,
+   "chunk": 0,
+   "pos": 2,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 1,
+   "pos": 0,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 1,
+   "pos": 1,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 5,
+   "chunk": 1,
+   "pos": 2,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 1,
+   "pos": 3,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 5,
+   "chunk": 1,
+   "pos": 4,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 5,
+   "chunk": 1,
+   "pos": 5,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 1,
+   "pos": 6,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 2,
+   "pos": 0,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 2,
+   "pos": 1,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 2,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 2,
+   "pos": 3,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 2,
+   "pos": 4,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 2,
+   "pos": 5,
+   "code": "q",
+   "letter": "X",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 2,
+   "pos": 6,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 5,
+   "chunk": 2,
+   "pos": 7,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 5,
+   "chunk": 2,
+   "pos": 8,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 0,
+   "pos": 0,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 6,
+   "chunk": 0,
+   "pos": 1,
+   "code": "l",
+   "letter": "F",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 1,
+   "pos": 0,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 6,
+   "chunk": 1,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 1,
+   "pos": 2,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 2,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 6,
+   "chunk": 2,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 2,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 2,
+   "pos": 3,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 2,
+   "pos": 4,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 2,
+   "pos": 5,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 2,
+   "pos": 6,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 3,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 3,
+   "pos": 1,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 6,
+   "chunk": 4,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 4,
+   "pos": 1,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 4,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 6,
+   "chunk": 4,
+   "pos": 3,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 6,
+   "chunk": 4,
+   "pos": 4,
+   "code": "N",
+   "letter": "K",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 4,
+   "pos": 5,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 4,
+   "pos": 6,
+   "code": "l",
+   "letter": "F",
+   "sub": null
+  },
+  {
+   "line": 6,
+   "chunk": 4,
+   "pos": 7,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 0,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 7,
+   "chunk": 0,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 0,
+   "pos": 2,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 0,
+   "pos": 3,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 1,
+   "pos": 0,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 7,
+   "chunk": 1,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 1,
+   "pos": 2,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 1,
+   "pos": 3,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 7,
+   "chunk": 1,
+   "pos": 4,
+   "code": "d",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 2,
+   "pos": 0,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 7,
+   "chunk": 2,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 2,
+   "pos": 2,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 3,
+   "pos": 0,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 3,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 3,
+   "pos": 2,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 3,
+   "pos": 3,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 3,
+   "pos": 4,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 4,
+   "pos": 0,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 7,
+   "chunk": 4,
+   "pos": 1,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 7,
+   "chunk": 4,
+   "pos": 2,
+   "code": "T",
+   "letter": "P",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 4,
+   "pos": 3,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 4,
+   "pos": 4,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 5,
+   "pos": 0,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 5,
+   "pos": 1,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 5,
+   "pos": 2,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 5,
+   "pos": 3,
+   "code": "N",
+   "letter": "K",
+   "sub": null
+  },
+  {
+   "line": 7,
+   "chunk": 5,
+   "pos": 4,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 8,
+   "chunk": 0,
+   "pos": 0,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 8,
+   "chunk": 0,
+   "pos": 1,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 8,
+   "chunk": 0,
+   "pos": 2,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 8,
+   "chunk": 0,
+   "pos": 3,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 8,
+   "chunk": 1,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 8,
+   "chunk": 1,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 8,
+   "chunk": 1,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 8,
+   "chunk": 2,
+   "pos": 0,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 8,
+   "chunk": 2,
+   "pos": 1,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 8,
+   "chunk": 2,
+   "pos": 2,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 8,
+   "chunk": 2,
+   "pos": 3,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 8,
+   "chunk": 2,
+   "pos": 4,
+   "code": "d",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 8,
+   "chunk": 3,
+   "pos": 0,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 8,
+   "chunk": 3,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 8,
+   "chunk": 3,
+   "pos": 2,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 8,
+   "chunk": 4,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 8,
+   "chunk": 4,
+   "pos": 1,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 8,
+   "chunk": 4,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 9,
+   "chunk": 0,
+   "pos": 0,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 0,
+   "pos": 1,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 0,
+   "pos": 2,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 1,
+   "pos": 0,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 1,
+   "pos": 1,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 2,
+   "pos": 0,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 2,
+   "pos": 1,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 2,
+   "pos": 2,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 2,
+   "pos": 3,
+   "code": "Q",
+   "letter": "B",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 3,
+   "pos": 0,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 3,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 9,
+   "chunk": 3,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 3,
+   "pos": 3,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 9,
+   "chunk": 3,
+   "pos": 4,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 9,
+   "chunk": 3,
+   "pos": 5,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 3,
+   "pos": 6,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 9,
+   "chunk": 4,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 9,
+   "chunk": 4,
+   "pos": 1,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 9,
+   "chunk": 4,
+   "pos": 2,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 9,
+   "chunk": 4,
+   "pos": 3,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 9,
+   "chunk": 4,
+   "pos": 4,
+   "code": "-",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 0,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 10,
+   "chunk": 0,
+   "pos": 1,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 10,
+   "chunk": 0,
+   "pos": 2,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 0,
+   "pos": 3,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 10,
+   "chunk": 0,
+   "pos": 4,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 10,
+   "chunk": 1,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 10,
+   "chunk": 2,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 10,
+   "chunk": 2,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 2,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 10,
+   "chunk": 3,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 10,
+   "chunk": 3,
+   "pos": 1,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 3,
+   "pos": 2,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 4,
+   "pos": 0,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 4,
+   "pos": 1,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 4,
+   "pos": 2,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 10,
+   "chunk": 5,
+   "pos": 0,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 5,
+   "pos": 1,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 6,
+   "pos": 0,
+   "code": "T",
+   "letter": "P",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 6,
+   "pos": 1,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 6,
+   "pos": 2,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 10,
+   "chunk": 7,
+   "pos": 0,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 7,
+   "pos": 1,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 7,
+   "pos": 2,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 10,
+   "chunk": 7,
+   "pos": 3,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 11,
+   "chunk": 0,
+   "pos": 0,
+   "code": "X",
+   "letter": "J",
+   "sub": null
+  },
+  {
+   "line": 11,
+   "chunk": 0,
+   "pos": 1,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 11,
+   "chunk": 0,
+   "pos": 2,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 11,
+   "chunk": 0,
+   "pos": 3,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 11,
+   "chunk": 1,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 11,
+   "chunk": 1,
+   "pos": 1,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 11,
+   "chunk": 1,
+   "pos": 2,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 11,
+   "chunk": 1,
+   "pos": 3,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 11,
+   "chunk": 2,
+   "pos": 0,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 11,
+   "chunk": 2,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 11,
+   "chunk": 2,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 11,
+   "chunk": 2,
+   "pos": 3,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 11,
+   "chunk": 3,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 11,
+   "chunk": 3,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 11,
+   "chunk": 3,
+   "pos": 2,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 11,
+   "chunk": 3,
+   "pos": 3,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 0,
+   "pos": 0,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 0,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 0,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 0,
+   "pos": 3,
+   "code": "N",
+   "letter": "K",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 0,
+   "pos": 4,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 1,
+   "pos": 0,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 1,
+   "pos": 1,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 2,
+   "pos": 0,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 2,
+   "pos": 1,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 3,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 12,
+   "chunk": 3,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 3,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 12,
+   "chunk": 4,
+   "pos": 0,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 12,
+   "chunk": 4,
+   "pos": 1,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 12,
+   "chunk": 4,
+   "pos": 2,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 4,
+   "pos": 3,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 12,
+   "chunk": 5,
+   "pos": 0,
+   "code": "b",
+   "letter": "Z",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 5,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 12,
+   "chunk": 5,
+   "pos": 2,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 12,
+   "chunk": 5,
+   "pos": 3,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 12,
+   "chunk": 5,
+   "pos": 4,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 5,
+   "pos": 5,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 12,
+   "chunk": 5,
+   "pos": 6,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 12,
+   "chunk": 5,
+   "pos": 7,
+   "code": "d",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 0,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 0,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 0,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 1,
+   "pos": 0,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 1,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 1,
+   "pos": 2,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 1,
+   "pos": 3,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 1,
+   "pos": 4,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 2,
+   "pos": 0,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 2,
+   "pos": 1,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 3,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 13,
+   "chunk": 3,
+   "pos": 1,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 3,
+   "pos": 2,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 4,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 4,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 13,
+   "chunk": 4,
+   "pos": 2,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 13,
+   "chunk": 4,
+   "pos": 3,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 13,
+   "chunk": 4,
+   "pos": 4,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 13,
+   "chunk": 4,
+   "pos": 5,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 13,
+   "chunk": 4,
+   "pos": 6,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 0,
+   "pos": 0,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 0,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 1,
+   "pos": 0,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 1,
+   "pos": 1,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 2,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 2,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 14,
+   "chunk": 2,
+   "pos": 2,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 3,
+   "pos": 0,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 14,
+   "chunk": 3,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 3,
+   "pos": 2,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 4,
+   "pos": 0,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 4,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 14,
+   "chunk": 4,
+   "pos": 2,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 14,
+   "chunk": 4,
+   "pos": 3,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 4,
+   "pos": 4,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 4,
+   "pos": 5,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 14,
+   "chunk": 5,
+   "pos": 0,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 5,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 5,
+   "pos": 2,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 5,
+   "pos": 3,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 5,
+   "pos": 4,
+   "code": "N",
+   "letter": "K",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 6,
+   "pos": 0,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 14,
+   "chunk": 6,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 15,
+   "chunk": 0,
+   "pos": 0,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 0,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 0,
+   "pos": 2,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 0,
+   "pos": 3,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 0,
+   "pos": 4,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 1,
+   "pos": 0,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 1,
+   "pos": 1,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 1,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 1,
+   "pos": 3,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 15,
+   "chunk": 2,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 15,
+   "chunk": 2,
+   "pos": 1,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 3,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 15,
+   "chunk": 3,
+   "pos": 1,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 3,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 4,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 15,
+   "chunk": 4,
+   "pos": 1,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 4,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 4,
+   "pos": 3,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 15,
+   "chunk": 4,
+   "pos": 4,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 15,
+   "chunk": 4,
+   "pos": 5,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 16,
+   "chunk": 0,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 16,
+   "chunk": 0,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 16,
+   "chunk": 1,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 16,
+   "chunk": 2,
+   "pos": 0,
+   "code": "T",
+   "letter": "P",
+   "sub": null
+  },
+  {
+   "line": 16,
+   "chunk": 2,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 16,
+   "chunk": 2,
+   "pos": 2,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 16,
+   "chunk": 2,
+   "pos": 3,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 16,
+   "chunk": 3,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 16,
+   "chunk": 3,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 16,
+   "chunk": 3,
+   "pos": 2,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 16,
+   "chunk": 3,
+   "pos": 3,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 16,
+   "chunk": 3,
+   "pos": 4,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 16,
+   "chunk": 4,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 16,
+   "chunk": 5,
+   "pos": 0,
+   "code": "T",
+   "letter": "P",
+   "sub": null
+  },
+  {
+   "line": 16,
+   "chunk": 5,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 16,
+   "chunk": 5,
+   "pos": 2,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 16,
+   "chunk": 5,
+   "pos": 3,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 16,
+   "chunk": 6,
+   "pos": 0,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 16,
+   "chunk": 7,
+   "pos": 0,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 16,
+   "chunk": 7,
+   "pos": 1,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 0,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 17,
+   "chunk": 1,
+   "pos": 0,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 1,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 1,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 1,
+   "pos": 3,
+   "code": "N",
+   "letter": "K",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 1,
+   "pos": 4,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 1,
+   "pos": 5,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 2,
+   "pos": 0,
+   "code": "u",
+   "letter": "V",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 2,
+   "pos": 1,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 2,
+   "pos": 2,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 3,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 3,
+   "pos": 1,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 4,
+   "pos": 0,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 4,
+   "pos": 1,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 5,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 17,
+   "chunk": 5,
+   "pos": 1,
+   "code": "j",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 0,
+   "pos": 0,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 0,
+   "pos": 1,
+   "code": "b",
+   "letter": "Z",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 0,
+   "pos": 2,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 0,
+   "pos": 3,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 0,
+   "pos": 4,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 1,
+   "pos": 0,
+   "code": "d",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 2,
+   "pos": 0,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 2,
+   "pos": 1,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 18,
+   "chunk": 2,
+   "pos": 2,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 18,
+   "chunk": 2,
+   "pos": 3,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 18,
+   "chunk": 2,
+   "pos": 4,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 3,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 18,
+   "chunk": 3,
+   "pos": 1,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 3,
+   "pos": 2,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 3,
+   "pos": 3,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 4,
+   "pos": 0,
+   "code": "u",
+   "letter": "V",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 4,
+   "pos": 1,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 5,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 18,
+   "chunk": 5,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 6,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 18,
+   "chunk": 6,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 18,
+   "chunk": 6,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 18,
+   "chunk": 6,
+   "pos": 3,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 0,
+   "pos": 0,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 0,
+   "pos": 1,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 19,
+   "chunk": 0,
+   "pos": 2,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 0,
+   "pos": 3,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 0,
+   "pos": 4,
+   "code": "b",
+   "letter": "Z",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 0,
+   "pos": 5,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 1,
+   "pos": 0,
+   "code": "u",
+   "letter": "V",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 1,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 19,
+   "chunk": 2,
+   "pos": 0,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 2,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 2,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 2,
+   "pos": 3,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 19,
+   "chunk": 3,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 19,
+   "chunk": 3,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 3,
+   "pos": 2,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 19,
+   "chunk": 3,
+   "pos": 3,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 19,
+   "chunk": 4,
+   "pos": 0,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 4,
+   "pos": 1,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 19,
+   "chunk": 4,
+   "pos": 2,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 4,
+   "pos": 3,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 4,
+   "pos": 4,
+   "code": "b",
+   "letter": "Z",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 4,
+   "pos": 5,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 5,
+   "pos": 0,
+   "code": "u",
+   "letter": "V",
+   "sub": null
+  },
+  {
+   "line": 19,
+   "chunk": 5,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 20,
+   "chunk": 0,
+   "pos": 0,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 0,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 0,
+   "pos": 2,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 0,
+   "pos": 3,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 20,
+   "chunk": 1,
+   "pos": 0,
+   "code": "?",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 2,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 2,
+   "pos": 1,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 2,
+   "pos": 2,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 3,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 20,
+   "chunk": 3,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 3,
+   "pos": 2,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 3,
+   "pos": 3,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 3,
+   "pos": 4,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 3,
+   "pos": 5,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 4,
+   "pos": 0,
+   "code": "u",
+   "letter": "V",
+   "sub": null
+  },
+  {
+   "line": 20,
+   "chunk": 4,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 21,
+   "chunk": 0,
+   "pos": 0,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 0,
+   "pos": 1,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 0,
+   "pos": 2,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 0,
+   "pos": 3,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 21,
+   "chunk": 1,
+   "pos": 0,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 1,
+   "pos": 1,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 2,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 2,
+   "pos": 1,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 2,
+   "pos": 2,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 21,
+   "chunk": 2,
+   "pos": 3,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 21,
+   "chunk": 2,
+   "pos": 4,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 2,
+   "pos": 5,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 3,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 21,
+   "chunk": 3,
+   "pos": 1,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 3,
+   "pos": 2,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 3,
+   "pos": 3,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 3,
+   "pos": 4,
+   "code": "Q",
+   "letter": "B",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 4,
+   "pos": 0,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 4,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 4,
+   "pos": 2,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 21,
+   "chunk": 4,
+   "pos": 3,
+   "code": "N",
+   "letter": "K",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 5,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 21,
+   "chunk": 5,
+   "pos": 1,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 5,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 21,
+   "chunk": 5,
+   "pos": 3,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 21,
+   "chunk": 5,
+   "pos": 4,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 0,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 22,
+   "chunk": 0,
+   "pos": 1,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 0,
+   "pos": 2,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 1,
+   "pos": 0,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 1,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 22,
+   "chunk": 1,
+   "pos": 2,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 1,
+   "pos": 3,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 22,
+   "chunk": 2,
+   "pos": 0,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 22,
+   "chunk": 2,
+   "pos": 1,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 2,
+   "pos": 2,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 3,
+   "pos": 0,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 3,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 3,
+   "pos": 2,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 3,
+   "pos": 3,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 22,
+   "chunk": 3,
+   "pos": 4,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 3,
+   "pos": 5,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 4,
+   "pos": 0,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 4,
+   "pos": 1,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 4,
+   "pos": 2,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 22,
+   "chunk": 4,
+   "pos": 3,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 5,
+   "pos": 0,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 5,
+   "pos": 1,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 22,
+   "chunk": 5,
+   "pos": 2,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 22,
+   "chunk": 5,
+   "pos": 3,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 23,
+   "chunk": 0,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 23,
+   "chunk": 0,
+   "pos": 1,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 23,
+   "chunk": 0,
+   "pos": 2,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 23,
+   "chunk": 1,
+   "pos": 0,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 23,
+   "chunk": 1,
+   "pos": 1,
+   "code": "W",
+   "letter": "L",
+   "sub": null
+  },
+  {
+   "line": 23,
+   "chunk": 1,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 23,
+   "chunk": 1,
+   "pos": 3,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 23,
+   "chunk": 1,
+   "pos": 4,
+   "code": "d",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 23,
+   "chunk": 1,
+   "pos": 5,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 0,
+   "pos": 0,
+   "code": "E",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 0,
+   "pos": 1,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 0,
+   "pos": 2,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 0,
+   "pos": 3,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 1,
+   "pos": 0,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 1,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 1,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 24,
+   "chunk": 2,
+   "pos": 0,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 2,
+   "pos": 1,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 2,
+   "pos": 2,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 2,
+   "pos": 3,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 24,
+   "chunk": 2,
+   "pos": 4,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 2,
+   "pos": 5,
+   "code": "H",
+   "letter": "N",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 2,
+   "pos": 6,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 3,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 24,
+   "chunk": 3,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 4,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 24,
+   "chunk": 4,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 4,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 24,
+   "chunk": 5,
+   "pos": 0,
+   "code": "q",
+   "letter": "X",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 5,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 5,
+   "pos": 2,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 5,
+   "pos": 3,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 24,
+   "chunk": 6,
+   "pos": 0,
+   "code": "r",
+   "letter": "G",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 0,
+   "pos": 0,
+   "code": "l",
+   "letter": "F",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 0,
+   "pos": 1,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 0,
+   "pos": 2,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 0,
+   "pos": 3,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 1,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 25,
+   "chunk": 1,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 1,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 25,
+   "chunk": 2,
+   "pos": 0,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 25,
+   "chunk": 2,
+   "pos": 1,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 2,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 25,
+   "chunk": 2,
+   "pos": 3,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 25,
+   "chunk": 2,
+   "pos": 4,
+   "code": "N",
+   "letter": "K",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 2,
+   "pos": 5,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 3,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 25,
+   "chunk": 3,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 4,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 25,
+   "chunk": 4,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 5,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 25,
+   "chunk": 5,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 5,
+   "pos": 2,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 25,
+   "chunk": 6,
+   "pos": 0,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  },
+  {
+   "line": 25,
+   "chunk": 6,
+   "pos": 1,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 25,
+   "chunk": 6,
+   "pos": 2,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 6,
+   "pos": 3,
+   "code": "N",
+   "letter": "K",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 6,
+   "pos": 4,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 25,
+   "chunk": 6,
+   "pos": 5,
+   "code": "d",
+   "letter": null,
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 0,
+   "pos": 0,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 0,
+   "pos": 1,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 26,
+   "chunk": 0,
+   "pos": 2,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 26,
+   "chunk": 1,
+   "pos": 0,
+   "code": "S",
+   "letter": "M",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 1,
+   "pos": 1,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 26,
+   "chunk": 1,
+   "pos": 2,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 26,
+   "chunk": 2,
+   "pos": 0,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 2,
+   "pos": 1,
+   "code": "t",
+   "letter": "S",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 2,
+   "pos": 2,
+   "code": "R",
+   "letter": "C",
+   "sub": 2
+  },
+  {
+   "line": 26,
+   "chunk": 2,
+   "pos": 3,
+   "code": "p",
+   "letter": "W",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 2,
+   "pos": 4,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 26,
+   "chunk": 2,
+   "pos": 5,
+   "code": "L",
+   "letter": "D",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 2,
+   "pos": 6,
+   "code": "R",
+   "letter": "E",
+   "sub": 1
+  },
+  {
+   "line": 26,
+   "chunk": 3,
+   "pos": 0,
+   "code": "D",
+   "letter": "I",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 3,
+   "pos": 1,
+   "code": "l",
+   "letter": "F",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 4,
+   "pos": 0,
+   "code": "A",
+   "letter": "Y",
+   "sub": 1
+  },
+  {
+   "line": 26,
+   "chunk": 4,
+   "pos": 1,
+   "code": "V",
+   "letter": "O",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 4,
+   "pos": 2,
+   "code": "P",
+   "letter": "U",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 5,
+   "pos": 0,
+   "code": "a",
+   "letter": "R",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 5,
+   "pos": 1,
+   "code": "U",
+   "letter": "H",
+   "sub": null
+  },
+  {
+   "line": 26,
+   "chunk": 5,
+   "pos": 2,
+   "code": "R",
+   "letter": "A",
+   "sub": 0
+  },
+  {
+   "line": 26,
+   "chunk": 5,
+   "pos": 3,
+   "code": "A",
+   "letter": "T",
+   "sub": 0
+  }
+ ],
+ "table": {
+  "X": {
+   "J": 2
+  },
+  "R#1": {
+   "E": 55
+  },
+  "H": {
+   "N": 24
+  },
+  "t": {
+   "S": 27
+  },
+  "A#1": {
+   "Y": 14
+  },
+  "W": {
+   "L": 16
+  },
+  "D": {
+   "I": 40
+  },
+  "R#2": {
+   "C": 15
+  },
+  "S": {
+   "M": 15
+  },
+  "V": {
+   "O": 41
+  },
+  "N": {
+   "K": 9
+  },
+  "A#0": {
+   "T": 43
+  },
+  "a": {
+   "R": 35
+  },
+  "R#0": {
+   "A": 51
+  },
+  "T": {
+   "P": 5
+  },
+  "r": {
+   "G": 19
+  },
+  "l": {
+   "F": 6
+  },
+  "P": {
+   "U": 20
+  },
+  "L": {
+   "D": 42
+  },
+  "U": {
+   "H": 24
+  },
+  "p": {
+   "W": 17
+  },
+  "q": {
+   "X": 2
+  },
+  "Q": {
+   "B": 2
+  },
+  "b": {
+   "Z": 4
+  },
+  "u": {
+   "V": 5
+  }
+ }
+}

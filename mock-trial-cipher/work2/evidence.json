@@ -1,0 +1,46 @@
+{
+ "none": {
+  "real_score": -1971.16,
+  "null_mean": -2240.3587500000003,
+  "null_sd": 10.378079588127086,
+  "real_vocab": 0.14634146341463414,
+  "null_vocab_mean": 0.023452157598499064,
+  "null_vocab_max": 0.0375234521575985,
+  "real_longhit": 0.12857142857142856,
+  "null_longhit_mean": 0.04642857142857143,
+  "null_longhit_max": 0.07142857142857142
+ },
+ "R3": {
+  "real_score": -1753.68,
+  "null_mean": -2092.04,
+  "null_sd": 10.699724295513372,
+  "real_vocab": 0.2326454033771107,
+  "null_vocab_mean": 0.04455909943714822,
+  "null_vocab_max": 0.06191369606003752,
+  "real_longhit": 0.2571428571428571,
+  "null_longhit_mean": 0.08392857142857144,
+  "null_longhit_max": 0.12857142857142856
+ },
+ "R3,A2": {
+  "real_score": -1701.51,
+  "null_mean": -2074.30625,
+  "null_sd": 7.165249363246198,
+  "real_vocab": 0.2776735459662289,
+  "null_vocab_mean": 0.041979362101313325,
+  "null_vocab_max": 0.06566604127579738,
+  "real_longhit": 0.2714285714285714,
+  "null_longhit_mean": 0.055357142857142855,
+  "null_longhit_max": 0.07142857142857142
+ },
+ "R3,A2,L2": {
+  "real_score": -1660.65,
+  "null_mean": -2040.59125,
+  "null_sd": 6.689436518683749,
+  "real_vocab": 0.275797373358349,
+  "null_vocab_mean": 0.049015009380863034,
+  "null_vocab_max": 0.07317073170731707,
+  "real_longhit": 0.2714285714285714,
+  "null_longhit_mean": 0.06428571428571428,
+  "null_longhit_max": 0.1
+ }
+}

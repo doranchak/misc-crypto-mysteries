@@ -1,0 +1,184 @@
+[
+ {
+  "line": 1,
+  "reading": "PENNSYLVANIA MOCK TRIAL IS",
+  "confidence": "high",
+  "glyphs": "◯⇒↔↔▽▲↙◁⇒↔↓⇒ ↘↕⇒↗ ▲△↓⇒↙ ↓▽",
+  "note": "Opening blob is P (same shape starts PAUL in line 11). 8th glyph is a hollow triangle (V), not ▽."
+ },
+ {
+  "line": 2,
+  "reading": "AMAZING. [I]T IS GREAT FOR",
+  "confidence": "medium",
+  "glyphs": "⇒↘⇒◥↓↔→↘ ⇒▲ ↓▽→△⇒⇒▲ ←↕⇒",
+  "note": "Last glyph of the first word is the long ↘ = full stop. Second word is drawn ⇒▲ (“AT”/“ET”); IT is my guess at the intent. Last word is drawn F-O-⇒ (“FOE”); FOR intended."
+ },
+ {
+  "line": 3,
+  "reading": "STUDENTS, THE TEACHERS,",
+  "confidence": "high",
+  "glyphs": "▽▲▶⇐⇒↔▲▽↧ ▲↑⇒ ▲⇒⇒⇒↑⇒△▽↧",
+  "note": "↧ (down arrow with a foot) = comma."
+ },
+ {
+  "line": 4,
+  "reading": "AND, AND, OF COURSE THE",
+  "confidence": "high",
+  "glyphs": "⇒↔⇐↧ ⇒↔⇐↧ [smear]← ⇒↕▷△▽⇒ ▲↑⇒",
+  "note": "A grey smear hides one or two glyphs before ← (the O of OF). The U of COURSE is drawn hollow (▷, normally W)."
+ },
+ {
+  "line": 5,
+  "reading": "LAW[,] LAWYERS INVOLVED.",
+  "confidence": "high",
+  "glyphs": "↙⇒▷ ↙⇒▷▲⇒△▽ ↓↔△↕↙◁⇒⇐↘",
+  "note": "Final long ↘ = full stop (I had read it as ↓). First V of INVOLVED looks like △."
+ },
+ {
+  "line": 6,
+  "reading": "[I]F YOU TH[R]OUGH BY BREAKING",
+  "confidence": "high",
+  "glyphs": "⇒← ▲↕▶ ▲↑△↕▶→↑ ⇐▲ ⇐△⇒⇒↗↓↔→",
+  "note": "First word is drawn ⇒← (“EF”); THROUGH is what is written (THOUGHT fits the sentence). 7th glyph of BREAKING is ↔ (I had ←)."
+ },
+ {
+  "line": 7,
+  "reading": "THIS CODE, YOU WOULD GET INSIGHT",
+  "confidence": "high",
+  "glyphs": "▲↑↓▽ ⇒↕⇐⇒↧ ▲↕▶ ▷↕▶↙⇐ →⇒▼↓↔ ▽↓→↑▲",
+  "note": "My first pass read ↘ for the ↓ in THIS. “GET IN|SIGHT” has a gap inside INSIGHT; its first glyph is the thin → (G) and its T is a filled ▼."
+ },
+ {
+  "line": 8,
+  "reading": "INTO THE CASE, YOU ARE",
+  "confidence": "high",
+  "glyphs": "↓↔▲↕ ▲↑⇒ ⇒⇒▽⇒↧ ▲↕▶ ⇒△⇒",
+  "note": "Second glyph of INTO is a closed ⇔-like shape I had read as △."
+ },
+ {
+  "line": 9,
+  "reading": "WRONG. BUT WE REALLY APPR-",
+  "confidence": "high",
+  "glyphs": "▷△↕↔→ ➤ ⇐▶▲ ▷⇒ △⇒⇒↙↙▲ ⇒▲▲△–",
+  "note": "WRONG is one word. ➤ (long thin arrow with a filled head) is not a letter – sentence break. BUT: ⇐=B, ▶=U, filled triangle=T. REALLY has two ↙ (I had one). The word is hyphenated to the next line."
+ },
+ {
+  "line": 10,
+  "reading": "ECIATE THE EFFORT IN TRYING.",
+  "confidence": "high",
+  "glyphs": "⇒⇒↓⇒▲⇒ ▲↑⇒ ⇒←←↕△▲ ↓↔ ▼△◢↓↔→↘",
+  "note": "APPR-ECIATE. The two F are thin ← with an open head (I had ⇐). Ends with the long ↘ with a foot = full stop."
+ },
+ {
+  "line": 11,
+  "reading": "PAUL AND [?] HAVE BEEN",
+  "confidence": "medium",
+  "glyphs": "◯⇒▶↙ ⇒↔⇐ [?]⇒ ↑⇒△⇒ ⇐⇒⇒↔",
+  "note": "A handwritten “?” covers what follows AND; one ⇒ is visible after it. HAVE is drawn H-⇒-△-⇒ with an upright △ (R-like). BEEN: last glyph is ↔."
+ },
+ {
+  "line": 12,
+  "reading": "WORKING ON THE CASE MATERIAL[S]",
+  "confidence": "high",
+  "glyphs": "▷↕△↗↓↔→ ↕↔ ▲↑⇒ ⇒⇒▽⇒ ↳⇒▲⇒△↓⇒↧",
+  "note": "WORKING is one word. N of ON is the double-headed arrow. M here is the bent arrow ↳. The word ends at the page edge with ↧ (comma) or a cut-off glyph."
+ },
+ {
+  "line": 13,
+  "reading": "FOR GOING ON TWO DECADES",
+  "confidence": "high",
+  "glyphs": "←↕△ →↕↓↔→ ↕↔ ▲▷↕ ⇐⇒⇒⇒⇐⇒▽",
+  "note": ""
+ },
+ {
+  "line": 14,
+  "reading": "NOW. DO YOU REALLY THINK WE",
+  "confidence": "high",
+  "glyphs": "↔↕▷↘ ⇐↕ ▲↕▶ △⇒⇒↙↙▲ ▶↑↓↔↗ ▷⇒",
+  "note": "NOW + long ↘ (full stop). DO is two glyphs (I had three)."
+ },
+ {
+  "line": 15,
+  "reading": "WOULD GIVE AN ADV ADV[ANTA]GE",
+  "confidence": "medium",
+  "glyphs": "▷↕▶↙⇐ →↓◿⇒ ⇒↔ ⇒⇐◿ ⇒⇐◿⇒→⇒",
+  "note": "Written “ADV ADVAGE” – a false start and a shortened ADVANTAGE, as far as I can see. V is a leaning hollow triangle ◿."
+ },
+ {
+  "line": 16,
+  "reading": "TO A TEAM BEC[A]USE THEY GOT",
+  "confidence": "medium",
+  "glyphs": "▲↕ ⇒ ▼⇒⇒↘ ⇐⇒⇒▶▷ ⇒ ▼↑⇒◢ → ↕▶",
+  "note": "BECAUSE is drawn B-E-C-U-▷ + E (A missing, S drawn as ▷, a gap before the last E). THEY ends in the tall ◢ = Y. GOT: T drawn as a filled ▶-like triangle."
+ },
+ {
+  "line": 17,
+  "reading": "A SORKIN(?) WINGDING F?",
+  "confidence": "low",
+  "glyphs": "⇒ ▽↕△↗↓↔ ⊔↓↔→ ⇐↓↔→ ←↴",
+  "note": "S-O-R-K-I-N as drawn (WORKIN’ if the first triangle is a turned ▷). ⊔ acts as W here and in lines 18–20 (W is ▷ elsewhere). Last word is F + an unidentified corner arrow."
+ },
+ {
+  "line": 18,
+  "reading": "??L?O, MATE? E??? WITH THE?",
+  "confidence": "low",
+  "glyphs": "↓↳↙▷↕↧ ↘⇒▲⇒⇐ ⇒⇐⇐↳ ⊔↓ ▶↑ ▲↑⇒▶",
+  "note": "Partly under the “DOES NOT ADD UP” note. Only WITH (⊔↓ ▶↑, gap inside) and THE? are readable."
+ },
+ {
+  "line": 19,
+  "reading": "S?I??I WE LOVE THAT S?I??I WE",
+  "confidence": "low",
+  "glyphs": "▽⇒↓⇐↴↓ ⊔⇒ ↙↕△⇒ ▲↑⇒▲ ▽⇒↓⇐↴↓ ⊔⇒",
+  "note": "The repeated six-glyph word contains the unidentified ↴. LOVE is drawn with △ (LORE as drawn)."
+ },
+ {
+  "line": 20,
+  "reading": "LOVE ███ DID THIS. ? WE",
+  "confidence": "medium",
+  "glyphs": "↙↕▷⇒ █ ⇐↓⇐ ▲↑↓▽↘ ↱ ⊔⇒",
+  "note": "Black bar hides a word (a name?). LOVE is drawn with ▷ here. ↱ before WE is unidentified."
+ },
+ {
+  "line": 21,
+  "reading": "OBSESS DEEPLY ABOUT MOCK TRIAL",
+  "confidence": "medium",
+  "glyphs": "↕⇐▽⇒▽▽ ⇐⇒⇒▲↙▶ ⇒⇐↕▶▲ ↘↕⇒↗ ▲△↓⇒↙↓",
+  "note": "My first pass split OBSESS in two. DEEPLY is my reading of ⇔⇐⇒▲↙▶ (2nd glyph points left). Final glyph after TRIAL unclear."
+ },
+ {
+  "line": 22,
+  "reading": "AND WEST(?) AND MONTHS WITH THIS",
+  "confidence": "medium",
+  "glyphs": "⇒↔⇐ ▷⇒▽▲ ⇒↔⇐ ↘↕↔▲↑▽ ▷↓▲↑ ▶↑↓▽",
+  "note": "Second word is drawn W-E-S-T; WEEKS would fit the sentence. MONTHS: first glyph is ↘ (I had ↓)."
+ },
+ {
+  "line": 23,
+  "reading": "PROBLEM. I ███",
+  "confidence": "high",
+  "glyphs": "▲△↕⇐↙⇒↘↘ ↓ █",
+  "note": "P is a filled ▲. Second ↘ has a foot = full stop. The rest of the line is under a black bar."
+ },
+ {
+  "line": 24,
+  "reading": "FROM THE MOU[NT]AINS TO THE ????",
+  "confidence": "low",
+  "glyphs": "⇆△↕↘ ▶↑⇒ ↘↕▶⇒↓↔▽ ▲↕ ▲↑⇒ ◰?→△ →",
+  "note": "First glyph ⇆ acts as F. “MOUAINS” as drawn. Last two words unread."
+ },
+ {
+  "line": 25,
+  "reading": "FROM THE ?R??K? ?? TO THE T?RK?,",
+  "confidence": "low",
+  "glyphs": "←△↕↘ ▲↑⇒ ⇒△⇒⇒↗△ ▲↑ ▲↕ ▲↑⇒ ▲⇒△↗◿↧",
+  "note": "The two long words are unread (CREEKS? TREKS?)."
+ },
+ {
+  "line": 26,
+  "reading": "MA? MA? ██ IS A WA?E IF YOU ?HAT",
+  "confidence": "low",
+  "glyphs": "↘⇒▲ ↘⇒▲ █↓▽⇒ ▷⇒←⇒ ↓← ▲↕▶ △↑⇒▲",
+  "note": "Part of the line is under a bar."
+ }
+]
