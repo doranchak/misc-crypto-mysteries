@@ -10,6 +10,7 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 - [Enciphered diary in thrift store book](https://doranchak.github.io/misc-crypto-mysteries/oliver-twist-thrift-store)
 - [Giokku's sci fi story cipher](https://doranchak.github.io/misc-crypto-mysteries/giokku-sci-fi-story-cipher)
 - [PDF password puzzle](https://doranchak.github.io/misc-crypto-mysteries/juniorappearance8347-pdf-password-puzzle)
+- [Pigpen notebook cipher](https://doranchak.github.io/misc-crypto-mysteries/pigpen-notebook-cipher)
 - [Rudranshkh's Caesar-shift-per-word cipher](https://doranchak.github.io/misc-crypto-mysteries/caesar-shift-per-word)
 - [Solid-Camp6739's code of triples](https://doranchak.github.io/misc-crypto-mysteries/solid-camp6739-code)
 - [tbstewa's custom cipher](https://doranchak.github.io/misc-crypto-mysteries/tbstewa-custom-cipher/report.html)

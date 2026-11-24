@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Notebook "pigpen" cipher — decoded</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{font:16px/1.5 system-ui,sans-serif;max-width:980px;margin:2rem auto;padding:0 1rem;color:#222}
+h1{font-size:1.5rem} h2{margin-top:2rem;font-size:1.15rem}
+.plain{background:#f4f8f2;border-left:4px solid #5a9a4a;padding:.8rem 1rem;font:600 1.05rem/1.5 ui-monospace,monospace}
+.ln{margin:.6rem 0;border-bottom:1px solid #eee;padding-bottom:.4rem}
+.ln img{max-width:100%;display:block}
+.pt{font:600 1rem ui-monospace,monospace;letter-spacing:.06em;color:#1a5d1a}
+.n{color:#999;font-weight:400;margin-right:.5rem}
+table{border-collapse:collapse} th,td{border:1px solid #ddd;padding:.25rem .6rem;text-align:left} th{background:#f6f6f6;width:2rem;text-align:center}
+.cols{columns:2;column-gap:2rem} code{background:#f1f1f1;padding:0 .25rem}
+.note{color:#555;font-size:.93rem}
+.tx{background:#f6f6f6;border:1px solid #ddd;padding:.6rem .8rem;overflow-x:auto;font:.9rem/1.5 ui-monospace,monospace}
+button{font:inherit;font-size:.9rem;margin-right:.5rem}
+</style></head><body>
+<h1>Notebook “pigpen” cipher — decoded</h1>
+<p>Not standard pigpen, but pigpen-<em>like</em>: a custom monoalphabetic substitution (English) whose glyphs are boxes/brackets/chevrons plus short strokes. Word spaces are real.</p>
+<h2>Plaintext</h2>
+<div class="plain">IN EXACLY ONE MINUETE THE OFFICE PHONE WILL RING AND ILL BE SENT TO THE OFFICE WHERE MY ADOPTIVE FAMILY WILL COME COLLECT ME. I ACCEPT WITH GRATTITUDE.</div>
+<p class="note">Read as: “In exactly one minute the office phone will ring and I’ll be sent to the office, where my adoptive family will come collect me. I accept with gratitude.” Spellings above are exactly what the glyphs say: <b>EXACLY</b> (no T), <b>MINUETE</b> (extra E) and <b>GRATTITUDE</b> (extra T) look like the writer’s own misspellings (or small slips), and “ILL” is “I’ll” with the apostrophe omitted.</p>
+<h2>Line by line</h2>
+<div class="ln"><img src="lines/L01.jpg" alt="line 1"><div class="pt"><span class="n">1</span> IN EXACLY</div></div>
+<div class="ln"><img src="lines/L02.jpg" alt="line 2"><div class="pt"><span class="n">2</span> ONE MINUETE</div></div>
+<div class="ln"><img src="lines/L03.jpg" alt="line 3"><div class="pt"><span class="n">3</span> THE OFFICE</div></div>
+<div class="ln"><img src="lines/L04.jpg" alt="line 4"><div class="pt"><span class="n">4</span> PHONE WILL</div></div>
+<div class="ln"><img src="lines/L05.jpg" alt="line 5"><div class="pt"><span class="n">5</span> RING AND ILL</div></div>
+<div class="ln"><img src="lines/L06.jpg" alt="line 6"><div class="pt"><span class="n">6</span> BE SENT TO</div></div>
+<div class="ln"><img src="lines/L07.jpg" alt="line 7"><div class="pt"><span class="n">7</span> THE OFFICE</div></div>
+<div class="ln"><img src="lines/L08.jpg" alt="line 8"><div class="pt"><span class="n">8</span> WHERE MY ADOPTIVE</div></div>
+<div class="ln"><img src="lines/L09.jpg" alt="line 9"><div class="pt"><span class="n">9</span> FAMILY WILL</div></div>
+<div class="ln"><img src="lines/L10.jpg" alt="line 10"><div class="pt"><span class="n">10</span> COME COLLECT ME</div></div>
+<div class="ln"><img src="lines/B1.jpg" alt="bottom line 1"><div class="pt"><span class="n">b1</span> I ACCEPT WITH</div></div>
+<div class="ln"><img src="lines/B2.jpg" alt="bottom line 2"><div class="pt"><span class="n">b2</span> GRATTITUDE</div></div>
+
+<h2>Key (letter ← glyph)</h2>
+<div class="cols"><table><tr><th>A</th><td><code>&gt;</code> followed by a tall <code>|</code></td></tr><tr><th>B</th><td>open-bottom box Π, <em>no</em> hook</td></tr><tr><th>C</th><td>open-bottom box Π <em>with</em> a small hook at the bottom right</td></tr><tr><th>D</th><td>a lone <code>|</code></td></tr><tr><th>E</th><td>open-top box ⊔</td></tr><tr><th>F</th><td>Λ</td></tr><tr><th>G</th><td>V</td></tr><tr><th>H</th><td>L-shape</td></tr><tr><th>I</th><td>⊔ + a trailing <code>\</code> (or <code>/</code>)</td></tr><tr><th>L</th><td>Λ + a trailing <code>\</code></td></tr><tr><th>M</th><td><code>&lt;</code></td></tr><tr><th>N</th><td><code>\</code> + <code>-</code> (slash and dash, no box)</td></tr><tr><th>O</th><td>square □ (also drawn as a round “o”)</td></tr><tr><th>P</th><td>a <code>|</code> written <em>in front of</em> a <code>&lt;</code> or <code>&gt;</code></td></tr><tr><th>R</th><td>inverted T ⊥</td></tr><tr><th>S</th><td>dash then <code>/</code> (dash at mid-height, left of the slash)</td></tr><tr><th>T</th><td>“[” bracket + trailing <code>|</code></td></tr><tr><th>U</th><td>“[” bracket + a mid-height dash</td></tr><tr><th>V</th><td>small open arc/Π shape + a dash below-right</td></tr><tr><th>W</th><td>a short hook <code>↘</code> (+ optional <code>|</code>)</td></tr><tr><th>X</th><td>“7”: dash on top of a <code>/</code></td></tr><tr><th>Y</th><td>square □ + <code>/-</code></td></tr></table></div>
+<p class="note">Not used in this text: J, K, Q, Z. Glyphs that touch or sit next to each other make one letter, so one letter can be one, two or three pen strokes.</p>
+<!-- TRANSCRIPTION:BEGIN (generated by build_transcription.py) -->
+<h2 id="machine-readable">Machine-readable transcription</h2>
+<p class="note">One entry per word, one string per glyph, strokes written left to right. Glyphs are delimited
+explicitly (the raw stroke strings are ambiguous in a few places, e.g. <code>h|</code> = W vs <code>h</code> + <code>|</code>).
+Glyphs are comma-separated, words are separated by spaces, a trailing <code>.</code> is a full stop in the photo.
+The same data is in <a href="transcription.json">transcription.json</a> and in the
+<code>&lt;script type="application/json" id="transcription"&gt;</code> block of this page (token alphabet,
+key, and per-word plaintext with low-confidence flags).</p>
+<p class="note"><b>Caveat:</b> strokes were read by eye, and a few readings (line 6 word 3, the end of line 8, the
+backslash on the second Λ of FAMILY, the first glyph of line 10) were revised after the plaintext was known, so this
+transcription is not fully independent of the decipherment. S, X and V rest on one occurrence each.</p>
+<pre class="tx" id="tx-compact"> 1: U\,\-  U,7,&gt;|,N,A\,O/-
+ 2: O,\-,U  &lt;,U\,\-,E,U,C|,U
+ 3: C|,L,U  O,A,A,U\,N,U
+ 4: |&gt;,L,O,\-,U  h|,U\,A\,A\
+ 5: T,U\,\-,V  &gt;|,\-,|  U\,A\,A\
+ 6: b,U  -/,U,\-,C|  C|,o
+ 7: C|,L,U  O,A,A,U\,N,U
+ 8: h,L,U,T,U  &lt;,O/-  &gt;|,|,O,|&lt;,C|,U/,c-,U
+ 9: A,&gt;|,&lt;,U\,A\,O/-  h|,U\,A\,A\
+10: N,O,&lt;,U  N,O,A\,A\,U,N,C|  &lt;,U.
+b1: U\  &gt;|,N,N,U,|&gt;,C|  h|,U\,C|,L
+b2: V,T,&gt;|,5|,C|,U\,C|,E,|,U.</pre>
+<p><button type="button" id="tx-copy-compact">Copy compact text</button>
+<button type="button" id="tx-copy-json">Copy JSON</button>
+<a href="transcription.json" download>Download transcription.json</a></p>
+<script type="application/json" id="transcription">{"format": "pigpen-notebook-cipher-transcription/1", "source_image": "original.png", "plaintext": "IN EXACLY ONE MINUETE THE OFFICE PHONE WILL RING AND ILL BE SENT TO THE OFFICE WHERE MY ADOPTIVE FAMILY WILL COME COLLECT ME. I ACCEPT WITH GRATTITUDE.", "how_to_read": "Hand transcription, line by line. Each word is a list of glyphs; each glyph is a string of one-character stroke tokens (see token_alphabet) written left to right, so a pre-stroke such as the | of P comes before the chevron and a trailing mark comes after the shape. Glyphs are delimited explicitly because the raw stroke strings are ambiguous (e.g. 'h|' = W vs 'h' + '|'). glyph_to_letter is the substitution key; decoding is glyph_to_letter[glyph] for every glyph.", "provenance": "Strokes were read by eye from the photo, then several readings (line 6 word 3, end of line 8, the backslash on the second Λ of FAMILY, the first glyph of line 10) were revised after a plaintext hypothesis existed, so this transcription is not fully independent of the decipherment. Letters J, K, Q, Z do not occur.", "token_alphabet": {"U": "open-top box ⊔", "b": "open-bottom box Π, no hook", "N": "open-bottom box Π with a small hook at the bottom right", "C": "\"[\" bracket (open right)", "E": "\"[\" bracket with an inner dash", "5": "Γ-like hooked variant of the \"[\" bracket", "L": "L shape", "O": "square", "o": "round \"o\"", "A": "Λ (lambda / caret)", "V": "V", "\u003c": "\"\u003c\" chevron", ">": "\">\" chevron", "T": "inverted T ⊥", "h": "short hook ↘", "7": "dash on top of a slash (\"7\" shape)", "c": "small open arc / Π-like glyph", "|": "vertical stroke", "-": "horizontal dash", "\\": "backslash stroke", "/": "slash stroke"}, "glyph_to_letter": {">|": "A", "b": "B", "N": "C", "|": "D", "U": "E", "A": "F", "V": "G", "L": "H", "U/": "I", "U\\": "I", "A\\": "L", "\u003c": "M", "\\-": "N", "O": "O", "o": "O", "|\u003c": "P", "|>": "P", "T": "R", "-/": "S", "5|": "T", "C|": "T", "E": "U", "c-": "V", "h": "W", "h|": "W", "7": "X", "O/-": "Y"}, "glyph_shape": {">|": "\">\" chevron + vertical stroke", "b": "open-bottom box Π, no hook", "N": "open-bottom box Π with a small hook at the bottom right", "|": "vertical stroke", "U": "open-top box ⊔", "A": "Λ (lambda / caret)", "V": "V", "L": "L shape", "U/": "open-top box ⊔ + slash stroke", "U\\": "open-top box ⊔ + backslash stroke", "A\\": "Λ (lambda / caret) + backslash stroke", "\u003c": "\"\u003c\" chevron", "\\-": "backslash stroke + horizontal dash", "O": "square", "o": "round \"o\"", "|\u003c": "vertical stroke + \"\u003c\" chevron", "|>": "vertical stroke + \">\" chevron", "T": "inverted T ⊥", "-/": "horizontal dash + slash stroke", "5|": "Γ-like hooked variant of the \"[\" bracket + vertical stroke", "C|": "\"[\" bracket (open right) + vertical stroke", "E": "\"[\" bracket with an inner dash", "c-": "small open arc / Π-like glyph + horizontal dash", "h": "short hook ↘", "h|": "short hook ↘ + vertical stroke", "7": "dash on top of a slash (\"7\" shape)", "O/-": "square + slash stroke + horizontal dash"}, "letter_to_glyphs": {"A": [">|"], "B": ["b"], "C": ["N"], "D": ["|"], "E": ["U"], "F": ["A"], "G": ["V"], "H": ["L"], "I": ["U/", "U\\"], "L": ["A\\"], "M": ["\u003c"], "N": ["\\-"], "O": ["O", "o"], "P": ["|\u003c", "|>"], "R": ["T"], "S": ["-/"], "T": ["5|", "C|"], "U": ["E"], "V": ["c-"], "W": ["h", "h|"], "X": ["7"], "Y": ["O/-"]}, "lines": [{"id": "1", "image": "lines/L01.jpg", "words": [{"glyphs": ["U\\", "\\-"], "plain": "IN"}, {"glyphs": ["U", "7", ">|", "N", "A\\", "O/-"], "plain": "EXACLY", "note": "EXACLY: spelled as the glyphs read (no T); may be a misspelling or a stroke-grouping error.", "low_confidence": ["X occurs once"]}]}, {"id": "2", "image": "lines/L02.jpg", "words": [{"glyphs": ["O", "\\-", "U"], "plain": "ONE"}, {"glyphs": ["\u003c", "U\\", "\\-", "E", "U", "C|", "U"], "plain": "MINUETE", "note": "MINUETE: spelled as the glyphs read (extra E); may be a misspelling or a stroke-grouping error."}]}, {"id": "3", "image": "lines/L03.jpg", "words": [{"glyphs": ["C|", "L", "U"], "plain": "THE"}, {"glyphs": ["O", "A", "A", "U\\", "N", "U"], "plain": "OFFICE"}]}, {"id": "4", "image": "lines/L04.jpg", "words": [{"glyphs": ["|>", "L", "O", "\\-", "U"], "plain": "PHONE"}, {"glyphs": ["h|", "U\\", "A\\", "A\\"], "plain": "WILL"}]}, {"id": "5", "image": "lines/L05.jpg", "words": [{"glyphs": ["T", "U\\", "\\-", "V"], "plain": "RING"}, {"glyphs": [">|", "\\-", "|"], "plain": "AND"}, {"glyphs": ["U\\", "A\\", "A\\"], "plain": "ILL"}]}, {"id": "6", "image": "lines/L06.jpg", "words": [{"glyphs": ["b", "U"], "plain": "BE"}, {"glyphs": ["-/", "U", "\\-", "C|"], "plain": "SENT", "low_confidence": ["S occurs once"]}, {"glyphs": ["C|", "o"], "plain": "TO"}]}, {"id": "7", "image": "lines/L07.jpg", "words": [{"glyphs": ["C|", "L", "U"], "plain": "THE"}, {"glyphs": ["O", "A", "A", "U\\", "N", "U"], "plain": "OFFICE"}]}, {"id": "8", "image": "lines/L08.jpg", "words": [{"glyphs": ["h", "L", "U", "T", "U"], "plain": "WHERE"}, {"glyphs": ["\u003c", "O/-"], "plain": "MY"}, {"glyphs": [">|", "|", "O", "|\u003c", "C|", "U/", "c-", "U"], "plain": "ADOPTIVE", "note": "ADOPTIVE: V is partly hidden under the circle strokes and the final E is hidden by the circle.", "low_confidence": ["V occurs once, partly obscured"]}]}, {"id": "9", "image": "lines/L09.jpg", "words": [{"glyphs": ["A", ">|", "\u003c", "U\\", "A\\", "O/-"], "plain": "FAMILY"}, {"glyphs": ["h|", "U\\", "A\\", "A\\"], "plain": "WILL"}]}, {"id": "10", "image": "lines/L10.jpg", "words": [{"glyphs": ["N", "O", "\u003c", "U"], "plain": "COME"}, {"glyphs": ["N", "O", "A\\", "A\\", "U", "N", "C|"], "plain": "COLLECT"}, {"glyphs": ["\u003c", "U"], "plain": "ME", "period_after": true}]}, {"id": "b1", "image": "lines/B1.jpg", "words": [{"glyphs": ["U\\"], "plain": "I"}, {"glyphs": [">|", "N", "N", "U", "|>", "C|"], "plain": "ACCEPT"}, {"glyphs": ["h|", "U\\", "C|", "L"], "plain": "WITH"}]}, {"id": "b2", "image": "lines/B2.jpg", "words": [{"glyphs": ["V", "T", ">|", "5|", "C|", "U\\", "C|", "E", "|", "U"], "plain": "GRATTITUDE", "period_after": true, "note": "GRATTITUDE: spelled as the glyphs read (extra T); may be a misspelling or a stroke-grouping error."}]}]}</script>
+<script>
+(function(){
+  function cp(id,btn,fn){document.getElementById(btn).addEventListener('click',function(){
+    var t=fn(); (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).catch(function(){
+      var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();
+      document.execCommand('copy');a.remove();});});}
+  cp('tx-compact','tx-copy-compact',function(){return document.getElementById('tx-compact').textContent;});
+  cp('transcription','tx-copy-json',function(){
+    return JSON.stringify(JSON.parse(document.getElementById('transcription').textContent),null,1);});
+})();
+</script>
+<!-- TRANSCRIPTION:END -->
+<h2>How it was solved</h2>
+<ul class="note">
+<li>Transcribed every stroke from the photo (ink mask → connected components → manual check). The shapes are the pigpen family (⊔ ⊓ [ □ L Λ V &lt; &gt;) plus lone strokes (<code>| - \ /</code>).</li>
+<li>Grouping each box/chevron with its trailing strokes gave 22 glyph types with an index of coincidence ≈ 0.070 (English ≈ 0.066), i.e. a 26-symbol monoalphabetic cipher.</li>
+<li>A word-level hill-climb (frequency-list dictionary) on that stream beat repeat-preserving shuffled nulls by z ≈ 9 and surfaced “THE OFFICE”, “WILL”, “WHERE MY … FAMILY”, “COME COLLECT ME”.</li>
+<li>Those anchor words fixed most of the key; the remaining glyphs (N = <code>\-</code>, D = <code>|</code>, P = pre-stroke, X, S, V, T/U brackets) were read off AND / ONE / PHONE / SENT / ADOPTIVE / ACCEPT / GRATITUDE, and the whole transcription then decodes under one key (see <code>decode.py</code>).</li>
+</ul>
+<p class="note">Weakest points: S vs X (one occurrence each), V (one occurrence, last glyph of line 8 is partly hidden under the circle strokes), and the exact stroke-grouping at the three misspelled words.</p>
+</body></html>

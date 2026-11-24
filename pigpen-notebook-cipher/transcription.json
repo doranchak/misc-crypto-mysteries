@@ -1,0 +1,233 @@
+{
+  "format": "pigpen-notebook-cipher-transcription/1",
+  "source_image": "original.png",
+  "plaintext": "IN EXACLY ONE MINUETE THE OFFICE PHONE WILL RING AND ILL BE SENT TO THE OFFICE WHERE MY ADOPTIVE FAMILY WILL COME COLLECT ME. I ACCEPT WITH GRATTITUDE.",
+  "how_to_read": "Hand transcription, line by line. Each word is a list of glyphs; each glyph is a string of one-character stroke tokens (see token_alphabet) written left to right, so a pre-stroke such as the | of P comes before the chevron and a trailing mark comes after the shape. Glyphs are delimited explicitly because the raw stroke strings are ambiguous (e.g. 'h|' = W vs 'h' + '|'). glyph_to_letter is the substitution key; decoding is glyph_to_letter[glyph] for every glyph.",
+  "provenance": "Strokes were read by eye from the photo, then several readings (line 6 word 3, end of line 8, the backslash on the second Λ of FAMILY, the first glyph of line 10) were revised after a plaintext hypothesis existed, so this transcription is not fully independent of the decipherment. Letters J, K, Q, Z do not occur.",
+  "token_alphabet": {
+    "U": "open-top box ⊔",
+    "b": "open-bottom box Π, no hook",
+    "N": "open-bottom box Π with a small hook at the bottom right",
+    "C": "\"[\" bracket (open right)",
+    "E": "\"[\" bracket with an inner dash",
+    "5": "Γ-like hooked variant of the \"[\" bracket",
+    "L": "L shape",
+    "O": "square",
+    "o": "round \"o\"",
+    "A": "Λ (lambda / caret)",
+    "V": "V",
+    "<": "\"<\" chevron",
+    ">": "\">\" chevron",
+    "T": "inverted T ⊥",
+    "h": "short hook ↘",
+    "7": "dash on top of a slash (\"7\" shape)",
+    "c": "small open arc / Π-like glyph",
+    "|": "vertical stroke",
+    "-": "horizontal dash",
+    "\\": "backslash stroke",
+    "/": "slash stroke"
+  },
+  "glyph_to_letter": {
+    ">|": "A",
+    "b": "B",
+    "N": "C",
+    "|": "D",
+    "U": "E",
+    "A": "F",
+    "V": "G",
+    "L": "H",
+    "U/": "I",
+    "U\\": "I",
+    "A\\": "L",
+    "<": "M",
+    "\\-": "N",
+    "O": "O",
+    "o": "O",
+    "|<": "P",
+    "|>": "P",
+    "T": "R",
+    "-/": "S",
+    "5|": "T",
+    "C|": "T",
+    "E": "U",
+    "c-": "V",
+    "h": "W",
+    "h|": "W",
+    "7": "X",
+    "O/-": "Y"
+  },
+  "glyph_shape": {
+    ">|": "\">\" chevron + vertical stroke",
+    "b": "open-bottom box Π, no hook",
+    "N": "open-bottom box Π with a small hook at the bottom right",
+    "|": "vertical stroke",
+    "U": "open-top box ⊔",
+    "A": "Λ (lambda / caret)",
+    "V": "V",
+    "L": "L shape",
+    "U/": "open-top box ⊔ + slash stroke",
+    "U\\": "open-top box ⊔ + backslash stroke",
+    "A\\": "Λ (lambda / caret) + backslash stroke",
+    "<": "\"<\" chevron",
+    "\\-": "backslash stroke + horizontal dash",
+    "O": "square",
+    "o": "round \"o\"",
+    "|<": "vertical stroke + \"<\" chevron",
+    "|>": "vertical stroke + \">\" chevron",
+    "T": "inverted T ⊥",
+    "-/": "horizontal dash + slash stroke",
+    "5|": "Γ-like hooked variant of the \"[\" bracket + vertical stroke",
+    "C|": "\"[\" bracket (open right) + vertical stroke",
+    "E": "\"[\" bracket with an inner dash",
+    "c-": "small open arc / Π-like glyph + horizontal dash",
+    "h": "short hook ↘",
+    "h|": "short hook ↘ + vertical stroke",
+    "7": "dash on top of a slash (\"7\" shape)",
+    "O/-": "square + slash stroke + horizontal dash"
+  },
+  "letter_to_glyphs": {
+    "A": [">|"],
+    "B": ["b"],
+    "C": ["N"],
+    "D": ["|"],
+    "E": ["U"],
+    "F": ["A"],
+    "G": ["V"],
+    "H": ["L"],
+    "I": ["U/", "U\\"],
+    "L": ["A\\"],
+    "M": ["<"],
+    "N": ["\\-"],
+    "O": ["O", "o"],
+    "P": ["|<", "|>"],
+    "R": ["T"],
+    "S": ["-/"],
+    "T": ["5|", "C|"],
+    "U": ["E"],
+    "V": ["c-"],
+    "W": ["h", "h|"],
+    "X": ["7"],
+    "Y": ["O/-"]
+  },
+  "lines": [
+    {
+      "id": "1",
+      "image": "lines/L01.jpg",
+      "words": [
+        {"glyphs": ["U\\", "\\-"], "plain": "IN"},
+        {
+          "glyphs": ["U", "7", ">|", "N", "A\\", "O/-"],
+          "plain": "EXACLY",
+          "note": "EXACLY: spelled as the glyphs read (no T); may be a misspelling or a stroke-grouping error.",
+          "low_confidence": ["X occurs once"]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "image": "lines/L02.jpg",
+      "words": [
+        {"glyphs": ["O", "\\-", "U"], "plain": "ONE"},
+        {
+          "glyphs": ["<", "U\\", "\\-", "E", "U", "C|", "U"],
+          "plain": "MINUETE",
+          "note": "MINUETE: spelled as the glyphs read (extra E); may be a misspelling or a stroke-grouping error."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "image": "lines/L03.jpg",
+      "words": [
+        {"glyphs": ["C|", "L", "U"], "plain": "THE"},
+        {"glyphs": ["O", "A", "A", "U\\", "N", "U"], "plain": "OFFICE"}
+      ]
+    },
+    {
+      "id": "4",
+      "image": "lines/L04.jpg",
+      "words": [
+        {"glyphs": ["|>", "L", "O", "\\-", "U"], "plain": "PHONE"},
+        {"glyphs": ["h|", "U\\", "A\\", "A\\"], "plain": "WILL"}
+      ]
+    },
+    {
+      "id": "5",
+      "image": "lines/L05.jpg",
+      "words": [
+        {"glyphs": ["T", "U\\", "\\-", "V"], "plain": "RING"},
+        {"glyphs": [">|", "\\-", "|"], "plain": "AND"},
+        {"glyphs": ["U\\", "A\\", "A\\"], "plain": "ILL"}
+      ]
+    },
+    {
+      "id": "6",
+      "image": "lines/L06.jpg",
+      "words": [
+        {"glyphs": ["b", "U"], "plain": "BE"},
+        {"glyphs": ["-/", "U", "\\-", "C|"], "plain": "SENT", "low_confidence": ["S occurs once"]},
+        {"glyphs": ["C|", "o"], "plain": "TO"}
+      ]
+    },
+    {
+      "id": "7",
+      "image": "lines/L07.jpg",
+      "words": [
+        {"glyphs": ["C|", "L", "U"], "plain": "THE"},
+        {"glyphs": ["O", "A", "A", "U\\", "N", "U"], "plain": "OFFICE"}
+      ]
+    },
+    {
+      "id": "8",
+      "image": "lines/L08.jpg",
+      "words": [
+        {"glyphs": ["h", "L", "U", "T", "U"], "plain": "WHERE"},
+        {"glyphs": ["<", "O/-"], "plain": "MY"},
+        {
+          "glyphs": [">|", "|", "O", "|<", "C|", "U/", "c-", "U"],
+          "plain": "ADOPTIVE",
+          "note": "ADOPTIVE: V is partly hidden under the circle strokes and the final E is hidden by the circle.",
+          "low_confidence": ["V occurs once, partly obscured"]
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "image": "lines/L09.jpg",
+      "words": [
+        {"glyphs": ["A", ">|", "<", "U\\", "A\\", "O/-"], "plain": "FAMILY"},
+        {"glyphs": ["h|", "U\\", "A\\", "A\\"], "plain": "WILL"}
+      ]
+    },
+    {
+      "id": "10",
+      "image": "lines/L10.jpg",
+      "words": [
+        {"glyphs": ["N", "O", "<", "U"], "plain": "COME"},
+        {"glyphs": ["N", "O", "A\\", "A\\", "U", "N", "C|"], "plain": "COLLECT"},
+        {"glyphs": ["<", "U"], "plain": "ME", "period_after": true}
+      ]
+    },
+    {
+      "id": "b1",
+      "image": "lines/B1.jpg",
+      "words": [
+        {"glyphs": ["U\\"], "plain": "I"},
+        {"glyphs": [">|", "N", "N", "U", "|>", "C|"], "plain": "ACCEPT"},
+        {"glyphs": ["h|", "U\\", "C|", "L"], "plain": "WITH"}
+      ]
+    },
+    {
+      "id": "b2",
+      "image": "lines/B2.jpg",
+      "words": [
+        {
+          "glyphs": ["V", "T", ">|", "5|", "C|", "U\\", "C|", "E", "|", "U"],
+          "plain": "GRATTITUDE",
+          "period_after": true,
+          "note": "GRATTITUDE: spelled as the glyphs read (extra T); may be a misspelling or a stroke-grouping error."
+        }
+      ]
+    }
+  ]
+}
