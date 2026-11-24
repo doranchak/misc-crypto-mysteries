@@ -1,0 +1,534 @@
+{
+ "SLASH": {
+  "approx": "/",
+  "description": "rising diagonal stroke",
+  "letter": "t",
+  "count": 20,
+  "rep": 502
+ },
+ "TBAR": {
+  "approx": "Ŧ",
+  "description": "T with an extra crossbar",
+  "letter": "h",
+  "count": 8,
+  "rep": 383
+ },
+ "PHI": {
+  "approx": "Φ",
+  "description": "circle with a vertical stroke through it",
+  "letter": "e",
+  "count": 14,
+  "rep": 345
+ },
+ "LT": {
+  "approx": "<",
+  "description": "left-pointing chevron",
+  "letter": "t",
+  "count": 14,
+  "rep": 104
+ },
+ "FIFTEEN": {
+  "approx": "15.",
+  "description": "number 15 with a period",
+  "letter": "e",
+  "count": 9,
+  "rep": 83
+ },
+ "STEP2": {
+  "approx": "ᒣ",
+  "description": "step shape: vertical drop with a bar and a tail, like ┌ joined to ┘",
+  "letter": "c",
+  "count": 8,
+  "rep": 115
+ },
+ "ARROWBOX": {
+  "approx": "⍃",
+  "description": "square with an arrow pointing into its top-left corner",
+  "letter": "h",
+  "count": 7,
+  "rep": 6
+ },
+ "ALET": {
+  "approx": "A",
+  "description": "letter A",
+  "letter": "n",
+  "count": 14,
+  "rep": 221
+ },
+ "EPS": {
+  "approx": "Э",
+  "description": "reversed 3 / Cyrillic Э",
+  "letter": "o",
+  "count": 10,
+  "rep": 8
+ },
+ "XMARK": {
+  "approx": "X",
+  "description": "letter X",
+  "letter": "l",
+  "count": 10,
+  "rep": 453
+ },
+ "BSLASH": {
+  "approx": "\\",
+  "description": "falling diagonal stroke",
+  "letter": "g",
+  "count": 8,
+  "rep": 162
+ },
+ "CROSSHAIR": {
+  "approx": "⌖",
+  "description": "small circle on a cross",
+  "letter": "y",
+  "count": 4,
+  "rep": 92
+ },
+ "THREE": {
+  "approx": "3",
+  "description": "digit 3",
+  "letter": "o",
+  "count": 8,
+  "rep": 492
+ },
+ "KAY": {
+  "approx": "K",
+  "description": "letter K",
+  "letter": "f",
+  "count": 2,
+  "rep": 14
+ },
+ "NI": {
+  "approx": "И",
+  "description": "reversed N (Cyrillic И)",
+  "letter": "a",
+  "count": 18,
+  "rep": 397
+ },
+ "FORTY": {
+  "approx": "40.",
+  "description": "number 40 with a period",
+  "letter": "i",
+  "count": 10,
+  "rep": 445
+ },
+ "STEP1": {
+  "approx": "ㄣ",
+  "description": "step shape: top-left stub, bar, drop at the right",
+  "letter": "s",
+  "count": 7,
+  "rep": 319
+ },
+ "EQ": {
+  "approx": "=",
+  "description": "two parallel bars",
+  "letter": "h",
+  "count": 9,
+  "rep": 200
+ },
+ "WAVEM": {
+  "approx": "ɱ",
+  "description": "small zigzag, \"m\"-like wave",
+  "letter": "o",
+  "count": 7,
+  "rep": 479
+ },
+ "PIOPEN": {
+  "approx": "Π",
+  "description": "open-bottom box (capital Pi)",
+  "letter": "u",
+  "count": 5,
+  "rep": 440
+ },
+ "DASH": {
+  "approx": "−",
+  "description": "single short dash",
+  "letter": "l",
+  "count": 8,
+  "rep": 320
+ },
+ "BRDOT": {
+  "approx": "[·]",
+  "description": "dot between two brackets",
+  "letter": "d",
+  "count": 5,
+  "rep": 62
+ },
+ "CIRCLE": {
+  "approx": "○",
+  "description": "empty circle",
+  "letter": "b",
+  "count": 6,
+  "rep": 266
+ },
+ "PLUS": {
+  "approx": "+",
+  "description": "plain plus sign",
+  "letter": "e",
+  "count": 24,
+  "rep": 347
+ },
+ "CORNER": {
+  "approx": "┘",
+  "description": "L-shaped corner: vertical stroke on the right, base running left",
+  "letter": "i",
+  "count": 16,
+  "rep": 432
+ },
+ "FDOT": {
+  "approx": "Γ",
+  "description": "top bar and left stem with a dot inside the corner",
+  "letter": "n",
+  "count": 10,
+  "rep": 122
+ },
+ "ODOT": {
+  "approx": "⊙",
+  "description": "circle with a dot",
+  "letter": "g",
+  "count": 3,
+  "rep": 32
+ },
+ "TEEL": {
+  "approx": "⊢",
+  "description": "stem with a bar to the right",
+  "letter": "o",
+  "count": 8,
+  "rep": 212
+ },
+ "YA": {
+  "approx": "Я",
+  "description": "reversed R (Cyrillic Я)",
+  "letter": "f",
+  "count": 3,
+  "rep": 172
+ },
+ "SQDIAG": {
+  "approx": "⊠",
+  "description": "square with a diagonal from top-left to bottom-right",
+  "letter": "e",
+  "count": 13,
+  "rep": 45
+ },
+ "SIGMA": {
+  "approx": "Σ",
+  "description": "sigma",
+  "letter": "a",
+  "count": 11,
+  "rep": 197
+ },
+ "SEVEN": {
+  "approx": "ꓶ",
+  "description": "bar on top with a vertical at the right, like a blocky 7",
+  "letter": "r",
+  "count": 7,
+  "rep": 224
+ },
+ "TWELVE": {
+  "approx": "12.",
+  "description": "number 12 with a period",
+  "letter": "a",
+  "count": 9,
+  "rep": 218
+ },
+ "CRESC": {
+  "approx": "Ɔ",
+  "description": "crescent with an inner curl",
+  "letter": "n",
+  "count": 8,
+  "rep": 40
+ },
+ "PIDOT": {
+  "approx": "⊓",
+  "description": "open-bottom box with a dot",
+  "letter": "d",
+  "count": 6,
+  "rep": 119
+ },
+ "SQ": {
+  "approx": "□",
+  "description": "empty square",
+  "letter": "r",
+  "count": 9,
+  "rep": 382
+ },
+ "BE2": {
+  "approx": "Б",
+  "description": "Cyrillic Б",
+  "letter": "j",
+  "count": 1,
+  "rep": 44
+ },
+ "ANKH": {
+  "approx": "♀",
+  "description": "cross topped by an open arch, no circle",
+  "letter": "c",
+  "count": 10,
+  "rep": 487
+ },
+ "LAMBDA": {
+  "approx": "Λ",
+  "description": "lambda / caret",
+  "letter": "t",
+  "count": 10,
+  "rep": 326
+ },
+ "IBASE": {
+  "approx": "I",
+  "description": "I with a heavy foot",
+  "letter": "i",
+  "count": 6,
+  "rep": 198
+ },
+ "TRI": {
+  "approx": "▲",
+  "description": "filled triangle",
+  "letter": "s",
+  "count": 7,
+  "rep": 50
+ },
+ "BEE": {
+  "approx": "B",
+  "description": "letter B",
+  "letter": "u",
+  "count": 8,
+  "rep": 352
+ },
+ "ARCH": {
+  "approx": "∩",
+  "description": "arch with uneven legs",
+  "letter": "l",
+  "count": 7,
+  "rep": 91
+ },
+ "IPLAIN": {
+  "approx": "I",
+  "description": "I with serifs",
+  "letter": "d",
+  "count": 6,
+  "rep": 233
+ },
+ "F": {
+  "approx": "F",
+  "description": "letter F (no dot)",
+  "letter": "m",
+  "count": 3,
+  "rep": 129
+ },
+ "STEP3": {
+  "approx": "╕",
+  "description": "step shape with a hooked tail",
+  "letter": "b",
+  "count": 2,
+  "rep": 67
+ },
+ "CROSSSLASH": {
+  "approx": "ᛯ",
+  "description": "vertical stroke crossed by two diagonals",
+  "letter": "c",
+  "count": 5,
+  "rep": 139
+ },
+ "SSTEP": {
+  "approx": "ʃ",
+  "description": "long s / integral-sign shape",
+  "letter": "a",
+  "count": 7,
+  "rep": 73
+ },
+ "SQFILL": {
+  "approx": "■",
+  "description": "filled square",
+  "letter": "u",
+  "count": 3,
+  "rep": 76
+ },
+ "WAVEA": {
+  "approx": "〰",
+  "description": "rising zigzag stroke",
+  "letter": "s",
+  "count": 15,
+  "rep": 306
+ },
+ "TWO": {
+  "approx": "2",
+  "description": "digit 2",
+  "letter": "m",
+  "count": 4,
+  "rep": 107
+ },
+ "DOT": {
+  "approx": "●",
+  "description": "filled dot",
+  "letter": "p",
+  "count": 6,
+  "rep": 385
+ },
+ "DBLX": {
+  "approx": "‡",
+  "description": "vertical stroke with two crossbars",
+  "letter": "i",
+  "count": 13,
+  "rep": 298
+ },
+ "ARROWBOX2": {
+  "approx": "◸",
+  "description": "box open at the top-right with two small ticks inside",
+  "letter": "v",
+  "count": 3,
+  "rep": 344
+ },
+ "PIBAR": {
+  "approx": "π",
+  "description": "top bar with two splayed legs",
+  "letter": "r",
+  "count": 9,
+  "rep": 444
+ },
+ "TRID": {
+  "approx": "▽",
+  "description": "outline triangle, point down",
+  "letter": "p",
+  "count": 4,
+  "rep": 452
+ },
+ "NINETY9": {
+  "approx": "99.",
+  "description": "number 99 with a period",
+  "letter": "v",
+  "count": 4,
+  "rep": 369
+ },
+ "HASH": {
+  "approx": "※",
+  "description": "crossed strokes with dots",
+  "letter": "y",
+  "count": 2,
+  "rep": 148
+ },
+ "HA": {
+  "approx": "Ħ",
+  "description": "A under a horizontal bar",
+  "letter": "w",
+  "count": 3,
+  "rep": 307
+ },
+ "THETA": {
+  "approx": "Θ",
+  "description": "circle with a horizontal bar",
+  "letter": "u",
+  "count": 2,
+  "rep": 154
+ },
+ "DOTSQ": {
+  "approx": "⊡",
+  "description": "square with a dot",
+  "letter": "w",
+  "count": 5,
+  "rep": 176
+ },
+ "SQDIAGDOT": {
+  "approx": "▨",
+  "description": "square, diagonal from bottom-left to top-right, plus three dots",
+  "letter": "k",
+  "count": 1,
+  "rep": 183
+ },
+ "EIGHT": {
+  "approx": "8",
+  "description": "digit 8",
+  "letter": "p",
+  "count": 4,
+  "rep": 386
+ },
+ "ANKHFILL": {
+  "approx": "⚲",
+  "description": "lollipop: filled disc on a short stem",
+  "letter": "w",
+  "count": 3,
+  "rep": 457
+ },
+ "BRHALFR": {
+  "approx": "·]",
+  "description": "dot with a right bracket",
+  "letter": "g",
+  "count": 1,
+  "rep": 260
+ },
+ "HBARSQ": {
+  "approx": "⊟",
+  "description": "square with a horizontal bar",
+  "letter": "v",
+  "count": 1,
+  "rep": 261
+ },
+ "TRIOUT": {
+  "approx": "△",
+  "description": "outline triangle",
+  "letter": "m",
+  "count": 2,
+  "rep": 271
+ },
+ "TREFOIL": {
+  "approx": "☘",
+  "description": "three linked discs",
+  "letter": "y",
+  "count": 2,
+  "rep": 277
+ },
+ "W": {
+  "approx": "W",
+  "description": "letter W",
+  "letter": "z",
+  "count": 1,
+  "rep": 297
+ },
+ "BRHALFL": {
+  "approx": "[·",
+  "description": "left bracket with a dot",
+  "letter": "j",
+  "count": 1,
+  "rep": 314
+ },
+ "GT": {
+  "approx": ">",
+  "description": "right-pointing chevron",
+  "letter": "k",
+  "count": 2,
+  "rep": 322
+ },
+ "TRI_OVERWRITTEN": {
+  "approx": "▲",
+  "description": "filled triangle drawn over an earlier glyph",
+  "letter": "m",
+  "count": 1,
+  "rep": 354
+ },
+ "SCRIBBLE": {
+  "approx": "➰",
+  "description": "looping scribble (struck-out cell)",
+  "letter": "",
+  "count": 1,
+  "rep": 355
+ },
+ "THIRTY3": {
+  "approx": "33.",
+  "description": "number 33 with a period",
+  "letter": "x",
+  "count": 1,
+  "rep": 449
+ },
+ "SQDIAGR": {
+  "approx": "⊘",
+  "description": "bold square with a diagonal from bottom-left to top-right",
+  "letter": "f",
+  "count": 2,
+  "rep": 456
+ },
+ "DASH_THICK": {
+  "approx": "▬",
+  "description": "long thick bar",
+  "letter": "h",
+  "count": 1,
+  "rep": 488
+ }
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cultural use of advanced tech tools: homophonic substitution cipher (r/codes)</title>
+<style>
+  :root { --ink:#1d2330; --muted:#5b6475; --line:#d9dde6; --bg:#fbfbfd; --accent:#1f5fbf; --vowel:#fff4d6; --warn:#d9822b; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+  main { max-width:1100px; margin:0 auto; padding:28px 20px 80px; }
+  h1 { font-size:1.7rem; margin:0 0 6px; line-height:1.25; }
+  h2 { font-size:1.25rem; margin:38px 0 10px; padding-top:8px; border-top:1px solid var(--line); }
+  h3 { font-size:1.02rem; margin:20px 0 6px; }
+  a { color:var(--accent); }
+  .sub { color:var(--muted); margin:0 0 18px; }
+  .callout { background:#eef4ff; border:1px solid #c9dcff; border-radius:8px; padding:14px 16px; margin:14px 0; }
+  .quote { border-left:3px solid var(--line); padding:2px 12px; color:var(--muted); margin:12px 0; }
+  .plain { font:600 1.02rem/1.6 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.01em; word-spacing:.15em; background:#fff; border:1px solid var(--line); border-radius:8px; padding:14px 16px; }
+  .prose { background:#fff; border:1px solid var(--line); border-radius:8px; padding:14px 16px; }
+  img.cipher { width:100%; height:auto; border:1px solid var(--line); border-radius:6px; background:#fff; }
+  table { border-collapse:collapse; }
+  th,td { border:1px solid var(--line); padding:4px 8px; text-align:center; font-size:.92rem; }
+  th { background:#f1f3f8; }
+  td.l { font-weight:700; }
+  .small { font-size:.9rem; color:var(--muted); }
+  .scroll { overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:#fff; padding:8px; }
+  /* key */
+  .keygrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:8px; }
+  .kl { display:flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius:8px; background:#fff; padding:6px 8px; min-height:74px; }
+  .kl.v { background:var(--vowel); }
+  .kl .big { font:700 1.7rem/1 ui-monospace,Menlo,monospace; width:28px; text-align:center; }
+  .kl .opts { display:flex; flex-wrap:wrap; gap:6px; }
+  .kl figure { margin:0; text-align:center; }
+  .kl figcaption { font-size:.68rem; color:var(--muted); line-height:1.1; }
+  canvas { background:#fff; image-rendering:auto; }
+  /* transcription grid */
+  .tgrid { min-width:max-content; }
+  .trow { display:flex; align-items:flex-start; margin-bottom:4px; }
+  .rlab { width:34px; flex:none; font-size:.75rem; color:var(--muted); padding-top:14px; }
+  .cell { width:50px; flex:none; text-align:center; border:1px solid transparent; border-radius:4px; cursor:pointer; padding:1px 0 2px; }
+  .cell.v { background:var(--vowel); }
+  .cell.note { border-color:var(--warn); }
+  .cell.hl { outline:2px solid var(--accent); background:#e4eeff; }
+  .cell .ch { font:700 1rem/1 ui-monospace,Menlo,monospace; text-transform:uppercase; }
+  .cell .gn { font-size:.56rem; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  #tip { min-height:2.6em; font-size:.9rem; margin:6px 0 0; }
+  ul.tight li { margin:4px 0; }
+  code { background:#eef0f5; padding:1px 5px; border-radius:4px; font-size:.88em; }
+</style>
+</head>
+<body>
+<main>
+<h1>Cultural use of advanced tech tools: a homophonic substitution cipher</h1>
+<p class="sub">Source: <a href="{{SOURCE_URL}}">r/codes thread</a> by <b>{{SOURCE_USER}}</b>. Status: <b>solved</b> (three cells are judgment calls, see below).</p>
+
+<div class="quote">&ldquo;{{HINT}}&rdquo; &mdash; {{SOURCE_USER}}</div>
+
+<div class="callout">
+<b>Result.</b> The 507 glyphs (12 rows of 42, plus 3 on the last row) are a letter-for-glyph substitution in which every
+consonant has up to 3 different glyphs and every vowel up to 4. The text is a short opinion piece about AI. The cipher gives no
+spaces or punctuation, and its spellings are kept exactly as decoded (SHOULDNT, PRECIVED, OCCURE, RELIGOUS, HAPPEEN).
+</div>
+
+<h3>Decoded text, one string</h3>
+<div class="plain" id="words">{{WORDS}}</div>
+
+<h3>Same text with my spaces and punctuation added</h3>
+<div class="prose">{{PUNCT}}</div>
+<p class="small">Spacing, apostrophe and punctuation are mine; the cipher has none. Spelling is exactly what the glyphs decode to.</p>
+
+<h2>The cipher image</h2>
+<p><a href="images/cipher.png"><img class="cipher" src="images/cipher.png" alt="The hand-drawn cipher: 13 rows of grid-paper cells, each holding one symbol"></a></p>
+
+<h2>How the cipher works</h2>
+<ul class="tight">
+<li><b>Homophonic substitution.</b> Each plaintext letter is replaced by one of several glyphs for that letter. The glyphs of one letter look nothing alike, so shape families tell you nothing.</li>
+<li><b>3 variants for each, +1 for vowels.</b> That is what the glyph counts show. No consonant uses more than 3 glyphs and no vowel more than 4, and all five vowels use all four of theirs. Letters that are rare in the text (B, J, K, X, Z) show fewer than 3 because the other variants never came up. Q does not occur.</li>
+<li><b>The variant is chosen freely.</b> I tested for a fixed rotation (first A uses glyph 1, second A glyph 2, and so on) and found none. The choice looks free: a letter's variants turn up in no fixed order.</li>
+<li><b>Number glyphs.</b> Five glyphs are numbers followed by a period: <code>12.</code> = A, <code>15.</code> = E, <code>40.</code> = I, <code>99.</code> = V, <code>33.</code> = X. They are ordinary variants, not a separate layer. Other glyphs are digits or letters too (3 = O, 2 = M, 8 = P, A = N, K = F, W = Z, B = U, X = L). The look of a glyph says nothing about its value.</li>
+</ul>
+
+<h3>Variants per letter (observed vs. allowed)</h3>
+<table>
+<tr><th>Letter</th><th>Allowed</th><th>Glyphs seen</th><th>Occurrences</th></tr>
+{{VARIANT_ROWS}}
+</table>
+
+<h2>Substitution key</h2>
+<p class="small">Each tile is a crop from the photo (the most typical example of that glyph). The number is how often it occurs. Vowels are shaded.
+Names are in <code>data/glyph_info.json</code>.</p>
+<div class="keygrid" id="keygrid"></div>
+
+<h2>Full transcription</h2>
+<p class="small">Every cell of the photo, with the letter it decodes to. Click a cell to highlight every use of that glyph. Orange outline = judgment call or merged variant.
+Machine-readable versions: <a href="data/transcription.json">transcription.json</a>, <a href="data/transcription.csv">transcription.csv</a>, <a href="data/cipher_rows.txt">cipher_rows.txt</a> (glyph names per row).</p>
+<div class="scroll"><div class="tgrid" id="tgrid"></div></div>
+<div id="tip"></div>
+
+<h2>Judgment calls and caveats</h2>
+<h3>Three cells that are not clean reads</h3>
+<ul class="tight">{{ANOMALIES}}</ul>
+<p class="small">If you prefer the strictly literal reading (no interpretation), cells 9.19 and 9.20 decode by shape to S and B, giving &ldquo;RELIGOUS SBYTHS&rdquo;, and 12.27 decodes to L, giving &ldquo;TECLNOLOGICAL&rdquo;. The main reading resolves all three from the surrounding words. TECHNOLOGICAL and the digit-free spelling around it are certain; MYTHS is my interpretation of two messy cells.</p>
+
+<h3>Glyphs I treated as the same symbol</h3>
+<ul class="tight">{{MERGED}}</ul>
+
+<h3>What I could not check</h3>
+<ul class="tight">
+<li>Reddit blocked automated access, so I never saw the thread or any answer from the poster. The decoding stands on the image alone.</li>
+<li>The poster's own spelling quirks are kept. A few look like slips by the encoder: <b>HAPPEEN</b> (ne swapped), <b>OCCURE</b> (extra E), <b>RELIGOUS</b> (missing I), <b>PRECIVED</b> (for &ldquo;perceived&rdquo;).</li>
+<li>Unused glyph variants (the third B, the third J, and so on) cannot be listed, since they never appear in this text.</li>
+</ul>
+
+<h2>How I solved it</h2>
+<ol class="tight">
+<li><b>Transcription.</b> Deskewed the photo, removed the grid lines, grouped pen strokes into glyphs and checked every row visually until each had exactly 42 cells. Then clustered glyph shapes (chamfer distance) and reviewed all 507 cells by eye against enlarged crops, which fixed about 30 mislabelled cells.</li>
+<li><b>Cipher type.</b> The index of coincidence of the glyph stream is 0.018. English split over 3 glyphs per consonant and 4 per vowel predicts 0.019, as the hint says. (A plain monoalphabetic substitution would give about 0.065.)</li>
+<li><b>Automatic solve.</b> Simulated annealing with a 4-gram English model and a cap of 3 (consonant) or 4 (vowel) glyphs per letter. With most glyph classes right it converged on readable text (&ldquo;the technology of AI shouldn't be a thing to fear...&rdquo;), though with several glyphs still assigned the wrong letter. It helped to make the cap one-sided (a letter may use fewer variants than allowed, but never more), since rare letters do not show all of theirs. <code>scripts/solve.c</code> is the solver.</li>
+<li><b>Finishing by hand.</b> Fixed the wrong classes from context: K-glyph = F (&ldquo;to fear&rdquo;), lollipop = W (&ldquo;wasted&rdquo;, &ldquo;why we&rdquo;), three linked discs = Y (&ldquo;worrying&rdquo;), outline triangle = M (&ldquo;time&rdquo;, &ldquo;prime&rdquo;), W-glyph = Z (&ldquo;catastrophizing&rdquo;), Б = J (&ldquo;reject&rdquo;), and so on. After that every glyph obeys the 3/4 variant limit with no exceptions.</li>
+</ol>
+
+<h2>Files</h2>
+<ul class="tight">
+<li><code>images/cipher.png</code>: the photo from the thread.</li>
+<li><code>data/transcription.json</code>: everything in one file (layout, glyph table, key, per-cell glyph/letter/bounding box).</li>
+<li><code>data/transcription.csv</code>: one row per cell.</li>
+<li><code>data/cipher_rows.txt</code>: glyph names, one line per row of the cipher.</li>
+<li><code>data/key.json</code>, <code>data/glyph_info.json</code>, <code>data/cell_labels.json</code>: key, glyph descriptions and the cell table used to build the report.</li>
+<li><code>data/plaintext.txt</code>: decoded text.</li>
+<li><code>scripts/build.py</code>: rebuilds the data files and this page. <code>scripts/solve.c</code>: the annealing solver.</li>
+</ul>
+</main>
+
+<script>
+const P = {{PAYLOAD}};
+const VOW = new Set(['a','e','i','o','u']);
+const img = new Image();
+img.onload = render;
+img.src = 'images/cipher.png';
+
+function crop(canvas, bbox, size) {
+  const pad = 4;
+  const sx = Math.max(0, bbox[0] - pad), sy = Math.max(0, bbox[1] - pad);
+  const sw = Math.min(img.width - sx, bbox[2] - bbox[0] + 2*pad), sh = Math.min(img.height - sy, bbox[3] - bbox[1] + 2*pad);
+  const s = Math.min(size / sw, size / sh);
+  canvas.width = Math.round(sw * s); canvas.height = Math.round(sh * s);
+  canvas.style.width = canvas.width + 'px'; canvas.style.height = canvas.height + 'px';
+  const g = canvas.getContext('2d');
+  g.imageSmoothingQuality = 'high';
+  g.drawImage(img, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+}
+
+function render() {
+  // key
+  const kg = document.getElementById('keygrid');
+  const SPECIAL = new Set(['TRI_OVERWRITTEN', 'SCRIBBLE', 'DASH_THICK']);
+  for (const L of 'abcdefghijklmnopqrstuvwxyz') {
+    const div = document.createElement('div');
+    div.className = 'kl' + (VOW.has(L) ? ' v' : '');
+    const big = document.createElement('div'); big.className = 'big'; big.textContent = L.toUpperCase();
+    div.appendChild(big);
+    const opts = document.createElement('div'); opts.className = 'opts';
+    const gl = P.key[L].filter(g => !SPECIAL.has(g));
+    if (!gl.length) { const s = document.createElement('span'); s.className = 'small'; s.textContent = 'not used in this text'; opts.appendChild(s); }
+    for (const g of gl) {
+      const f = document.createElement('figure');
+      const c = document.createElement('canvas');
+      crop(c, P.cells[P.info[g].rep][4], 46);
+      f.appendChild(c);
+      const cap = document.createElement('figcaption'); cap.textContent = '×' + P.info[g].count;
+      f.appendChild(cap);
+      opts.appendChild(f);
+    }
+    div.appendChild(opts);
+    kg.appendChild(div);
+  }
+  // transcription grid
+  const tg = document.getElementById('tgrid');
+  const tip = document.getElementById('tip');
+  let row = null, lastR = 0;
+  P.cells.forEach((cell, i) => {
+    const [r, c, glyph, letter, bbox, note] = cell;
+    if (r !== lastR) {
+      row = document.createElement('div'); row.className = 'trow';
+      const lab = document.createElement('div'); lab.className = 'rlab'; lab.textContent = 'R' + r;
+      row.appendChild(lab); tg.appendChild(row); lastR = r;
+    }
+    const d = document.createElement('div');
+    d.className = 'cell' + (VOW.has(letter) ? ' v' : '') + (note ? ' note' : '');
+    d.dataset.glyph = glyph;
+    const cv = document.createElement('canvas'); crop(cv, bbox, 36); d.appendChild(cv);
+    const ch = document.createElement('div'); ch.className = 'ch'; ch.textContent = letter || '–'; d.appendChild(ch);
+    const gn = document.createElement('div'); gn.className = 'gn'; gn.textContent = glyph; d.appendChild(gn);
+    d.title = `R${r} C${c}: ${glyph} → ${letter ? letter.toUpperCase() : '(skipped)'}` + (note ? ` (${note})` : '');
+    d.addEventListener('click', () => {
+      document.querySelectorAll('.cell.hl').forEach(x => x.classList.remove('hl'));
+      document.querySelectorAll(`.cell[data-glyph="${glyph}"]`).forEach(x => x.classList.add('hl'));
+      const n = document.querySelectorAll(`.cell[data-glyph="${glyph}"]`).length;
+      tip.textContent = `${glyph} (${P.info[glyph].description}) = ${letter ? letter.toUpperCase() : 'skipped'}, ${n} use${n === 1 ? '' : 's'}.` + (note ? ' Note: ' + note : '');
+    });
+    row.appendChild(d);
+  });
+}
+</script>
+</body>
+</html>

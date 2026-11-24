@@ -13,6 +13,7 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 - [Rudranshkh's Caesar-shift-per-word cipher](https://doranchak.github.io/misc-crypto-mysteries/caesar-shift-per-word)
 - [Solid-Camp6739's code of triples](https://doranchak.github.io/misc-crypto-mysteries/solid-camp6739-code)
 - [tbstewa's custom cipher](https://doranchak.github.io/misc-crypto-mysteries/tbstewa-custom-cipher/report.html)
+- [Tech tools substitution cipher](https://doranchak.github.io/misc-crypto-mysteries/tech-tools-substitution-cipher)
 - [TikTok comment (Russian)](https://doranchak.github.io/misc-crypto-mysteries/tiktok-comment)
 - [Vowel cipher](https://doranchak.github.io/misc-crypto-mysteries/vowel-cipher)
 - [XMR Monero wallet cipher](https://doranchak.github.io/misc-crypto-mysteries/xmr-monero-wallet)

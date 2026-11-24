@@ -1,0 +1,7607 @@
+[
+{
+"index": 0,
+"row": 1,
+"col": 1,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+93,
+58,
+141,
+99
+],
+"note": ""
+},
+{
+"index": 1,
+"row": 1,
+"col": 2,
+"glyph": "TBAR",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+149,
+54,
+191,
+101
+],
+"note": ""
+},
+{
+"index": 2,
+"row": 1,
+"col": 3,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+200,
+54,
+242,
+110
+],
+"note": ""
+},
+{
+"index": 3,
+"row": 1,
+"col": 4,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+256,
+58,
+284,
+106
+],
+"note": ""
+},
+{
+"index": 4,
+"row": 1,
+"col": 5,
+"glyph": "FIFTEEN",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+302,
+63,
+343,
+103
+],
+"note": ""
+},
+{
+"index": 5,
+"row": 1,
+"col": 6,
+"glyph": "STEP2",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+351,
+63,
+382,
+104
+],
+"note": ""
+},
+{
+"index": 6,
+"row": 1,
+"col": 7,
+"glyph": "ARROWBOX",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+398,
+70,
+435,
+102
+],
+"note": ""
+},
+{
+"index": 7,
+"row": 1,
+"col": 8,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+445,
+69,
+468,
+114
+],
+"note": ""
+},
+{
+"index": 8,
+"row": 1,
+"col": 9,
+"glyph": "EPS",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+500,
+77,
+530,
+107
+],
+"note": ""
+},
+{
+"index": 9,
+"row": 1,
+"col": 10,
+"glyph": "XMARK",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+538,
+73,
+579,
+117
+],
+"note": ""
+},
+{
+"index": 10,
+"row": 1,
+"col": 11,
+"glyph": "EPS",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+597,
+81,
+629,
+114
+],
+"note": ""
+},
+{
+"index": 11,
+"row": 1,
+"col": 12,
+"glyph": "BSLASH",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+635,
+80,
+681,
+117
+],
+"note": ""
+},
+{
+"index": 12,
+"row": 1,
+"col": 13,
+"glyph": "CROSSHAIR",
+"letter": "y",
+"letter_by_shape": "y",
+"bbox": [
+676,
+76,
+727,
+125
+],
+"note": ""
+},
+{
+"index": 13,
+"row": 1,
+"col": 14,
+"glyph": "THREE",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+737,
+85,
+764,
+114
+],
+"note": ""
+},
+{
+"index": 14,
+"row": 1,
+"col": 15,
+"glyph": "KAY",
+"letter": "f",
+"letter_by_shape": "f",
+"bbox": [
+781,
+84,
+812,
+121
+],
+"note": ""
+},
+{
+"index": 15,
+"row": 1,
+"col": 16,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+825,
+87,
+852,
+126
+],
+"note": ""
+},
+{
+"index": 16,
+"row": 1,
+"col": 17,
+"glyph": "FORTY",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+871,
+85,
+911,
+124
+],
+"note": ""
+},
+{
+"index": 17,
+"row": 1,
+"col": 18,
+"glyph": "STEP1",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+916,
+86,
+943,
+124
+],
+"note": ""
+},
+{
+"index": 18,
+"row": 1,
+"col": 19,
+"glyph": "EQ",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+962,
+96,
+992,
+113
+],
+"note": ""
+},
+{
+"index": 19,
+"row": 1,
+"col": 20,
+"glyph": "WAVEM",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1007,
+92,
+1042,
+120
+],
+"note": ""
+},
+{
+"index": 20,
+"row": 1,
+"col": 21,
+"glyph": "PIOPEN",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+1055,
+94,
+1086,
+126
+],
+"note": ""
+},
+{
+"index": 21,
+"row": 1,
+"col": 22,
+"glyph": "DASH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+1102,
+104,
+1124,
+109
+],
+"note": ""
+},
+{
+"index": 22,
+"row": 1,
+"col": 23,
+"glyph": "BRDOT",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+1145,
+93,
+1178,
+123
+],
+"note": ""
+},
+{
+"index": 23,
+"row": 1,
+"col": 24,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1191,
+91,
+1218,
+129
+],
+"note": ""
+},
+{
+"index": 24,
+"row": 1,
+"col": 25,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1234,
+83,
+1277,
+124
+],
+"note": ""
+},
+{
+"index": 25,
+"row": 1,
+"col": 26,
+"glyph": "CIRCLE",
+"letter": "b",
+"letter_by_shape": "b",
+"bbox": [
+1286,
+95,
+1313,
+123
+],
+"note": ""
+},
+{
+"index": 26,
+"row": 1,
+"col": 27,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1332,
+93,
+1363,
+119
+],
+"note": ""
+},
+{
+"index": 27,
+"row": 1,
+"col": 28,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1377,
+90,
+1408,
+130
+],
+"note": ""
+},
+{
+"index": 28,
+"row": 1,
+"col": 29,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1421,
+84,
+1461,
+129
+],
+"note": ""
+},
+{
+"index": 29,
+"row": 1,
+"col": 30,
+"glyph": "TBAR",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1470,
+89,
+1504,
+124
+],
+"note": ""
+},
+{
+"index": 30,
+"row": 1,
+"col": 31,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1520,
+91,
+1548,
+118
+],
+"note": ""
+},
+{
+"index": 31,
+"row": 1,
+"col": 32,
+"glyph": "FDOT",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1561,
+91,
+1597,
+121
+],
+"note": ""
+},
+{
+"index": 32,
+"row": 1,
+"col": 33,
+"glyph": "ODOT",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+1612,
+91,
+1642,
+120
+],
+"note": ""
+},
+{
+"index": 33,
+"row": 1,
+"col": 34,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1652,
+86,
+1695,
+128
+],
+"note": ""
+},
+{
+"index": 34,
+"row": 1,
+"col": 35,
+"glyph": "TEEL",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1706,
+88,
+1730,
+121
+],
+"note": ""
+},
+{
+"index": 35,
+"row": 1,
+"col": 36,
+"glyph": "YA",
+"letter": "f",
+"letter_by_shape": "f",
+"bbox": [
+1747,
+86,
+1778,
+127
+],
+"note": ""
+},
+{
+"index": 36,
+"row": 1,
+"col": 37,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1792,
+91,
+1828,
+124
+],
+"note": ""
+},
+{
+"index": 37,
+"row": 1,
+"col": 38,
+"glyph": "SIGMA",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1840,
+88,
+1872,
+118
+],
+"note": ""
+},
+{
+"index": 38,
+"row": 1,
+"col": 39,
+"glyph": "SEVEN",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1884,
+91,
+1915,
+122
+],
+"note": ""
+},
+{
+"index": 39,
+"row": 1,
+"col": 40,
+"glyph": "TWELVE",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1933,
+88,
+1973,
+121
+],
+"note": ""
+},
+{
+"index": 40,
+"row": 1,
+"col": 41,
+"glyph": "CRESC",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1989,
+89,
+2012,
+116
+],
+"note": ""
+},
+{
+"index": 41,
+"row": 1,
+"col": 42,
+"glyph": "PIDOT",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+2024,
+87,
+2053,
+121
+],
+"note": ""
+},
+{
+"index": 42,
+"row": 2,
+"col": 1,
+"glyph": "SQ",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+102,
+107,
+142,
+143
+],
+"note": ""
+},
+{
+"index": 43,
+"row": 2,
+"col": 2,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+151,
+111,
+185,
+144
+],
+"note": ""
+},
+{
+"index": 44,
+"row": 2,
+"col": 3,
+"glyph": "BE2",
+"letter": "j",
+"letter_by_shape": "j",
+"bbox": [
+205,
+116,
+235,
+149
+],
+"note": ""
+},
+{
+"index": 45,
+"row": 2,
+"col": 4,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+251,
+115,
+288,
+149
+],
+"note": ""
+},
+{
+"index": 46,
+"row": 2,
+"col": 5,
+"glyph": "ANKH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+302,
+106,
+327,
+151
+],
+"note": ""
+},
+{
+"index": 47,
+"row": 2,
+"col": 6,
+"glyph": "LAMBDA",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+352,
+116,
+373,
+150
+],
+"note": ""
+},
+{
+"index": 48,
+"row": 2,
+"col": 7,
+"glyph": "IBASE",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+396,
+117,
+434,
+157
+],
+"note": ""
+},
+{
+"index": 49,
+"row": 2,
+"col": 8,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+450,
+122,
+470,
+150
+],
+"note": ""
+},
+{
+"index": 50,
+"row": 2,
+"col": 9,
+"glyph": "TRI",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+491,
+124,
+529,
+156
+],
+"note": ""
+},
+{
+"index": 51,
+"row": 2,
+"col": 10,
+"glyph": "ARROWBOX",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+548,
+126,
+578,
+159
+],
+"note": ""
+},
+{
+"index": 52,
+"row": 2,
+"col": 11,
+"glyph": "TEEL",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+592,
+127,
+611,
+154
+],
+"note": ""
+},
+{
+"index": 53,
+"row": 2,
+"col": 12,
+"glyph": "BEE",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+636,
+127,
+666,
+161
+],
+"note": ""
+},
+{
+"index": 54,
+"row": 2,
+"col": 13,
+"glyph": "ARCH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+686,
+131,
+707,
+164
+],
+"note": ""
+},
+{
+"index": 55,
+"row": 2,
+"col": 14,
+"glyph": "IPLAIN",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+732,
+130,
+760,
+162
+],
+"note": ""
+},
+{
+"index": 56,
+"row": 2,
+"col": 15,
+"glyph": "FORTY",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+776,
+131,
+813,
+165
+],
+"note": ""
+},
+{
+"index": 57,
+"row": 2,
+"col": 16,
+"glyph": "FDOT",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+827,
+133,
+858,
+165
+],
+"note": ""
+},
+{
+"index": 58,
+"row": 2,
+"col": 17,
+"glyph": "STEP1",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+880,
+133,
+901,
+169
+],
+"note": ""
+},
+{
+"index": 59,
+"row": 2,
+"col": 18,
+"glyph": "LAMBDA",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+917,
+136,
+941,
+170
+],
+"note": ""
+},
+{
+"index": 60,
+"row": 2,
+"col": 19,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+958,
+134,
+996,
+170
+],
+"note": ""
+},
+{
+"index": 61,
+"row": 2,
+"col": 20,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1008,
+136,
+1034,
+173
+],
+"note": ""
+},
+{
+"index": 62,
+"row": 2,
+"col": 21,
+"glyph": "BRDOT",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+1053,
+138,
+1089,
+171
+],
+"note": ""
+},
+{
+"index": 63,
+"row": 2,
+"col": 22,
+"glyph": "CIRCLE",
+"letter": "b",
+"letter_by_shape": "b",
+"bbox": [
+1102,
+139,
+1129,
+163
+],
+"note": ""
+},
+{
+"index": 64,
+"row": 2,
+"col": 23,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1143,
+138,
+1177,
+169
+],
+"note": ""
+},
+{
+"index": 65,
+"row": 2,
+"col": 24,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1187,
+133,
+1228,
+171
+],
+"note": ""
+},
+{
+"index": 66,
+"row": 2,
+"col": 25,
+"glyph": "F",
+"letter": "m",
+"letter_by_shape": "m",
+"bbox": [
+1236,
+131,
+1265,
+168
+],
+"note": ""
+},
+{
+"index": 67,
+"row": 2,
+"col": 26,
+"glyph": "STEP3",
+"letter": "b",
+"letter_by_shape": "b",
+"bbox": [
+1284,
+130,
+1312,
+166
+],
+"note": ""
+},
+{
+"index": 68,
+"row": 2,
+"col": 27,
+"glyph": "SQ",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1332,
+137,
+1360,
+163
+],
+"note": ""
+},
+{
+"index": 69,
+"row": 2,
+"col": 28,
+"glyph": "SIGMA",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1376,
+136,
+1405,
+164
+],
+"note": ""
+},
+{
+"index": 70,
+"row": 2,
+"col": 29,
+"glyph": "CROSSSLASH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1420,
+133,
+1441,
+165
+],
+"note": ""
+},
+{
+"index": 71,
+"row": 2,
+"col": 30,
+"glyph": "FIFTEEN",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1469,
+133,
+1499,
+160
+],
+"note": ""
+},
+{
+"index": 72,
+"row": 2,
+"col": 31,
+"glyph": "PIDOT",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+1517,
+135,
+1550,
+170
+],
+"note": ""
+},
+{
+"index": 73,
+"row": 2,
+"col": 32,
+"glyph": "SSTEP",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1564,
+128,
+1593,
+166
+],
+"note": ""
+},
+{
+"index": 74,
+"row": 2,
+"col": 33,
+"glyph": "CRESC",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1615,
+134,
+1640,
+160
+],
+"note": ""
+},
+{
+"index": 75,
+"row": 2,
+"col": 34,
+"glyph": "IPLAIN",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+1659,
+132,
+1686,
+172
+],
+"note": ""
+},
+{
+"index": 76,
+"row": 2,
+"col": 35,
+"glyph": "SQFILL",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+1705,
+138,
+1735,
+167
+],
+"note": ""
+},
+{
+"index": 77,
+"row": 2,
+"col": 36,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1744,
+139,
+1788,
+163
+],
+"note": ""
+},
+{
+"index": 78,
+"row": 2,
+"col": 37,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1796,
+139,
+1825,
+167
+],
+"note": ""
+},
+{
+"index": 79,
+"row": 2,
+"col": 38,
+"glyph": "PIDOT",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+1840,
+133,
+1869,
+164
+],
+"note": ""
+},
+{
+"index": 80,
+"row": 2,
+"col": 39,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1883,
+134,
+1916,
+162
+],
+"note": ""
+},
+{
+"index": 81,
+"row": 2,
+"col": 40,
+"glyph": "FDOT",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1936,
+133,
+1969,
+167
+],
+"note": ""
+},
+{
+"index": 82,
+"row": 2,
+"col": 41,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1978,
+129,
+2013,
+167
+],
+"note": ""
+},
+{
+"index": 83,
+"row": 2,
+"col": 42,
+"glyph": "FIFTEEN",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+2029,
+134,
+2057,
+164
+],
+"note": ""
+},
+{
+"index": 84,
+"row": 3,
+"col": 1,
+"glyph": "ARCH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+98,
+152,
+125,
+190
+],
+"note": ""
+},
+{
+"index": 85,
+"row": 3,
+"col": 2,
+"glyph": "XMARK",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+149,
+154,
+192,
+195
+],
+"note": ""
+},
+{
+"index": 86,
+"row": 3,
+"col": 3,
+"glyph": "IBASE",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+198,
+155,
+233,
+195
+],
+"note": ""
+},
+{
+"index": 87,
+"row": 3,
+"col": 4,
+"glyph": "BSLASH",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+248,
+156,
+283,
+194
+],
+"note": ""
+},
+{
+"index": 88,
+"row": 3,
+"col": 5,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+302,
+160,
+332,
+190
+],
+"note": ""
+},
+{
+"index": 89,
+"row": 3,
+"col": 6,
+"glyph": "CRESC",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+351,
+161,
+381,
+190
+],
+"note": ""
+},
+{
+"index": 90,
+"row": 3,
+"col": 7,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+407,
+167,
+426,
+196
+],
+"note": ""
+},
+{
+"index": 91,
+"row": 3,
+"col": 8,
+"glyph": "ARCH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+445,
+164,
+466,
+201
+],
+"note": ""
+},
+{
+"index": 92,
+"row": 3,
+"col": 9,
+"glyph": "CROSSHAIR",
+"letter": "y",
+"letter_by_shape": "y",
+"bbox": [
+489,
+167,
+533,
+211
+],
+"note": ""
+},
+{
+"index": 93,
+"row": 3,
+"col": 10,
+"glyph": "CIRCLE",
+"letter": "b",
+"letter_by_shape": "b",
+"bbox": [
+542,
+171,
+577,
+203
+],
+"note": ""
+},
+{
+"index": 94,
+"row": 3,
+"col": 11,
+"glyph": "PIOPEN",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+590,
+169,
+623,
+209
+],
+"note": ""
+},
+{
+"index": 95,
+"row": 3,
+"col": 12,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+638,
+171,
+675,
+205
+],
+"note": ""
+},
+{
+"index": 96,
+"row": 3,
+"col": 13,
+"glyph": "ANKH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+690,
+168,
+713,
+208
+],
+"note": ""
+},
+{
+"index": 97,
+"row": 3,
+"col": 14,
+"glyph": "SQFILL",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+731,
+177,
+758,
+201
+],
+"note": ""
+},
+{
+"index": 98,
+"row": 3,
+"col": 15,
+"glyph": "DASH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+783,
+189,
+806,
+194
+],
+"note": ""
+},
+{
+"index": 99,
+"row": 3,
+"col": 16,
+"glyph": "LAMBDA",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+826,
+179,
+853,
+215
+],
+"note": ""
+},
+{
+"index": 100,
+"row": 3,
+"col": 17,
+"glyph": "BEE",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+876,
+174,
+907,
+217
+],
+"note": ""
+},
+{
+"index": 101,
+"row": 3,
+"col": 18,
+"glyph": "SQ",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+919,
+184,
+950,
+211
+],
+"note": ""
+},
+{
+"index": 102,
+"row": 3,
+"col": 19,
+"glyph": "TWELVE",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+964,
+181,
+999,
+211
+],
+"note": ""
+},
+{
+"index": 103,
+"row": 3,
+"col": 20,
+"glyph": "ARCH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+1006,
+177,
+1030,
+217
+],
+"note": ""
+},
+{
+"index": 104,
+"row": 3,
+"col": 21,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1062,
+178,
+1081,
+213
+],
+"note": ""
+},
+{
+"index": 105,
+"row": 3,
+"col": 22,
+"glyph": "TBAR",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1098,
+182,
+1133,
+215
+],
+"note": ""
+},
+{
+"index": 106,
+"row": 3,
+"col": 23,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1147,
+182,
+1177,
+213
+],
+"note": ""
+},
+{
+"index": 107,
+"row": 3,
+"col": 24,
+"glyph": "TWO",
+"letter": "m",
+"letter_by_shape": "m",
+"bbox": [
+1188,
+181,
+1225,
+212
+],
+"note": ""
+},
+{
+"index": 108,
+"row": 3,
+"col": 25,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1234,
+181,
+1271,
+213
+],
+"note": ""
+},
+{
+"index": 109,
+"row": 3,
+"col": 26,
+"glyph": "TRI",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1285,
+183,
+1321,
+210
+],
+"note": ""
+},
+{
+"index": 110,
+"row": 3,
+"col": 27,
+"glyph": "EPS",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1333,
+183,
+1367,
+208
+],
+"note": ""
+},
+{
+"index": 111,
+"row": 3,
+"col": 28,
+"glyph": "YA",
+"letter": "f",
+"letter_by_shape": "f",
+"bbox": [
+1383,
+178,
+1409,
+221
+],
+"note": ""
+},
+{
+"index": 112,
+"row": 3,
+"col": 29,
+"glyph": "DOT",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+1434,
+190,
+1449,
+204
+],
+"note": ""
+},
+{
+"index": 113,
+"row": 3,
+"col": 30,
+"glyph": "SEVEN",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1475,
+180,
+1505,
+216
+],
+"note": ""
+},
+{
+"index": 114,
+"row": 3,
+"col": 31,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1517,
+177,
+1556,
+215
+],
+"note": ""
+},
+{
+"index": 115,
+"row": 3,
+"col": 32,
+"glyph": "STEP2",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1566,
+174,
+1593,
+209
+],
+"note": ""
+},
+{
+"index": 116,
+"row": 3,
+"col": 33,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1616,
+176,
+1639,
+209
+],
+"note": ""
+},
+{
+"index": 117,
+"row": 3,
+"col": 34,
+"glyph": "ARROWBOX2",
+"letter": "v",
+"letter_by_shape": "v",
+"bbox": [
+1659,
+180,
+1688,
+207
+],
+"note": ""
+},
+{
+"index": 118,
+"row": 3,
+"col": 35,
+"glyph": "FIFTEEN",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1706,
+179,
+1731,
+205
+],
+"note": ""
+},
+{
+"index": 119,
+"row": 3,
+"col": 36,
+"glyph": "PIDOT",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+1753,
+177,
+1783,
+214
+],
+"note": ""
+},
+{
+"index": 120,
+"row": 3,
+"col": 37,
+"glyph": "IPLAIN",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+1800,
+179,
+1824,
+216
+],
+"note": ""
+},
+{
+"index": 121,
+"row": 3,
+"col": 38,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1842,
+178,
+1869,
+215
+],
+"note": ""
+},
+{
+"index": 122,
+"row": 3,
+"col": 39,
+"glyph": "FDOT",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1884,
+179,
+1918,
+214
+],
+"note": ""
+},
+{
+"index": 123,
+"row": 3,
+"col": 40,
+"glyph": "BSLASH",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+1931,
+177,
+1975,
+213
+],
+"note": ""
+},
+{
+"index": 124,
+"row": 3,
+"col": 41,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1983,
+171,
+2026,
+211
+],
+"note": ""
+},
+{
+"index": 125,
+"row": 3,
+"col": 42,
+"glyph": "PIBAR",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+2025,
+162,
+2068,
+211
+],
+"note": ""
+},
+{
+"index": 126,
+"row": 4,
+"col": 1,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+97,
+207,
+140,
+223
+],
+"note": ""
+},
+{
+"index": 127,
+"row": 4,
+"col": 2,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+148,
+201,
+183,
+241
+],
+"note": ""
+},
+{
+"index": 128,
+"row": 4,
+"col": 3,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+198,
+205,
+235,
+239
+],
+"note": ""
+},
+{
+"index": 129,
+"row": 4,
+"col": 4,
+"glyph": "F",
+"letter": "m",
+"letter_by_shape": "m",
+"bbox": [
+247,
+202,
+279,
+239
+],
+"note": ""
+},
+{
+"index": 130,
+"row": 4,
+"col": 5,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+307,
+206,
+325,
+236
+],
+"note": ""
+},
+{
+"index": 131,
+"row": 4,
+"col": 6,
+"glyph": "TEEL",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+348,
+205,
+370,
+240
+],
+"note": ""
+},
+{
+"index": 132,
+"row": 4,
+"col": 7,
+"glyph": "STEP1",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+401,
+207,
+424,
+248
+],
+"note": ""
+},
+{
+"index": 133,
+"row": 4,
+"col": 8,
+"glyph": "LAMBDA",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+447,
+215,
+476,
+251
+],
+"note": ""
+},
+{
+"index": 134,
+"row": 4,
+"col": 9,
+"glyph": "WAVEM",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+492,
+219,
+529,
+249
+],
+"note": ""
+},
+{
+"index": 135,
+"row": 4,
+"col": 10,
+"glyph": "TRID",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+542,
+217,
+580,
+250
+],
+"note": ""
+},
+{
+"index": 136,
+"row": 4,
+"col": 11,
+"glyph": "THREE",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+591,
+218,
+619,
+245
+],
+"note": ""
+},
+{
+"index": 137,
+"row": 4,
+"col": 12,
+"glyph": "BEE",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+637,
+218,
+671,
+255
+],
+"note": ""
+},
+{
+"index": 138,
+"row": 4,
+"col": 13,
+"glyph": "SQ",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+683,
+222,
+717,
+251
+],
+"note": ""
+},
+{
+"index": 139,
+"row": 4,
+"col": 14,
+"glyph": "CROSSSLASH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+727,
+218,
+751,
+256
+],
+"note": ""
+},
+{
+"index": 140,
+"row": 4,
+"col": 15,
+"glyph": "PIBAR",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+777,
+223,
+816,
+255
+],
+"note": ""
+},
+{
+"index": 141,
+"row": 4,
+"col": 16,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+823,
+225,
+857,
+255
+],
+"note": ""
+},
+{
+"index": 142,
+"row": 4,
+"col": 17,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+872,
+222,
+900,
+261
+],
+"note": ""
+},
+{
+"index": 143,
+"row": 4,
+"col": 18,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+917,
+222,
+954,
+266
+],
+"note": ""
+},
+{
+"index": 144,
+"row": 4,
+"col": 19,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+968,
+224,
+989,
+263
+],
+"note": ""
+},
+{
+"index": 145,
+"row": 4,
+"col": 20,
+"glyph": "NINETY9",
+"letter": "v",
+"letter_by_shape": "v",
+"bbox": [
+1013,
+223,
+1038,
+258
+],
+"note": ""
+},
+{
+"index": 146,
+"row": 4,
+"col": 21,
+"glyph": "IBASE",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1057,
+224,
+1090,
+261
+],
+"note": ""
+},
+{
+"index": 147,
+"row": 4,
+"col": 22,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1102,
+222,
+1137,
+260
+],
+"note": ""
+},
+{
+"index": 148,
+"row": 4,
+"col": 23,
+"glyph": "HASH",
+"letter": "y",
+"letter_by_shape": "y",
+"bbox": [
+1149,
+225,
+1179,
+257
+],
+"note": ""
+},
+{
+"index": 149,
+"row": 4,
+"col": 24,
+"glyph": "HA",
+"letter": "w",
+"letter_by_shape": "w",
+"bbox": [
+1183,
+228,
+1224,
+265
+],
+"note": ""
+},
+{
+"index": 150,
+"row": 4,
+"col": 25,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1238,
+222,
+1272,
+254
+],
+"note": ""
+},
+{
+"index": 151,
+"row": 4,
+"col": 26,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1294,
+224,
+1318,
+259
+],
+"note": ""
+},
+{
+"index": 152,
+"row": 4,
+"col": 27,
+"glyph": "EQ",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1334,
+229,
+1366,
+246
+],
+"note": ""
+},
+{
+"index": 153,
+"row": 4,
+"col": 28,
+"glyph": "EPS",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1383,
+230,
+1416,
+257
+],
+"note": ""
+},
+{
+"index": 154,
+"row": 4,
+"col": 29,
+"glyph": "THETA",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+1420,
+226,
+1462,
+258
+],
+"note": ""
+},
+{
+"index": 155,
+"row": 4,
+"col": 30,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1470,
+221,
+1507,
+258
+],
+"note": ""
+},
+{
+"index": 156,
+"row": 4,
+"col": 31,
+"glyph": "FORTY",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1518,
+224,
+1547,
+254
+],
+"note": ""
+},
+{
+"index": 157,
+"row": 4,
+"col": 32,
+"glyph": "LAMBDA",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1574,
+220,
+1597,
+261
+],
+"note": ""
+},
+{
+"index": 158,
+"row": 4,
+"col": 33,
+"glyph": "CIRCLE",
+"letter": "b",
+"letter_by_shape": "b",
+"bbox": [
+1620,
+227,
+1647,
+257
+],
+"note": ""
+},
+{
+"index": 159,
+"row": 4,
+"col": 34,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1660,
+223,
+1690,
+252
+],
+"note": ""
+},
+{
+"index": 160,
+"row": 4,
+"col": 35,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1713,
+223,
+1731,
+253
+],
+"note": ""
+},
+{
+"index": 161,
+"row": 4,
+"col": 36,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1757,
+221,
+1785,
+261
+],
+"note": ""
+},
+{
+"index": 162,
+"row": 4,
+"col": 37,
+"glyph": "BSLASH",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+1801,
+220,
+1837,
+254
+],
+"note": ""
+},
+{
+"index": 163,
+"row": 4,
+"col": 38,
+"glyph": "SIGMA",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1847,
+220,
+1875,
+254
+],
+"note": ""
+},
+{
+"index": 164,
+"row": 4,
+"col": 39,
+"glyph": "SQ",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1893,
+225,
+1926,
+256
+],
+"note": ""
+},
+{
+"index": 165,
+"row": 4,
+"col": 40,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1940,
+221,
+1966,
+260
+],
+"note": ""
+},
+{
+"index": 166,
+"row": 4,
+"col": 41,
+"glyph": "LAMBDA",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1989,
+225,
+2006,
+261
+],
+"note": ""
+},
+{
+"index": 167,
+"row": 4,
+"col": 42,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+2029,
+221,
+2067,
+262
+],
+"note": ""
+},
+{
+"index": 168,
+"row": 5,
+"col": 1,
+"glyph": "THREE",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+98,
+250,
+128,
+283
+],
+"note": ""
+},
+{
+"index": 169,
+"row": 5,
+"col": 2,
+"glyph": "CRESC",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+156,
+248,
+183,
+280
+],
+"note": ""
+},
+{
+"index": 170,
+"row": 5,
+"col": 3,
+"glyph": "SSTEP",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+195,
+249,
+227,
+283
+],
+"note": ""
+},
+{
+"index": 171,
+"row": 5,
+"col": 4,
+"glyph": "XMARK",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+246,
+250,
+289,
+293
+],
+"note": ""
+},
+{
+"index": 172,
+"row": 5,
+"col": 5,
+"glyph": "YA",
+"letter": "f",
+"letter_by_shape": "f",
+"bbox": [
+301,
+248,
+334,
+293
+],
+"note": ""
+},
+{
+"index": 173,
+"row": 5,
+"col": 6,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+345,
+255,
+381,
+288
+],
+"note": ""
+},
+{
+"index": 174,
+"row": 5,
+"col": 7,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+395,
+251,
+425,
+290
+],
+"note": ""
+},
+{
+"index": 175,
+"row": 5,
+"col": 8,
+"glyph": "SQ",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+447,
+259,
+476,
+288
+],
+"note": ""
+},
+{
+"index": 176,
+"row": 5,
+"col": 9,
+"glyph": "DOTSQ",
+"letter": "w",
+"letter_by_shape": "w",
+"bbox": [
+494,
+265,
+528,
+296
+],
+"note": ""
+},
+{
+"index": 177,
+"row": 5,
+"col": 10,
+"glyph": "TBAR",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+541,
+261,
+576,
+296
+],
+"note": ""
+},
+{
+"index": 178,
+"row": 5,
+"col": 11,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+590,
+263,
+619,
+292
+],
+"note": ""
+},
+{
+"index": 179,
+"row": 5,
+"col": 12,
+"glyph": "ANKH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+640,
+260,
+662,
+296
+],
+"note": ""
+},
+{
+"index": 180,
+"row": 5,
+"col": 13,
+"glyph": "EQ",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+685,
+270,
+720,
+287
+],
+"note": ""
+},
+{
+"index": 181,
+"row": 5,
+"col": 14,
+"glyph": "TWO",
+"letter": "m",
+"letter_by_shape": "m",
+"bbox": [
+730,
+269,
+761,
+298
+],
+"note": ""
+},
+{
+"index": 182,
+"row": 5,
+"col": 15,
+"glyph": "TWELVE",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+783,
+268,
+818,
+301
+],
+"note": ""
+},
+{
+"index": 183,
+"row": 5,
+"col": 16,
+"glyph": "SQDIAGDOT",
+"letter": "k",
+"letter_by_shape": "k",
+"bbox": [
+825,
+270,
+866,
+305
+],
+"note": ""
+},
+{
+"index": 184,
+"row": 5,
+"col": 17,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+873,
+267,
+903,
+301
+],
+"note": ""
+},
+{
+"index": 185,
+"row": 5,
+"col": 18,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+914,
+273,
+955,
+299
+],
+"note": ""
+},
+{
+"index": 186,
+"row": 5,
+"col": 19,
+"glyph": "FORTY",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+963,
+271,
+989,
+301
+],
+"note": ""
+},
+{
+"index": 187,
+"row": 5,
+"col": 20,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1021,
+272,
+1039,
+300
+],
+"note": ""
+},
+{
+"index": 188,
+"row": 5,
+"col": 21,
+"glyph": "SSTEP",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1056,
+275,
+1083,
+304
+],
+"note": ""
+},
+{
+"index": 189,
+"row": 5,
+"col": 22,
+"glyph": "EIGHT",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+1105,
+272,
+1129,
+306
+],
+"note": ""
+},
+{
+"index": 190,
+"row": 5,
+"col": 23,
+"glyph": "ARROWBOX",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1151,
+274,
+1180,
+303
+],
+"note": ""
+},
+{
+"index": 191,
+"row": 5,
+"col": 24,
+"glyph": "TEEL",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1194,
+273,
+1215,
+305
+],
+"note": ""
+},
+{
+"index": 192,
+"row": 5,
+"col": 25,
+"glyph": "STEP3",
+"letter": "b",
+"letter_by_shape": "b",
+"bbox": [
+1240,
+269,
+1270,
+303
+],
+"note": ""
+},
+{
+"index": 193,
+"row": 5,
+"col": 26,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1294,
+273,
+1312,
+302
+],
+"note": ""
+},
+{
+"index": 194,
+"row": 5,
+"col": 27,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1337,
+272,
+1364,
+307
+],
+"note": ""
+},
+{
+"index": 195,
+"row": 5,
+"col": 28,
+"glyph": "EPS",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1382,
+273,
+1414,
+299
+],
+"note": ""
+},
+{
+"index": 196,
+"row": 5,
+"col": 29,
+"glyph": "KAY",
+"letter": "f",
+"letter_by_shape": "f",
+"bbox": [
+1430,
+271,
+1459,
+304
+],
+"note": ""
+},
+{
+"index": 197,
+"row": 5,
+"col": 30,
+"glyph": "SIGMA",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1476,
+268,
+1509,
+299
+],
+"note": ""
+},
+{
+"index": 198,
+"row": 5,
+"col": 31,
+"glyph": "IBASE",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1521,
+267,
+1559,
+305
+],
+"note": ""
+},
+{
+"index": 199,
+"row": 5,
+"col": 32,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1581,
+266,
+1600,
+293
+],
+"note": ""
+},
+{
+"index": 200,
+"row": 5,
+"col": 33,
+"glyph": "EQ",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1618,
+272,
+1649,
+288
+],
+"note": ""
+},
+{
+"index": 201,
+"row": 5,
+"col": 34,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1664,
+268,
+1686,
+301
+],
+"note": ""
+},
+{
+"index": 202,
+"row": 5,
+"col": 35,
+"glyph": "TRI",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1705,
+272,
+1743,
+300
+],
+"note": ""
+},
+{
+"index": 203,
+"row": 5,
+"col": 36,
+"glyph": "FORTY",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1757,
+269,
+1789,
+304
+],
+"note": ""
+},
+{
+"index": 204,
+"row": 5,
+"col": 37,
+"glyph": "STEP1",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1805,
+266,
+1829,
+305
+],
+"note": ""
+},
+{
+"index": 205,
+"row": 5,
+"col": 38,
+"glyph": "ANKHFILL",
+"letter": "w",
+"letter_by_shape": "w",
+"bbox": [
+1854,
+268,
+1879,
+304
+],
+"note": ""
+},
+{
+"index": 206,
+"row": 5,
+"col": 39,
+"glyph": "SSTEP",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1900,
+269,
+1922,
+304
+],
+"note": ""
+},
+{
+"index": 207,
+"row": 5,
+"col": 40,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1939,
+277,
+1977,
+294
+],
+"note": ""
+},
+{
+"index": 208,
+"row": 5,
+"col": 41,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1988,
+269,
+2023,
+311
+],
+"note": ""
+},
+{
+"index": 209,
+"row": 5,
+"col": 42,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+2036,
+269,
+2070,
+303
+],
+"note": ""
+},
+{
+"index": 210,
+"row": 6,
+"col": 1,
+"glyph": "BRDOT",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+93,
+296,
+131,
+334
+],
+"note": ""
+},
+{
+"index": 211,
+"row": 6,
+"col": 2,
+"glyph": "DOT",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+153,
+305,
+170,
+322
+],
+"note": ""
+},
+{
+"index": 212,
+"row": 6,
+"col": 3,
+"glyph": "TEEL",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+195,
+298,
+219,
+334
+],
+"note": ""
+},
+{
+"index": 213,
+"row": 6,
+"col": 4,
+"glyph": "LAMBDA",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+250,
+303,
+275,
+339
+],
+"note": ""
+},
+{
+"index": 214,
+"row": 6,
+"col": 5,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+300,
+302,
+336,
+339
+],
+"note": ""
+},
+{
+"index": 215,
+"row": 6,
+"col": 6,
+"glyph": "FDOT",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+346,
+297,
+387,
+332
+],
+"note": ""
+},
+{
+"index": 216,
+"row": 6,
+"col": 7,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+396,
+299,
+437,
+335
+],
+"note": ""
+},
+{
+"index": 217,
+"row": 6,
+"col": 8,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+444,
+301,
+463,
+339
+],
+"note": ""
+},
+{
+"index": 218,
+"row": 6,
+"col": 9,
+"glyph": "TWELVE",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+492,
+305,
+530,
+337
+],
+"note": ""
+},
+{
+"index": 219,
+"row": 6,
+"col": 10,
+"glyph": "DASH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+547,
+320,
+570,
+326
+],
+"note": ""
+},
+{
+"index": 220,
+"row": 6,
+"col": 11,
+"glyph": "PIOPEN",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+589,
+306,
+621,
+347
+],
+"note": ""
+},
+{
+"index": 221,
+"row": 6,
+"col": 12,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+638,
+308,
+667,
+347
+],
+"note": ""
+},
+{
+"index": 222,
+"row": 6,
+"col": 13,
+"glyph": "IPLAIN",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+681,
+310,
+715,
+352
+],
+"note": ""
+},
+{
+"index": 223,
+"row": 6,
+"col": 14,
+"glyph": "FIFTEEN",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+731,
+311,
+766,
+347
+],
+"note": ""
+},
+{
+"index": 224,
+"row": 6,
+"col": 15,
+"glyph": "SEVEN",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+781,
+315,
+810,
+350
+],
+"note": ""
+},
+{
+"index": 225,
+"row": 6,
+"col": 16,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+822,
+314,
+862,
+342
+],
+"note": ""
+},
+{
+"index": 226,
+"row": 6,
+"col": 17,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+875,
+314,
+893,
+343
+],
+"note": ""
+},
+{
+"index": 227,
+"row": 6,
+"col": 18,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+918,
+313,
+948,
+350
+],
+"note": ""
+},
+{
+"index": 228,
+"row": 6,
+"col": 19,
+"glyph": "CRESC",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+970,
+318,
+994,
+346
+],
+"note": ""
+},
+{
+"index": 229,
+"row": 6,
+"col": 20,
+"glyph": "PIDOT",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+1009,
+316,
+1037,
+350
+],
+"note": ""
+},
+{
+"index": 230,
+"row": 6,
+"col": 21,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1057,
+315,
+1085,
+343
+],
+"note": ""
+},
+{
+"index": 231,
+"row": 6,
+"col": 22,
+"glyph": "CRESC",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1112,
+317,
+1135,
+344
+],
+"note": ""
+},
+{
+"index": 232,
+"row": 6,
+"col": 23,
+"glyph": "ODOT",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+1150,
+319,
+1177,
+348
+],
+"note": ""
+},
+{
+"index": 233,
+"row": 6,
+"col": 24,
+"glyph": "IPLAIN",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+1195,
+316,
+1223,
+352
+],
+"note": ""
+},
+{
+"index": 234,
+"row": 6,
+"col": 25,
+"glyph": "FIFTEEN",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1239,
+316,
+1276,
+343
+],
+"note": ""
+},
+{
+"index": 235,
+"row": 6,
+"col": 26,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1285,
+316,
+1320,
+350
+],
+"note": ""
+},
+{
+"index": 236,
+"row": 6,
+"col": 27,
+"glyph": "TRID",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+1333,
+319,
+1371,
+351
+],
+"note": ""
+},
+{
+"index": 237,
+"row": 6,
+"col": 28,
+"glyph": "ANKH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1384,
+309,
+1406,
+349
+],
+"note": ""
+},
+{
+"index": 238,
+"row": 6,
+"col": 29,
+"glyph": "EPS",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1432,
+319,
+1462,
+343
+],
+"note": ""
+},
+{
+"index": 239,
+"row": 6,
+"col": 30,
+"glyph": "FDOT",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1472,
+317,
+1504,
+346
+],
+"note": ""
+},
+{
+"index": 240,
+"row": 6,
+"col": 31,
+"glyph": "CROSSSLASH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1518,
+319,
+1542,
+349
+],
+"note": ""
+},
+{
+"index": 241,
+"row": 6,
+"col": 32,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1569,
+314,
+1602,
+347
+],
+"note": ""
+},
+{
+"index": 242,
+"row": 6,
+"col": 33,
+"glyph": "EIGHT",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+1617,
+313,
+1643,
+350
+],
+"note": ""
+},
+{
+"index": 243,
+"row": 6,
+"col": 34,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1664,
+310,
+1701,
+344
+],
+"note": ""
+},
+{
+"index": 244,
+"row": 6,
+"col": 35,
+"glyph": "STEP1",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1715,
+315,
+1739,
+349
+],
+"note": ""
+},
+{
+"index": 245,
+"row": 6,
+"col": 36,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1761,
+315,
+1787,
+348
+],
+"note": ""
+},
+{
+"index": 246,
+"row": 6,
+"col": 37,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1795,
+314,
+1834,
+356
+],
+"note": ""
+},
+{
+"index": 247,
+"row": 6,
+"col": 38,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1851,
+315,
+1879,
+359
+],
+"note": ""
+},
+{
+"index": 248,
+"row": 6,
+"col": 39,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1898,
+316,
+1921,
+353
+],
+"note": ""
+},
+{
+"index": 249,
+"row": 6,
+"col": 40,
+"glyph": "DOTSQ",
+"letter": "w",
+"letter_by_shape": "w",
+"bbox": [
+1944,
+316,
+1974,
+344
+],
+"note": ""
+},
+{
+"index": 250,
+"row": 6,
+"col": 41,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1988,
+316,
+2026,
+346
+],
+"note": ""
+},
+{
+"index": 251,
+"row": 6,
+"col": 42,
+"glyph": "TWELVE",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+2038,
+318,
+2073,
+343
+],
+"note": ""
+},
+{
+"index": 252,
+"row": 7,
+"col": 1,
+"glyph": "PIBAR",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+92,
+341,
+136,
+376
+],
+"note": ""
+},
+{
+"index": 253,
+"row": 7,
+"col": 2,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+144,
+346,
+182,
+382
+],
+"note": ""
+},
+{
+"index": 254,
+"row": 7,
+"col": 3,
+"glyph": "HA",
+"letter": "w",
+"letter_by_shape": "w",
+"bbox": [
+190,
+347,
+233,
+379
+],
+"note": ""
+},
+{
+"index": 255,
+"row": 7,
+"col": 4,
+"glyph": "TWELVE",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+243,
+344,
+280,
+378
+],
+"note": ""
+},
+{
+"index": 256,
+"row": 7,
+"col": 5,
+"glyph": "STEP1",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+298,
+345,
+317,
+383
+],
+"note": ""
+},
+{
+"index": 257,
+"row": 7,
+"col": 6,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+352,
+347,
+371,
+379
+],
+"note": ""
+},
+{
+"index": 258,
+"row": 7,
+"col": 7,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+396,
+347,
+423,
+374
+],
+"note": ""
+},
+{
+"index": 259,
+"row": 7,
+"col": 8,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+443,
+348,
+477,
+386
+],
+"note": ""
+},
+{
+"index": 260,
+"row": 7,
+"col": 9,
+"glyph": "BRHALFR",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+504,
+351,
+526,
+384
+],
+"note": ""
+},
+{
+"index": 261,
+"row": 7,
+"col": 10,
+"glyph": "HBARSQ",
+"letter": "v",
+"letter_by_shape": "v",
+"bbox": [
+538,
+356,
+574,
+385
+],
+"note": ""
+},
+{
+"index": 262,
+"row": 7,
+"col": 11,
+"glyph": "SIGMA",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+583,
+356,
+619,
+387
+],
+"note": ""
+},
+{
+"index": 263,
+"row": 7,
+"col": 12,
+"glyph": "ARCH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+639,
+355,
+664,
+387
+],
+"note": ""
+},
+{
+"index": 264,
+"row": 7,
+"col": 13,
+"glyph": "PIOPEN",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+687,
+360,
+717,
+392
+],
+"note": ""
+},
+{
+"index": 265,
+"row": 7,
+"col": 14,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+734,
+353,
+764,
+398
+],
+"note": ""
+},
+{
+"index": 266,
+"row": 7,
+"col": 15,
+"glyph": "CIRCLE",
+"letter": "b",
+"letter_by_shape": "b",
+"bbox": [
+779,
+362,
+807,
+392
+],
+"note": ""
+},
+{
+"index": 267,
+"row": 7,
+"col": 16,
+"glyph": "DASH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+828,
+373,
+848,
+378
+],
+"note": ""
+},
+{
+"index": 268,
+"row": 7,
+"col": 17,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+870,
+358,
+908,
+398
+],
+"note": ""
+},
+{
+"index": 269,
+"row": 7,
+"col": 18,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+919,
+358,
+954,
+393
+],
+"note": ""
+},
+{
+"index": 270,
+"row": 7,
+"col": 19,
+"glyph": "IBASE",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+961,
+360,
+999,
+397
+],
+"note": ""
+},
+{
+"index": 271,
+"row": 7,
+"col": 20,
+"glyph": "TRIOUT",
+"letter": "m",
+"letter_by_shape": "m",
+"bbox": [
+1007,
+368,
+1041,
+394
+],
+"note": ""
+},
+{
+"index": 272,
+"row": 7,
+"col": 21,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1055,
+368,
+1088,
+393
+],
+"note": ""
+},
+{
+"index": 273,
+"row": 7,
+"col": 22,
+"glyph": "DOTSQ",
+"letter": "w",
+"letter_by_shape": "w",
+"bbox": [
+1105,
+369,
+1132,
+391
+],
+"note": ""
+},
+{
+"index": 274,
+"row": 7,
+"col": 23,
+"glyph": "THREE",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1150,
+364,
+1176,
+392
+],
+"note": ""
+},
+{
+"index": 275,
+"row": 7,
+"col": 24,
+"glyph": "PIBAR",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1197,
+364,
+1233,
+396
+],
+"note": ""
+},
+{
+"index": 276,
+"row": 7,
+"col": 25,
+"glyph": "SEVEN",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1240,
+365,
+1270,
+397
+],
+"note": ""
+},
+{
+"index": 277,
+"row": 7,
+"col": 26,
+"glyph": "TREFOIL",
+"letter": "y",
+"letter_by_shape": "y",
+"bbox": [
+1289,
+367,
+1319,
+392
+],
+"note": ""
+},
+{
+"index": 278,
+"row": 7,
+"col": 27,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1336,
+364,
+1363,
+390
+],
+"note": ""
+},
+{
+"index": 279,
+"row": 7,
+"col": 28,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1383,
+363,
+1414,
+403
+],
+"note": ""
+},
+{
+"index": 280,
+"row": 7,
+"col": 29,
+"glyph": "BSLASH",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+1424,
+359,
+1466,
+397
+],
+"note": ""
+},
+{
+"index": 281,
+"row": 7,
+"col": 30,
+"glyph": "SSTEP",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1473,
+357,
+1505,
+397
+],
+"note": ""
+},
+{
+"index": 282,
+"row": 7,
+"col": 31,
+"glyph": "CIRCLE",
+"letter": "b",
+"letter_by_shape": "b",
+"bbox": [
+1521,
+366,
+1551,
+394
+],
+"note": ""
+},
+{
+"index": 283,
+"row": 7,
+"col": 32,
+"glyph": "TEEL",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1572,
+354,
+1595,
+395
+],
+"note": ""
+},
+{
+"index": 284,
+"row": 7,
+"col": 33,
+"glyph": "BEE",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+1618,
+354,
+1651,
+394
+],
+"note": ""
+},
+{
+"index": 285,
+"row": 7,
+"col": 34,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1670,
+355,
+1692,
+388
+],
+"note": ""
+},
+{
+"index": 286,
+"row": 7,
+"col": 35,
+"glyph": "ANKH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1714,
+352,
+1740,
+396
+],
+"note": ""
+},
+{
+"index": 287,
+"row": 7,
+"col": 36,
+"glyph": "SIGMA",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1754,
+358,
+1787,
+392
+],
+"note": ""
+},
+{
+"index": 288,
+"row": 7,
+"col": 37,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1810,
+359,
+1840,
+390
+],
+"note": ""
+},
+{
+"index": 289,
+"row": 7,
+"col": 38,
+"glyph": "TWELVE",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1855,
+362,
+1893,
+395
+],
+"note": ""
+},
+{
+"index": 290,
+"row": 7,
+"col": 39,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1900,
+366,
+1948,
+386
+],
+"note": ""
+},
+{
+"index": 291,
+"row": 7,
+"col": 40,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1958,
+362,
+1983,
+397
+],
+"note": ""
+},
+{
+"index": 292,
+"row": 7,
+"col": 41,
+"glyph": "PIBAR",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1993,
+363,
+2029,
+393
+],
+"note": ""
+},
+{
+"index": 293,
+"row": 7,
+"col": 42,
+"glyph": "THREE",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+2042,
+360,
+2068,
+392
+],
+"note": ""
+},
+{
+"index": 294,
+"row": 8,
+"col": 1,
+"glyph": "EIGHT",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+93,
+388,
+125,
+437
+],
+"note": ""
+},
+{
+"index": 295,
+"row": 8,
+"col": 2,
+"glyph": "EQ",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+144,
+397,
+173,
+415
+],
+"note": ""
+},
+{
+"index": 296,
+"row": 8,
+"col": 3,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+192,
+392,
+226,
+426
+],
+"note": ""
+},
+{
+"index": 297,
+"row": 8,
+"col": 4,
+"glyph": "W",
+"letter": "z",
+"letter_by_shape": "z",
+"bbox": [
+243,
+399,
+277,
+431
+],
+"note": ""
+},
+{
+"index": 298,
+"row": 8,
+"col": 5,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+298,
+395,
+318,
+429
+],
+"note": ""
+},
+{
+"index": 299,
+"row": 8,
+"col": 6,
+"glyph": "FDOT",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+338,
+396,
+381,
+432
+],
+"note": ""
+},
+{
+"index": 300,
+"row": 8,
+"col": 7,
+"glyph": "BSLASH",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+395,
+392,
+425,
+427
+],
+"note": ""
+},
+{
+"index": 301,
+"row": 8,
+"col": 8,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+440,
+395,
+479,
+439
+],
+"note": ""
+},
+{
+"index": 302,
+"row": 8,
+"col": 9,
+"glyph": "NINETY9",
+"letter": "v",
+"letter_by_shape": "v",
+"bbox": [
+493,
+395,
+531,
+439
+],
+"note": ""
+},
+{
+"index": 303,
+"row": 8,
+"col": 10,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+543,
+401,
+578,
+432
+],
+"note": ""
+},
+{
+"index": 304,
+"row": 8,
+"col": 11,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+587,
+392,
+619,
+435
+],
+"note": ""
+},
+{
+"index": 305,
+"row": 8,
+"col": 12,
+"glyph": "LAMBDA",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+633,
+397,
+660,
+439
+],
+"note": ""
+},
+{
+"index": 306,
+"row": 8,
+"col": 13,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+675,
+404,
+721,
+430
+],
+"note": ""
+},
+{
+"index": 307,
+"row": 8,
+"col": 14,
+"glyph": "HA",
+"letter": "w",
+"letter_by_shape": "w",
+"bbox": [
+727,
+406,
+767,
+439
+],
+"note": ""
+},
+{
+"index": 308,
+"row": 8,
+"col": 15,
+"glyph": "ARROWBOX",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+779,
+406,
+810,
+437
+],
+"note": ""
+},
+{
+"index": 309,
+"row": 8,
+"col": 16,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+821,
+407,
+850,
+436
+],
+"note": ""
+},
+{
+"index": 310,
+"row": 8,
+"col": 17,
+"glyph": "STEP2",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+877,
+404,
+899,
+441
+],
+"note": ""
+},
+{
+"index": 311,
+"row": 8,
+"col": 18,
+"glyph": "EQ",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+916,
+412,
+954,
+431
+],
+"note": ""
+},
+{
+"index": 312,
+"row": 8,
+"col": 19,
+"glyph": "FORTY",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+965,
+409,
+993,
+439
+],
+"note": ""
+},
+{
+"index": 313,
+"row": 8,
+"col": 20,
+"glyph": "TRI",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1008,
+410,
+1044,
+436
+],
+"note": ""
+},
+{
+"index": 314,
+"row": 8,
+"col": 21,
+"glyph": "BRHALFL",
+"letter": "j",
+"letter_by_shape": "j",
+"bbox": [
+1056,
+406,
+1075,
+438
+],
+"note": ""
+},
+{
+"index": 315,
+"row": 8,
+"col": 22,
+"glyph": "BEE",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+1101,
+406,
+1134,
+447
+],
+"note": ""
+},
+{
+"index": 316,
+"row": 8,
+"col": 23,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1144,
+409,
+1185,
+431
+],
+"note": ""
+},
+{
+"index": 317,
+"row": 8,
+"col": 24,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1193,
+404,
+1233,
+443
+],
+"note": ""
+},
+{
+"index": 318,
+"row": 8,
+"col": 25,
+"glyph": "TWELVE",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1242,
+406,
+1274,
+434
+],
+"note": ""
+},
+{
+"index": 319,
+"row": 8,
+"col": 26,
+"glyph": "STEP1",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1289,
+404,
+1310,
+438
+],
+"note": ""
+},
+{
+"index": 320,
+"row": 8,
+"col": 27,
+"glyph": "DASH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+1340,
+420,
+1362,
+425
+],
+"note": ""
+},
+{
+"index": 321,
+"row": 8,
+"col": 28,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1385,
+407,
+1411,
+436
+],
+"note": ""
+},
+{
+"index": 322,
+"row": 8,
+"col": 29,
+"glyph": "GT",
+"letter": "k",
+"letter_by_shape": "k",
+"bbox": [
+1431,
+405,
+1453,
+440
+],
+"note": ""
+},
+{
+"index": 323,
+"row": 8,
+"col": 30,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1475,
+408,
+1510,
+440
+],
+"note": ""
+},
+{
+"index": 324,
+"row": 8,
+"col": 31,
+"glyph": "XMARK",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+1521,
+409,
+1559,
+442
+],
+"note": ""
+},
+{
+"index": 325,
+"row": 8,
+"col": 32,
+"glyph": "CROSSHAIR",
+"letter": "y",
+"letter_by_shape": "y",
+"bbox": [
+1569,
+403,
+1611,
+448
+],
+"note": ""
+},
+{
+"index": 326,
+"row": 8,
+"col": 33,
+"glyph": "LAMBDA",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1620,
+404,
+1645,
+441
+],
+"note": ""
+},
+{
+"index": 327,
+"row": 8,
+"col": 34,
+"glyph": "WAVEM",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1667,
+410,
+1703,
+438
+],
+"note": ""
+},
+{
+"index": 328,
+"row": 8,
+"col": 35,
+"glyph": "EPS",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1719,
+408,
+1750,
+435
+],
+"note": ""
+},
+{
+"index": 329,
+"row": 8,
+"col": 36,
+"glyph": "ANKH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1764,
+402,
+1790,
+438
+],
+"note": ""
+},
+{
+"index": 330,
+"row": 8,
+"col": 37,
+"glyph": "STEP2",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1810,
+404,
+1831,
+440
+],
+"note": ""
+},
+{
+"index": 331,
+"row": 8,
+"col": 38,
+"glyph": "SQFILL",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+1857,
+406,
+1888,
+437
+],
+"note": ""
+},
+{
+"index": 332,
+"row": 8,
+"col": 39,
+"glyph": "PIBAR",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1900,
+406,
+1942,
+441
+],
+"note": ""
+},
+{
+"index": 333,
+"row": 8,
+"col": 40,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1943,
+404,
+1984,
+441
+],
+"note": ""
+},
+{
+"index": 334,
+"row": 8,
+"col": 41,
+"glyph": "SIGMA",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1996,
+404,
+2027,
+431
+],
+"note": ""
+},
+{
+"index": 335,
+"row": 8,
+"col": 42,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+2040,
+410,
+2079,
+429
+],
+"note": ""
+},
+{
+"index": 336,
+"row": 9,
+"col": 1,
+"glyph": "FORTY",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+87,
+438,
+130,
+477
+],
+"note": ""
+},
+{
+"index": 337,
+"row": 9,
+"col": 2,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+140,
+432,
+174,
+476
+],
+"note": ""
+},
+{
+"index": 338,
+"row": 9,
+"col": 3,
+"glyph": "STEP2",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+192,
+432,
+219,
+473
+],
+"note": ""
+},
+{
+"index": 339,
+"row": 9,
+"col": 4,
+"glyph": "THREE",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+245,
+443,
+268,
+472
+],
+"note": ""
+},
+{
+"index": 340,
+"row": 9,
+"col": 5,
+"glyph": "TBAR",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+287,
+440,
+328,
+480
+],
+"note": ""
+},
+{
+"index": 341,
+"row": 9,
+"col": 6,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+340,
+440,
+376,
+475
+],
+"note": ""
+},
+{
+"index": 342,
+"row": 9,
+"col": 7,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+385,
+441,
+434,
+479
+],
+"note": ""
+},
+{
+"index": 343,
+"row": 9,
+"col": 8,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+437,
+442,
+474,
+479
+],
+"note": ""
+},
+{
+"index": 344,
+"row": 9,
+"col": 9,
+"glyph": "ARROWBOX2",
+"letter": "v",
+"letter_by_shape": "v",
+"bbox": [
+493,
+446,
+529,
+481
+],
+"note": ""
+},
+{
+"index": 345,
+"row": 9,
+"col": 10,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+540,
+443,
+578,
+482
+],
+"note": ""
+},
+{
+"index": 346,
+"row": 9,
+"col": 11,
+"glyph": "SEVEN",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+587,
+450,
+618,
+483
+],
+"note": ""
+},
+{
+"index": 347,
+"row": 9,
+"col": 12,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+634,
+450,
+666,
+481
+],
+"note": ""
+},
+{
+"index": 348,
+"row": 9,
+"col": 13,
+"glyph": "XMARK",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+685,
+446,
+719,
+482
+],
+"note": ""
+},
+{
+"index": 349,
+"row": 9,
+"col": 14,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+736,
+448,
+756,
+480
+],
+"note": ""
+},
+{
+"index": 350,
+"row": 9,
+"col": 15,
+"glyph": "BSLASH",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+774,
+448,
+810,
+485
+],
+"note": ""
+},
+{
+"index": 351,
+"row": 9,
+"col": 16,
+"glyph": "EPS",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+827,
+455,
+857,
+480
+],
+"note": ""
+},
+{
+"index": 352,
+"row": 9,
+"col": 17,
+"glyph": "BEE",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+874,
+450,
+904,
+489
+],
+"note": ""
+},
+{
+"index": 353,
+"row": 9,
+"col": 18,
+"glyph": "TRI",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+917,
+453,
+950,
+483
+],
+"note": ""
+},
+{
+"index": 354,
+"row": 9,
+"col": 19,
+"glyph": "TRI_OVERWRITTEN",
+"letter": "m",
+"letter_by_shape": "s",
+"bbox": [
+950,
+445,
+1003,
+493
+],
+"note": "Filled triangle drawn over an earlier glyph (legs of the old glyph show underneath). By shape it is TRI (s); read here as m so that the text says MYTHS."
+},
+{
+"index": 355,
+"row": 9,
+"col": 20,
+"glyph": "SCRIBBLE",
+"letter": "",
+"letter_by_shape": "b",
+"bbox": [
+1003,
+453,
+1050,
+492
+],
+"note": "Looping scribble, read as a struck-out cell and skipped. By shape alone it matches no other glyph (a lone \"Q\"-like spiral)."
+},
+{
+"index": 356,
+"row": 9,
+"col": 21,
+"glyph": "CROSSHAIR",
+"letter": "y",
+"letter_by_shape": "y",
+"bbox": [
+1050,
+447,
+1099,
+492
+],
+"note": ""
+},
+{
+"index": 357,
+"row": 9,
+"col": 22,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1097,
+449,
+1143,
+486
+],
+"note": ""
+},
+{
+"index": 358,
+"row": 9,
+"col": 23,
+"glyph": "ARROWBOX",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1143,
+452,
+1186,
+489
+],
+"note": ""
+},
+{
+"index": 359,
+"row": 9,
+"col": 24,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1192,
+460,
+1233,
+485
+],
+"note": ""
+},
+{
+"index": 360,
+"row": 9,
+"col": 25,
+"glyph": "LAMBDA",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1245,
+456,
+1267,
+492
+],
+"note": ""
+},
+{
+"index": 361,
+"row": 9,
+"col": 26,
+"glyph": "EQ",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1293,
+458,
+1323,
+472
+],
+"note": ""
+},
+{
+"index": 362,
+"row": 9,
+"col": 27,
+"glyph": "SIGMA",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1337,
+457,
+1371,
+485
+],
+"note": ""
+},
+{
+"index": 363,
+"row": 9,
+"col": 28,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1378,
+450,
+1418,
+494
+],
+"note": ""
+},
+{
+"index": 364,
+"row": 9,
+"col": 29,
+"glyph": "TBAR",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1424,
+450,
+1463,
+495
+],
+"note": ""
+},
+{
+"index": 365,
+"row": 9,
+"col": 30,
+"glyph": "TWELVE",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1465,
+452,
+1504,
+498
+],
+"note": ""
+},
+{
+"index": 366,
+"row": 9,
+"col": 31,
+"glyph": "TRI",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1522,
+452,
+1565,
+489
+],
+"note": ""
+},
+{
+"index": 367,
+"row": 9,
+"col": 32,
+"glyph": "FDOT",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1571,
+448,
+1611,
+486
+],
+"note": ""
+},
+{
+"index": 368,
+"row": 9,
+"col": 33,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1621,
+454,
+1656,
+486
+],
+"note": ""
+},
+{
+"index": 369,
+"row": 9,
+"col": 34,
+"glyph": "NINETY9",
+"letter": "v",
+"letter_by_shape": "v",
+"bbox": [
+1668,
+448,
+1693,
+487
+],
+"note": ""
+},
+{
+"index": 370,
+"row": 9,
+"col": 35,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1716,
+455,
+1747,
+483
+],
+"note": ""
+},
+{
+"index": 371,
+"row": 9,
+"col": 36,
+"glyph": "PIBAR",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1762,
+449,
+1797,
+488
+],
+"note": ""
+},
+{
+"index": 372,
+"row": 9,
+"col": 37,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1807,
+450,
+1837,
+493
+],
+"note": ""
+},
+{
+"index": 373,
+"row": 9,
+"col": 38,
+"glyph": "TEEL",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1861,
+448,
+1886,
+487
+],
+"note": ""
+},
+{
+"index": 374,
+"row": 9,
+"col": 39,
+"glyph": "SEVEN",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1901,
+451,
+1935,
+490
+],
+"note": ""
+},
+{
+"index": 375,
+"row": 9,
+"col": 40,
+"glyph": "ANKHFILL",
+"letter": "w",
+"letter_by_shape": "w",
+"bbox": [
+1960,
+453,
+1980,
+486
+],
+"note": ""
+},
+{
+"index": 376,
+"row": 9,
+"col": 41,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1995,
+451,
+2029,
+484
+],
+"note": ""
+},
+{
+"index": 377,
+"row": 9,
+"col": 42,
+"glyph": "ARCH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+2039,
+450,
+2060,
+492
+],
+"note": ""
+},
+{
+"index": 378,
+"row": 10,
+"col": 1,
+"glyph": "XMARK",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+84,
+486,
+126,
+524
+],
+"note": ""
+},
+{
+"index": 379,
+"row": 10,
+"col": 2,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+135,
+489,
+176,
+528
+],
+"note": ""
+},
+{
+"index": 380,
+"row": 10,
+"col": 3,
+"glyph": "ARROWBOX2",
+"letter": "v",
+"letter_by_shape": "v",
+"bbox": [
+188,
+485,
+228,
+526
+],
+"note": ""
+},
+{
+"index": 381,
+"row": 10,
+"col": 4,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+237,
+493,
+269,
+524
+],
+"note": ""
+},
+{
+"index": 382,
+"row": 10,
+"col": 5,
+"glyph": "SQ",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+291,
+495,
+325,
+524
+],
+"note": ""
+},
+{
+"index": 383,
+"row": 10,
+"col": 6,
+"glyph": "TBAR",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+339,
+493,
+376,
+531
+],
+"note": ""
+},
+{
+"index": 384,
+"row": 10,
+"col": 7,
+"glyph": "SSTEP",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+391,
+495,
+418,
+528
+],
+"note": ""
+},
+{
+"index": 385,
+"row": 10,
+"col": 8,
+"glyph": "DOT",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+448,
+504,
+464,
+520
+],
+"note": ""
+},
+{
+"index": 386,
+"row": 10,
+"col": 9,
+"glyph": "EIGHT",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+494,
+492,
+521,
+534
+],
+"note": ""
+},
+{
+"index": 387,
+"row": 10,
+"col": 10,
+"glyph": "FIFTEEN",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+537,
+492,
+571,
+524
+],
+"note": ""
+},
+{
+"index": 388,
+"row": 10,
+"col": 11,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+584,
+495,
+614,
+525
+],
+"note": ""
+},
+{
+"index": 389,
+"row": 10,
+"col": 12,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+635,
+496,
+662,
+533
+],
+"note": ""
+},
+{
+"index": 390,
+"row": 10,
+"col": 13,
+"glyph": "PIDOT",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+681,
+496,
+714,
+531
+],
+"note": ""
+},
+{
+"index": 391,
+"row": 10,
+"col": 14,
+"glyph": "BEE",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+730,
+493,
+755,
+531
+],
+"note": ""
+},
+{
+"index": 392,
+"row": 10,
+"col": 15,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+778,
+500,
+811,
+530
+],
+"note": ""
+},
+{
+"index": 393,
+"row": 10,
+"col": 16,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+834,
+497,
+854,
+530
+],
+"note": ""
+},
+{
+"index": 394,
+"row": 10,
+"col": 17,
+"glyph": "WAVEM",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+870,
+501,
+897,
+526
+],
+"note": ""
+},
+{
+"index": 395,
+"row": 10,
+"col": 18,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+920,
+492,
+941,
+537
+],
+"note": ""
+},
+{
+"index": 396,
+"row": 10,
+"col": 19,
+"glyph": "DASH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+967,
+510,
+988,
+517
+],
+"note": ""
+},
+{
+"index": 397,
+"row": 10,
+"col": 20,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1014,
+497,
+1039,
+534
+],
+"note": ""
+},
+{
+"index": 398,
+"row": 10,
+"col": 21,
+"glyph": "ANKH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1060,
+496,
+1081,
+536
+],
+"note": ""
+},
+{
+"index": 399,
+"row": 10,
+"col": 22,
+"glyph": "GT",
+"letter": "k",
+"letter_by_shape": "k",
+"bbox": [
+1105,
+499,
+1125,
+528
+],
+"note": ""
+},
+{
+"index": 400,
+"row": 10,
+"col": 23,
+"glyph": "IBASE",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1149,
+501,
+1180,
+537
+],
+"note": ""
+},
+{
+"index": 401,
+"row": 10,
+"col": 24,
+"glyph": "CRESC",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1203,
+501,
+1224,
+526
+],
+"note": ""
+},
+{
+"index": 402,
+"row": 10,
+"col": 25,
+"glyph": "CROSSSLASH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1238,
+498,
+1259,
+541
+],
+"note": ""
+},
+{
+"index": 403,
+"row": 10,
+"col": 26,
+"glyph": "EQ",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1288,
+509,
+1321,
+524
+],
+"note": ""
+},
+{
+"index": 404,
+"row": 10,
+"col": 27,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1333,
+499,
+1375,
+539
+],
+"note": ""
+},
+{
+"index": 405,
+"row": 10,
+"col": 28,
+"glyph": "TWO",
+"letter": "m",
+"letter_by_shape": "m",
+"bbox": [
+1384,
+501,
+1417,
+539
+],
+"note": ""
+},
+{
+"index": 406,
+"row": 10,
+"col": 29,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1439,
+504,
+1459,
+532
+],
+"note": ""
+},
+{
+"index": 407,
+"row": 10,
+"col": 30,
+"glyph": "ANKH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1480,
+494,
+1502,
+530
+],
+"note": ""
+},
+{
+"index": 408,
+"row": 10,
+"col": 31,
+"glyph": "SIGMA",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1524,
+497,
+1562,
+532
+],
+"note": ""
+},
+{
+"index": 409,
+"row": 10,
+"col": 32,
+"glyph": "XMARK",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+1573,
+496,
+1607,
+538
+],
+"note": ""
+},
+{
+"index": 410,
+"row": 10,
+"col": 33,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1625,
+497,
+1650,
+541
+],
+"note": ""
+},
+{
+"index": 411,
+"row": 10,
+"col": 34,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1665,
+500,
+1705,
+542
+],
+"note": ""
+},
+{
+"index": 412,
+"row": 10,
+"col": 35,
+"glyph": "IPLAIN",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+1716,
+492,
+1746,
+534
+],
+"note": ""
+},
+{
+"index": 413,
+"row": 10,
+"col": 36,
+"glyph": "TRID",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+1762,
+497,
+1801,
+523
+],
+"note": ""
+},
+{
+"index": 414,
+"row": 10,
+"col": 37,
+"glyph": "ARROWBOX",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1815,
+499,
+1846,
+531
+],
+"note": ""
+},
+{
+"index": 415,
+"row": 10,
+"col": 38,
+"glyph": "HASH",
+"letter": "y",
+"letter_by_shape": "y",
+"bbox": [
+1864,
+499,
+1897,
+532
+],
+"note": ""
+},
+{
+"index": 416,
+"row": 10,
+"col": 39,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1903,
+507,
+1940,
+527
+],
+"note": ""
+},
+{
+"index": 417,
+"row": 10,
+"col": 40,
+"glyph": "FORTY",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1956,
+502,
+1988,
+533
+],
+"note": ""
+},
+{
+"index": 418,
+"row": 10,
+"col": 41,
+"glyph": "STEP2",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+2004,
+497,
+2022,
+533
+],
+"note": "Drawn like STEP4; merged with STEP2 (same glyph, different wobble)."
+},
+{
+"index": 419,
+"row": 10,
+"col": 42,
+"glyph": "SSTEP",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+2039,
+499,
+2066,
+540
+],
+"note": ""
+},
+{
+"index": 420,
+"row": 11,
+"col": 1,
+"glyph": "DASH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+86,
+552,
+114,
+560
+],
+"note": ""
+},
+{
+"index": 421,
+"row": 11,
+"col": 2,
+"glyph": "FIFTEEN",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+136,
+537,
+173,
+576
+],
+"note": ""
+},
+{
+"index": 422,
+"row": 11,
+"col": 3,
+"glyph": "F",
+"letter": "m",
+"letter_by_shape": "m",
+"bbox": [
+188,
+535,
+222,
+572
+],
+"note": ""
+},
+{
+"index": 423,
+"row": 11,
+"col": 4,
+"glyph": "DOT",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+246,
+548,
+260,
+565
+],
+"note": ""
+},
+{
+"index": 424,
+"row": 11,
+"col": 5,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+282,
+537,
+317,
+569
+],
+"note": ""
+},
+{
+"index": 425,
+"row": 11,
+"col": 6,
+"glyph": "SQ",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+340,
+539,
+369,
+569
+],
+"note": ""
+},
+{
+"index": 426,
+"row": 11,
+"col": 7,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+387,
+535,
+421,
+570
+],
+"note": ""
+},
+{
+"index": 427,
+"row": 11,
+"col": 8,
+"glyph": "ANKH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+441,
+538,
+465,
+578
+],
+"note": ""
+},
+{
+"index": 428,
+"row": 11,
+"col": 9,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+489,
+540,
+515,
+577
+],
+"note": ""
+},
+{
+"index": 429,
+"row": 11,
+"col": 10,
+"glyph": "XMARK",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+536,
+539,
+570,
+582
+],
+"note": ""
+},
+{
+"index": 430,
+"row": 11,
+"col": 11,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+584,
+541,
+622,
+579
+],
+"note": ""
+},
+{
+"index": 431,
+"row": 11,
+"col": 12,
+"glyph": "NINETY9",
+"letter": "v",
+"letter_by_shape": "v",
+"bbox": [
+633,
+542,
+666,
+577
+],
+"note": ""
+},
+{
+"index": 432,
+"row": 11,
+"col": 13,
+"glyph": "CORNER",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+683,
+543,
+713,
+576
+],
+"note": ""
+},
+{
+"index": 433,
+"row": 11,
+"col": 14,
+"glyph": "BRDOT",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+728,
+541,
+766,
+578
+],
+"note": ""
+},
+{
+"index": 434,
+"row": 11,
+"col": 15,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+776,
+544,
+805,
+574
+],
+"note": ""
+},
+{
+"index": 435,
+"row": 11,
+"col": 16,
+"glyph": "FDOT",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+822,
+547,
+848,
+575
+],
+"note": ""
+},
+{
+"index": 436,
+"row": 11,
+"col": 17,
+"glyph": "STEP2",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+870,
+537,
+892,
+578
+],
+"note": ""
+},
+{
+"index": 437,
+"row": 11,
+"col": 18,
+"glyph": "SQDIAG",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+919,
+546,
+954,
+579
+],
+"note": ""
+},
+{
+"index": 438,
+"row": 11,
+"col": 19,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+964,
+543,
+999,
+578
+],
+"note": ""
+},
+{
+"index": 439,
+"row": 11,
+"col": 20,
+"glyph": "TBAR",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1010,
+545,
+1046,
+581
+],
+"note": ""
+},
+{
+"index": 440,
+"row": 11,
+"col": 21,
+"glyph": "PIOPEN",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+1060,
+541,
+1091,
+582
+],
+"note": ""
+},
+{
+"index": 441,
+"row": 11,
+"col": 22,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+1098,
+544,
+1145,
+570
+],
+"note": ""
+},
+{
+"index": 442,
+"row": 11,
+"col": 23,
+"glyph": "SIGMA",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1152,
+544,
+1184,
+578
+],
+"note": ""
+},
+{
+"index": 443,
+"row": 11,
+"col": 24,
+"glyph": "DOT",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+1203,
+556,
+1217,
+570
+],
+"note": ""
+},
+{
+"index": 444,
+"row": 11,
+"col": 25,
+"glyph": "PIBAR",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1242,
+551,
+1279,
+583
+],
+"note": ""
+},
+{
+"index": 445,
+"row": 11,
+"col": 26,
+"glyph": "FORTY",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1292,
+549,
+1328,
+585
+],
+"note": ""
+},
+{
+"index": 446,
+"row": 11,
+"col": 27,
+"glyph": "TRIOUT",
+"letter": "m",
+"letter_by_shape": "m",
+"bbox": [
+1338,
+551,
+1376,
+600
+],
+"note": "Drawn like TRIBAR; merged with TRIOUT (same glyph, different wobble)."
+},
+{
+"index": 447,
+"row": 11,
+"col": 28,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1387,
+551,
+1417,
+580
+],
+"note": ""
+},
+{
+"index": 448,
+"row": 11,
+"col": 29,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1431,
+545,
+1465,
+582
+],
+"note": ""
+},
+{
+"index": 449,
+"row": 11,
+"col": 30,
+"glyph": "THIRTY3",
+"letter": "x",
+"letter_by_shape": "x",
+"bbox": [
+1478,
+547,
+1516,
+572
+],
+"note": ""
+},
+{
+"index": 450,
+"row": 11,
+"col": 31,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1530,
+544,
+1556,
+586
+],
+"note": ""
+},
+{
+"index": 451,
+"row": 11,
+"col": 32,
+"glyph": "TWO",
+"letter": "m",
+"letter_by_shape": "m",
+"bbox": [
+1573,
+547,
+1600,
+581
+],
+"note": ""
+},
+{
+"index": 452,
+"row": 11,
+"col": 33,
+"glyph": "TRID",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+1618,
+544,
+1659,
+574
+],
+"note": ""
+},
+{
+"index": 453,
+"row": 11,
+"col": 34,
+"glyph": "XMARK",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+1668,
+548,
+1702,
+588
+],
+"note": ""
+},
+{
+"index": 454,
+"row": 11,
+"col": 35,
+"glyph": "FIFTEEN",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1718,
+553,
+1755,
+583
+],
+"note": ""
+},
+{
+"index": 455,
+"row": 11,
+"col": 36,
+"glyph": "EPS",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1771,
+550,
+1804,
+579
+],
+"note": ""
+},
+{
+"index": 456,
+"row": 11,
+"col": 37,
+"glyph": "SQDIAGR",
+"letter": "f",
+"letter_by_shape": "f",
+"bbox": [
+1809,
+549,
+1846,
+583
+],
+"note": ""
+},
+{
+"index": 457,
+"row": 11,
+"col": 38,
+"glyph": "ANKHFILL",
+"letter": "w",
+"letter_by_shape": "w",
+"bbox": [
+1864,
+545,
+1885,
+582
+],
+"note": ""
+},
+{
+"index": 458,
+"row": 11,
+"col": 39,
+"glyph": "EQ",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+1906,
+551,
+1939,
+569
+],
+"note": ""
+},
+{
+"index": 459,
+"row": 11,
+"col": 40,
+"glyph": "TREFOIL",
+"letter": "y",
+"letter_by_shape": "y",
+"bbox": [
+1952,
+547,
+1987,
+577
+],
+"note": ""
+},
+{
+"index": 460,
+"row": 11,
+"col": 41,
+"glyph": "DOTSQ",
+"letter": "w",
+"letter_by_shape": "w",
+"bbox": [
+1998,
+550,
+2035,
+585
+],
+"note": ""
+},
+{
+"index": 461,
+"row": 11,
+"col": 42,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+2043,
+544,
+2080,
+578
+],
+"note": ""
+},
+{
+"index": 462,
+"row": 12,
+"col": 1,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+80,
+581,
+126,
+607
+],
+"note": ""
+},
+{
+"index": 463,
+"row": 12,
+"col": 2,
+"glyph": "ARROWBOX",
+"letter": "h",
+"letter_by_shape": "h",
+"bbox": [
+138,
+586,
+175,
+620
+],
+"note": ""
+},
+{
+"index": 464,
+"row": 12,
+"col": 3,
+"glyph": "TEEL",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+184,
+579,
+206,
+624
+],
+"note": ""
+},
+{
+"index": 465,
+"row": 12,
+"col": 4,
+"glyph": "BEE",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+232,
+580,
+263,
+627
+],
+"note": ""
+},
+{
+"index": 466,
+"row": 12,
+"col": 5,
+"glyph": "ARCH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+286,
+588,
+307,
+627
+],
+"note": ""
+},
+{
+"index": 467,
+"row": 12,
+"col": 6,
+"glyph": "BRDOT",
+"letter": "d",
+"letter_by_shape": "d",
+"bbox": [
+335,
+583,
+372,
+622
+],
+"note": ""
+},
+{
+"index": 468,
+"row": 12,
+"col": 7,
+"glyph": "WAVEA",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+382,
+583,
+432,
+616
+],
+"note": ""
+},
+{
+"index": 469,
+"row": 12,
+"col": 8,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+435,
+583,
+483,
+630
+],
+"note": ""
+},
+{
+"index": 470,
+"row": 12,
+"col": 9,
+"glyph": "EPS",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+492,
+589,
+525,
+625
+],
+"note": ""
+},
+{
+"index": 471,
+"row": 12,
+"col": 10,
+"glyph": "DOT",
+"letter": "p",
+"letter_by_shape": "p",
+"bbox": [
+544,
+598,
+564,
+615
+],
+"note": ""
+},
+{
+"index": 472,
+"row": 12,
+"col": 11,
+"glyph": "SQDIAGR",
+"letter": "f",
+"letter_by_shape": "f",
+"bbox": [
+583,
+586,
+623,
+629
+],
+"note": ""
+},
+{
+"index": 473,
+"row": 12,
+"col": 12,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+628,
+587,
+670,
+625
+],
+"note": ""
+},
+{
+"index": 474,
+"row": 12,
+"col": 13,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+684,
+586,
+708,
+624
+],
+"note": ""
+},
+{
+"index": 475,
+"row": 12,
+"col": 14,
+"glyph": "SEVEN",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+730,
+586,
+759,
+629
+],
+"note": ""
+},
+{
+"index": 476,
+"row": 12,
+"col": 15,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+779,
+587,
+803,
+628
+],
+"note": ""
+},
+{
+"index": 477,
+"row": 12,
+"col": 16,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+825,
+585,
+854,
+625
+],
+"note": ""
+},
+{
+"index": 478,
+"row": 12,
+"col": 17,
+"glyph": "BSLASH",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+865,
+590,
+901,
+631
+],
+"note": ""
+},
+{
+"index": 479,
+"row": 12,
+"col": 18,
+"glyph": "WAVEM",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+920,
+589,
+955,
+617
+],
+"note": ""
+},
+{
+"index": 480,
+"row": 12,
+"col": 19,
+"glyph": "THETA",
+"letter": "u",
+"letter_by_shape": "u",
+"bbox": [
+959,
+592,
+1006,
+624
+],
+"note": ""
+},
+{
+"index": 481,
+"row": 12,
+"col": 20,
+"glyph": "PIBAR",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1010,
+592,
+1048,
+630
+],
+"note": ""
+},
+{
+"index": 482,
+"row": 12,
+"col": 21,
+"glyph": "THREE",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1059,
+591,
+1084,
+625
+],
+"note": ""
+},
+{
+"index": 483,
+"row": 12,
+"col": 22,
+"glyph": "DOTSQ",
+"letter": "w",
+"letter_by_shape": "w",
+"bbox": [
+1100,
+593,
+1134,
+626
+],
+"note": ""
+},
+{
+"index": 484,
+"row": 12,
+"col": 23,
+"glyph": "FDOT",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1149,
+591,
+1180,
+626
+],
+"note": ""
+},
+{
+"index": 485,
+"row": 12,
+"col": 24,
+"glyph": "LT",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+1203,
+588,
+1227,
+623
+],
+"note": ""
+},
+{
+"index": 486,
+"row": 12,
+"col": 25,
+"glyph": "PLUS",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1244,
+591,
+1273,
+624
+],
+"note": ""
+},
+{
+"index": 487,
+"row": 12,
+"col": 26,
+"glyph": "ANKH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1297,
+587,
+1320,
+627
+],
+"note": ""
+},
+{
+"index": 488,
+"row": 12,
+"col": 27,
+"glyph": "DASH_THICK",
+"letter": "h",
+"letter_by_shape": "l",
+"bbox": [
+1338,
+607,
+1376,
+615
+],
+"note": "One long, thick bar instead of a thin dash. Read as a merged \"=\" (EQ, h), because TECHNOLOGICAL needs an h here and the ordinary dash is l."
+},
+{
+"index": 489,
+"row": 12,
+"col": 28,
+"glyph": "CRESC",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+1393,
+594,
+1418,
+628
+],
+"note": ""
+},
+{
+"index": 490,
+"row": 12,
+"col": 29,
+"glyph": "WAVEM",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1433,
+593,
+1460,
+626
+],
+"note": ""
+},
+{
+"index": 491,
+"row": 12,
+"col": 30,
+"glyph": "XMARK",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+1479,
+592,
+1514,
+641
+],
+"note": ""
+},
+{
+"index": 492,
+"row": 12,
+"col": 31,
+"glyph": "THREE",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+1528,
+597,
+1552,
+628
+],
+"note": ""
+},
+{
+"index": 493,
+"row": 12,
+"col": 32,
+"glyph": "ODOT",
+"letter": "g",
+"letter_by_shape": "g",
+"bbox": [
+1579,
+595,
+1607,
+628
+],
+"note": ""
+},
+{
+"index": 494,
+"row": 12,
+"col": 33,
+"glyph": "FORTY",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+1622,
+590,
+1664,
+628
+],
+"note": ""
+},
+{
+"index": 495,
+"row": 12,
+"col": 34,
+"glyph": "STEP2",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1675,
+590,
+1701,
+624
+],
+"note": ""
+},
+{
+"index": 496,
+"row": 12,
+"col": 35,
+"glyph": "NI",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1724,
+594,
+1752,
+632
+],
+"note": ""
+},
+{
+"index": 497,
+"row": 12,
+"col": 36,
+"glyph": "DASH",
+"letter": "l",
+"letter_by_shape": "l",
+"bbox": [
+1771,
+604,
+1792,
+610
+],
+"note": ""
+},
+{
+"index": 498,
+"row": 12,
+"col": 37,
+"glyph": "CROSSSLASH",
+"letter": "c",
+"letter_by_shape": "c",
+"bbox": [
+1812,
+589,
+1841,
+632
+],
+"note": ""
+},
+{
+"index": 499,
+"row": 12,
+"col": 38,
+"glyph": "SQ",
+"letter": "r",
+"letter_by_shape": "r",
+"bbox": [
+1859,
+594,
+1892,
+626
+],
+"note": ""
+},
+{
+"index": 500,
+"row": 12,
+"col": 39,
+"glyph": "PHI",
+"letter": "e",
+"letter_by_shape": "e",
+"bbox": [
+1905,
+592,
+1943,
+633
+],
+"note": ""
+},
+{
+"index": 501,
+"row": 12,
+"col": 40,
+"glyph": "SIGMA",
+"letter": "a",
+"letter_by_shape": "a",
+"bbox": [
+1956,
+594,
+1987,
+626
+],
+"note": ""
+},
+{
+"index": 502,
+"row": 12,
+"col": 41,
+"glyph": "SLASH",
+"letter": "t",
+"letter_by_shape": "t",
+"bbox": [
+2000,
+591,
+2037,
+630
+],
+"note": ""
+},
+{
+"index": 503,
+"row": 12,
+"col": 42,
+"glyph": "DBLX",
+"letter": "i",
+"letter_by_shape": "i",
+"bbox": [
+2054,
+594,
+2076,
+633
+],
+"note": ""
+},
+{
+"index": 504,
+"row": 13,
+"col": 1,
+"glyph": "WAVEM",
+"letter": "o",
+"letter_by_shape": "o",
+"bbox": [
+80,
+631,
+119,
+670
+],
+"note": ""
+},
+{
+"index": 505,
+"row": 13,
+"col": 2,
+"glyph": "ALET",
+"letter": "n",
+"letter_by_shape": "n",
+"bbox": [
+133,
+634,
+166,
+676
+],
+"note": ""
+},
+{
+"index": 506,
+"row": 13,
+"col": 3,
+"glyph": "TRI",
+"letter": "s",
+"letter_by_shape": "s",
+"bbox": [
+179,
+632,
+223,
+669
+],
+"note": ""
+}
+]

@@ -1,0 +1,128 @@
+{
+ "a": [
+  "NI",
+  "SIGMA",
+  "TWELVE",
+  "SSTEP"
+ ],
+ "b": [
+  "CIRCLE",
+  "STEP3"
+ ],
+ "c": [
+  "ANKH",
+  "STEP2",
+  "CROSSSLASH"
+ ],
+ "d": [
+  "PIDOT",
+  "IPLAIN",
+  "BRDOT"
+ ],
+ "e": [
+  "PLUS",
+  "PHI",
+  "SQDIAG",
+  "FIFTEEN"
+ ],
+ "f": [
+  "YA",
+  "KAY",
+  "SQDIAGR"
+ ],
+ "g": [
+  "BSLASH",
+  "ODOT",
+  "BRHALFR"
+ ],
+ "h": [
+  "EQ",
+  "TBAR",
+  "ARROWBOX",
+  "DASH_THICK"
+ ],
+ "i": [
+  "CORNER",
+  "DBLX",
+  "FORTY",
+  "IBASE"
+ ],
+ "j": [
+  "BE2",
+  "BRHALFL"
+ ],
+ "k": [
+  "GT",
+  "SQDIAGDOT"
+ ],
+ "l": [
+  "XMARK",
+  "DASH",
+  "ARCH"
+ ],
+ "m": [
+  "TWO",
+  "F",
+  "TRIOUT",
+  "TRI_OVERWRITTEN"
+ ],
+ "n": [
+  "ALET",
+  "FDOT",
+  "CRESC"
+ ],
+ "o": [
+  "EPS",
+  "THREE",
+  "TEEL",
+  "WAVEM"
+ ],
+ "p": [
+  "DOT",
+  "TRID",
+  "EIGHT"
+ ],
+ "q": [],
+ "r": [
+  "SQ",
+  "PIBAR",
+  "SEVEN"
+ ],
+ "s": [
+  "WAVEA",
+  "STEP1",
+  "TRI"
+ ],
+ "t": [
+  "SLASH",
+  "LT",
+  "LAMBDA"
+ ],
+ "u": [
+  "BEE",
+  "PIOPEN",
+  "SQFILL",
+  "THETA"
+ ],
+ "v": [
+  "NINETY9",
+  "ARROWBOX2",
+  "HBARSQ"
+ ],
+ "w": [
+  "DOTSQ",
+  "HA",
+  "ANKHFILL"
+ ],
+ "x": [
+  "THIRTY3"
+ ],
+ "y": [
+  "CROSSHAIR",
+  "HASH",
+  "TREFOIL"
+ ],
+ "z": [
+  "W"
+ ]
+}
