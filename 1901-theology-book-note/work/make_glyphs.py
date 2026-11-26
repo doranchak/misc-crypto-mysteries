@@ -8,7 +8,7 @@ im = ImageOps.autocontrast(Image.open(SRC).convert('L'), cutoff=1)
 # (id, box) in note2 pixel coordinates; boxes from connected-component analysis, merged by hand
 G = {
  # title (bold heading set)
- 't0': (300,238,400,306), 't1': (399,256,456,306), 't2': (447,262,474,298), 't3': (467,264,493,299),
+ 't0': (300,238,387,306), 't0b': (383,262,402,286), 't1': (399,256,456,306), 't2': (447,262,474,298), 't3': (467,264,493,299),
  't4': (495,260,522,293), 't5': (511,259,546,300), 't6': (543,261,577,295), 't7': (575,264,603,285),
  't8': (585,262,620,308), 't9': (619,268,660,298),
  # line
