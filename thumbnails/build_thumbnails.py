@@ -45,6 +45,7 @@ SPEC = {
     "cipher-leads-to-an-image": ("cipher-leads-to-an-image/qkhHnIc.png", (180, 420, 1950, 1960), "auto"),
     "disturbed-student-enciphered-journal": ("disturbed-student-enciphered-journal/page 1.webp", (40, 60, 1040, 727), None),
     "oliver-twist-thrift-store": ("oliver-twist-thrift-store/book1.jpeg", (150, 250, 2900, 2083), None),
+    "gareth-penn-crypto-curiosities": ("gareth-penn-crypto-curiosities/images/times17-cover.jpg", (6, 72, 794, 598), None),
     "giokku-sci-fi-story-cipher": ("shot:", (120, 1430, 760, 1857), None),
     "mock-trial-cipher": ("mock-trial-cipher/original.png", (0, 0, 600, 400), None),
     "juniorappearance8347-pdf-password-puzzle": ("shot:", (190, 150, 760, 530), None),
