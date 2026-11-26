@@ -31,6 +31,21 @@
   .g.ok span { color: var(--ok); } .g.cap span { color: var(--cap); } .g.hd span { color: var(--hd); }
   .g.weak span { color: var(--weak); } .g.punct span { color: var(--muted); }
   .legend span { margin-right: 16px; font: 14px 'Helvetica Neue', Arial, sans-serif; }
+  .g[data-g] img, .g[data-g] span { cursor: pointer; border-radius: 4px; transition: background .08s, box-shadow .08s; }
+  .g[data-g] img:focus-visible, .g[data-g] span:focus-visible { outline: 2px solid var(--hd); outline-offset: 1px; }
+  .g.hl-g img { box-shadow: 0 0 0 3px #e0a100; background: #fff3c4; }
+  .g.hl-g span { background: #ffe9a8; }
+  .g.hl-l span { background: #cfe3ff; box-shadow: 0 0 0 2px #2f6fd0; }
+  .g.hl-l img { box-shadow: 0 0 0 3px #2f6fd0; }
+  .inter.dim .g:not(.hl-g):not(.hl-l) img { opacity: .35; }
+  .inter.dim .g:not(.hl-g):not(.hl-l) span { opacity: .45; }
+  #hlstatus { font: 14px/1.4 'Helvetica Neue', Arial, sans-serif; color: var(--muted); min-height: 1.4em; margin: 0 0 8px; }
+  #hlstatus b { color: var(--ink); }
+  #hltip { position: fixed; z-index: 50; max-width: 300px; padding: 6px 10px; border-radius: 6px;
+           background: #1d232b; color: #fff; font: 13px/1.4 'Helvetica Neue', Arial, sans-serif;
+           box-shadow: 0 4px 14px rgba(0,0,0,.25); pointer-events: none; opacity: 0; transition: opacity .1s; }
+  #hltip.on { opacity: .96; }
+  #hltip b { color: #ffd66b; }
   table { border-collapse: collapse; width: 100%; background:#fff; font-size: .95rem; }
   th, td { border: 1px solid var(--line); padding: 6px 8px; vertical-align: middle; text-align:left; }
   th { background: #f1efe9; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:.85rem; }
@@ -67,16 +82,120 @@
 
 <h2>Interlinear decipherment</h2>
 <p class="legend"><span style="color:var(--ok)">■ sentence key</span><span style="color:var(--cap)">■ capital</span><span style="color:var(--hd)">■ new letters from the title/heading pass</span><span style="color:var(--weak)">■ irregular</span><span style="color:var(--muted)">■ punctuation</span></p>
-<div class="inter">
-  <div class="row"><div class="word"><div class="g cap"><img src="glyphs/t0.png" alt="glyph t0"><span>K</span></div><div class="g ok"><img src="glyphs/t0b.png" alt="glyph t0b"><span>o</span></div><div class="g hd"><img src="glyphs/t1.png" alt="glyph t1"><span>m</span></div><div class="g hd"><img src="glyphs/t2.png" alt="glyph t2"><span>u</span></div><div class="g ok"><img src="glyphs/t3.png" alt="glyph t3"><span>n</span></div><div class="g ok"><img src="glyphs/t4.png" alt="glyph t4"><span>i</span></div><div class="g hd"><img src="glyphs/t5.png" alt="glyph t5"><span>k</span></div><div class="g ok"><img src="glyphs/t6.png" alt="glyph t6"><span>a</span></div><div class="g hd"><img src="glyphs/t7.png" alt="glyph t7"><span>c</span></div><div class="g hd"><img src="glyphs/t8.png" alt="glyph t8"><span>j</span></div><div class="g ok"><img src="glyphs/t9.png" alt="glyph t9"><span>a ,</span></div></div></div>
+<p class="small" style="margin:0 0 6px">Hover over or click a <b>glyph</b> to highlight every occurrence of that glyph (amber). Hover over or click a <b>letter</b> to highlight every occurrence of that letter (blue), including letters written with more than one glyph form. A click pins the selection; click it again, or anywhere outside, to clear it. Esc also clears.</p>
+<div class="inter" id="inter">
+  <p id="hlstatus" aria-live="polite"></p>
+  <div class="row"><div class="word"><div class="g cap" data-g="serifI" data-l="k" data-desc="serifed Ɪ (big initial = capital)"><img src="glyphs/t0.png" alt="glyph: serifed Ɪ (big initial = capital)" tabindex="0"><span tabindex="0" aria-label="letter k">K</span></div><div class="g ok" data-g="dot" data-l="o" data-desc="mid-height dot"><img src="glyphs/t0b.png" alt="glyph: mid-height dot" tabindex="0"><span tabindex="0" aria-label="letter o">o</span></div><div class="g hd" data-g="Nlead" data-l="m" data-desc="N with lead-in stroke"><img src="glyphs/t1.png" alt="glyph: N with lead-in stroke" tabindex="0"><span tabindex="0" aria-label="letter m">m</span></div><div class="g hd" data-g="V" data-l="u" data-desc="V"><img src="glyphs/t2.png" alt="glyph: V" tabindex="0"><span tabindex="0" aria-label="letter u">u</span></div><div class="g ok" data-g="arch" data-l="n" data-desc="Λ arch (title form has a cross-stroke)"><img src="glyphs/t3.png" alt="glyph: Λ arch (title form has a cross-stroke)" tabindex="0"><span tabindex="0" aria-label="letter n">n</span></div><div class="g ok" data-g="S" data-l="i" data-desc="S"><img src="glyphs/t4.png" alt="glyph: S" tabindex="0"><span tabindex="0" aria-label="letter i">i</span></div><div class="g hd" data-g="serifI" data-l="k" data-desc="serifed Ɪ (big initial = capital)"><img src="glyphs/t5.png" alt="glyph: serifed Ɪ (big initial = capital)" tabindex="0"><span tabindex="0" aria-label="letter k">k</span></div><div class="g ok" data-g="square" data-l="a" data-desc="square (dotted / heavy / plain)"><img src="glyphs/t6.png" alt="glyph: square (dotted / heavy / plain)" tabindex="0"><span tabindex="0" aria-label="letter a">a</span></div><div class="g hd" data-g="tilde" data-l="c" data-desc="tilde-like stroke"><img src="glyphs/t7.png" alt="glyph: tilde-like stroke" tabindex="0"><span tabindex="0" aria-label="letter c">c</span></div><div class="g hd" data-g="footed4" data-l="j" data-desc="&quot;4&quot;/ʎ with foot stroke"><img src="glyphs/t8.png" alt="glyph: &quot;4&quot;/ʎ with foot stroke" tabindex="0"><span tabindex="0" aria-label="letter j">j</span></div><div class="g ok" data-g="square" data-l="a" data-desc="square (dotted / heavy / plain)"><img src="glyphs/t9.png" alt="glyph: square (dotted / heavy / plain)" tabindex="0"><span tabindex="0" aria-label="letter a">a ,</span></div></div></div>
   <div class="row"><div class="word"><div class="g punct"><img src="glyphs/n1.png" alt="glyph n1"><span>1.</span></div></div>
-<div class="word"><div class="g cap"><img src="glyphs/w1_1.png" alt="glyph w1_1"><span>P</span></div><div class="g hd"><img src="glyphs/w1_2.png" alt="glyph w1_2"><span>r</span></div><div class="g ok"><img src="glyphs/w1_3.png" alt="glyph w1_3"><span>a</span></div><div class="g hd"><img src="glyphs/w1_4.png" alt="glyph w1_4"><span>k</span></div><div class="g hd"><img src="glyphs/w1_5.png" alt="glyph w1_5"><span>t</span></div><div class="g hd"><img src="glyphs/w1_6.png" alt="glyph w1_6"><span>y</span></div><div class="g weak"><img src="glyphs/w1_7.png" alt="glyph w1_7"><span>k?</span></div><div class="g ok"><img src="glyphs/w1_8.png" alt="glyph w1_8"><span>a</span></div><div class="g punct"><img src="glyphs/colon.png" alt="glyph colon"><span>:</span></div></div>
-<div class="word"><div class="g cap"><img src="glyphs/w2_1.png" alt="glyph w2_1"><span>Z</span></div><div class="g ok"><img src="glyphs/w2_2.png" alt="glyph w2_2"><span>g</span></div><div class="g ok"><img src="glyphs/w2_3.png" alt="glyph w2_3"><span>o</span></div><div class="g ok"><img src="glyphs/w2_4.png" alt="glyph w2_4"><span>d</span></div><div class="g ok"><img src="glyphs/w2_5.png" alt="glyph w2_5"><span>z</span></div><div class="g ok"><img src="glyphs/w2_6.png" alt="glyph w2_6"><span>e</span></div><div class="g ok"><img src="glyphs/w2_7.png" alt="glyph w2_7"><span>n</span></div><div class="g ok"><img src="glyphs/w2_8.png" alt="glyph w2_8"><span>i</span></div><div class="g ok"><img src="glyphs/w2_9.png" alt="glyph w2_9"><span>e</span></div></div>
-<div class="word"><div class="g ok"><img src="glyphs/w3_1.png" alt="glyph w3_1"><span>s</span></div><div class="g ok"><img src="glyphs/w3_2.png" alt="glyph w3_2"><span>i</span></div><div class="g ok"><img src="glyphs/w3_3.png" alt="glyph w3_3"><span>ę</span></div></div>
-<div class="word"><div class="g ok"><img src="glyphs/w4_1.png" alt="glyph w4_1"><span>n</span></div><div class="g ok"><img src="glyphs/w4_2.png" alt="glyph w4_2"><span>a</span></div></div>
-<div class="word"><div class="g ok"><img src="glyphs/w5_1.png" alt="glyph w5_1"><span>w</span></div><div class="g ok"><img src="glyphs/w5_2.png" alt="glyph w5_2"><span>o</span></div><div class="g ok"><img src="glyphs/w5_3.png" alt="glyph w5_3"><span>l</span></div><div class="g ok"><img src="glyphs/w5_4.png" alt="glyph w5_4"><span>ę</span></div></div>
-<div class="word"><div class="g cap"><img src="glyphs/w6_1.png" alt="glyph w6_1"><span>B</span></div><div class="g ok"><img src="glyphs/w6_2.png" alt="glyph w6_2"><span>o</span></div><div class="g ok"><img src="glyphs/w6_3.png" alt="glyph w6_3"><span>ż</span></div><div class="g ok"><img src="glyphs/w6_4.png" alt="glyph w6_4"><span>ą</span></div><div class="g punct"><img src="glyphs/stop.png" alt="glyph stop"><span>.</span></div></div></div>
+<div class="word"><div class="g cap" data-g="bshape" data-l="p" data-desc="b-shape (flipped P)"><img src="glyphs/w1_1.png" alt="glyph: b-shape (flipped P)" tabindex="0"><span tabindex="0" aria-label="letter p">P</span></div><div class="g hd" data-g="r" data-l="r" data-desc="r"><img src="glyphs/w1_2.png" alt="glyph: r" tabindex="0"><span tabindex="0" aria-label="letter r">r</span></div><div class="g ok" data-g="square" data-l="a" data-desc="square (dotted / heavy / plain)"><img src="glyphs/w1_3.png" alt="glyph: square (dotted / heavy / plain)" tabindex="0"><span tabindex="0" aria-label="letter a">a</span></div><div class="g hd" data-g="serifI" data-l="k" data-desc="serifed Ɪ (big initial = capital)"><img src="glyphs/w1_4.png" alt="glyph: serifed Ɪ (big initial = capital)" tabindex="0"><span tabindex="0" aria-label="letter k">k</span></div><div class="g hd" data-g="invT" data-l="t" data-desc="inverted T ⊥"><img src="glyphs/w1_5.png" alt="glyph: inverted T ⊥" tabindex="0"><span tabindex="0" aria-label="letter t">t</span></div><div class="g hd" data-g="dotted4" data-l="y" data-desc="ʎ with dot in loop"><img src="glyphs/w1_6.png" alt="glyph: ʎ with dot in loop" tabindex="0"><span tabindex="0" aria-label="letter y">y</span></div><div class="g weak" data-g="blob" data-l="k" data-desc="dark blob (irregular)"><img src="glyphs/w1_7.png" alt="glyph: dark blob (irregular)" tabindex="0"><span tabindex="0" aria-label="letter k">k?</span></div><div class="g ok" data-g="square" data-l="a" data-desc="square (dotted / heavy / plain)"><img src="glyphs/w1_8.png" alt="glyph: square (dotted / heavy / plain)" tabindex="0"><span tabindex="0" aria-label="letter a">a</span></div><div class="g punct"><img src="glyphs/colon.png" alt="glyph colon"><span>:</span></div></div>
+<div class="word"><div class="g cap" data-g="zOval" data-l="z" data-desc="z oval (capital Z: larger, slashed, with x; lower-case z: almond with dots)"><img src="glyphs/w2_1.png" alt="glyph: z oval (capital Z: larger, slashed, with x; lower-case z: almond with dots)" tabindex="0"><span tabindex="0" aria-label="letter z">Z</span></div><div class="g ok" data-g="check" data-l="g" data-desc="long-armed check √"><img src="glyphs/w2_2.png" alt="glyph: long-armed check √" tabindex="0"><span tabindex="0" aria-label="letter g">g</span></div><div class="g ok" data-g="dot" data-l="o" data-desc="mid-height dot"><img src="glyphs/w2_3.png" alt="glyph: mid-height dot" tabindex="0"><span tabindex="0" aria-label="letter o">o</span></div><div class="g ok" data-g="bowlD" data-l="d" data-desc="upright with up-turned bowl"><img src="glyphs/w2_4.png" alt="glyph: upright with up-turned bowl" tabindex="0"><span tabindex="0" aria-label="letter d">d</span></div><div class="g ok" data-g="zOval" data-l="z" data-desc="z oval (capital Z: larger, slashed, with x; lower-case z: almond with dots)"><img src="glyphs/w2_5.png" alt="glyph: z oval (capital Z: larger, slashed, with x; lower-case z: almond with dots)" tabindex="0"><span tabindex="0" aria-label="letter z">z</span></div><div class="g ok" data-g="stroke" data-l="e" data-desc="short slanted stroke"><img src="glyphs/w2_6.png" alt="glyph: short slanted stroke" tabindex="0"><span tabindex="0" aria-label="letter e">e</span></div><div class="g ok" data-g="arch" data-l="n" data-desc="Λ arch (title form has a cross-stroke)"><img src="glyphs/w2_7.png" alt="glyph: Λ arch (title form has a cross-stroke)" tabindex="0"><span tabindex="0" aria-label="letter n">n</span></div><div class="g ok" data-g="S" data-l="i" data-desc="S"><img src="glyphs/w2_8.png" alt="glyph: S" tabindex="0"><span tabindex="0" aria-label="letter i">i</span></div><div class="g ok" data-g="stroke" data-l="e" data-desc="short slanted stroke"><img src="glyphs/w2_9.png" alt="glyph: short slanted stroke" tabindex="0"><span tabindex="0" aria-label="letter e">e</span></div></div>
+<div class="word"><div class="g ok" data-g="triangle" data-l="s" data-desc="filled triangle ∆"><img src="glyphs/w3_1.png" alt="glyph: filled triangle ∆" tabindex="0"><span tabindex="0" aria-label="letter s">s</span></div><div class="g ok" data-g="S" data-l="i" data-desc="S"><img src="glyphs/w3_2.png" alt="glyph: S" tabindex="0"><span tabindex="0" aria-label="letter i">i</span></div><div class="g ok" data-g="strokeHook" data-l="ę" data-desc="stroke + zigzag hook"><img src="glyphs/w3_3.png" alt="glyph: stroke + zigzag hook" tabindex="0"><span tabindex="0" aria-label="letter ę">ę</span></div></div>
+<div class="word"><div class="g ok" data-g="arch" data-l="n" data-desc="Λ arch (title form has a cross-stroke)"><img src="glyphs/w4_1.png" alt="glyph: Λ arch (title form has a cross-stroke)" tabindex="0"><span tabindex="0" aria-label="letter n">n</span></div><div class="g ok" data-g="square" data-l="a" data-desc="square (dotted / heavy / plain)"><img src="glyphs/w4_2.png" alt="glyph: square (dotted / heavy / plain)" tabindex="0"><span tabindex="0" aria-label="letter a">a</span></div></div>
+<div class="word"><div class="g ok" data-g="staff" data-l="w" data-desc="staff with two crossbars ‡"><img src="glyphs/w5_1.png" alt="glyph: staff with two crossbars ‡" tabindex="0"><span tabindex="0" aria-label="letter w">w</span></div><div class="g ok" data-g="dot" data-l="o" data-desc="mid-height dot"><img src="glyphs/w5_2.png" alt="glyph: mid-height dot" tabindex="0"><span tabindex="0" aria-label="letter o">o</span></div><div class="g ok" data-g="flatL" data-l="l" data-desc="upright with flat foot ┘"><img src="glyphs/w5_3.png" alt="glyph: upright with flat foot ┘" tabindex="0"><span tabindex="0" aria-label="letter l">l</span></div><div class="g ok" data-g="strokeHook" data-l="ę" data-desc="stroke + zigzag hook"><img src="glyphs/w5_4.png" alt="glyph: stroke + zigzag hook" tabindex="0"><span tabindex="0" aria-label="letter ę">ę</span></div></div>
+<div class="word"><div class="g cap" data-g="Lshape" data-l="b" data-desc="L-shape └"><img src="glyphs/w6_1.png" alt="glyph: L-shape └" tabindex="0"><span tabindex="0" aria-label="letter b">B</span></div><div class="g ok" data-g="dot" data-l="o" data-desc="mid-height dot"><img src="glyphs/w6_2.png" alt="glyph: mid-height dot" tabindex="0"><span tabindex="0" aria-label="letter o">o</span></div><div class="g ok" data-g="ovalDot" data-l="ż" data-desc="oval-with-x + dot above"><img src="glyphs/w6_3.png" alt="glyph: oval-with-x + dot above" tabindex="0"><span tabindex="0" aria-label="letter ż">ż</span></div><div class="g ok" data-g="squareHook" data-l="ą" data-desc="square + zigzag hook"><img src="glyphs/w6_4.png" alt="glyph: square + zigzag hook" tabindex="0"><span tabindex="0" aria-label="letter ą">ą</span></div><div class="g punct"><img src="glyphs/stop.png" alt="glyph stop"><span>.</span></div></div></div>
 </div>
+<script>
+(function () {
+  const box = document.getElementById('inter');
+  const cells = Array.from(box.querySelectorAll('.g[data-g]'));
+  const status = document.getElementById('hlstatus');
+  const tip = document.createElement('div');
+  tip.id = 'hltip'; tip.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(tip);
+  const IDLE = 'Hover or click a glyph or a letter.';
+  let pinned = null;            // {sel:{mode,key}, anchor:element}
+  let current = null;           // what is on screen now: {sel, anchor}
+  function same(a, b) { return a && b && a.mode === b.mode && a.key === b.key; }
+
+  function describe(sel, hits) {
+    const n = hits.length, occ = n + (n === 1 ? ' occurrence' : ' occurrences');
+    const pin = pinned && same(pinned.sel, sel) ? ' <i>(pinned)</i>' : '';
+    if (sel.mode === 'g') {
+      const letters = Array.from(new Set(hits.map(c => c.dataset.l)));
+      return 'Glyph <b>' + hits[0].dataset.desc + '</b> = <b>' + letters.join(' / ') + '</b>: ' + occ + pin;
+    }
+    const forms = Array.from(new Set(hits.map(c => c.dataset.desc)));
+    return 'Letter <b>' + sel.key + '</b>: ' + occ + ', written with ' + forms.length +
+      (forms.length === 1 ? ' glyph form' : ' glyph forms') + ' (' + forms.join('; ') + ')' + pin;
+  }
+
+  // Place the tooltip where it covers no highlighted glyph (and not the hovered one).
+  function placeTip(anchor, hits) {
+    const tw = tip.offsetWidth, th = tip.offsetHeight, pad = 6, gap = 12;
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const avoid = hits.map(c => c.getBoundingClientRect());
+    const cell = anchor.closest('.g'), word = anchor.closest('.word'), row = anchor.closest('.row');
+    const a = cell.getBoundingClientRect(), w = word.getBoundingClientRect();
+    const r = row.getBoundingClientRect(), b = box.getBoundingClientRect();
+    const rowEnd = Math.max(...Array.from(row.children).map(x => x.getBoundingClientRect().right));
+    const midY = a.top + a.height / 2 - th / 2;
+    const cands = [
+      [w.right + gap, midY],                 // just right of the hovered word
+      [w.left - gap - tw, midY],             // just left of it
+      [rowEnd + gap, midY],                  // past the end of the row
+      [a.left, r.bottom + 4],                // in the gap below the row
+      [a.left, r.top - th - 4],              // in the gap above the row
+      [a.left, b.top - th - 8],              // above the whole interlinear box
+      [a.left, b.bottom + 8],                // below it
+      [w.right + gap, w.bottom + 4],         // diagonal fallbacks
+      [w.left - gap - tw, w.top - th - 4],
+    ];
+    const overlaps = (x, y) => avoid.concat([a]).some(q =>
+      x < q.right + pad && x + tw > q.left - pad && y < q.bottom + pad && y + th > q.top - pad);
+    const fits = (x, y) => x >= 4 && y >= 4 && x + tw <= vw - 4 && y + th <= vh - 4;
+    let pos = null;
+    for (const [x0, y0] of cands) {
+      const x = Math.min(Math.max(x0, 4), vw - tw - 4);   // slide horizontally into view
+      if (fits(x, y0) && !overlaps(x, y0)) { pos = [x, y0]; break; }
+    }
+    if (!pos) pos = [vw - tw - 12, 12];                   // last resort: top-right corner
+    tip.style.left = pos[0] + 'px'; tip.style.top = pos[1] + 'px';
+  }
+
+  function show(state) {
+    current = state;
+    cells.forEach(c => c.classList.remove('hl-g', 'hl-l'));
+    if (!state) {
+      box.classList.remove('dim'); status.textContent = IDLE; tip.classList.remove('on'); return;
+    }
+    const sel = state.sel, attr = sel.mode === 'g' ? 'g' : 'l';
+    const hits = cells.filter(c => c.dataset[attr] === sel.key);
+    hits.forEach(c => c.classList.add(sel.mode === 'g' ? 'hl-g' : 'hl-l'));
+    box.classList.add('dim');
+    const text = describe(sel, hits);
+    status.innerHTML = text;
+    tip.innerHTML = text;
+    tip.classList.add('on');
+    placeTip(state.anchor, hits);
+  }
+  function selFor(el) {
+    const cell = el.closest('.g[data-g]');
+    return el.tagName === 'IMG' ? {mode: 'g', key: cell.dataset.g} : {mode: 'l', key: cell.dataset.l};
+  }
+  cells.forEach(cell => {
+    [cell.querySelector('img'), cell.querySelector('span')].forEach(el => {
+      el.addEventListener('mouseenter', () => show({sel: selFor(el), anchor: el}));
+      el.addEventListener('mouseleave', () => show(pinned));
+      el.addEventListener('focus', () => show({sel: selFor(el), anchor: el}));
+      el.addEventListener('blur', () => show(pinned));
+      const toggle = (ev) => {
+        ev.stopPropagation();
+        const s = selFor(el);
+        pinned = pinned && same(pinned.sel, s) ? null : {sel: s, anchor: el};
+        show(pinned || {sel: s, anchor: el});
+      };
+      el.addEventListener('click', toggle);
+      el.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggle(ev); } });
+    });
+  });
+  document.addEventListener('click', () => { if (pinned) { pinned = null; show(null); } });
+  document.addEventListener('keydown', ev => { if (ev.key === 'Escape') { pinned = null; show(null); } });
+  const reflow = () => { if (current) show(current); };
+  window.addEventListener('scroll', reflow, {passive: true});
+  window.addEventListener('resize', reflow);
+  show(null);
+})();
+</script>
 
 <h2>The key</h2>
 <h3 style="font-size:1.05rem;margin:14px 0 6px">From the sentence (thin pen)</h3>

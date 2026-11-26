@@ -19,6 +19,32 @@ LINE = [
     [('w6_1', 'B', 'cap'), ('w6_2', 'o', 'ok'), ('w6_3', 'ż', 'ok'), ('w6_4', 'ą', 'ok'), ('stop', '.', 'punct')],
 ]
 
+# ---- glyph classes for hover/click highlighting: crop id -> glyph-class id ----
+# Same class = same glyph shape (as read). The letter highlight is separate, so a letter with two
+# glyph forms (k = serifed I or the blob; z = almond or capital oval) still lights up in full.
+GCLASS = {
+    't0': 'serifI', 't0b': 'dot', 't1': 'Nlead', 't2': 'V', 't3': 'arch', 't4': 'S', 't5': 'serifI',
+    't6': 'square', 't7': 'tilde', 't8': 'footed4',  't9': 'square',
+    'w1_1': 'bshape', 'w1_2': 'r', 'w1_3': 'square', 'w1_4': 'serifI', 'w1_5': 'invT', 'w1_6': 'dotted4',
+    'w1_7': 'blob', 'w1_8': 'square',
+    'w2_1': 'zOval', 'w2_2': 'check', 'w2_3': 'dot', 'w2_4': 'bowlD', 'w2_5': 'zOval', 'w2_6': 'stroke',
+    'w2_7': 'arch', 'w2_8': 'S', 'w2_9': 'stroke',
+    'w3_1': 'triangle', 'w3_2': 'S', 'w3_3': 'strokeHook',
+    'w4_1': 'arch', 'w4_2': 'square',
+    'w5_1': 'staff', 'w5_2': 'dot', 'w5_3': 'flatL', 'w5_4': 'strokeHook',
+    'w6_1': 'Lshape', 'w6_2': 'dot', 'w6_3': 'ovalDot', 'w6_4': 'squareHook',
+}
+GDESC = {
+    'serifI': 'serifed Ɪ (big initial = capital)', 'dot': 'mid-height dot', 'Nlead': 'N with lead-in stroke',
+    'V': 'V', 'arch': 'Λ arch (title form has a cross-stroke)', 'S': 'S', 'square': 'square (dotted / heavy / plain)',
+    'tilde': 'tilde-like stroke', 'footed4': '"4"/ʎ with foot stroke', 'bshape': 'b-shape (flipped P)',
+    'r': 'r', 'invT': 'inverted T ⊥', 'dotted4': 'ʎ with dot in loop', 'blob': 'dark blob (irregular)',
+    'check': 'long-armed check √', 'bowlD': 'upright with up-turned bowl',
+    'zOval': 'z oval (capital Z: larger, slashed, with x; lower-case z: almond with dots)', 'stroke': 'short slanted stroke', 'triangle': 'filled triangle ∆',
+    'strokeHook': 'stroke + zigzag hook', 'staff': 'staff with two crossbars ‡', 'flatL': 'upright with flat foot ┘',
+    'Lshape': 'L-shape └', 'ovalDot': 'oval-with-x + dot above', 'squareHook': 'square + zigzag hook',
+}
+
 # ---- key tables ----
 KEY = [
     ('w2_3', 'small mid-height dot', 'o', 'Appears inside words wherever Polish needs <i>o</i> (zg<b>o</b>dzenie, w<b>o</b>lę, B<b>o</b>żą, and K<b>o</b>munikacja). My first pass took it for punctuation, and that one mistake hid the whole solution.'),
@@ -56,8 +82,16 @@ HEAD_PLAIN = 'Praktyka'
 
 
 def glyph_cell(gid, letter, cls):
-    return (f'<div class="g {cls}"><img src="glyphs/{gid}.png" alt="glyph {gid}">'
-            f'<span>{html.escape(letter)}</span></div>')
+    g = GCLASS.get(gid)
+    if g is None:  # punctuation: not interactive
+        return (f'<div class="g {cls}"><img src="glyphs/{gid}.png" alt="glyph {gid}">'
+                f'<span>{html.escape(letter)}</span></div>')
+    base = letter.replace('?', '').replace(',', '').strip().lower()
+    # no native title= tooltips: they sit under the cursor and hide highlighted glyphs;
+    # the page script shows its own tooltip placed clear of every highlighted glyph.
+    return (f'<div class="g {cls}" data-g="{g}" data-l="{html.escape(base)}" data-desc="{html.escape(GDESC[g])}">'
+            f'<img src="glyphs/{gid}.png" alt="glyph: {html.escape(GDESC[g])}" tabindex="0">'
+            f'<span tabindex="0" aria-label="letter {html.escape(base)}">{html.escape(letter)}</span></div>')
 
 
 def words_html(words):
@@ -114,6 +148,21 @@ PAGE = f"""<!DOCTYPE html>
   .g.ok span {{ color: var(--ok); }} .g.cap span {{ color: var(--cap); }} .g.hd span {{ color: var(--hd); }}
   .g.weak span {{ color: var(--weak); }} .g.punct span {{ color: var(--muted); }}
   .legend span {{ margin-right: 16px; font: 14px 'Helvetica Neue', Arial, sans-serif; }}
+  .g[data-g] img, .g[data-g] span {{ cursor: pointer; border-radius: 4px; transition: background .08s, box-shadow .08s; }}
+  .g[data-g] img:focus-visible, .g[data-g] span:focus-visible {{ outline: 2px solid var(--hd); outline-offset: 1px; }}
+  .g.hl-g img {{ box-shadow: 0 0 0 3px #e0a100; background: #fff3c4; }}
+  .g.hl-g span {{ background: #ffe9a8; }}
+  .g.hl-l span {{ background: #cfe3ff; box-shadow: 0 0 0 2px #2f6fd0; }}
+  .g.hl-l img {{ box-shadow: 0 0 0 3px #2f6fd0; }}
+  .inter.dim .g:not(.hl-g):not(.hl-l) img {{ opacity: .35; }}
+  .inter.dim .g:not(.hl-g):not(.hl-l) span {{ opacity: .45; }}
+  #hlstatus {{ font: 14px/1.4 'Helvetica Neue', Arial, sans-serif; color: var(--muted); min-height: 1.4em; margin: 0 0 8px; }}
+  #hlstatus b {{ color: var(--ink); }}
+  #hltip {{ position: fixed; z-index: 50; max-width: 300px; padding: 6px 10px; border-radius: 6px;
+           background: #1d232b; color: #fff; font: 13px/1.4 'Helvetica Neue', Arial, sans-serif;
+           box-shadow: 0 4px 14px rgba(0,0,0,.25); pointer-events: none; opacity: 0; transition: opacity .1s; }}
+  #hltip.on {{ opacity: .96; }}
+  #hltip b {{ color: #ffd66b; }}
   table {{ border-collapse: collapse; width: 100%; background:#fff; font-size: .95rem; }}
   th, td {{ border: 1px solid var(--line); padding: 6px 8px; vertical-align: middle; text-align:left; }}
   th {{ background: #f1efe9; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:.85rem; }}
@@ -150,10 +199,114 @@ PAGE = f"""<!DOCTYPE html>
 
 <h2>Interlinear decipherment</h2>
 <p class="legend"><span style="color:var(--ok)">■ sentence key</span><span style="color:var(--cap)">■ capital</span><span style="color:var(--hd)">■ new letters from the title/heading pass</span><span style="color:var(--weak)">■ irregular</span><span style="color:var(--muted)">■ punctuation</span></p>
-<div class="inter">
+<p class="small" style="margin:0 0 6px">Hover over or click a <b>glyph</b> to highlight every occurrence of that glyph (amber). Hover over or click a <b>letter</b> to highlight every occurrence of that letter (blue), including letters written with more than one glyph form. A click pins the selection; click it again, or anywhere outside, to clear it. Esc also clears.</p>
+<div class="inter" id="inter">
+  <p id="hlstatus" aria-live="polite"></p>
   <div class="row">{title_html}</div>
   <div class="row">{line_html}</div>
 </div>
+<script>
+(function () {{
+  const box = document.getElementById('inter');
+  const cells = Array.from(box.querySelectorAll('.g[data-g]'));
+  const status = document.getElementById('hlstatus');
+  const tip = document.createElement('div');
+  tip.id = 'hltip'; tip.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(tip);
+  const IDLE = 'Hover or click a glyph or a letter.';
+  let pinned = null;            // {{sel:{{mode,key}}, anchor:element}}
+  let current = null;           // what is on screen now: {{sel, anchor}}
+  function same(a, b) {{ return a && b && a.mode === b.mode && a.key === b.key; }}
+
+  function describe(sel, hits) {{
+    const n = hits.length, occ = n + (n === 1 ? ' occurrence' : ' occurrences');
+    const pin = pinned && same(pinned.sel, sel) ? ' <i>(pinned)</i>' : '';
+    if (sel.mode === 'g') {{
+      const letters = Array.from(new Set(hits.map(c => c.dataset.l)));
+      return 'Glyph <b>' + hits[0].dataset.desc + '</b> = <b>' + letters.join(' / ') + '</b>: ' + occ + pin;
+    }}
+    const forms = Array.from(new Set(hits.map(c => c.dataset.desc)));
+    return 'Letter <b>' + sel.key + '</b>: ' + occ + ', written with ' + forms.length +
+      (forms.length === 1 ? ' glyph form' : ' glyph forms') + ' (' + forms.join('; ') + ')' + pin;
+  }}
+
+  // Place the tooltip where it covers no highlighted glyph (and not the hovered one).
+  function placeTip(anchor, hits) {{
+    const tw = tip.offsetWidth, th = tip.offsetHeight, pad = 6, gap = 12;
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const avoid = hits.map(c => c.getBoundingClientRect());
+    const cell = anchor.closest('.g'), word = anchor.closest('.word'), row = anchor.closest('.row');
+    const a = cell.getBoundingClientRect(), w = word.getBoundingClientRect();
+    const r = row.getBoundingClientRect(), b = box.getBoundingClientRect();
+    const rowEnd = Math.max(...Array.from(row.children).map(x => x.getBoundingClientRect().right));
+    const midY = a.top + a.height / 2 - th / 2;
+    const cands = [
+      [w.right + gap, midY],                 // just right of the hovered word
+      [w.left - gap - tw, midY],             // just left of it
+      [rowEnd + gap, midY],                  // past the end of the row
+      [a.left, r.bottom + 4],                // in the gap below the row
+      [a.left, r.top - th - 4],              // in the gap above the row
+      [a.left, b.top - th - 8],              // above the whole interlinear box
+      [a.left, b.bottom + 8],                // below it
+      [w.right + gap, w.bottom + 4],         // diagonal fallbacks
+      [w.left - gap - tw, w.top - th - 4],
+    ];
+    const overlaps = (x, y) => avoid.concat([a]).some(q =>
+      x < q.right + pad && x + tw > q.left - pad && y < q.bottom + pad && y + th > q.top - pad);
+    const fits = (x, y) => x >= 4 && y >= 4 && x + tw <= vw - 4 && y + th <= vh - 4;
+    let pos = null;
+    for (const [x0, y0] of cands) {{
+      const x = Math.min(Math.max(x0, 4), vw - tw - 4);   // slide horizontally into view
+      if (fits(x, y0) && !overlaps(x, y0)) {{ pos = [x, y0]; break; }}
+    }}
+    if (!pos) pos = [vw - tw - 12, 12];                   // last resort: top-right corner
+    tip.style.left = pos[0] + 'px'; tip.style.top = pos[1] + 'px';
+  }}
+
+  function show(state) {{
+    current = state;
+    cells.forEach(c => c.classList.remove('hl-g', 'hl-l'));
+    if (!state) {{
+      box.classList.remove('dim'); status.textContent = IDLE; tip.classList.remove('on'); return;
+    }}
+    const sel = state.sel, attr = sel.mode === 'g' ? 'g' : 'l';
+    const hits = cells.filter(c => c.dataset[attr] === sel.key);
+    hits.forEach(c => c.classList.add(sel.mode === 'g' ? 'hl-g' : 'hl-l'));
+    box.classList.add('dim');
+    const text = describe(sel, hits);
+    status.innerHTML = text;
+    tip.innerHTML = text;
+    tip.classList.add('on');
+    placeTip(state.anchor, hits);
+  }}
+  function selFor(el) {{
+    const cell = el.closest('.g[data-g]');
+    return el.tagName === 'IMG' ? {{mode: 'g', key: cell.dataset.g}} : {{mode: 'l', key: cell.dataset.l}};
+  }}
+  cells.forEach(cell => {{
+    [cell.querySelector('img'), cell.querySelector('span')].forEach(el => {{
+      el.addEventListener('mouseenter', () => show({{sel: selFor(el), anchor: el}}));
+      el.addEventListener('mouseleave', () => show(pinned));
+      el.addEventListener('focus', () => show({{sel: selFor(el), anchor: el}}));
+      el.addEventListener('blur', () => show(pinned));
+      const toggle = (ev) => {{
+        ev.stopPropagation();
+        const s = selFor(el);
+        pinned = pinned && same(pinned.sel, s) ? null : {{sel: s, anchor: el}};
+        show(pinned || {{sel: s, anchor: el}});
+      }};
+      el.addEventListener('click', toggle);
+      el.addEventListener('keydown', ev => {{ if (ev.key === 'Enter' || ev.key === ' ') {{ ev.preventDefault(); toggle(ev); }} }});
+    }});
+  }});
+  document.addEventListener('click', () => {{ if (pinned) {{ pinned = null; show(null); }} }});
+  document.addEventListener('keydown', ev => {{ if (ev.key === 'Escape') {{ pinned = null; show(null); }} }});
+  const reflow = () => {{ if (current) show(current); }};
+  window.addEventListener('scroll', reflow, {{passive: true}});
+  window.addEventListener('resize', reflow);
+  show(null);
+}})();
+</script>
 
 <h2>The key</h2>
 <h3 style="font-size:1.05rem;margin:14px 0 6px">From the sentence (thin pen)</h3>
