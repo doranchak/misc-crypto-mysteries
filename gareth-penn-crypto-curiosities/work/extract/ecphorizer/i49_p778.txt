@@ -1,0 +1,46 @@
+The Price of Valor
+Gareth Penn
+Recently, Newsweek ran a short item on the decorations now being issued to servicemen who took part in the invasion of Grenada. There were, it turns out, approximately 100 medals granted by the Army for every combat death. This is a rather striking statistic. Since no one should go through life without doing a statistical study of something, I determined to use this
+ There are a number of decorations that you can get for doing nothing...
+ information as the basis of an analysis of the price of valor in America. Seen in its historical perspective, this analysis produces some rather interesting results.
+There are a number of decorations that you can get for doing nothing, or next to it. You get the National Defense Service Medal just for staying in the Army for six months. The Good Conduct Medal is for getting through an entire enlistment without a court-martial. The Purple Heart is for standing in the wrong place at the wrong time (i.e. in the line of fire). A few decorations are for manifestations of valor, which is supposed to mean that you do something that places your life in jeopardy, and the highest awards are supposed to be for having done so when it wasn't absolutely required of you. All other things being equal, there ought to be a relatively constant relationship between combat deaths or overall casualties and the number of combat decorations, but there isn't. Obviously, there are other factors involved.
+The medal that is generally regarded as the highest the nation has to offer is the Medal of Honor. Fewer of them are given out than any other decoration. It ought to be some kind of index to the willingness of American fighting men to risk their lives in the furtherance of national objectives. Similarly, if we are to determine a price for this commodity, it must be in terms of some quantifiable currency or unit of production. Since the currency of war is death, I chose combat deaths as the base against which to measure the rate of issuance of the Medal of Honor.
+The Medal of Honor was created by Congress in 1863, during the darkest days (for the Union) of the Civil War. The country was riven by fratricidal strife. New York City was paralyzed by draft riots. Copperheads were sowing dissension everywhere. The Medal of Honor was clearly intended as a morale-booster; in fact, the first 19 of them struck were bestowed batchwise on the members of a commando raiding party that had pulled off a spectacular coup deep in Confederate territory. The medal was so popular, in fact, that it could achieve what mere money or appeals to patriotism could not: hundreds of Medals of Honor were issued to members of one Michigan volunteer unit who threatened not to reenlist, in order to keep them at the front. This decoration, in other words, which was ostensibly intended as a mark of courage, was used as a bribe. From the time of its inception, the Medal of Honor was cheap. It took the lives of only 56 Union soldiers to purchase one of them. It didn't stop with the Civil War. The medal got cheaper. In the Spanish-American War, the price of one Medal of Honor plummeted to 3.5 American lives (see table below).
+ War
+Combat Deaths per Medal Of Honor
+All Casualties per Medal of Honor
+Total Medals of Honor
+ Civil War
+56*
+57*
+2,514
+Spanish-American
+3.5
+37
+111
+World War I
+431
+2,586
+124
+World War II
+673
+2,484
+431
+Korean
+257
+1,202
+131
+Vietnam
+200
+895
+239
+*  The Medal of Honor was awarded in only a handful of cases retroactive from 1863; the number of combat deaths or casualties per Medal of Honor after its inception is therefore considerably lower than 56, which is based on all combat deaths for the entire war, beginning in April 1861.
+How do the two World Wars differ from the others in such a way as to explain this discrepancy in the price of valor? I would suggest that in those wars, there was little doubt about purpose or morality. British propaganda anno 1917 about Huns playing keepaway with Belgain babies may have been considerably exaggerated, but most Americans believed it. And even the most far-fetched wartime propaganda about Hitler in the second war paled into insignificance when compared with the truth that came to light with the liberation of Buchenwald and Auschwitz. These wars were perceived to be just wars fought against fiends.
+The Civil War was an intensely disliked war. It is in the nature of civil wars that they are unpopular. Many soldiers werre shot by their own side for desertion or falling asleep at thir posts. It was the first American war in which there was forced conscription. Casualties were heavy, and the direction of the war on the Union side was widely perceived as incompetent. Moral values and Constitutional legalisms were not enough to sustain the nation's fighting spirit. So Congress created a bit of pomp with which to paper over the cracks in the social fabric.
+Everyone thinks today of the Spanish-American War as an ebullient manifestation of jingoism behind which all Americans rallied. In fact, the war was accompanied by anti-war demonstrations, many of which led to violent confrontations with the police, especially when it degenerated into a guerrilla war against the Insurrectos of the Philippines. It was in many respects a mean, cowardly war, fought against a decrepit European power far from its home base and against half-naked natives who had done nothing to merit being colonized by the United States, a process which involved a number of My Lai-type massacres of women and children. I suggest that the inordinately large number of medals issued during that war were meant to serve as a distraction from the moral issues.
+Whatever the moral issues in Korea, the war was regarded as unwinnable; politicians had tied the hands of the military and ducked behind the ethical euphemism of "police action." The political divisions created by this war were exceeded only by those arising out of the conflict in Viet Nam, which was perceived eventually by most Americans as not only immoral but unwinnable as well. No wonder the Medal of Honor came so cheap. It had turned into just another bribe, like the pizzas and beer choppered into the LZ's right after the firefights. Wars in which enlisted men conspire to murder their own officers are wars in which you crank out the gimcracks.
+While no Medal of Honor has yet been awarded for action in Grenada, the volume of Bronze Stars and other lesser decorations speaks for the unease with which the brass view the action. The government's self-serving rationalizations about the necessity of the invasion have a hollow ring to ears schooled on Viet Nam-era public relations boilerplate, and at the very least, the opposing side was such a puny pushover that it hardly seems worthy of such a mighty war machine as ours. There may be another reason, as well; the luster of all those medals, which reflect such glory on the military, glosses over the tragic outcome of our stupid and pointless involvement in Lebanon.
+ Gareth Penn. The Price of Valor. Issue #34 (6/1984) The Ecphorizer (www.ecphorizer.com)
+
+Source: https://www.ecphorizer.com/EPS/site_page.php?issue=49&page=778
+Contributor/editor note on live page (fetched 2026-11-25): We at The Ecphorizer leave it as an exercise for the reader to expand the table to the left to include Kosovo, Gulf War I, Afghanistan, and Iraq.  We welcome updates!

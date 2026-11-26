@@ -1,0 +1,463 @@
+Gareth Penn
+5029 – 22nd Avenue NE
+Seattle WA 98105
+(206)362-3999
+gareth.s.penn@gmail.com
+
+
+
+
+The Zodiac literature:
+digital, multidimensional, nonverbal
+
+
+Abstract
+For over a half-century, the enigmatic deeds and writings of the Zodiac murderer have both intrigued and baffled the police, the press, and the public. Analytical efforts focused on the four Zodiac ciphers have led to a plethora of mutually contradictory explications, while the roughly two dozen Zodiac letters have largely been ignored. I propose here a different way of looking at the acts, ciphers, and letters, as parts of a multidimensional composition in which linguistic content is disguised by transliteration into International Morse Code and then digital redivision. A significant proportion of the content is expressed nonverbally.
+
+
+The first Zodiac cipher is presented as a perfect rectangle having 24 rows and 17 columns. The second cipher is written as a perfect rectangle of 20 rows and 17 columns. The third cipher, written in 13 symbols, does not appear, at first glance, to have a particular format. The fourth cipher, written in 32 symbols, is presented as one row of 17 symbols followed by an incomplete row of 15. It could have been written in two rows of 16 symbols, or four rows of eight, or as a single row of 32 characters. Since the first two ciphers clearly establish a standard n x 17 format, the fourth cipher has to be seen as an imperfect 2 x 17 rectangle; that being the case, there is no reason not to see the third cipher as another exemplar of the format, i.e. an imperfect 1 x 17 rectangle. I have formatted all other Zodiac texts, letters and inscriptions, in the same format for analytical purposes. Reformatting the texts elicits from them a number of striking two-dimensional effects.
+
+I have also transcribed all texts into digital form, converting Arabic numbers into their base-two equivalents, then replacing all Roman letters with Morse characters, using 1 for dah and 0 for dit. All non-alphanumeric characters (spaces, ampersands, punctuation marks, cipher symbols, etc.) are omitted. Digitized Word files can be searched, using the search and replace feature of the application, for any digital string in seconds.
+
+
+The n x 17 rectangular format imparts to the texts the ability to express content in nonverbal fashion, in which multidimensional geometry takes the place of linear syntax. To assist the analyst, the author includes in his work a number of lessons demonstrating the method. Here is an example from the Zodiac’s first letter, postmarked in Riverside, California, on 29 November 1966. This excerpt contains the name of the murderer’s first victim (BATES), occurring only once in this text, and the first of two instances of the word KNIFE, the weapon used to murder her. PI appears at Row 31, Column 4 (31,4), replicating the numerical writing of the mathematical constant π (3.14…). The column containing BATES intersects with the row containing KNIFE at position #1030 (61,10), which replicates the date on which the author murdered a woman named Bates with a knife (30 October = 10/30). These effects are format-dependent; in any other format — or in no format at all — they would be impossible. This exhibit exemplifies two ways in which the author defines information: by intersection (BATES x KNIFE at #1030) and by row- and column-coordinates (PI = 31,4). Other methods will be discussed as they arise.
+
+DAUGHTERSANDWIVES
+OFFTHESTREETSANDA
+LLEYSMISSBATESWAS 30 
+STUPIDSHEWENTTOTH   31,4
+ESLAUGHTERLIKEALA
+MBSHEDIDNOTPUTUPA
+
+
+NDOVERHERMOUTHAND
+MYOTHERHANDWITHAS 60 
+MALLKNIFEATHERTHR   #1030
+OATSHEWENTVERYWIL
+LINGLYHERBREASTFE
+
+
+In the first week of October 1970, the Zodiac sent the Chronicle a homemade postcard to which he had affixed snippets of text cut out of a newspaper in the manner of a ransom note. In one end of the card, he made thirteen holes with a paper punch. The text contains the word THIRTEENTH and the Arabic numeral 13, so the news media had a field day with the theory that the author was claiming to have murdered thirteen people, even though the text says no such thing; in fact, it says nothing about murder at all, in any quantity.
+
+
+What everyone failed to notice amidst the media frenzy about the supposed thirteen murders-claim is the card’s most remarkable feature. It is the only text in the Zodiac literature which is dated by the author. A date is a normal feature of a conventional letter; there is none in any Zodiac text but this one: “Mon., Oct. 5, 1970.” The text also contains one instance of the constant PI. If the initial O of OCT5 = 5 October and each subsequent character = one day, then PI falls on 14 March, a date written numerically as 3/14 and popularly known as Pi Day because of its resemblance to the mathematical constant π (3.14…). The principle illustrated here can be applied to other Zodiac texts; given a known date, a text can be read as a calendar in which time passes at the rate of one day per alphanumeric character. Written in the plane of paper, Zodiac texts have two dimensions (length and width); the use of calendars such as this one add a third dimension (time). 
+
+
+MONOCT51970DEARED
+ITORYOULLHATEMEBU
+TIVEGOTTOTELLYOUT
+HEPACEISNTANYSLOW
+ERINFACTITSJUSTON 5
+EBIGTHIRTEENTH13S
+OMEOFTHEMFOUGHTIT
+WASHORRIBLEZODIAC
+PSTHEREAREREPORTS
+CITYPOLICEPIGCOPS 10 OCT5…14 March
+ARECLOSEINGINONME
+FKIMCRACKPROOFWHA
+TISTHEPRICETAGNOW
+
+
+This exhibit is excerpted from the letter to the San Francisco Examiner of 1 August 1969. The initial 4 of 4THOFJULY falls at #248; if each subsequent alphanumeric character = one day, then the next iteration of the date is #613 (248 + 365); it’s the highlighted I at 37,1. The column containing 4THOFJULY and the row containing #613 intersect at VALLEJO (37,10), the name of a community in which the author had committed a murder on 4 July 1969.
+
+
+CHEERUPWHENTHEYDO
+CRACKITTHEYWILLHA
+VEMEONTHE4THOFJUL 15
+YIDIDNOTOPENTHECA
+RDOORTHEWINDOWWAS
+ROLLEDDOWNALLREAD
+YTHEBOYWASORIGION
+ALYSITTINGINTHEFR 20
+ONTSEATWHENIBEGAN
+FIREINGWHENIFIRED
+THEFIRSTSHOTATHIS
+HEADHELEAPEDBACKW
+ARDSATTHESAMETIME 25
+THUSSPOILINGMYAIM
+HEENDEDUPONTHEBAC
+KSEATTHENTHEFLOOR
+INBACKTHASHINGOUT
+VERYVIOLENTLYWITH 30
+HISLEGSTHATSHOWIS
+HOTHIMINTHEKNEEID
+IDNOTLEAVETHECENE
+OFTHEKILLINGWITHS
+QUEALLINGTIRESRAC 35
+EINGENGINEASDESCR
+IBEDINTHEVALLEJOP   4THOFJULY + 365
+APERIDROVEAWAYQUI
+TESLOWLYSOASNOTTO
+
+
+In July 1970, the Zodiac sent the San Francisco Chronicle a letter of which this excerpt is the opening. The highlighted forms are the first two of four PIs occurring in this text. They intersect at a position expressing π, #314 (19,8).
+
+
+THISISTHEZODIACSP
+EAKINGBEINGTHATYO
+UWILLNOTWEARSOMEN
+ICEBUTTONSHOWABOU
+TWEARINGSOMENASTY 5
+BUTTONSORANYTYPEO
+FBUTTONSTHATYOUCA
+NTHINKUPIFYOUDONO   PI
+TWEARANYTYPEOFBUT
+TONSISHALLONTOPOF 10
+EVERYTHINGELSETOR
+TUREALL13OFMYSLAV
+ESTHATIHAVEWATEIN
+GFORMEINPARADICES
+OMEISHALLTIEOVERA 15
+NTHILLSANDWATCHTH
+EMSCREAMTWICHANDS
+QUIRMOTHERSSHALLH
+AVEPINESPLINTERSD   PI, #314
+RIVENUNDERTHEIRNA 20 
+ILSTHENBURNEDOTHE
+
+
+Here’s another example of the same principle. The Zodiac’s first cipher was divided into thirds, each of which was mailed to a different newspaper on 31 July 1969. The first part was sent to the Vallejo Times-Herald, the second to the San Francisco Examiner, and the third to the San Francisco Chronicle. Each was accompanied by a cover letter. The following exhibits, excerpted from the cover letters, are shown in the same order. Each of the first two cover letters contains one literal END; the third, the Chronicle cover letter, contains three literal ENDs. The second and third ENDs define a column and a row, respectively, that intersect at, and so define, the end of the text. Once again, two terms define a third that is a synonym of the defining terms.
+
+
+GEFRYNIGHTTHATWIL
+LLASTTHEWHOLEWEEK
+ENDIWILLCRUSEAROU   Vallejo Times-Herald
+NDANDPICKOFALLSTR
+AYPEOPLEORCOUPPLE 35 
+
+RAMPAGEFRYNIGHTTH
+ISWILLLASTTHEWHOL
+EWEEKENDIWILLCRUS   San Francisco Examiner
+EAROUNDKILLINGPEO
+PLEWHOAREALONEATN 35
+
+AKILLRAMPAGEFRYNI
+GHTIWILLCRUSEAROU
+NDALLWEEKENDKILLI 40
+NGLONEPEOPLEINTHE   San Francisco Chronicle
+NIGHTTHENMOVEONTO
+KILLAGAINUNTILLIE
+NDUPWITHADOZENPEO
+PLEOVERTHEWEEKEND 45 the end of the text
+
+
+In these examples, the author makes use of things known to the reader (the murder of Cheri Bates with a knife on 10/30, the murder in Vallejo on 4 July, the value of π, the location of the end of a text) to teach a lesson in how to read what he has written. We know, just by virtue of having read the newspaper, that Cheri Jo Bates was murdered on 10/30 and that the Vallejo murder took place on the Fourth of July. If we stayed awake in grade-school math, we know that π = 3.14. We don’t need to know any of those things to see where a text ends.
+
+
+All we have to do is look at the Zodiac’s ciphers to see that they are presented in the seventeen-column rectangular format. If we apply that format to the Zodiac letters and find that BATES and KNIFE intersect at #1030, if we find that 4THOFJULY and 4THOFJULY + 365 intersect at VALLEJO, if we find that PI = 31,4 and that PI and PI intersect at #314, if we see that END and END intersect at the end, then we can consider the format validated. We can also infer that the same method can be used to elicit hidden knowledge, information known only to the author.
+
+
+The Zodiac writes, in the letter to the Examiner (1 August 1969): “Are the police haveing [sic] a good time with the code? If not, tell them to cheer up. When they do crack it, they will have me.” It is generally assumed that he is referring to his first cipher, mailed to three newspapers the previous day. Technically speaking, it isn’t a “code” at all; it’s a cipher. A cipher is a system for making texts unreadable to anyone not initiated into the system. A simple cipher is a transposition system; an example is the name of the computer in the Stanley Kubrick film 2001: HAL is the result of shifting backwards one place in the alphabet (I – 1 = H, B – 1 = A, M – 1 = L; IBM becomes HAL.) Julius Caesar used a transposition cipher to encrypt sensitive letters. A code is an agreed-upon set of terms that can be substituted for one another, for instance, “Operation Overlord” for “invasion of Normandy on 6 June 1944” or “Little Boy” for “nuclear weapon prototype employing U-235 as fissile material.” A code cannot be used to encrypt anything not included in a dictionary of code terms.
+
+
+Morse Code is called a “code” because it is a set of digital symbols each of which can be substituted for a letter of the alphabet; this code is publicly known and so is accessible to everyone. The dictionary contains 26 letter-symbols and 10 number-symbols; a written code book is unnecessary because users, e.g. telegraphers, have committed it to memory. The Zodiac provides a lesson in the use of Morse Code in the third cipher; it is written in eight alphabetic (A) and five non-alphabetic (N) symbols:
+
+
+AAANNANANNAAA
+
+
+Read this way, it is symmetrical; it reads the same way from left to right and right to left. Each of the symbols used in this cipher also occurs in at least one of the other three ciphers, with one exception: a symbol consisting of the Arabic numeral 8 inscribed in a circle; it is unique to this cipher. Here is how it appears in the text:
+
+
+XXXX8X8X8XXXX
+
+
+The position of the three Arabic 8s is also symmetrical; read either from left to right or right to left, the three 8s occur at positions ##5, 7, and 9.
+
+
+The question “How much is three eights?” is ordinarily answered with “Twenty-four,” since 3 x 8 = 24. But if “eight” is not a number but a word, the answer may be different. In order to determine what the alternative might be, it is necessary to rewrite EIGHT in numerical form in order to perform the operation. One way to do that is to write the word in Morse Code, using 1 for dah and 0 for dit and then to read the resulting string of digits as a base-two number. Written this way, EIGHT = 0 00 110 0000 1 or base-ten 193. If EIGHT = 193, then the answer to the original question is 579 (3 x 193). The product of 579 is identical to the position-numbers of the three Arabic 8s (5,7,9); you get the same result two different ways.
+
+
+The thirteen-character cipher was included in a letter to the San Francisco Chronicle postmarked 20 April 1970. Eight days later, the Zodiac mailed a commercial greeting card to the Chronicle on which he wrote the following text. Highlighted forms are the words ONE and TWO and the Arabic numerals 1 and 2. Morse ONE (111 10 0) = 60, and TWO (1 011 111) = 95. In everyday arithmetic, the difference between 1 and 2 is 1, and 1 + 1 = 2. But if ONE = 60 and TWO = 95, then other results are possible: 1) the difference between 1 and 95 = 1; 2) 1 + 35 = 2; and 3) 1 + 60 also = 2. Here, the Arabic number 1 is at position #96, proving that the difference between 1 and 95 = 1. ONE (#106) is followed by an Arabic 2 (#141); since 141 – 106 = 35, it is proven that 1 + 35 = 2. ONE (#200) is followed by TWO (#260); since 260 – 200 = 60, it is proven that 1 + 60 = 2. As an added bonus, the Arabic 2 (#141) appears at 9,5, which expresses the value of TWO in Morse Code (1 011 111 = 95), just as, in a previous example, PI at 31,4 expresses the value of π.
+
+
+IHOPEYOUENJOYYOUR
+SELVESWHENIHAVEMY
+BLASTPSONBACKIFYO
+UDONTWANTMETOHAVE
+THISBLASTYOUMUSTD 5 
+OTWOTHINGS1TELLEV   #96
+ERYONEABOUTTHEBUS   #106
+BOMBWITHALLTHEDET
+AILS2IWOULDLIKETO   #141 (9,5)
+SEESOMENICEZODIAC 10
+BUTONSWANDERINGAB
+OUTTOWNEVERYONEEL   #200
+SEHASTHESEBUTTONS
+LIKEBLACKPOWERMEL
+VINEATSBLUBERETCW 15
+ELLITWOULDCHEERME   #260
+UPCONSIDERBLYIFIS
+AWALOTOFPEOPLEWEA
+RINGMYBUTONPLEASE
+NONASTYONESLIKEME 20
+LVINSTHANKYOU
+
+
+Here’s the same text again. In this exhibit, the Arabic 1 in Row 6 and the ONE in Row 20 define a 4 x 15 rectangle; the ONEs in Rows 7 and 12 define a 6 x 10 rectangle. Both of these rectangles express a product of 60, the Morse spelling of ONE (4 x 15 = 6 x 10 = 60); two terms define a two-dimensional space that expresses a synonym of the defining terms. In the foregoing example, expressive relationships are one-dimensional; in this one, they are two-dimensional.
+
+
+IHOPEYOUENJOYYOUR
+SELVESWHENIHAVEMY
+BLASTPSONBACKIFYO
+UDONTWANTMETOHAVE
+THISBLASTYOUMUSTD 5
+OTWOTHINGS1TELLEV
+ERYONEABOUTTHEBUS
+BOMBWITHALLTHEDET
+AILS2IWOULDLIKETO
+SEESOMENICEZODIAC 10
+BUTONSWANDERINGAB
+OUTTOWNEVERYONEEL
+SEHASTHESEBUTTONS
+LIKEBLACKPOWERMEL
+VINEATSBLUBERETCW 15
+ELLITWOULDCHEERME
+UPCONSIDERBLYIFIS
+AWALOTOFPEOPLEWEA
+RINGMYBUTONPLEASE
+NONASTYONESLIKEME 20
+LVINSTHANKYOU
+
+
+Here’s one last demonstration of the applicability of Morse Code to analysis of the Zodiac texts. On 8 November 1969, the Zodiac sent the Chronicle a commercial greeting card with added text. It ends in what appears to be a box-score; omitting the non-alphanumeric equals-sign, it reads: DES JULY AUG SEPT 7. DES appears to be a misspelling of the conventional abbreviation DEC for December. The supposed box-score is a list of the names of months followed by Arabic 7. The text says nothing about murders, let alone making a claim of seven victims, but it was interpreted that way by the press, even though a victim-count of seven conflicted with the known historical facts. The Zodiac is known to have committed one or more murders in each of the months listed, except AUG; there was no Zodiac murder in that month. The only noncontroversial description of this passage is that it is a list of the names of months, period. A list is a series of items written one after another. I put the question: what if the Arabic 7 is the name of another month in the list of months? There is no month named “7;” month #7 is July, but July is already listed. The month-name September begins with the Latin word for seven (septem), but that isn’t its name; and like July, September is also already listed. I suggest reading the 7 as a position number, i.e. 219: the Arabic 7 is the 219th character of the text. And 219 is the name of a month — when it is written in Morse Code: MAY = 11 01 1011 = 219. As in a foregoing example, there is a second way to get the same result: the Arabic 7 immediately follows the month-abbreviation OCT, and OCT + 7 = MAY, since May is the seventh month following October.
+
+
+THISISTHEZODIACSP
+EAKINGITHOUGHYOUW
+OULDNEADAGOODLAUG
+HBEFOREYOUHEARTHE
+BADNEWSYOUWONTGET 5
+THENEWSFORAWHILEY
+ETPSCOULDYOUPRINT
+THISNEWCIPHERONYO
+URFRUNTPAGEIGETAW
+FULLYLONELYWHENIA 10
+MIGNOREDSOLONELYI
+COULDDOMYTHINGDES
+JULYAUGSEPTOCT7
+
+
+The first cipher was divided into thirds and each third was mailed to a different newspaper accompanied by a cover letter. All the attention lavished on the cipher has deflected attention from the cover letters. Here’s an example of the information that has been ignored as a result of the Zodiac’s misdirection. The first part of the cipher was sent to the Vallejo Times-Herald, the second part to the San Francisco Examiner, and the third to the San Francisco Chronicle. I treat the cover letters as parts of a whole in which they appear in that order. The first cipher is meaningful only when the three parts are assembled into a whole; that implies that the cover letters accompanying it may also be consolidated into a single unit.
+
+
+The same texts validate the use of Morse Code, converted to base-two number, as an analytical method. The first cover letter of 31 July 1969 (Vallejo Times-Herald) is written in 665 alphanumeric characters; the second (San Francisco Examiner) in 638; and the third (San Francisco Chronicle) in 765. The sum of those three numbers is 2068; thus, when the three cover letter texts are consolidated into a single unit, the last character, the end of the text, is Character #2068. Here’s the expression THE END written in Morse Code: 1 0000 0 0 10 100, base-two 2068. In other words, END and END intersect at, and so define, not only the end of the text, but also at a position number which, written to the base two, expresses the words THE END in Morse Code.
+
+
+AMPAGEFRYNIGHTIWI 115
+LLCRUSEAROUNDALLW
+EEKENDKILLINGLONE
+PEOPLEINTHENIGHTT
+HENMOVEONTOKILLAG
+AINUNTILLIENDUPWI 120
+THADOZENPEOPLEOVE
+RTHEWEEKEND         the end = #2068 (THE END)
+
+
+The first Zodiac mailing (first cipher and three cover letters) took place on 31 July 1969. The following day, the author mailed a letter to the Examiner written in 1526 alphanumeric characters. The next letter, mailed to the Chronicle and postmarked 13 October 1969, is written in 542 characters. Their sum is also 2068. This suggests that not only may groups of letters postmarked on the same date be consolidated but also consecutive letters separated in time (in this case, by 73 days).
+
+
+Before going on, a note on terminology. Redivision is a term denoting the shifting of spaces that divide words from one another. SUPER BOWL can be redivided to spell SUPERB OWL by shifting the space one place to the right. This modification not only changes meaning but also pronunciation. The same is true of THERAPIST and THE RAPIST. When words or names are written digitally (in Morse Code), redivision has a far more subtle effect, since it can create and destroy letters. The words BUS (1000 001 000) and THREE (1 0000 010 0 0) are redivisions of one another; even though they do not have a single letter in common, they both express the number 520 (1000001000).
+
+
+The examples of redivision shown above result from the shifting of one or more spaces. Redivision can also result from the shifting of the decimal point. One of the central issues in the Zodiac literature (to be discussed in detail elsewhere) is the equivalence of birth and death. In the solution to the first cipher, the Zodiac writes “WHEN I DIE I WILL BE REBORN….” Birth as the last event of life means that life is circular; the beginning (birth) is the same thing as the end. Here’s the word BIRTH in Morse Code: 1000 00 010 1 0000. The number expressed is 8272. When the decimal point is shifted two places to the left, 8272 is redivided into the number 2068 (100000010100.00), the digital spelling of THE END (1 0000 0 0 10 100).
+
+
+An example of redivision in action is the Zodiac’s choice of ink. His handwritten letters are consistently written in blue ink. The word BLUE (1000 0100 001 0) is a digital redivision of BASE 2 (1000 01 000 0 10). Blue writing is base-two writing. This appears to be what the author refers to in the Hole Card text (6 October 1970), where he writes “Fk. I’m crackproof.” FK (0010 101) is a redivision of INK (00 10 101). The ink he chooses to use is a clue to what makes him — supposedly — crackproof.
+
+
+A further indication that the Zodiac is writing in Morse Code is provided by his choice of firearms. He changed murder weapons the way other people change their socks, another baffling element in the puzzle. The two firearms he used were a .22-caliber firearm (whether pistol or rifle is unknown) and a 9mm pistol. The word GUN in Morse Code is 110 001 10, base-two 198, the product of the operation 22 x 9; in other words, 22 x 9 = GUN. (Anticipating the cavil that “.22 caliber” is a fraction, I would point out that while it is a fraction when written, in speech, it is an integer. You don’t plink at beer cans with a “point twenty-two” or a “twenty-two one-hundredths” firearm, but with a “twenty-two.”)
+
+
+When he cropped up in the San Francisco Bay Area in December 1968, the Zodiac’s authorship of the murder of Cheri Jo Bates in Riverside (30 October 1966) was not known; it remained publicly unknown until November 1970. The first three attacks in the Bay Area showed none of the behavioral consistency expected of serial murderers. The Zodiac used a .22-caliber firearm, a 9mm pistol, and a knife, in that order. No one knows what happened at the first Bay Area murder scene, because both victims died, and there were no eyewitnesses (Lake Herman Road, 20 December 1968). In each of the second and third attacks, one of the victims survived and was able to testify about what happened. At Blue Rock Springs (4 July 1969), the Zodiac wore nothing out of the ordinary and did not speak; he simply strode up to the victims’ car and blazed away with his pistol. At Lake Berryessa (27 September 1969), he wore a black hood on which he had embroidered his crossed-circle signature symbol in gold-colored thread. Holding his victims at gunpoint, he told them that he had escaped from prison (which turned out to be a lie) and demanded their car keys so that he could make good his escape. He tied them up with clothesline that he had brought with him and then stabbed them repeatedly with a large knife. Instead of taking their car, he departed in his own; but he left behind an inscription written on their car door.
+
+
+The only motif uniting these three crimes was that the victims were couples, and the crime scenes were all in rural parts of the North Bay Area (Solano and Napa Counties). It appeared to be a pattern. Then, two weeks after the third murder, the Zodiac went into the big city, and in the heart of downtown San Francisco, on Geary Boulevard, he hired a taxicab and had the driver take him to an intersection in a residential neighborhood called Presidio Heights, where he shot the taxicab driver in the head. The date of the taxicab murder was 11 October 1969. To make sense of this, a historical digression is in order.
+
+
+In 1919, a Cambridge University mathematician named Srinivasa Ramanujan was hospitalized with tuberculosis in Putney, England. His colleague G.H. Hardy came down from Cambridge to visit him. He told Ramanujan that he had taken a taxicab to the hospital from the railway station; he had made a mental note of the taxicab’s identifying number, 1729, because he found it “dull.” He could see nothing about it that that got his number-theory juices flowing.
+
+
+Ramanujan replied, without missing a beat, that to the contrary, 1729 is a very interesting number, because it is the smallest number expressing the sum of two cubes two different ways: 1729 = 13 + 123 and 93 + 103. This conversation gave rise to a niche branch of number theory, the search for a class of numbers called “taxicab numbers,” whose general formula is Ta(n), where n = the number of ways two cubes can be added together to form the taxicab number.
+
+
+The smallest taxicab number, Ta(1), is 2, the sum of 13 + 13. Ta(2) is our old friend 1729. It took mathematicians thirty-eight years, until 1957, to discover Ta(3): 87,539,319. By that time, Ramanujan had been dead for thirty-six years and Hardy for ten. Over the next half-century, three more were discovered. The last, Ta(6), was discovered in 2008. Of the six, 1729 might be called the classic taxicab number, partly because it was the subject of the conversation in which the concept of taxicab numbers was born, and partly because it was the actual number of a real-life taxicab. At the time of the Zodiac murders, only the three smallest taxicab numbers were known.
+
+
+Four weeks after the taxicab murder in San Francisco, the Zodiac sent the Chronicle a commercial greeting card on which he wrote this text. It contains one digital redivision of 1729 (base-two 11011000001; Morse YWHEN = 1011 011 0000 0 10, 1729 highlighted). It is located, in the 17-column rectangular grid, at Row 10, Column 11 (10,11); the position of the taxicab number expresses the date on which the author had murdered a taxicab driver four weeks earlier (11 October = 10/11).
+
+
+THISISTHEZODIACSP
+EAKINGITHOUGHYOUW
+OULDNEADAGOODLAUG
+HBEFOREYOUHEARTHE
+BADNEWSYOUWONTGET 5
+THENEWSFORAWHILEY
+ETPSCOULDYOUPRINT
+THISNEWCIPHERONYO
+URFRUNTPAGEIGETAW
+FULLYLONELYWHENIA 10 1729 (10,11)
+MIGNOREDSOLONELYI
+COULDDOMYTHINGDES
+JULYAUGSEPTOCT7
+
+
+Ten weeks before the taxicab murder, the Zodiac sent the San Francisco Examiner a letter whose text contains two redivisions of 1729. The second is identical to the one in the previous example (YWHEN). The first is ATWHEN (01 1 011 0000 0 10). The essence of a taxicab number is that it is the sum of two cubes; and these two taxicab numbers appear at 21,6 and 49,13, whose positions express two cubes (216 = 63 and 4913 = 173).
+
+
+YTHEBOYWASORIGION
+ALYSITTINGINTHEFR 20 
+ONTSEATWHENIBEGAN   1729 (21,6)
+FIREINGWHENIFIRED
+THEFIRSTSHOTATHIS
+
+
+VEINGSOMEFUNWITHT
+HEVALLEJOCOPWHENH
+EWASWALKINGBYWHEN   1729 (49,13)
+IHUNGTHEPHONEUPTH 50
+EDAMTHINGBEGANTOR
+
+
+The Examiner Letter contains the names of two fixed holidays (4THOFJULY, CHRISTMAS). Taking them in reverse order, if the initial C of CHRISTMAS = 25 December and each preceding alphanumeric character = one day, then taxicab number 1729 falls on 11 October, the date of the taxicab murder, which was, at the time this text was mailed, still ten weeks in the future.
+
+
+VEINGSOMEFUNWITHT
+HEVALLEJOCOPWHENH
+EWASWALKINGBYWHEN   1729, 11 October…CHRISTMAS
+IHUNGTHEPHONEUPTH 50 
+EDAMTHINGBEGANTOR
+INGTHATDREWHISATT
+ENTIONTOMEMYCARLA
+STCHRISTMASSINTHA
+TEPASODETHEPOLICE 55
+WEREWONDERINGASTO
+
+
+Now here is the beginning of the text (Rows 1-24). If the 4 of 4THOFJULY = 4 July and each subsequent alphanumeric character = one day, then the date of the taxicab murder, 11 October, falls on 21,7. It misses the taxicab number 1729 (21,6) by one place. This is disappointing, but all is not lost; there is a consolation prize: 217 is the sum of two cubes (13 + 63), thus expressing the fundamental feature of taxicab numbers — being the sum of two cubes.
+
+
+DEAREDITORTHISIST
+HEZODIACSPEAKINGI
+NANSWERTOYOURASKI
+NGFORMOREDETAILSA
+BOUTTHEGOODTIMESI 5
+HAVEHADINVALLEJOI	
+SHALLBEVERYHAPPYT
+OSUPPLYEVENMOREMA
+TERIALBYTHEWAYARE
+THEPOLICEHAVEINGA 10
+GOODTIMEWITHTHECO
+DEIFNOTTELLTHEMTO
+CHEERUPWHENTHEYDO
+CRACKITTHEYWILLHA
+VEMEONTHE4THOFJUL 15
+YIDIDNOTOPENTHECA
+RDOORTHEWINDOWWAS
+ROLLEDDOWNALLREAD
+YTHEBOYWASORIGION
+ALYSITTINGINTHEFR 20 
+ONTSEATWHENIBEGAN   1729 (21,6), 4THOFJULY…11 October (21,7)
+FIREINGWHENIFIRED
+THEFIRSTSHOTATHIS
+
+
+I don’t believe that the Zodiac has made an error here; I suggest instead that the discrepancy is caused by a conflict between two design criteria. Until mid-November 1970, the Zodiac’s authorship of the Riverside murder (10/30/66) was a secret known only to himself. It was the beginning of his career as a serial murderer, and here, it is also the beginning, namely the beginning of the text; with respect to 4THOFJULY, the initial D of DEAREDITOR = 30 October. If we add two imaginary rows preceding the beginning of the text, 11 October with respect to 4THOFJULY = -2,16. It is not only the date of the taxicab murder but also a cube, since -216 = -63. The column in which it occurs and the row in which we find 21,6 (a cube), 21,7 (the sum of two cubes), and taxicab number 1729, intersect at position #356 (21,16), the digital spelling of TAXI (1 01 1001 00 = 356).
+
+
+XXXXXXXXXXXXXXXXX   11 October…4THOFJULY, -2,16
+XXXXXXXXXXXXXXXXX
+DEAREDITORTHISIST   30 October…4THOFJULY
+HEZODIACSPEAKINGI
+NANSWERTOYOURASKI
+NGFORMOREDETAILSA
+BOUTTHEGOODTIMESI 5 
+HAVEHADINVALLEJOI	
+SHALLBEVERYHAPPYT
+OSUPPLYEVENMOREMA
+TERIALBYTHEWAYARE
+THEPOLICEHAVEINGA 10
+GOODTIMEWITHTHECO
+DEIFNOTTELLTHEMTO
+CHEERUPWHENTHEYDO
+CRACKITTHEYWILLHA
+VEMEONTHE4THOFJUL 15
+YIDIDNOTOPENTHECA
+RDOORTHEWINDOWWAS
+ROLLEDDOWNALLREAD
+YTHEBOYWASORIGION
+ALYSITTINGINTHEFR 20 
+ONTSEATWHENIBEGAN   21,6, 21,7, 4THOFJULY…11 October, #356
+FIREINGWHENIFIRED
+THEFIRSTSHOTATHIS
+
+
+Two weeks before the taxicab murder, the Zodiac attacked the couple at Lake Berryessa. Leaving them for dead, he wrote an inscription on the door of their car. Headed by a large crossed circle, it begins with the place name VALLEJO and then recites the dates of the three Zodiac murders to date; the third date is followed by the clock time 6:30. The inscription concludes with the phrase BY KNIFE. The text is written in 35 alphanumeric characters, the sum of two cubes (23 + 33). Those same cubes appear in the inscription text (23 = 8, 33 = 27), and they intersect at YKNIF, a digital redivision of taxicab number 1729 (11011000001; YKNIF = 1011 101 10 00 0010).
+
+
+VALLEJO1220687469
+SEPT2769630BYKNIF   1729
+E
+
+
+There are a number of ways to describe a taxicab. One is that a taxicab is an automobile with a taxicab number painted on it, like the Lake Berryessa victims’ car. By writing a taxicab number on that car, he transformed it into a taxicab.
+
+
+The acts of the Zodiac can be separated into two subsets, one illegal, the other legal. The illegal acts are murders; the legal ones are the writing and mailing of letters. Each of these activities constitutes a series of events with a beginning and an ending. The end of the murders is 11 October 1969, when he killed the taxicab driver; the end of the mailings is the letter in which he complains about the Chronicle columnist Count Marco, postmarked on 8 July 1974. Let’s call the first one The End #1 and the second The End #2.
+
+
+On 13 October 1969, the Zodiac mailed a letter to the Chronicle in which he takes credit for the taxicab murder. It begins: “This is the Zodiac speaking. I am the murderer of the taxi driver over by Washington St. & Maple St. last night.” Three things of note: first, this is the first and only time the murderer uses the word “taxi.” Second, he is wrong about the location: the murder took place at Washington and Cherry, not Washington and Maple. Third, he is also wrong about the date: the murder was on the eleventh, and the letter is postmarked on the thirteenth. Going by the postmark, the murder took place not “last night” but night before last.
+
+
+One reason for making errors like this is to draw attention to something, and in the case of the date, that something is the two-day difference between murder and postmark, or to put it another way, between the postmark and The End #1. What about The End #2? The difference between the letter in which the author takes credit for killing a taxicab driver and uses the word “taxi” for the only time and The End #2 is 1729 days. These two differences in time are the first two taxicab numbers: Ta(1) = 2 and Ta(2) = 1729.
+
+
+The link between taxicab numbers and the end — whatever that might be — is reflected in several instances of the end being the sum of two cubes. Here’s an example resulting from fortuitous coincidence: the end of life is death, and DEATH is Morse 100 0 01 1 0000, base-two 1072, the sum of 73 + 93. And here’s one resulting from the Zodiac’s intervention: the period beginning with the Riverside murder and ending with the Count Marco Letter is 2808 days. In other words, the end of that period is Day #2808, the sum of 43 + 143. The four Zodiac ciphers are written in 408 + 340 + 13 + 32 symbols, for a total of 793; the end of the body of ciphers, #793, is the sum of 43 + 93. For eight months in 1969-1970, the Zodiac kept the word BUS at the forefront, threatening to attack a bus, complaining about losing control of the infernal device he intended to use in the bus attack, offering to withdraw the threat if the public wore Zodiac buttons, and then finally giving up on the grounds that school buses were off the road for the summer. BUS is base-two 520 (1000 001 000), the sum of 23 + 83.
+
+
+The Torture Letter (26 July 1970) ends with this postscript: “PS. The Mt. Diablo Code concerns radians & # inches along the radians.” Among all the ingenious explications of the Zodiac’s writings, I don’t believe that anyone has ever mentioned that & and # on a typewriter keyboard correspond to the Arabic numerals 7 and 3, in that order. In the handwritten text, the Zodiac has written a caret under the #, indicating that it is superscript. &# is another way of saying 73, the cube of 7. Since one of the rules is that only alphanumeric characters can be part of the grid, &# can’t occupy a column; but it is part of Row 122. I show it in this exhibit by highlighting the preceding and following characters; imagine it in between them. The text is written in 2079 characters; the cube of 13 is 2197, so the last position number expressing a cube is #1728, the cube of 12. The row containing &# and the column containing #1728 intersect at #2068, the digital spelling of THE END (1 0000 0 0 10 100). It is probably no coincidence that #1728 is also the end of the explicit word LIFE.
+
+
+LLFUNNYFELLOWSCOM 100 
+MICMENANDCLOWNSOF
+PRIVATELIFETHEYDN   #1728 (123), end of LIFE
+ONEOFTHEMBEMISSED
+THEYDNONEOFTHEMBE
+MISSEDANDUNCOMPRO 105
+MISEINGKINDSUCHAS
+WACHAMACALLITTHIN
+GMEBOBANDLIKEWISE
+WELLNEVERMINDANDT
+UTTUTTUTTUTANDWHA 110
+TSHISNAMEANDYOUKN
+OWWHOBUTTHETASKOF
+FILLINGUPTHEBLANK
+SIRATHERLEAVEUPTO
+YOUBUTITREALLYDOE 115
+SNTMATTERWHOMYOUP
+LACEUPONTHELISTFO
+RNONEOFTHEMBEMISS
+EDNONEOFTHEMBEMIS
+SEDPSTHEMTDIABLOC 120 
+ODECONCERNSRADIAN
+SINCHESALONGTHERA   &# (73), #2068 (THE END)
+DIANS
+
+
+In three places, the Zodiac consistently misspells the word “paradise” as PARADICE. I suggest that the misspelling is disingenuous, meant to underscore the phonetic similarity between “paradise” and “pair of dice” (with the colloquial suffix –a for “of,” as in “kinda,” “sorta,” “cuppa.”) What is a pair of dice if not two cubes? The author represents “paradice” as the abode of the dead; once again, there is a link between death and two cubes. This link is reinforced by homonymy: the singular of “dice” is “die,” a homonym of the verb meaning “to pass from physical life, to expire.” Etymologically, our word “cube” is derived from the Greek kubos (die), plural kuboi (dice).
+
+
+It would be an understatement to say that the foregoing examples only scratch the surface; a better figure of speech would be that they only rub the surface with a soft cloth. The essential elements are a fixed format (17-column rectangle) and the use of Morse-to-base-two writing to conceal content. While English words are used as construction materials, the method is nonverbal in the sense that normal syntax has been replaced by numerical and spatial relationships. Expressions are written in three dimensions: the horizontal, like normal English, and the vertical; the third dimension is time, since meaning is expressed not only spatially but also with respect to calendar-landmarks (OCT5, 4THOFJULY, CHRISTMAS, etc.), not to mention the actual passage of time between Zodiac events (murders, postmarks).
+
+
+Edwin A. Abbott’s book Flatland: a romance of many dimensions appeared in print in 1884. It is set in a two-dimensional world inhabited by flat beings. They are visited by a sphere, a denizen of a three-dimensional world called Spaceland. The sphere attempts to communicate to the Flatlanders what three-dimensionality is about, but they cannot grasp the concept because their perspective is limited to two dimensions. They have an x-axis and a y-axis, but they lack a z-axis; so the Flatlanders see the sphere not as a sphere but as a circle (the intersection of a plane and a sphere). Frustrated by its inability to explain its nature to the Flatlanders, the sphere abducts one of them and takes him on a forced tour of Spaceland, because that is the only way the sphere can get the point across.
+
+
+Natural languages such as English are linear, one-dimensional. Phonemes emerge from the mouth one after the other, forming a string; transcribed as written symbols (letters), they are set down in a straight line running across the page in one dimension. The words ART, RAT, and TAR are all written with the same three characters, and if the meaning of a word were expressed by the sum of its letters, they would all mean the same thing. Instead, they are distinguished from one another by the linear, one-dimensional order in which the letters are assembled to form the word.
+
+
+The same thing is true on the next higher level of organization: the assembly of words into sentences or phrases. A considerable amount of meaning is expressed by the linear order in which words appear. In English, a declarative sentence is one in which verb follows subject (SVO); we know that we are hearing a question when that order is inverted (VSO). “I gave the man the money” is a normal English sentence, but “I gave the money the man” elicits a double take and a “Huh?”, because it doesn’t seem to make any sense. “Mass burial” means interment of a number of corpses; “burial mass” is a religious rite.
+
+
+Would-be analysts of the Zodiac literature have spent over a half century vainly trying to make sense of the Zodiac’s writings. I submit that the reason for their failure to elicit useful information from the murderer’s letters is that they are applying one-dimensional rules to a three-dimensional literature; it’s like trying to read a letter written in Polish as if were written in misspelled English. The Flatlanders do not understand what the sphere is trying to communicate because they lag one dimension behind it. In the Zodiac’s case, the author is two dimensions ahead of us, and until we change our perspective to take account of that, we will continue to spin our wheels in the same rut, getting nowhere.
+

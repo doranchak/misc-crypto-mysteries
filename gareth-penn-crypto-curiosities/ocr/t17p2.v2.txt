@@ -1,0 +1,2712 @@
+=== PDFPAGE 1
+74
+DANGERTUE in the cryptogram. Here they appear in reverse order. I pointed out that the
+ANI (of “animal") following DANGERTUE is a redivision of PI, which stands for the surname
+O'HARE. In the 340-Character Cipher, we find the same thing in mirror-image order: first
+the surname, ERAHO (fraction of 1), followed by the two-letter codes for the three members
+of the O'Hare family, in the reverse order in which they appear in DANGERTUE. As to the
+re- versal of BM, which appears here in my redivision as MB, I suggest that the purpose is to
+construct out of these two-letter codes an approximation of the fraction of 7. UEIKMB is, in
+fact, fairly close to the value of that fraction.
+The third digital passage is 0100100010100001111. The first seven digits are identical in form
+to the Morse spelling RED (010 0 100). In a previous chapter, I] suggested that RED is a
+Zodiacism for "circle" or “zero.” This appears to bear out that suggestion. The first two pas-
+sages discussed above are binary fractions ordinarily found following the integer 3. This frac-
+tion is one which is accustomed to standing alone. People who work with decimal (or binary)
+fractions are accustomed to prefixing a zero to the fraction to indicate the absence of an inte-
+ger and to emphasize the decimal (or binary) point. [| submit that RED stands here for that
+zero.
+If we place a binary point between Morse RED and the balance of this number, we get a very
+interesting formulation: 0.010100001111 is the reciprocal of the square root of ten written to
+the base two. Now I have to digress into the realm of mathematical curiosities.
+The reciprocal of the square root of any base number is identical in form to the square root of
+that number, except for the placement of the decimal point. That is true provided that both
+numbers are written to that base. For instance. the square root of ten. written to the base
+ten, is 3.1622776. The fraction actually goes on forever, but these seven digits are enough for
+purposes of demonstration. The reciprocal of the square root of ten. also written to the base
+ten, is 0.31622776. The square root of two, written to the base two, is 1.01 10101000001. Its
+reciprocal, to the same base, is 0.1011010100001. The same thing is true of three to the base
+three, seven to the base seven, or 139 to the base 139 (any number, incidentally. can be used
+as a base number).
+This curious relationship between square roots and reciprocals of the square roots of base
+numbers holds true only when they are written to their respective bases. If you write the re-
+ciprocal of the square root of ten to the base two, then it no longer holds: the number takes on
+a completely different form. It occurred to me that the other form was what was wanted here.
+The reciprocal of the square root of ten to the base two appears to imply that there is some-
+thing important about the hidden form of the number, which will be revealed on writing out the
+square root of ten to the base two. Here it is: 11.001010011000. ... I redivide this number
+as follows: 11. 00 101 0 O110 00, Morse MIKE PI. Here we find yet another short form of
+the surname O'HARE, PI. In “The Confession,” Z. says that he waited for his victim about
+two "MINUTS." Perhaps MINUTS is a typographical error, but I think that we already have
+some reason to suspect deception when confronted with Zodiac misspellings. MINUTS is
+Morse 11 00 10 001 | OOO, which I redivide as 110 0 10 0 O110 00, GENE PI. PI ap-
+pears in the literature occasionally as the number 169 (P = letter #16, | = letter # 9).
+=== PDFPAGE 2
+75
+Now we come to a passage which begins with Crossed Circle #1. The first eight digits are an
+old friend, 10000010, binary 130 (BER). Just to skip over to Crossed Circle #2 for a moment,
+it is the first character of a six-digit string that is another old friend, 100011, 35 (BM). Imme-
+diately following 130, we find 111010, binary 58. If 130 is a given name, then 58 occurs right
+where we might expect to find a sumame. As already mentioned, I propose that 58 is a two-
+digit shorthand for the surname O'HARE.
+These first two crossed circles express a rather curious pattern. The first one (#1) is third
+from the end of Line 3. The second is fifth from the left margin of Line 5. 3.3 and 5,5: 35. The
+digital passage underlying #2 is binary 35, or Morse BM.
+Let me skip over to Crossed Circle #4 now. It is Character #132. By alphabetic quantities, 13
+= M, 2=B. The two characters preceding #4 are the letters NY. In the WIZARD-alphabet,
+NY is MB. It appears, in other words, that Crossed Circles ##1, 2, and 4 form a pair of book-
+ends. The first two express, two different ways, BM; #4 expresses, also two different ways.
+MB. Sandwiched in between these two mirror-image bookends is Crossed Circle #3, Char-
+acter #117.
+There are two noteworthy things going on here. One is the use of bookends to enclose impor-
+tant information. This technique will be encountered again and again in the Zodiac literature.
+It is a stylistic trait that serves as a Zodiac hallmark. The other thing is the use of the num-
+ber 117. That is something else which we will find again and again in the literature. It refers
+to the city of Riverside, California, where the Zodiac murdered his first victim in October 1966.
+The longitude of Riverside is 117° west of Greenwich. "117" in the Zodiac literature is a nu-
+merical way of saying "Riverside."
+It was not known until November 1970 that the Zodiac had committed that murder. The iden-
+tification was made on the basis of handwriting evidence. On 16 and 17 November 1970, the
+Chronicle ran a two-part series by reporter Paul Avery in which it was revealed for the first
+time that the author of the Bay Area crimes attributed to the Zodiac was also responsible for
+the death of Cheri Jo Bates. Z. went to great lengths to make sure that no one else could get
+the credit for the four Bay Area crimes, but he said nothing explicit about Riverside. It re-
+mained a deep, dark mystery until Avery's story was published. Repeated use of the number
+117, however, appears to constitute a cryptic reference to this crime, one which went com-
+pletely unnoticed at the time.
+At this point, I would like to digress into the Michael O'Hare literature. Reproduced here is a
+photograph which appeared in a page of illustrations accompanying Michael O'Hare’s maiden
+journal article, “Wind whistles through MIT tower,” which appeared in the March 1967 issue
+of Progressive Architecture. What the photograph shows is a scale model of the Earth Sci-
+ences Building at MIT. The model is being tested in a wind tunnel owned by the Harvard en-
+gineering department. In the photograph, the front of the model has been detached to show its
+internal plumbing, tubes connecting holes in the skin of the model to manometers, which mea-
+sure air pressure. In the foreground are familiar objects: a notepad, a mechanical pencil, and a
+slide rule. These objects give the onlooker a sense of scale.
+=== PDFPAGE 3
+y -_ - —=> oie, A
+Y >
+GY on rs CEE ~~ Pra =e, ~
+a — —
+~ a ——s— aa. —_ oa” eee) On
+IN PLAN SEC. AT-B:
+4
+in order to Maree OSE EL DR Se he wade Numbers on
+ind through pe de as ene ee ratio betwee
+igher gusts cin tet en ek "an <a normal and
+Ae : ‘ Tt : - e . .
+m pressure are . & Lt ist tf the air
+Sf ¢ Isobar patte
+S: Loos : 1 ; Fy
+from curved woe py. Qi same proport
+ae 1 ne prop
+n of eddies. ore "t
+7 tubes con- = AY 4: ; 7 n
+it ode. . . _ . .
+meters. eg a .
+ok “Le 9 “4 nh 4 & ' ‘ he ve .
+wo, - - BY
+- cottage -
+6
+23 - RE460 VGOS aT
+; PRESSLRE farge
+23—'SOB4RS
+\ e-76
+=== PDFPAGE 4
+77
+Leaning against the front of the model is an unfamiliar object, a rod or tube or stick of some
+sort. Its function is not explained either in the text of the article or in the caption to the photo-
+graph. It does, however, cast a shadow. Take a careful look at this shadow. At its upper
+end, it projects out beyond the end of the stick into an otherwise brightly-illuminated area.
+Worse, at its lower end, where it touches the table, the stick casts a shadow both away from
+and toward the light source. In nature, shadows do not behave in this way. Either there is a
+new law of physics at work here, or else this photograph has been doctored.
+In a prefatory chapter, I suggested that significant statements in the Zodiac literature are us-
+ually tagged with error. Misspelling is a typical sort of Zodiac error. Here, we have a phy-
+sical error. Sticks are not supposed to cast shadows toward light sources, just as people who
+write English are not supposed to spell “dangerous” as DANGERTUE, or “minutes” as MI-
+NUTS. The alteration of this photograph to produce the unnatural, erroneous effect cost the
+author some effort. It did not happen because his hand slipped. And since he went to some
+trouble to do it, we are, I feel. justified in asking what his motive was.
+A very simple description of the erroneous shadow would be that it is an angular artifact.
+Physics tells us that it is an artifact. Inspection tells us that the two parts of this shadow
+form an angle. I measured this angle with a protractor. It subtends an arc of 117°. Curiously,
+and | think not so coincidentally, this 117° angular artifact was published just four months
+after the Zodiac murdered Cheri Jo Bates in Riverside. I submit to you that it is an adver-
+tisement.
+In Line 7 of the 340-Character Cipher, we find a rather significant passage: 11001010100.111.
+It is identical in form to the Morse spelling of the word MIKADO (11 00 101 O1 100 111).
+The significance of this finding is that in two other documents, the letter of late July 1970 and
+the Exorcist Letter (late January 1974), the Zodiac quotes from the Gilbert and Sullivan oper-
+etta of the same title. For the better part of two decades, Bay Area policemen attending per-
+formances of The Lamplighters, a local Gilbert and Sullivan theatrical company, have routinely
+scanned the audience during intermissions to see if they could spot the Zodiac. Back in 1970,
+the San Francisco police even did extensive checks on the records of everyone who had ever
+sung tenor parts with The Lamplighters, since both of the patter-songs quoted in the Zodiac
+letters are sung by Ko-Ko, a tenor part.
+I suggest that Z. is neither a Gilbert and Sullivan fan nor a singer. He means something en-
+tirely different. When he quotes from The Mikado, he implies the title. Here, in the 340-
+Character Cipher, he spells out the word MIKADO letter for letter. In “Reading the Zodiac.” |
+mentioned the use of the rebus, particularly to imply subtraction. One number before another
+implies subtraction of the leading number from the following number. In this case. the first di-
+git of MIKADO is Character #104. MIKADO is preceded by 103 digits. Let's suppose that
+we are to read this as “103 before MIKADO." With that in mind, let me write the word
+MIKADO in Morse Code again: 11 00 101 O1_100 111. The underlined part is binary 103.
+If "103 before MIKADO” means the same thing as "MIKADO minus 103.” then we ought to
+subtract, take away, the 103. When we do, what we are left with is 1! 00 101 0, Morse
+MIKE. The statistical hardihood of this finding rests on two things. First, this same formula-
+=== PDFPAGE 5
+78
+
+tion occurs in other Zodiac documents, and second, the probability of my finding any particular
+fifteen-digit string by any arbitrary methodology (e.g. flipping a coin) is one in two to the fif-
+teenth power, or 1/32,768. The odds against coincidence are not astronomical, but they are
+quite respectable. Finding exactly the same formulation, 103 before MIKADO, in another Zo-
+diac document, potentiates those odds into the realm of astronomical numbers.
+
+I would like to add a footnote here about the very first Zodiac letter, titled "THE CON-
+FESSION." Following the title, there is a by-line (literally): "BY_-- SS” The atul-
+thor's name is left out. There is also no signature at the foot of the letter. A confession which
+is not signed is as good as no confession at all. As usual, I believe that the Zodiac is truthful
+when he says that this is a confession. The signature is just not obvious. I counted up the
+letters on the page, finding 1623 in all. 1623 in base-two notation is 11001010111, which I re-
+divide to read 11 00 101 O 111, Morse MIKE O.
+
+The passage given by Characters ##144-165. in the 340-Character Cipher is rather inter-
+esting, partly because of the virtuosity to which it attests, and partly because of what it re-
+veals about compositional principles. Here it is in digital form: I1OOLOOLIOIFIOO1001 101,
+What both the FBI laboratory and I had failed to notice (until about six months later. when /
+noticed it) is that in this 22-digit passage, the second eleven digits exactly repeat the first
+eleven. The probability of this kind of thing happening by accident is 1/2'', or one in 2048.
+But if you were to try to reproduce this result by flipping a coin and writing down a one for
+each heads, zero for each tails, the number of trials involved would be 22 times that many. or
+45,056. Our author has achieved this result with only 165 trials. This is just more powerful
+statistical evidence of design and purposefulness.
+
+Here's my interpretation. The first four digits, 1100, are binary twelve. The first digit is Char-
+acter #144; 144 is the square of twelve. I suggest dividing the unique eleven-digit passage
+into 1100 (12) and 1001101 (77). This suggestion is reinforced by the fact that the last dient
+of this passage is Character #154, and 154 is 77 x 2. "12 before 77” in rebus-logie is 77 minus
+12, or 65. This expression is given twice, suggesting doubling. 65 x 2 = 130. Its simply a
+paraphrase of a Zodiac commonplace.
+
+The fact that this paraphrase is written in 22 digits suggests that Z.’s compositional principle
+is to invent formulations that are appropriate thematically and will help him fill up his grid. In
+a sense, he is in much the same kind of position as a crossword-puzzle writer. In this case,
+though, he cannot simply black out inconvenient squares. The whole grid has to be filled up.
+He has put in the fraction of m right at the outset, MIKADO in Morse Code following 103 di-
+gits, etc., and now he has to fill in all the gaps left between these significant expressions.
+Here, he has a gap of 22 digits, and he has used his ingenuity to come up with a formulation
+which repeats a standing theme at the expense of brevity. Furthermore, he has placed it in
+such a way as to let the character numbers suggest what the contents are.
+
+Finally, the six-digit passage beginning with Character #299 reads LOOOI1 (binary 35, Morse
+BM), and the eight-digit passage beginning with Character #307, 10000010, is binary 130,
+Morse BER. Note that these two formulations are physically in close proximity to one an-
+other, just as they were toward the beginning of the cipher, and that they appear here in mir-
+=== PDFPAGE 6
+79
+
+ror-image order to the first two occurrences.
+
+There are a number of other interesting things that could be said about the 340-character ci-
+pher, but those are the highlights. I will come back to some of those other points in connec-
+tion with the discussion of other documents. An important thing to bear in mind about this
+one is that it is not written in English. In fact, it is completely non-linguistic. Perhaps the
+best way to describe it is as a tapestry of digital expressions. I think that it is helpful to look
+at it as a graphic composition rather than as a verbal one. And the author uses number in
+much the same way that a painter uses color. This perspective will be of use in the
+consideration of every other Zodiac document. In accordance with Michael O'Hare's dictum
+on the nature of meta-writing, the graphic form is more expressive than the verbal content of
+the text. In the 340-Character Cipher, the Zodiac has freed himself completely from the
+trammels of verbal expression.
+=== PDFPAGE 7
+THE ST. PATRICK'S DAY MASSACRE
+Dan Goldfarb was getting more excited about Joan Webster by the day. I thought it was a
+sidetrack. Women disappear all the time. The Zodiac can't be responsible for all of them.
+There were the connections with Harvard and the architecture major, but that could easily be
+coincidence. One thing did happen, however, that made me wonder. Joan Webster's purse
+had turned up out in the middle of a marsh between Boston and Lynn; her suitcase was found
+in storage at the Greyhound bus terminal in downtown Boston. Her murderer's behavior was
+anomalous. If he was simply concerned about getting rid of the evidence, why didn't he dis-
+pose of everything all in the same place? Joan had disappeared, and so had her tote bag. But
+the suitcase and the purse had been left in two widely-separated locations where they were
+certain to be found. There was also the theme of the bus, which had been so important to the
+Zodiac.
+Even so, it all seemed rather tenuous. I didn't try to dissuade Goldfarb, because | wanted to
+keep his interest alive. He had behind him the power of a national television network with
+enormous resources. At one point, | said that it might be instructive to see the information
+relating to Joan Webster laid out on a Geological Survey map. Goldfarb asked me if New
+York Public Library would be likely to have USGS maps of Boston. I replied that I thought it
+highly unlikely that they would. I said that the next time he was in Boston, he should pick up
+some maps at a bookstore. I requested an extra copy of each map for myself.
+Eight hours later, he called back. He had used ABC's money to fly up to Boston from New
+York for the purpose of buying about five dollars’ worth of maps from a bookstore. Then he
+had flown directly back to New York. Of course, he didn’t buy extra copies for me. Instead.
+he tried to describe them to me over the telephone. I cast my mind back to that black night in
+late December 1980 when I had called SFPD about what I had found on my map. I had given
+up without even trying.
+Goldfarb had gone beyond the architecture connection. He had obtained a copy of the 1964
+Harvard yearbook. Up to this time, I had never seen a photograph of Michael O'Hare. Gold-
+farb thought the yearbook photo bore a strong resemblance to the SFPD police-artist. sketch
+of the Zodiac. But between 1964 and 1982, O'Hare had lost a lot of hair, he said. He had al.
+so grown a mustache somewhere along the line. He didn't send me a copy.
+Goldfarb borrowed the name of another 1964 Harvard graduate who had been in O'Hare's so-
+cial club (Dudley) and called up O'Hare's parents in New Jersey. He got Eugene on the
+phone. Goldfarb, pretending to be the classmate, contrived some story that he felt could chen
+information about the Thanksgiving weekend, when Joan Webster had disappeared. He told
+me that Eugene O'Hare had unequivocally stated that his son had been in New Jersey visiting
+with him and Berta Margoulies for Thanksgiving. and that he had flown back to Boston Satur.
+day evening. That was the evening on which Joan Webster had flown back to Boston. Pre
+=== PDFPAGE 8
+81
+sumably, both would have flown out of Newark; certainly, they both would have landed at Lo-
+gan. I didn’t think it the clincher that Goldfarb did, but whereas | had been looking for ways to
+keep his interest in the California crimes alive, he was now finding ways to keep my interest
+in Joan Webster alive. { had to admit that he seemed to have something, although I didn't see
+enough to it to warrant all the excitement.
+Not long after, Goldfarb called again, in a very excited condition, as usual, to tell me that he
+had just run into an investigator from the Massachusetts State Police who told him that he
+had been assigned to go to Arthur D. Little in Cambridge and reconstruct O'Hare's itinerary
+during the Zodiac years. He had been an ADL employee in the years 1967-1970. I asked
+Goldfarb what had been found out at ADL, and he said that he didn't know. He also did not
+follow up on this himself. As I subsequently learned, a trip to the personnel department at
+ADL would have yielded some very interesting information. I will come back to that later.
+But Goldfarb seemed to become less and less interested in making his case against O'Hare
+as time went by. Finally, about mid-January 1982, I found out why. He told me about our
+movie project.
+I had started working with Dan Goldfarb because of what I thought he might contribute to the
+prosecution of the murderer. He had the resources that I did not have. For that matter, he
+had resources at his disposal that most police departments would envy. | thought he was in it
+for a news story. I would have been very pleased to see ABC get the credit for solving the
+mystery of the Zodiac. I was of the opinion, as | told him, that the news story came before the
+movie deal. Get the evidence, make the arrest -- the rest would flow from that.
+But his idea now was to abandon the news story and write a screenplay instead. He called
+me repeatedly to tell me how many millions were at stake, millions that we could split be-
+tween us. He was going to bring in Brian De Palma to direct the picture. He was writing the
+screenplay himself. He said that the core of his story was how the police refused to listen to
+me. He said that he and I would have to have another face-to-face conference so that he
+could get all the details on that aspect. And he was tending to business. He had flown to Los
+Angeles and retained an agent. He didn't say whether ABC had paid his airfare.
+It was becoming increasingly obvious that Goldfarb was a lost cause. He had expressed in-
+terest at one point in obtaining fingerprints from the subject. which might have made the case
+definitively. Instead, he was gallivanting all over the continent in search of the great movie
+deal. I already had one -- one which I had hoped would supplement ABC's efforts, if needed.
+Now it was becoming clear that it would have to replace them entirely.
+Howard Burman had a friend in New England named Alan Neigher. Neigher practices law in
+Westport, Connecticut. He had agreed to do some research in the New England area. |
+started getting phone calls from Neigher. He had a friend who worked for New England Bell.
+It seemed like a good research assignment for him to put together a list of addresses and
+telephone numbers for Michael O'Hare. He came up with a list going back to 1960. There
+were three years in which there was no listing in the New England Bell white pages. 1965,
+1966, and 1967. He had graduated from Harvard in 1964. It was not surprising to tind the hi-
+atus of three years beginning right at that point.
+=== PDFPAGE 9
+82
+Goldfarb was no longer calling me every few days. Neigher was instead. At this time, he had
+no financial interest in the Zodiac project; he was just helping out. Yet he was calling up
+every so often with more information, more questions. He was obviously becoming very in-
+volved. At one point or another -- I don't recall the date -- he bought out Charles Duggan's
+interest in Zodiac Associates Inc. Then he took an even bigger step. He hired a private in-
+vestigator.
+The investigator was Whit Caldwell, who worked at the firm of Dow Services Group in Bos-
+ton. Alan had nothing but high praise for Whit, whom he had interviewed personally in Bos-
+ton. All of a sudden, everything seemed to be clicking. Where the police had failed for twelve
+years because of mental lassitude, and where a national television network had failed be-
+cause of Dan Goldfarb's personal ambitions. everything seemed to indicate that this Connec-
+ticut lawyer was going to succeed. He had what I felt to be the right plan: make the arrest
+first, then peddle the movie.
+Starting in March 1982, we began to get spectacular results. Whit Caldwell did what any
+competent private investigator would do, and everything that he did produced paydirt. He
+went to publicly available sources of handwriting samples. for instance. the local hall ot re-
+cords. O'Hare had been married in 1969, and he had been divorced in 1981. He had purchased
+real estate both in Massachusetts and Vermont, and those transactions had all left records
+bearing his handwriting. He was represented in the 1964 Harvard yearbook -- Whit
+provided me with the first photographic likeness that | had ever seen. Mike O'Hare did look
+like the Zodiac. At least, he was not six-foot-five and black. But had he been in Melbourne.
+Australia, in 1969-1970?
+Whit also went to ADL and ingratiated himself with the personnel department. They let him
+look into Mike's file. Soon after he looked into that file, he called Alan, who didn’t wait long to
+call me. He was jubilant. He told me that Whit's research had established that Mike had
+been traveling to California in the employ of ADL during the Zodiac years. What the re-
+cords showed was that he had been transferred to the San Francisco office of ADL at the be-
+ginning of November 1967 and that he had returned to the Cambridge home oftice at the end of
+February 1968.
+I told Alan that it was interesting to find that Mike had indeed been in California about this
+time, but that there had been no Zodiac events during those four months. What was he doing
+out here then? Alan said that the personnel file had indicated that he had been assigned to
+work on a condominium project at Lake Tahoe for ADL's client, Boise Cascade Corporation. |
+asked him if he was sitting down. He hesitated, then said that he was. Why did | ask’
+The Zodiac appeared in the Bay Area in December 1968, when he murdered the two teen-
+agers at Lake Herman Road. Three crimes and about twenty letters later, he vanished from
+the scene, in March 1971. He did not return until almost three years later, in January 1974.
+The last document received in the period 1968-1971 was a postcard on which Z. had affixed
+=== PDFPAGE 10
+te
+ee te . & aad 4 ey NN SY S
+a NVREES ie ae aE EB “
+az. e St ee om -@ . we .. :* FO See) S$ FCs
+y pp Yates SD ekZ * x , AN : on ree € oe:
+= fie 7, S34 <2 v: Re ee 12m =. wl
+OMe Nias & Reetg— ea Cary =: O!
+pote ae ES ae Ss Ae £5
+Eee SD, eae FS NY tay ou. °
+FOS ree === —— ae we + eo 2
+# mS pret oe, mentor San ecttans, Sy O- srs 2
+eR So i tas cea 7 . <= Pe ee us m
+Ba Shees TE eS ae S by: cc Pie - O x “. re)
+Ress BELLS ae - eR ne Ree mn
+BPS ea Pe as a NUE 9 2 re
+~e , ao RE Os av | 4 A we a 3 wo
+PP San an a +) ee | ‘ WY LEN ~ ‘Ep - : <
+. SS Peo! me rr Se =
+ee — pe Tele Bb , a Y ~
+Athy Bay ae | if og rs z\ior
+tee CUES Se ‘7 WWE Ne LL
+‘ one = 257087 % £.% as gt} Neo ‘ '
+’ oe oF oe ‘ Gs Sel ae
+fo 7 5 Be Nees OF a ,
+2 f
+=== PDFPAGE 11
+84
+an artist's rendition of a condominium project which had been proposed for development by
+Boise Cascade Corporation at Incline, Nevada, on the east shore of Lake Tahoe. Ray Laurit-
+zen, then chief of the South Lake Tahoe, California, police department, had identified it publicly
+as such back in March 1971. Not only had Whit placed Mike in California, but he had
+connected him with a Zodiac artifact. I had served in the artillery when I was in the Army.
+When I heard the words, “Boise Cascade," coming from Alan's mouth, I felt as if I had fired a
+155mm round over a range of twenty miles and had it land on a dime.
+Whit even called Carol Ann Burchard O'Hare, the ex-wife, to inquire about Mike, on the pre-
+text of doing a credit check. Somehow, he elicited from her the information in the course of
+that conversation that Mike had been commuting to California in late 1968 and the first half of
+1969 on an ADL job for San Diego International Airport. Five minutes after he hung up, Whit
+received a telephone call from Michael O'Hare himself.
+Mike told Whit that it wasn't necessary for him to call his ex-wife to get information that he
+wanted for credit purposes. All he had to do was approach him directly. As proof of his good
+faith, Mike said, he was willing to tell him that he had been in Rome in the spring of 1960.
+Furthermore, he said, he would presently send Whit a copy of his current résumé, which
+would fill in all the gaps.
+In fact, the résumé opened up a few new gaps. According to Mike's own account. he had
+worked for ADL only in the years 1967 and 1968. But his ex-wife had just told Whit that she
+recalled him working for ADL in 1969 as well. I had acquired a store of offprints of articles
+published by Michael O'Hare over the years. I remembered one that had appeared in
+Architectural Record in July 1969, titled "Fence designs to keep wind from being a nuisance.”
+in which Mike and his co-author, Richard Kronauer, identified themselves as ADL employees.
+Eventually, Whit obtained a copy of Mike's doctoral dissertation for me. At one point in that
+dissertation, the author admits to having worked for ADL in 1970. Yet on his current ré-
+sumé, it was as if the years 1969 and 1970 did not exist. where ADL was concerned. And
+those were the two years in which most of the Zodiac events in the Bay Area had taken
+place.
+The earliest employment admitted to in this résumé was in 1967, when Mike had worked as a
+designer at the architectural firm of Skidmore, Owings & Merrill in New York. That was why
+there had been no telephone listing in the Boston area in 1967. But what about 1965 and
+1966? There was nothing in the résumé to account for his absence from the area in those
+years. He admitted to working as a freelance consultant to the Museum of Fine Arts in 1974
+but to no other consulting work. Another document obtained by Whit was the tenth anniver-
+sary report of the Harvard class of 1964. There, Mike said that he was teaching at MIT and
+working on the side as a consultant, “primarily” for the Museum of Fine Arts. That meant
+that he had at least one other client, whom he did not name. As of the present, he did not ad-
+mit to working as a consultant for anyone but the MFA in 1974. While omission of informa-
+tion from résumés is not criminal, it is curious that the years 1966, 1969-1970, and 1974. the
+four years in which all but four Zodiac events took place, are the ones about which this résu-
+mé was demonstrably not telling the whole story.
+=== PDFPAGE 12
+$5
+By February 1982, relations with Dan Goldfarb were poisonous. Zodiac Associates had tried
+to talk to him about collaboration, and his response, through his Beverly Hills agent, was that
+we needed him, he didn’t need us. [It was about the middle of the month that he called me for
+the last time, to tell me how sorry I was going to be for having signed with Burman et al. rath-
+er than with him. He was going to make millions, and I was going to get little if anything. I
+said that [ was sorry to hear that he felt that way about it but that I would just have to take
+my chances.
+I was feeling a bit depressed about this conversation and decided to lift my spirits by taking a
+walk. I had built my house on a ten-acre lot in the mountains east of Napa, and other than the
+area immediately around the house, it was wild. The nearest house, belonging to a Mike
+Poole, was six hundred feet away, measured horizontally, and a hundred feet uphill. Poole
+had threatened me with a lawsuit several times for spoiling his view. Every time he had a
+dispute with his neighbors, he would forget his legal threats against me and try to enlist me
+on his side of the altercation. 1 consistently refused to get involved in his fights, which en-
+deared me to him even less. Over time, | had grown accustomed to his showing up at my door
+every couple of months, when he would scream in my face for fifteen minutes or so. After a
+few weeks, he would simmer down and treat me civilly until the next blowup.
+My lot was indented here and there with wooded ravines, and it wrapped itself around the
+hillside, forming a sort of U on the map. Where my house stood was within view of the
+Pooles' picture window. The back part of the lot was behind their house. It was wet, and the
+undeveloped part of the lot was covered with tall wild grasses. so I put on a slicker and boots
+and trudged off.
+In the last ravine, behind Pooles’, | found a bag of garbage. There was some junk mail in it,
+from Friends of the Earth, addressed to Mike Poole. A couple of minutes later, I ran into
+Mike, who asked me what I was doing there. | told him that | was just taking a walk on my
+property. Incidentally, I said, I had just found a bag of his garbage dumped on my side of the
+line. He grinned smugly and said that it couldn't be his garbage. I didn't say it, but the way
+things were, it either came from his house or it fell out of an airplane. I did tell him that the
+garbage bag had junk mail in it addressed to him. He stopped grinning. He said that his dog
+must have done it. ,
+I wandered around in the last ravine for a while, picking up garbage that had been thrown
+down there by the neighbors, then went home. I hadn't been there but ten minutes when there
+came a mighty pounding at the door. This time, Mike was accompanied by his wife. Jeannine.
+Both of them were hammering on the door with their fists and hopping up and down.
+When I opened the door, they both screamed at me for several minutes. I was a trouble mak-
+er, sneaking around their hillside, spying on them, making an unwarranted fuss about their
+garbage. I had done nothing but interfere with their lives. They had had the hillside all to
+themselves, and then I had bought my lot and built my house within their view. Their property
+value was ruined. They were going to sue me. They were both quite red in the face from all
+the hollering they had been doing.
+=== PDFPAGE 13
+86
+I told them that if they were minded to sue me, they had best get cracking. My house had
+been there for three years already. In the meantime, they could stop screaming in my face. In
+fact, if they weren't back across my property line by the time I counted to ten, | would call the
+sheriff's department and have them removed forcibly. I never saw either of them, before or
+since, move quite so fast. They had crossed the frontier before I even got to the count of
+eight.
+By mid-March, Whit Caldwell had come up with contemporary photographs of Mike O'Hare
+and a bundle of handwriting samples. The handwriting was striking. O'Hare formed more
+than a dozen letters and numerals exactly the same way the Zodiac did. If 1 had ever had any
+doubt about my identification of him as Z., it had evaporated completely. I was spending my
+time now putting together handwriting comparisons. I had piles of photocopies stacked up on
+the dining room table, where I was collating them.
+On St. Patrick's Day evening, | was alone at home when I| thought I heard a skunk outside. |
+loaded up my Montgomery Ward 12-gauge shotgun with six rounds of duck and pheasant
+shot and went outside to see what I could see. There was no moon. so I could not see much.
+Maybe ten yards away, I thought I saw something moving. It looked black and white. like a
+police car. I drew a bead on it and let fly. It jumped. I pumped another round into the chamber
+and fired again. I fired six times in all, perhaps over ten seconds’ time. What I thought was a
+skunk was hopping up and down like a little black-and-white yo-yo. 1 missed every time.
+I went back inside and put Old Betsy away. Then I poured myself a glass of wine and went
+back outside to enjoy the cool air. About ten minutes passed. then | could see three cars in
+convoy coming up the road about a quarter of a mile away. They came roaring up Green Val-
+ley Road past my driveway, then continued on to the Pooles’. 1 watched what was going on
+up there as what appeared to be a small army milled around their house. From time to time.
+one of these figures would stop milling around and stand in front of the Pooles’ neighbors
+brightly lighted picture window to peer down in my direction. If | had had a rifle with a scope
+sight, I could have picked off two or three of them without any trouble.
+After a while, it dawned on me that they were trying to see if | was down there and that they
+couldn't because I was standing out in the parking lot, where it was pitch black. [ turned on
+the porch light and waved at them in a friendly, inviting manner. [ didn't want them to think
+that I was some kind of sinister person. After [ had done this for a while, there was a con-
+fabulation of some sort, then they disappeared, and | heard three supercharged cop-car en-
+gines starting up.
+They came back down the road in convoy. When they got to my driveway, they didn't keep
+going. They turned up it. I stood up at the high end. beckoning them on, with the winegliss in
+my left hand. The lead car trained a spotlight on me, then somebody stuck a bullhorn out the
+window. "PUT DOWN THE WINEGLASS! PUT DOWN THE WINEGLASS!" he bellowed
+at me. I complied, leaving the glass in the tall grass beside the driveway. Then they came all
+the way up and parked. A Napa Register headline materialized in my head: MADMAN
+ATTACKS SIX ARMED DEPUTIES WITH WINEGLASS.
+=== PDFPAGE 14
+87
+I was frisked and questioned. I told them about the nocturnal skunk hunting that | had been
+doing. They informed me that there was really bad blood between me and the Pooles. I said,
+no kidding. I gave them a little background. We went inside, where the conversation went on
+for another half hour or so. They asked me if I had aimed at the Pooles' house, and I said it
+wouldn't have made much difference if | had. The effective range of D&P is about 150 feet. I
+might as well have tried hitting Oakland. For sheriff's deputies, they didn't know much about
+firearms.
+From what they told me, it appeared that Mike Poole, being the most important object in the
+universe, and therefore having the greatest gravitational attraction, naturally felt that when
+the shot was flying. it was all headed in his direction. When they heard me shooting at my
+skunk, the Pooles had turned off all their lights and started creeping around on the floor on all
+fours. My son Felix was on good terms with the two Poole girls, and he confirmed this ac-
+count the next day. He also told me that the girls thought it was pretty funny. But Mike and
+Jeannine thought that World War III had broken out.
+Shotguns are just part and parcel of life in the country. I had had a neighbor who used to sit
+out in the garden all night long with his 20-gauge, waiting for gophers to pop up, and when
+they did, he would blow them to Kingdom Come. He did this about fifty feet from my bedroom
+window, and it was invariably about 3 a.m. when he did it. Maybe the Pooles ought to move
+back into town.
+One of the deputies had been eyeing the dining table. Because of the skunk and whatnot, |
+hadn't gotten around to washing the dishes. There were four places set for dinner, and the
+dirty plates were still set there. | was the only one in the house. | knew exactly what he was
+thinking. He asked me where my family was. With a great deal of difficulty, I restrained the
+wicked urge to tell him to go look in the bottom of the nearest ravine. Instead, I told him the
+truth: Mary Ann and the kids were at a Boy Scout troop meeting.
+Another deputy saw the handwriting comparisons and asked me what they were. I told him.
+He thought they were pretty nifty. He said that I should give a copy to Captain Narlow. He
+had been chasing the Zodiac since 1969. I said that | would consider it.
+In parting, the deputies offered to help me look for my wineglass. They also advised me that I
+should steer clear of the Pooles. I said that | would be only too happy to comply. But as to
+their request that I refrain in future from nocturnal skunk-hunting, I said that I was not too
+sure that I could oblige them. Skunks are, after all, nocturnal animals, and the only time you
+can hunt them is at night.
+I put together a side-by-side comparison of the 1964 O'Hare photograph with the composite
+sketch of the Zodiac and about a dozen pages of handwriting comparisons. I made up a cover
+letter to go with the package, which | called a "Zodiac Identification Kit.” or ZIK for short. |
+coined the verb “to zick" to denote bestowing a ZIK on someone. Having made up the verb, |
+zicked Narlow, Ethridge, Shiffrin, the San Francisco DA's office, and Lieutenant Jim Husted of
+the Vallejo police department. Husted was responsible for investigating the shooting at Blue
+Rock Springs, now almost thirteen years old. I also zicked Bob Webster at the Press- Enter-
+=== PDFPAGE 15
+88
+
+prise and Jim Laube at the Times-Herald.
+
+I heard from Webster. He called me up a couple of days after I had zicked him to thank me
+profusely for the material. He said that he was going to pass it on to his contacts at Riverside
+PD. Jim Laube said that he was amazed that with this much on Mike O'Hare, the cops were-
+n't moving. I heard nothing from Narlow, who was keeping his own counsel. I also heard no-
+thing from Ethridge. Husted called three times when I was out of the house. Each time, he
+asked if it would be all right for him to call back.
+
+Some time in April, I gave up on waiting for him to call a fourth time. I called him instead. He
+said that in the interim, he had talked to Captain Narlow, but he didn't explain the relevance of
+that. I gathered that it meant that Narlow had told him that I was a lunatic and had cooked up
+the handwriting comparisons. I asked Husted if he knew that the subject of the photograph
+and author of the handwriting samples had also been responsible for the work on the Boise
+Cascade project shown on the Lake Tahoe Card. He said. "Yes, we've known that for a long
+time.”
+
+I couldn't tell from the way he said it whether it meant that he was referring to information
+from the Massachusetts State Police (the investigator that Dan Goldfarb had said was as-
+signed to look into O'Hare's itinerary at ADL). or whether it was just his way of saving.
+"There, there, now, everything is going to be all right.” In either case, | never heard anything
+from Husted again.
+
+About mid-April, | heard from Shiffrin. He called me up one evening to jubilate about how |
+had proven that O'Hare was the Zodiac. The handwriting, he said, proved it beyond any
+doubt. He spent some time reminding me of things that I hadn't even known before. such as
+how he had always been on my side, and when everybody else at the magazine had turned
+against me, he had threatened to resign. Whatever the truth of these assertions. | gathered
+that he wanted his place in history.
+
+He said that the police would have to act now. I said that since they had already taken a pos-
+ition on the other side, | doubted that they would have the emotional maturity to back down.
+He insisted that I was wrong. They would look even worse if they let it slide now. [ wasn't
+convinced, but I bit my tongue anyway.
+
+He also asked me if I would be open to an offer from California for The Sequel. 1 wouldn't have
+the same problems | had had before. Bates had been kicked upstairs. Broyles had gone off to
+run Newsweek. The magazine was now being run by “real” journalists: Scott Kaufer was in
+charge. I could have a free hand with the form of the article, and the financial terms would be
+quite a bit more generous than the last time. This time, they would name O'Hare as the
+Zodiac. I told him that | would consider it. I didn’t mention, because it probably had already
+occurred to him, that if California had spent a few hundred on a private investigator to do
+what Whit Caldwell had done, they would have had this same material, and this same degree
+of conviction, about a year sooner. And if they were so bent on naming Mike O'Hare as the
+Zodiac back then, they would have had a lot more factual foundation to base the story on.
+=== PDFPAGE 16
+° 89
+They hadn't wasted any time. The next day, a fat envelope arrived from Scott Kaufer. |
+should have opened it to see what he had to say. I knew that most of the fatness was a writ-
+ers agreement. But I had cast my lot in with Burman and Neigher. For one thing, publication
+at this time might be contrary to their wishes. For another, they were the ones who had done
+the investigative work that California had been unwilling to do. Why should California profit
+from Alan Neigher's wisdom? I took my text from “The Little Red Hen.” California maga-
+zine was willing to eat the bread, once it had been baked, but they were unwilling to do any of
+the preparatory work leading up to the baking. I had just had a rubber stamp made that said
+BULLSHIT in inch-high letters. I inked it with a red stamp pad and imprinted my response on
+the outside of Kaufer's envelope. then returned it to him.
+The next month, on 19 May 1982, I got a phone call from the San Francisco office of California.
+They said that they had received an inquiry from the newsroom at KPIX, the San Francisco
+CBS affiliate. KPIX was going to do some kind of Zodiac story and wanted to talk to me
+about it. They gave me the name and number of the person at KPIX who had called. I called
+him. He told me that there was a Zodiac news story coming from the aftemoon news show of
+KPIX'’s sister station in Los Angeles, KNX, and he didn’t know what it was about. That was-
+n't very helpful, because | couldn't offer any comment on unknown information. We talked in
+generalities about the police mentality for about twenty minutes, then hung up.
+There was nothing on the six o'clock news show, but there were teasers all evening long
+about a Zodiac story on the eleven o'clock news. KTVU, an independent station, had similar
+teasers. Their late-evening news show, however, is on at ten o'clock, so I was able to watch
+both. Here is what they said. Riverside Police Department had determined the identity of the
+Zodiac based on certain recently-received handwriting samples, and they anticipated an ar-
+rest shortly. As usual, for those who had difficulty remembering after all this time who the
+Zodiac was, or who confused the Zodiac murders with the Zebra murders (both were in San
+Francisco, and both began with Z), he was introduced as “The Zodiac, who may have mur-
+dered as many as 37 people... ." (The Zodiac had sent the Chronicle a letter in January 1974
+at the foot of which he had written what appeared to be a box-score. "Me 37, SFPD 0." It
+didn't say that he had killed 37 people; it just said. "Me 37.")
+The next day, Riverside PD held a press conference to deny the reports that had been circu-
+lated by the television news. Their press release was quoted in the issue of the Press-
+Enterprise for the 21st, two days after the television reports. Some time later, I called up the
+news department at KNX in Los Angeles to see if they would be willing to tell me who their
+source had been in the first place. Was it Bob Webster? If so, why had they said that it was
+Riverside PD that had made the identification? My informant said that he would do some re-
+search, then call me back. In the meantime, I zicked him.
+A few days later, he called again. to thank me for the ZIK, which he said he found most in-
+teresting, and to tell me that KNX’s story had merely reflected what Riverside PD had put out
+at their press conference. When I asked him how they could have reported on 19 May on
+something that didn't happen until the 20th. he said that he was stuck for an answer. Five
+years later, | have no more idea than | did then as to what went on between Riverside PD,
+KNX, and the Bay Area television stations.
+=== PDFPAGE 17
+INVISIBLE GEOMETRY
+This chapter is going to deal not with a single Zodiac document but with a class of documents.
+I concluded the chapter on the 340-Character Cipher with the observation that our author had
+freed himself from the constraints of conventional language. This chapter will make that even
+more obvious.
+First, let's consider the Exorcist Letter. That might seem an odd choice, since it comes
+chronologically late in the Zodiac episode. This letter was the first letter received by the
+Chronicle in 1974, following a nearly three-year hiatus. The reason that I would like to dis-
+cuss this document first is that it is the first one which I subjected to a geometric analysis. |
+- would like to add that I did so at the suggestion of Dr. Thompson, whose insight into the au-
+thor's mentality proved to be uncannily accurate.
+This letter is characterized by spelling errors which involve misplacement of the letter I in
+three out of five cases. Dr. Thompson suggested that since this letter comes with a dot. the
+dots might form a geometric pattern. I tried out his suggestion and found it to be very apt. In
+the opening paragraph, a mini-review of the movie The Exorcist , | measured the distance be-
+tween the I-dots center to center, in syntactic order. From the dot on the I of "think" to the
+dot on the I of "Exorcist" is 76mm. From the second dot to the dot on the I of "saterical” is
+38mm. And from the dot of "saterical” to the dot over “comidy" is 95mm.
+Note that the 76mm line is above the 38mm line. I have already suggested that the Zodiac is
+fond of rebuses. Here we have 76 over 38; "76 over 38" is another way of saying "76 divided
+by 38." The binary form of 95, the dimension of the third line, is }OIILI11, which redivides in
+Morse Code to a very sensible | O11! 111, TWO. The statement, "76 over 38 (is) TWO.” is
+correct both mathematically and orthographically.
+I suggest reading this statement as what you might call a “tutorial,” a little lesson in how the
+document is intended to be read. Incidentally, the interstellar radio message sent from Are-
+cibo in 1974 by Drake et al. opens with just such a tutorial for the benefit of extraterrestrial
+readers in the binary notation used for writing numbers in the message.
+The next thing we find, following the tutorial, is a closing salutation, "Signed, yours truley.” In
+a normal letter, we would expect to find it followed by a signature. Here. we find it followed
+by a quotation from The Mikado. Please note the wide gap separating the word “truley” from
+the colon. The dimension expressed by the distance between the I-dot of “Signed” and the
+upper dot of the colon is 103mm. Just as in the 340-character cipher. we find MIKADO (or a
+quote from the operetta of the same title) preceded by 103 somethings. Again, if we are to
+read "103 before MIKADO” as "MIKADO minus 103.” then the statement implies the name
+MIKE (MIKE + 103 = MIKADO). And this (implied) MIKE is right where you would expect
+to find a signature.
+=== PDFPAGE 18
+“ ©
+L saw —f- think Ae Exorcist
+was the fesse Seterite/ Com-
+iA/ th oe L heave Cee secnr,
+He plang ex Len self tnreo
+the DTM o wy wwece
+Anal! tr echo a-ose 7
+the Scr C lferc 2? raed
+StF corto te «Slo
+71t eto
+Ps. SF DL Lo wot see rhov
+Hef E fn Your pese—, L
+wil clo seme SKA, nary,
+wlech you fa eo Lm capable of
+afeing \
+r 1%
+EM
+He - 37
+; SFPD- ©
+=== PDFPAGE 19
+we {A +
+LT saw LATA € 58, CLsT
+wes the Erica Com —
+IAS ther °7 hbave @uenr SEE.
+103
+/re pleng oe’ Arr selt in xo
+the b TM 0 wy weee
+and an echo a-ose Fo
+the ae ler 2°AGZS
+tiK ects 7 ti? colo
+11F «wr bo
+95 )
+Ps. fi Wi, eo net see rhs
+rere ryan tan PUL eo, ZL
+Wale See TEA
+wr o S¢0em_ ~€ cy 7) OS 7,
+°o
+w biel you taoo Lm capable of
+wi
+76 over 38 = 76 + 38 = TWO
+TWO =1 O11 111, binary 95
+TWO over 58 = 2/58 = 1/29
+103 before MIKADO = MIKADO - 103 = MIKE
+"Se CUEROE SRE NEE Eo PRE geen -
+SFPDOD- Oo
+=== PDFPAGE 20
+wo a
+L saw —- think Zhe Exorcist
+was the hese Seterita/ Com-
+‘A/S thot 2 have €ver seen.
+S154 e , Aca) pf bm Jey .
+He pleng ea’ Arr self in xo
+the LM 0 wy wece
+And au, echo BER = 130 |
+od BM = 35 as
+the Sac ler 2? GENE = 100 me
++7 ‘Me +; 23 ange = Pole {
++1? wo 6 before 37 = 31 3
+Ps. fF “oe not see xrheos
+werle i\ Your pare, ZL
+wlte YP in Oto ra) capable ot
+Hing 100°
+130° ry
+3 /\ 20
+He - 37
+SPP e |
+=== PDFPAGE 21
+94
+
+There are a few other points of interest among the I-dots. In each repetition of the word "tit.
+willo,” the I-dots are exactly 17mm apart. I suggest reading this as THREE TIMES 17, g
+play on favorite Zodiac themes. And in the postscript, the I-dots in the first line ("if" anq
+“this") are 95mm on center; in the third line, the I-dots (“will” and "something") are 58mm on
+center. There are no I-dots between them in the second line. 95, once again, is the Morse-
+to-binary writing of TWO. TWO over 58 is 2/58, which simplifies to 1/29. That is the date of
+the postmark on this letter, 1/29, the 29th of January 1974.
+Of even greater interest are the figures drawn at the foot of the letter. They were obliterated
+when the letter was reproduced in the newspapers. I have annotated these figures to show
+the angular measurements which they express. The largest figure of this group expresses an
+angle of 130°. To its right, we find a 100° angle. Adjoining that, there is an angle of 35°. You
+will recognize 130 as BER, 100 as GENE, and 35 as BM, three identifiers pertaining to the
+parents of Michael O'Hare. Two figures appear to form the Roman letters FV (the V is in-
+verted). FV is the WIZARD-form of UE, the two-letter code corresponding to BM.
+Now I would like to turn for a moment to another document. the Dragon Card. mailed to the
+Chronicle on 28 April 1970. In that card, Z. complains that he sees no one wearing a Zodiac
+“buton.” It being 1970, he sees people wearing buttons bearing the peace symbol. the slogan
+“Black Power," and the sentément, "melvin eats bluber.” By this time. he had threatened re-
+peatedly to attack a bus without carrying through on the threat. He had also, as far as any-
+body knew, not killed anyone since the previous October. “Melvin eats bluber” appeared to
+be proof of imbecility, and instead of evoking shudders of horror, it elicited a chorus of titters
+at the expense of the poor madman. A digital analysis might have caused a different reaction.
+Here's MELVIN EATS BLUBER in Morse Code. [ have left out the spaces between the ort-
+ginal letter-groups.
+
+1100100 000100 100011 000100 0010 0001 10000010
+
+hundred 35 F V 130
+I have written “hundred” instead of "100" to avoid confusion, since "100" is also binary four.
+We find, through digital analysis of “melvin eats bluber.” exactly the same vocabulary as Is
+expressed by angular measurement in the figures at the foot of the Exorcist Letter. The only
+groups left over follow one hundred and 35. Note that these two groups are identical to one
+another: 000100. It is a parallelism. 1 suggest dividing it right down the center, into 000 (S)
+and 100 (crossed circle). This is the only instance known to me in which Z. uses a form of the
+verb "to be" in Zodiacese. What "melvin eats bluber” actually says is "GENE'S 100. BM'S
+100, FV, BER.” Both parents are represented by "100." the crossed circle sign.
+Let's go back to the Exorcist Letter now. There is a smaller angle contained within the 130°
+angle. It is difficult to measure with any accuracy, but I make it out to be between [22° and
+123°. I suggest that it is the supplement of the radian, namely the angle which when added to
+the radian makes a total of 180°. If we truncate the value of the radian at 57°17’, then its sup-
+=== PDFPAGE 22
+(78
+; enjey your
+By <4 Selves
+ab6 15 1 DRGH . have my
+fe Heat ™* mptt Blast,
+~ cy ae “ FS. en
+: a « - — 44 \
+is
+THE DRAGON CARD (28 April 1970)
+Second of three commercial greeting cards. Taken together with the theme
+of the first greeting card (pen), this completes the surname PENDRAGON,
+whose most famous bearer was King Arthur (as in "Arthur D. Little, Inc.")
+If you dent want me to
+heave thie blast you must
+do tweo things. Tell every
+one abeut the bus bemb with
+all the detaih. 2 IT wow le/ like
+to s€€ Seme nice Zed tac buten
+wand er ing about steumn, Every
+one alte hes shese butters Whe,
+® , black pewer melvin eatt
+bluber, ee. Wel it would cheer
+me ap consid/a- bly if I Sas’
+a ler of pesplee weeriy ms
+PAS buten, Plesse ne nasty owes
+like melvin’
+Thank you
+=== PDFPAGE 23
+This 5 the Lor /ac spea & ing.
+L Ap the pr eer Porer et rhe
+_ tax Mrive- ower by
+Wy, Washing on 56 [tape © (as
+“Sb nyht, to prove tha here %
+i a bheS Stare Piece € ot As
+- shiek. ZL om. the _seo~ pvr edo
+whe AZ twikphe people 1— he
+hoerth bay jmmite + |
+The Ss pahoe Cealel here Cow or
+S Qee cheat #he Pe-4 prePenly
+fa steanX oF fo lA oy Wa 4c ot
+wits rhercr pede. cvr<les S27! ray oy
+LoelE Hwahe +he prest vrorse « The
+Cen Kerley» Shorts feee pest
+Penh ta AAC. — Cor, yf S4er Hkh C-e24
+gare? sera i ug Lo — one + cCaene
+ger eof Coecee,
+Se hoct ok, Ares rrate bee tog ~_
+ex, think FJ 3 hal” ere an
+@ Schee’ ba tome oer ee br rey J «st
+Shoot ect the tranv Ane F phen
+Pre A. oSF Fhe & 1K, os es yhey cone
+ah eae Css oat. :
+=== PDFPAGE 24
+97
+plement is 122°43', 1-22-43 is the date of Michael O'Hare's birth.
+There is another feature of interest here that seems to make the identification of persons in-
+disputable. A line drawn through the centers of the two large dots to the left of the large
+figures intersects with the extension of the upper leg of the 130° just tangent to the W of the
+first “titwillo.” The open space between the two large dots is 23mm. The angle formed is 23°.
+And W is the 23rd letter of the alphabet. If you were determined to express everything in
+number and wanted to identify someone by nationality or ethnic background numerically, you
+might be hard put to come up with a suitable shorthand in number for anyone except a Pole.
+The Poles of the earth are characterized by a 23° angle. That is to say, the Poles are tilted
+out of perpendicular to the Plane of the Ecliptic by an angle of that size. This is a fact that
+everyone leams in grade school. And it is also a fact that Berta Margoulies was born and
+raised in Poland. She is, by birth, a Pole. And it would seem to stretch coincidence past the
+breaking point to argue that this 23mm dimension, the 23° angle, and letter number 23 all be-
+ing joined together in this structure is not intentional.
+The box-score, “Me 37,” is the basis of the cliché, “The Zodiac, who may have murdered as
+many as 37 people,” which is heard on the television news programs and read in the news-
+papers whenever this subject comes up. As with other such box-scores, it does not really
+say that he has murdered so many people. All it says is, "Me 37." I suggest reading it as a
+rebus. ME is Morse 110, binary six. Six before 37 is 37 minus six, or 31.
+Eugene Robert O'Hare was born on 16 October 1906. Berta Margoulies was born on 7 Sep-
+tember 1907. On the date of their marriage, 28 September 1938, they were both thirty-one
+years of age. And their son, Michael Henry O'Hare, celebrated his thirty-first birthday the
+week before this letter was mailed. As far as | know, no one has ever interpreted “Me 37” as
+a self-description. Interpreting it as a claim of victims killed is more sensational and helps
+sell newspapers.
+In any case, what these figures show is a constellation of expressions identifying a particular
+man and a particular woman joined together. Since they are expressed as angular mea-
+surement, it is appropriate to say that they ate shown joining legs. I believe that that is ex-
+actly what is intended here. This is a mathematical picture of a copulation. Note the resem-
+blance in the two large dots to the left of this group to sperm and egg. The upper dot has a
+tail, just like a spermatozoon.
+Before leaving this document behind. | would like to indulge in some speculation as to the sig-
+nificance of the particular form of this configuration. If you will turn to the 340-Character Ci--
+pher, you will find that Characters ##97-99 take the form of a backwards K, an F. and a lazy
+V. Here we have backwards K, F, and inverted V. The resemblance is rather striking. Note
+that in the 340-Character Cipher, Character #97 has been struck out and replaced with the K.
+I read that as a form of emphasis; it is meant to draw our attention to the expression. In other
+words, it is important. Here's my speculation.
+The expression KFV in Morse Code is 101 0010 0001, binary 1313. Two thirteens are 26. |
+=== PDFPAGE 25
+98
+
+hypothesize an original form KFV 26, from which the 26 is omitted as superfluous. KFV 26 is
+101 0010 OOO! 11010, binary 42042. Read as a date, 4-20-42, KFV 26 falls 277 days before
+22 January 1943. Standard obstetrics texts give the length of the human gestation period as
+280 days. I believe that "KFV" is a shorthand for the date on which the author was conceived
+by his parents. In support of this, we have an angle which appears to express his birthdate
+inside the angle expressing his mother’s name. This interpretation must remain speculative
+because it requires truncation of KFV 26.
+Having dealt with a late document, let's go back to an early one, specifically the letter of 14
+October 1969, in which Z. claims credit for murdering Paul Stine. This letter has only two
+misspellings, “motorcicles” and “frunt." The type of linguistic error which is most prominent in
+this letter is the run-on sentence:
+
+| am the murderer of the taxi driver over by Washington St & Maple
+
+St last night, to prove this here is a blood stained piece of his shirt.
+
+School children make nice targets, 1 think | shall wipe out a school
+
+bus some morning.
+It appeared to me that since he rather pointedly omits periods where they belong, he is draw-
+ing attention to them. There are seven periods in this letter. I connected them with straight
+lines, center to center, in syntactic order. The lines form angles of 40°, 152°, 74°, 52° and 44°.
+The largest angle, both in terms of angular measurement and in terms of leg-length, is the one
+of 152°. 152 is binary 100110 00, 38 followed by I, or "I (am) 38."
+The difference between each pair of consecutive angles appears to contain the message. 152
+minus 40 is 112. 152 minus 74 is 78. 74 minus 52 is 22, and 52 minus 44 is eight. 112 is bi-
+nary 111 0000, Morse OH. 78 is 10 01 11 0, Morse NAME. 22 is binary 10110; eight is
+1000. Fused together, as 101101000, 22 and eight combine to make 360, a paraphrase for
+“circle.”
+The next document is the Pen Card, which accompanied the 340-character cipher. There are
+three misspellings, “nead,” “though” (for "thought") and “frunt.". NEAD is Morse 10 0 OI
+100, a redivision of 1000 11 00, "BM (am) I.” This is underscored by the threefold repetition
+of the word "new" (once as “new,” twice as "news"). Morse NEW, 10 0 O11, is our old
+friend 35 (or BM) once more. The other two misspellings have the letter T in common. Like
+the dot over I, the cross of T is a point which can be used for the formation of invisible geo-
+metric structures. I joined the crosses of these two T's to the center of the crossed circle sign.
+The three crosses form a 169° angle. By alphabetic quantities, 16 = P, 9 = I.
+There is another box-score here: “Des July Aug Sept Oct = 7." For some time. the Chronicle
+attributed the murder of two little girls in San Jose to the Zodiac, basing its judgment on this
+statement. At the time, it was not known that he had murdered Cheri Bates in Riverside. As
+of this date, he is known to have murdered six people and nearly murdered two others. An-
+other interesting point is the semantic distinction which the Chronicle consistently made be-
+tween dead and live victims. | According to this newspaper, the two survivors were not to be
+=== PDFPAGE 26
+This 13 the ZeeX/sac speak ing
+Lae the see Xrer oF she 7
+TAX / Mrive— ov5oeer fy |
+SG AF , %o pPvOse tA fere “5
+- a they S£IKeZ Dece of As
+i shiet Lien) ok se~e prveres
+who ~ “fspse Peoyve 2~ +£he
+The Sf RAce Geller hore comer
+pre slosh Bese et hey bo”
+S@e-chaeat ¢ Pe- D -oDec- /
+par $f Care” or o Je 4 eK 2c oS
+wit, rhercr meteor av<"es s2er «ho
+Cla make “he 10s The
+Ce- Merce.» Sheets \Aay€E sess
+Penh cL PAC. - Sor) Sar #7h C—24 .
+gausetG aera (71 oe tg cc 4e ceene
+eer ef Ceeece
+Se hee’ CkrlKpres Ate bret toy ~
+et, S think J 340 e-rPE aor
+a Scheoe 65 teme J <5”
+shoot oct #he fp wud A, a y~ shen |
+Pre A. ot F Fe hare eS as yhey CLM
+Cte, Cleg | oat
+DE Eas
+=== PDFPAGE 27
+7
+L on gh er wr on oe an” .,
+7°? Ja 4 before rex
+or~ us w a e
+rows fr 27 “he (dink
+SA eae ‘ 16%° . ® J i m
+“KX 4 ) washed af)
+a a) ' e- my pen y
+ZL * P@; e
+i Oy
+wher A fon o M_. as
+Se /a / — 2 em .
+ene , 7
+Lo “ Cow lag a ¢
+. oy, D “
+—__—_—__——_ e
+PEN CARD, 10 November 1969
+~~ From a 's tee et
+NB: Exclamation points following
+THING = binary TMI, 63 ( = 9 x 7)
+Alphabetic quantitles of THING = 58 .
+=== PDFPAGE 28
+101
+counted as “victims.” Never mind that one had been shot twice with a 9mm automatic at
+point-blank range and that the other had been stabbed seven times with a butcher knife. I
+believe that most reasonable people would consider these two people to be victims every bit
+as much as the other six. They just had the good fortune to survive. Counting them, the Zo-
+diac had eight victims at this time.
+Z. seldom makes explicit claims about the number of people he has killed. Generally, he
+writes a number somewhere and just lets the Chronicle leap to its own conclusions, knowing
+exactly what they will do with it. The first explicit statement, using the phraseology “I have
+killed” is found in the cryptogram, in the seeming syntactic lapse, “all the I have killed.” It ap-
+- pears that the author has left out a word. Remember that I said that in the Zodiac's idiosyn-
+
+syncratic usage, E = 3. He also camouflages claims and seeming claims of victims by casting
+out nines. The word THE is made up of a 20 (T), an 8 (H), and a 3 (E). Their sum is 31. By
+casting out nines, we get four (3 + 1). The statement, “all four I have killed" is both gram-
+matically and historically correct. Let's see if this same technique works here.
+DES is 4 + 3 + 19, or 26. JULY is 10 + 21 + 12 + 25, or 68. AUG is 1 + 21 + 7, or 29. SEPT
+is 19+ 3 + 16 + 20, or 58. OCT is 15 + 3 + 20, or 38. 68 is binary 1000100, Morse 10 00 10
+0, NINE. 68 is synonymous with the number nine in the Zodiac literature just as 95 is with
+two. The numbers 26, NINE, 29, 58, and 38 are also expressed by the six dots in the 340-
+character cipher, which this card accompanies. And their sum is 160 (26 + NINE + 29 + 58 +
+38). Casting out nines, we get 1 + 6 + 0. or seven. “Des July Aug Sept Oct = 7" is a true
+statement, and it has nothing to do with murder victims at all. It is just a problem in arith-
+metic.
+This is probably as appropriate a place as any to say something about the origin of E = 3. In
+the first place, there is a rather strong graphic resemblance between Arabic 3 and the letter E.
+Anybody who owns a digital clock has noticed the similarity. Lazy E is Roman three. But |
+think that these graphic similarities are just a bonus. We find again and again in the Zodiac
+literature the names of the two parents, sometimes separately, sometimes fused together in
+one way or another. They are shown joined together as angles in the Exorcist Letter. They
+are compressed together into the crossed circle sign. At every turn, Z. finds new ways to
+show the equivalence between the father and the mother.
+The mother is identified very frequently as BM. The alphabetic quantities of these two Ictters
+are 2 and 13. The father is frequently identified as UE. By manipulation of the alphabetic
+quantity of E, Z. is able to make the one form a redivision of the other:
+
+B M
+
+2 13
+
+21 3
+
+U CE
+The Dragon Card does not contain much of interest beyond “melvin eats bluber” (already
+discussed above). Like the Pen Card, it uses the cross of the letter T as a geometric point,
+together with the center of the crossed circle. Z. misspells “button” twice here. Curiously, he
+=== PDFPAGE 29
++ me to
+If you dont wen ;
+. “u mus
+have thie blast yo
+do two things, Tell every
++ the bus bom b with
+one abou ‘ lel lik
+all the detatsh, « I wow
+to s€€ Some nice Z ed tac bafom
+° town, Ever}
+wand er ing abeat °
+one elre hes shese burrrs like,
+® black power, melvin eat!
+blaber, ete. We it would jeheer
+me “pp con sida bly if I Spee
+a lot of peeple wear iy y
+was baken, Plese neu poe os
+lite om lyvin's
+Than Pi
+Dy
+we,
+THE DRAGON CARD
+Highlights:
+
+MELVIN EATS BLUBER is a digital redivision of the sentence,
+GENE'S 100, BM'S 100, FV, BER (same vocabulary as found in
+graphic gibberish at foot of Exorcist Letter). Angle BUTON-
+crossed circle-BUTON = 76° (38 x 2). BUTON is Morse Code
+1000 OOL 1 111 10, binary 4222, latitude of Cambridge, Mass.
+Letter-quantities of inappropriate word NASTY (14 + 1 + 19 +
+20 + 25) add up to 79. Binary 79 = 1001 111, 9-7, Berta
+Margoulies' birthday.
+=== PDFPAGE 30
+This 5 the V4 od/iac- spea king
+By the ating have Oe creck €%
+the fast C/phee LZ sent ew 7
+My Wame I —_
+TOOL
+
+AEN@@®@K@NEeLNAM ne
+foam mildly THREE LITTLE WORDS |
+mm ue4 An ow Three misspellings, all containing |
+
+I-dots, define a triangle having angles’ |
+head now, of 112° (Morse OH) and 35° (BM)
+- L in fr Alhat of
+whe wypeL out that blue
+7 Cann,P—~w sit > « fhewb at rhe
+cop ste ixeun . fee thong 4 LZ te Uh ee
+about bch scheoo/ VA ren with
+oue. AA fas wold art Ter. Se
+were /u OCH SOCPmEC OH elres oF 0 tony .
+Fut phere ri te otery 4 Filles
+G cop Jhon a e102 Lecauwit & cop
+co. sheet Sack~- 1 heer fil ecf
+Poon free ple fo Sere. LY ce eee/o
+hove pean a Jot prvoe--< exeecp?
+thet uny $646 Lorrb wt = A
+JZ vast sean pet eurv Ly rhe
+Fora crc bat wher le beech.
+=== PDFPAGE 31
+= \
+ne
+>»
+Bor 6s Cr bas eacs) { $
+NAA \.
+| eS — | . 3
+ws}
+pay] ts
+)
+X
+S
+Se
+== tt,
+=== PDFPAGE 32
+Hiecer | | :
+
+' ( V . ,
+
+La S.
+
+Bem bs Cr bay eace) { $ x
+
+VA AA J ‘
+Va (LP
+\e RADIA Nf
+O
+
+We |
+DEATH MACHINE DIAGRAM
+| 130 (BER) + 2 = 65; 100 (GENE) + 2 = 50 )
+=== PDFPAGE 33
+106
+gets it right the second time he uses the word, just not the first and third times. To make a
+long story short, the angle BUTON-crossed circle-BUTON is 76°. 76 is the double of 38.
+Morse BUTON, by the way, is binary 1000 OO! 1 III 10, 4222. Perhaps it's just
+coincidence, but that’s the latitude of Cambridge, Massachusetts (42°22' North).
+The first page of the Bus Bomb Letter (postmarked 20 April 1970) has four misspellings,
+three of them involving words with letter I ("meannie,” “cid,” and “teritory"). These three
+points form a triangle, two of whose angles express 112° and 35°, respectively. Again, | 12 is
+the Morse-to-binary writing of OH, and 35 is BM. I will deal with the 13-Character Cipher
+on this page in another chapter.
+The last document which I would like to discuss here is the Death Machine Diagram, which
+accompanied the 340-character cipher, a lengthy letter, and the Pen Card. The diagram shows
+the infernal device which Z. says he is going to use to attack a school bus. This diagram was
+later revised and submitted as what I call the Bus Bomb Diagram, which I will discuss later.
+According to the diagram, the Zodiac's bomb is activated by a photoelectric device. A light on
+one side of the road reflects from a mirror into a photoelectric switch, and when a bus passes
+through the beam, it sets off the bomb, which consists of a number of bags of explosive by the
+side of the road. The whole thing is powered by a battery, and it also has a timer.
+The timer is shown as an arm rotating around to where it strikes a set of electrical contacts.
+which are attached to wires. Z. has drawn an arrow showing the direction of rotation. From
+where the arm is shown in the diagram to its resting position against the electrical contacts, it
+will rotate through 50° of arc. I found the center of the battery by drawing diagonals. The dia-
+gonals cross in the middle of the black dot. The author has, then, already found the center of
+this figure and marked it for us.
+The 50° angle has its apex at the center of the timer. By drawing a line from the center of the
+timer to the center of the battery, I found that I had conStructed an angle of between 57°’and
+58°. It is, in other words, a radian. The next large figure over is the side-view bus. I found
+its center by drawing diagonals in it, then connected it to the center of the timer with a
+straightedge. This angle is 65°. This seems to be reinforced by the writing "6V" found within
+the 65°. The letter V is Roman numeral five.
+50 is half of GENE (one hundred). 65 is half of BER (130). Everyone alive carries half the
+genetic material of his or her father and half of that of his or her mother. I suggested. in con-
+nection with the figures of the Exorcist Letter, that the radian is meant to imply a birthdate.
+1-22-43. Here we have a radian connected to the half-names of both parents in such a way
+as nearly to supplement the radian. The sum of 50, 57.29. . ., and 65 is just over seven de-
+grees short of 180. It is not precise, but I think that egomania covers up a multitude of mathe-
+matical sins.
+In later chapters, I will demonstrate the use of the same techniques to produce the same
+effects not only in the work of the Zodiac, but also in the work of Michael O'Hare. In both
+authors, the vocabulary is the same. I have called this technique “invisible geometry” be-
+=== PDFPAGE 34
+a
+1974 POSTMARKS
+When the Zodiac returned to the 2
+literary scene in 1974 after a hiatus *
+of nearly three years, he departed |
+from his previous pattern of mailing -|
+his letters in San Francisco. The four .!
+1974 letters were postmarked in this
+order: 1) Sunnyvale in the South Bay, .
+2) San Francisco, 3) Fremont, near “|
+the foot of the East Bay, and 4) San
+Rafael in the North Bay. The four
+postmarks, in chronological order,
+form a gigantic letter Z on the map.
+~~
+WA
+SS
+IN
+NN
+=== PDFPAGE 35
+108
+cause the lines, in most cases, are only implied, not actually drawn in. The closest thing in
+everyday life is the connect-the-dots puzzle found in children’s magazines.
+Here's another example of the same thing. This time, however, the medium is the map, not
+writing paper. In the period 1969-1971, the Zodiac's letters were all postmarked in San
+Francisco, save one. The Los Angeles Times Letter was mailed in Pleasanton in the East
+Bay. In 1974, Z. mailed four letters to the Chronicle. Of the four, only one was postmarked in
+San Francisco. The other three were postmarked all over the Bay Area.
+The first letter was postmarked in Sunnyvale, at the foot of the San Francisco Peninsula. The
+second was postmarked in San Francisco. The third was postmarked in Fremont, at the
+south end of the East Bay. And the fourth was postmarked in San Rafael. across the Golden
+Gate from San Francisco in Marin County. These four places, joined together in chronological
+order by postmark, form a gigantic letter Z on the map of the Bay Area. For some reason, no-
+body has ever noticed it in the last thirteen years. It isn't even written in Morse Code.
+=== PDFPAGE 36
+MYSTERIOUS CABAL
+Charles Duggan had been using a computer service to get updates on the Joan Webster situ-
+ation. He was able to access wire-service stories written for papers outside the Boston area.
+In March, he sent me a UPI story about the suitcase being found at the bus station. Just the
+connection with the word BUS sounded ominous. I got a Geological Survey map of Boston
+and located the bus terminal by comparison with a Rand McNally street map. There are four
+benchmarks in central Boston, and one of them. BM 9, is right at the Greyhound terminal.
+Whatever | had thought of Goldfarb's theory before, it now looked as if there really might be
+something to it. For one thing, the murderer's behavior was anomalous, and anomaly is a Zo-
+diac hallmark. For another, he had left her effects all over the map. BUS and BM seemed to
+fit the pattern.
+I decided then that it was time to get together with the Websters. I wrote a letter to George
+Webster, Joan's father, at his ITT business address. I didn’t claim to have supernatural
+powers, and I didn't advance a claim for any reward money. I was also very cautious about
+claiming to know the answers which he was burning to hear from somebody. I said that I had
+information about someone living in the Boston area which indicated that he had committed a
+number of murders in California. He seemed to be the sort of person who could easily have
+picked Joan up at the airport.
+I felt that I ought to let the Websters know what I knew, even though it was tenuous, and
+then let them make up their own minds as to what, if anything. they wanted to do about it.
+George called me up to discuss it, saying that he was skeptical. He had been deluged with
+letters from psychics, water-witches, and what have you. But he was impressed by the mod-
+esty of my claims, and he didn’t want to leave any stone untumed.
+A ZIK went to the Websters, along with the little information that had been tumed up by Dan
+Goldfarb. For some time after that, they acted as very outspoken advocates for a police in-
+vestigation of Michael O'Hare. They invested some effort in gathering information on their
+own. On one occasion, they even flew over his summer house in Vermont and made a gor-
+geous 8 x 10 color photo of it. They sent me a copy. I don't know what I was to make of it.
+The papers pertaining to the property from the Strafford Town Records, which Whit Caldwell
+had obtained, were much more useful. They contained handwriting samples.
+The Websters both told me that wherever they turned, to Federal. state. or local authorities,
+all they got was a stonewall treatment whenever they brought up the subject of Michael
+O'Hare. Joan's mother, Terry, even told me once that when she had mentioned his name to
+the Harvard campus police, they had suddenly become “paranoid.”
+Eventually, the Websters and I went our separate ways. They had been persuaded by a local
+Prosecutor named Timothy Burke that someone else was responsible for the murder of their
+=== PDFPAGE 37
+110
+daughter. His name was Leonard Paradiso. No charges have ever been filed against him in
+the abduction and murder of Joan Webster.
+In July 1982, | drove up to Lake Tahoe. Whit Caldwell had turned up the information at ADL
+that Mike had been responsible for the planning work on the Boise Cascade condominium
+project depicted on the Zodiac's post card of 22 March 1971. At the time, the police assumed
+that Z. was announcing the location of a new murder -- although the card contained no such
+claim -- and had gone up to Incline, Nevada, to poke around in the snow, looking for a fresh
+victim. They were wasting their time. I had an idea that there might be more useful in-
+formation available in the records of the local planning commission.
+Prior to 1971, planning in the Tahoe Basin was divided up between several different county
+agencies on the California and Nevada sides. Big developers like Boise Cascade had an easy
+time getting what they wanted by playing off one county against another. Standards varied
+from one jurisdiction to another, and the far-sighted could see that it wouldn't be long before
+Tahoe was ruined. In 1971, a new planning commission was created by bilateral compact be-
+tween the two states, with jurisdiction over the whole basin. from the watershed to the lake.
+The Boise Cascade project had been under the jurisdiction of the Regional Planning Com-
+mission for Reno, Sparks, and Washoe County in 1969-1970. In 1971, some of the pertinent
+records had been transferred from the Reno RPC to the new Tahoe Regional Planning Agency
+in South Lake Tahoe. That was where | went first. The paperwork from the transitional pert-
+od in 1971 had been stuffed into cardboard cartons and put in TRPA’s back room. = It was still
+there in the original cartons. There was no system to the papers that had been inherited from
+Reno and other agencies.
+I dug around until I found a folder containing papers pertaining to the Boise Cascade project.
+The tab on the folder said, “Incline Village Unit 6." Inside, among other things, was an 18 x
+24-inch copy of the drawing that Z. had pasted on his postcard. Leafing through the folder. |
+found a handwritten memorandum concerning the dates on which Boise Cascade's permit ap-
+plication had been dealt with by the RPC. .
+Boise Cascade had applied for their permit in July 1969. The permit was up for a vote by the
+commission in mid-October of that year. At that time, it was voted down. It came up again at
+another RPC meeting in April 1970. It was voted down again. The third time might have been
+the charm, but wasn't. Boise Cascade tried again (and this time I had a precise date) on 4
+November 1970. Their permit application was voted down a third time. And this time, the
+developer threw in the towel. Reading between the lines in the notes of testimony heard by
+the RPC in the RPC’'s records in Reno, my next stop, it appeared that Boise Cascade could not
+have gotten their permit if they had promised to pave the streets with gold.
+When I got home, | compared the chronological facts that I had gained with my Zodiac chrono-
+logy. The results were very interesting. What has intrigued virtually everyone who has
+studied the Zodiac problem over the years is the sporadic nature of Zodiac events. Events
+might be separated in time by as little as three days or as much as three years. There were
+three main periods. _ Riverside lasted from 30 October 1966 to 30 April 1967. The first Bay
+=== PDFPAGE 38
+TIME LINE, 1968 - 1971
+Zodiac events Other events
+by date
+12-20-68
+7-4-69 . ; _ ;
+7-25-69 Boise Cascade applies for building permit,
+8-1-69 July 1969
+9-27-69 Regional Planning Commission holds first
+10-11-69 meeting on Boise Cascade permit application,
+10-14-69 mid-October 1969
+11-10-69
+12-20-69
+3-15-70
+4-20-70 RPC holds second meeting on BCC permit,
+4-28-70 April 1970
+6-29-70
+7-27-70
+10-6-70 RPC takes up BCC permit application
+10-27-70 for third time on 4 November 1970
+11-16-70 ; ; oo.
+11-17-70 Chronicle publishes Riverside story
+3-15-71 Event #1: Z. responds to Riverside story
+3-22-71 Event #2: Z. sends Chronicle picture of ;
+Boise Cascade project
+=== PDFPAGE 39
+112
+
+Area period began on 20 December 1968 and ended on 22 March 1971 (with the mailing of the
+Lake Tahoe Card). Then Z. had returned to the literary scene in January 1974, mailing four
+letters in all that year, the last on 9 July. Even within the mainstream period of 1968-1971,
+events were very sporadic. The first event was followed by the second after an interval of
+more than six months. Then it took only three weeks for the third event. That was followed
+by two months of inactivity, following which came two more murderous attacks, and a letter,
+in the space of two and a half weeks. Two more events followed in 1969, at intervals of about
+a month apart. The next event didn't happen until four months after that: it was followed by
+another at an interval of eight days. And so it went.
+
+What I noticed, in comparing the Unit 6 chronology with the Zodiac chronology. was that in
+every case but one, the pairs of events separated by the shortest periods of time occurred im-
+mediately preceding major administrative events concerning Unit 6. The first such group,
+covering a span of about three weeks, coincided with Boise Cascade's permit application in
+July 1969. The second group immediately preceded the first RPC meeting at which the appli-
+cation was rejected. The third coincided with the second RPC meeting in April 1970. The
+fourth covered a space of just over three weeks preceding the RPC meeting on 4 November
+1970, which had killed the Unit 6 project for ever and all time.
+
+Then something very curious happened. Two weeks after that last RPC meeting. the Chroni-
+cle published Paul Avery's two-part story in which it was revealed for the first time that Z.
+had murdered Cheri Bates in Riverside. This was a major Zodiac story. It was the first and
+only instance of good journalism having to do with this case. The Zodiac obviously read his
+press notices. He sometimes responded to them, often to correct what he considered to be
+factual errors.
+
+But he did not respond to this most important Zodiac story of all. He continued not to respond
+for four months, until 15 March 1971, when he sent the Los Angeles Times its one and only
+letter, in which he owned up to the Riverside murder, in a strangely laconic manner: “I do
+have to give them credit for stumbling across my riverside [sic] activity, but they are only tin-
+ding the easy ones. There are a hell of a lot more down there.” Then, a week later, he sent
+the Chronicle the postcard with the picture of the Boise Cascade project on it. After that,
+there had been three years of silence.
+
+I don't think that it requires a hyperactive imagination to see that this pattern is quite con-
+sistent with the picture of the Zodiac as a commuter. His flurries of activity coincided with
+periods during which Boise Cascade, and its consultant, Arthur D. Little Inc.. would have
+been getting ready for their next appearance in Reno. Note that the last murder occurred at
+the time of the first RPC meeting. If Z. had an agenda to adhere to, it would have to be com-
+plete as of October 1969, since Boise Cascade and its consultant, ADL, would have reason-
+ably expected the permit for Unit 6 to have been issued at that time. The permit having been
+approved, the ADL engineer responsible for work on the project would have no more reason
+to travel to California. The RPC's dislike of Boise Cascade and its repeated rejection of
+BCC's permit application simply prolonged the Zodiac episode for over a year. And after the
+third RPC meeting in November 1970, the project was dead, and Z. had no reason to return to
+the Bay Area -- or at least, no company business to justify ADL's paying his airfare and
+=== PDFPAGE 40
+113
+living expenses.
+He had been following his press notices from out of state, and when he read Avery's story
+about Riverside, he had to return to the Bay Area to respond. He could not very well reply
+from Massachusetts. The postmark would have brought in the FBI. Worse, it would have
+demolished his best defense. They would have stopped looking for him in Northern California.
+As long as they were wasting their time on that wild goose chase, they would never find him.
+This time, he could not afford either the time or the living expenses for an extended trip, since
+it was now coming out of his own pocket. So he stayed just a week, at the end of which he
+sent them a post card with all the information on it they needed to determine his identity. It
+was the easiest clue of all: but because it was graphic rather than verbal, they didn't tumble to
+it. It did not show the location of a new victim's grave: it was a picture of the murderer's han-
+diwork.
+My marriage to Mary Ann had never been a source of much joy to either of us. After sixteen
+years of struggle, we were no closer to being happy together than before we met. I decided to
+cut my losses and leave. I moved out on 9 September 1982. 9-9 seemed propitious some-
+how.
+Not long after, Mary Ann forwarded some weird postcards. The pictures were surrealistic,
+and the prose on the message side was no less so. Whoever it was signed himself “Cabal,”
+punctuated the text here and there with groups of dots, sometimes triangles and sometimes
+quincunxes. The cards had a New York postmark. Finally, | got a letter from this individual,
+who said that his name really was Alan Cabal. He wanted to collaborate with me on the Zo-
+diac. Ken Narlow had been quoted in Tom Bates’ postscript to the California article, and Ca-
+bal had just called up Narlow and asked him who “George Oakes” (my pseudonym) really
+was. Narlow just gave him my real name, address, and phone number.
+Cabal was originally from the Bay Area and was living in New York now. He had read the
+article during a trip to California. He had an urgent personal need to get involved. he said, and
+he would like to meet me and discuss the matter. He was going to be in the Bay Area about
+Christmas time. I gave him my new phone number (but not my address) and suggested that
+he call when he was in town.
+In late November, Mary Ann forwarded another letter, from an old friend. He wasn't aware of
+our separation and had sent the letter to my old address. The letter had been opened, then
+resealed. Enclosed was a newspaper clipping from the entertainment section of the San Jose
+Mercury-News. The clipping was of a story by Glenn Lovell based on an interview with local
+entertainment personality Howard Burman. Part of it was devoted to Burman's new movie
+project, the screenplay about the Zodiac murders titled /2:22. It had something to do with a
+Bay Area person who had arrived at an identification of the Zodiac through analysis of the
+Zodiac letters. The screenplay had been optioned by an independent producer, the story said,
+and Columbia Pictures might be interested. This statement was not enclosed in quotation
+marks, and it was not attributed to anyone. Lovell simply stated it as a fact.
+=== PDFPAGE 41
+114
+That was news to me. I called up Burman, and he told me that his statements to Lovell had
+been nothing but “hype.” I called up Alan Neigher, and he said that he didn't know anything
+about it. He thought Burman was just shooting his mouth off. He was scheduled to meet
+with an independent producer named Clapsaddle the following month, but there had not even
+been any discussions yet. let alone an agreement on anything. Then I called Lovell at the
+Mercury-News. He told me that Burman had told him that Columbia had optioned the
+screenplay. Afterward, he had called Columbia to confirm the facts. Columbia told Lovell that
+they had did not know Howard Burman from a hole in the ground. (At that point, I had to con-
+fess that there was a resemblance.) Lovell called Burman back and confronted him with his
+lie. Burman told Lovell that he must have misunderstood what he had said. He had meant to
+say that an independent producer had optioned the screenplay and that Columbia aught be
+interested.
+Obviously, there was no way that Columbia Pictures could possibly be interested in a screen-
+play whose existence was unknown to them, written by an author of whom they had never
+heard. And Burman had no way of knowing whether they “might” be interested in it or not.
+Lovell had already caught Burman in one fib, but he did nothing to ascertain the truth of the
+second version. He should have asked Burman for the name of the independent producer. He
+didn't. Then he printed this assertion as if it were a fact in black and white in his newspaper.
+I called Lovell back and pointed out to him that I was just getting involved in a divorce. A
+story like that was the last thing I needed, particularly because it was a falsehood. He said it
+appeared to him that I had a personal problem, and that was none of his concern. I said that
+while I might have a personal problem from this story. he had an ethical one. and that of the
+two, I preferred having the personal problem, because at least | could sleep better at night.
+He refused to print a correction.
+I wrote a letter to the city editor of the Mercury-News pointing out that the information was
+false. I ought to know. | had a 34 percent share in the proceeds of sale of the screenplay. and
+I could assure him that it had been optioned by no one. | asked that they print a correction.
+They never printed it. What I got instead was an angry telephone call from Glenn Lovell. who
+accused me of trying to make him look bad with his city editor. The purpose of newspapers in
+our culture is not to serve as tribunes of the people. Woodward & Bernstein to the contrary
+notwithstanding. Their mission is rather to look out for the interests of their own employees.
+no matter what harm that might cause others.
+Not long after that, | received a summons to an OSC (“order to show cause") hearing on child
+and spousal support. | had never earned as much as Mary Ann did. and at the time. while she
+enjoyed a good-size paycheck, | was without a source of income. In fact, | was living on food
+stamps and cash advances from a credit card. It was the beginning of what was going to turn
+into a nightmare of litigation, which lasted for two and a half years and cost the two parties
+something just this side of $20.000 in legal fees. not to mention lost sleep and other aggrava-
+tions. It produced no lasting benefit to either side, just more bills. And what fueled this
+mechanized meat grinder of a divorce case was the delusion that | had made off with millions
+in movie money. It was the same craziness that had infected Dan Goldfarb. The word
+“Hollywood” just conjures up a chorus of cash registers in some people's mental ears.
+=== PDFPAGE 42
+115
+In October 1982, I received a copy of Howard's screenplay. I suppose “dismayed” would be a
+mild way of putting my reaction to it. He had sold me on this project with a representation
+that he was going to do something serious with the subject matter. What he came up with,
+among other things, was a car chase borrowed right out of The Dukes of Hazzard. A month
+after Lovell's erroneous story was published, Howard met for the first time with his independ-
+ent producer, Joseph Clapsaddle, whose only memorable credit was Come back to the five and
+dime, Jimmy Dean, Jimmy Dean. Clapsaddle signed an option agreement with Zodiac Associ-
+ates Inc. (Alan, Howard, and me) the following May. He was $500 short on the first option
+payment, and when the second installment was due six months later, he said that he was go-
+ing to have to form a consortium to raise the money. That just goes to show you how they do
+things in Hollywood. Most people, faced with the need to come up with $1500, would get a
+cash advance on their credit cards. Hollywood producers have to form consortiums. Needless
+to say. the big deal that Lovell had said was already consummated in November 1982. and
+which was actually concluded in May 1983, collapsed like a house of cards in November 1983.
+In early January of that year, | got my phone call from Alan Cabal. I wasn't sure, from the
+postcards that he had sent. that I wanted to invite him into my home. I suggested instead
+that we meet on neutral ground, and I suggested the Hyatt Regency in San Francisco. We
+could go up to the revolving rooftop bar and talk over a couple of drinks. He said that he
+would be accompanied by his wife. I said that I would be accompanied by Diane Merrill, with
+whom I was now living. She can't be missed because of her long red hair. I suggested meet-
+ing in front of the elevator bank at seven o'clock.
+When we got to the the Hyatt Regency, I asked Diane to hang back while | scouted the lay of
+the land. I went on ahead and spotted a group of three people standing in front of the ele-
+vators. One of them was a middle-aged man in a business suit. Another was a young wo-
+man who looked attractive and was nicely dressed. The third was a young man wearing a
+kind of Robin Hood hat with a long feather stuck in it, a baggy safari shirt with a poncho over -
+it made out of an old blanket which had been brightly embroidered and sequined. and a pair of
+black leather Errol Flynn hip-waders. He looked as if he were trying out either for Let's
+Make a Deal or a part in a Flash Gordon serial.
+These three were the only people standing in tront of the elevators at the appointed time.
+walked past them without giving any sign of recognition, so that | could eavesdrop on their
+conversation. As I did, | overheard the young man in the peculiar attire tell the middle-aged
+man in the very straight business suit that Captain Narlow had not been returning his calls for
+over a week now, and he was getting suspicious. This was definitely Alan Cabal. But I didn't
+like his get-up, and | didn’t like having this third character, the one in the business suit, rung
+in on me at the last minute.
+I was deliberating with myself about what to do when all three of them, like St. Nicholas, got
+into an empty elevator and shot up to the roof. I went back to Diane to bring her up to date.
+We waited in the lobby for another half-hour to see if anybody would come back down to look
+for us. Nobody did, so we went back home.
+=== PDFPAGE 43
+116
+The next day, Alan Cabal called me up. He wanted to know why I had broken our ap-
+pointment. | said that I hadn't and told him what I had observed. He said that he had been
+approached by the man in the business suit and that he, Cabal, had thought that he was me. |
+asked him how he had dealt with the absence of the promised redhead, and he said that he
+thought that I (meaning the man in the business suit) had been pulling his leg.
+As it turned out, the man in the business suit was a homosexual from out of town who had
+been cruising the lobby of the Hyatt Regency, looking for a date. He had seen Cabal, thought
+he was advertising, and tried to pick him up. Being broad-minded, as Northern Californians
+are, he had not been put off by the fact that his intended date was accompanied by a woman.
+It had taken two and a half hours of verbal fencing up in the bar before the gay man had figured
+out that Cabal was straight and didn't want to be picked up. It had taken Cabal the same
+amount of time to figure out that the other man was not Gareth Penn.
+Cabal wrote to me later to suggest a second meeting. I was rather annoyed and responded
+unkindly, perhaps. I do remember using the expression “space cadet” in my letter. He wrote
+back to say that he was hurt and felt that I had wronged him. Perhaps I had been too harsh
+with him. I called him up at his Bay Area number and talked with him for a while. In response
+to his queries, | named Michael O'Hare and gave his current whereabouts, i.e. teaching public
+policy at the Kennedy School of Government at Harvard. I gave him Mike's full name. includ-
+ing the middle name “Henry.” He sounded mollified.
+In the spring of 1983, Steve Shiffrin was in Boston. Besides functioning as California's de-
+famation attorney, he was a professor at UCLA Law School. He had taken a sabbatical from
+UCLA to teach for a year at Boston University. One night. he called me in San Ratael to tell
+me very excitedly that he was sure that he had seen Michael O'Hare in a local bar. I didn't
+ask him what he had been drinking. I never heard from him again.
+By this time, I had published several articles on the Zodiac in The Ecphorizer. The Eck’s edi-
+tor, John Cumming, invited me to give a talk on the same subject at the San Francisco Re-
+gional Mensa gathering in Santa Rosa over the Mother's Day weekend of 1983. I said that |
+would be only too happy to accept. I suggested the title “Times 17” for the blurb in the pro-
+gram. I took my graphic exhibits to a copy shop that had a machine that made transparencies
+for use with overhead projectors.
+"Times 17" was moderately well attended. | counted about forty people in the audience. One
+of them was a non-Mensan named Ed Woodmansee. Woodmansee was a retired policeman
+who taught police science at Sacramento City College. He had read the California article and
+was quite excited by it. He had been trying to get across the idea to his students that there
+were non-conventional means of criminal investigation, and he felt that this was a particularly
+good example. He had wanted me to come up to Sacramento and lecture his class, but since I
+now had a full-time job, I couldn't get away on weekdays.
+I suggested that Woodmansee come to the presentation in Santa Rosa instead. Wood-
+mansee had had the same problem in contacting me that Cabal had had. He solved it the
+same way, by calling up Narlow and asking him for my phone number. This time. Narlow told
+=== PDFPAGE 44
+117
+him that it was against department policy to give out phone numbers like that. Instead, Nar-
+low called Mary Ann and left a message for me to call him. When I did, he gave me Wood-
+mansee's Sacramento telephone number. I couldn't figure it out. When some unknown private
+person like Cabal calls him up, Narlow discloses freely what he tells a comrade-in-arms like
+Woodmansee is confidential.
+“Times 17" was scheduled to take one hour. By the end of the appojnted period. | told my au-
+dience that I had lots of material left and that I had not gotten to it because of disorganization
+on my part. Would they be willing to suffer through another hour of it? Dinner was another
+hour and a half down the road, and nothing else was scheduled for the the following hour in
+any case. I got a very enthusiastic demand for more.I didn't pull any punches. I named
+Michael O'Hare as the Zodiac, and I used a lot of literary evidence to prove it. I backed that
+up with the connection to the Boise Cascade project at Tahoe. I showed them a slide of the
+Progressive Architecture photo. I got the impression that it was a hit. I also got a very
+gratifying reaction to a part of the presentation which I had drilled myself into presenting in a
+very theatrical manner, milking the most out of the power of suspense.
+The rules had not been clear in Riverside. The Zodiac left quite a bit of self-identification be-
+hind, but he had not given the authorities any clues as to how to use it, as he had with the hint
+about the radian on Mount Diablo. If, for instance. they had had the idea of reading the brand
+name on the watch, TIMEX, in Morse Code (and there was no reason why they should have
+had that idea), they would have seen that it spells 617. the Area Code of Boston and en-
+virons.
+Had they counted up the letters in "The Confession.” they would have found that there were
+1623, which, written in binary, spells MIKE O (11 00 101 0 111) in Morse Code. If, sup-
+posing that they had had any reason to see either of these things. they had then screened the
+Boston area for people with the given name Michael and a surname beginning with the initial
+O, they would have come up with a fairly good-size list of suspects. There are a lot of people
+of Irish ancestry in Boston. The information would have been helpful. but not conclusive.
+There is one means of expressing one's identity in number which is both definitive and unique.
+and one which can be applied to the choice of murder-site itself. The longitude 117° 32°
+21.28" denotes a meridian which passes through the western part of the city of Riverside. Ca-
+lifornia. Decimalized as 117.322128°, this same sequence of numbers denotes a meridian
+found passing through the eastern part of Riverside. That same sequence of numbers, written
+117-32-2128, is Michael O'Hare’s Social Security number. I have never had any theatrical
+strivings. But the audible gasp which that elicited from my audience, coming from forty
+throats simultaneously constricted by horror, gave me what | think must be the same degree
+of satisfaction that professional actors get from a lifetime of treading the boards. Aristotle
+says that tragedy is supposed to evoke fear and pity in the onlooker. At that moment, I knew
+that I had the fear down cold. I might still have to work on the pity.
+A few months later, Laurie Pallikarakis, who had been present. met me at another Mensa ga-
+thering in Pacific Grove. She told me that she had walked into “Times 17" thinking, from the
+claims advanced in the program, that | was just another fruitcake. She had come out con-
+=== PDFPAGE 45
+118
+vinced, she said. But there was one person present who seemed to take umbrage at what |
+had to say. To this day, I don't remember his name. He asked me if Mr. O'Hare was aware of
+the fact that I was going around identifying him as a mass murderer. I replied that Mr. O'Hare
+had a general idea about what I was doing, but he might not be too pleased by the specifics. |
+suggested that he might feel that he ought to do something about it, and what that might be
+was between him and his conscience. He left me with the impression that the first order of
+business, after dinner, was a phone call or letter to Michael O'Hare.
+The reception that I got in Santa Rosa had restored my sagging spirits. I had been in this for
+two and a half years without seeing any concrete results. | felt as if I had just gotten a big pat
+on the back from people whose opinion of me mattered. One thing that I had brought up in the
+presentation was a hypothetical redivision of the expression GENEBERTA. Here it is, in
+Morse Code: 110010010000010101. Here's my redivision: 1100 100 100 00 O1 O101. If
+you read the second group, 100, as crossed circle, i.e. as a substitute for the letter O, and
+considering the fact that O101 is not an American Morse letter -- but that it is the mirror-
+image of the letter C (1010). you have what may be the source of the pseudonym ZODIAC. I
+had done an exhaustive redivision of GENEBERTA on the theory that one or another possi-
+bility would show up in the Zodiac literature. All that you can make out of GENEBERTA that
+even remotely resembles English is MELTS INK (or MELT SINK) and MIXES ART. There
+was a bit of rule-bending involved, but I suspected that GENEBERTA was the origin of the
+Zodiac murderer's most frequently used nom de plume.
+I had a bundle of postcards of paintings by the conceptual artist Christo, whose best known
+project was Running Fence. executed in the Bay Area in 1976. One of the postcards that |
+had showed a painting of the projected work, Surrounded Islands, which was just going up in
+Biscayne Bay in Miami. By coincidence, my supervisor at work, Andrew Parker, was soon
+going to be in Miami on business. | typed GENEBERTA on a Surrounded Islands card in
+Morse Code, redivided it as ZODIAC, bending the rules as suggested above. franked it with
+two 17-cent stamps (to imply the phrase. TIMES 17), addressed it to Michael O'Hare. and
+gave it to Andrew to drop in Miami. It was mailed on 26 May 1983.
+On 15 June 1983, Diane and I were just sitting down to dinner when the phone rang. [| got up
+and picked up the handset. There was a click and a dial tone. | hung up and sat down again.
+The phone rang again. The same thing happened. I stood there. waiting to see if it would ring
+again. It did. In all, we got six one-ring hangup telephone calls in the space of a minute and a
+half, beginning at exactly 6:15 p.m. The date was 6-15, the time was 6:15. “Ring” is a syno-
+nym for “circle.” The alphabetic quantity of the letter O (another circle-paraphrase) is 15. Six
+rings at 6:15 on 6-15. Six = ME. He was doing the same thing three different ways.
+It was a typical Zodiac sentence: ME CIRCLE. Two days later, we got two rings at 10:23
+p.m. The date was 6-17. 617, besides spelling TIMEX in Morse Code, is the Area Code for
+Boston. 1023 is binary LITIITEITII1. Morse PIITEL LLTTE. zero zero. Zero zero is two rings.
+Two rings is Morse letter I (00). Mike and I were back in contact, after almost two years.
+This time, our correspondence would go on with hardly a break for more than two years.
+=== PDFPAGE 46
+110 0 10 0 1000 0 010 1 01
+1100 100 100 00 01 0101
+REDIVISION OF "GENE BERTA"” INTO "ZODIAC"
+
+(PARENTS' NAMES AND PSEUDONYM)
+=== PDFPAGE 47
+THE RADIAN CIPHERS
+
+In late June 1970, the Zodiac sent the Chronicle the Mount Diablo Letter. This letter con-
+tained a new cipher, of 32 characters. The author claimed that this cipher, in conjunction with
+the enclosed map, gave the location of a hidden bomb. The map in question was a Phillips 66
+road map showing Contra Costa County. Z. had annotated the map by drawing a clock face
+centered on Mount Diablo. The letter was not published for sixteen years; I did not get a look
+at it until April 1986, when it appeared in Bob Graysmith's book, Zodiac.
+It was this letter in which the Zodiac suggested the radian exercise. On the second page of
+the letter, which is still unpublished as of now, he said that the police would find "something
+interesting” if they placed a radian on Mount Diablo. He said that to find the “buried bomb" it
+was necessary to go “four inches along the radian.” Furthermore, they would have to “turn
+the magnetic indicator” on Mount Diablo to north. I will come back to these points in a later
+chapter. I would like to concentrate here on the cipher.
+The following month, July 1970, Z. sent another letter to the Chronicle, which he concluded
+with a postscript:
+
+PS: The Mount Diablo Code concems radians & # inches along the
+
+radians.
+Now, when he had sent the cryptogram, claiming that its solution would reveal his identity.
+there was nothing against which to compare the contents. You couldn't just go to an ency-
+clopedia and look up "Zodiac, Identity of.” In this case, there is an explicit statement about
+the contents of the cipher, and the claimed contents are such that they can be looked up. All
+that was necessary was for the police, the Chronicle, the FBI, for anyone who had access to
+the information I have just cited, to consult a book of mathematical tables to determine the
+numerical value of the radian. I went to the tables in the Handbook of Chemistry and Physics,
+but any set of tables would have done just as well. The radian-value is decimalized as
+§7.2957795131...°.
+The fraction of the radian-value begins with 29. A very superficial examination of the 32-
+Character Cipher would have revealed that the crossed circle, which appears here once. is
+Character #29. This observation might have been instructive, had anyone taken the trouble to
+make it -- which no one did between 1970 and 1986. It would certainly have provided some
+insight into what the author was up to.
+There is another clue contained in the postscript to the July letter. Note that Z. uses two
+nonalphabetic symbols in that postscript. & and #. On a typewriter keyboard, & is upper-
+case 7. and # is upper-case 3. If Morse Code values are applied to the Roman letters in the
+32-Character Cipher and to them alone, the resulting digital text is made up of 73 characters.
+=== PDFPAGE 48
+121
+
+There are more hints about how to read the text. The first cipher symbol is C. It occurs again
+as Character #26. 1-26 is the range of the Roman alphabet. The second cipher symbol is tri-
+angle. It appears three times, once as Character #2, again as Character #12, and the third
+time as Character #32. 2, 12, 32 is a numerical series of the sort that you find on intelligence
+tests. There is a logical principle binding the members of the series, from which one number
+has been omitted. Using that logical principle, the person being tested is supposed to deduce
+the identity of the missing number. In this case, the missing number is 22.
+Now, turning to Character #22, we find it given by V, which happens to be -- I think not coin-
+cidentally -- the 22nd letter of the Roman alphabet. The stress appears to be on Roman let-
+ters, which is not surprising in an author who relies so heavily on Morse Code. There are no
+Morse groups to express triangles, squares, and circles, let alone Character #8, which re-
+sembles an inverted umbrella. This sign occurs in only one other cipher, the |3-Character
+Cipher of April 1970 (Bus Bomb Letter). There is also a Greek letter here, Character #13,
+which is omega, the 24th and last letter of the Greek alphabet (upper-case 2). This is the
+only time that this symbol is used in any Zodiac cipher.
+The Roman letters appear in this order:
+
+CJIOKAMFORTGXFDVJHCELPW
+I pointed out above that the crossed circle is Character #29, and that 29 is the beginning of the
+radian-fraction. The three symbols immediately preceding crossed circle are Roman letters
+CEL, Morse 1010 O 0100. I think that it makes sense to redivide this sequence as 10 10 00
+10 0, or "2 NINE." Once again, the Zodiac has found a means to express the same thing two
+different ways. He gives "29" as a cipher symbol and as a Morse digital spelling.
+The 18 Roman letters preceding CEL, CHOKAMFORTGXFDVJH, are Morse 1010 O111 00
+111 101 OF 11 OO1O 111 O10 1 110 1001 OO10 100 0001 OLE 0000. Please note that
+they are written in 57 digits. So we have a field of 57 digits followed by "29" written two dif-
+ferent ways. It would be appropriate for the author to find another way of writing 57. And so
+he does. Near the beginning of this 57-digit passage, we find a sequence of 26 digits, nearly
+half of the total, which I redivide as follows:
+
+111001 111010 TH1OO1O TTIOIOL
+The first group, 111001, is binary 57. The second. 111010, is 58. 57 and 58 are the integers
+which bound the value of the radian, which is larger than 57° but smaller than 58°. The third
+group, 1110010, is binary 114, or the double of 57. The fourth group is 117, or the double of 58
+plus one. I think that it would make things clearer to express 114 as (57 x 2) + O and 117 as
+(58 x 2) + 1. If you look at the base-two writings above. you can see that 114 is just 57 with
+a zero-suffix, and 117 is 58 with a one-suffix.
+I have already suggested that the Zodiac uses "117" as a numerical reference to Riverside.
+And I suggest that in this particular case, "117" is a "buried bomb.” He says in the letter that
+=== PDFPAGE 49
+122
+
+a hidden bomb will! be found using the contents of the cipher and the enclosed map. What the
+(Phillips 66) map has to contribute is the number 66, which is the calendar year in which the
+Riverside murder was committed. "117" gives the location of this "bomb" in space: "66" gives
+its location in time. I submit that "bomb" in this context is a figure of speech akin to the word
+“bombshell,” which my dictionary defines as “something which stuns, amazes, or upsets.” It
+is not an infernal device at all. It is shocking news. As of the postmark on the Mount Diablo
+Letter, five months were to elapse before the Zodiac's authorship of the Riverside murder was
+revealed.
+
+There are other buried bombs here. One of them is the radian itself. The police did their level
+best to keep the public from learning the contents of this letter. Had it been known in 1970
+that the Zodiac had murdered the cab driver solely for the purpose of constructing a radian on
+the map, the Bay Area would have been in a state of shock. I believe that the Zodiac would
+also have been behind bars in fairly short order. But that is water over the dam now.
+
+A third buried bomb is the number 114. 114 is not only the product of 57 and two; it ts also the
+product of 38 x 3. Remember that Morse THREE is a digital synonym of BUS. 117 refers
+back in time, to an unknown crime committed in the past. I won't go into it in detail here. but
+"114" refers forward in time to an unknown crime as yet uncommitted. I will come back to that
+point in the next chapter.
+
+The fourth buried bomb is the author's name. The last two Roman letters are PW. They im-
+mediately follow the crossed circle, a Zodiac signature. In the cryptogram, Z. uses no fewer
+than seven cipher symbols to represent the letter E. This made the solution rather difficult.
+since E is the cryptographer's usual entry-point into English-language substitution ciphers.
+The seven symbols, in order of appearance, are ZPW+ONE. The last four make sense in light
+of what we know about Riverside. There was one more victim than had been accounted for in
+1969. “Plus 1" is. I suggest, the sensible way to read this. The first three letters, ZPW. torm
+a sentence, where Z is the subject, and PW is the predicate: "Z (is) PW."
+
+This sentence is essentially the same thing that we find in the 32-Character Cipher. I pointed
+out before that the Confession Letter, the Zodiac's very first missive, is written in a total of
+1623 letters, and that 1623 is the Morse-to-binary spelling of the expression MIKE O. By
+alphabetic quantities, P = 16, W = 23. "PW" is just another way of writing the author's name.
+Please note that in the 32-Character Cipher, "PW" is found where one would expect to find a
+signature, at the end. My reading of this cipher is that it is divided into four parts. The first
+part is what you might call the integer-line. The second is a parents-line. The third is a
+fraction-line. And the fourth is the author's signature. Here they are in digital form:
+=== PDFPAGE 50
+This is the Zodiac speaking
+J have become very upset with
+the people of San Fran Bay
+Area, ‘They have not. complied
+with m wishes fer then +0
+uwvear rome mice ~}- ba ftows.
+I prewmiced te punish ther
+if they didnot comply, by
+Ba new sched 3 eat Fer
+“$le Jaron“, Te JL panished
+thee lyn an BAeootkh eu way :
+rT shet aA man sitting in
+x parked car witt a .3%.
+<p SFPD-O
+The Map cou pled wth thes
+Code will fe yen whe-e« she
+bewnkb £2 ser. You have antl
+CATTLE OXNLAMAANORTG
+XOFDVtTBHCELPMPWA
+=== PDFPAGE 51
+ZPW
+
+ARP CE CUBRAORA X AB
+TLIKIEKILLINGPEIOPL
+VHISGYFIOAHPHKAOYS
+BEICAUSIEILT LSSOMUC
+MJIYAULAADTLNQYD- ©
+HFUNITISMORE|FUN TH
+SO/ AMBP ORAURAR_ OE
+ANKILLINGWILDGA ME
+SAALMIZII d ANGIFH VWI AY
+INTHEIFORRE|ST BEIC AU
+EHOGDAKITSEOOx 4 jos
+SEMANIS THEMOSTIDAN
+Morse MIKE 0. Note also the first “crossed circle for the D of
+=== PDFPAGE 52
+125
+
+INTEGER-LINE
+10100 111001 111010 1110010 1110101 1101001 (38 digits)
+
+20 57 58 114 117 105
+PARENTS-LINE
+001 0 1000 0 O10 11! 0000 (19 digits [38/2], running total = 57)
+
+(UE BER OH)
+FRACTION-LINE .
+10 10 00 10 0
+(2 NINE)
+SIGNATURE
+P W (= 1623, MIKE O)
+The first line is written in 38 digits. The second line is half that, or 19. Marking the boundary
+between the first and second lines is the dotted circle, Character #19. The sum of 38 and 19 is
+57. The sequence 57, 58, 114, 117 takes a total of 26 digits. It was necessary to add twelve
+to fill out the line to its intended length of 38. The first group is 10100, the last group 1101001.
+Taking these two groups as a unit, within which 57, 58, etc. is enclosed, we have 10100-
+1101001. The first six digits are the same as the last six. They redivide sensibly into 10
+1001 10 1001, binary 2, 9, 2,9. And this twelve-digit sequence has been divided up by the
+author into groups of five and seven digits. Remember that the value of the radian is 57.29°.
+The expression is thematically appropriate. The use of thematically appropriate filler material
+is another consistent stylistic trait of the Zodiac. Most of the 340-Character Cipher is just
+such filler material.
+The second line here begins with the two-letter code for Eugene, UE. It is followed by BER
+(binary 130), the commonplace shorthand for BERTA. The line ends with OH, a com-
+monly-used abbreviation for the family name O'HARE. That completes the field of 57 digits.
+I have already discussed the contents of the fraction- and signature-lines. A few remarks
+about the remaining non-alphabetic symbols would be in order.
+The non-alphabetic symbols are used in this cipher as punctuation marks in some cases and
+as signposts in others. The role of the triangles has already been mentioned, as has that of
+the dotted circle and the crossed circle. Non-alphabetic symbols also mark characters 5 and 8
+(as in 58, the two-digit shorthand for O'HARE). When the cipher-characters are arranged in
+the fashion outlined above, i.e. divided into four lines, the first square lines up directly over the
+second square. I believe that this effect is intended to underscore the suggested organization
+into four lines as correct.
+That leaves Characters ##8, the inverted umbrella, and 13, Greek letter omega (Q). 1 will
+suggest a particular significance for #8 in connection with the !3-Character Cipher, which
+follows in this chapter. I will save omega for a later chapter.
+At all events, the 32-Character Cipher does indeed concer the radian, as the author claims in
+=== PDFPAGE 53
+THE 32-CHARACTER CIPHER
+CAJLUOMVAMAANORTG
+XOFDVUMHCELé¢PWA
+
+CAT ILIOAWAMAANORTGXO
+
+Morse letters (38 digits)
+
+1010 O111 OO 111 101 O1 11 0010 111 010 1 110 1001
+
+Redivision
+
+101 111001 111010 1110010 1110101 1101001
+
+57 t 58 114 117
+Radian value 57 x 2
+§7.29. . . 38 x 3
+Boston Riverside
+Bay Area episode episode episode
+10100. . .1101001 = 10 1001 10 1001
+binary 2 9 2 9, divided into groups of 5 and 7 digits :
+1 radian = 57,29. . .degrees |
+
+FDVUEH
+
+Morse letters (19 digits; running total = 57)
+
+0010 100 0001 O111 0000
+
+Redivision UE = Eugene
+
+001 0 1000 0 O10 111 0000 _
+
+CEL-@- PWA .
+
+Morse letters P = 16, W = 23
+
+1010 0 0100 1623 = 11001010111
+
+Redivision Redivision
+
+10 10 00 10 0 11 00 101 O 111
+
+2 NI NE M I K E O
+=== PDFPAGE 54
+NONALPHABETIC SYMBOLS AS PUNCTUATION
+ro A
+
+CATI|ONLAMAA AORTGXO
+FDVUES|H
+
+| Nonalphabetic symbol
+
+#19 marks the end of
+- WA line containing 38
+Morse characters (19 = 38/2)
+
+A A A Characters ##2, 12, 32 constitute a missing-
+number puzzle, in which the missing number
+is 22. Character #22 = Roman letter V, letter
+#22
+
+cae [* Characters ##5 and 24 confirm that Line 1
+ends after Character #19
+
+Ww Character #8 appears only in this cipher and
+the 13-Character Cipher, both of which give
+the radian value. J, = inverted lower-case
+letter R, standing for "radian." (R = 010)
+
+QQ Character #13 Greek letter omega, synony-
+mous with "the last," relates graphically to
+invisible-geometry rendition of Boston Tri-
+angle, signifying finality
+
+© Character #19 punctuates end of Line 1
+Character #29, Zodiac signature, appears
+following digital "2 NINE"
+=== PDFPAGE 55
+128
+his postscript to the July 1970 letter. And the match between claim and contents is made by
+use of Morse Code as an analytical tool. 1 suggest that the purpose of the 32-Character
+Cipher is to serve as a kind of Rosetta Stone which will enable future scholars to make an
+entry into the Zodiac letters the same way that Champollion made his entry into ancient
+Egyptian. The Zodiac wants his letters read. He wants to be identified. But it appears that
+he wants this identification to follow submission of the letters by a comfortable interval of
+time, perhaps decades. That way, he can separate the credit for his accomplishments, which
+he craves, from the consequences, which he would rather avoid. He has, in effect. created a
+time capsule which he could be fairly confident the police would keep from the view of people
+who might have the skill to open it while being incapable of dealing with it themselves.
+Two months before the Mount Diablo Letter, Z. sent the Chronicle a two-page letter, the se-
+cond page of which is an elaborate diagram of his new bus bomb. For this reason, | refer to
+this letter as the Bus Bomb Letter. On the first page of the Bus Bomb Letter, Z. presents a
+new cipher of 13 characters, which he claims expresses his name. As usual, | assume that he
+is being truthful when he makes this claim. And as usual, I look to a digital analysis to reveal
+the truth.This little cipher is written in three types of characters: block letters. circles. and the
+singular upside-down umbrella, which also occurs once in the 32-Character Cipher. In fact.
+these two ciphers are the only documents in which it occurs. It is not found either in the
+cryptogram or the 340-Character Cipher.
+First, let's look at the structure of this cipher to see if there are any superficial clues to its
+contents, just as we did with the 32-Character Cipher. It is made up of alphabetic symbols
+and non-aiphabetic symbols. Set the first category equal to A, the rest to X, and you have the
+following sequence: AAAXXAXAXXAAA. It's a palindrome, something which can be read
+backwards as well as forwards to achieve the same result. (A well-known palindrome is the
+Napoleonic pseudo-quotation, "Able was I ere | saw Elba.") If this is a hint about the nature
+of this cipher, then we ought to find the same contents in it when it is read backwards as well
+as when it is read forwards. Unless the contents are also palindromic, however, then we will
+have to apply two different methods of analysis in order to get this result.
+Let's try the same method that we just tried on the 32-Character Cipher, i.e. applying Morse
+Code values to all Roman letters and ignoring the non-alphabetic symbols. The letters are
+AENKMNAM. In Morse Code, they spell 01 0 10 101 Il 10 OF 11. I would like to re-
+divide that string as follows: O101O 10111 100111. The last group is binary 57, written in
+mirror-image order. The second group is binary 29, also written in reverse order. digit for di-
+git. The first group, 01010, is Morse telegrapher's shorthand for “end of message.” Note that
+it occurs at the beginning. In other words, analysis along the same lines as the 32-Character
+Cipher produces the same result, 57 followed by 29 (followed by “the end") -- in reverse
+order. This should not be surprising in a palindrome: the question now is whether or not we
+can find a way to get the same result by reading it forward.
+The next approach that I tried was to assign the digit | to all block letters and 0 to all circles.
+That left Character #10, the upside-down umbrella, which is neither a block letter nor a circle.
+If this approach is going to work, then we have to find a digital value for that symbol which is
+neither one nor a zero. We have one of two possibilities. Either that symbol is a hybrid con-
+=== PDFPAGE 56
+This is the 2 o/lac Sfp Cc king
+By +b |
+Y € wey have Mee creck €
+the los cypher LZ sent er @,
+My name 4 o—
+
+coy tl')
+AEN@@®@kK@eMNeLNAM nel
+tL an wmilP/y ceroes os to how
+maces MPrrenery yeu herve on my
+head How, Ll hepe Man c/o net
+think Shar / coer Jha Cue
+whe wypeL eut that blue
+y7 Cann), & with a fowwh at rhe
+cop Steptwdy. Even thong b ZL telhe-~
+about Mery sehool ebtlS ren ce JPA
+oue. Ax past ewoc/efat Ho ve
+wrece® /u. On Some oH’ elves teritray.
+Fraud SpherE€ st tro< gle-y a  aidas
+G cop Jhon a cir Becawit & cop
+co. sheet bach. J heer Ail! ec/
+Fen peepfe +o Mate. 2% €eee/a
+hove geen @ Jo? proe--< excep?
+thes wry S46 forwrb wt o Ze
+wa Yat sean pel earv by Ypfhe
+hora ccc be «a while beech.
+=== PDFPAGE 57
+130
+sisting of ones and zeros, or else it has no value at all. I will try both assumptions here.
+Character #10 is found in two ciphers and two ciphers only. [ have already demonstrated that
+both of them give the value of the radian (57.29. . .°). That is what both ciphers have in com-
+mon, in addition to containing this singular symbol. I suggest that it is nothing more nor less
+than the letter R, standing for “Radian,” written both lower-case and inverted in order to
+distinguish it from the other (block) letters. If that is the case, then the logical choice for a
+hybrid value would be Morse R., digital 010. Now let's substitute our digital values. | for
+block letters, 0 for circles, and 010 for Character #10. That gives us this rather distinctive
+number: 111001.010Q01Q111. The underlined part is Character #10. I have added a binary
+point to set off the integer 57 from the fraction of the radian, which is carried out here to nine
+places. 0.2957795131. . . to the base ten is binary O.OLOOIOIII.... Since this number is
+written in 15 digits, the probability of coincidence having made it turn out this way is one in
+two to the fifteenth power, or 1/32,768. That seems to make this reading statistically sound.
+Now let's try the other alternative, reading Character #10 as nothing. I will give it with dash:
+111001010-111. Z. claims that this cipher reveals his name, and I believe that it does indeed.
+Here's my suggested redivision: 11 !00 101 0 - 111. The second group, 100, can be read
+as crossed circle. This reading is supported by the fact that the first circle of this 100 is a
+crossed circle, just as the first of the next three-digit group (101) is Roman K; IOI is Morse
+letter K. Our author is trying to do three things at once with this cipher. It gives the value of
+the radian when read forwards, it gives the same thing when read backwards, and it gives his
+name, or so he claims. Somewhere along the line, he has had to bend the rules in order to
+make this composition so versatile.
+The Zodiac uses the crossed circle as a signature. I use the name “Gareth” as a signature. It
+appears at the end of every peronal letter that I write. But in the body of every one of those
+letters, as well as in everyday speech, I refer to myself as "I," first person singular pronoun.
+If the statement “I am Gareth" is correct, then there is an equivalence between “Gareth” and
+"I." [may substitute one for the other. If you ask me who I am, the answer "I" is just as cor-
+rect as the answer “Gareth.” I suggest that the Zodiac is using here the equivalence between
+the crossed-circle signature and the same pronoun in order to fulfill his pledge of writing his
+name in this cipher. By substituting letter I for crossed circle (100), the above digital se-
+quence reads, in Morse Code, MIKE O. It's the Riverside signature, which also appears as
+"PW" in the 32-Character Cipher.
+Near the foot of the first page of the Bus Bomb Letter, the Zodiac states that he was
+“swamped out” by recent rainfall. I would like to note in passing that BY RAIN is an ana-
+gram for BINARY, but that is a minor point. The police expended some effort back in 1970 to
+identify basement-dwellers in the Bay Area. Basements are few and far between in Cali-
+fornia, since almost all houses in the Golden State are constructed on concrete slabs or over
+crawl spaces. They thought it was a very helpful clue. Once again, they might have found it
+instructive to consult a dictionary.
+“Swamped out” does not mean “inundated.” Swamping out is what you do to a cluttered attic
+or a weed-infested back yard. It means “cleaning up,” not “flooding.” Again. erroneous or in-
+=== PDFPAGE 58
+THE 13-CHARACTER CIPHER
+MORSE VALUES FOR LETTERS, NOTHING FOR OTHERS
+AEN¢@K @OMOIUNAM Pic
+010 10 =10l so 10 OLD 1 Mone tener
+1110 o1 1 101 OF 0 10 stor imss
+11 1001 11 101 O1O10 esi
+57 29 THE END fv ee
+1 FOR LETTERS, 0 FOR CIRCLES, 010 FOR SYMBOL #10
+AEN@ @KOeMe/WINAM L
+ltl 0 OT 010 010; | I 1 ~
+LT LOOT. O1OOIOL | | mx ecuvace r4
+57.29. we BASE-TEN RADIAN VALUE a "
+1 FOR LETTERS, 0 FOR CIRCLES, NOTHING FOR SYMBOL #10
+AEN@ @®K@M®e|wINAM
+Tl tl 0O O!TOTO;—J ITI -
+11 100 101 0 = TIT mmm | oe
+M -- kK Ee O MORSE LETTERS 5
+=== PDFPAGE 59
+132
+appropriate use of language is used here to mark a formulation as significant and worthy of
+analysis. Here's a digital redivision of SWAMPEDOUT that makes this point, I believe, quite
+clear:
+0 00 0110 11101 100 10 0 111001 |
+x2 1 P 29 DNE 57 -
+
+Again, we have all the components of the radian-value. This time, they appear in reverse or-
+der unit for unit, not digit for digit. The T (1) has been added on just to make the expression
+look like English rather than Zodiacese. The zero following PI is a two-multiplier (there are
+2n radians to the circle). And the concept END is found connected with the fraction of the ra-
+dian. I will discuss that at greater length in a later chapter, but for now, I would like to sug-
+gest the origin of this connection. We are going to find, in several other places, that the ex-
+pression "29" in Zodiacese means the same thing as “the end.”
+The path that Z. takes to get from one to the other is, I submit, the kind of semantic trans-
+formation that Lewis Carroll called a “syzygy,” that is, a series of linked steps. Remember
+that Morse NINE is binary 68, and that 68 and the number nine are interchangeable in Zo-
+diacese.
+
+TWENTY NINE
+
+20 68
+2068
+100000010100
+
+100000 0 10 100
+
+T HEEN OD
+English words, word to number, fusion of numbers, base-ten number to base-two number,
+base-two number to Morse Code, Morse Code to English words. There is nothing left to say
+except to end this chapter with
+
+-29 -
+=== PDFPAGE 60
+MIKE WEST
+When I moved in with Diane, I did not get her telephone number listed to my name. I don't
+think it was so much paranoia as it was inertia that kept me from doing it. To this day, in fact,
+I don't have a telephone listing, although my number is listed. The reason that I mention this
+is that as of June 1983, there was no way for anyone to get my telephone number, except by
+referral from Mary Ann, whom I asked about it. In fact, in keeping with the litigiousness sur-
+rounding Penn v. Penn, she was deposed in the fall of that year, and she testified, under pen-
+alty of perjury, that she had not given out my telephone number to anyone.
+The number was listed to my name in only one place: the Mensa roster. My mystery caller
+was either someone I knew from elsewhere, a Mensan, or someone who had gotten his infor-
+mation from a Mensan. After a while, I had to rule out Mensans, because I thought the calls
+received betrayed too much sophistication, too much dedication, and too much knowledge of
+the Zodiac literature. Finally, I received absolute confirmation of what I suspected, that they
+Originated with Michael O'Hare. I believe that the Mensan who challenged me at Santa Rosa
+contacted him and passed along my phone number.
+The calls that came in June did not relate specifically to the Miami Card. I had been hoping for
+a confirmation of the ZODIAC-redivision, but as far as I know it was not forthcoming. In ear-
+ly July, | had an enlargement of the Progressive Architecture photo dropped in New York in
+July 1983. I drew red circles around the shadow-extensions, to show that they had been no-
+ticed, and a red arc in the apex of the shadow-angle (117°), to show that it had been mea-
+sured.
+The photograph referred to Riverside and had appeared in print just four months after the mur-
+der in that city. In the Confession Letter, the Zodiac had created a document of 1623 letters,
+1623 being the Morse-to-binary writing of MIKE O. He had picked Riverside as the site be-
+cause it was near the 117th Meridian. The envelope in which this mailing was enclosed had a
+return address reading “1623 West 117th Street, New York NY 10017." Anyone who was
+accustomed to Zodiacese could be expected to read the first line as “MIKE O WEST... ."
+This mailing, too, drew no obvious response. What I was looking for was a response which
+was specific to a particular stimulus, and within a reasonable period of time. Otherwise, while
+we might be communicating with one another, this communication was taking place on two
+one-way streets.
+As time went by, the level of sophistication rose. I got the impression that the tele-
+phone-clock medium was a new one to him and that he was just getting the feel of it. He had
+already done everything else to death. On 9 August 1983, the phone rang once at 7:56 p.m.
+and then went silent. Two days later, on the | 1th, we got a one-ring hangup at 10:56 p.m. On
+Friday the 13th, there was a similar call at 9:56 p.m. I think that it is obvious that the pro-
+bability of getting randomly-caused one-ring hangup calls at regular intervals of two days and
+=== PDFPAGE 61
+134
+every time at 56 minutes after the hour three times running is less than microscopic.
+I] thought it was very clever, myself. The first time, the call came after seven, followed the
+next day by nothing. The next time, the call came after ten, followed the next day by nothing.
+The third call came after nine. Seven followed by nothing is 70, BMx2. Ten followed by no-
+thing is 100, GENE. Nine is the alphabetic quantity of the letter I, first person singular pro-
+noun. 56 minutes is 56/60 of an hour. 56/60 simplifies to 14/15, a fraction written with the
+same sequence of numbers as the base-ten fraction of x, 1415. ... This group of calls belongs
+to the type which I call the “family portrait." It gives the first names of the parents, their fam-
+ily name, and a pronominal reference to the third member of the family, the author himself. |
+believe that the reason he began this series of calls on the date he did is because 9 August is
+written 8-9, corresponding to the letters H-I. It was yet another way of saying “hello.”
+My caller kept on saying “hello” for the next six months. Here are a few samples. On 26 Oc-
+tober 1983, the phone rang twice at 1:30 a.m. and then went silent. The two rings were 00.
+Morse letter I, subject of the sentence. The "130" is the predicate. Eight days later, on 3 No-
+vember, the phone rang once at exactly 1:30 p.m. On 24 December, we got a one-ring hangup
+at 5:12 a.m. 512 is the ninth power of two. Z. occasionally refers to Berta Margoulies as
+"232," or 4 x 58. (The four is derived from 130 by casting out nines [1 + 3 + 0 = 4]. and 58 is a
+two-digit shorthand for the surname O'HARE. Dot #4 of the 340-Character Cipher is Char-
+acter #232. On the Lake Tahoe Card, Z. pasted the expression "Around in the snow." When
+_you write the word SNOW in Morse and then turn it around, you get 110 111 01 000. The first
+group, 110, is Morse ME; the balance, 11101000. is binary 232.) On 12 February 1984, there
+were (wo rings (00, 1) at 2:32 a.m. These are just examples. I didn't know what the purpose
+was, except perhaps to give me a vocabulary quiz. In any case, I was pretty sure as to where
+the calls were coming from, but none of them was a specific response to anything that I had
+transmitted to my interlocutor.
+October 1983 saw me in court. Having used up all the pretrial “discovery” tactics known to
+the legal profession, we had to go to trial. Mary Ann's psychiatric witness was a graduate
+student in chemistry named Carol Balfe. Balfe testified to having observed me correct my
+son's use of the English language some years back. The judge broke in to say that he had
+corrected his children's English all the time. How else could they learn to speak correctly?
+Mary Ann's attorney, Vic Fershko, switched tactics. Balfe testified that | was “obsessive”
+about the Zodiac. I had been working on the problem day and night, and it occupied my
+thoughts all the time, she said. I had, as best I recall, spoken with her once or twice in the
+last two and a half years about it, but suddenly she was able to account for all my time over
+that period.
+My “obsessiveness” was a trait that would make me unfit to have custody of the children, she
+testified. What she was calling “obsessiveness” was what would have been called, in an-
+other age. “persistence” or “dedication.” My grandmother, who arrived in the Oregon Terri-
+tory in a covered wagon, would have called it "sticktoitiveness.” But that was before the age
+of psychobabble. when even pioneer virtues are considered to be pathological and everyone
+with U. S. citizenship is licensed to utter psychiatric pronouncements.
+=== PDFPAGE 62
+135
+Not only was | “obsessive” -- i.e. spending all my time on one project -- | was also unable to
+finish anything that I started, because I never stuck to anything. I'm not kidding. That's what
+she actually said. Her star example of my not being able to finish anything was that | had quit
+my job as a librarian after seven years. On cross-examination, it turned out that Balfe had
+been a nun for seven years, then quit. Then she had been a high school teacher for seven
+years. She had quit that, too. (Actually, she had taken a sabbatical from the school district
+under false pretenses to finance her return to graduate school.) Then she spent seven years
+working on her doctorate. Now she was planning to do something else. The hypocrisy in the
+court room was so thick you could slice it with a chain saw. The judge wasn't impressed by
+my “obsession” with the Zodiac. He said that he didn't care if I was “obsessed” with Paul
+Revere. It was funny that he should take his example from Massachusetts.
+The stage manager of this show, Vic Fershko, was trying to have everything both ways. The
+Zodiac project was a potential financial asset (the Zodiac Associates movie contract), there-
+fore it was good. [t could be presented in court as a symptom of psychopathology on my part
+(my being “obsessive.” which caused me to spend a lot of time working on it), therefore it
+was bad. I was a bad risk as a custodial parent because I gave up on things too easily, like
+quitting my job after seven years. I was also a bad risk as a parent because I was too dedi-
+cated to this project and wouldn't give up on it.
+Somewhere along the line, Fershko even introduced into evidence a letter that I had written to
+my daughter as proof of my unfitness as a parent. Mary Ann had blown up at me on the tele-
+phone and ordered me to send letters to my children care of Vic Fershko. At that time,
+Amanda couldn't even read. So I filled up a sheet of paper with some nonsense verses from
+Walt Kelly and added an acid comment or two about Fershko, thinking that he was going to
+read it. I forget what the theory behind it was, but this letter got marked as an exhibit and we
+had a half hour's worth of testimony about it. | am not well-versed in the history of litigation,
+but I suspect that this was the first time since the trial in Alice in Wonderland that nonsense
+verses had been used as evidence.
+There was something about Fershko that stuck out about a mile that [ picked up the first time
+he walked into the court room. The voters seemed to have picked up the same emanation; in
+the middle of this legal agony, he ran for the Board of Supervisors of Napa County as one of a
+slate of three candidates who were all endorsed by the Register. He lost as handily as his
+two slate-mates won. It wasn't the first time he had lost an election. Not long afterwards, he
+changed his letterhead to read “Victor Fershko." Victors are winners. Perhaps he thought
+that sympathetic magic would accomplish what political prowess could not. Nomen est omen.
+There may have been something else. though, that he couldn't change, something that had
+rubbed off on him from somewhere else in a former time. He had graduated from Bronx Sci-
+ence in 1961. He was a high school classmate of Mike O'Hare’s.
+I was just recovering from the trauma of trial when we began getting calls about the Atan
+softwares. About mid-January 1984, people started calling to inquire about the ad they had
+seen on Golden Gate BBS. In case you don't know what “BBS” means, let me explain. It
+stands for Bulletin Board System, which is a type of computer software that enables the oper-
+ator of a computer to receive and record messages from other operators. When you call up a
+=== PDFPAGE 63
+136
+BBS through your computer's modem, you can read off all the messages that have been left on
+the BBS. And you can leave messages of your own.
+Up to this time, I had never heard the term "BBS" myself. 1 am not only not “com-
+puter-literate.” I am not even “microwave oven-literate.” According to all the callers, | had
+an advertisement in a San Francisco-based bulletin-board system called "Golden Gate BBS"
+saying that I was selling pirated Atari videogame softwares. Moreover, I had “interesting
+phone numbers.” The ad began with the lead-in, "Pirate's delight!" and ended with the infor-
+mation that I was available "Wed-Sat 7-9." The first two letters, PI, gave me a pretty good
+idea who had placed this ad on the BBS. WEDSAT, by alphabetic quantities (again, E = 3),
+adds up to 70, BMx2.
+Here's a mathematical curiosity. Berta Margoulies’ birthday is 9-7. When you write those
+numbers in binary, you get 1001-111. Take out the hyphen and fuse the numbers together, as
+1001111, and you have binary 79. Nine and seven flip-flop. I believe that this is the only pair
+of numbers that does this. At all events, the hours on WEDSAT when I was open for busi-
+ness, "7-9," are a thinly-disguised writing of BM's birthday. As to the “interesting phone
+numbers,” I imagine that what was meant was my own, 499-0670. Six is ME, 70 is BMx2.
+That really was coincidental. But it must have struck Mike as being too good to leave un-
+observed.
+In early February 1984, after the ad had been in Golden Gate BBS for some time, I had an-
+other of those Three A. M. Thunderbolts. Up until now, I had been half convinced of Mike's
+authorship of the Joan Webster murder; but I was also half unconvinced. There wasn't quite
+enough to it. There were the two sites marked by her effects, but what did they mean? If it
+was a geometric structure on the map, all it was was a straight line. You can't make anything
+but a pointer out of a straight line. What did it point at? Salem? Roxbury? Finally, it came to
+me in the middle of the night that there was a third point involved in the Joan Webster mys-
+tery: the Eastern Airlines terminal at Logan Airport. That was where her murderer had
+picked her up. It was the only other thing known about her as of 28 November 1981 besides
+the finds on Highway 107 and at the bus terminal. I got up and tumed on all the lights in the
+living room.
+I spread out the USGS maps of the Boston area on the floor and laid a clear acetate overlay on
+them. With a marking pen, a protractor, and a straightedge, I constructed a straight line con-
+necting the site of the purse on Highway 107 with BM 9 at the bus terminal. At the bus ter-
+minal, | tumed a 38° angle and carried it out as far as my straightedge would reach. It went
+right through a building at Logan Airport with two ramps giving out on the central airport con-
+course.
+As soon as | got to work the next moming, I photocopied the part of the map showing Logan
+Airport and sent it to Terry Webster. I asked her to mark on the map, as closely as possible.
+the point at which Joan had last been seen before her presumed abduction. The map came
+back with an X drawn on it on the part of the building with the two ramps right where my line
+had gone through it.
+=== PDFPAGE 64
+137
+That was one confirmation. I needed one more. I made a photoreduction of the whole map
+and drew the 38° angle on it, joining the Highway 107 site to the bus terminal and Eastern. I
+addressed an envelope to Mike, franked it with two 35-cent stamps (BMx2), and sealed the
+map inside it. Then | gave it to Theresa Thielk, who was leaving for Honolulu the next day.
+Theresa told me later that she had mailed it at the airport in Honolulu on the morning of the
+15th.
+On the 18th, the phone rang at 2:35 a.m. I waited to see if the caller was going to hang up,
+and when he didn't, I picked up. It was a man inquiring about my Atari videogame softwares.
+I asked him if he knew what time it was, and he said that my ad in the BBS had said that |
+was operating a 24-hour service. 1 told him that I didn't have an ad in any BBS, and he said |
+did, too: it was in a BBS called "Golden Gate II" operated by one Mike West in Tamarac,
+Florida. He gave me Mike West's telephone number. As I was talking to him, the facts were
+falling into place.
+The time of this call, 2:35, replicated the postage with which I had franked the Honolulu Let-
+ter, two 35-cent stamps. The location of "Golden Gate BBS II" was South Florida, the same
+area in which the Miami Card had been mailed the previous May. And “Mike West” had been
+put together out of the return address on the New York Letter, "1623 West 117th Street.”
+What my caller was doing was demonstrating that he was someone who was familiar with
+the contents of Mike O'Hare's mailbox. He was naming himself without actually naming him-
+self. I finally made it clear that I had no Atari videogame softwares for sale, pirated or other-
+wise, and he hung up.
+I could hardly wait for the sun to rise on Florida. In the meantime, I thought over what the
+implications of this phone call were. It was a voice call, not a one-ring hangup. It was trace-
+able and would leave a paper record. It must have been prompted by something important. I
+used long-distance information to locate Mike West. There was nobody by that name with a
+Tamarac listing. but between directory assistance and a Florida road map, I was able to lo-
+cate a Mike West in Pompano Beach whose telephone number matched the one my mystery
+caller had given me. I wondered what Tamarac had to do with it.
+When it was a nearly decent hour in the Eastern Time zone, | called up Mike West. I said it
+was "nearly" decent. He was still groggy with sleep when he answered. 1 told him what had
+happened and asked him what he knew about it. He said that like me, he did not own a com-
+puter, had never heard the term "BBS" before, and he certainly did not operate one. All that
+he could contribute was that the night just past, his phone had been ringing repeatedly, some-
+time around 3 a.m., and every time he answered, all he got was a click and a dial tone.
+The next evening, the 19th, Diane and I went to a party, then came home and went to bed. At
+12:38 a.m., the phone rang, then went silent. Three minutes later, at 12:41 a.m., it rang again,
+just once. Yet another three minutes later, it rang once more (at 12:44 a.m.). Then it was
+still for the rest of the night. We had three one-ring hangup calls at three-minute intervals,
+beginning at 38 minutes after midnight. THREE is a digital synonym of BUS. The map I had
+sent Mike O'Hare from Honolulu had shown a 38° angle centered on the bus station in
+Boston. 1 was now getting stimulus-specific responses. He was sending me receipts.
+=== PDFPAGE 65
+138
+The following evening, the phone rang at 9:56 p.m.. just as it had the previous Friday the 13th
+in August. It was my caller of the 18th again, inquiring about my Atari videogame softwares.
+I told him that | didn't have any for sale. In fact, I didn’t have any, period. He said that he had
+it from Mike West that I did. I asked him if he had it from Mike West's BBS, or from Mike
+West personally. I added that I had talked to Mike West. and that he had said that he didn't
+operate a BBS.
+My caller said that he and Mike West were old friends and that Mike had told him face to face
+that I was selling the softwares. There was a lot of long-distance hiss on the line, so I asked
+where he was calling from. He said he was calling from San Jose. San Jose is perhaps 75
+miles from where I live. I said it sounded like a lot farther than that. He changed his mind and
+said he was calling from Los Angeles. Then he hung up.
+The Area Code of San Jose is 408, or 130m. Los Angeles is 213. The 130n-shaped crypto-
+gram was published, at the Zodiac's insistence, on | August 1969, the 213th day of the year.
+2 is B, 13 is M. The choice of Atari softwares cleared itself up over a year later, when I hap-
+pened to read by chance that the grid on which Atari videogames are based has 20 columns,
+17 lines. An Atari videogame, in other words, has the same grid-format as the 340-Character
+Cipher turned sideways. I still couldn't figure out Tamarac. Mike had obviously located a
+“Mike West” in South Florida by using long distance information; but the operator must have
+told him that the listing he wound up using was in Pompano Beach. Why had he supplied the
+Tamarac detail?
+There was no way I could answer that question, but I was so charged up that I couldn't get to
+sleep. So I thought about something else. If you look at the Progressive Architecture photo-
+graph in map-perspective, with south toward the reader, east to the right, west to the left, the
+apex of the 117° shadow-angle falls at the northeast corner of the building. The USGS maps
+showed five benchmarks in all of Cambridge, Massachusetts. One of them was on the MIT
+campus, right at the northeast comer of the Earth Sciences Building. That building was the
+one that Mike O'Hare had tested, as a scale model, in the wind tunnel belonging to the Har-
+vard engineering department.
+The peak of Mount Diablo was the apex of the radian which the Zodiac had constructed in the
+Bay Area with the blood of three victims. It was marked by Vertical Angle Benchmark
+(VABM) 3849, the most important geodetic landmark in the San Francisco Bay Area.
+VABM 3849 is the crossing-point of an arbitrary meridian and an arbitrary baseline which are
+used as the zero-points in the township-numbering scheme used in Northern California.
+The 38° angle which was formed on the Boston map by the three Joan Webster sites had its
+apex at BM 9, one of four in central Boston. All three of these structures were artifacts, all
+were angular in form. All three expressed Zodiac vocabulary (117, radian, 38). All had been
+constructed at the cost of some effort on the author's part. And each and every one of them
+had at its apex a U. S. Geological Survey benchmark (BM). These three structures all shared
+=== PDFPAGE 66
+. (hee * Joan L. Webster
+gfe, lA enn
+, ae em eae, DATE OF BIRTH: AUG. 19, 1956
+; tI PP ON Le cB Ro
+ee ert ee Se SOC. SEC. NO. 138-38-0024
+2 gas a, ‘ as ea HAIR......... DARK BROWN,
+an We : ara LONG, STRAIGHT
+wr ee ye CRP EYES..........DARK BROWN
+et ae er . ‘ Last seen at Boston Logan Airport at the
+e- ri ee we | 5 Eastern Airlines Terminal on Saturday
+A \ 5, Vr as ee oT Pan Evening, Nov. 28, 1981, wearing long,
+ey PMI TS brown, chesterfield - style coat, black
+RAR A fg worsted suit, red print blouse.
+bia Peet WX ; aie Carrying large, tan, suede tote bag
+a ‘aN Ns os \ - containing phonograph records,
+“2 aye -& architectural pamphlets, etc.
+? 5 GQ GQ Q Total reward for information leading to her present
+, | M = ewhereabouts, or
+OR Total reward for information leading to her present exact
+whereabouts and her condition AND for information
+leading to the identification, apprehension and conviction
+$ 5 GQ Q GQ ( of any person(s) who may have been criminally responsible
+5 M for her disappearance.
+ALL INFORMATION WILL BE HELD IN STRICTEST CONFIDENCE. THIS REWARD WILL EXPIRE OCTOBER 31, 1983
+Persons having any information are requested to call or contact:
+Lt. Col. John R. O'Donovan Donald M. Peters
+CHIEF OF DETECTIVES CHIEF OF POLICE
+MASSACHUSETTS STATE POLICE OR  sSauGuUS, MASSACHUSETTS 01906
+BOSTON. MASS. 02215
+=== PDFPAGE 67
+- Yoon PV tere BM Sat 4 — 2 ya tee . ~7 . ot .7) . >
+ioe . J : f 1 ay vo S : —_ ~ aD 2 — . ~ “4, ry a . a -, . 7
+af oo OY | Al rn > = ys ro ; ae + wae ~~ ; uae .
+Mh. wes Oe mE es ae wo AD gy 6B tor are
+Loe . [Os Sade 24 re ae fags > a ae
+Viorree eet OO Ok ares Pa, oe } Pesers iv A 1 on TT 2 “oc ve - .
+a. 8 , a . - a : v eee: N “ Z ee
+= . SN -\ 7 5 ott : — ~ \
+yy PR SSENV Ot 2 Ld MOUNT DIABLO hed by a
+i SSS an wand a fablo is marke —_
+YN Be ~O= 5S" The peak 0 Benchmark (VABM) 3849, =~
+een | we SP a Vertical Angle Be crossing-point of the y
+ail Foes inne Res 6 “ANE se { which is Nee en and the Mount Diablo Co
+trad J OA hye eg, iablo Meridis igational lines .
+Sm NO OA 7FQO sake Mount D These arbitrary navigatio town- ve
+in a es NS Baseline. ints for numbering ey
+Tl age y ) aX d as zero-poin t Diablo wy
+ne. \ rt are se Northern California. Moun its peak ae
+Ta eS FSO ships in nction because its | Stage"
+RAR I aaad aS Ny was chosen for this net between the Sierra . Sas
+3g EASES ty bigs! is the highest poin Ocean. In good weather, PN eh
+26 aly eo ROT ae Nevada and the Pacific Ocean. iac murder sites. TEN
+OT ees PAS BLS all of the Zodia A.
+PNR EAR = isible from be seen from or
+wg WAS QA YS it is v his planet's surface can ther SE
+ao Eagle Peak Pf oo aS More of this p t Diablo than from any 9 a
+A ep DIABLO” ~ STATE, . spot on earth, excep er”
+pot SSE. Ye East Africa. ge
+a Sabon = = weeny ‘ iin ,
+Po S| Tee PMB en iss “SRT SE ah Bey .
+Ne * “leer RSS i Cap ee MEE Ne |e ing 38
+> Noe aan = A “ =~ Doe ee Misnatus ’ Syee ~ 5 Bese .
+NAA) _ ~ VS ae Cae \?— = a Daven | ~ pros Tospectors Gap Ss: >a sg en
+Soe ge ey he pitee” IONS... ISbION YS we BARE Swe wie a rots
+we Mest SESS (i ee ak irae, oat ad, Lp tS ses 5, 5
+“7 “fs : *a> »)>= WSS iy \ 4 y wr ae ~ ar = 4 af ~~ w A = q . . nee,
+Ty Sal WSL SOT 9p . Ex SSG, By x ~ome
+pe OS ee ee ee oe oe
+xu ~ DIABLOA “/" STATE) ne Qr<z and ie m/s mee
+“W -. a) aad a ae new . QIABL sae Came |. mL _- aaa 7 @ wteawm— sto. 138°
+. a air : “SER TE a7
+= - = WALNUT CEER Te Mi % 55’ ROAD CLASSIF
+(DIABLO) ” , '
+1639 ————
+1 ome Heavy-duty _ OU
+SCALE 124000 Medium duly =
+0
+ee
+0 (
+fa eee”
+id \ “7
+208 INTERVAL 40,FEET
+ODETIC VERTICAL OATUM OF 1929
+BR __ e
+=== PDFPAGE 68
+a i - EF Va ze Ke 3 on Vs PS Ree?) J My -9% i “2 Lye xt,
+“4 § Yims (7 - io iv? oe > “EO CRS 23 9 e93 ne
+2 Be P o_o tS ae Bs a eer ae ey ay
+tPAEn at 2 Fei gal § “She FE a P fs Page * waY, ees)
+ASN” gud omer AF fa Paty US Sef:
+LST RP oS GE \ Pak SSE NEON ASCP A ex
+beet ayy ey |! ON \ot TE SS Sgro. EISSN
+AM weer: je “ \% 8 SA\5 T1498 OS eo Ay YS
+BODEN ae APES NRE
+cy i “gs h 3 | Wh a awe F : - <7 % we é ».
+BILTON VRC PSN TF SSS
+ies ~ fe hin’ Se A Wer. pt “me -s ; a ou be |
+Be agethe Sea NS ee ena
+eg Odes TAA P| IE | 8s DHE Sere
+SAAS A fe Hale) ct Ip CP MSC
+prewar eies 3 7. &\ a ‘\ tag die e \ ES 7 4) Pain .
+wig tc gy a¥ ie “3 AN hoarse We AE «” “4 a4: hs
+eee a Jn BOOS NP css Sele
+Naa & Sas Bro! Se’ | ae G28 ~ Hy Re ty
+LRA SN | IPSS 225 ROSE ae
+a) a) a ace S¢ “ee, ae ey N i 2) SH AE \- s\ One be = (iF
+MOY Pe 7 8 yd «yy F) ik ry. ny, 2 eo «TV ONG wy /
+7 bys can Pa yy o eff | nyt ge ge + Wk
+5 ef -—-—-— me eg Fi a to = Ye 4-42 7: NS <§ )
+a x. soupariet ricko sien ien an "Find, 3 * ov bp ee
+es aed Rot, Ye (EL? sere! Mi kalo v7] rgd Ro +
+S i aay bos RG Fie. sas Le Ee, ve LOO Hila RR
+S) Lay ast rs Mr . s oe ¢ td Se ~ “3 an O Be 1 , z an Ce “9 nr .
+al Wali Bl r~#y dy fee . eer) ik>- : “8 Cr. oe.
+85 WA, Tage as
+yf a a
+=== PDFPAGE 69
+142
+five descriptive characteristics.
+It appeared to me that if you looked on these structures as manifestations of behavior, they
+were very peculiar indeed. In fact, they seemed so peculiar to me that they took on the aspect
+of a behavioral fingerprint. One of these phenomena is found in the work of Mike O'Hare,
+published under his own name. Another is found in the work of the Zodiac murderer. And a
+third is found in the work of the unknown person who abducted and murdered Joan Webster in
+Boston on 28 November 1981. I suppose you could say that it constitutes a behavioral sig-
+nature.
+When I got to work the next day, I asked Andrew if he had mailed the Miami Card in Miami
+proper or somewhere else. He said that he had forgotten about it until he was on his way to
+Jacksonville for a settlement conference. Somewhere north of Miami, he had pulled off the
+tumpike to fill up the tank of his rental car. He had dropped the card in the mailbox nearest to
+the gas station. I went to see the office manager and asked for Andrew's expense sheets for
+the Miami trip. Stapled to the sheets was a stack of supporting documents: car-rental
+agreements, restaurant tabs, hotel bills, and credit card vouchers. I leafed through the stack
+until I found what I was looking for, about in the middle. It was a credit card slip imprinted by
+a service station in a town a few miles north of Miami, Florida. The name of the town was
+Tamarac.
+=== PDFPAGE 70
+Ry SLUR ee /
+iT £y PD ; ¥ ~~ -_ & a .
+Deak Sheices copia 2 ON A ia
+1 feces Sab ar ry, OSes Py rN. eS fir,
+“ps Rig 7A UST TI RR SEO wa SNe ag try
+a on ft oR TTA SH a AS van <4 f
+7; a= > oe Mas Mt ANS : Ta, - tel ‘7 Sar e. "i .
+EH Riana eine? As STL. som
+tees Se MeN a) LB :
+ames + \ aL Oaen MK OY ae hea Z
+ExT SH) POH ¥ fe CAG SKY ot 2
+= OX My, ey woooses <>, SRST, ] Poke
+ch (Gabe LIEK atin SR fe.
+’ me AY CLT. AAS y ati OTT Tes {= , eR /
+ee Stns ae
+= Be tats ON SOSA <5 WSN STL SQN ay “a Boos
+ee . .
+“ar \ GER SLD ONAN A WS TEN vA LacTTS FA\
+a Sey Seu S SSL Pe sient Al |
+- Cy Cy”) Yo x} BS MANN \ i) SS — TINY a 14 Waa . -
+Pie fy BENS LPS Ay a PRI) wo ary ok o
+| ey Wis a SS 7 =< SNRs NN
+"ee Ub HPD ERC RH [7 We: Bo a SSN
+a eee ae Pass S
+t aay a = fe 4y ue AN SRO 004 FED ee ie Jak eS «.
+it . 2 Lot fl 833 AAAS SOE of te *.9/ fe s pa ao
+ry Los oe fe oli nd — EN SS Aes - 4 = ‘S: ot Shey
+“ we. 8g ye Si ne oe CEA Pe eZ
+\ Opn ST EGON GSES A Y Steg Tee ~ ares
+AN oot ee na Giese ot (ERS ira fos.
+CGY SOR y = ead Seu cf ar
+SESE Pees , SRS. 7 SY J,
+; RAT eR Dat i W's... x ~
+AS OS spy Re oS LO) VK . i
+\ sabe: rRW/oen ~ Pay MAX
+Se NY Swe il SS wena ares)
+J, Lote NEW a: o -_ - oy
+we fe :! fap oe (ohn nod o. . I<
+, ore 5 Lan eR COSY: < = Hy
+“ fete g: 4 An '
+=== PDFPAGE 71
+THE ONCE AND FUTURE KILLING
+On 20 April 1970, the Zodiac, ending a silence of exactly four months, mailed a two-page let-
+ter to the Chronicle containing a diagram of the new bomb which he proposed to use in his of-
+ten-threatened bus attack. As with the Death Machine Diagram, the Bus Bomb Diagram
+shows a side as well as a top view of the infernal device in action. This time, however, the
+Zodiac dispenses with the mirror and the light source. Instead, he uses two photoelectric
+“swiches" to trigger the device: the light source is the sun.
+This diagram was suppressed by the police for almost sixteen years. It was published for the
+first time in the December 1985 issue of The Ecphorizer, in an article having the same title as
+this chapter.
+The first thing that struck me when I first saw the diagram in April 1982 was the quality of the
+draftsmanship. It is, to put it mildly, slovenly. Tag ends stick out where one line joins an-
+other. Lines are wobbly, circles are out of round, and the cross in the crossed circle at the foot
+of the page does not form a perpendicular. In the other documents that I had seen up until
+then, this cross was about as close to forming a right angle as freehand drawing could make it.
+Here, it is distinctly out of kilter.
+The tag ends showing where Z. began and ended his circle are also exaggerated. Right where
+they cross is the point at which the equals-sign of " = 10" is aimed. I measured from the cen-
+ter of the circle to where the tag ends cross and found it to be 10mm. I don't believe that this
+is a claim of ten murder victims at all, which is the way it was interpreted by press and police.
+It is a key to reading the diagram. All dimensions are expressed in millimeters.
+There is a strange-looking figure drawn inside the “Timer.” The long stroke of this figure ap-
+peared to me to line up with an extension of the vertical stroke of the cross in the crossed cir-
+cle. A straightedge confirmed this. Looking over to the right, it appeared to me that an ex-
+tension of the horizontal stroke of the cross would pass through the center of the zcro in
+“SFPD = 0." Again, a straightedge proved this to be true.
+So far, I had three circles joined center to center by straight lines. There were two other large
+circles in the diagram, the suns of the top and side views. Above the top view, Z. has written
+the word “sunlight.” The H of “sunlight” has a peculiar up-tick that makes it resemble an Ar-
+abic numeral 2. Within the side-view sun, the author has written the word "sun." The lower
+case U of “sun” resembles the mirror-image of Arabic 2. Remember the use of mirror-images
+or bookends to enclose important information.
+I drew lines juining the points of these Arabic 2's to the center of the “Timer” figure. Carrying
+the lines all the way through the two suns, I then bisected them within the sun-figures. Each
+=== PDFPAGE 72
+The new boi~ 4 cer a jt fe
+the)
+oa
+ve
+Can =
+Http)
+|
+j Ast ave Phor e lectre
+> sevtehes when Sun bear
+MG brekrn A closas cin eek
+: Boe penls
+ow cloaly ae AI On —
+PS L£ help vee heer fun dey ly
+to. figga > 4 oat wa bo JT £&MU <a
+| Cv 5FPD=O
+=== PDFPAGE 73
+146
+of these lines, sun-Timer, measures 95mm on center. The clue to their existence was the ap-
+pearance of the Arabic 2's. There are two of these lines. TWO in Morse Code is | O11 111,
+binary 95. It seemed a bit much for coincidence that these two lines should be of exactly equal
+length, let alone that their dimensions should spell the number TWO. It seemed even less
+coincidental that they should form a 38° angle.
+Geometric analysis of this five-circle figure continued to yield non-surprises. The line upper
+sun-Timer-crossed circle comes to 130°, and the line Timer-crossed circle-zero turns out to
+be 70° (BMx2). The dimensions also prove to be significant. The line Timer-crossed circle is
+144mm, and the crossed circle-zero line measures somewhere between 74 and 75mm. Taken
+together with the two 95mm lines, the total of dimensions comes to between 408 and 409mm.
+130n = 408.4. ‘
+The angular dimensions of this figure, in other words, give the name BER (130), the mono-
+gram BM (35) -- here, with a two-multiplier suffix (x2)-- and the theme-number 38. The
+linear dimensions express the word TWO (95) twice, and those two TWO's add up, together
+with the other two lines, to 130” (BER O'HARE).
+The logic of the diagram appeared to me to be invisible geometry joining together like figures
+center-to-center. I had exhausted the class of circles. The next obvious class to examine
+consisted of the four “swiches.” I drew diagonals in them in order to find their centers, then
+used my straightedge to supply the straight lines. Again, very interesting patterns emerged.
+All of the lines in the “swiches"-figure are exact multiples of nine. The two shorter lines are
+45mm (5 x 9) and 36mm (4 x 9). Together, they add up to 81mm (9 x 9). Even more inter-
+esting, the opposite sides of this irregular four-sided figure are exactly double their coun-
+terparts. Opposite the 45mm line, we have a 90mm line; opposite the 36mm line, we find one
+of 72mm. The two shorter lines form an angle of 140°. 140 is binary 1000 11 00, "BM (am)
+That left the two buses, the car and car battery, and the singular figure, “String of Bombs.” |
+assumed that car and car battery formed a pair (both were characterized by the word "car").
+This time, I related each of the pairs, bus-bus and car-car battery, to "String of Bombs.” |
+found the center of “String of Bombs" by drawing diagonals within the figure. They crossed
+right on the cross-bar of the letter F in “of.” Z. appeared to have used that cross-bar to mark
+the center.
+The figure car-car battery-F forms a 117° angle. It was in 117° of west longitude, in the city
+of Riverside, California, that the Zodiac got his first victim into his power by disconnecting her
+car battery. Note the appearance of the word “disconnect” in the accompanying text. I read
+this figure as an allusion to that crime. Note also the coy postscript: “I hope you have fun
+trying to figgure [sic] out who I killed.” The “who” is quite clearly Cheri Jo Bates.
+The figure bus-Timer-bus forms a 38° angle. Considering that the figure on the Boston map
+formed by the three Joan Webster-sites is an angle expressing the same number, and given
+the fact that its apex is at the bus station, it seemed reasonable to me to read this figure as a
+=== PDFPAGE 74
+The new ber~d W SEO% oP MWe.
+th 3
+5 lig Ww ~ ach evh,s
+- 7-Q Ss is fer y4
+ \ og
+SQ), 9
+1 [ oS es
+Nip Car
+OK AN
+“| Yj
+J x F B anv“ Phore e lectre
+>i , ches bp hen Sly be aw
+\ Trrn A closas comet
+f aa? opens
+‘Wire | mahs Bs rte
+vs Y
+vA asn 2° olf by eccid,
+to. figge > 4 oat who Co”
+| PD-@
+! STD S
+CL +
+=== PDFPAGE 75
+——
+> [ \7 ff S
+Timer FoR
+P S
+| Car ~
+A | Bo? i
+J a
+YAN|
+f A4dtB a-e phorl electric
+yy Swe tot-bifn {| Sly be aw
+Mf broken 4A as C8 cer f-
+” ve oq
+Bs pe.|, 100
+which wmaehs BJ evhe
+ol On Sy
+rE wont oo otf by @accid,
+THE ONCE AND FUTURE KILLING
+Bus-F-Bus = 38°. 38 and BUS are major elements in Joan Webster murder in 1981.
+Car-Car Battery-F = 117°, Zodiac shorthand for murder of Cheri Bates in Riverside, 1966
+I-dots of misspellings SWICHES, CIRCUT, ACCID form 100° (GENE) angle
+si
+‘ ° ee a
+a
+Timer
+oP
+ny | = z.
+=== PDFPAGE 76
+149
+geometric allusion to yet another unknown crime. But whereas the first figure alludes to an
+unknown crime committed in the past, this one alludes to an unknown crime that has not been
+committed yet -- and as of April 1970, was still more than eleven years in the offing.
+The principle of symmetry is very important in the work of the Zodiac. It manifests itself in
+several ways, but the most prominent is the use of mirror-images. The murder of Joan Web-
+ster in 1981 is the mirror-image of the killing of Cheri Bates in 1966. Mirror-images are simi-
+lar in some respects and exact opposites in others. In both cases, the murderer offered his
+victim a ride home, and the offer was accepted. Both victims were lone women. In those re-
+spects, these two crimes were alike. Where opposites are concerned, one was on the West
+Coast, the other on the East Coast. on opposite sides of the continent. And one was the first
+crime, the other the last.
+In discussing the 32-Character Cipher, I pointed out that in the series 57, 58, 114, 117, which
+is found encoded in digital form in that cipher, 57, 58 alludes to the radian, which the Zodiac
+con- structed in the Bay Area with the lives of two victims. 117 alludes to Riverside. 1
+suggested that 114 alludes to a future crime. It is not only the product of 57 x 2: it is also the
+product of 38 x 3. Since THREE in Zodiacese is a digital synonym of the word BUS, the
+product of 3 and 38 expresses two of the most important motifs of the Joan Webster story.
+I also said that I would leave a discussion of the Zodiac's use of the symbol omega, also
+found in that cipher, until a later chapter. This is it. The letter symbols giving digital 114 are
+followed first by a triangle, Symbol #12, then omega (Q). Both this triangle and the following
+omega have a bearing on the reading of this passage. But first. let's look at the rest of the
+Mount Diablo Letter in the light of invisible geometry.
+There are three crossed circles in the body of this letter. One is very large, the other two
+quite a bit smaller. The largest of the three is the second of the group. It is followed by a
+dash, then Arabic 12. As usual, this was interpreted at the time as a claim of twelve victims.
+And also as usual, the author does not actually say anything like that. The three crossed cir-
+cles, connected center to center, form a 108° angle.
+There are four misspellings in the letter. Three of them are words containing the letter I
+("anilating.” "“promice,” “untill"). The fourth is the word “buss,” which contains an er-
+roneously doubled letter. The three I-words are accompanied by I-dots. “Buss” is followed
+by a period. The second I-dot of “anilating” forms. with the dots over “promice” and “untill,” a
+144° angle.
+Z. writes a straightforward Arabic 12 following Crossed Circle #2. That crossed circle is the
+apex of a 108° angle. The three I-dots just mentioned form a 144° angle. 144 is the square of
+twelve. 108 redivides in binary to 11 0 1100, ME 12. Why is the author suddenly harping on
+the number 12? Why does he want to bring it to our attention?
+Let's leave that question unanswered for the moment and turn our attention to the misspelling
+“buss.” I pointed out that this word is followed by a period. The first three letters. BUS, are
+digitally synonymous with the word THREE. The superfluous letter S is Morse Code 000.
+=== PDFPAGE 77
+This is the Zodiac speaking
+I hav become very upset with
+the pople ef San Fran Bay
+Area, ‘They have not. complied
+with A wishes fo-/ then to
+wear \rTeme mice — be frowns.
+I premited fed. pur sh ther
+if they Sid pe ce PY, by
+anilating a |fel// Jchoo/ Bass.
+BAY now chee/ out Fe
+*“$he sam mx ) Tf JD panished
+these, tn an BAarvfhew wey -
+Ll shet a man Netting Ma)
+« parked ¢¢ with a 39.
+(Vy) SFPD-O
+a
+ee p74 oh,
+INVISIBLE GEOMETRY Le-e DBee
+108 = 11-0 1100, ME 12 « hace aundtst%
+Triangle #2 in 32-Character Cipher up. &
+CAT IZ OAXALAMAANODO RTS
+XOFDVtTCMHCELPPWA
+=== PDFPAGE 78
+1S)
+When you add 000 to a binary number, it has the mathematical effect of multiplying the root
+number by eight. You might read BUSS as THREEx8. In the next line down, we have the
+number 38 (THREE, 8), with a decimal point in front and a period behind.
+I used my straightedge to connect the period following “buss” to the period following "38." An
+extension of that line passes straight through the I-dot over the misspelling “untill.” That
+seems to be rather much for coincidence. I then connected that same period to the decimal
+point preceding "38." An extension of that line runs right through the middle of the second tri-
+angle, Character #12. From the point where that line touches the triangle to the {-dot of “un-
+till,” I drew another straight line, to form a triangle.
+The angle whose apex is tangent to the triangle is 38°. The angle tangent to the I-dot of “un-
+till” is 122°. If you draw a line on the Boston map from the Eastern Airlines terminal to the
+Highway 107 site, it forms, together with the 38° angle centered on the bus station, a 122°
+angle centered on the airport. This triangle in the Mount Diablo Letter of June 1970 is exactly
+similar to the triangle formed by the three Joan Webster sites in Boston. As to why 122 is
+significant, let me point out that the last birthday celebrated by Michael O'Hare prior to Joan
+Webster's disappearance was his 38th, and he celebrated it on 22 January (1-22) 1981. At all
+events, we have another prefiguration of that crime more than a decade before it was actually
+committed.
+In both of these Zodiac documents, then, we find allusions to Riverside expressed with the
+number 117. Allusions to the crime in Boston of 1981 are expressed with combinations of
+THREE/BUS and 38 (114 as 3 x 38, a 38° angle connected with buses). In both cases, River-
+side and Boston appear linked together. Let's see if we can't find another document in which
+the number 117 is linked with a mathematical description of a Joan Webster site.
+In 1973, Michael O'Hare filed his doctoral disseration at Harvard, titled Classroom utilization
+and space management. | will discuss other aspects of this document at length in another
+chapter. I would like to single out one for inclusion here, however, since it is relevant to this
+subject. On pages 5-4 through 5-7, there is a table showing data pertaining to a sample of
+classrooms drawn from the Harvard physical plant. The classrooms are identified by building
+name, classroom number, seating capacity, and square footage.
+One building has come unnamed. The author confesses that he has been unable to discover
+which building it is. Considering that he started with a finite list of buildings and that the
+name of only one is missing, it should have been easy to establish by process of elimination
+which one that was. But he prefers to let this error stand. Once again, the use of error to tag
+important information is a consistent Zodiac trait.
+The mystery building has been given the impromptu name of “whatsit.” "Whatsit" has four
+entries in this four-page table, which is arranged in descending order by seating capacity.
+Let's consider the seating capacities first. Room 7 has 81 seats. Room | has 72. Room 2 has
+39. And Room 107 has 24. This is rather curious, especially since these rooms have been, at
+least ostensibly, drawn more or less at random from the stock available at Harvard Uni-
+versity. 81 =9x9. 72=9x 8. (39 + 24)=9x 7. The seating capacities. in other words.

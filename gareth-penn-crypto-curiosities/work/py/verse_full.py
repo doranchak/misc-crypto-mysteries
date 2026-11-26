@@ -1,0 +1,51 @@
+from collections import Counter
+V = {
+'2021-02-12':"aversion vet Illini omitted Alameda actual",
+'2021-03-03':"rifts IOUs ALer silent treatment atop Gruyere",
+'2021-03-16':"Egrets indeed Satyr hanky panky Schwa tune Nemean wags",
+'2021-06-13':"pending scree I say moi bluish ales Mao alien airy true",
+'2021-09-01':"shes abdominal Balzac enamel deceit smog",
+'2021-09-24':"Aunt Andie synods damn grieve skunk Steffi onset jampacked sank",
+'2021-11-11':"axel grease zone ohm coat hanger hermit crab Orion gets into trouble anoint untold animists",
+'2021-11-21':"at last rail abdicator pizza energetic asp stinko hiss",
+'2021-12-02':"free gas on stage adjective in love Lolita tilt set yes yes in error",
+'2021-12-21':"inanity curious red smears argue rail Amos makes do",
+'2021-12-23':"inanity curios red smears argue rail Amos makes do",
+'2022-01-01':"elbows beaten eased moth shoes seem notes Peoria steer ship Peoria elbow",
+'2022-01-18':"wrap zit wiser Toyota Jupiter sense scams a bit",
+'2022-02-03':"Laverne greets frost free rain cited how frat crew overdo Mel Gibson",
+'2022-03-03':"code name ovolo free Qbert gunning Lady Gaga soap opera da capo deviled ague",
+'2022-03-12':"over angle Oscar areas vice amigos Tapper asks to",
+'2022-03-18':"Ida eats ocarina vines stairs starve one sock civets Ed Wood zoo exhibit bit off Ali G",
+'2022-04-02':"cad task satyr hanky panky moist eponyms egrets indeed",
+'2022-06-01':"abhor mines ghost steam trade steal esp psychic also old",
+'2022-06-15':"damp media upend live TV KGB caboose add poets GOP owls",
+'2022-07-12':"tubs ahead psalms unite flambe liners gas cap ado in a panic Sally I do La Paz",
+'2022-08-05':"Sue says hi to school term naps low double cross aint two x two",
+'2022-09-09':"alas a tale hard hat soft shoe George Raft likewise ONeal Phoebe on air essays",
+'2022-12-07':"Afar nurses Astrid Nanette wait identified it as a G sharp ablaze Zeitgeist shows hot dog scams a bit",
+'2023-01-24':"Zinfandel fandom bans Macs sweatshops unsolvable escape tea time",
+'2023-02-10':"Frat crew cited how Illini too overdo Mel Gibson Laverne greets Pooh down and dirty idle tropes about Teddy",
+'2023-03-02':"Ida eats ocarina vines stairs starve one sock civets Obtuse zest burst open top are you in edu",
+'2023-05-11':"TNT roman a clef arcs ago booboisie weds stashed assets reneging on buiness dinner Alistair smell a rat",
+'2024-04-02':"Ex cop one hop ice pop African ref irks soccer announcer Tune moist eponyms egrets indeed satyr hanky panky",
+'2024-05-22':"Sect nets Eminem pay ill tongs naysay leeks BLTs Iberian abhor mines Adore old ghost steam rarity anent oath Long John Amalie is it time",
+'2024-07-07':"AA large dragon sails pending scree See after Eloi in re bluish ales I say moi vote Irish",
+'2024-08-05':"Mr Clean is a fiasco Ugo Isolde sternly Im lost Itunes enamel deejay alas endures Wong agony Bass poet Lars gestures Amen tokens Tahoe as yet",
+'2024-08-20':"Sue say hi to slum Im in school term nodding off Sedans in hospital CB radio debt aint two x two Pluto openers sate master key",
+'2024-08-31':"Hard hat soft shoe George Raft likewise sneers on the map On air essays read out Testers exit poll snag ONeal Phoebe New release Nah power suit Senate page wows lone South Fork columns",
+'2024-11-18':"God no Alton Joaquin Stone gussied up Apartheid Era jackknifed overburden tests Ennis plays oaf Adieu Argo befriend Lyman",
+'2025-01-22':"poets prom crab creme bolt brr",
+'2025-02-11':"Goody goody for tamagotchis ash AWOLs onions welter on a roll atop gruyere tearing pepper Revenge is a dish primal",
+'2025-03-20':"Moist eponyms egrets indeed Satyr hanky panky rakes in Sergeant Pepper ex cop one hop ice pop African ref irks Blondie Styling mousse slogan laical",
+'2025-05-29':"Amalie is it time Said I do eked Eminem pay Abhor mines adore old BLTs Iberian ghost steam rarity anent Rutger rays",
+'2025-08-23':"Winter falls gentle slopes bottom line fruitcakes Meter readers in the attic suave competitor is me",
+}
+import json
+json.dump(V,open('verses.json','w'),indent=1)
+def C(s): return Counter(c for c in s.upper() if c.isalpha())
+TESTS=['DATE','TWENTY','TWENTYTWENTYTWO','TWOTHOUSAND','THOUSAND','AT','NINETEEN','JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER']
+for k,s in V.items():
+    c=C(s); n=sum(c.values())
+    ok=[t for t in TESTS if not (C(t)-c)]
+    print(k,n,''.join(f'{x}{c[x]}' for x in sorted(c)),'| fits:',' '.join(ok))

@@ -1,0 +1,19 @@
+Sympathetic Magic at Goose Pond
+Gareth Penn
+In the [http://www.ecphorizer.com/EPS/site_page.php?issue=53&page=845] last issue of The Ecphorizer I pointed out that there is a very curious coincidence between the spelling in Morse Code of the word GOOSE and the binary writing of the longitude of geological features bearing that name in Massachusetts, namely Goose Pond and Little Goose Pond, near the city of Concord. The longitude in question is 71° 20' West.
+ The other way would be just to correct the misspelling in situ.
+ I would like to repeat the comparison of these two digital spellings, this time dividing them into discrete letters:
+7120 =
+ 110 111 101 000 0
+ GOOSE =
+ 110 111 111 000 0
+The second letter "O" in 7120 is defective (underlined).
+A person with a Kabbalistic bent might well be tempted to make the minor improvement necessary to bring about a perfect congruence between these two forms. One alternative would be to move Goose Pond 32 minutes due west (in the latitude of Massachusetts, about 20 nautical miles). The other way would be just to correct the misspelling in situ.
+The accompanying map (U.S. Geological Survey, Concord Quadrangle) shows the area. I have drawn in the line of longitude 71° 20' West. Note that the grid lines drawn on the map conform not to astronomical coordinates, but to the Universal Transverse Mercantor Grid, which diverges slightly from the astronomical system (here, by about 1-3/4°). I have also shaded the two Goose Ponds for easier comprehension. In addition, I have drawn an arrow pointing to the second "O" in the word GOOSE (the defective letter in the Morse reading of the longitude).
+A search of the area conducted on 22 July 1984 revealed that right where the second "O" of GOOSE is printed on this map (arrow), an unknown person has constructed a picket fence enclosing a circle approximately seven feet in diameter. The location is wooded, and there are no nearby habitations. The fence is about one foot high. It encloses nothing. Like a tiny Stonehenge, it has no apparent function. It does, however, stand right where the U.S.G.S. printed the second "O" of GOOSE. It has the appearance of an orthographic correction effected by sympathetic magic.
+It will be noted that 71° 20' passes directly through the word GOOSE in "Little Goose Pond," and that if the function inferred above is in fact the intended one, then the other site would have been more appropriate. It should be pointed out however, that the area around Little Goose Pond is a landfill, and where the line of longitude shown here intersects with the word GOOSE, there is a huge pile of about fifty tons of automobile tires. That site is not well suited, in other words, for the construction of little circular picket fences resembling the letter "O".
+On 24 July 1984, the area enclosed by the little picket fence was excavated to a depth of four feet. Nothing was found there. But the research continues.
+ Gareth Penn. Sympathetic Magic at Goose Pond. Issue #37 (9/1984) The Ecphorizer (www.ecphorizer.com)
+
+Source: https://www.ecphorizer.com/EPS/site_page.php?issue=54&page=861
+Contributor/editor note on live page (fetched 2026-11-25): Unfortunately I don't have the original submission and I am unable to locate the author, rendering a more complete proofreading of this article impossible.I have reprinted the article exactly as it was printed in 1984 with absolutely nothing omitted; there was no accompanying USGS map.  I am also at

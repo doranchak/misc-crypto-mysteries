@@ -1,0 +1,24 @@
+( ! ) Warning: mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/crucl/public_html/EPS/site_page.php on line 239
+Call Stack
+#TimeMemoryFunctionLocation
+1
+0.0013
+309496
+{main}( )
+.../site_page.php:0
+2
+3.5619
+441080
+( )
+.../site_page.php:239
+A FOOTNOTE re: Gareth Penn's "Creative Reading" Article
+Tod Wicks
+ Issue #51 (November 1985)
+ In re: " [http://localhost:8888/EPS/site_page.php?issue=71&page=1108] Creative Reading" by Gareth Penn, last issue.
+Caltrans has no monopoly on doing funny things with street signs. A whole raft of goodies awaits you when you look at city maps. I always chuckle when traveling near Stockton, CA, and see the street sign "Klo Road." Anyone who has spent time in Germany will appreciate that one. Klo is short for Klosett, which is itself short for Wasserklosett, or WC. Imagine living on Toilet Road.
+There is a related story, probably apocryphal, about a street in San Jose that almost was, courtesy of the city fathers. It seems that when I-280 was being planned and built through town, it paralleled a street named Moorpark Rd. for many miles. A frontage road was planned for the opposite side of the Interstate, and a committee was studying, among other things, what to name it. Someone suggested it could simply be "Moorpark Rd" backwards. That flew until a clerk actually wrote it down: Dr Kraproom.
+The committee didn't have much imagination; they finally decided to name it Parkmoor Rd.
+ Tod Wicks. A FOOTNOTE re: Gareth Penn's "Creative Reading" Article. Issue #51 (11/1985) The Ecphorizer (www.ecphorizer.com)
+
+Source: https://www.ecphorizer.com/EPS/site_page.php?issue=72&page=1125
+Contributor/editor note on live page (fetched 2026-11-25): Business Manager TOD WICKS has his bags packed these days, waiting for a work summons to China. Ah, these jet-setters!

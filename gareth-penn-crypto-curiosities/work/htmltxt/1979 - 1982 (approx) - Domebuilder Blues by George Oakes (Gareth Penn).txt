@@ -1,0 +1,143 @@
+
+
+  1979 - 1982 (approx) - Domebuilder Blues by George Oakes (Gareth Penn)
+
+1979 - 1982 (approx) - Domebuilder Blues by George Oakes (Gareth Penn)
+[LINK .index_created_dsc.html] doranchak's notebook
+
+[LINK ../../tags/zodiac-timeline/.index_created_dsc.html] zodiac-timeline [LINK ../../tags/zodiac/.index_created_dsc.html] zodiac 
+
+properties
+Title1979 - 1982 (approx) - Domebuilder Blues by George Oakes (Gareth Penn)
+
+Created2013-11-12 06:23:41
+
+Updated2013-11-12 06:25:15
+
+[LINK http://www.shelterpub.com/_shelter/domebuilder%27s_blues.html] http://www.shelterpub.com/_shelter/domebuilder%27s_blues.html
+
+Domebuilder’s Blues
+by George Oakes
+
+Buckminster Fuller didn’t invent the geodesic dome. The first guy who stitched together a soccer ball did. Soccer balls are made up of the same configuration of hexagons and pentagons. Just take a soccer ball and cut it in half — in your mind’s eye, anyway — and you’ve got the basic design. As a matter of fact, the plutonium core of a nuclear weapon is put together exactly the same way. What Fuller did was to patent a panelized assembly. Each panel is a triangle made with 2 x 4 sides (struts), parallel studs within the triangle, and plywood skin on the outside. When bolted together, 60 of these panels make a dome.
+
+To build a dome, you invite a bunch of friends and relatives who aren’t fast enough on the draw to think of an excuse for not pitching in, lay in a load of food and a keg of beer, and you sling up this kit, using a 3-stage, 15-foot scaffolding and 9/16" ratchet wrenches.
+
+At 7 a.m., there’s nothing there but a foundation. By 7 p.m. or so, there is a 22-foot-high plywood-covered dome standing there, looking for all the world like an alien spaceship landed. One of my neighbors on Green Valley Road went hunting Friday evening. We put up our kit on Saturday, and when he came home Sunday afternoon he the called the sheriff’s department to report that UFO’s were coming down in Napa.
+
+That’s as far as you get with the dome kit: a plywood shell. It looks like an enormous accomplishment, but it is really only about one percent of the finished house. The dome will not support anything but itself, so if you want a loft or second floor, you have to build another house inside the one you just built. You also have to learn how to deal with non-standard angles. I had to move the kitchen range three feet because the oven door, it turned out, was going to get stuck in an acute angle. It looked a lot simpler on the floor plan.
+
+The floor plan is nearly circular. Anyway you slice it up, you come out with wedge-shaped corners somewhere. And if you make one room larger, the floor space has to come out of some other room. You can’t just make the house larger. There are places you can’t put windows in downstairs, because you can’t pierce the lower parts of the dome without weakening it. In all the brochures, they stress that once you have the dome built, you can put anything you like in it. In fact, you’re operating under a number of restrictions imposed by the shape.
+
+Somewhere along the line, you also discover that contractors like working on domes the way they like having double pneumonia. At first, you think it’s because they are reactionary or else mentally retarded. Later, you realize it’s because they can tell just by looking at the job approximately how much labor it’s going to consume. They can also tell just by looking at you that you don’t have enough money to make it worth their while. If you do manage to wangle a bid out of a contractor, he’ll make it astronomical, on the theory that it will either: a) scare you off; or b) assure him of a profit if you accept it. Contractors who have worked on dome houses all swear that they’ll never do another. I’ve heard that from a roofer, from a sheet rocker, and from a local electrical contracting company. Eventually, the only people who will take work on domes are the folks who sold you your dome kit. And my butt is black and blue from self-inflicted kickings for having had anything to do with my suppliers.
+
+George Oakes sent us this article in 1981. What was true about domes then, still is. Models, yes. Homes, no way!
+
+In brief, these are the chief technical drawbacks. I discovered them all the hard way, so I know them well. It goes without saying that I did not anticipate any of them before starting:
+
+The only kind of insulation you can legally use in a dome kit is super-expensive, flammable, poisonous, and unbelievably labor-intensive to install.
+
+The very shape of the house makes it difficult to conform to code requirements for placement of sewer vents and chimneys.
+
+Domes are difficult to roof. And if not roofed exceptionally well, they will leak like a sieve.
+
+All building materials come in rectangular shapes off the shelf. They have to be cut to fit triangular and other non-standard shapes. Scrap from cutting -i.e., waste — ranges from about 10 percent to 20 percent, depending on the type of material, of what you paid for.
+
+Domes require about twice as much sparking tape and electrical cable as conventional houses of similar size. Cable costs quite a bit, and labor costs are doubled, too.
+
+Foundations are critical. You can get away with a lot in conventional houses, but not with a dome.
+
+Fire escapes are problematical, they’re required, and they’re expensive. Windows conforming to code can cost anywhere from 5 to 15 times as much as windows in conventional houses.
+
+Insulation
+
+This is a horror story. California law (Title 24, Administrative Code) sets insulation standards for each county based on meteorology. The more northern the county, the higher the standards. Modoc County, for instance, has a standard for ceiling insulation of R-38. Napa County, where I built my dome, requires R-l9 in ceilings. You may be familiar with fiberglass insulation. It’s thick and fluffy, and it’s easy to work with. You can cut it with scissors, and it’s just the right width for stuffing into the space between studs (14-1/2"). It’s also non-combustible, and it fills up the airspace in outer walls in such a manner as to prevent a draft from feeding a fire.
+
+It didn’t occur to me to think about it until I was already well into my project, but a friendly building inspector pointed out to me that the “Company X” (a well-known dome company) kit, whose panels are only 3" deep, cannot be insulated with fiberglass. It’s not the fiberglass itself, but the air trapped inside it, that does the insulating. R-19 fiberglass is 6" thick, and while you can squash it down to 3" to pack into the Company X panel, you wind up with R11, which is legal only for walls. Most of the dome is ceiling.
+
+Is there anything on the market that will give you R-l9 in 3" thickness or less? Yes, indeed. Solid plastic foam. Chemically, isocyanurate. Two inches has a value of R-19.
+
+You can’t cut plastic foam board with scissors. You have to use a power saw. Each piece must be precisely measured to get a good fit. Too loose, and you lose heat — and the thing will keep falling out. Too tight, and you have to pare, scrape, pound and curse for a half-hour, while swaying up on top of a 25-foot extension ladder, your forehead beaded up with the cold sweat of acrophobic terror. An uncoordinated oaf with no training in carpentry could insulate a medium-size house in two days, using nothing more complicated than scissors and a staple gun. Three days blindfolded. The Company X kit requires 14 different cuts, all containing weird angles. It took me three weeks with hired help to put in the plastic R-l9. Where I could legally use R-11, in the walls, I put in the fiberglass myself in one day.
+
+That’s not all. There’s cost. Square foot for square foot as purchased, plastic foam costs about 4 times as much as fiberglass. It’s a petroleum product — 40 percent from OPEC. It comes in 4 x 8 foot billets, not in 14-1/2" wide strips. When you rip it to the right width, you’re left with a remainder 4-1/2" wide and 8 feet long. It’s unusable. And it’s 10 per cent of what you paid for at the lumberyard. Then you have to cut the rest into little triangles, trapezoids, parallelograms and what-have-you. This produces another pile of scrap coming to another 10 percent. The stuff was expensive when you bought it. It’s substantially more expensive when you throw away one-fifth of it. It doesn’t end there.
+
+Two inches of foam leaves an inch of air space to feed your fire, God forbid. And the foam itself is highly flammable. If my place ever catches fire, it’ll go up like a 747 crashing on takeoff.– The code requires for this reason that plastic insulation must be finished over with at least 1/2" of gypsum: sheetrock, which is fire resistant. If you wanted to finish your interior with anything but gypsum board, forget it. Or else do it twice, once with sheetrock and then again with, say, your fancy hardwood paneling. And you remember the chemical nomenclature for this foam? Iso-cyan-urate. Look at the middle part of the word. When it burns, it gives off cyanide gas. It’s related chemically to the foam the airlines had to take out of their seating after it was discovered that the cyanide that killed Mrs. Hunt in that crash at O’Hare right after the Watergate break-in was not administered by the CIA but by a burning seat cushion.
+
+In fairness, there are kits framed with 2 x 6 lumber, which give you plenty of space for R-19 fiberglass. This won’t– do you any good in Modoc County, however, and the kit is really expensive, since it contains twice as many board feet of lumber as the 2 x 4 kit. The panels also weigh over 200 lbs. apiece, which is going to make assembly interesting. There’s room for no more than three men on top of that 15-foot scaffolding, and they have to maneuver each panel into place by hand to make a fit with the adjoining panels, holding on with one hand while placing and ratcheting bolts in place with the other. Shipping costs are by the ton, and Company X doesn’t pay the freight from Oregon to you. You do.
+
+Waste of Time and Materials
+
+People who work in construction for a living do everything in modules of 4 and 8 feet. The reason is that almost all building materials are cut to those dimensions. Neophyte builders — like me — think that swinging a hammer is what eats up the time. Absolutely wrong. It’s measuring, cutting and fitting. Smart builders — unlike me — plan all of their work around off-the-shelf materials to minimize labor expended in trying to make things fit.
+
+It goes without saying that your local lumber yard doesn’t sell anything made in triangular shapes. And where you do find the 8-foot module in the Company X kit it’s for the manufacturer’s convenience, not yours. Dimensions in a dome diminish toward the inside. The bases of the triangles in the 39-foot kit are 96" across on the outside, 94-1/2" on the inside. You have to measure, mark and pare off the extra 1-1/2". Where the dome intersects with flat planes (walls, ceilings, floors of your loft), the geometry becomes quite complex. I may be just slow, but I did take four years of math in high school. I once spent two hours whittling on a piece of sheetrock about four square feet in area trying to make it fit, because it had three non-standard angles in it.
+
+I couldn’t get a contractor to bid on my sheetrock, so I did it myself. I got an estimate from a contractor I know for the taping of the sheetrock. He didn’t want to do it, he just estimated how much he would bid if he were interested, which he wasn’t. $3500 for labor alone. That’s for putting on about $10 worth of paper tape. Seems taping knives are made for 180-degree (flat) joints and for 90 degree (corner) joints, but there isn’t a thing on the market that will handle 147-degree joints. Tapers use a machine called a bazooka that enables one man to tape an entire house in a day. It goes without saying that it won’t work in the joints you typically find in a geodesic dome. You have to do it all by hand. It took me a month. I realize that I’m not skilled, but it would have taken me only two weeks if I hadn’t been building a dome. Taking a break from taping one day, I figured out how many feet of tape had gone into my old rectangular, unimaginative, non-glossy-color-photo ranch-style house I had sold in order to finance this wonderful experience I was now having. 1500 linear feet for 1500 square feet of floor area. The dome also has 1500 square feet of floor, but it took 3000 feet of tape — twice as much.
+
+Electrical cable can’t go straight from one receptacle to another. It has to snake around hither and yon. Every time you have to make a bend in its course, you have to stop and pull it all through at that point before proceeding on. I talked to the electrician at the electrical supply place I bought my hardware from, and we compared notes. He was wiring another dome up county in Oakville and consoled me by saying that it was not just because I was a beginner that I was having such a hard time with the wiring. He was too, and he’d been in the trade for 20 years. He said something, too, that I heard from every other contractor I ever talked to who had done any work on a geodesic dome:never again.
+
+We lost to cutting about 10 percent of our roofing material, 15 percent of our sheetrock, and 20 percent of our King’s Ransom brand solid plastic foam insulation. I didn’t measure the scrappage rate for lumber, but I figure I’ve got a 3-year firewood supply. So all is not lost. Unfortunately, when you burn Douglas fir 2 x 4s, you pay by the board foot, not by the cord.
+
+Plumbing
+
+The Uniform Plumbing Code requires that sewer vents terminate no less than 10 feet from any openable window. If you build a dome with a cupola on top, as I did, there is no place on the surface of the dome that is not within 10 feet of an openable window suitable for venting upstairs plumbing, unless you run flying pipe across your esthetic 22-foot-high ceiling. There is a shortage of places to vent even downstairs plumbing, since you can’t pierce the lower parts of the dome. I wound up with 14 feet of castiron pipe from my illegal sewer vents — knowingly installed by a dome company, our local Company X franchisee — to a point 3 feet above said openable windows, which is the other way it is legal to vent sewer gases.
+
+Heating
+
+Promotional literature on dome houses claims that they are easier to heat. For one thing, the sphere has less surface area per cubic unit of volume enclosed than any other shape. Given equal window-space and wall and ceiling insulation, an elongated rectangle (your typical ranch-style) has about 20-25 percent more surface area than the dome for the same amount of floor space.
+
+Once again, I sat down and calculated how much surface area my old clunker had. It was 20 percent more than the dome. Built to the same standards as the dome, it would require 20 percent more fuel to heat to the same temperature. But if I had built a house like my old one and doubled up the ceiling insulation, which is easy to do in a conventional house, it would have required one-third less heat than the dome I was now building. The other reason that domes are supposed to be easier to heat — promotional literature again — is that they have superior air circulation characteristics. In fact, hot air stratifies at the top of the house, which is built like an inverted funnel. You don’t get the benefit of it unless you’re 18 feet tall.
+
+Roofing
+
+Water flows downhill. The steeper the slope — in roofing terms, the higher the pitch — the better off you are. Gravity does half the work of keeping the rain out. It’s an ill wind that will blow rainwater back up under the shingles of a well-pitched roof. A dome has 7 different pitches, ranging from near-vertical to near-horizontal. The topmost part of the kit must be roofed with tar and gravel or some other seamless membrane. I’m getting tired of saying it goes without saying — but it does — that roofing a low-pitched roof is more expensive than just nailing down shingles.
+
+Another hazard of roofing domes is that every joint between panels is a potential leaker. Wooden shingles don’t go around corners. Everybody who has ever roofed a dome with cedar shakes has wound up with soggy sheetrock. The only practical answer is composition shingles, which are easy to nail down but which “burn out” in about 10 years and have to be replaced. This is quite a major concern when your house is two thirds roof. You can go expensive and buy fiberglass-base composition shingle, which last about 30 years. Even so, when they have to be replaced, the cost will be disproportionately more than for the guy who built a long, rectangular roof. He probably roofed it himself and pocketed the difference (I got one estimate from a pro who had done a dome before: $9000 for labor only, plus materials). I finally managed to get a contractor to do the job for only $1200. He did a fine job, and it leaked in only one problem place.
+
+Foundation Work
+
+Domes have an engineering peculiarity that has plagued builders since the Emperor Justinian built Hagia Sophia. The dome does not just press downward on the bearing walls, it makes them want to fall outward, too. All domed structures (and Gothic cathedrals, whose roofs have the same defect) built before the invention of structural steel concrete are buttressed on the outside to keep the walls from falling down.
+
+The riser wall of the dome kit is made to be buttressed internally. Wing walls on each side of the riser are strapped to it with stout steel straps. The wing walls are strapped down to the concrete. These straps must be placed precisely in order to match up to the lumber they are meant to be attached to. When it’s all together, the wing walls rein in the riser wall to prevent collapse.
+
+Ventilation
+
+When air is heated, it picks up extra quantities of water vapor. Most people don’t realize it, but building materials are not impermeable. Gases permeate and pass right through sheetrock, lumber, and stucco all the time. The greater the temperature difference between inside and outside, the more gas diffuses through. It is inhibited by insulation, which is made, after all, to trap air.
+
+When the temperature in the space between inside and outside reaches the dew point, the water vapor liquefies. There are virtually no conditions under which it will revaporize. Over time, water accumulates in the spaces between studs, promoting dry rot. The really bad place is in the ceiling, because that’s where the hottest air accumulates, driving the water vapor through the sheetrock like a 20-ounce hammer driving a 16-penny sinker into a Doug fir 2 x 4 . Code requires that the air space above ceiling insulation be ventilated, to blow away the water vapor before it can condense.
+
+The upper portions of the geodesic dome are built just exactly the same way as the lower portions. Panels are plywood and roofing on one side, sheetrock on the other. 2 x 4 studs and struts in between, air spaces packed with insulation. No way can it be ventilated. But if you add on a cupola, there is a possibility: put in a dropped ceiling, then ventilate above that. The plans that came with my prefab dome kit and my cupola kit made no provision for this. I was stunned when I got a stop-work order from the Planning Department because of lacking ceiling ventilation. I had to build the ceiling inside-out (as it turned out, like everything else in the dome). It took me a week and $300 to do it, teetering all the while on a 2 x 12 plank 19 feet up. I was up there when the Livermore earthquake hit. My kit supplier, of course, refused to participate in the cost, citing an exception to the UBC section on ceiling ventilation. I telephoned the International Conference of Building Officials in Whittier to get a reading from them. They wrote the UBC. They told me the dome company was full of it. When I confronted the dome company with this information, they proceeded to upbraid me for “harassing” the ICBO.
+
+My dome incorporates a lot of firsts. Mine is the first ever built with a dropped ceiling. It may be the last to collapse from dry rot. There are a lot of domes out there whose lumber is getting soggier and soggier with every heating season.
+
+Windows
+
+A bedroom is any room that doesn’t have a range or a toilet. An upstairs bedroom is required by code to have a fire escape,. i.e., a window with certain minimum dimensions of open area. Most window are made to be installed vertically. There is no vertical surface on the outside of a dome. There are two ways to solve this problem. One is to build a dormer, and the other is to put in roof windows.
+
+Building dormers on the outside of a dome requires cutting of lumber on compound angles. Most carpenters will not touch compound angles with a 10 foot 2 x 4. Simple angles are hard enough to get right. And compound miters are no job for a do-it-yourselfer like me, unless he has a week to experiment with each piece of lumber. The dome company, when we were still on speaking terms, estimated that they would charge about $1000 per dormer. That’s a lot of bread just for putting in one window.
+
+I did another first. I bought roof windows imported from Denmark. I know That mine are the first ever installed in a geodesic dome, because I talked with the importer in Boston. These windows are so water-tight they’re seaworthy. they’re beautiful examples of fine European craftsmanship. But they cost $350 apiece. Of course, that’s only 5 times the cost of a normal window in a normal house, as opposed to 15 times, which is what the dormer will cost you. The $350 figure is in 1978 dollars, by the way. Norwegian woodstoves have gone up 50 percent since 1978. Danish roof windows can’t be far behind.
+
+I’m just going to abbreviate “It Goes Without Saying.” IGWS, as beautiful as my roof windows are, as leakproof as they are, any window installed on the diagonal will let rain in if it’s inadvertently left open and you’re at the supermarket when the storm hits. A vertical window won’t ship water even when open unless the wind blows directly into it. You have to be paranoid about upstairs windows in a dome if you want to avoid ruined carpeting and subflooring, especially if you have children living upstairs. Dormers also create valleys in your roof, and valleys have a tendency to leak.
+
+Living in Domes
+
+Acoustics are excellent. It’s like living in two band shells glued together face to face. You can’t even pee without it reverberating from one side of the house to the other. My 9-year-old boy sounds like Yosemite Falls. There is no privacy. Privacy is something that doesn’t show in the glossy color photos in the brochures.
+
+Light bounces around the same way sound does. I often have a bout of insomnia around 3 a.m. and have to get up and do something for about an hour to get sleepy again. Not only does it have to be something silent, it also has be done in the dark, because if you turn on one light, it’ll light up the whole house and wake everybody up.
+
+Hanging pictures is a problem. Donate half your art and photos to a museum or Goodwill, depending on quality.
+
+Code requires that chimneys terminate no less than 2 feet above a point at which the chimney is separated from the roof by a horizontal line of no less than 10 feet. On a dome, this means that you must build a 20-foot-high metal chime in order to place your woodstove or fire place near a peripheral wall with a thimble going through the wall. A 20-foot chimney must be braced with steel braces or heavy-gauge guy wires, which is unesthetic. You need a lot of them for 20 feet of pipe. To minimize on chimney and maximize on stove-pipe which heats your house and costs less than chimney-pipe, you put your wood heater in the middle of the house. This places it in the middle of the traffic pattern. When my Jotul is stoked up, it gets very hot. Children can collide with it. Guests can fall on it, burn themselves, and then sue you for all you’re worth. So either you’re worried about people getting hurt, or you’re nervous about what the next high wind will do to your 20-foot chimney. Something else to be paranoid about.
+
+Placement of furniture: choices are limited. If you have a favorite 8 by 12 foot Oriental rug, make sure you provide for it in your building plans. Don’t wait to move in before you think about where to put it. It may be too late. And you can’t use it as a hanging, because there are no walls to hang it on.
+
+Maybe It’s Just Me
+
+I worried about it for a long time. I had never built a house before. My biggest project had been to convert a garage to a living room. When building inspectors heaped scorn on domes, I thought they were just sticks-in-the-mud. Others had done it. I had seen the glossy color photos of finished dome homes in the promotional literature.
+
+I contacted others who were building domes. There are two others under construction in Napa County. The first one, in order of building starts, is being built by a dentist. He isn’t hurting for money. He can live in one house while he piddles around with the other. His hobby is building ships in bottles. The problems involved are quite similar to those you encounter in building domehomes. He’s been at it for four years now, and he’s just getting his sheetrock up. His rock man is a pro. I talked to him, and he said he was going to the cleaners over to the doctor’s house. He asked me if I could guess how many feet of tape it takes to do a dome. 3000? I asked as ingenuously as I could manage. His jaw dropped open, and when he regained the power of speech, he said: never again.
+
+Number 2, also owner-built, has been under way for over two years. Reason it’s taking so long is that it was abandoned 18 months ago.
+
+After a great deal of contemplation and soul-searching, I reluctantly came to the conclusion that considering everybody else’s experience, considering the reactions of contractors who have actually worked on dome houses, considering the geometry of the problems, it wasn’t just me. It was intrinsic to the shape.
+

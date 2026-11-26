@@ -1,0 +1,107 @@
+The real puzzle
+
+I would like to suggest an alternative way of looking at the second cipher from the nonverbal point of view. I’m not going to render the 340 symbols into English prose but demonstrate what can be gained without doing that. I will concentrate on three symbols: 1) the crossed circle; 2) j; 3) dot (•).
+
+1) Crossed circle
+This symbol is used by the Zodiac as a signature. It appears as such at the foot of the second cipher itself, and it is used as a signature on most of the letters in 1969-1971. The Zodiac left an inscription on the victims’ car door at Lake Berryessa headed by a large crossed circle, and he wore a black hood on which he embroidered this symbol in gold-colored thread. Embroidery is a tedious and time-consuming activity; he must have been really committed to the task. Whatever it means — or even if it means nothing at all — it is obviously important. The Zodiac uses it as a cipher symbol, four in the first cipher, nine in the second, and once in each of the third and fourth ciphers.
+
+2) Phi (j)
+This symbol is used three times in the first cipher (as ##102, 164, 237) and six times in the second (as ##22, 45, 102, 218, 263, 304). In mathematics, it is known as the Golden Ratio, the Golden Section, the Golden Mean. It is defined by the three parts of a 1,2,√5 right triangle:
+
+(1 + √5)/2 or 1.6180339…
+
+The ancient Greeks were fascinated by j because it has a property that no other number has: 1/j = j- 1, and 1/(j- 1) = j. It doesn’t appear anywhere in the Zodiac literature but the first two ciphers, but it has a 2500-year history.
+
+3) Dot
+This appears six times in the second cipher. Insofar as it can been seen as a point (geometrically dimensionless), it is unique among the Zodiac’s cipher symbols. Most symbols are shared by at least two ciphers; this is one of the few that is unique to the second cipher.
+
+Crossed circle
+The crossed circle appears four times in the first cipher. It appears first as character #100, base-ten one hundred, written one-zero-zero. Four to the base two is also 100. It takes the place of the letter D, Morse 100. D is the fourth letter of the alphabet. The symbol itself is a circle divided into four parts; it’s a graphic representation of the number four. As a bonus, it is the fourth symbol in the third cipher. I think you can make a case for it representing the number four.
+
+There are fifteen crossed circles in all. If crossed circle = 4, then the total, 4 x 15, is 60, the Morse-to-binary spelling of the English word ONE (111 10 0). I suggest reading this as a hint that the author wants us to take a look at the ciphers, not as individual, discrete texts, but as a consolidated unit of 793 characters (408 + 340 + 13 + 32). The four ciphers are ONE.
+
+A further hint that the ciphers want to be consolidated is the first or only crossed circle in each cipher. It is #100 in the first cipher, #49 in the second, #4 in the third, and #29 in the fourth. The last one is a prime number; the other three are all perfect squares: 102, 72, 22. Their square roots, 10, 7, 2, when consolidated into a single number (1072), is the Morse-to-binary spelling of the English word DEATH (100 0 01 1 0000 = 1072). This seems to be appropriate in the work of a serial murderer, whose work product is death, and it since it is meaningful only when these ciphers are part of a whole, it suggests again that consolidation is the order of the day.
+
+Crossed circle in the second cipher appears at ##49, 73, 117, 132, 155, 205, 260, 295, and 332. The sum of those position numbers is 1618, j sans decimal point (j = 1.618). What happens when you divide 340 by j? You get a quotient of 210; and jbeing j, you get the same result when you multiply 340 by (j - 1). G.H. Hardy found his taxicab number (1729) “dull” (his word). Ramanujan found something very interesting in it. The number 210 is indeed dull when it is part of the 340-character cipher, but it’s very interesting as part of the 793-character consolidated cipher text, since it becomes #618 (408 + 210), or j – 1. This interesting finding is the result of merging the first two ciphers; there is no reason not to include the third and fourth ciphers as well. The cipher symbol j appears three times in the first cipher and six in the second; it is #102 in both. Commonality is yet another hint that the ciphers are a unit. As #102, it is, by row- and column-coordinates, 6,17, as close as you can get in the seventeen-column grid to 6,18 (j - 1).
+
+Dot
+This symbol appears at ##29, 116, 200, 232, 258, and 267. The English word FIVE is Morse 0010 00 0001 0 or base-two 258. I suggest that it is no coincidence that Dot #5 is found at position #258. The set of dots can be divided into two subsets: one set is the prime number 29 multiplied by a power of two (29 = 29 x 20, 116 = 29 x 22, 232 = 29 x 23). The missing number 58 (29 x 21) crops up as the difference between Dots ##3 and 5 (258 – 200). In a rectangular grid, two points occupy rows and columns that intersect at two places. But if you have three points and two of them occupy the same column or row, then they can intersect at only one. Dots ##5 and 6 are both found in Row 16 and #3 in Column 13; the three non-29-multiple dots intersect at position #268 (16,13), the digital spelling of the English word DEAD (100 0 01 100 = 268).
+
+I’m not going to abuse your patience by slathering an interpretation on the dots. But it seems obvious to me if no one else that their placement in the cipher grid is designed and exhibits a nonverbal message. It seems to me that you ignore this at your peril.
+
+As I have pointed out elsewhere, the circularity of life is a theme in the Zodiac literature (WHEN I DIE I WILL BE REBORN). This theme is supported by a number of interesting coincidences that the Zodiac had nothing to do with creating — a combination of English spelling, Samuel F.B. Morse’s choice of code characters, and the nature of base-two number is responsible — but it seems obvious to me that the Zodiac has discovered these coincidences and exploits them in his work.
+
+The word BIRTH in Morse Code (1000 00 010 1 0000) is base-two 8272; THE END (1 0000 0 0 10 100) is 2068. They are redivisions of one another. BIRTH is THE END with two additional zeros; put another way, BIRTH = 517 x 24 and THE END = 517 x 22. The word LIFE is Morse 0100 00 0010 0, base-two 516. It’s at least interesting that 517 is what follows LIFE. You might say that it analogizes “afterlife” or “paradice.”
+
+Here’s another way of looking at the synonymy of birth and the end of life. The end of life is death. DEATH (100 0 01 1 0000) is base-two 1072. If life is a circle, then its progress can be measured in units of angular measurement such as the degree. The difference between BIRTH (8272°) and DEATH (1072°) is 7200°, the product of 360° x 20. Since 360° = 0°, the difference between BIRTH and DEATH is also zero. Ergo BIRTH = DEATH. Life is a circle.
+
+The commonality between BIRTH and THE END is 517. In 1964, Marshall McLuhan’s book Understanding media appeared in print. It was a big seller at the time but has been largely forgotten since then. The only quote from the book that everybody has heard is “The medium is the message.” In other words, words tell you less than the medium in which they are presented. In short, the message is nonverbal.
+
+Two years after the publication of Understanding media, the Zodiac left his first written text at the Riverside City College Library, not on paper but inscribed into the top of a desk. The word DESK is Morse 100 0 000 101, base-two 517. It is the only Zodiac text that contains both literal LIFE and literal DEATH (“life draining into an uncertain death”).
+
+Now, back to the ciphers. The field of cipher symbols includes a number of triangles. Some are blank, some are dotted, and some are filled in solid. The subject here is the synonymy of beginning and end, birth and death, etc. In the consolidated corpus of 793 cipher symbols, the blank triangle is both #1 and #793, beginning and end. If they are synonymous, it is fitting for them both to be represented by the same symbol.
+
+The standard format of the ciphers is a seventeen-column rectangle, so when they are consolidated into a whole, the same format should apply. 793 = (46 x 17) + 11, so the resulting figure is forty-six complete rows and an incomplete forty-seventh row of eleven symbols. In this configuration, Symbols ##1 and 793, beginning and end, define an 11 x 47 rectangle expressing a product of 517, the number that forms what you might call the skeleton of BIRTH and THE END.
+
+ILIKEKILLINGPEOPL   #1 (beginning)
+EBECAUSEITISSOMUC
+HFUNITISMOREFUNTH
+ANKILLINGWILDGAME
+INTHEFORRESTBECAU 5 
+SEMANISTHEMOSTDAN
+GERTUEANIMALOFALL
+TOKILLSOMETHINGGI
+VESMETHEMOSTTHRIL
+LINGEXPERENCEITIS 10
+EVENBETTERTHANGET
+TINGYOURROCKSOFFW
+ITHAGIRLTHEBESTPA
+RTOFITISTHAEWHENI
+DIEIWILLBEREBORNI 15
+NPARADICEANDALLTH
+EIHAVEKILLEDWILLB
+ECOMEMYSLAVESIWIL
+LNOTGIVEYOUMYNAME
+BECAUSEYOUWILLTRY 20
+TOSLOIDOWNORSTOPM
+YCOLLECTINGOFSLAV
+ESFORMYAFTERLIFEE
+BEORIETEMETHHPITI
+22222222222222222 25
+22222222222222222
+22222222222222222
+22222222222222222
+22222222222222222
+22222222222222222 30
+22222222222222222
+22222222222222222
+22222222222222222
+22222222222222222
+22222222222222222 35
+22222222222222222
+22222222222222222
+22222222222222222
+22222222222222222
+22222222222222222 40
+22222222222222222
+22222222222222222
+22222222222222222
+22222222222222222
+33333333333334444 45
+44444444444444444
+44444444444         #793 (end)
+
+
+You can get a lot of mileage out of a nonverbal analysis of the Zodiac ciphers; but they constitute only a small fraction of the Zodiac’s work, which includes deeds as well as texts.
+
+The Zodiac murdered Cheri Jo Bates in Riverside in October 1966. In November, he mailed his first letter, “THE CONFESSION.” Then in April 1967, he mailed three letters, one to the police, one to the local newspaper, and one to the victim’s father. They were all postmarked the same day, and they had excess postage. Then he dropped out of sight.
+
+He re-emerged four hundred miles to the north in December 1968, when he murdered a teenage couple at Lake Herman Road. Six months later, he attacked a couple at Blue Rock Springs. Four weeks after the Blue Rock Springs murder, he mailed his first cipher. It was divided into thirds, each of which was mailed to a different newspaper with a cover letter. The three letters were franked with excess postage.
+
+In each episode, Riverside and Bay Area, the third event in a series consists of mailing three letters on the same day with excess postage. The message is nonverbal, but it can be translated into a verbal one: “Dear people of the Bay Area! You may have been wondering who has been committing these murders and writing these weird letters. While I am not about to disclose my identity (at least in a form that you are accustomed to reading), I will go so far as to say that I am the same person who murdered Cheri Jo Bates in Riverside back in October 1966. If you pay attention, you will find similarities between my behavior and that of her murderer; for instance, we both mark the third event in a series by mailing three letters with excess postage. Same behavior, same person.”
+
+The Zodiac must have been disappointed to learn that when the connection between Riverside and Bay Area was made, it was based on prosaic evidence: handwriting comparisons. The third event-commonality went right by everybody. On the other hand, he might have been pleased to see confirmation of his theory that the average person is not attuned to nonverbal information. In either case, nobody got the message.
+
+The Zodiac isn’t the only criminal to make use of nonverbal communication. Timothy McVeigh wasn’t arrested as a result of the investigation of the Oklahoma City bombing. He came into the hands of the police because he was driving a car without license plates. If he had taken more care in preparing his getaway, he might have remained at large, if not permanently, at least long enough to send an anonymous letter to the New York Times explaining his motivation. But he didn’t need to. The press figured it out within hours. The bombing had taken place on the second anniversary of the Branch Davidian disaster in Waco. Many people blamed the federal government for that sad event, and the target of the bombing was a federal office building. Two plus two is four, and the payback for Waco interpretation came to mind immediately. McVeigh had committed a nonverbal act and then let the calendar do his talking for him. The nonverbal interpretation was confirmed by subsequent interviews with McVeigh’s associates and by a reading of his diaries, which revealed him to be obsessed with Waco and seething with revenge ideation.
+
+What baffles me is that the nonverbal aspect of the Oklahoma City bombing came so easily, but where the Zodiac is concerned, I don’t believe that over the course of the fifty-three years that have elapsed since the mailing of the first cipher anyone but me has ever taken notice of it. I’m too old to be amazed by anything, but I come close to it when considering this question. For me, the Zodiac isn’t the puzzle. The real puzzle is everybody else.

@@ -1,0 +1,89 @@
+The Red King's Dream
+Gareth Penn
+Editor's Note: This is the latest in a series of articles recounting the author's duels with the Zodiac mass murderer, yet to be apprehended by the police.
+In July 1984, Litigation Support Corporation, doing business in San Rafael, California, began to receive a number of one-ring hangup calls of the same sort that had been coming to my home. This continued through the spring of 1985, when LSC went out of business. I instructed both the receptionist and the answering service to record all such calls and to consult a digital
+ The king's knight operates according to an invisible and esoteric agenda.
+ clock for the time. The clock was checked every day against the telephone company time service.
+These signals made no particular sense when read as a list. They remained incoherent until they were assembled in a calendar grid. Certain pieces of information, forming distinct patterns, were organized as vertical columns on the grid, for instance. These large compositions took as much as ten weeks to transmit. One of the more interesting ones is the series of calls reproduced here, covering the period 10 February to 20 April 1985. Calls to my home phone, in all cases nocturnal, are marked with *. Calls taken by the answering service are marked #. The rest came to the LSC reception desk during business hours.
+The first week shown here immediately followed what I had determined to be a complete composition, so I assumed that this was the opening part of a new one. The most striking feature in this first week was the series of five wee-hours calls on Friday, the central member of which was the call at 1:27. Looking down the grid, I found another 1:27 on 13 March. There was an interval of 127 minutes on 20 February (9:25, 9:55, 11:32). On 28 March, the two calls at 12:07 and 4:21 formed an interval of 254, or 127*2 minutes. What struck me in particular was that all of these dates were separated from one another by knight's moves. It occurred to me then that of all the calls in the first week, this long series (compressed into three minutes' time) was the only instance of communication at night.
+If the series 1:26...1:28 on Friday was the knight's position, then Monday and Thursday ought to be the bishops. They had something in common. The three times recorded on those two days all began with 10. Ten o'clock sharp is 10:00, Morse letter B — the standard notation for Bishop in chess shorthand. The three bishop-times, 10:17, 10:49, and 10:51, form a progression — when read from right to left. That is the way they they would be read from the perspective of the person playing on that side of the board. I noted also that the intervals formed, 32 and two minutes, were powers of two. The central member of the progression ended in :49. Looking down at the bottom of the calendar, I saw another progression, 1:49, 2:49, 3:49, forming a diagonal: the bishop's move. Which side was this, Black or White?
+ 10:49
+  10:51
+ 3:31
+ 12:18
+ 10:17
+ 1:26*
+  1:28*
+  1:26*
+  1:27*
+  1:28*
+  (all AM)
+ 11:20#
+ 12:35* AM
+  9:25
+   9:55
+  11:32
+ 1:01
+  1:38
+  2:05
+ 11:22
+ 12:12*
+  12:12* AM
+ 11:40
+  12:43
+ 1:43
+ 1:25
+ 1:27
+  1:31
+ 2:04
+ 10:37*
+  PM
+ 12:07
+   4:21
+ 1:49
+ 10:06
+  10:32
+   1:03
+ 1:50
+ 2:02
+ 2:30*
+  AM
+ 10:45
+   2:37
+ 11:20
+   4:14
+   4:33
+  8:24# AM
+   8:25#
+   8:27#
+  11:18
+  11:25
+ 8:38#
+  AM
+ 2:49
+  3:49
+I wrote out 331 in binary, noticing nothing particularly exciting about it: 101001011. But when I wrote out 1218, it turned out to be made up of old friends: 1 00 11 0 000 10, TIMES 2. I multiplied 331 by two through the simple expedient of adding a zero. Then it made sense. Here's my redivision: 101 00 10 110, Morse KING. That side was White, then. KING in Morse is binary 662. The number cannot be relayed by reference to clock time. It had to be halved and sent along with a two-multiplier. TIMES 2 is like the B-tube that you get with epoxy resin. It has to be mixed with A to get the desired result.
+The queen's knight's moves are marked by the number 127. There is clock time 1:27 on his home square. Q2 is also marked by a 127-minute interval, which is then subdivided into intervals of 30 and 97 minutes. Queen's knight does not move to this square; the 127-minute interval indicates that he is covering it while it is occupied by some other piece, namely the queen. This solicitude on his part appears to be explained by redivision of 127, binary 1111111, identical in form to Morse 11 111 11, MOM. Queen's knight first moves to QB3, which is not marked by any clock time. But that square is another knight's move from Q5, which displays a l:27-marker. His last move is to QB7, where he places the Black king in check.
+The queen's knight is a paragon of chess virtue. He ostentatiously defends his queen. His motivation, the 127-theme, is openly stated . He proceeds directly to his objective, checkmating the Black king. I will compare these character traits presently with those of the king's knight. But first, the other pieces.
+The queen's moves are marked by clock times between eleven and twelve. In the range of numbers 1120-1151, every number begins with the group 100011-, binary 35. Two squares on her path, Q2 and KB4, are marked further by combinations of nine and seven. Q2 has a 97-minute interval; KB4 has a 63-minute interval (9 x 7). Without going into detail, it should be noted that the monogram written digitally as 35 has a direct biographical connection with combinations of nine and seven. But back to the board. The square marked 11:20 (KB2) is not a queen's move; it is a sort of algorithm. 11:20, 11:40, and 11:32 form a right triangle on the board. One leg of this triangle is twelve minutes (11:20 - 11:32) and the other is twenty (11:20 - 11:40). The hypotenuse, according to Pythagoras, is therefore equal to the square root of 544. The hypotenuse is the path followed by the queen. I will come back to that in a minute.
+Also following a diagonal path — which crosses the queen's — is the king's bishop. His first move is to Q3, marked by two one-ring hangup calls at 12:12 a.m. The interval between the last time reported on his home square, 10:51, and 12:12, is 81 minutes, the square of nine. Please note that this first move has taken him along the diagonal of a square of nine squares. Now back to the queen. Her diagonal path has caused her to traverse the hypotenuse of a right triangle equal to the square root of 544. Here's 544 in binary, with my redivision in Morse Code: 10 00 10 0 000, NINES. The bishop's diagonal move expresses the square of nine; the queen's diagonal move, in the opposite direction, is the square root of NINES.
+The bishop's second move is to KB5, marked by clock time 1:25. KB5 is the fifth row, third column — of the chessboard, not the calendar.
+There is an imaginary eighth column preceding the Sunday column. Call it "Noneday" because it does not exist. At all events, this fifth row, third column square is marked by five to the third power. Like the other pieces noted so far, the bishop is fairly straightforward. His moves are marked by easily recognizable powers of small numbers, the square of nine, the cube of five.
+Something else has to be added about the bishop. On his second move, he interposes himself between his queen and Black. In fact, it is this move which makes it possible for Black to avoid checkmate. For that matter, the White queen could have stopped on K3, reinforcing her knight's check on the Black king. But she moved on. And now king's bishop is blocking her influence over the outcome of the game. It should be apparent from these facts that the object of the game is not checkmate at all — it is something else.
+Now it is time to discuss the king's knight. His first move is to K2, marked by clock time 12:35. His second move is to Q4 (1:43). His third and final move is to QB6 (10:37). There, he imperils the Black queen. That appears to be what this game is all about. When the Black king moves to KB2, to escape from the queen's knight's check — a move which was made possible by the white bishop's move to KB5 — the king's knight will take the Black queen.
+I have already delineated the character of the queen's knight. He is forthright, honest, and devoted to the highest purpose of the game. What a contrast we find in the king's knight! As best I have been able to reconstruct the sequence of moves in this game, he does not cover the queen where she stands, unlike his counterpart. He ends up in Black territory standing elbow to elbow with the queen's knight, but he does not assist in checking the hostile king; his object is to take the other side's queen. And his motivation, as expressed in the numbers marking the squares on which he lands, is veiled. What is the relationship between 12:35, 1:43, and 10:37? And why does clock time 2:04 appear at the pivot of his third move?
+1235 is binary 10011010011. I am going to redivide it as Morse 1 00 11 0 1001 1, TIMEX 1. TIMEX itself is the brand name of the wristwatch left by the Zodiac murderer by the side of his first victim's body, in Riverside, California. Read as a number, TIMEX is base-ten 617, the Area Code of Boston, Massachusetts. I suggest reading 1235 as TIMEX 1, the numeral 1 serving to identify this as the first event in a series, as well as to disguise the underlying number 617.
+From 12:35 we go to 1:43. The 12:35 call was after midnight. Not only did the author get a 617, but he made this call 35 minutes into the new day. 143 is one of those numbers that begin with 35 in binary (10001111). But I believe that that is a bonus. The interval between 12:35 and 1:43 is 68 minutes. This is an interesting number. 68 in binary redivides to Morse 10 00 10 0, NINE. It is also the calendar year (1968) in which the second phase of the Zodiac murderer's career began, with the murder of two teenagers at Lake Herman Road. And it is the product of the operation 4 TIMES 17. 617, 4 x 17...
+...10:37. 1037 is the product of the operation 61 TIMES 17. And on the pivot of the king's knight's third move, in the square immediately preceding it, 204, the product of the operation 12 TIMES 17. The king's knight's theme is TIMES 17. Just so that you can relate it to something you have already read here, the phrase TIMES 17 in Morse is 10011000010001, base-two 9745. In the third move, 12 x 17 is before 61 x 17. One number before another implies subtraction of the leading number, as in clock times and Roman numerals. 61 minus 12 is 49. The Black queen's home square, which is covered by the king's knight from QB6, is marked 1:49. A progression from that point, leading through 2:02 and 2:49, goes diagonally off the chessboard to a place which cannot be defined in the terms of the game.
+3:49 is the Black queen's final destination. Her path is through 2:02. 202 is binary 11 00 101 0, Morse MIKE. I won't go into details, but the three calls on ON2 at 1:01,1:38, and 2:05, in the same column as 3:49, are a hint as to 3:49's geographic location. I will point out that the first interval, 1:01 - 1:38, is 37 minutes; the second, 1:38 - 2:05, is 27 minutes, and 37/27 is 1.38. The author gets the same results two different ways.
+I suggest to you that the White queen's knight and the king's knight are two different aspects of the same person. The queen's knight is a solid citizen; he is — in a word — presentable. The king's knight operates according to an invisible and esoteric agenda. His motives are concealed, and his objective is not conventional. He can operate off the board. He is to the queen's knight as Hyde is to Jekyll. His career recapitulates the three episodes of the Zodiac murders: Riverside, Bay Area, and now Boston. He is exceptional, esoteric — and evil.
+I won't tell you where 3:49 is. I hope to have the proof of it before too much more time goes by. I will tell you what it is. But first, a word from the White Knight himself:
+What does it matter where my body happens to be? ... My mind goes on working all the same. In fact, the more head-downward I am, the more I keep inventing new things.
+In a previous contribution (" [http://www.ecphorizer.com/EPS/site_page.php?issue=73&page=1133] The Once and Future Killing," THE ECPHORIZER, December 1985), I pointed out the Zodiac's use of mirror-images or bookend-structures to enclose important information. I suggested further that the Bus Bomb Diagram alluded in an esoteric manner to an unknown past crime, in Riverside, and to an unknown future crime, in Boston. I suggest that these two crimes are themselves a pair of bookends, the first and last acts, being identical in some respects and exact opposites in others.
+I pointed out in that article that an invisible structure in the diagram, alluding to Riverside, was a 117-degree angle, and that Z. had used the same number in the 340-character cipher to allude to Riverside. Riverside is 117 degrees west of Greenwich. I am going to write "117 degrees" as "117 0", to simulate the superscript degree-sign: 1110101 111. This is the binary writing of the base-ten 943. Read from the head-downward perspective of the White Knight, as seen from White's side of the chessboard, 943 is 349. It's the matching bookend to Riverside.
+Five murders lie between the two.
+© 1986 Gareth Penn
+ Gareth Penn. The Red King's Dream. Issue #56 (4/1986) The Ecphorizer (www.ecphorizer.com)
+
+Source: https://www.ecphorizer.com/EPS/site_page.php?issue=77&page=1177
+Contributor/editor note on live page (fetched 2026-11-25): Sleuth GARETH PENN has turned his talents to writing the program for the forthcoming Mensa gathering at Asilomar, CA. OK, everybody, the next cryptogram tells you what time dinner will be served!

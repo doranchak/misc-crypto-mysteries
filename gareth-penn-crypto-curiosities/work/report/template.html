@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Gareth Penn's crypto curiosities: a catalog of methods and an attack on his puzzles</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--ink:#1d2430;--muted:#6a7280;--line:#d9dde3;--bg:#fbfaf7;--card:#fff;--acc:#8a2f2f;--acc2:#24507a;--ok:#2f6b3a;--warn:#9a6a00}
+*{box-sizing:border-box} body{margin:0;font:16px/1.55 Georgia,'Iowan Old Style',serif;color:var(--ink);background:var(--bg)}
+header{background:#1d2430;color:#f3efe6;padding:28px 6vw 22px} header h1{margin:0 0 6px;font-size:30px;font-weight:normal;letter-spacing:.3px}
+header p{margin:4px 0;color:#c9c3b6;max-width:960px} nav{position:sticky;top:0;z-index:5;background:#2b3442;padding:6px 6vw;font:14px system-ui,sans-serif}
+nav a{color:#e7e1d4;margin-right:14px;text-decoration:none} nav a:hover{text-decoration:underline}
+main{padding:10px 6vw 60px;max-width:1280px} section{margin:34px 0} h2{font-weight:normal;font-size:25px;border-bottom:2px solid var(--acc);padding-bottom:4px;color:var(--acc)}
+h3{font-size:19px;margin:22px 0 8px;color:var(--acc2)} a{color:var(--acc2)}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;word-break:break-all}
+.muted{color:var(--muted)} .big{font-size:20px} .ok{color:var(--ok)} .cite{color:var(--muted);font-size:13.5px}
+.answer{background:#fff7e8;border-left:5px solid var(--warn);padding:10px 16px;margin:10px 0}
+.keybox{background:#fff;border:1px solid var(--line);border-radius:6px;padding:12px 18px}
+.evidence li{margin-bottom:10px}
+table{border-collapse:collapse} .mini td,.mini th{border:1px solid var(--line);padding:3px 7px;text-align:left;vertical-align:top;font-size:14px} .mini th{background:#f1efe9}
+.status{width:100%;font-size:14.5px} .status td,.status th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top} .status th{background:#efece5}
+.badge{font:12px system-ui,sans-serif;padding:2px 7px;border-radius:10px;color:#fff;white-space:nowrap} .solved{background:var(--ok)} .partial{background:var(--warn)} .open{background:#777}
+button{font:13px system-ui,sans-serif;padding:3px 10px;border:1px solid #999;border-radius:4px;background:#f6f4ef;cursor:pointer} button:hover{background:#ebe6da}
+input[type=text],textarea,input[type=number],input[type=date]{font:13.5px ui-monospace,Menlo,monospace;padding:4px 6px;border:1px solid #bbb;border-radius:4px;background:#fff}
+textarea{width:100%;min-height:70px}
+.widget{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:16px 0;transition:box-shadow .4s}
+.widget.flash{box-shadow:0 0 0 4px #e5b96b} .widget h3{margin-top:2px} .widget .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(520px,1fr));gap:4px 18px}
+table.grid{font:13px ui-monospace,Menlo,monospace;border-collapse:collapse;margin:6px 0} table.grid td,table.grid th{border:1px solid #e1e1e1;width:22px;height:22px;text-align:center;padding:0;cursor:pointer}
+table.grid th{background:#f3f1ec;color:#888;font-size:11px;cursor:default} table.grid td.hl{background:#ffe9a8} table.grid td.sel{background:#8a2f2f;color:#fff}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0} .filters button.on{background:var(--acc2);color:#fff;border-color:var(--acc2)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:15px}
+.card h4{margin:0 0 4px;font-size:17px} .card .cat{font:11.5px system-ui,sans-serif;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+.card details{margin-top:6px} .card summary{cursor:pointer;color:var(--acc2);font-size:14px}
+.ex{font-size:14px;margin:4px 0;padding:4px 8px;background:#f8f6f1;border-radius:4px} .ex .arrow{color:var(--acc)}
+.vt{font:11px system-ui;color:var(--ok)} .vf{font:11px system-ui;color:#b03030}
+.cits{font-size:13px;color:var(--muted)} svg.map{max-width:100%;border:1px solid var(--line)}
+.gloss{columns:3 300px;font-size:14.5px} .gloss div{break-inside:avoid;margin-bottom:4px}
+.timeline li{margin-bottom:4px} .count{font:13px system-ui;color:var(--muted)}
+</style></head>
+<body>
+<header>
+<h1>Gareth Penn's crypto curiosities</h1>
+<p>A catalog of every method Gareth Penn used, from 1981 to 2022, to "read" hidden messages in the Zodiac letters and to tie them to his suspect, Michael O'Hare. The catalog has interactive re-implementations and citations. After it comes an attack on the puzzles Penn posted on his blogs and on Twitter/X from 2010 to 2025.</p>
+<p class="muted">Compiled {{DATE}} from the collection "Zodiac/Solutions/Gareth Penn" (Times 17, The Second Power, Mensa Bulletin, The Cryptogram, blog posts, letters, FBI files, 2022 emails) plus web research. Penn's statements are reported as claims. Nothing here supports the accusation against O'Hare, who was never charged.</p>
+</header>
+<nav><a href="#summary">Summary</a><a href="#sources">Sources</a><a href="#catalog">Method catalog</a><a href="#workbench">Workbench</a><a href="#glossary">Glossary</a><a href="#lottery">Lottery tickets</a><a href="#puzzles">Puzzles</a><a href="#notes">Notes</a><a href="solved-puzzles.html">▸ Solved puzzles only</a></nav>
+<main>
+<section id="summary"><h2>Summary of findings</h2>
+<div class="keybox">{{SUMMARY}}</div></section>
+
+<section id="sources"><h2>1. Sources read</h2>{{SOURCES}}</section>
+
+<section id="catalog"><h2>2. The method catalog</h2>
+<p>Each card is one distinct device. It gives Penn's rules, his own worked examples (<span class="vt">✓ recomputed</span> where checked; his arithmetic slips are flagged), what he claimed it proved, and where he wrote about it. "Try it" loads the example into the matching workbench tool. <span id="cat-count" class="count"></span></p>
+<div class="row"><input type="text" id="cat-q" placeholder="search methods, examples, citations…" style="width:340px" oninput="renderCatalog()"></div>
+<div class="filters" id="cat-filters"></div>
+<div class="cards" id="cat-cards"></div>
+</section>
+
+<section id="workbench"><h2>3. The Penn workbench</h2>
+<p>Working re-implementations of Penn's main devices. Conventions follow Penn's "Writing Digitally" chart (T17 p.18; SP chart): <b>dah = 1, dit = 0</b>; Arabic numerals inside words are written in plain base two (17 → 10001); leading zeros are dropped; a "." marks a binary point (JU.LY = 57.29…).</p>
+<div class="wgrid">
+<div class="widget" id="w-morse"><h3>Morse → binary ("writing digitally")</h3>
+<div class="row"><input type="text" id="mb-in" value="TIMES17" style="width:260px"> <button onclick="runMorse()">encode</button> <label><input type="checkbox" id="mb-dm"> digits as Morse digits instead of base two</label></div>
+<div class="row muted">Try: ONE (60) · TWO (95) · MIKE (202) · THE END (2068) · DEATH (1072) · BIRTH (8272) · RADIAN (4870) · JU.LY23 (57.2957…) · 3RD (212)</div><div id="mb-out"></div></div>
+
+<div class="widget" id="w-decode"><h3>Number → Morse words (reverse "redivision")</h3>
+<div class="row"><input type="text" id="dec-in" value="1729" style="width:260px"> <label><input type="checkbox" id="dec-isbits"> input is a bit string</label> <button onclick="runDecode()">decode</button></div>
+<div id="dec-out"></div></div>
+
+<div class="widget" id="w-redivision"><h3>Redivision finder (hidden Morse words in a text)</h3>
+<textarea id="rd-text">THISISTHEZODIACSPEAKINGITHOUGHYOUWOULDNEADAGOODLAUGHBEFOREYOUHEARTHEBADNEWSYOUWONTGETTHENEWSFORAWHILEYETPSCOULDYOUPRINTTHISNEWCIPHERONYOURFRUNTPAGEIGETAWFULLYLONELYWHENIAMIGNOREDSOLONELYICOULDDOMYTHINGDESJULYAUGSEPTOCT7</textarea>
+<div class="row">target word / number / bits: <input type="text" id="rd-target" value="1729" style="width:160px"> <button onclick="runRedivision()">search</button></div>
+<div id="rd-out"></div></div>
+
+<div class="widget" id="w-gematria"><h3>Letter as number (A=1…Z=26, Penn's E = 3)</h3>
+<div class="row"><input type="text" id="gm-in" value="IS JIM THERE" style="width:260px"> <label><input type="checkbox" id="gm-e3" checked> E = 3</label> <button onclick="runGematria()">sum</button></div>
+<div id="gm-out"></div></div>
+
+<div class="widget" id="w-wizard"><h3>WIZARD (reverse alphabet; mirror pairs drop out)</h3>
+<div class="row"><input type="text" id="wz-in" value="WIZARD" style="width:420px"> <button onclick="runWizard()">apply</button></div>
+<div id="wz-out"></div></div>
+
+<div class="widget" id="w-many"><h3>One number, many disguises (the 2020 tickets)</h3>
+<div class="row"><input type="text" id="m-in" value="42020" style="width:140px"> <button onclick="runMany()">show</button></div><div id="m-out"></div></div>
+
+<div class="widget" id="w-bases"><h3>Same number in several bases</h3>
+<div class="row"><input type="text" id="b-in" value="111052 36113 22150 13705" style="width:300px"> <button onclick="runBases()">find</button></div><div id="b-out"></div></div>
+
+<div class="widget" id="w-num"><h3>Squares, cubes, taxicab numbers, ×17, casting out nines</h3>
+<div class="row"><input type="text" id="n-in" value="1729" style="width:180px"> <button onclick="runNum()">analyze</button></div><div id="n-out"></div></div>
+
+<div class="widget" id="w-days"><h3>Day-of-year ("Julian" postmarks) and day counts</h3>
+<div class="row">A <input type="date" id="d-a" value="1969-11-10"> B <input type="date" id="d-b" value=""> <button onclick="runDays()">compute</button></div><div id="d-out"></div></div>
+
+<div class="widget" id="w-rebus"><h3>Rebus arithmetic ("X before Y", "X over Y")</h3>
+<div class="row">X <input type="number" id="rb-x" value="22" style="width:80px"> Y <input type="number" id="rb-y" value="9" style="width:80px"> <button onclick="runRebus()">read</button></div><div id="rb-out"></div></div>
+
+<div class="widget" id="w-trans"><h3>Rectangle transposition (write rows, read columns)</h3>
+<div class="row"><input type="text" id="t-in" value="TPTD@EIWRHTPYFEIOWOEONLUEISRTTSNNCNYWATTAIAONYRLA" style="width:420px"> width <input type="number" id="t-w" value="7" style="width:60px"> <button onclick="runTrans()">read</button></div><div id="t-out"></div></div>
+
+
+<div class="widget" id="w-anagram"><h3>Anagram check and "algebraic summation"</h3>
+<div class="row"><input type="text" id="an-in" value="GARETHSEWELLPENN|NELLSGREATNEPHEW" style="width:420px"> <button onclick="runAnagram()">check</button></div>
+<div class="row muted">Format: <span class="mono">A|B</span> to test an anagram, or just <span class="mono">A</span> for the letter inventory.</div><div id="an-out"></div></div>
+
+<div class="widget" id="w-binary"><h3>Binary converter (numbers, π-multiples, constants)</h3>
+<div class="row"><input type="text" id="bn-in" value="pi:13" style="width:220px"> <button onclick="runBinary()">convert</button></div>
+<div class="row muted">Try <span class="mono">pi:13</span> (→ ERAHO), <span class="mono">phi:19</span> (→ DONUT JAM), <span class="mono">130*pi</span>, <span class="mono">sqrt10:12</span>, <span class="mono">1001111</span>.</div><div id="bn-out"></div></div>
+
+<div class="widget" id="w-tri"><h3>Right triangle between two grid points</h3>
+<div class="row">legs <input type="text" id="tr-in" value="9,11" style="width:100px"> <button onclick="runTri()">compute</button></div><div id="tr-out"></div></div>
+<div class="widget" id="w-radian"><h3>The radian on the map (Mt. Diablo apex)</h3>
+<p class="muted" style="margin:2px 0">Penn's founding claim (Dec 1980): an angle of one radian with its vertex on Mt. Diablo's summit runs through the Blue Rock Springs site and the Presidio Heights site. Coordinates are modern approximations; edit them to test.</p>
+<div class="rad-pt row" data-n="Mt. Diablo">Mt. Diablo <input class="lat" type="text" value="37.8816" size="8"> <input class="lon" type="text" value="-121.9142" size="9"></div>
+<div class="rad-pt row" data-n="Blue Rock Springs">Blue Rock Springs <input class="lat" type="text" value="38.1233" size="8"> <input class="lon" type="text" value="-122.1930" size="9"></div>
+<div class="rad-pt row" data-n="Presidio Heights">Washington &amp; Cherry <input class="lat" type="text" value="37.7893" size="8"> <input class="lon" type="text" value="-122.4552" size="9"> <button onclick="runRadian()">measure</button></div>
+<div id="rad-out"></div></div>
+</div>
+
+<div class="widget" id="w-grid"><h3>The 17-column grid: positions, coordinates, intersections, triangles, calendars</h3>
+<p class="muted" style="margin:2px 0">Penn (2010–2022) lays every Zodiac text out 17 characters wide, keeping only letters and digits. He then reads character numbers, (row, col) pairs as numbers, row × column intersections, rectangle areas, right-triangle hypotenuses √(Δr²+Δc²), and calendars (one character = one day from a dated "anchor"). Click two cells.</p>
+<textarea id="g-in">DEAREDITORTHISISTHEZODIACSPEAKINGINANSWERTOYOURASKINGFORMOREDETAILSABOUTTHEGOODTIMESIHAVEHADINVALLEJOISHALLBEVERYHAPPYTOSUPPLYEVENMOREMATERIALBYTHEWAYARETHEPOLICEHAVEINGAGOODTIMEWITHTHECODEIFNOTTELLTHEMTOCHEERUPWHENTHEYDOCRACKITTHEYWILLHAVEMEONTHE4THOFJULYIDIDNOTOPENTHECARDOORTHEWINDOWWASROLLEDDOWNALLREADYTHEBOYWASORIGIONALYSITTINGINTHEFRONTSEATWHENIBEGANFIREING</textarea>
+<div class="row">width <input type="number" id="g-w" value="17" style="width:60px"> highlight <input type="text" id="g-find" value="4THOFJULY" style="width:140px"> calendar anchor: char # <input type="number" id="g-apos" value="248" style="width:70px"> = date <input type="date" id="g-adate" value="1969-07-04"> <button onclick="runGrid()">lay out</button></div>
+<div id="g-info" class="muted"></div><div id="g-out" style="overflow-x:auto"></div></div>
+</section>
+
+<section id="glossary"><h2>4. "Zodiacese": Penn's recurring numbers, and how his method set evolved</h2>
+<h3>Glossary</h3><div class="gloss" id="gloss"></div>
+<h3>Timeline</h3><ul class="timeline" id="timeline"></ul></section>
+
+{{PUZZLES}}
+
+<section id="notes"><h2>7. Notes, caveats, reproducibility</h2>{{NOTES}}</section>
+</main>
+<script>const WORDS="{{WORDS}}".split(' ');</script>
+<script>const DATA={{METHODS_JSON}};</script>
+<script>{{WIDGETS_JS}}</script>
+<script>
+let CAT='all';
+function renderCatalog(){
+  const q=(document.getElementById('cat-q').value||'').toLowerCase();
+  const cats=Object.fromEntries(DATA.categories.map(c=>[c.id,c]));
+  const ms=DATA.methods.filter(m=>(CAT==='all'||m.category===CAT)&&(!q||JSON.stringify(m).toLowerCase().includes(q)));
+  document.getElementById('cat-count').textContent=`${DATA.methods.length} methods in ${DATA.categories.length} categories; showing ${ms.length}.`;
+  document.getElementById('cat-cards').innerHTML=ms.map(m=>{
+    const ex=(m.examples||[]).map(e=>`<div class="ex"><span class="mono">${esc(e.input)}</span> <span class="arrow">→</span> <b class="mono">${esc(e.output)}</b>${e.verified===true?' <span class="vt">✓ recomputed</span>':e.verified===false?' <span class="vf">✗ does not check</span>':''}${e.note?`<br><span class="muted">${esc(e.note)}</span>`:''}</div>`).join('');
+    const demo=m.demo&&m.demo.widget&&m.demo.widget!=='none'?`<button onclick='tryDemo(${JSON.stringify(m.demo.widget)},${JSON.stringify(m.demo.preset||'')})'>Try it ▸</button> <span class="muted" style="font-size:12.5px">${m.demo.expect?'expect: '+esc(m.demo.expect):''}</span>`:'';
+    return `<div class="card" id="m-${m.id}"><div class="cat">${esc((cats[m.category]||{}).name||m.category)}${m.first_seen?' · first used '+esc(m.first_seen):''}</div><h4>${esc(m.name)}</h4><div>${esc(m.summary||'')}</div>${ex}<div style="margin-top:6px">${demo}</div>
+      <details><summary>rules, claims, citations</summary><p><b>Rules.</b> ${esc(m.rules||'')}</p><p><b>Penn's claim.</b> ${esc(m.claims||'')}</p><p class="cits"><b>Cited:</b> ${(m.citations||[]).map(esc).join('; ')}</p>${(m.related||[]).length?`<p class="cits">Related: ${m.related.map(r=>`<a href="#m-${r}">${esc(r)}</a>`).join(', ')}</p>`:''}</details></div>`;}).join('');
+}
+function initCatalog(){
+  const f=document.getElementById('cat-filters');
+  f.innerHTML=[`<button class="on" data-c="all">All</button>`].concat(DATA.categories.map(c=>`<button data-c="${c.id}" title="${esc(c.blurb||'')}">${esc(c.name)} (${DATA.methods.filter(m=>m.category===c.id).length})</button>`)).join('');
+  f.onclick=e=>{const b=e.target.closest('button'); if(!b) return; CAT=b.dataset.c; f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); renderCatalog();};
+  renderCatalog();
+  document.getElementById('gloss').innerHTML=(DATA.glossary||[]).map(g=>`<div><b class="mono">${esc(g.value)}</b> = ${esc(g.meaning)} <span class="cits">${esc(g.source||'')}</span></div>`).join('');
+  document.getElementById('timeline').innerHTML=(DATA.timeline||[]).map(t=>`<li><b>${esc(t.year)}</b>: ${esc(t.event)}</li>`).join('');
+}
+initCatalog(); runMorse(); runDecode(); runRedivision(); runGematria(); runWizard(); runMany(); runBases(); runNum(); runDays(); runRebus(); runTrans(); runRadian(); runGrid(); runAnagram(); runBinary(); runTri();
+</script>
+</body></html>

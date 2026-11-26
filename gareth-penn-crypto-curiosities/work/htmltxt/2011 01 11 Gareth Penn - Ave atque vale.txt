@@ -1,0 +1,48 @@
+
+
+  2011 01 11 Gareth Penn - Ave atque vale
+
+2011 01 11 Gareth Penn - Ave atque vale
+[LINK .index_created_dsc.html] doranchak's notebook
+
+[LINK ../../tags/zodiac/.index_created_dsc.html] zodiac [LINK ../../tags/zodiac-timeline/.index_created_dsc.html] zodiac-timeline 
+
+properties
+Title2011 01 11 Gareth Penn - Ave atque vale
+
+Created2013-09-18 11:25:08
+
+Updated2013-09-18 11:26:40
+
+source: [LINK http://zodiackiller.fr.yuku.com/forum/getrefs/id/114698/type/0] http://zodiackiller.fr.yuku.com/forum/getrefs/id/114698/type/0
+
+[LINK http://gz4216.blogspot.com/] http://gz4216.blogspot.com/
+
+Ave atque vale
+
+I set up this bloglet about six months ago as a place to post responses to questions put to me by frequenters of Zodiac websites, which were kindly forwarded by Zzam, whom I would like to thank for her good offices. I set a limit of fifty questions, thinking that would be enough to clear up misunderstandings and to counter malicious misinformation spread by manipulative sociopaths, who seem to have a big influence on the people in this group.
+
+We went over the fifty-question limit a long time ago, and I confess to having grown weary of doing this, particularly because of the high incidence of repetition and dilatoriness, and the snide tone of the majority of them has not diminished. So I am bidding you all farewell; I would like to take this opportunity to address all past and future questions with a couple of observations which I hope â but do not expect â will be taken to heart.
+
+This blog is titled GZ4216 for a reason, and I confess to being disappointed that no one has asked why. Itâs time to put the answer to that unasked question on the record. In 1947, Ealing Studios released the first of its postwar comedies, Hue and cry. The movie has to do with a gang of children who try to track down a master criminal by looking for coded clues published in comic books. I donât know whether this is true or not, but one of these children, who claims to be an expert on automobile license plates, asserts that the letter-combination GZ is not used in UK license plate numbers, and when one of the children sights a truck bearing the plate number GZ4216, the gang takes it as proof of the master criminalâs involvement in a nefarious plot. Well, Zodiac websites and the people who frequent them remind me of children who look for coded clues in comic books and chase after nonexistent license plate numbers. Not all of them, I hasten to add: Ray Grant and his website, latecomers to my attention, donât remind me of Hue and cry but rather of North Korea â shrill, bellicose, and delusional.
+
+I may be biased, but it appears to me that the work product of Zodiac websites and their fans has been an exercise in futility and has, after many years of wheels spinning wildly in ruts, produced nothing at all of any value. I suggest that the reason for this failure is systematic evasion of questions deserving of attention but not getting any from those who profess to be interested in resolving the Zodiac problem but have chosen instead to go hoarse from barking up wrong trees.
+
+Iâll confine myself to just one example, noting that it is just one of many. The Zodiac sent four ciphers to the newspapers in 1969-1970. The first was formatted as a perfect rectangle having 24 rows and 17 columns; it was divided into thirds, each of them a perfect 8 x 17 rectangle. It is a substitution cipher, whose solution consists of 390 letters of English and 18 of gibberish. If the author had not included the gibberish, it would have been an imperfect rectangle. He went to some trouble to make it perfect by adding the gibberish. The second cipher was formatted as a perfect 20 x 17 rectangle. The third cipher was written in thirteen symbols and the fourth in 32. A vestige of the 17-column format is still evident in the fourth cipher, which has 17 symbols in the first row and 15 in the second; but it is imperfect, not forming a complete n x 17 rectangle. The author could have formatted it as a perfect 2 x 16 or 4 x 8 rectangle or even as a 1 x 32 margin-to-margin string of symbols; instead, he chose to make it an imperfect exemplar of the n x 17 format.
+
+The Zodiac used a crossed-circle symbol in 1969-1971 as a signature. He offered to refrain from attacking school buses if Bay Area residents would wear buttons bearing the crossed-circle symbol. He also embroidered it on the hood he wore at Lake Berryessa, and he inscribed it on the door of the car belonging to one of the Lake Berryessa victims. Whatever its intrinsic significance, it is obviously important to him, and at least when he uses it as a signature, it appears to express his identity. He also uses it fifteen times as a cipher symbol. Here are the position numbers of the crossed circles in the four Zodiac ciphers:
+
+#1) 100, 239, 267, 347
+
+#2) 49, 73, 117, 132, 155, 205, 260, 295, 332
+
+#3) 4
+
+#4) 29
+
+In each of the first three ciphers, the position number of the first crossed circle is a perfect square (an integer whose square root is also an integer). None of the other 12 crossed circles has this property. That those which do are the first symbols in as many consecutive texts runs counter to long odds. It seems inescapable that this effect is the product of design. And if it is the product of design, it must have some purpose.
+
+These observations prompt two questions, the answers to which I believe to be related to one another. Why does the author produce two ciphers with a perfect n x 17 rectangular format and then abandon it in the two subsequent ciphers? What is the purpose of marking perfect-square position numbers with the first crossed circle in three consecutive texts? And what is the purpose of writing in cipher symbols in the first place?
+
+I suggest, without any expectation that my suggestion will be taken to heart, that those who profess to be interested in a resolution of this mystery would be better advised to spend their time and effort on answering questions such as the above than in unproductive obsession over the date in 1969-1970 on which I moved from one address in Berkeley to another address in Berkeley.
+

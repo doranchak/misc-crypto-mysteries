@@ -1,0 +1,61 @@
+Dear Abby, Please Copy
+Gareth Penn
+Baseball never was the national pastime. Baseball statistics were. I put that in the past tense because in recent years other institutions have been catching up with the National League as a source of the statistical trivia that fascinate Americans. One of these lesser-known organizations is the United States Government, which puts out, among other things, a yearly
+ ...you didn't even know that anybody was counting things like that. Like people living in sin.
+ compendium of numerical information titled The Statistical Abstract of the United States. The 1984 issue of this publication contains 1541 tables, which purport to tell you everything you always wanted to know but might have been afraid to ask, or didn't ask because you didn't even know that anybody was counting things like that. Like people living in sin.
+Prior to the 1980 census, unrelated persons of opposite sex sharing households were lumped together with all other living arrangements involving unrelated persons. In the 1979 issue of the Statistical Abstract a teasing foretaste of things to come appeared in the form of a table showing the number of households shared by unmarried persons of opposite sex, tabulated according to the presence of children in the household.
+In 1980, the Bureau of the Census coined a new term to describe men and women living together without benefit of clergy: POSSLQ (pron. "posslecue"), an acronym standing for "person(s) of opposite sex sharing living quarters."  Charles Osgood composed a zany piece of doggerel about the use of "POSSLQ" in love poetry ("Oh, wilt thou be my POSSLQ...?"), and "POSSLQ" has joined the ranks of other former acronyms that have graduated to the status of words (e.g., flak and scuba).
+Once there was a nonjudgmental way of talking about it, living in sin became respectable. Consequently, the Department of Commerce let it all hang out in the 1981 issue of . In that and every subsequent issue, there has been a table analyzing the composition of unmarried couples by the age of each partner.
+In the current issue, this information appears as Table 59. Like all other tables in the book, it is a veritable Mother Lode of inferences for armchair sociologists like myself. I submit that Table 59 confirms a homespun wisdom that a lot of people have been harboring for centuries without statistical confirmation. This seems to be it.
+Here is a table of my own, based on the numbers in Table 59. The Bureau of the Census, like the Bureau of Labor Statistics over in the Department of Labor, breaks age of adults down into these brackets: 15-24, 25-34, 35-44, 45-64, and 65-plus. What I did was to compute the percentage change in population between age brackets for male POSSLQ's in four permutations: where male and female are in the same age bracket (no more than ten years apart), where the male is in the next higher age bracket, where the female is in the next higher age bracket, and where the male is two age brackets older than the female. These permutations account for 98% of the total population of unmarried couples.
+MALE AGE
+ GROUP
+ TRANSITION
+ SAME
+  AGE
+ MALE
+  OLDER
+ FEMALE
+  OLDER
+MALE
+  MUCH
+  OLDER
+15-24 to
+ 25-34
+ +33%
+ -------
+ -------
+ -------
+25-34 to
+ 35-44
+ -85%
+ -47%
+ -40%
+ -------
+35-44 to
+ 45-64
+ +76%
+ -74%
+ -49%
+ 0%
+45-64 to
+ 65+
+ -55%
+ -10%
+ +26%
+ -100%
+Percentage of
+ Population
+ 57%
+ 28%
+ 8%
+ 5%
+Table 59 [see sidebar]
+Where man and woman are roughly the same age, the population undergoes wild fluctuations. It increases greatly in transition to the second age bracket, then shrinks by an even greater degree, only to expand again, then drop yet again, in every case by large percentages. The conclusion that one might draw from this (which is supported by a modicum of observation of real life) is that these fluctuations are caused by a repetitious cycle of marriage and divorce. Marriage causes the POSSLQ-population to decrease, divorce swells the ranks. As the marriages of late teens and early twenties break up the number of unmarried same-age couples increases. Second marriages take a big bite out of the population, which is more than restored by divorces in middle age (when the kids have graduated from high school and left home), and so forth.
+By contrast, there is remarkable stability in the other three situations, which differ from the first in that here, one partner is significantly older than the other. Where the male is older than the female (28% of the population) by ten to twenty years, all the numbers do is get smaller as the years go by. It would seem that this steady decline is caused by marriage after some years of living together on a trial basis. This hypothesis is supported by information I obtained from the Office of Health Statistics in the California Department of Health. Under California Civil Code section 4213, couples who have been living together may legalize their unions by confidential marriage (the authorities may not disclose the date on which the marriage was concluded). In 1981, the last year in which statistics were kept, 25% of all marriages in the State of California were performed under the provisions of CC 4213. Obviously, we are talking about very large numbers of people.
+The same phenomenon can be observed in households where the female is significantly older, except that there is a sharp population increase in the last age-bracket transition. This can probably be accounted for by early male mortality; that is to say, in that age group there is a significant influx of widows into the marketplace who do not want to jeopardize their Social Security benefits by remarriage and so cohabit instead. Early male mortality probably accounts also for the 100% decline in the next column over, in the same age-bracket transition. It is particularly striking that where the male is two age brackets older, there is no change in population in transition from early to late middle age. These June-and-January households are the stablest of all.
+In sum, it appears that the rockiest relationships are those involving partners of approximately equal age. The older one partner is than the other, the more tranquil the relationship, and the more likely it is to lead eventually to matrimony. The statistical cohort of POSSLQs seems to be a frictional or transitional population on its way into or out of matrimony. It should also be mentioned that the POSSLQ households constitute only five percent of all opposite-sex households in the United States. What holds true for the smaller cohort is most likely also true of the majority: same-age marriages are probably less stable than those in which there is a significant age difference. There has always been a school of thought holding that such an age difference between partners is the touchstone of success. A close look at Table 59 seems to bear it out.
+ Gareth Penn. Dear Abby, Please Copy. Issue #38 (10/1984) The Ecphorizer (www.ecphorizer.com)
+
+Source: https://www.ecphorizer.com/EPS/site_page.php?issue=55&page=890
+Contributor/editor note on live page (fetched 2026-11-25): 1984 Editor Dick Amyx wrote in the following issue:  I incorrectly labeled the table as "Table 59." The "Table 59" referred to in text is a table from the 1984 issue of The Statistical Abstract of The United  States. The table shown was derived by Gareth from information given in the real Table 59.
