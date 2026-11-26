@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enciphered journal pages (r/Decoders, u/Resident-Produce151): solved</title>
+<style>
+:root{--ink:#1f3b8f;--bg:#fafaf7;--fg:#1d1d1f;--muted:#5f6368;--card:#fff;--line:#e2e2de;
+  --warn-bg:#fff4e5;--warn-bd:#c2410c;--hi:#f59e0b;--struck:#9ca3af;--ins:#059669;--ann:#7c3aed;--x:#b91c1c}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+main{max-width:1260px;margin:0 auto;padding:26px 20px 90px}
+h1{font-size:1.75rem;margin:0 0 4px;line-height:1.25}
+h2{font-size:1.3rem;margin:44px 0 12px;border-bottom:1px solid var(--line);padding-bottom:5px}
+h3{font-size:1.05rem;margin:22px 0 8px}
+a{color:var(--ink)}
+.sub{color:var(--muted);margin:0}
+.verdict{display:inline-block;margin-top:12px;padding:6px 12px;border-radius:6px;background:#e7f5ec;color:#14532d;font-weight:600}
+.warn{background:var(--warn-bg);border-left:6px solid var(--warn-bd);padding:14px 18px;border-radius:6px;margin:20px 0}
+.warn h2{border:0;margin:0 0 6px;padding:0;font-size:1.15rem;color:#9a3412}
+.warn p{margin:6px 0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px}
+.reading li{margin:6px 0}
+.reading .n{color:var(--muted);font-size:.88rem}
+.reading s{color:var(--struck)}
+.reading sup{color:var(--ins);font-weight:600}
+.p2text p{margin:6px 0}
+/* visualizer */
+.vz{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:18px;align-items:start}
+@media (max-width:1000px){.vz{grid-template-columns:1fr}}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.tabs button,.tabs select{font:inherit;padding:5px 12px;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tabs label{margin-left:8px;color:var(--muted);font-size:.92rem}
+.stage{position:relative;width:100%;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#ddd}
+.stage img{display:block;width:100%;height:auto}
+.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.wd{fill:rgba(31,59,143,0.04);stroke:rgba(31,59,143,.75);stroke-width:2;cursor:pointer}
+.wd.k-s{stroke:#6b7280;stroke-dasharray:6 4}
+.wd.k-x{stroke:var(--x);stroke-dasharray:3 3;fill:rgba(185,28,28,.05)}
+.wd.k-i{stroke:var(--ins)}
+.wd.k-a{stroke:var(--ann);stroke-dasharray:2 3}
+.wd.k-u{stroke:#d97706}
+.wd:hover,.wd.sel{fill:rgba(245,158,11,.28);stroke:#b45309;stroke-width:3}
+.wd.hl{fill:rgba(245,158,11,.38);stroke:#b45309}
+.mode-none .wd{stroke:transparent;fill:transparent}
+.mode-none .wd:hover,.mode-none .wd.sel{fill:rgba(245,158,11,.25);stroke:#b45309}
+.mode-none .wd.hl{fill:rgba(245,158,11,.38);stroke:#b45309}
+.lbl{pointer-events:none;font:600 27px system-ui,sans-serif;fill:#b91c1c;paint-order:stroke;stroke:#fff;stroke-width:6px;text-anchor:middle;dominant-baseline:middle;display:none}
+.mode-labels .lbl{display:block}
+.mode-labels .wd{fill:rgba(255,255,255,.55)}
+.panel{position:sticky;top:12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px}
+.panel canvas{width:100%;border:1px solid var(--line);border-radius:4px;background:#eee}
+.panel .dec{font-size:1.5rem;font-weight:700;margin:8px 0 2px;color:#b91c1c}
+.panel .meta{color:var(--muted);font-size:.9rem}
+.panel .rend{margin:8px 0;color:var(--ink);min-height:44px}
+.hint{color:var(--muted);font-size:.9rem}
+/* glyphs */
+svg.g{overflow:visible;vertical-align:bottom}
+svg.g .st{fill:none;stroke:currentColor;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
+svg.g .dt{fill:currentColor}
+svg.g .unk{fill:none;stroke:#999;stroke-dasharray:3 3;stroke-width:1.5}
+/* key */
+.keygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.kc{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;cursor:pointer;text-align:center}
+.kc:hover,.kc.on{border-color:#b45309;box-shadow:0 0 0 2px rgba(245,158,11,.35)}
+.kc .gl{color:var(--ink);height:62px;display:flex;align-items:flex-end;justify-content:center}
+.kc .lt{font-size:1.4rem;font-weight:700;margin-top:4px}
+.kc .ds{font-size:.8rem;color:var(--muted);line-height:1.3}
+.kc .ct{font-size:.78rem;color:#92400e}
+.kc.none{opacity:.55}
+/* interlinear */
+.line{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0}
+.line canvas{width:100%;max-width:980px;display:block;border-radius:4px}
+.il{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px;align-items:flex-end}
+.iw{display:inline-flex;flex-direction:column;align-items:flex-start}
+.iw .gs{display:flex;gap:2px;color:var(--ink);align-items:flex-end}
+.iw .gc{display:flex;flex-direction:column;align-items:center}
+.iw .gc span{font:600 .95rem ui-monospace,Menlo,monospace;color:#b91c1c}
+.iw.k-s .gs,.iw.k-s .gc span{color:var(--struck)}
+.iw.k-s .gc span{text-decoration:line-through}
+.iw.k-i{background:#ecfdf5;border-radius:4px;padding:0 3px}
+.iw.k-x .xx{font-size:.85rem;color:var(--x);font-style:italic}
+.iw.k-a .xx{font-size:.85rem;color:var(--ann);font-style:italic}
+.iw .nt{font-size:.75rem;color:var(--muted);max-width:220px}
+.ln-h{font-size:.82rem;color:var(--muted)}
+/* encoder */
+textarea{width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:6px;min-height:64px}
+.encout{background:#fffdf5;border:1px solid var(--line);border-radius:6px;padding:12px;margin-top:8px;color:var(--ink);min-height:60px;display:flex;flex-wrap:wrap;gap:6px 20px;align-items:flex-end}
+table{border-collapse:collapse;font-size:.92rem}
+td,th{border:1px solid var(--line);padding:4px 8px;text-align:left}
+th{background:#f3f3f0}
+code{background:#f1f1ee;padding:1px 4px;border-radius:3px}
+.steps li{margin:8px 0}
+footer{margin-top:50px;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<main>
+<h1>"Anyone help me decipher this from someone's journal": solved</h1>
+<p class="sub">Source: <a href="https://www.reddit.com/r/Decoders/comments/1y5x3nu/anyone_help_me_decipher_this_from_someones_journal/">r/Decoders post 1y5x3nu</a> by u/Resident-Produce151. The OP's note: <i>"Seems to be a substitution code, pretty hard to decode it but theres many repeated symbols like lines and dots a lot, could be high frequency letters."</i></p>
+<div class="verdict">Solved. It's a simple one-symbol-per-letter substitution (a homemade alphabet), and the plaintext is English.</div>
+
+<div class="warn" id="safety">
+  <h2>⚠ Please read first: page 2 contains a threat of school violence</h2>
+  <p>Decoded, page 2 opens with a first-person statement: <b>"I'm gonna shoot up this whole shool [school]."</b> The rest of the entry is about having no real friends, a miserable household, always being the third wheel, and cutting "fake" people out of their life. The decoding of that sentence is not in doubt: every letter in "shoot up" is confirmed by many other words on both pages.</p>
+  <p>Whether the writer was venting, joking, or serious, school-safety guidance is the same: report statements like this and let trained people assess them. Don't try to judge them yourself. The person who has this journal knows who wrote it and which school is involved, so they are the one who can act. They should give it to a school administrator or counselor, or to local police. In the US, they can also use the FBI (<a href="https://tips.fbi.gov">tips.fbi.gov</a>, 1-800-CALL-FBI) or the anonymous Say Something tip line (1-844-572-9669). If there is any sign of immediate danger, call emergency services (911 in the US).</p>
+  <p>The writer is also describing loneliness and an unhappy home. If they are in crisis, the 988 Suicide &amp; Crisis Lifeline (call or text 988 in the US) can help.</p>
+</div>
+
+<h2>Plaintext</h2>
+<div class="cols">
+  <div class="card"><h3 style="margin-top:0">Page 1: separate short entries</h3><ol class="reading" id="r1"></ol></div>
+  <div class="card p2text"><h3 style="margin-top:0">Page 2: one continuous entry</h3><div id="r2"></div>
+  <p class="n hint">Spelling and punctuation are as written. Words in [brackets] are my glosses.</p></div>
+</div>
+
+<h2 id="viz">Visualizer</h2>
+<p class="hint">Hover or click a box on the photo to see the zoomed glyphs, a clean rendering, and the decoded word. Pick a letter (or click a card in the key below) to highlight every word that contains it. Dashed red boxes are scribbled-out glyphs. Grey dashed boxes are struck-through but still readable. Green marks the inserted word, and purple marks the one annotation in ordinary letters.</p>
+<div class="vz">
+  <div>
+    <div class="tabs">
+      <button data-pg="1" class="on">Page 1</button><button data-pg="2">Page 2</button>
+      <label>Overlay <select id="mode"><option value="boxes">boxes</option><option value="labels">decoded labels</option><option value="none">off (hover only)</option></select></label>
+      <label>Highlight letter <select id="hlsel"><option value="">none</option></select></label>
+    </div>
+    <div class="stage mode-boxes" id="stage"><img id="pimg" alt="journal page"><svg id="ov"></svg></div>
+  </div>
+  <div class="panel" id="panel">
+    <canvas id="zoom" width="760" height="260"></canvas>
+    <div class="dec" id="pdec">hover a word</div>
+    <div class="rend" id="prend"></div>
+    <div class="meta" id="pmeta"></div>
+  </div>
+</div>
+
+<h2 id="key">The key</h2>
+<p class="hint">Each glyph is a base shape plus (usually) one or two dots. The dots belong to the letter; they are not separate symbols. For example <b>a</b> is a bracket with one dot and <b>b</b> is the same bracket with two dots. A long dash <i>without</i> a dot is the full stop, while the same dash with a dot above is <b>i</b>. Counts are over all legible words. <b>q</b>, <b>x</b> and <b>z</b> never occur. Click a card to highlight that letter on the pages.</p>
+<div class="keygrid" id="keygrid"></div>
+
+<h2>Line by line</h2>
+<p class="hint">Each strip is cut from the photo. Underneath is the transcription, drawn with the clean glyphs, with each glyph's letter below it.</p>
+<div id="lines"></div>
+
+<h2>Encoder</h2>
+<p class="hint">Type English to write it in the journal's alphabet. Letters never seen in the journal (q, x, z) show as dashed boxes.</p>
+<textarea id="enc">I said brr, it's cold in here.</textarea>
+<div class="encout" id="encout"></div>
+
+<h2>How it was solved</h2>
+<ol class="steps">
+  <li><b>Transcribe glyphs, not strokes.</b> At first sight the text looks like loose lines and dots, which is why the OP suspected the dots were frequent letters. Zoomed in, the dots always sit in a fixed position inside or beside a stroke shape: <code>[·</code>, <code>|·|</code>, <code>⊓·</code>, <code>⊔·</code>, <code>·//</code>, <code>-̇</code>, <code>ȧ</code>. So each shape-plus-dots unit is one letter. The word spaces are real, and a long dash with no dot ends sentences.</li>
+  <li><b>Use the repeated short words.</b> The two-glyph word <code>4ȧ</code> appears four times. The three-glyph word <code>Γı ȧ ⊔·</code> appears three times on its own and twice more at the start of a four-glyph word. The prefix <code>4 ≐ ://</code> starts seven words (three of them standalone). The first two words share <code>ȧ</code> as their 2nd glyph. Trying <i>to / you(r) / the(m, ir, se)</i> gives t, o, y, u, r, h, e.</li>
+  <li><b>Fill in the gaps.</b> With those six letters, <code>·/ ȧ ||· 4</code> = d‑o‑n‑t, <code>=< ≐ :// ||·</code> = w‑h‑e‑n, <code>¿· ȧ ⊓· ://</code> = c‑o‑m‑e, and <code>[: -̇ 中 ·/ |·|</code> = b‑i‑r‑d‑s. That makes page 1 line 10 read <i>"when the birds come to dry off their wings, you can go fly with them"</i>. After that every other word falls out. The rarer letters are confirmed by <i>knows</i> (k), <i>previous / negativity / I've / every</i> (v), <i>just</i> (j), and <i>pen / problem / up</i> (p).</li>
+  <li><b>Check.</b> All ~150 legible words on both pages decode to English with one fixed key. Each letter has one glyph (no homophones), there are no nulls, and the leftover marks are scribbles, a caret insertion and one Latin-letter annotation. The writer even comments on the pen change that's visible in the photo ("The previous pen was better").</li>
+</ol>
+
+<h2>Notes and uncertain spots</h2>
+<ul>
+  <li><b>Page 1, lines 1–2:</b> the first word reads <i>shing</i>. The next line starts with a struck-through word that reads <i>s‑i‑n‑i‑n‑g</i> (an h could be hidden under the strike lines). This was probably two attempts at <i>shining</i>, giving "Shining angels stick on." That reading is a guess.</li>
+  <li><b>Page 1, "Moon, tell me…":</b> <i>shine</i> is struck through with an arrowed line, and <i>send</i> is written above with a caret. Both versions are shown in the plaintext.</li>
+  <li><b>Page 1, last line:</b> after a scribbled-out glyph the word reads <i>m‑a‑s</i>. Its meaning is unclear (a nickname? "Ma's"?).</li>
+  <li><b>Misspellings as written:</b> <i>pratice</i> (practice), <i>shool</i> (school), <i>fo</i> (of, letters swapped), <i>is</i> for "it's", and <i>telling me back</i> (possibly meant "texting me back").</li>
+  <li><b>Page 2, "used":</b> the word is circled in pen. Beside it, "on" is written in ordinary Latin letters above a squiggle. That annotation is outside the cipher, and it isn't clear who added it or why.</li>
+  <li><b>Page 2, "real friend(s)":</b> there is no space between <i>real</i> and <i>friend</i>, and the final <i>s</i> is wrapped in parentheses.</li>
+  <li><b>Not transcribed:</b> faint mirror-image writing from the back of each sheet shows through in both photos. It is the reverse side, not part of these pages.</li>
+</ul>
+
+<h2>Letter counts</h2>
+<div id="stats" style="overflow-x:auto"></div>
+
+<footer>Transcription and glyph positions: <code>work/data.py</code>. Page builder: <code>work/build_report.py</code> + <code>work/template.html</code>. The photos are the OP's originals (<code>page 1.webp</code>, <code>page 2.webp</code>).</footer>
+</main>
+
+<script>
+const D = {"pages": {"1": {"img": "page%201.webp", "w": 1080, "h": 1440, "lines": [{"cell": 0, "words": [{"x0": 175, "x1": 205, "text": "i", "kind": "w", "note": "", "poly": [[175, 43], [205, 44], [205, 109], [175, 108]]}, {"x0": 240, "x1": 360, "text": "said", "kind": "w", "note": "", "poly": [[240, 44], [360, 46], [360, 111], [240, 109]]}, {"x0": 405, "x1": 495, "text": "brr", "kind": "w", "note": "", "poly": [[405, 47], [495, 48], [495, 113], [405, 112]]}, {"x0": 518, "x1": 582, "text": "is", "kind": "w", "note": "written \"is\" for \"it's\"", "poly": [[518, 49], [582, 50], [582, 115], [518, 114]]}, {"x0": 598, "x1": 628, "text": "", "kind": "x", "note": "one glyph scribbled out", "poly": [[598, 50], [628, 51], [628, 116], [598, 115]]}, {"x0": 638, "x1": 760, "text": "cold", "kind": "w", "note": "", "poly": [[638, 51], [760, 53], [760, 118], [638, 116]]}, {"x0": 800, "x1": 866, "text": "in", "kind": "w", "note": "", "poly": [[800, 54], [866, 55], [866, 120], [800, 119]]}, {"x0": 900, "x1": 1042, "text": "here.", "kind": "w", "note": "", "poly": [[900, 55], [1042, 58], [1042, 123], [900, 120]]}], "band": [169, 37, 1048, 122]}, {"cell": 1, "words": [{"x0": 155, "x1": 332, "text": "shing", "kind": "u", "note": "reads s-h-i-n-g; probably a slip for \"shining\" (see the struck word below)", "poly": [[155, 99], [332, 102], [332, 166], [155, 163]]}], "band": [149, 93, 338, 165]}, {"cell": 2, "words": [{"x0": 158, "x1": 392, "text": "sining", "kind": "s", "note": "struck through with two lines; glyphs read s-i-n-i-n-g (an h may be hidden under the strike)", "poly": [[158, 154], [392, 158], [392, 224], [158, 220]]}, {"x0": 452, "x1": 680, "text": "angels", "kind": "w", "note": "", "poly": [[452, 159], [680, 163], [680, 229], [452, 225]]}, {"x0": 732, "x1": 902, "text": "stick", "kind": "w", "note": "", "poly": [[732, 164], [902, 166], [902, 232], [732, 230]]}, {"x0": 912, "x1": 1022, "text": "on.", "kind": "w", "note": "", "poly": [[912, 167], [1022, 168], [1022, 234], [912, 233]]}], "band": [152, 148, 1028, 233]}, {"cell": 3, "words": [{"x0": 862, "x1": 992, "text": "send", "kind": "i", "note": "inserted above the line with a caret ^, replacing the struck \"shine\" below", "poly": [[862, 238], [992, 238], [992, 294], [862, 294]]}], "band": [856, 238, 998, 294]}, {"cell": 4, "words": [{"x0": 158, "x1": 262, "text": "moon", "kind": "w", "note": "", "poly": [[158, 267], [262, 269], [262, 336], [158, 334]]}, {"x0": 262, "x1": 424, "text": "tell", "kind": "w", "note": "the writer left the space after the t of \"tell\"", "poly": [[262, 269], [424, 271], [424, 338], [262, 336]]}, {"x0": 452, "x1": 540, "text": "me", "kind": "w", "note": "", "poly": [[452, 272], [540, 273], [540, 340], [452, 339]]}, {"x0": 558, "x1": 622, "text": "if", "kind": "w", "note": "", "poly": [[558, 274], [622, 275], [622, 342], [558, 341]]}, {"x0": 672, "x1": 702, "text": "i", "kind": "w", "note": "", "poly": [[672, 275], [702, 276], [702, 343], [672, 342]]}, {"x0": 732, "x1": 826, "text": "can", "kind": "w", "note": "", "poly": [[732, 277], [826, 278], [826, 345], [732, 344]]}, {"x0": 852, "x1": 1008, "text": "shine", "kind": "s", "note": "struck through with an arrowed line; \"send\" is inserted above", "poly": [[852, 279], [1008, 281], [1008, 348], [852, 346]]}, {"x0": 1008, "x1": 1040, "text": "", "kind": "x", "note": "scribbled-out glyph", "poly": [[1008, 281], [1040, 282], [1040, 349], [1008, 348]]}], "band": [152, 261, 1046, 348]}, {"cell": 5, "words": [{"x0": 156, "x1": 202, "text": "", "kind": "x", "note": "scribbled-out glyph", "poly": [[156, 325], [202, 326], [202, 392], [156, 391]]}, {"x0": 205, "x1": 392, "text": "down", "kind": "w", "note": "", "poly": [[205, 326], [392, 329], [392, 395], [205, 392]]}, {"x0": 436, "x1": 526, "text": "my", "kind": "w", "note": "", "poly": [[436, 329], [526, 331], [526, 397], [436, 395]]}, {"x0": 543, "x1": 742, "text": "heart", "kind": "w", "note": "", "poly": [[543, 331], [742, 335], [742, 401], [543, 397]]}, {"x0": 752, "x1": 818, "text": "to", "kind": "w", "note": "", "poly": [[752, 335], [818, 336], [818, 402], [752, 401]]}, {"x0": 852, "x1": 990, "text": "you.", "kind": "w", "note": "", "poly": [[852, 337], [990, 339], [990, 405], [852, 403]]}], "band": [150, 319, 996, 404]}, {"cell": 7, "words": [{"x0": 162, "x1": 352, "text": "cheer", "kind": "w", "note": "", "poly": [[162, 439], [352, 442], [352, 508], [162, 505]]}, {"x0": 372, "x1": 615, "text": "pratice", "kind": "w", "note": "sic: \"practice\" with the c before t missing", "poly": [[372, 442], [615, 447], [615, 513], [372, 508]]}, {"x0": 662, "x1": 874, "text": "sucks.", "kind": "w", "note": "", "poly": [[662, 447], [874, 451], [874, 517], [662, 513]]}], "band": [156, 433, 880, 516]}, {"cell": 9, "words": [{"x0": 150, "x1": 292, "text": "dont", "kind": "w", "note": "", "poly": [[150, 550], [292, 552], [292, 617], [150, 615]]}, {"x0": 355, "x1": 597, "text": "listen", "kind": "w", "note": "", "poly": [[355, 553], [597, 557], [597, 622], [355, 618]]}, {"x0": 630, "x1": 694, "text": "to", "kind": "w", "note": "", "poly": [[630, 558], [694, 559], [694, 624], [630, 623]]}, {"x0": 730, "x1": 1040, "text": "negativi", "kind": "w", "note": "word continues on the next line (\"negativi-ty\"); a stray \")\" sits at the margin", "poly": [[730, 559], [1040, 565], [1040, 630], [730, 624]]}], "band": [144, 544, 1046, 629]}, {"cell": 10, "words": [{"x0": 152, "x1": 262, "text": "ty.", "kind": "w", "note": "end of \"negativity\"", "poly": [[152, 606], [262, 608], [262, 676], [152, 674]]}], "band": [146, 600, 268, 675]}, {"cell": 12, "words": [{"x0": 148, "x1": 326, "text": "when", "kind": "w", "note": "", "poly": [[148, 720], [326, 723], [326, 786], [148, 783]]}, {"x0": 365, "x1": 472, "text": "the", "kind": "w", "note": "", "poly": [[365, 723], [472, 725], [472, 788], [365, 786]]}, {"x0": 522, "x1": 692, "text": "birds", "kind": "w", "note": "", "poly": [[522, 726], [692, 729], [692, 792], [522, 789]]}, {"x0": 728, "x1": 870, "text": "come", "kind": "w", "note": "", "poly": [[728, 729], [870, 732], [870, 795], [728, 792]]}, {"x0": 885, "x1": 942, "text": "to", "kind": "w", "note": "", "poly": [[885, 732], [942, 733], [942, 796], [885, 795]]}], "band": [142, 714, 948, 795]}, {"cell": 13, "words": [{"x0": 148, "x1": 222, "text": "dry", "kind": "w", "note": "", "poly": [[148, 774], [222, 775], [222, 840], [148, 839]]}, {"x0": 260, "x1": 357, "text": "off", "kind": "w", "note": "", "poly": [[260, 775], [357, 777], [357, 842], [260, 840]]}, {"x0": 380, "x1": 572, "text": "their", "kind": "w", "note": "", "poly": [[380, 778], [572, 781], [572, 846], [380, 843]]}, {"x0": 598, "x1": 768, "text": "wings,", "kind": "w", "note": "", "poly": [[598, 781], [768, 784], [768, 849], [598, 846]]}, {"x0": 770, "x1": 868, "text": "you", "kind": "w", "note": "", "poly": [[770, 784], [868, 786], [868, 851], [770, 849]]}, {"x0": 884, "x1": 972, "text": "can", "kind": "w", "note": "", "poly": [[884, 786], [972, 788], [972, 853], [884, 851]]}], "band": [142, 768, 978, 852]}, {"cell": 14, "words": [{"x0": 156, "x1": 190, "text": "", "kind": "x", "note": "struck glyph (looks like k)", "poly": [[156, 830], [190, 830], [190, 894], [156, 894]]}, {"x0": 200, "x1": 252, "text": "go", "kind": "w", "note": "", "poly": [[200, 830], [252, 831], [252, 895], [200, 894]]}, {"x0": 285, "x1": 374, "text": "", "kind": "x", "note": "scribbled-out word", "poly": [[285, 832], [374, 833], [374, 897], [285, 896]]}, {"x0": 400, "x1": 494, "text": "fly", "kind": "w", "note": "", "poly": [[400, 834], [494, 835], [494, 899], [400, 898]]}, {"x0": 533, "x1": 666, "text": "with", "kind": "w", "note": "", "poly": [[533, 836], [666, 838], [666, 902], [533, 900]]}, {"x0": 692, "x1": 872, "text": "them.", "kind": "w", "note": "", "poly": [[692, 839], [872, 842], [872, 906], [692, 903]]}], "band": [150, 824, 878, 905]}, {"cell": 16, "words": [{"x0": 145, "x1": 253, "text": "the", "kind": "w", "note": "", "poly": [[145, 940], [253, 941], [253, 1005], [145, 1004]]}, {"x0": 288, "x1": 463, "text": "world", "kind": "w", "note": "", "poly": [[288, 942], [463, 945], [463, 1009], [288, 1006]]}, {"x0": 488, "x1": 661, "text": "knows", "kind": "w", "note": "", "poly": [[488, 945], [661, 948], [661, 1012], [488, 1009]]}, {"x0": 690, "x1": 798, "text": "your", "kind": "w", "note": "", "poly": [[690, 949], [798, 951], [798, 1015], [690, 1013]]}, {"x0": 828, "x1": 946, "text": "name", "kind": "w", "note": "", "poly": [[828, 951], [946, 953], [946, 1017], [828, 1015]]}], "band": [139, 934, 952, 1016]}, {"cell": 17, "words": [{"x0": 155, "x1": 238, "text": "but", "kind": "w", "note": "", "poly": [[155, 995], [238, 996], [238, 1060], [155, 1059]]}, {"x0": 262, "x1": 360, "text": "not", "kind": "w", "note": "", "poly": [[262, 997], [360, 998], [360, 1062], [262, 1061]]}, {"x0": 423, "x1": 531, "text": "your", "kind": "w", "note": "", "poly": [[423, 999], [531, 1001], [531, 1065], [423, 1063]]}, {"x0": 560, "x1": 770, "text": "story.", "kind": "w", "note": "", "poly": [[560, 1002], [770, 1005], [770, 1069], [560, 1066]]}], "band": [149, 989, 776, 1068]}, {"cell": 19, "words": [{"x0": 146, "x1": 266, "text": "the", "kind": "w", "note": "", "poly": [[146, 1104], [266, 1106], [266, 1168], [146, 1166]]}, {"x0": 322, "x1": 625, "text": "previous", "kind": "w", "note": "", "poly": [[322, 1107], [625, 1112], [625, 1174], [322, 1169]]}, {"x0": 662, "x1": 792, "text": "pen", "kind": "w", "note": "", "poly": [[662, 1112], [792, 1115], [792, 1177], [662, 1174]]}, {"x0": 818, "x1": 922, "text": "was", "kind": "w", "note": "", "poly": [[818, 1115], [922, 1117], [922, 1179], [818, 1177]]}], "band": [140, 1098, 928, 1178]}, {"cell": 20, "words": [{"x0": 158, "x1": 354, "text": "better", "kind": "w", "note": "the ink colour changes at \"the previous pen was better\" (lighter pen)", "poly": [[158, 1157], [354, 1160], [354, 1223], [158, 1220]]}], "band": [152, 1151, 360, 1222]}, {"cell": 22, "words": [{"x0": 146, "x1": 184, "text": "", "kind": "x", "note": "scribbled-out glyph", "poly": [[146, 1266], [184, 1266], [184, 1325], [146, 1325]]}, {"x0": 184, "x1": 292, "text": "mas,", "kind": "u", "note": "reads m-a-s; meaning unclear (a name? \"Ma's\"?)", "poly": [[184, 1266], [292, 1268], [292, 1327], [184, 1325]]}, {"x0": 316, "x1": 411, "text": "you", "kind": "w", "note": "", "poly": [[316, 1268], [411, 1270], [411, 1329], [316, 1327]]}, {"x0": 437, "x1": 559, "text": "cant", "kind": "w", "note": "", "poly": [[437, 1270], [559, 1273], [559, 1332], [437, 1329]]}, {"x0": 592, "x1": 752, "text": "rush", "kind": "w", "note": "", "poly": [[592, 1273], [752, 1276], [752, 1335], [592, 1332]]}, {"x0": 778, "x1": 978, "text": "pens.", "kind": "w", "note": "", "poly": [[778, 1276], [978, 1280], [978, 1339], [778, 1335]]}], "band": [140, 1260, 984, 1338]}]}, "2": {"img": "page%202.webp", "w": 1080, "h": 1112, "lines": [{"cell": 0, "words": [{"x0": 145, "x1": 232, "text": "im,", "kind": "w", "note": "I'm", "poly": [[145, 102], [232, 104], [232, 161], [145, 159]]}, {"x0": 285, "x1": 476, "text": "gonna", "kind": "w", "note": "", "poly": [[285, 106], [476, 112], [476, 169], [285, 163]]}, {"x0": 535, "x1": 716, "text": "shoot", "kind": "w", "note": "", "poly": [[535, 113], [716, 119], [716, 176], [535, 170]]}, {"x0": 757, "x1": 830, "text": "up", "kind": "w", "note": "", "poly": [[757, 120], [830, 122], [830, 179], [757, 177]]}, {"x0": 865, "x1": 1025, "text": "this", "kind": "w", "note": "", "poly": [[865, 123], [1025, 128], [1025, 185], [865, 180]]}], "band": [139, 93, 1031, 188]}, {"cell": 1, "words": [{"x0": 138, "x1": 345, "text": "whole", "kind": "w", "note": "", "poly": [[138, 157], [345, 163], [345, 222], [138, 216]]}, {"x0": 350, "x1": 606, "text": "shool.", "kind": "w", "note": "sic: \"school\" without the c", "poly": [[350, 163], [606, 170], [606, 229], [350, 222]]}], "band": [132, 148, 612, 232]}, {"cell": 2, "words": [{"x0": 138, "x1": 192, "text": "my", "kind": "w", "note": "", "poly": [[138, 214], [192, 215], [192, 274], [138, 273]]}, {"x0": 233, "x1": 552, "text": "\"friends\"", "kind": "w", "note": "in quotation marks", "poly": [[233, 216], [552, 225], [552, 284], [233, 275]]}, {"x0": 582, "x1": 722, "text": "suck,", "kind": "w", "note": "", "poly": [[582, 226], [722, 230], [722, 289], [582, 285]]}, {"x0": 758, "x1": 820, "text": "my", "kind": "w", "note": "", "poly": [[758, 231], [820, 233], [820, 292], [758, 290]]}, {"x0": 843, "x1": 1030, "text": "house", "kind": "w", "note": "continues as \"house-hold\" on the next line", "poly": [[843, 234], [1030, 239], [1030, 298], [843, 293]]}], "band": [132, 205, 1036, 301]}, {"cell": 3, "words": [{"x0": 125, "x1": 268, "text": "hold", "kind": "w", "note": "", "poly": [[125, 270], [268, 274], [268, 334], [125, 330]]}, {"x0": 305, "x1": 425, "text": "also", "kind": "w", "note": "", "poly": [[305, 275], [425, 279], [425, 339], [305, 335]]}, {"x0": 462, "x1": 530, "text": "is", "kind": "w", "note": "", "poly": [[462, 280], [530, 282], [530, 342], [462, 340]]}, {"x0": 568, "x1": 862, "text": "miserable.", "kind": "w", "note": "", "poly": [[568, 283], [862, 291], [862, 351], [568, 343]]}, {"x0": 885, "x1": 972, "text": "", "kind": "x", "note": "scribbled-out glyph(s)", "poly": [[885, 291], [972, 294], [972, 354], [885, 351]]}], "band": [119, 261, 978, 357]}, {"cell": 4, "words": [{"x0": 130, "x1": 262, "text": "with", "kind": "w", "note": "", "poly": [[130, 329], [262, 332], [262, 392], [130, 389]]}, {"x0": 305, "x1": 352, "text": "my", "kind": "w", "note": "", "poly": [[305, 333], [352, 335], [352, 395], [305, 393]]}, {"x0": 356, "x1": 525, "text": "biggest", "kind": "w", "note": "", "poly": [[356, 335], [525, 339], [525, 399], [356, 395]]}, {"x0": 538, "x1": 922, "text": "problem", "kind": "w", "note": "", "poly": [[538, 340], [922, 350], [922, 410], [538, 400]]}], "band": [124, 320, 928, 413]}, {"cell": 5, "words": [{"x0": 130, "x1": 232, "text": "was", "kind": "w", "note": "", "poly": [[130, 387], [232, 389], [232, 449], [130, 447]]}, {"x0": 262, "x1": 522, "text": "someone", "kind": "w", "note": "", "poly": [[262, 390], [522, 397], [522, 457], [262, 450]]}, {"x0": 540, "x1": 652, "text": "not", "kind": "w", "note": "", "poly": [[540, 397], [652, 400], [652, 460], [540, 457]]}, {"x0": 665, "x1": 945, "text": "telling", "kind": "w", "note": "written t-e-l-l-i-n-g (texting?)", "poly": [[665, 401], [945, 408], [945, 468], [665, 461]]}, {"x0": 958, "x1": 1030, "text": "me", "kind": "w", "note": "", "poly": [[958, 408], [1030, 410], [1030, 470], [958, 468]]}], "band": [124, 378, 1036, 473]}, {"cell": 6, "words": [{"x0": 125, "x1": 280, "text": "back.", "kind": "w", "note": "", "poly": [[125, 445], [280, 449], [280, 511], [125, 507]]}, {"x0": 290, "x1": 410, "text": "ive", "kind": "w", "note": "I've", "poly": [[290, 449], [410, 452], [410, 514], [290, 511]]}, {"x0": 455, "x1": 622, "text": "been", "kind": "w", "note": "", "poly": [[455, 453], [622, 457], [622, 519], [455, 515]]}, {"x0": 645, "x1": 690, "text": "a", "kind": "w", "note": "", "poly": [[645, 458], [690, 459], [690, 521], [645, 520]]}, {"x0": 715, "x1": 887, "text": "third", "kind": "w", "note": "", "poly": [[715, 460], [887, 464], [887, 526], [715, 522]]}, {"x0": 887, "x1": 922, "text": "", "kind": "x", "note": "scribbled-out glyph", "poly": [[887, 464], [922, 465], [922, 527], [887, 526]]}], "band": [119, 436, 928, 530]}, {"cell": 7, "words": [{"x0": 128, "x1": 380, "text": "wheel", "kind": "w", "note": "", "poly": [[128, 505], [380, 511], [380, 571], [128, 565]]}, {"x0": 395, "x1": 436, "text": "my", "kind": "w", "note": "", "poly": [[395, 512], [436, 513], [436, 573], [395, 572]]}, {"x0": 448, "x1": 695, "text": "whole", "kind": "w", "note": "", "poly": [[448, 513], [695, 519], [695, 579], [448, 573]]}, {"x0": 720, "x1": 860, "text": "life", "kind": "w", "note": "", "poly": [[720, 519], [860, 523], [860, 583], [720, 579]]}, {"x0": 880, "x1": 1010, "text": "and", "kind": "w", "note": "", "poly": [[880, 523], [1010, 527], [1010, 587], [880, 583]]}], "band": [122, 496, 1016, 590]}, {"cell": 8, "words": [{"x0": 128, "x1": 232, "text": "its", "kind": "w", "note": "", "poly": [[128, 563], [232, 566], [232, 627], [128, 624]]}, {"x0": 255, "x1": 385, "text": "just", "kind": "w", "note": "only occurrence of j", "poly": [[255, 566], [385, 569], [385, 630], [255, 627]]}, {"x0": 400, "x1": 645, "text": "gotten", "kind": "w", "note": "", "poly": [[400, 570], [645, 575], [645, 636], [400, 631]]}, {"x0": 665, "x1": 915, "text": "worse.", "kind": "w", "note": "", "poly": [[665, 576], [915, 582], [915, 643], [665, 637]]}], "band": [122, 554, 921, 646]}, {"cell": 9, "words": [{"x0": 122, "x1": 235, "text": "not", "kind": "w", "note": "", "poly": [[122, 622], [235, 625], [235, 686], [122, 683]]}, {"x0": 258, "x1": 285, "text": "a", "kind": "w", "note": "", "poly": [[258, 625], [285, 626], [285, 687], [258, 686]]}, {"x0": 315, "x1": 560, "text": "single", "kind": "w", "note": "", "poly": [[315, 627], [560, 632], [560, 693], [315, 688]]}, {"x0": 572, "x1": 690, "text": "one", "kind": "w", "note": "", "poly": [[572, 632], [690, 635], [690, 696], [572, 693]]}, {"x0": 725, "x1": 790, "text": "of", "kind": "w", "note": "", "poly": [[725, 636], [790, 637], [790, 698], [725, 697]]}, {"x0": 812, "x1": 1005, "text": "these", "kind": "w", "note": "", "poly": [[812, 638], [1005, 642], [1005, 703], [812, 699]]}], "band": [116, 613, 1011, 706]}, {"cell": 10, "words": [{"x0": 122, "x1": 235, "text": "mfs", "kind": "w", "note": "slang abbreviation", "poly": [[122, 681], [235, 684], [235, 745], [122, 742]]}, {"x0": 270, "x1": 295, "text": "i", "kind": "w", "note": "", "poly": [[270, 685], [295, 685], [295, 746], [270, 746]]}, {"x0": 318, "x1": 630, "text": "actually", "kind": "w", "note": "", "poly": [[318, 686], [630, 692], [630, 753], [318, 747]]}, {"x0": 641, "x1": 840, "text": "like.", "kind": "w", "note": "", "poly": [[641, 693], [840, 697], [840, 758], [641, 754]]}, {"x0": 865, "x1": 910, "text": "", "kind": "x", "note": "scribbled-out glyph", "poly": [[865, 698], [910, 699], [910, 760], [865, 759]]}, {"x0": 918, "x1": 955, "text": "i", "kind": "w", "note": "", "poly": [[918, 699], [955, 700], [955, 761], [918, 760]]}], "band": [116, 672, 961, 764]}, {"cell": 11, "words": [{"x0": 120, "x1": 168, "text": "", "kind": "x", "note": "scribble with an arrow running back to the \"I\" above", "poly": [[120, 740], [168, 741], [168, 804], [120, 803]]}, {"x0": 168, "x1": 322, "text": "wish", "kind": "w", "note": "", "poly": [[168, 741], [322, 745], [322, 808], [168, 804]]}, {"x0": 378, "x1": 410, "text": "i", "kind": "w", "note": "", "poly": [[378, 746], [410, 747], [410, 810], [378, 809]]}, {"x0": 435, "x1": 560, "text": "had", "kind": "w", "note": "", "poly": [[435, 747], [560, 750], [560, 813], [435, 810]]}, {"x0": 578, "x1": 722, "text": "real", "kind": "w", "note": "", "poly": [[578, 750], [722, 753], [722, 816], [578, 813]]}, {"x0": 722, "x1": 1015, "text": "friend(s)", "kind": "w", "note": "written with no space after \"real\"; the final s is in parentheses", "poly": [[722, 753], [1015, 759], [1015, 822], [722, 816]]}], "band": [114, 731, 1021, 825]}, {"cell": 12, "words": [{"x0": 122, "x1": 185, "text": "but", "kind": "w", "note": "", "poly": [[122, 802], [185, 803], [185, 864], [122, 863]]}, {"x0": 185, "x1": 205, "text": "", "kind": "x", "note": "struck glyph", "poly": [[185, 803], [205, 803], [205, 864], [185, 864]]}, {"x0": 207, "x1": 235, "text": "i", "kind": "w", "note": "", "poly": [[207, 803], [235, 804], [235, 865], [207, 864]]}, {"x0": 258, "x1": 460, "text": "guess", "kind": "w", "note": "", "poly": [[258, 804], [460, 808], [460, 869], [258, 865]]}, {"x0": 505, "x1": 582, "text": "im", "kind": "w", "note": "", "poly": [[505, 809], [582, 811], [582, 872], [505, 870]]}, {"x0": 595, "x1": 725, "text": "used", "kind": "w", "note": "circled in pen", "poly": [[595, 811], [725, 814], [725, 875], [595, 872]]}, {"x0": 725, "x1": 785, "text": "on", "kind": "a", "note": "the word \"on\" is written in ordinary Latin letters above a squiggle next to the circle", "poly": [[725, 814], [785, 815], [785, 876], [725, 875]]}, {"x0": 798, "x1": 842, "text": "to", "kind": "w", "note": "", "poly": [[798, 815], [842, 816], [842, 877], [798, 876]]}, {"x0": 875, "x1": 1028, "text": "being", "kind": "w", "note": "", "poly": [[875, 817], [1028, 820], [1028, 881], [875, 878]]}], "band": [116, 793, 1034, 884]}, {"cell": 13, "words": [{"x0": 122, "x1": 368, "text": "alone.", "kind": "w", "note": "", "poly": [[122, 861], [368, 866], [368, 927], [122, 922]]}, {"x0": 388, "x1": 455, "text": "i", "kind": "w", "note": "", "poly": [[388, 866], [455, 867], [455, 928], [388, 927]]}, {"x0": 465, "x1": 622, "text": "hate", "kind": "w", "note": "", "poly": [[465, 867], [622, 870], [622, 931], [465, 928]]}, {"x0": 640, "x1": 855, "text": "being", "kind": "w", "note": "", "poly": [[640, 871], [855, 875], [855, 936], [640, 932]]}, {"x0": 857, "x1": 1025, "text": "third", "kind": "w", "note": "", "poly": [[857, 875], [1025, 878], [1025, 939], [857, 936]]}], "band": [116, 852, 1031, 942]}, {"cell": 14, "words": [{"x0": 122, "x1": 318, "text": "wheel", "kind": "w", "note": "", "poly": [[122, 920], [318, 924], [318, 985], [122, 981]]}, {"x0": 348, "x1": 612, "text": "they're", "kind": "w", "note": "with an apostrophe", "poly": [[348, 924], [612, 929], [612, 990], [348, 985]]}, {"x0": 620, "x1": 695, "text": "all", "kind": "w", "note": "", "poly": [[620, 929], [695, 931], [695, 992], [620, 990]]}, {"x0": 715, "x1": 982, "text": "getting", "kind": "w", "note": "", "poly": [[715, 931], [982, 936], [982, 997], [715, 992]]}], "band": [116, 911, 988, 1000]}, {"cell": 15, "words": [{"x0": 115, "x1": 435, "text": "blocked.", "kind": "w", "note": "", "poly": [[115, 979], [435, 985], [435, 1046], [115, 1040]]}, {"x0": 475, "x1": 552, "text": "im", "kind": "w", "note": "", "poly": [[475, 985], [552, 987], [552, 1048], [475, 1046]]}, {"x0": 572, "x1": 772, "text": "gonna", "kind": "w", "note": "", "poly": [[572, 987], [772, 991], [772, 1052], [572, 1048]]}, {"x0": 795, "x1": 882, "text": "cut", "kind": "w", "note": "", "poly": [[795, 991], [882, 993], [882, 1054], [795, 1052]]}, {"x0": 905, "x1": 1040, "text": "every", "kind": "w", "note": "the y is squeezed into the margin above the r", "poly": [[905, 993], [1040, 995], [1040, 1056], [905, 1054]]}], "band": [109, 970, 1046, 1059]}, {"cell": 16, "words": [{"x0": 115, "x1": 255, "text": "fake", "kind": "w", "note": "", "poly": [[115, 1038], [255, 1040], [255, 1100], [115, 1098]]}, {"x0": 278, "x1": 409, "text": "cunt", "kind": "w", "note": "", "poly": [[278, 1041], [409, 1043], [409, 1103], [278, 1101]]}, {"x0": 441, "x1": 525, "text": "off", "kind": "w", "note": "", "poly": [[441, 1044], [525, 1045], [525, 1105], [441, 1104]]}, {"x0": 555, "x1": 612, "text": "fo", "kind": "w", "note": "sic: probably \"of\" with the letters swapped", "poly": [[555, 1046], [612, 1046], [612, 1106], [555, 1106]]}, {"x0": 641, "x1": 702, "text": "my", "kind": "w", "note": "", "poly": [[641, 1047], [702, 1048], [702, 1108], [641, 1107]]}, {"x0": 718, "x1": 955, "text": "life.", "kind": "w", "note": "", "poly": [[718, 1048], [955, 1052], [955, 1112], [718, 1108]]}], "band": [109, 1029, 961, 1115]}]}}, "reading1": [["I said brr, is [it's] cold in here.", "A cheerleading chant (\"I said brr, it's cold in here\")."], ["Shing [shining?] — <s>sining</s> — angels stick on.", "The first word reads \"shing\"; the struck word on the next line looks like a second try at \"shining\"."], ["Moon, tell me if I can <s>shine</s> ^send^ down my heart to you.", "\"send\" is inserted above the line with a caret."], ["Cheer pratice [practice] sucks.", ""], ["Don't listen to negativity.", ""], ["When the birds come to dry off their wings, you can go fly with them.", ""], ["The world knows your name but not your story.", ""], ["The previous pen was better.", "The ink does change here: the last lines are in a lighter pen."], ["[?]mas, you can't rush pens.", "The first word reads m-a-s after a scribbled-out glyph."]], "reading2": ["I'm gonna shoot up this whole shool [school].", "My \"friends\" suck, my household also is miserable.", "With my biggest problem was someone not telling me back.", "I've been a third wheel my whole life and it's just gotten worse.", "Not a single one of these mfs I actually like.", "I wish I had real friend(s), but I guess I'm used to being alone.", "I hate being third wheel. They're all getting blocked.", "I'm gonna cut every fake c*nt off fo [of] my life."], "counts": {"i": 48, "s": 43, "a": 28, "d": 17, "b": 13, "r": 26, "c": 15, "o": 47, "l": 29, "n": 43, "h": 30, "e": 69, "g": 18, "t": 46, "k": 8, "m": 20, "f": 14, "w": 15, "y": 18, "u": 19, "p": 6, "v": 4, "j": 1}, "total": 577, "nwords": 147};
+
+// ---- glyph definitions (60-unit-high cells, baseline at y=50) ----
+const G = {
+ a:{w:30,s:[['p','24,12 8,12 8,50 24,50'],['d',17,31]],ds:'bracket [ with one dot'},
+ b:{w:30,s:[['p','24,12 8,12 8,50 24,50'],['d',17,23],['d',17,39]],ds:'bracket [ with two dots (looks like E)'},
+ c:{w:30,s:[['q','M22,10 L22,22 Q22,30 12,32 Q8,34 8,42 L8,50 L26,50'],['d',18,41]],ds:'hooked ¿ shape with a dot'},
+ d:{w:30,s:[['d',7,24],['d',7,38],['l',12,50,26,12]],ds:'two dots + one slash'},
+ e:{w:40,s:[['d',7,24],['d',7,38],['l',12,50,24,12],['l',22,50,34,12]],ds:'two dots + double slash'},
+ f:{w:30,s:[['p','24,14 8,38 28,48'],['d',20,36]],ds:'angle < with a dot'},
+ g:{w:30,s:[['p','8,14 26,14 26,48 10,32'],['d',20,27]],ds:'reversed bracket with slanted foot, dot inside'},
+ h:{w:36,s:[['l',6,32,30,32],['l',6,44,30,44],['d',13,22],['d',23,22]],ds:'double bar with two dots above'},
+ i:{w:30,s:[['l',6,40,26,40],['d',18,30]],ds:'dash with a dot above'},
+ j:{w:30,s:[['l',8,12,8,50],['d',15,26],['d',15,38],['l',22,12,22,24]],ds:'bar, two dots, short tick (only in "just")'},
+ k:{w:36,s:[['l',4,14,34,14],['p','8,14 17,44 26,14'],['d',17,24]],ds:'down-triangle with long lid, dot inside'},
+ l:{w:26,s:[['p','6,20 16,18 16,50'],['d',14,8]],ds:'hook-topped bar (like 7) with dot above'},
+ m:{w:32,s:[['p','8,50 8,14 26,14 26,50'],['d',17,32]],ds:'⊓ with a dot inside'},
+ n:{w:30,s:[['l',8,12,8,50],['l',18,12,18,50],['d',25,42]],ds:'two bars, dot after'},
+ o:{w:34,s:[['e',16,35,10,14],['l',26,22,26,53],['d',17,9]],ds:'script ɑ with a dot above'},
+ p:{w:38,s:[['e',19,32,11,15],['l',2,32,36,32]],ds:'circle with a bar through (θ)'},
+ r:{w:30,s:[['r',7,12,18,16],['l',16,7,16,54]],ds:'small box on a stem (中 / Φ)'},
+ s:{w:30,s:[['l',8,12,8,50],['l',22,12,22,50],['d',15,32]],ds:'two bars with a dot between'},
+ t:{w:30,s:[['p','13,12 6,32 20,32'],['l',20,16,20,52]],ds:'open 4'},
+ u:{w:32,s:[['p','8,14 8,50 26,50 26,14'],['d',17,35]],ds:'⊔ with a dot inside'},
+ v:{w:38,s:[['r',8,20,16,28],['l',8,34,36,34]],ds:'box with a bar running out to the right'},
+ w:{w:40,s:[['l',4,30,22,30],['l',4,42,22,42],['p','34,26 25,36 34,45']],ds:'double bar + < (=<)'},
+ y:{w:30,s:[['p','8,52 8,16 18,12'],['l',20,28,20,50],['d',14,4]],ds:'hooked bar + short bar, dot above'},
+ '.':{w:34,s:[['l',4,40,30,40]],ds:'full stop: long dash, no dot'},
+ ',':{w:12,s:[['q','M6,46 Q9,52 4,58']]},
+ '"':{w:18,s:[['l',6,8,4,18],['l',13,8,11,18]]},
+ "'":{w:10,s:[['l',6,8,4,18]]},
+ '(':{w:12,s:[['q','M10,10 Q2,31 10,52']]},
+ ')':{w:12,s:[['q','M2,10 Q10,31 2,52']]},
+ '-':{w:16,s:[['l',3,34,13,34]]},
+ '?':{w:14,s:[['l',7,46,7,47]]},
+ '!':{w:14,s:[['l',7,12,7,38],['d',7,48]]},
+};
+function el(e){
+  const [t,...a]=e;
+  if(t==='l')return `<line class="st" x1="${a[0]}" y1="${a[1]}" x2="${a[2]}" y2="${a[3]}"/>`;
+  if(t==='p')return `<polyline class="st" points="${a[0]}"/>`;
+  if(t==='q')return `<path class="st" d="${a[0]}"/>`;
+  if(t==='d')return `<circle class="dt" cx="${a[0]}" cy="${a[1]}" r="2.9"/>`;
+  if(t==='e')return `<ellipse class="st" cx="${a[0]}" cy="${a[1]}" rx="${a[2]}" ry="${a[3]}"/>`;
+  if(t==='r')return `<rect class="st" x="${a[0]}" y="${a[1]}" width="${a[2]}" height="${a[3]}"/>`;
+  return '';
+}
+function glyph(ch,h){
+  h=h||36; ch=ch.toLowerCase();
+  if(ch===' ')return `<svg class="g" width="${12*h/60}" height="${h}" viewBox="0 0 12 60"></svg>`;
+  let g=G[ch];
+  if(!g){
+    if(/[a-z]/.test(ch)) return `<svg class="g" width="${30*h/60}" height="${h}" viewBox="0 -2 30 62"><rect class="unk" x="4" y="12" width="22" height="38"/><text x="15" y="38" font-size="18" text-anchor="middle" fill="#999">${ch}</text></svg>`;
+    return '';
+  }
+  return `<svg class="g" width="${g.w*h/60}" height="${h}" viewBox="0 -2 ${g.w} 62">${g.s.map(el).join('')}</svg>`;
+}
+function wordGlyphs(text,h){return [...text].map(c=>glyph(c,h)).join('');}
+
+// ---- plaintext ----
+document.getElementById('r1').innerHTML=D.reading1.map(([t,n])=>`<li>${t.replace(/\^(\w+)\^/,'<sup>^$1</sup>')}${n?`<div class="n">${n}</div>`:''}</li>`).join('');
+document.getElementById('r2').innerHTML=D.reading2.map(t=>`<p>${t}</p>`).join('');
+
+// ---- visualizer ----
+const stage=document.getElementById('stage'), ov=document.getElementById('ov'), pimg=document.getElementById('pimg');
+const imgs={};
+for(const k of Object.keys(D.pages)){const im=new Image(); im.src=D.pages[k].img; imgs[k]=im;}
+let cur='1', hlLetter='', sel=null;
+function kindName(k){return {w:'word',s:'struck through (still legible)',x:'scribbled out (illegible)',i:'inserted above the line',a:'annotation in ordinary Latin letters',u:'uncertain reading'}[k];}
+function drawPage(pg){
+  cur=pg; const P=D.pages[pg];
+  pimg.src=P.img; ov.setAttribute('viewBox',`0 0 ${P.w} ${P.h}`);
+  let s='';
+  P.lines.forEach((ln,li)=>ln.words.forEach((w,wi)=>{
+    const pts=w.poly.map(p=>p.join(',')).join(' ');
+    s+=`<polygon class="wd k-${w.kind}" points="${pts}" data-l="${li}" data-w="${wi}"/>`;
+    const cx=(w.poly[0][0]+w.poly[1][0])/2, cy=(w.poly[0][1]+w.poly[3][1]+w.poly[1][1]+w.poly[2][1])/4;
+    const lab=w.kind==='x'?'✗':w.text;
+    const fs=Math.min(27, Math.max(14,(w.x1-w.x0)/Math.max(lab.length,1)*1.7));
+    s+=`<text class="lbl" x="${cx}" y="${cy}" style="font-size:${fs}px">${lab.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</text>`;
+  }));
+  ov.innerHTML=s;
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.pg===pg));
+  applyHL();
+}
+function applyHL(){
+  ov.querySelectorAll('polygon').forEach(p=>{
+    const w=D.pages[cur].lines[p.dataset.l].words[p.dataset.w];
+    p.classList.toggle('hl', !!hlLetter && ['w','u','i','s'].includes(w.kind) && w.text.toLowerCase().includes(hlLetter));
+  });
+  document.querySelectorAll('.kc').forEach(c=>c.classList.toggle('on',c.dataset.l===hlLetter));
+  document.getElementById('hlsel').value=hlLetter;
+}
+function showWord(li,wi){
+  const P=D.pages[cur], w=P.lines[li].words[wi];
+  const xs=w.poly.map(p=>p[0]), ys=w.poly.map(p=>p[1]);
+  let x0=Math.max(0,Math.min(...xs)-8), x1=Math.min(P.w,Math.max(...xs)+8), y0=Math.max(0,Math.min(...ys)-4), y1=Math.min(P.h,Math.max(...ys)+4);
+  const cv=document.getElementById('zoom'), ctx=cv.getContext('2d');
+  const sw=x1-x0, sh=y1-y0, sc=Math.min(cv.width/sw, cv.height/sh);
+  ctx.fillStyle='#eee'; ctx.fillRect(0,0,cv.width,cv.height);
+  const im=imgs[cur];
+  const draw=()=>ctx.drawImage(im,x0,y0,sw,sh,(cv.width-sw*sc)/2,(cv.height-sh*sc)/2,sw*sc,sh*sc);
+  if(im.complete) draw(); else im.onload=draw;
+  const dec=document.getElementById('pdec'), rend=document.getElementById('prend'), meta=document.getElementById('pmeta');
+  if(w.kind==='x'){dec.textContent='[scribbled out]'; rend.innerHTML='';}
+  else if(w.kind==='a'){dec.textContent='"'+w.text+'" (Latin letters)'; rend.innerHTML='';}
+  else {dec.textContent=w.text; rend.innerHTML=`<div style="display:flex;gap:3px;flex-wrap:wrap;align-items:flex-end">${[...w.text].map(c=>`<div style="display:flex;flex-direction:column;align-items:center">${glyph(c,44)}<span style="font:600 .9rem ui-monospace,monospace;color:#b91c1c">${/[a-z]/i.test(c)?c:''}</span></div>`).join('')}</div>`;}
+  meta.innerHTML=`Page ${cur}, line ${li+1} · ${kindName(w.kind)}${w.note?'<br>'+w.note:''}`;
+}
+ov.addEventListener('mouseover',e=>{if(e.target.tagName==='polygon')showWord(+e.target.dataset.l,+e.target.dataset.w);});
+ov.addEventListener('click',e=>{if(e.target.tagName==='polygon'){if(sel)sel.classList.remove('sel'); sel=e.target; sel.classList.add('sel'); showWord(+sel.dataset.l,+sel.dataset.w);}});
+ov.addEventListener('mouseleave',()=>{if(sel)showWord(+sel.dataset.l,+sel.dataset.w);});
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{sel=null;drawPage(b.dataset.pg);});
+document.getElementById('mode').onchange=e=>{stage.className='stage mode-'+e.target.value;};
+const hs=document.getElementById('hlsel');
+'abcdefghijklmnoprstuvwy'.split('').forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;hs.appendChild(o);});
+hs.onchange=()=>{hlLetter=hs.value;applyHL();};
+
+// ---- key ----
+const kg=document.getElementById('keygrid');
+'abcdefghijklmnopqrstuvwxyz.'.split('').forEach(c=>{
+  const n=D.counts[c]||0, g=G[c];
+  const d=document.createElement('div'); d.className='kc'+(g?'':' none'); d.dataset.l=c;
+  d.innerHTML=`<div class="gl">${g?glyph(c,58):'<span class="hint">not used</span>'}</div><div class="lt">${c==='.'?'stop':c}</div><div class="ds">${g&&g.ds?g.ds:''}</div><div class="ct">${c==='.'?'':n+'×'}</div>`;
+  if(g&&c!=='.') d.onclick=()=>{hlLetter=(hlLetter===c?'':c); applyHL(); document.getElementById('viz').scrollIntoView({behavior:'smooth'});};
+  kg.appendChild(d);
+});
+
+// ---- line by line ----
+const LN=document.getElementById('lines');
+for(const pg of ['1','2']){
+  const P=D.pages[pg];
+  const h=document.createElement('h3'); h.textContent='Page '+pg; LN.appendChild(h);
+  P.lines.forEach((ln,li)=>{
+    const box=document.createElement('div'); box.className='line';
+    const [bx0,by0,bx1,by1]=ln.band; const sw=bx1-bx0, sh=by1-by0;
+    const cv=document.createElement('canvas'); cv.width=Math.round(sw*1.4); cv.height=Math.round(sh*1.4);
+    cv.style.aspectRatio=`${sw}/${sh}`; cv.style.maxWidth=Math.round(sw*0.98)+'px';
+    const im=imgs[pg]; const draw=()=>cv.getContext('2d').drawImage(im,bx0,by0,sw,sh,0,0,cv.width,cv.height);
+    if(im.complete) draw(); else im.addEventListener('load',draw);
+    const hd=document.createElement('div'); hd.className='ln-h'; hd.textContent=`line ${li+1}`;
+    box.appendChild(hd); box.appendChild(cv);
+    const il=document.createElement('div'); il.className='il';
+    ln.words.forEach(w=>{
+      const iw=document.createElement('div'); iw.className='iw k-'+w.kind;
+      if(w.kind==='x'){iw.innerHTML='<span class="xx">[scribbled out]</span>';}
+      else if(w.kind==='a'){iw.innerHTML=`<span class="xx">"${w.text}" in Latin letters</span>`;}
+      else{
+        iw.innerHTML=`<div class="gs">${[...w.text].map(c=>`<div class="gc">${glyph(c,34)}<span>${/[a-z]/i.test(c)?c:'&nbsp;'}</span></div>`).join('')}</div>`+(w.kind==='i'?'<div class="nt">inserted above the line (^)</div>':'')+(w.kind==='s'?'<div class="nt">struck through</div>':'')+(w.kind==='u'?'<div class="nt">uncertain meaning</div>':'');
+      }
+      if(w.note) iw.title=w.note;
+      il.appendChild(iw);
+    });
+    box.appendChild(il); LN.appendChild(box);
+  });
+}
+
+// ---- encoder ----
+const enc=document.getElementById('enc'), eo=document.getElementById('encout');
+function encode(){
+  const words=enc.value.toLowerCase().split(/\s+/).filter(Boolean);
+  eo.innerHTML=words.map(w=>`<span style="display:inline-flex;align-items:flex-end;gap:2px">${[...w].map(c=>glyph(c,40)).join('')}</span>`).join('');
+}
+enc.addEventListener('input',encode); encode();
+
+// ---- stats ----
+const order=Object.entries(D.counts).sort((a,b)=>b[1]-a[1]);
+const eng={e:12.7,t:9.1,a:8.2,o:7.5,i:7.0,n:6.7,s:6.3,h:6.1,r:6.0,d:4.3,l:4.0,c:2.8,u:2.8,m:2.4,w:2.4,f:2.2,g:2.0,y:2.0,p:1.9,b:1.5,v:1.0,k:0.8,j:0.15,x:0.15,q:0.1,z:0.07};
+document.getElementById('stats').innerHTML=`<p class="hint">${D.total} letters in ${D.nwords} legible words. With a single-glyph-per-letter key, the glyph frequencies are just English letter frequencies of this short text.</p><table><tr><th>letter</th>${order.map(([c])=>`<td>${c}</td>`).join('')}</tr><tr><th>glyph</th>${order.map(([c])=>`<td style="color:var(--ink)">${glyph(c,26)}</td>`).join('')}</tr><tr><th>count</th>${order.map(([,n])=>`<td>${n}</td>`).join('')}</tr><tr><th>% here</th>${order.map(([,n])=>`<td>${(100*n/D.total).toFixed(1)}</td>`).join('')}</tr><tr><th>% English</th>${order.map(([c])=>`<td>${eng[c]??''}</td>`).join('')}</tr></table>`;
+
+drawPage('1');
+</script>
+</body>
+</html>

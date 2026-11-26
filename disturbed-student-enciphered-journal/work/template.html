@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enciphered journal pages (r/Decoders, u/Resident-Produce151): solved</title>
+<style>
+:root{--ink:#1f3b8f;--bg:#fafaf7;--fg:#1d1d1f;--muted:#5f6368;--card:#fff;--line:#e2e2de;
+  --warn-bg:#fff4e5;--warn-bd:#c2410c;--hi:#f59e0b;--struck:#9ca3af;--ins:#059669;--ann:#7c3aed;--x:#b91c1c}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+main{max-width:1260px;margin:0 auto;padding:26px 20px 90px}
+h1{font-size:1.75rem;margin:0 0 4px;line-height:1.25}
+h2{font-size:1.3rem;margin:44px 0 12px;border-bottom:1px solid var(--line);padding-bottom:5px}
+h3{font-size:1.05rem;margin:22px 0 8px}
+a{color:var(--ink)}
+.sub{color:var(--muted);margin:0}
+.verdict{display:inline-block;margin-top:12px;padding:6px 12px;border-radius:6px;background:#e7f5ec;color:#14532d;font-weight:600}
+.warn{background:var(--warn-bg);border-left:6px solid var(--warn-bd);padding:14px 18px;border-radius:6px;margin:20px 0}
+.warn h2{border:0;margin:0 0 6px;padding:0;font-size:1.15rem;color:#9a3412}
+.warn p{margin:6px 0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:900px){.cols{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px}
+.reading li{margin:6px 0}
+.reading .n{color:var(--muted);font-size:.88rem}
+.reading s{color:var(--struck)}
+.reading sup{color:var(--ins);font-weight:600}
+.p2text p{margin:6px 0}
+/* visualizer */
+.vz{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:18px;align-items:start}
+@media (max-width:1000px){.vz{grid-template-columns:1fr}}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.tabs button,.tabs select{font:inherit;padding:5px 12px;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tabs label{margin-left:8px;color:var(--muted);font-size:.92rem}
+.stage{position:relative;width:100%;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#ddd}
+.stage img{display:block;width:100%;height:auto}
+.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.wd{fill:rgba(31,59,143,0.04);stroke:rgba(31,59,143,.75);stroke-width:2;cursor:pointer}
+.wd.k-s{stroke:#6b7280;stroke-dasharray:6 4}
+.wd.k-x{stroke:var(--x);stroke-dasharray:3 3;fill:rgba(185,28,28,.05)}
+.wd.k-i{stroke:var(--ins)}
+.wd.k-a{stroke:var(--ann);stroke-dasharray:2 3}
+.wd.k-u{stroke:#d97706}
+.wd:hover,.wd.sel{fill:rgba(245,158,11,.28);stroke:#b45309;stroke-width:3}
+.wd.hl{fill:rgba(245,158,11,.38);stroke:#b45309}
+.mode-none .wd{stroke:transparent;fill:transparent}
+.mode-none .wd:hover,.mode-none .wd.sel{fill:rgba(245,158,11,.25);stroke:#b45309}
+.mode-none .wd.hl{fill:rgba(245,158,11,.38);stroke:#b45309}
+.lbl{pointer-events:none;font:600 27px system-ui,sans-serif;fill:#b91c1c;paint-order:stroke;stroke:#fff;stroke-width:6px;text-anchor:middle;dominant-baseline:middle;display:none}
+.mode-labels .lbl{display:block}
+.mode-labels .wd{fill:rgba(255,255,255,.55)}
+.panel{position:sticky;top:12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px}
+.panel canvas{width:100%;border:1px solid var(--line);border-radius:4px;background:#eee}
+.panel .dec{font-size:1.5rem;font-weight:700;margin:8px 0 2px;color:#b91c1c}
+.panel .meta{color:var(--muted);font-size:.9rem}
+.panel .rend{margin:8px 0;color:var(--ink);min-height:44px}
+.hint{color:var(--muted);font-size:.9rem}
+/* glyphs */
+svg.g{overflow:visible;vertical-align:bottom}
+svg.g .st{fill:none;stroke:currentColor;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
+svg.g .dt{fill:currentColor}
+svg.g .unk{fill:none;stroke:#999;stroke-dasharray:3 3;stroke-width:1.5}
+/* key */
+.keygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.kc{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;cursor:pointer;text-align:center}
+.kc:hover,.kc.on{border-color:#b45309;box-shadow:0 0 0 2px rgba(245,158,11,.35)}
+.kc .gl{color:var(--ink);height:62px;display:flex;align-items:flex-end;justify-content:center}
+.kc .lt{font-size:1.4rem;font-weight:700;margin-top:4px}
+.kc .ds{font-size:.8rem;color:var(--muted);line-height:1.3}
+.kc .ct{font-size:.78rem;color:#92400e}
+.kc.none{opacity:.55}
+/* interlinear */
+.line{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0}
+.line canvas{width:100%;max-width:980px;display:block;border-radius:4px}
+.il{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px;align-items:flex-end}
+.iw{display:inline-flex;flex-direction:column;align-items:flex-start}
+.iw .gs{display:flex;gap:2px;color:var(--ink);align-items:flex-end}
+.iw .gc{display:flex;flex-direction:column;align-items:center}
+.iw .gc span{font:600 .95rem ui-monospace,Menlo,monospace;color:#b91c1c}
+.iw.k-s .gs,.iw.k-s .gc span{color:var(--struck)}
+.iw.k-s .gc span{text-decoration:line-through}
+.iw.k-i{background:#ecfdf5;border-radius:4px;padding:0 3px}
+.iw.k-x .xx{font-size:.85rem;color:var(--x);font-style:italic}
+.iw.k-a .xx{font-size:.85rem;color:var(--ann);font-style:italic}
+.iw .nt{font-size:.75rem;color:var(--muted);max-width:220px}
+.ln-h{font-size:.82rem;color:var(--muted)}
+/* encoder */
+textarea{width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:6px;min-height:64px}
+.encout{background:#fffdf5;border:1px solid var(--line);border-radius:6px;padding:12px;margin-top:8px;color:var(--ink);min-height:60px;display:flex;flex-wrap:wrap;gap:6px 20px;align-items:flex-end}
+table{border-collapse:collapse;font-size:.92rem}
+td,th{border:1px solid var(--line);padding:4px 8px;text-align:left}
+th{background:#f3f3f0}
+code{background:#f1f1ee;padding:1px 4px;border-radius:3px}
+.steps li{margin:8px 0}
+footer{margin-top:50px;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<main>
+<h1>"Anyone help me decipher this from someone's journal": solved</h1>
+<p class="sub">Source: <a href="https://www.reddit.com/r/Decoders/comments/1y5x3nu/anyone_help_me_decipher_this_from_someones_journal/">r/Decoders post 1y5x3nu</a> by u/Resident-Produce151. The OP's note: <i>"Seems to be a substitution code, pretty hard to decode it but theres many repeated symbols like lines and dots a lot, could be high frequency letters."</i></p>
+<div class="verdict">Solved. It's a simple one-symbol-per-letter substitution (a homemade alphabet), and the plaintext is English.</div>
+
+<div class="warn" id="safety">
+  <h2>⚠ Please read first: page 2 contains a threat of school violence</h2>
+  <p>Decoded, page 2 opens with a first-person statement: <b>"I'm gonna shoot up this whole shool [school]."</b> The rest of the entry is about having no real friends, a miserable household, always being the third wheel, and cutting "fake" people out of their life. The decoding of that sentence is not in doubt: every letter in "shoot up" is confirmed by many other words on both pages.</p>
+  <p>Whether the writer was venting, joking, or serious, school-safety guidance is the same: report statements like this and let trained people assess them. Don't try to judge them yourself. The person who has this journal knows who wrote it and which school is involved, so they are the one who can act. They should give it to a school administrator or counselor, or to local police. In the US, they can also use the FBI (<a href="https://tips.fbi.gov">tips.fbi.gov</a>, 1-800-CALL-FBI) or the anonymous Say Something tip line (1-844-572-9669). If there is any sign of immediate danger, call emergency services (911 in the US).</p>
+  <p>The writer is also describing loneliness and an unhappy home. If they are in crisis, the 988 Suicide &amp; Crisis Lifeline (call or text 988 in the US) can help.</p>
+</div>
+
+<h2>Plaintext</h2>
+<div class="cols">
+  <div class="card"><h3 style="margin-top:0">Page 1: separate short entries</h3><ol class="reading" id="r1"></ol></div>
+  <div class="card p2text"><h3 style="margin-top:0">Page 2: one continuous entry</h3><div id="r2"></div>
+  <p class="n hint">Spelling and punctuation are as written. Words in [brackets] are my glosses.</p></div>
+</div>
+
+<h2 id="viz">Visualizer</h2>
+<p class="hint">Hover or click a box on the photo to see the zoomed glyphs, a clean rendering, and the decoded word. Pick a letter (or click a card in the key below) to highlight every word that contains it. Dashed red boxes are scribbled-out glyphs. Grey dashed boxes are struck-through but still readable. Green marks the inserted word, and purple marks the one annotation in ordinary letters.</p>
+<div class="vz">
+  <div>
+    <div class="tabs">
+      <button data-pg="1" class="on">Page 1</button><button data-pg="2">Page 2</button>
+      <label>Overlay <select id="mode"><option value="boxes">boxes</option><option value="labels">decoded labels</option><option value="none">off (hover only)</option></select></label>
+      <label>Highlight letter <select id="hlsel"><option value="">none</option></select></label>
+    </div>
+    <div class="stage mode-boxes" id="stage"><img id="pimg" alt="journal page"><svg id="ov"></svg></div>
+  </div>
+  <div class="panel" id="panel">
+    <canvas id="zoom" width="760" height="260"></canvas>
+    <div class="dec" id="pdec">hover a word</div>
+    <div class="rend" id="prend"></div>
+    <div class="meta" id="pmeta"></div>
+  </div>
+</div>
+
+<h2 id="key">The key</h2>
+<p class="hint">Each glyph is a base shape plus (usually) one or two dots. The dots belong to the letter; they are not separate symbols. For example <b>a</b> is a bracket with one dot and <b>b</b> is the same bracket with two dots. A long dash <i>without</i> a dot is the full stop, while the same dash with a dot above is <b>i</b>. Counts are over all legible words. <b>q</b>, <b>x</b> and <b>z</b> never occur. Click a card to highlight that letter on the pages.</p>
+<div class="keygrid" id="keygrid"></div>
+
+<h2>Line by line</h2>
+<p class="hint">Each strip is cut from the photo. Underneath is the transcription, drawn with the clean glyphs, with each glyph's letter below it.</p>
+<div id="lines"></div>
+
+<h2>Encoder</h2>
+<p class="hint">Type English to write it in the journal's alphabet. Letters never seen in the journal (q, x, z) show as dashed boxes.</p>
+<textarea id="enc">I said brr, it's cold in here.</textarea>
+<div class="encout" id="encout"></div>
+
+<h2>How it was solved</h2>
+<ol class="steps">
+  <li><b>Transcribe glyphs, not strokes.</b> At first sight the text looks like loose lines and dots, which is why the OP suspected the dots were frequent letters. Zoomed in, the dots always sit in a fixed position inside or beside a stroke shape: <code>[·</code>, <code>|·|</code>, <code>⊓·</code>, <code>⊔·</code>, <code>·//</code>, <code>-̇</code>, <code>ȧ</code>. So each shape-plus-dots unit is one letter. The word spaces are real, and a long dash with no dot ends sentences.</li>
+  <li><b>Use the repeated short words.</b> The two-glyph word <code>4ȧ</code> appears four times. The three-glyph word <code>Γı ȧ ⊔·</code> appears three times on its own and twice more at the start of a four-glyph word. The prefix <code>4 ≐ ://</code> starts seven words (three of them standalone). The first two words share <code>ȧ</code> as their 2nd glyph. Trying <i>to / you(r) / the(m, ir, se)</i> gives t, o, y, u, r, h, e.</li>
+  <li><b>Fill in the gaps.</b> With those six letters, <code>·/ ȧ ||· 4</code> = d‑o‑n‑t, <code>=< ≐ :// ||·</code> = w‑h‑e‑n, <code>¿· ȧ ⊓· ://</code> = c‑o‑m‑e, and <code>[: -̇ 中 ·/ |·|</code> = b‑i‑r‑d‑s. That makes page 1 line 10 read <i>"when the birds come to dry off their wings, you can go fly with them"</i>. After that every other word falls out. The rarer letters are confirmed by <i>knows</i> (k), <i>previous / negativity / I've / every</i> (v), <i>just</i> (j), and <i>pen / problem / up</i> (p).</li>
+  <li><b>Check.</b> All ~150 legible words on both pages decode to English with one fixed key. Each letter has one glyph (no homophones), there are no nulls, and the leftover marks are scribbles, a caret insertion and one Latin-letter annotation. The writer even comments on the pen change that's visible in the photo ("The previous pen was better").</li>
+</ol>
+
+<h2>Notes and uncertain spots</h2>
+<ul>
+  <li><b>Page 1, lines 1–2:</b> the first word reads <i>shing</i>. The next line starts with a struck-through word that reads <i>s‑i‑n‑i‑n‑g</i> (an h could be hidden under the strike lines). This was probably two attempts at <i>shining</i>, giving "Shining angels stick on." That reading is a guess.</li>
+  <li><b>Page 1, "Moon, tell me…":</b> <i>shine</i> is struck through with an arrowed line, and <i>send</i> is written above with a caret. Both versions are shown in the plaintext.</li>
+  <li><b>Page 1, last line:</b> after a scribbled-out glyph the word reads <i>m‑a‑s</i>. Its meaning is unclear (a nickname? "Ma's"?).</li>
+  <li><b>Misspellings as written:</b> <i>pratice</i> (practice), <i>shool</i> (school), <i>fo</i> (of, letters swapped), <i>is</i> for "it's", and <i>telling me back</i> (possibly meant "texting me back").</li>
+  <li><b>Page 2, "used":</b> the word is circled in pen. Beside it, "on" is written in ordinary Latin letters above a squiggle. That annotation is outside the cipher, and it isn't clear who added it or why.</li>
+  <li><b>Page 2, "real friend(s)":</b> there is no space between <i>real</i> and <i>friend</i>, and the final <i>s</i> is wrapped in parentheses.</li>
+  <li><b>Not transcribed:</b> faint mirror-image writing from the back of each sheet shows through in both photos. It is the reverse side, not part of these pages.</li>
+</ul>
+
+<h2>Letter counts</h2>
+<div id="stats" style="overflow-x:auto"></div>
+
+<footer>Transcription and glyph positions: <code>work/data.py</code>. Page builder: <code>work/build_report.py</code> + <code>work/template.html</code>. The photos are the OP's originals (<code>page 1.webp</code>, <code>page 2.webp</code>).</footer>
+</main>
+
+<script>
+const D = __DATA__;
+
+// ---- glyph definitions (60-unit-high cells, baseline at y=50) ----
+const G = {
+ a:{w:30,s:[['p','24,12 8,12 8,50 24,50'],['d',17,31]],ds:'bracket [ with one dot'},
+ b:{w:30,s:[['p','24,12 8,12 8,50 24,50'],['d',17,23],['d',17,39]],ds:'bracket [ with two dots (looks like E)'},
+ c:{w:30,s:[['q','M22,10 L22,22 Q22,30 12,32 Q8,34 8,42 L8,50 L26,50'],['d',18,41]],ds:'hooked ¿ shape with a dot'},
+ d:{w:30,s:[['d',7,24],['d',7,38],['l',12,50,26,12]],ds:'two dots + one slash'},
+ e:{w:40,s:[['d',7,24],['d',7,38],['l',12,50,24,12],['l',22,50,34,12]],ds:'two dots + double slash'},
+ f:{w:30,s:[['p','24,14 8,38 28,48'],['d',20,36]],ds:'angle < with a dot'},
+ g:{w:30,s:[['p','8,14 26,14 26,48 10,32'],['d',20,27]],ds:'reversed bracket with slanted foot, dot inside'},
+ h:{w:36,s:[['l',6,32,30,32],['l',6,44,30,44],['d',13,22],['d',23,22]],ds:'double bar with two dots above'},
+ i:{w:30,s:[['l',6,40,26,40],['d',18,30]],ds:'dash with a dot above'},
+ j:{w:30,s:[['l',8,12,8,50],['d',15,26],['d',15,38],['l',22,12,22,24]],ds:'bar, two dots, short tick (only in "just")'},
+ k:{w:36,s:[['l',4,14,34,14],['p','8,14 17,44 26,14'],['d',17,24]],ds:'down-triangle with long lid, dot inside'},
+ l:{w:26,s:[['p','6,20 16,18 16,50'],['d',14,8]],ds:'hook-topped bar (like 7) with dot above'},
+ m:{w:32,s:[['p','8,50 8,14 26,14 26,50'],['d',17,32]],ds:'⊓ with a dot inside'},
+ n:{w:30,s:[['l',8,12,8,50],['l',18,12,18,50],['d',25,42]],ds:'two bars, dot after'},
+ o:{w:34,s:[['e',16,35,10,14],['l',26,22,26,53],['d',17,9]],ds:'script ɑ with a dot above'},
+ p:{w:38,s:[['e',19,32,11,15],['l',2,32,36,32]],ds:'circle with a bar through (θ)'},
+ r:{w:30,s:[['r',7,12,18,16],['l',16,7,16,54]],ds:'small box on a stem (中 / Φ)'},
+ s:{w:30,s:[['l',8,12,8,50],['l',22,12,22,50],['d',15,32]],ds:'two bars with a dot between'},
+ t:{w:30,s:[['p','13,12 6,32 20,32'],['l',20,16,20,52]],ds:'open 4'},
+ u:{w:32,s:[['p','8,14 8,50 26,50 26,14'],['d',17,35]],ds:'⊔ with a dot inside'},
+ v:{w:38,s:[['r',8,20,16,28],['l',8,34,36,34]],ds:'box with a bar running out to the right'},
+ w:{w:40,s:[['l',4,30,22,30],['l',4,42,22,42],['p','34,26 25,36 34,45']],ds:'double bar + < (=<)'},
+ y:{w:30,s:[['p','8,52 8,16 18,12'],['l',20,28,20,50],['d',14,4]],ds:'hooked bar + short bar, dot above'},
+ '.':{w:34,s:[['l',4,40,30,40]],ds:'full stop: long dash, no dot'},
+ ',':{w:12,s:[['q','M6,46 Q9,52 4,58']]},
+ '"':{w:18,s:[['l',6,8,4,18],['l',13,8,11,18]]},
+ "'":{w:10,s:[['l',6,8,4,18]]},
+ '(':{w:12,s:[['q','M10,10 Q2,31 10,52']]},
+ ')':{w:12,s:[['q','M2,10 Q10,31 2,52']]},
+ '-':{w:16,s:[['l',3,34,13,34]]},
+ '?':{w:14,s:[['l',7,46,7,47]]},
+ '!':{w:14,s:[['l',7,12,7,38],['d',7,48]]},
+};
+function el(e){
+  const [t,...a]=e;
+  if(t==='l')return `<line class="st" x1="${a[0]}" y1="${a[1]}" x2="${a[2]}" y2="${a[3]}"/>`;
+  if(t==='p')return `<polyline class="st" points="${a[0]}"/>`;
+  if(t==='q')return `<path class="st" d="${a[0]}"/>`;
+  if(t==='d')return `<circle class="dt" cx="${a[0]}" cy="${a[1]}" r="2.9"/>`;
+  if(t==='e')return `<ellipse class="st" cx="${a[0]}" cy="${a[1]}" rx="${a[2]}" ry="${a[3]}"/>`;
+  if(t==='r')return `<rect class="st" x="${a[0]}" y="${a[1]}" width="${a[2]}" height="${a[3]}"/>`;
+  return '';
+}
+function glyph(ch,h){
+  h=h||36; ch=ch.toLowerCase();
+  if(ch===' ')return `<svg class="g" width="${12*h/60}" height="${h}" viewBox="0 0 12 60"></svg>`;
+  let g=G[ch];
+  if(!g){
+    if(/[a-z]/.test(ch)) return `<svg class="g" width="${30*h/60}" height="${h}" viewBox="0 -2 30 62"><rect class="unk" x="4" y="12" width="22" height="38"/><text x="15" y="38" font-size="18" text-anchor="middle" fill="#999">${ch}</text></svg>`;
+    return '';
+  }
+  return `<svg class="g" width="${g.w*h/60}" height="${h}" viewBox="0 -2 ${g.w} 62">${g.s.map(el).join('')}</svg>`;
+}
+function wordGlyphs(text,h){return [...text].map(c=>glyph(c,h)).join('');}
+
+// ---- plaintext ----
+document.getElementById('r1').innerHTML=D.reading1.map(([t,n])=>`<li>${t.replace(/\^(\w+)\^/,'<sup>^$1</sup>')}${n?`<div class="n">${n}</div>`:''}</li>`).join('');
+document.getElementById('r2').innerHTML=D.reading2.map(t=>`<p>${t}</p>`).join('');
+
+// ---- visualizer ----
+const stage=document.getElementById('stage'), ov=document.getElementById('ov'), pimg=document.getElementById('pimg');
+const imgs={};
+for(const k of Object.keys(D.pages)){const im=new Image(); im.src=D.pages[k].img; imgs[k]=im;}
+let cur='1', hlLetter='', sel=null;
+function kindName(k){return {w:'word',s:'struck through (still legible)',x:'scribbled out (illegible)',i:'inserted above the line',a:'annotation in ordinary Latin letters',u:'uncertain reading'}[k];}
+function drawPage(pg){
+  cur=pg; const P=D.pages[pg];
+  pimg.src=P.img; ov.setAttribute('viewBox',`0 0 ${P.w} ${P.h}`);
+  let s='';
+  P.lines.forEach((ln,li)=>ln.words.forEach((w,wi)=>{
+    const pts=w.poly.map(p=>p.join(',')).join(' ');
+    s+=`<polygon class="wd k-${w.kind}" points="${pts}" data-l="${li}" data-w="${wi}"/>`;
+    const cx=(w.poly[0][0]+w.poly[1][0])/2, cy=(w.poly[0][1]+w.poly[3][1]+w.poly[1][1]+w.poly[2][1])/4;
+    const lab=w.kind==='x'?'✗':w.text;
+    const fs=Math.min(27, Math.max(14,(w.x1-w.x0)/Math.max(lab.length,1)*1.7));
+    s+=`<text class="lbl" x="${cx}" y="${cy}" style="font-size:${fs}px">${lab.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</text>`;
+  }));
+  ov.innerHTML=s;
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.pg===pg));
+  applyHL();
+}
+function applyHL(){
+  ov.querySelectorAll('polygon').forEach(p=>{
+    const w=D.pages[cur].lines[p.dataset.l].words[p.dataset.w];
+    p.classList.toggle('hl', !!hlLetter && ['w','u','i','s'].includes(w.kind) && w.text.toLowerCase().includes(hlLetter));
+  });
+  document.querySelectorAll('.kc').forEach(c=>c.classList.toggle('on',c.dataset.l===hlLetter));
+  document.getElementById('hlsel').value=hlLetter;
+}
+function showWord(li,wi){
+  const P=D.pages[cur], w=P.lines[li].words[wi];
+  const xs=w.poly.map(p=>p[0]), ys=w.poly.map(p=>p[1]);
+  let x0=Math.max(0,Math.min(...xs)-8), x1=Math.min(P.w,Math.max(...xs)+8), y0=Math.max(0,Math.min(...ys)-4), y1=Math.min(P.h,Math.max(...ys)+4);
+  const cv=document.getElementById('zoom'), ctx=cv.getContext('2d');
+  const sw=x1-x0, sh=y1-y0, sc=Math.min(cv.width/sw, cv.height/sh);
+  ctx.fillStyle='#eee'; ctx.fillRect(0,0,cv.width,cv.height);
+  const im=imgs[cur];
+  const draw=()=>ctx.drawImage(im,x0,y0,sw,sh,(cv.width-sw*sc)/2,(cv.height-sh*sc)/2,sw*sc,sh*sc);
+  if(im.complete) draw(); else im.onload=draw;
+  const dec=document.getElementById('pdec'), rend=document.getElementById('prend'), meta=document.getElementById('pmeta');
+  if(w.kind==='x'){dec.textContent='[scribbled out]'; rend.innerHTML='';}
+  else if(w.kind==='a'){dec.textContent='"'+w.text+'" (Latin letters)'; rend.innerHTML='';}
+  else {dec.textContent=w.text; rend.innerHTML=`<div style="display:flex;gap:3px;flex-wrap:wrap;align-items:flex-end">${[...w.text].map(c=>`<div style="display:flex;flex-direction:column;align-items:center">${glyph(c,44)}<span style="font:600 .9rem ui-monospace,monospace;color:#b91c1c">${/[a-z]/i.test(c)?c:''}</span></div>`).join('')}</div>`;}
+  meta.innerHTML=`Page ${cur}, line ${li+1} · ${kindName(w.kind)}${w.note?'<br>'+w.note:''}`;
+}
+ov.addEventListener('mouseover',e=>{if(e.target.tagName==='polygon')showWord(+e.target.dataset.l,+e.target.dataset.w);});
+ov.addEventListener('click',e=>{if(e.target.tagName==='polygon'){if(sel)sel.classList.remove('sel'); sel=e.target; sel.classList.add('sel'); showWord(+sel.dataset.l,+sel.dataset.w);}});
+ov.addEventListener('mouseleave',()=>{if(sel)showWord(+sel.dataset.l,+sel.dataset.w);});
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{sel=null;drawPage(b.dataset.pg);});
+document.getElementById('mode').onchange=e=>{stage.className='stage mode-'+e.target.value;};
+const hs=document.getElementById('hlsel');
+'abcdefghijklmnoprstuvwy'.split('').forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;hs.appendChild(o);});
+hs.onchange=()=>{hlLetter=hs.value;applyHL();};
+
+// ---- key ----
+const kg=document.getElementById('keygrid');
+'abcdefghijklmnopqrstuvwxyz.'.split('').forEach(c=>{
+  const n=D.counts[c]||0, g=G[c];
+  const d=document.createElement('div'); d.className='kc'+(g?'':' none'); d.dataset.l=c;
+  d.innerHTML=`<div class="gl">${g?glyph(c,58):'<span class="hint">not used</span>'}</div><div class="lt">${c==='.'?'stop':c}</div><div class="ds">${g&&g.ds?g.ds:''}</div><div class="ct">${c==='.'?'':n+'×'}</div>`;
+  if(g&&c!=='.') d.onclick=()=>{hlLetter=(hlLetter===c?'':c); applyHL(); document.getElementById('viz').scrollIntoView({behavior:'smooth'});};
+  kg.appendChild(d);
+});
+
+// ---- line by line ----
+const LN=document.getElementById('lines');
+for(const pg of ['1','2']){
+  const P=D.pages[pg];
+  const h=document.createElement('h3'); h.textContent='Page '+pg; LN.appendChild(h);
+  P.lines.forEach((ln,li)=>{
+    const box=document.createElement('div'); box.className='line';
+    const [bx0,by0,bx1,by1]=ln.band; const sw=bx1-bx0, sh=by1-by0;
+    const cv=document.createElement('canvas'); cv.width=Math.round(sw*1.4); cv.height=Math.round(sh*1.4);
+    cv.style.aspectRatio=`${sw}/${sh}`; cv.style.maxWidth=Math.round(sw*0.98)+'px';
+    const im=imgs[pg]; const draw=()=>cv.getContext('2d').drawImage(im,bx0,by0,sw,sh,0,0,cv.width,cv.height);
+    if(im.complete) draw(); else im.addEventListener('load',draw);
+    const hd=document.createElement('div'); hd.className='ln-h'; hd.textContent=`line ${li+1}`;
+    box.appendChild(hd); box.appendChild(cv);
+    const il=document.createElement('div'); il.className='il';
+    ln.words.forEach(w=>{
+      const iw=document.createElement('div'); iw.className='iw k-'+w.kind;
+      if(w.kind==='x'){iw.innerHTML='<span class="xx">[scribbled out]</span>';}
+      else if(w.kind==='a'){iw.innerHTML=`<span class="xx">"${w.text}" in Latin letters</span>`;}
+      else{
+        iw.innerHTML=`<div class="gs">${[...w.text].map(c=>`<div class="gc">${glyph(c,34)}<span>${/[a-z]/i.test(c)?c:'&nbsp;'}</span></div>`).join('')}</div>`+(w.kind==='i'?'<div class="nt">inserted above the line (^)</div>':'')+(w.kind==='s'?'<div class="nt">struck through</div>':'')+(w.kind==='u'?'<div class="nt">uncertain meaning</div>':'');
+      }
+      if(w.note) iw.title=w.note;
+      il.appendChild(iw);
+    });
+    box.appendChild(il); LN.appendChild(box);
+  });
+}
+
+// ---- encoder ----
+const enc=document.getElementById('enc'), eo=document.getElementById('encout');
+function encode(){
+  const words=enc.value.toLowerCase().split(/\s+/).filter(Boolean);
+  eo.innerHTML=words.map(w=>`<span style="display:inline-flex;align-items:flex-end;gap:2px">${[...w].map(c=>glyph(c,40)).join('')}</span>`).join('');
+}
+enc.addEventListener('input',encode); encode();
+
+// ---- stats ----
+const order=Object.entries(D.counts).sort((a,b)=>b[1]-a[1]);
+const eng={e:12.7,t:9.1,a:8.2,o:7.5,i:7.0,n:6.7,s:6.3,h:6.1,r:6.0,d:4.3,l:4.0,c:2.8,u:2.8,m:2.4,w:2.4,f:2.2,g:2.0,y:2.0,p:1.9,b:1.5,v:1.0,k:0.8,j:0.15,x:0.15,q:0.1,z:0.07};
+document.getElementById('stats').innerHTML=`<p class="hint">${D.total} letters in ${D.nwords} legible words. With a single-glyph-per-letter key, the glyph frequencies are just English letter frequencies of this short text.</p><table><tr><th>letter</th>${order.map(([c])=>`<td>${c}</td>`).join('')}</tr><tr><th>glyph</th>${order.map(([c])=>`<td style="color:var(--ink)">${glyph(c,26)}</td>`).join('')}</tr><tr><th>count</th>${order.map(([,n])=>`<td>${n}</td>`).join('')}</tr><tr><th>% here</th>${order.map(([,n])=>`<td>${(100*n/D.total).toFixed(1)}</td>`).join('')}</tr><tr><th>% English</th>${order.map(([c])=>`<td>${eng[c]??''}</td>`).join('')}</tr></table>`;
+
+drawPage('1');
+</script>
+</body>
+</html>

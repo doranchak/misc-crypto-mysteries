@@ -7,6 +7,7 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 - [Bulgarian treasure hunt](https://doranchak.github.io/misc-crypto-mysteries/bulgarian-treasure-hunt-cipher)
 - [Base3 code from a Spanish class](https://doranchak.github.io/misc-crypto-mysteries/spanish-class-checkerboard-cipher)
 - [Cipher leads to an image](https://doranchak.github.io/misc-crypto-mysteries/cipher-leads-to-an-image)
+- [Disturbed student's enciphered journal](https://doranchak.github.io/misc-crypto-mysteries/disturbed-student-enciphered-journal)
 - [Enciphered diary in thrift store book](https://doranchak.github.io/misc-crypto-mysteries/oliver-twist-thrift-store)
 - [Giokku's sci fi story cipher](https://doranchak.github.io/misc-crypto-mysteries/giokku-sci-fi-story-cipher)
 - [Mock trial cipher](https://doranchak.github.io/misc-crypto-mysteries/mock-trial-cipher)
