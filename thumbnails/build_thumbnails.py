@@ -55,6 +55,7 @@ SPEC = {
     "tbstewa-custom-cipher": ("shot:", (120, 225, 720, 625), None),
     "tech-tools-substitution-cipher": ("tech-tools-substitution-cipher/images/cipher.png", (0, 0, 1074, 716), None),
     "the-lost-spiral": ("the-lost-spiral/lost-spiral.png", (0, 0, 790, 863), "auto"),
+    "tifinagh-youtube-post": ("tifinagh-youtube-post/images/post.png", (60, 170, 480, 374), "auto"),
     "tiktok-comment": ("tiktok-comment/code.jpeg", (0, 0, 1080, 423), "auto"),
     "vowel-cipher": ("shot:", (130, 360, 565, 650), None),
     "weird-message-from-a-strange-guy": ("weird-message-from-a-strange-guy/message.webp", (0, 0, 1080, 720), None),
