@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>“I used to put codes in my art”: two Z340-inspired number grids, solved</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f9f9f7; --card: #fcfcfb; --fg: #0b0b0b; --fg2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10);
+    --accent: #0b6e4f; --accent-bg: #e3f3ec; --warn: #a4400f; --warn-bg: #fbeadf;
+    --path: #eb6834;
+    /* sequential blue ramp, 4 steps = message blocks 1-4 (ordinal: reading order) */
+    --b1: #cde2fb; --b1t: #0b0b0b;
+    --b2: #86b6ef; --b2t: #0b0b0b;
+    --b3: #256abf; --b3t: #ffffff;
+    --b4: #0d366b; --b4t: #ffffff;
+    --plain: #fcfcfb; --plaint: #0b0b0b;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: #0d0d0d; --card: #1a1a19; --fg: #f0efec; --fg2: #c3c2b7; --muted: #898781;
+      --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10);
+      --accent: #5fd1a2; --accent-bg: #173326; --warn: #f0a070; --warn-bg: #3a2416;
+      --path: #d95926;
+      --b1: #0d366b; --b1t: #f0efec;
+      --b2: #184f95; --b2t: #f0efec;
+      --b3: #3987e5; --b3t: #0b0b0b;
+      --b4: #9ec5f4; --b4t: #0b0b0b;
+      --plain: #1a1a19; --plaint: #f0efec;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1040px; margin: 0 auto; padding: 32px 20px 90px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; line-height: 1.25; }
+  h2 { font-size: 1.15rem; margin: 44px 0 8px; padding-top: 12px; border-top: 1px solid var(--grid); }
+  h3 { font-size: 1rem; margin: 18px 0 4px; }
+  p { margin: 8px 0; }
+  a { color: inherit; }
+  code, .mono { font-family: var(--mono); font-size: .9em; }
+  .sub { color: var(--fg2); margin-bottom: 18px; }
+  .card { background: var(--card); border: 1px solid var(--ring); border-radius: 10px; padding: 14px 16px; }
+  .result { margin: 14px 0; border-left: 4px solid var(--accent); background: var(--accent-bg); border-radius: 0 10px 10px 0; padding: 12px 18px; }
+  .result .label { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); font-weight: 600; }
+  .result .pt { font: 600 1.12rem/1.6 var(--mono); margin-top: 4px; word-spacing: .15em; }
+  .results { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+  @media (max-width: 760px) { .results { grid-template-columns: 1fr; } }
+  .facts { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 4px; font-size: .9rem; color: var(--fg2); }
+  .facts b { color: var(--fg); font-weight: 600; }
+  .note { border-left: 4px solid var(--warn); background: var(--warn-bg); border-radius: 0 10px 10px 0; padding: 10px 16px; font-size: .93rem; margin: 12px 0; }
+  figure { margin: 0; }
+  .pics { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 760px) { .pics { grid-template-columns: 1fr; } }
+  .pics img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--ring); display: block; }
+  figcaption { font-size: .86rem; color: var(--fg2); margin-top: 4px; }
+
+  /* controls */
+  .bar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin: 10px 0; }
+  .seg { display: inline-flex; border: 1px solid var(--axis); border-radius: 8px; overflow: hidden; }
+  button { font: inherit; color: var(--fg); background: var(--card); border: 1px solid var(--axis); border-radius: 8px; padding: 5px 12px; cursor: pointer; }
+  .seg button { border: 0; border-radius: 0; border-right: 1px solid var(--axis); }
+  .seg button:last-child { border-right: 0; }
+  button:hover { background: var(--grid); }
+  button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+  button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px solid #2a78d6; outline-offset: 2px; }
+  label.chk { font-size: .92rem; color: var(--fg2); display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+  input[type=range] { width: 220px; }
+  .stepnum { font: .9rem var(--mono); color: var(--fg2); min-width: 7.5em; }
+
+  /* visualizer */
+  .viz { display: grid; grid-template-columns: minmax(0, 560px) minmax(0, 1fr); gap: 22px; align-items: start; }
+  @media (max-width: 900px) { .viz { grid-template-columns: minmax(0, 1fr); } }
+  .gridwrap { position: relative; }
+  .cgrid { display: grid; grid-template-columns: auto repeat(6, minmax(0, 1fr)); gap: 2px; }
+  .cgrid .hdr { font: .75rem var(--mono); color: var(--muted); display: flex; align-items: center; justify-content: center; }
+  .cell { position: relative; height: 64px; border-radius: 6px; border: 1px solid var(--ring); background: var(--plain); color: var(--plaint);
+          padding: 0; font: inherit; cursor: default; overflow: visible; }
+  .cell:hover { background: var(--plain); filter: brightness(.97); }
+  .cell .val { position: absolute; left: 0; right: 0; top: 8px; text-align: center; font: 600 1.15rem var(--mono); }
+  .cell .pos { position: absolute; left: 5px; top: 2px; font: .68rem var(--mono); opacity: .8; }
+  .cell .blk { position: absolute; right: 5px; top: 2px; font: .62rem var(--mono); opacity: .75; }
+  .cell .let { position: absolute; left: 0; right: 0; bottom: 4px; text-align: center; font: 700 1.05rem var(--mono); letter-spacing: .02em; }
+  .cell .let small { font-weight: 400; font-size: .7rem; opacity: .85; margin-right: 3px; }
+  .cell.bad { outline: 2px dashed var(--warn); outline-offset: -3px; }
+  .cell .flag { position: absolute; right: 4px; bottom: 4px; font-size: .7rem; line-height: 1; color: #0b0b0b; background: #fab219; border-radius: 4px; padding: 2px 3px; }
+  .cell .flag:empty { display: none; }
+  .cell.cur { box-shadow: 0 0 0 3px var(--fg); z-index: 2; }
+  .cell.lit { box-shadow: 0 0 0 3px var(--path); z-index: 2; }
+  .shade .cell[data-b="1"] { background: var(--b1); color: var(--b1t); }
+  .shade .cell[data-b="2"] { background: var(--b2); color: var(--b2t); }
+  .shade .cell[data-b="3"] { background: var(--b3); color: var(--b3t); }
+  .shade .cell[data-b="4"] { background: var(--b4); color: var(--b4t); }
+  .nopos .cell .pos, .nopos .cell .blk { display: none; }
+  .noblk .cell .blk { display: none; }
+  svg.path { position: absolute; inset: 0; pointer-events: none; overflow: visible; z-index: 3; }
+  svg.path line { stroke: var(--path); stroke-width: 2.5; stroke-linecap: round; opacity: .9; }
+  svg.path line.old { opacity: .22; }
+  svg.path circle { fill: var(--path); stroke: var(--card); stroke-width: 2; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .86rem; color: var(--fg2); margin: 8px 0 0; align-items: center; }
+  .legend .sw { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; margin-right: 5px; border: 1px solid var(--ring); }
+  .legend .ln { display: inline-block; width: 22px; height: 0; border-top: 2.5px solid var(--path); vertical-align: 3px; margin-right: 5px; }
+  .legend .dash { display: inline-block; width: 14px; height: 14px; border: 2px dashed var(--warn); border-radius: 3px; vertical-align: -2px; margin-right: 5px; }
+
+  .readout { font: 600 1.15rem/1.9 var(--mono); }
+  .readout .w { white-space: nowrap; display: inline-block; }
+  .readout .line { display: block; }
+  .readout .ch { display: inline-block; min-width: .72em; text-align: center; border-radius: 3px; cursor: default; }
+  .readout .ch.hid { color: var(--muted); font-weight: 400; }
+  .readout .ch.cur { background: var(--fg); color: var(--bg); }
+  .readout .ch.fix { text-decoration: underline dashed var(--warn) 2px; text-underline-offset: 4px; }
+  .readout .ch:hover { outline: 2px solid var(--path); }
+  .readout .gap { display: inline-block; width: .55em; }
+  .calc { margin-top: 10px; font: .95rem var(--mono); color: var(--fg2); min-height: 3em; }
+  .calc b { color: var(--fg); }
+
+  #tip { position: fixed; z-index: 50; pointer-events: none; background: var(--card); color: var(--fg); border: 1px solid var(--axis);
+         border-radius: 8px; padding: 8px 10px; font-size: .86rem; line-height: 1.45; max-width: 300px; box-shadow: 0 4px 14px rgba(0,0,0,.12); display: none; }
+  #tip .m { font-family: var(--mono); }
+
+  table { border-collapse: collapse; font-size: .92rem; margin: 8px 0; }
+  th, td { border-bottom: 1px solid var(--grid); padding: 5px 10px; text-align: left; vertical-align: top; }
+  th { color: var(--fg2); font-weight: 600; font-size: .85rem; }
+  td.n, th.n { text-align: right; font-family: var(--mono); }
+  .tblwrap { overflow-x: auto; }
+  .ok { color: var(--accent); font-weight: 600; }
+  .bad-t { color: var(--warn); font-weight: 600; }
+
+  .keygrid { display: grid; grid-template-columns: auto repeat(6, 42px); gap: 2px; font: .88rem var(--mono); }
+  .keygrid div { height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+  .keygrid .h { color: var(--muted); font-size: .75rem; }
+  .keygrid .k[data-b="1"] { background: var(--b1); color: var(--b1t); }
+  .keygrid .k[data-b="2"] { background: var(--b2); color: var(--b2t); }
+  .keygrid .k[data-b="3"] { background: var(--b3); color: var(--b3t); }
+  .keygrid .k[data-b="4"] { background: var(--b4); color: var(--b4t); }
+  .two { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: start; }
+  @media (max-width: 760px) { .two { grid-template-columns: 1fr; } }
+  ol.levels li { margin: 6px 0; }
+
+  textarea { width: 100%; min-height: 70px; font: 1rem var(--mono); background: var(--card); color: var(--fg); border: 1px solid var(--axis); border-radius: 8px; padding: 8px; }
+  pre.out { font: .95rem/1.5 var(--mono); background: var(--card); border: 1px solid var(--ring); border-radius: 8px; padding: 10px 14px; overflow-x: auto; margin: 8px 0; }
+  .small { font-size: .88rem; color: var(--fg2); }
+  footer { margin-top: 50px; font-size: .85rem; color: var(--fg2); border-top: 1px solid var(--grid); padding-top: 12px; }
+  @media (max-width: 560px) {
+    main { padding: 20px 12px 60px; }
+    .cell { height: 54px; }
+    .cell .val { font-size: .88rem; top: 12px; }
+    .cell .pos { font-size: .58rem; left: 3px; }
+    .cell .blk { display: none; }
+    .cell .let { font-size: .9rem; bottom: 2px; }
+    .readout { font-size: 1rem; }
+    .keygrid { grid-template-columns: auto repeat(6, 36px); }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<h1>“I used to put codes in my art”: two Z340-inspired number grids, solved</h1>
+<p class="sub">
+  Source: <a href="https://www.reddit.com/r/codes/comments/1v7ozf5/i_used_to_put_codes_in_my_art_back_when_my_mother/">r/codes 1v7ozf5</a>,
+  posted by u/justwantstofeelcute, who had forgotten their own solutions. A commenter in the thread solved both grids.
+  This page re-checks that solution cell by cell against the two original drawings and lets you step through the decryption.
+</p>
+
+<div class="results">
+  <div class="result">
+    <div class="label">Artwork 1 (dripping frame)</div>
+    <div class="pt">SOMETIMES I THINK IM A GHOST<br>SOMETIMES I THINK THIS IS HELL</div>
+  </div>
+  <div class="result">
+    <div class="label">Artwork 2 (scroll frame)</div>
+    <div class="pt">YOU WERE RIGHT<br>YOU WERE ALWAYS RIGHT<br>I WAS ALLWAYS TOO WEAK</div>
+  </div>
+</div>
+<div class="facts">
+  <span><b>Cipher:</b> letter number (A=1…Z=26) × its position in the message</span>
+  <span><b>Layout:</b> 48 positions in an 8×6 grid, position 1 at the bottom left</span>
+  <span><b>Slips in the art:</b> one per drawing (113 should be 133; 763 should be 736)</span>
+</div>
+
+<h2>The artwork</h2>
+<div class="pics">
+  <figure><img src="pic%201.webp" alt="Artwork 1: a figure in a hoodie beside an 8 by 6 grid of numbers under a dripping frame"><figcaption>Artwork 1: 418 836 320 230 798 576 … 19 91 39 171 100 220</figcaption></figure>
+  <figure><img src="pic%202.webp" alt="Artwork 2: a figure reaching upward beside an 8 by 6 grid of numbers inside a scroll frame"><figcaption>Artwork 2: 874 660 1000 230 840 528 … 25 35 63 81 25 88</figcaption></figure>
+</div>
+<p class="small">The numbers below were transcribed from these images. Two cells in the Reddit post's typed copy of Artwork 1 don't match the drawing (see <a href="#checks">Checks</a>).</p>
+
+<h2 id="viz">Step through the decryption</h2>
+<div class="bar">
+  <div class="seg" role="group" aria-label="Artwork">
+    <button id="art1" aria-pressed="true">Artwork 1</button>
+    <button id="art2" aria-pressed="false">Artwork 2</button>
+  </div>
+  <div class="seg" role="group" aria-label="Stepper">
+    <button id="reset" title="Back to the start">⏮</button>
+    <button id="prev" title="Previous position">◀</button>
+    <button id="play" title="Play / pause">▶ Play</button>
+    <button id="next" title="Next position">▶</button>
+    <button id="all" title="Reveal everything">⏭</button>
+  </div>
+  <input id="slider" type="range" min="0" max="48" value="0" aria-label="Position">
+  <span class="stepnum" id="stepnum">position 0 / 48</span>
+</div>
+<div class="bar">
+  <label class="chk"><input type="checkbox" id="optShade" checked> shade by 12-letter block</label>
+  <label class="chk"><input type="checkbox" id="optPos" checked> show position key</label>
+  <label class="chk"><input type="checkbox" id="optPath" checked> draw reading path</label>
+  <label class="chk"><input type="checkbox" id="optFix" checked> apply the two corrections</label>
+</div>
+
+<div class="viz">
+  <div>
+    <div class="gridwrap" id="gridwrap">
+      <div class="cgrid" id="cgrid"></div>
+      <svg class="path" id="pathsvg" aria-hidden="true"></svg>
+    </div>
+    <div class="legend" id="legend">
+      <span><span class="sw" style="background:var(--b1)"></span>block 1 (letters 1–12)</span>
+      <span><span class="sw" style="background:var(--b2)"></span>block 2 (13–24)</span>
+      <span><span class="sw" style="background:var(--b3)"></span>block 3 (25–36)</span>
+      <span><span class="sw" style="background:var(--b4)"></span>block 4 (37–48)</span>
+      <span><span class="ln"></span>reading path (current block bright, earlier blocks faded)</span>
+      <span><span class="dash"></span><span style="background:#fab219;color:#0b0b0b;border-radius:4px;padding:0 3px;font-size:.75rem">⚠</span> value is not letter × position</span>
+    </div>
+    <p class="small">Small number, top left: position in the message. Big number: the value as drawn. Bottom: the letter, shown once the stepper reaches it. Hover or tab onto a cell for the arithmetic.</p>
+  </div>
+  <div>
+    <div class="card">
+      <div class="readout" id="readout" aria-live="polite"></div>
+      <div class="calc" id="calc"></div>
+    </div>
+  </div>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<h2 id="method">How the code works</h2>
+<p>Each letter is turned into its alphabet number (A=1, B=2, …, Z=26) and multiplied by its position in the message (1–48). So the ninth letter, S (19), is written as 9 × 19 = 171. To decrypt, divide each value by its position. Because the multiplier is the position itself, the same letter gets a different number almost every time. The two E's in “SOMETIMES” at positions 4 and 8 become 20 and 40. Simple frequency counting doesn't work against this.</p>
+<p>The “transposed, inspired by Z340” part is where the 48 positions go in the 8×6 grid. The pattern below is the same for both drawings:</p>
+
+<div class="two">
+  <div>
+    <div class="keygrid" id="keygrid"></div>
+    <p class="small" style="margin-top:6px">Position key, shaded by 12-letter block.<br>Row 1 is the top row, as drawn.</p>
+  </div>
+  <div>
+    <p>The layout is the same move repeated at three levels: <b>split into two halves, then interleave them</b>.</p>
+    <ol class="levels">
+      <li><b>Blocks.</b> The 48 letters form four blocks of 12. Blocks 1 and 2 fill the bottom four rows and blocks 3 and 4 fill the top four.</li>
+      <li><b>Rows.</b> Inside a block, the letters zig-zag between two rows that are two rows apart, like a two-rail fence. Odd-numbered letters go on the lower rail and even-numbered letters on the upper one. The two blocks in each half interleave their rails, so reading upward from the bottom the rows are: block 1 odd, block 2 odd, block 1 even, block 2 even. The top half repeats this with blocks 3 and 4.</li>
+      <li><b>Columns.</b> Inside a row, its six letters fill columns 1, 3, 5 and then 2, 4, 6.</li>
+    </ol>
+    <p>As a formula, for a 0-based position <span class="mono">p = 12B + 2j + e</span> (block B = 0–3, rail e = 0–1, slot j = 0–5):<br>
+      <span class="mono">row from bottom = 4·⌊B/2⌋ + 2e + (B mod 2)</span>,
+      <span class="mono">column = 2·(j mod 3) + ⌊j/3⌋</span>.<br>
+      This reproduces all 48 positions of the commenter's key exactly. As in Z340, the letters are written down in a different order from the one they are read in, but the pattern is different. Z340's transposition moved diagonally, one row down and two columns right. This one interleaves.</p>
+  </div>
+</div>
+
+<h3>The first block of Artwork 1, worked by hand</h3>
+<div class="tblwrap"><table id="worked"></table></div>
+
+<h2 id="checks">Checks</h2>
+<h3>Every cell where something doesn't fit</h3>
+<p>The commenter worked from the Reddit post's typed numbers and reported “fixing what seems to be 3 errors” in the first grid. Compared with the drawing, two of those three are typos in the typed copy. Only one is a slip in the art itself. The second grid has one slip that the comment doesn't mention.</p>
+<div class="tblwrap"><table>
+  <thead><tr><th>Art</th><th>Cell (row, col)</th><th class="n">Pos</th><th class="n">Reddit text</th><th class="n">Drawing</th><th class="n">Should be</th><th>Verdict</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>row 1, col 4</td><td class="n">46</td><td class="n">320</td><td class="n">230</td><td class="n">230 = 46×5 (E)</td><td>typo in the post; the drawing is correct (the E of HELL)</td></tr>
+    <tr><td>1</td><td>row 8, col 4</td><td class="n">9</td><td class="n">161</td><td class="n">171</td><td class="n">171 = 9×19 (S)</td><td>typo in the post; the drawing is correct (the last S of the first SOMETIMES)</td></tr>
+    <tr><td>1</td><td>row 7, col 2</td><td class="n">19</td><td class="n">113</td><td class="n">113</td><td class="n">133 = 19×7 (G)</td><td class="bad-t">slip in the art: 113 ÷ 19 = 5.95. The nearest whole letter is F (114), but only G makes “GHOST”</td></tr>
+    <tr><td>2</td><td>row 2, col 2</td><td class="n">32</td><td class="n">763</td><td class="n">763</td><td class="n">736 = 32×23 (W)</td><td class="bad-t">slip in the art: last two digits swapped, 763 ÷ 32 = 23.84 (“I <b>W</b>AS”)</td></tr>
+  </tbody>
+</table></div>
+<p>The other 94 cells divide exactly and give a letter from A to Z. Both messages are exactly 48 letters long, with nothing left over.</p>
+
+<h3>The commenter's quick tests, re-run</h3>
+<div class="tblwrap"><table id="checktbl"></table></div>
+<p class="small">The parity test catches the 763 slip by itself. Row 2 holds only even positions, so every value there must be even, and 763 is odd. The 113 slip sits at an odd position in an odd row, so parity can't catch it.</p>
+
+<h3>A note on “ALLWAYS”</h3>
+<p>The first message is 48 letters with nothing added (23 + 25). The second message spelled “ALWAYS” would be 12 + 18 + 17 = <b>47</b> letters. The doubled L in the second “ALLWAYS” (positions 36 and 37, drawn as 432 = 36 × 12 and 444 = 37 × 12) brings it to exactly 48. The first “ALWAYS” at positions 20–25 has one L. It's impossible to say whether the extra L was a deliberate filler or a spelling slip that happened to fill the grid, but it is the 48th letter.</p>
+
+<h2 id="encode">Make your own</h2>
+<p>Type a message. Letters only are used and spaces are dropped. Short messages are padded with X up to 48. The grid uses the same position key as the drawings.</p>
+<textarea id="enc" spellcheck="false">SOMETIMES I THINK IM A GHOST SOMETIMES I THINK THIS IS HELL</textarea>
+<p class="small" id="encinfo"></p>
+<pre class="out" id="encout"></pre>
+
+<footer>
+  Files in this folder: <code>pic 1.webp</code>, <code>pic 2.webp</code> (the original drawings), <code>decode.py</code> (independent Python check of both grids from the image transcription), <code>index.html</code> (this page).<br>
+  Puzzle and art by u/justwantstofeelcute (<a href="https://www.reddit.com/r/codes/comments/1v7ozf5/i_used_to_put_codes_in_my_art_back_when_my_mother/">r/codes thread</a>). The solution is the thread commenter's. This page adds the image-vs-text transcription check, the two corrections, the layout formula and the visualizer.
+</footer>
+</main>
+
+<script>
+"use strict";
+const ORDER = [
+  [38,44,40,46,42,48],[26,32,28,34,30,36],[37,43,39,45,41,47],[25,31,27,33,29,35],
+  [14,20,16,22,18,24],[2,8,4,10,6,12],[13,19,15,21,17,23],[1,7,3,9,5,11]];
+const ARTS = [
+  { name: "Artwork 1",
+    grid: [[418,836,320,230,798,576],[338,608,560,680,390,324],[518,387,780,360,369,564],[375,155,135,297,261,280],
+           [196,160,144,418,18,456],[30,40,20,90,54,96],[117,113,165,315,221,460],[19,91,39,171,100,220]],
+    lines: ["SOMETIMES I THINK IM A GHOST", "SOMETIMES I THINK THIS IS HELL"],
+    fixes: { 19: { val: 133, why: "113 ÷ 19 = 5.95 is not a whole number. Context needs G: 19 × 7 = 133 (a 3 written as 1)." } } },
+  { name: "Artwork 2",
+    grid: [[874,660,1000,230,840,528],[468,763,196,646,600,432],[444,645,39,1035,779,47],[475,279,243,33,232,35],
+           [210,20,368,506,324,600],[30,144,92,70,108,240],[325,95,315,252,85,23],[25,35,63,81,25,88]],
+    lines: ["YOU WERE RIGHT", "YOU WERE ALWAYS RIGHT", "I WAS ALLWAYS TOO WEAK"],
+    fixes: { 32: { val: 736, why: "763 ÷ 32 = 23.84 is not a whole number. Context needs W: 32 × 23 = 736 (last two digits swapped)." } } }
+];
+// position -> [row, col]
+const WHERE = {};
+ORDER.forEach((r, ri) => r.forEach((p, ci) => WHERE[p] = [ri, ci]));
+const blockOf = p => Math.floor((p - 1) / 12) + 1;
+const L = n => String.fromCharCode(64 + n);
+
+// sanity: formula reproduces ORDER
+(function () {
+  for (let p = 0; p < 48; p++) {
+    const B = Math.floor(p / 12), rem = p % 12, j = Math.floor(rem / 2), e = rem % 2;
+    const rb = 4 * Math.floor(B / 2) + 2 * e + (B % 2), col = 2 * (j % 3) + Math.floor(j / 3);
+    if (ORDER[7 - rb][col] !== p + 1) console.error("formula mismatch at", p + 1);
+  }
+})();
+
+let art = 0, step = 0, timer = null, hoverPos = null;
+const $ = id => document.getElementById(id);
+const opt = { shade: true, pos: true, path: true, fix: true };
+
+function cellInfo(a, p) {
+  const [r, c] = WHERE[p];
+  const drawn = ARTS[a].grid[r][c];
+  const fix = ARTS[a].fixes[p];
+  const used = (fix && opt.fix) ? fix.val : drawn;
+  const q = used / p;
+  const ok = Number.isInteger(q) && q >= 1 && q <= 26;
+  return { r, c, drawn, fix, used, q, ok, letter: ok ? L(q) : "?" };
+}
+
+function buildGrid() {
+  const g = $("cgrid");
+  g.innerHTML = "";
+  g.appendChild(Object.assign(document.createElement("div"), { className: "hdr" }));
+  for (let c = 0; c < 6; c++) g.appendChild(Object.assign(document.createElement("div"), { className: "hdr", textContent: "c" + (c + 1) }));
+  for (let r = 0; r < 8; r++) {
+    g.appendChild(Object.assign(document.createElement("div"), { className: "hdr", textContent: "r" + (r + 1) }));
+    for (let c = 0; c < 6; c++) {
+      const p = ORDER[r][c];
+      const b = document.createElement("button");
+      b.className = "cell"; b.dataset.p = p; b.dataset.b = blockOf(p);
+      b.innerHTML = `<span class="pos">${p}</span><span class="blk">B${blockOf(p)}</span><span class="val"></span><span class="let"></span><span class="flag"></span>`;
+      b.addEventListener("mouseenter", e => showTip(p, b));
+      b.addEventListener("focus", e => showTip(p, b));
+      b.addEventListener("mouseleave", hideTip);
+      b.addEventListener("blur", hideTip);
+      b.addEventListener("click", () => { stop(); setStep(p); });
+      g.appendChild(b);
+    }
+  }
+}
+
+function render() {
+  const A = ARTS[art];
+  $("gridwrap").classList.toggle("shade", opt.shade);
+  $("gridwrap").classList.toggle("nopos", !opt.pos);
+  $("gridwrap").classList.toggle("noblk", !opt.shade);
+  document.querySelectorAll("#cgrid .cell").forEach(el => {
+    const p = +el.dataset.p, info = cellInfo(art, p);
+    el.querySelector(".val").textContent = info.drawn;
+    const shown = p <= step;
+    el.querySelector(".let").textContent = shown ? info.letter : "";
+    el.classList.toggle("bad", !!info.fix);
+    el.querySelector(".flag").textContent = info.fix ? "⚠" : "";
+    el.classList.toggle("cur", p === step);
+    el.setAttribute("aria-label", `position ${p}, row ${info.r + 1} column ${info.c + 1}, drawn ${info.drawn}` + (shown ? `, letter ${info.letter}` : ""));
+  });
+  // readout
+  const ro = $("readout");
+  ro.innerHTML = "";
+  let idx = 0;
+  A.lines.forEach(line => {
+    const ln = document.createElement("span"); ln.className = "line";
+    let w = document.createElement("span"); w.className = "w"; ln.appendChild(w);
+    for (const ch of line) {
+      if (ch === " ") {
+        ln.appendChild(Object.assign(document.createElement("span"), { className: "gap" }));
+        w = document.createElement("span"); w.className = "w"; ln.appendChild(w);
+        continue;
+      }
+      idx++;
+      const p = idx, info = cellInfo(art, p);
+      const s = document.createElement("span");
+      s.className = "ch" + (p > step ? " hid" : "") + (p === step ? " cur" : "") + (info.fix ? " fix" : "");
+      s.textContent = p > step ? "·" : info.letter;
+      s.dataset.p = p;
+      s.addEventListener("mouseenter", () => { hoverPos = p; markLit(); });
+      s.addEventListener("mouseleave", () => { hoverPos = null; markLit(); });
+      w.appendChild(s);
+    }
+    ro.appendChild(ln);
+  });
+  // calc line
+  const calc = $("calc");
+  if (step === 0) calc.innerHTML = "Press ▶ or click any cell. The message starts at the bottom-left cell, position 1.";
+  else {
+    const info = cellInfo(art, step);
+    let s = `position <b>${step}</b> → row ${info.r + 1}, col ${info.c + 1} → drawn <b>${info.drawn}</b>`;
+    if (info.fix && opt.fix) s += `<br><span class="bad-t">⚠ ${info.fix.why}</span><br>${info.used} ÷ ${step} = <b>${info.q}</b> → <b>${info.letter}</b>`;
+    else if (info.ok) s += `<br>${info.drawn} ÷ ${step} = <b>${info.q}</b> → <b>${info.letter}</b>`;
+    else s += `<br><span class="bad-t">${info.drawn} ÷ ${step} = ${info.q.toFixed(3)} is not a whole number</span>`;
+    calc.innerHTML = s;
+  }
+  $("slider").value = step;
+  $("stepnum").textContent = `position ${step} / 48`;
+  drawPath();
+  markLit();
+}
+
+function drawPath() {
+  const svg = $("pathsvg");
+  const wrap = $("gridwrap").getBoundingClientRect();
+  svg.setAttribute("width", wrap.width); svg.setAttribute("height", wrap.height);
+  svg.innerHTML = "";
+  if (!opt.path || step < 1) return;
+  const pts = [];
+  for (let p = 1; p <= step; p++) {
+    const el = document.querySelector(`#cgrid .cell[data-p="${p}"]`);
+    const r = el.getBoundingClientRect();
+    pts.push([r.left - wrap.left + r.width / 2, r.top - wrap.top + r.height * 0.58]);
+  }
+  const ns = "http://www.w3.org/2000/svg";
+  // earlier blocks fade back so the current block's zig-zag stays readable
+  const curB = blockOf(step);
+  for (let i = 1; i < pts.length; i++) {
+    const ln = document.createElementNS(ns, "line");
+    ln.setAttribute("x1", pts[i - 1][0]); ln.setAttribute("y1", pts[i - 1][1]);
+    ln.setAttribute("x2", pts[i][0]); ln.setAttribute("y2", pts[i][1]);
+    if (blockOf(i + 1) !== curB) ln.setAttribute("class", "old");
+    svg.appendChild(ln);
+  }
+  const last = pts[pts.length - 1];
+  const c = document.createElementNS(ns, "circle");
+  c.setAttribute("cx", last[0]); c.setAttribute("cy", last[1]); c.setAttribute("r", 5);
+  svg.appendChild(c);
+  const s0 = document.createElementNS(ns, "circle");
+  s0.setAttribute("cx", pts[0][0]); s0.setAttribute("cy", pts[0][1]); s0.setAttribute("r", 4);
+  svg.appendChild(s0);
+}
+
+function showTip(p, el) {
+  const info = cellInfo(art, p);
+  let h = `<b>Position ${p}</b> · row ${info.r + 1}, col ${info.c + 1} · block ${blockOf(p)}<br>`;
+  if (info.fix) {
+    h += `<span class="m">drawn ${info.drawn}</span><br>${info.fix.why}`;
+    if (opt.fix) h += `<br>→ <b>${info.letter}</b>`;
+  } else {
+    h += `<span class="m">${info.drawn} ÷ ${p} = ${info.q}</span> → <b>${info.letter}</b>`;
+  }
+  const tip = $("tip");
+  tip.innerHTML = h; tip.style.display = "block";
+  const r = el.getBoundingClientRect(), tr = tip.getBoundingClientRect();
+  let x = r.right + 8, y = r.top;
+  if (x + tr.width > window.innerWidth - 8) x = r.left - tr.width - 8;
+  if (x < 8) x = 8;
+  if (y + tr.height > window.innerHeight - 8) y = window.innerHeight - tr.height - 8;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+  hoverPos = p; markLit();
+}
+function hideTip() { $("tip").style.display = "none"; hoverPos = null; markLit(); }
+function markLit() {
+  document.querySelectorAll("#readout .ch").forEach(s => s.style.outline = (+s.dataset.p === hoverPos) ? "2px solid var(--path)" : "");
+  document.querySelectorAll("#cgrid .cell").forEach(c => c.classList.toggle("lit", +c.dataset.p === hoverPos && +c.dataset.p !== step));
+}
+
+function setStep(n) { step = Math.max(0, Math.min(48, n)); render(); }
+function stop() { if (timer) { clearInterval(timer); timer = null; } $("play").textContent = "▶ Play"; }
+function play() {
+  if (timer) { stop(); return; }
+  if (step >= 48) step = 0;
+  $("play").textContent = "⏸ Pause";
+  timer = setInterval(() => { if (step >= 48) { stop(); return; } setStep(step + 1); }, 320);
+}
+function setArt(a) {
+  art = a; stop();
+  $("art1").setAttribute("aria-pressed", a === 0); $("art2").setAttribute("aria-pressed", a === 1);
+  setStep(0);
+}
+
+$("art1").onclick = () => setArt(0);
+$("art2").onclick = () => setArt(1);
+$("reset").onclick = () => { stop(); setStep(0); };
+$("prev").onclick = () => { stop(); setStep(step - 1); };
+$("next").onclick = () => { stop(); setStep(step + 1); };
+$("all").onclick = () => { stop(); setStep(48); };
+$("play").onclick = play;
+$("slider").oninput = e => { stop(); setStep(+e.target.value); };
+$("optShade").onchange = e => { opt.shade = e.target.checked; render(); };
+$("optPos").onchange = e => { opt.pos = e.target.checked; render(); };
+$("optPath").onchange = e => { opt.path = e.target.checked; render(); };
+$("optFix").onchange = e => { opt.fix = e.target.checked; render(); };
+window.addEventListener("resize", drawPath);
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "TEXTAREA" || e.target.tagName === "INPUT") return;
+  if (e.key === "ArrowRight") { stop(); setStep(step + 1); }
+  if (e.key === "ArrowLeft") { stop(); setStep(step - 1); }
+});
+
+// position key figure
+(function () {
+  const k = $("keygrid");
+  k.appendChild(Object.assign(document.createElement("div"), { className: "h" }));
+  for (let c = 0; c < 6; c++) k.appendChild(Object.assign(document.createElement("div"), { className: "h", textContent: "c" + (c + 1) }));
+  for (let r = 0; r < 8; r++) {
+    k.appendChild(Object.assign(document.createElement("div"), { className: "h", textContent: "r" + (r + 1) }));
+    for (let c = 0; c < 6; c++) {
+      const d = document.createElement("div"); d.className = "k"; d.dataset.b = blockOf(ORDER[r][c]); d.textContent = ORDER[r][c];
+      k.appendChild(d);
+    }
+  }
+})();
+
+// worked example: first 12 letters of artwork 1
+(function () {
+  const t = $("worked");
+  let h = "<thead><tr><th>Letter #</th>";
+  for (let p = 1; p <= 12; p++) h += `<th class="n">${p}</th>`;
+  h += "</tr></thead><tbody>";
+  const rows = [["Letter", p => cellInfo(0, p).letter], ["A1Z26", p => cellInfo(0, p).q], ["× position", p => cellInfo(0, p).drawn],
+                ["Row (from top)", p => WHERE[p][0] + 1], ["Column", p => WHERE[p][1] + 1]];
+  rows.forEach(([name, f]) => { h += `<tr><th>${name}</th>`; for (let p = 1; p <= 12; p++) h += `<td class="n">${f(p)}</td>`; h += "</tr>"; });
+  t.innerHTML = h + "</tbody>";
+})();
+
+// commenter's quick tests
+(function () {
+  const t = $("checktbl");
+  let h = "<thead><tr><th>Test</th><th>Why it must hold</th><th>Artwork 1</th><th>Artwork 2</th></tr></thead><tbody>";
+  // parity
+  const evenRows = [0, 1, 4, 5];
+  const par = a => {
+    const bad = [];
+    evenRows.forEach(r => ARTS[a].grid[r].forEach((v, c) => { if (v % 2) bad.push(`r${r + 1}c${c + 1}=${v}`); }));
+    return bad.length ? `<span class="bad-t">✗ odd: ${bad.join(", ")}</span>` : `<span class="ok">✓ all 24 even</span>`;
+  };
+  h += `<tr><td>Rows 1, 2, 5, 6 all even</td><td>those rows hold only even positions, so letter × position is even</td><td>${par(0)}</td><td>${par(1)}</td></tr>`;
+  // rows 3,4,7,8 parity counts
+  const oddRows = [2, 3, 6, 7];
+  const cnt = a => { let o = 0; oddRows.forEach(r => ARTS[a].grid[r].forEach(v => o += v % 2)); return `${o} odd / ${24 - o} even`; };
+  h += `<tr><td>Rows 3, 4, 7, 8 mixed</td><td>odd positions, so each value is odd exactly when its letter number is odd. This is a consistency check, not a fixed ratio. The commenter's “about half” fits Artwork 1; Artwork 2's letters happen to be mostly odd (Y, O, U, E, S, W, A …)</td><td>${cnt(0)}</td><td>${cnt(1)}</td></tr>`;
+  // big-prime positions
+  const ps = [11, 22, 33, 44, 29, 31, 37, 41, 43, 47];
+  const div = (a, list) => {
+    let allOk = true;
+    const s = list.map(p => {
+      const v = ARTS[a].grid[WHERE[p][0]][WHERE[p][1]];
+      const ok = v % (p % 11 === 0 ? 11 : p) === 0; allOk = allOk && ok;
+      return ok ? `<span class="mono">${v}</span>` : `<span class="bad-t mono">${v}✗</span>`;
+    }).join(" ");
+    return s + (allOk ? ` <span class="ok">✓</span>` : "");
+  };
+  h += `<tr><td>Positions 11, 22, 33, 44 divisible by 11</td><td>11 is larger than most letter values, so a random number would rarely have it as a factor</td><td>${div(0, ps.slice(0, 4))}</td><td>${div(1, ps.slice(0, 4))}</td></tr>`;
+  h += `<tr><td>Prime positions 29–47 divisible by that prime</td><td>a prime above 26 can only come from the position</td><td>${div(0, ps.slice(4))}</td><td>${div(1, ps.slice(4))}</td></tr>`;
+  // exact division overall
+  const exact = a => { let n = 0; for (let p = 1; p <= 48; p++) { const v = ARTS[a].grid[WHERE[p][0]][WHERE[p][1]]; if (v % p === 0 && v / p >= 1 && v / p <= 26) n++; } return n; };
+  h += `<tr><td>Value ÷ position is a whole number from 1 to 26</td><td>the whole scheme</td><td>${exact(0)} / 48 (all except pos 19)</td><td>${exact(1)} / 48 (all except pos 32)</td></tr>`;
+  t.innerHTML = h + "</tbody>";
+})();
+
+// encoder
+function encode() {
+  let m = $("enc").value.toUpperCase().replace(/[^A-Z]/g, "");
+  const n = m.length;
+  let info = `${n} letters`;
+  if (n > 48) { m = m.slice(0, 48); info += ". Only the first 48 are used, the grid has 48 cells"; }
+  else if (n < 48) { info += `, padded with ${48 - n} X`; m = m.padEnd(48, "X"); }
+  else info += ", which fills the grid exactly";
+  $("encinfo").textContent = info + ".";
+  const rows = ORDER.map(r => r.map(p => String((m.charCodeAt(p - 1) - 64) * p).padStart(5)).join(""));
+  $("encout").textContent = rows.join("\n");
+}
+$("enc").addEventListener("input", encode);
+
+buildGrid(); setArt(0); encode();
+// optional deep link: #art=2&step=48
+(function () {
+  const h = new URLSearchParams(location.hash.slice(1));
+  if (h.get("art") === "2") setArt(1);
+  if (h.has("step")) setStep(+h.get("step"));
+})();
+</script>
+</body>
+</html>

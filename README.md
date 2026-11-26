@@ -20,4 +20,5 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 - [TikTok comment (Russian)](https://doranchak.github.io/misc-crypto-mysteries/tiktok-comment)
 - [Vowel cipher](https://doranchak.github.io/misc-crypto-mysteries/vowel-cipher)
 - [XMR Monero wallet cipher](https://doranchak.github.io/misc-crypto-mysteries/xmr-monero-wallet)
+- [Z340-inspired art codes](https://doranchak.github.io/misc-crypto-mysteries/z340-inspired-art-codes)
 - [Zodiac hat cipher](https://doranchak.github.io/misc-crypto-mysteries/zodiac-hat)
