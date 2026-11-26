@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>There's Treasure Inside: the Past and Future box puzzles, solved and mapped</title>
+<style>
+  :root { --ink:#1d232b; --muted:#5c6670; --line:#d9dee3; --bg:#fbfaf7;
+          --w:#2a78d6; --wt:#d7e6f8; --m:#1baf7a; --mt:#d2f0e4; --s:#eb6834; --ok:#1f6f43; --weak:#b2561a; }
+  body { font: 16px/1.55 Georgia, 'Iowan Old Style', serif; color: var(--ink); background: var(--bg); margin: 0; }
+  main { max-width: 1080px; margin: 0 auto; padding: 28px 22px 70px; }
+  h1 { font-size: 1.75rem; margin: 0 0 4px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 10px; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+  h3 { font-size: 1.05rem; margin: 22px 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 18px; font-size: .95rem; }
+  .sans, .tag, button, th, .legend, .small, figcaption, .tip { font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .verdict { background:#fff; border:1px solid var(--line); border-left:5px solid var(--ok); padding: 14px 20px; border-radius: 6px; margin: 12px 0; }
+  .verdict.open { border-left-color: var(--weak); }
+  .verdict h3 { margin: 4px 0 6px; }
+  .poem { font-size: 1.18rem; line-height: 1.6; font-style: italic; margin: 6px 0 4px 6px; }
+  .msgline { font: 600 1.02rem/1.6 'Helvetica Neue', Arial, sans-serif; letter-spacing: .02em; }
+  .tag { display:inline-block; font-size: 12px; line-height: 1.6; padding: 0 8px; border-radius: 10px; color:#fff; vertical-align: 2px; }
+  .tag.ok { background: var(--ok); } .tag.weak { background: var(--weak); } .tag.mid { background:#6b7680; }
+  .figs { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  figure { margin: 0; background:#fff; border:1px solid var(--line); border-radius:6px; padding:6px; }
+  figure img { width:100%; display:block; border-radius:4px; }
+  figcaption { font-size: .84rem; color: var(--muted); padding: 5px 2px 1px; }
+  table { border-collapse: collapse; width: 100%; background:#fff; font-size: .93rem; }
+  th, td { border: 1px solid var(--line); padding: 5px 8px; text-align:left; vertical-align: top; }
+  th { background:#f1efe9; font-size:.82rem; }
+  td.wd, td.pt { font: 600 .95rem 'Helvetica Neue', Arial, sans-serif; }
+  td.pt { color: var(--ok); }
+  .mono { font-family: Menlo, Consolas, monospace; font-size: .88em; }
+  .small { font-size: .86rem; color: var(--muted); }
+  .note { background:#fff7ec; border:1px solid #f0d9b5; border-radius:6px; padding: 10px 14px; margin: 12px 0; }
+  .two { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+  ul.tight li { margin: 3px 0; }
+  tr[data-w], tr[data-m] { cursor: pointer; }
+  tr.hl td { background: #fff3c4; }
+
+  /* ---------- interactive grid ---------- */
+  .gridwrap { background:#fff; border:1px solid var(--line); border-radius:6px; padding: 12px; }
+  .controls { display:flex; flex-wrap:wrap; gap:6px; margin: 0 0 10px; }
+  .controls button { font-size: 13px; padding: 4px 10px; border:1px solid #c9ced3; background:#f6f6f4; border-radius: 14px; cursor:pointer; color: var(--ink); }
+  .controls button.on { background: var(--ink); color:#fff; border-color: var(--ink); }
+  #grid { display:grid; grid-template-columns: 26px repeat(20, minmax(24px, 1fr)); gap: 2px; user-select:none; }
+  #grid .hdr { font: 11px 'Helvetica Neue', Arial, sans-serif; color: var(--muted); text-align:center; align-self:center; }
+  .cell { position: relative; aspect-ratio: 1 / 1; display:flex; align-items:center; justify-content:center;
+          font: 600 15px 'Helvetica Neue', Arial, sans-serif; border-radius: 4px; background:#f3f3f1; color:#9aa0a6; cursor: default; transition: opacity .1s, background .1s; }
+  .k-word  { background: var(--wt); color: #10406f; }
+  .k-msg   { background: var(--mt); color: #0d5a3e; }
+  .k-state { background: var(--s); color: #fff; }
+  .k-spareO, .k-ambig { background: #fff; color: #8a6d00; box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 3px #b9a24a; border-radius: 50%; }
+  .k-ambig { box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 3px #b9a24a; outline: 1px dashed #0d5a3e; outline-offset: -1px; }
+  .k-random { background: repeating-linear-gradient(135deg, #f1f1ef 0 4px, #e4e4e1 4px 6px); color:#9aa0a6; font-weight: 400; }
+  /* layer views */
+  #grid.v-words .cell:not(.k-word) { opacity: .22; }
+  #grid.v-msg   .cell:not(.k-msg):not(.k-ambig) { opacity: .22; }
+  #grid.v-fill  .cell:not(.k-spareO):not(.k-ambig):not(.k-state):not(.k-random) { opacity: .22; }
+  #grid.v-back  .cell:not(.back) { opacity: .2; }
+  #grid.v-fwd   .cell:not(.fwd) { opacity: .2; }
+  #grid.v-num   .cell:not(.num) { opacity: .2; }
+  #grid .cell.hl { opacity: 1 !important; box-shadow: 0 0 0 2px #e0a100, inset 0 0 0 30px rgba(255,214,107,.55); border-radius: 4px; color: var(--ink); }
+  #grid.hasHL .cell:not(.hl) { opacity: .25; }
+  .legend { display:flex; flex-wrap:wrap; gap: 6px 16px; font-size: 13px; color: var(--muted); margin-top: 10px; }
+  .legend i { display:inline-block; width: 16px; height: 16px; border-radius: 3px; vertical-align: -3px; margin-right: 5px; }
+  .tip { position: fixed; z-index: 50; max-width: 320px; padding: 7px 10px; border-radius: 6px; background:#1d232b; color:#fff;
+         font-size: 13px; line-height: 1.4; pointer-events:none; opacity: 0; transition: opacity .1s; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+  .tip.on { opacity: .97; } .tip b { color:#ffd66b; }
+  #status { font: 13px 'Helvetica Neue', Arial, sans-serif; color: var(--muted); min-height: 1.3em; margin: 8px 0 0; }
+
+  /* ---------- cryptogram ---------- */
+  .il { display:flex; flex-wrap:wrap; gap: 6px 16px; margin: 8px 0 14px; }
+  .iw { display:flex; flex-direction:column; align-items:flex-start; }
+  .ic span, .ip span { display:inline-block; width: 13px; text-align:center; }
+  .ic { font: 15px Menlo, Consolas, monospace; color: #8a6d00; }
+  .ip { font: 700 15px Menlo, Consolas, monospace; color: var(--ok); text-transform: uppercase; }
+  table.key { width:auto; font: 13px Menlo, Consolas, monospace; }
+  table.key th, table.key td { padding: 2px 6px; text-align:center; }
+  table.key th.rl { text-align:right; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* ---------- svg ---------- */
+  svg.map { width: 100%; max-width: 560px; background:#fff; border:1px solid var(--line); border-radius:6px; }
+  svg .grat { stroke:#e3e0d6; stroke-width:1; }
+  svg .gl { font: 11px 'Helvetica Neue', Arial, sans-serif; fill: #6b7680; }
+  svg.map text { paint-order: stroke; stroke: #fff; stroke-width: 3.5px; stroke-linejoin: round; }
+  svg .lab { font: 600 12.5px 'Helvetica Neue', Arial, sans-serif; fill: #1d232b; }
+  svg .lab.coin { fill:#8a6d00; }
+  svg .lk { font: italic 15px Georgia, serif; fill:#1c5cab; }
+  svg .st { font: 600 12px 'Helvetica Neue', Arial, sans-serif; letter-spacing: .18em; fill:#8a8f96; }
+  svg .lake { fill:#cde2fb; stroke:#5598e7; stroke-width:1.5; }
+  svg .border { stroke:#e34948; stroke-width:3; stroke-linecap:round; fill:none; }
+  svg .border.thin { stroke-width:2.5; opacity:.9; stroke-dasharray: 7 4; }
+  svg .coinray { stroke:#b9a24a; stroke-width:2.5; stroke-dasharray: 6 4; }
+  svg .hub { fill:none; stroke:#1d232b; stroke-width:2; }
+  svg .vtx { fill:#e34948; } svg .town { fill:#1d232b; }
+  svg .fit { stroke:#2a78d6; stroke-width:2.5; stroke-linecap:round; opacity:.9; }
+  svg .gc { font: 600 14px 'Helvetica Neue', Arial, sans-serif; }
+  svg.stsvg { width:100%; max-width: 720px; background:#fff; border:1px solid var(--line); border-radius:6px; }
+  .coins { display:flex; gap: 18px; flex-wrap: wrap; align-items:flex-start; }
+  .coins figure { width: 312px; }
+  .ev td:nth-child(3) { white-space: nowrap; }
+  @media (max-width: 760px) { .figs, .two { grid-template-columns: 1fr; } .cell { font-size: 11px; } }
+</style>
+</head>
+<body>
+<main>
+
+<h1>There's Treasure Inside: the Past and Future box puzzles</h1>
+<p class="sub">Jon Collins-Black, <i>There's Treasure Inside</i> (2024), chapter XXVI, “The Past and Future Box”: the word search and cryptogram from the 17-page excerpt <span class="mono">book-excerpts.pdf</span>. Report built 26 Nov 2026.</p>
+
+<div class="verdict">
+  <h3>Cryptogram: solved <span class="tag ok">exact</span></h3>
+  <p class="small" style="margin:0">A plain one-for-one letter substitution, as in a newspaper cryptogram (22 letters used, no letter stands for itself). It decodes to a four-line rhyming poem:</p>
+  <div class="poem">From rock to field, from strong to stream,<br>past tree and posts to forest green,<br>arrive you now where beauty sheens.<br>It's under, over, in between.</div>
+</div>
+
+<div class="verdict">
+  <h3>Word search: solved <span class="tag ok">every one of the 300 letters accounted for</span></h3>
+  <p class="small" style="margin:0 0 6px">The letters left over after the placed words are a hidden message. Each word (or pair of short words) is scrambled within its own run of leftover cells, and the message reads top to bottom in normal reading order:</p>
+  <p class="msgline">THERE ARE FIVE CLUES IN THIS WORD SEARCH. BUT DO NOT TELL ANYONE. LINE THEM UP. THERE ARE NO SPECIAL BENDS OR TURNS. JUST REMAIN STEADY TO COMPLETE THE MISSION.</p>
+  <p class="small" style="margin:6px 0 0">The message uses %%N_MSG%% cells plus 3 O's. The placed words cover %%N_WORD%% cells (25 words: numbers, NORTH/WEST, colours, terrain words). The cells left over inside the message area are <b>19 spare O's</b> plus six letters that spell <b>TN, NC, SC</b>. Random letters (Q, Z and X included) appear only in the top row and the bottom two rows.</p>
+</div>
+
+<div class="verdict open">
+  <h3>Location: not confirmed <span class="tag weak">box not reported found</span></h3>
+  <p style="margin:4px 0">The puzzles are solved, but they don't produce a single spot that can be checked from a desk. Two leads hold up when checked against the grid:</p>
+  <ul class="tight">
+    <li><b>Lake Tahoe, at the bend in the California–Nevada border (39°00′N 120°00′W)</b>, my strongest lead. The number words that read backward are NINE, TWELVE, THREE and ZERO. The only valid reading inside the US is <b>39 / 120</b>. NORTH and WEST also read backward. The commemorative coin shows two straight lines that meet in a small circle at <b>%%COIN_ANG%%°</b>, and the border bends inside the lake at <b>%%OBLIQUE%%°</b>. The chapter text adds “a state of gold” (California's nickname is the Golden State).</li>
+    <li><b>The Tennessee / North Carolina / South Carolina corner</b>, the author's childhood region. The hand-placed letters TN, NC and SC sit in roughly their real map positions. But the grid has no number words that could give coordinates there.</li>
+  </ul>
+  <p class="small" style="margin:4px 0 0">Status: the fan site Mysterious Writings reports the <i>Pokémon</i> box found in Arkansas, announced 25 Nov 2026. It says the Past and Future box is still unfound. See <a href="#huntstatus">Hunt status and sources</a>.</p>
+</div>
+
+<h2>1. The source pages</h2>
+<div class="figs">
+  <figure><a href="assets/wordsearch_page.jpg"><img src="assets/wordsearch_page.jpg" alt="Word search and cryptogram page"></a><figcaption>Excerpt p. 14 (book p. 226, per searchers): the 20×15 word search, the note “(You may ignore all three letter words and some proper nouns.)”, and the cryptogram.</figcaption></figure>
+  <figure><a href="assets/coins_page.jpg"><img src="assets/coins_page.jpg" alt="Commemorative coin and Casascius coin"></a><figcaption>Excerpt p. 11: Seth Gould's commemorative coin for this box (front: two lines meeting in a small circle; back: moon-like texture) and the gilt-silver 2013 Casascius 1 BTC coin (MS 68), “now in our treasure”. The text says at least one fully loaded coin is in this box.</figcaption></figure>
+  <figure><a href="assets/cover.jpg"><img src="assets/cover.jpg" alt="Cover of the Past and Future Treasure Box edition"></a><figcaption>Cover of the separate <i>Past and Future Treasure Box</i> ebook edition. Its blurb, as quoted by searchers, says: “Consider the author's past and present to help you find this treasure.”</figcaption></figure>
+</div>
+<p class="small">The excerpt also includes the Part Two introduction (five boxes, at most one per state, and a laminated clue to the largest box inside each smaller box), the chapter's Bitcoin / <i>Ready Player One</i> text (Pac-Man, Adventure, Zork, D&amp;D, WarGames, Monty Python and the Holy Grail), and the Postscript safety rules (summarised in <a href="#field">§6</a>).</p>
+
+<h2>2. Word search: solution</h2>
+<div class="gridwrap">
+  <div class="controls" id="views">
+    <button data-v="all" class="on">All layers</button>
+    <button data-v="words">Placed words</button>
+    <button data-v="msg">Hidden message</button>
+    <button data-v="fill">Spare O's, TN/NC/SC, random filler</button>
+    <button data-v="back">Words read backward</button>
+    <button data-v="fwd">Words read forward / down / diagonal</button>
+    <button data-v="num">Number &amp; direction words</button>
+  </div>
+  <div id="grid"></div>
+  <div class="legend">
+    <span><i style="background:var(--wt)"></i>placed word (%%N_WORD%%)</span>
+    <span><i style="background:var(--mt)"></i>hidden-message letter (%%N_MSG%%)</span>
+    <span><i style="background:#fff;box-shadow:inset 0 0 0 3px #b9a24a;border-radius:50%"></i>spare O (%%N_SPARE%% certain)</span>
+    <span><i style="background:#fff;box-shadow:inset 0 0 0 3px #b9a24a;border-radius:50%;outline:1px dashed #0d5a3e"></i>O, either message or spare (%%N_AMBIG%%: 3 message + 4 spare)</span>
+    <span><i style="background:var(--s)"></i>TN / NC / SC (%%N_STATE%%)</span>
+    <span><i style="background:repeating-linear-gradient(135deg,#f1f1ef 0 4px,#e4e4e1 4px 6px)"></i>random filler (%%N_RAND%%)</span>
+  </div>
+  <div id="status">Hover a cell for details, or click a row in the tables below to highlight it.</div>
+</div>
+
+<h3>How the 300 cells split up</h3>
+<table class="sans" style="width:auto">
+  <tr><th>Cell type</th><th>Cells</th><th>What it means</th></tr>
+  <tr><td>Placed words</td><td>%%N_WORD%%</td><td>25 ordinary straight-line words, some sharing letters. Every word cell lies outside the message.</td></tr>
+  <tr><td>Hidden message</td><td>%%N_MSG%% + 3</td><td>126 letters, scrambled in place, one word or word pair per run.</td></tr>
+  <tr><td>Spare O's</td><td>%%N_SPARE%% + 4</td><td><b>19</b> spare O's inside the message area. Three rows each have one O that can't be pinned down: it is either a message letter or a spare.</td></tr>
+  <tr><td>TN · NC · SC</td><td>%%N_STATE%%</td><td>The only spare cells in the message area that are not O. That points to deliberate placement (§5b).</td></tr>
+  <tr><td>Random filler</td><td>%%N_RAND%%</td><td>Rows 1, 14 and 15 only: QVU·BMA / XZFDQBCCASLIY / APS·NGQZP. These letters fit uniformly random letters far better than English (likelihood ratio ≈ e<sup>25</sup>). The grid's only X is here.</td></tr>
+</table>
+
+<div class="two">
+<div>
+<h3>Hidden message, run by run</h3>
+<table>
+  <tr><th>Grid letters (row order)</th><th>Unscrambled</th><th>Cells</th></tr>
+  %%MSG_TABLE%%
+</table>
+<p class="small">“LINE” (row 6) is the only message word left unscrambled, so it reads straight across.</p>
+</div>
+<div>
+<h3>Placed words</h3>
+<table>
+  <tr><th>Word</th><th>Type</th><th>Start</th><th>Direction</th><th>Note</th></tr>
+  %%WORDS_TABLE%%
+</table>
+</div>
+</div>
+
+<div class="note">
+<b>Words that are accidents.</b> The book says to ignore three-letter words and “some proper nouns”. Checked against the cell map, the usual extras all cross scrambled message letters or random filler, so the designer can't have placed them on purpose:
+CRETE, SOLON, YEOMAN, LESS and COKE use message cells. OHIO uses a spare O, a message H, DIVIDE's I and another spare O. EX / CEL / MIX use the random X. That weakens theories built on COKE (Mushroom Rock), on the lone X (“EXCEL”, “X marks the spot”), and on the corner letters (shifting QVU and BMA by 19 to get “JON” and “ITH”; “BASIC CIPHER PLAYS”). The arithmetic in those is right, but the letters it starts from are random filler.
+</div>
+
+<h2>3. Cryptogram</h2>
+<div class="gridwrap">
+%%INTERLINEAR%%
+</div>
+<h3>Key</h3>
+%%KEYTABLE%%
+<ul class="tight small">
+  <li>The solve starts from the obvious pieces. X is the most common letter (18 times), so X = E. <span class="mono">Rl'p</span> = IT'S, <span class="mono">jxldxxy</span> = BETWEEN, and <span class="mono">cyqxh, iexh</span> = UNDER, OVER. The rest follows.</li>
+  <li>“This” (capitalised) and “this” are both cipher for FROM. The fact that they look like English is a coincidence.</li>
+  <li>The key has no keyword pattern. It contains the swapped pairs c↔u and n↔y, and the cycles (h r i o) and (m p s). Plain letters J, Q, X, Z and cipher letters f, g, k, w are unused.</li>
+  <li>The surrounding text (Grandpa counting cars from a lawn chair, “as happy as if basking in the heavens”) is the hint that this is a newspaper cryptogram. Tahoe theorists read “heavens” as Heavenly Mountain Resort. An NC-side equivalent would be Grandfather Mountain, but that is only my speculation.</li>
+</ul>
+
+<h2>4. The commemorative coin</h2>
+<div class="coins">
+  <figure>%%COIN_RAW%%<figcaption>As printed, with fitted lines in blue (RANSAC, 1.5 px RMS). They run at %%COIN_UP%%° and %%COIN_LO%%° clockwise from 12 o'clock, so they are <b>%%COIN_ANG%%°</b> apart; a simpler fit gave 134.6°. Extended, they meet at the yellow dot on the edge of the small circle, which is itself off the coin's centre.</figcaption></figure>
+  <figure>%%COIN_ROT%%<figcaption>The same coin rotated −%%COIN_UP%%° so one line points north. The red dashed lines are the California–Nevada border at its bend: due north along 120°W, and the oblique section at <b>%%OBLIQUE%%°</b> toward the Colorado River.</figcaption></figure>
+</div>
+<p>It can be read as a minimalist clock (fitting for “past and future”). It also matches the one bend in the CA–NV border. That bend lies <i>inside</i> Lake Tahoe, which would be the small circle. The two angles differ by about 3.5°. A random angle would land that close only about 4% of the time, so this supports the Tahoe lead but doesn't prove it. The coin is inside the box, so this is a clue to the box's location only if Seth Gould designed it that way.</p>
+
+<h2>5. Where the puzzles point</h2>
+<h3>5a. Lake Tahoe: the CA–NV border angle point <span class="tag mid">strongest lead · unconfirmed</span></h3>
+<div class="two">
+<div>%%TAHOE%%
+<p class="small">The shoreline is schematic: it's drawn from approximate shore-town positions, accurate to about 1 km. The border lines and the 39°N/120°W point are exact. <a href="https://www.openstreetmap.org/?mlat=39.0&amp;mlon=-120.0#map=11/39.03/-120.0">Open the point on OpenStreetMap</a>.</p>
+</div>
+<div>
+<table class="ev">
+  <tr><th>Evidence</th><th>Source</th><th>Weight</th></tr>
+  <tr><td>The number words that read <b>backward</b> are NINE, TWELVE, THREE, ZERO. NORTH and WEST also read backward. Paired up, {3, 9, 12, 0} give only one valid US reading: <b>39°N, 120°W</b>. A latitude of 30 would force a longitude of 129°W, which is in the Pacific.</td><td>community reading, checked here (uniqueness is new)</td><td>medium</td></tr>
+  <tr><td>Row 1 reads QVU · LILAC · <b>E</b> · NINETEEN · BMA. The lone E between the two words is used by NINE read backward from R1C12. Without NINE it would be a single filler letter wedged between two placed words.</td><td>new here</td><td>weak–medium</td></tr>
+  <tr><td>39°N 120°W is not an arbitrary round number. It is the point where the CA–NV border turns, in Lake Tahoe.</td><td>geography</td><td>medium</td></tr>
+  <tr><td>Coin: two lines meet inside a small circle at %%COIN_ANG%%°. The border turns at %%OBLIQUE%%° inside the lake.</td><td>measured here</td><td>medium</td></tr>
+  <tr><td>“Its surface would reflect <i>a state of gold</i>”: California is the Golden State. The box sat in the author's California office. Blurb: “consider the author's past and <i>present</i>.”</td><td>chapter text</td><td>weak–medium</td></tr>
+  <tr><td>STATE (diagonal) and LINE (the only unscrambled message word) give “Stateline”. That is the Nevada town where the border leaves the lake's south-east shore.</td><td>community, checked here</td><td>weak</td></tr>
+  <tr><td>“basking in the heavens”: Heavenly Mountain Resort, which straddles the state line at South Lake Tahoe.</td><td>community</td><td>weak</td></tr>
+</table>
+<p class="small"><b>Limits:</b> the point itself is in open water, and the author says no box is under or reached across water, so 39/120 can only be the area. The poem would then be the walk. The “backward only” filter is chosen after the fact, though it is the filter that NORTH and WEST themselves pass. Words reading forward or down (NINETEEN, FIVE, ELEVEN, the second THREE) are left unused.</p>
+</div>
+</div>
+
+<h3>5b. Tennessee / North Carolina / South Carolina <span class="tag mid">deliberate, but region-level only</span></h3>
+%%STATES%%
+<ul class="tight">
+  <li><b>Clearly deliberate:</b> every other spare cell in the message area is an O. These six cells instead spell TN (R10C9–10), NC (R10C12–13) and SC (R11C13–14), laid out roughly like the map: TN west of NC, SC south of NC.</li>
+  <li>The T of STATE (R10C11) sits exactly between TN and NC, like a state line. WATER, DIVIDE(R) and PEAKS fit the Blue Ridge and the Eastern Continental Divide.</li>
+  <li>Collins-Black grew up in North Carolina. Press coverage describes boyhood gem hunting at the Emerald Hollow Mine at the foot of the Brushy Mountains, and Kile's article places him near Statesville. That is the “past” in the blurb.</li>
+  <li><b>Limit:</b> coordinates in that region (35–36°N, 76–84°W) would need SEVEN, EIGHT, THIRTY or EIGHTY, and none of those is in the grid. The six letters name a region, not a spot, and could stand for the author's past rather than where the box is. Community versions: Kile's five clues “TN, NC, SC, STATE, DIVIDER” (Smokies, NC side), and Gary's Mushroom Rock, Signal Mountain TN theory (LILAC/SAPPHIRE/STATE/LINE/COKE). COKE is an accidental word (see note above).</li>
+</ul>
+
+<h3>5c. “Five clues … line them up”</h3>
+<p>The message says there are five clues and tells you to line them up. Nobody has pinned down which five, and I couldn't either. The placed words fall into tidy groups: numbers, NORTH/WEST, colours and gems (LILAC, LEMON, SAPPHIRE), terrain words (WATER, DIVIDE, PEAKS, QUARRY, DIRT, RAIL), and other words (COUNT, ROUND, WALK, SQUARE, (E)STATE). Some observations:</p>
+<ul class="tight">
+  <li>Read as places, “lines” could be lines of latitude and longitude, or a state line. “No special bends or turns” is in any case the ordinary word-search rule that words run straight.</li>
+  <li>Backward-reading words (13) and forward/down/diagonal words (12) split almost evenly. That fits a “past and future” theme: the backward words hold the 39/120 numbers plus NORTH and WEST.</li>
+  <li>COUNT, THREE and FIVE echo the Holy Hand Grenade passage in <i>Monty Python and the Holy Grail</i>, which the chapter names. Counting the spare O's gives NINETEEN, which is also in the grid. That may be playful design or chance.</li>
+</ul>
+
+<h2 id="field">6. The derived instructions</h2>
+<p>Put together, the two puzzles describe a <b>walk</b> rather than coordinates:</p>
+<ol class="tight">
+  <li><b>Start at a rock</b>, a named rock or boulder, and head to a <b>field or meadow</b>.</li>
+  <li><b>From “strong” to a stream.</b> “Strong” is unexplained. It could be a strong current or falls, or a place or feature named Strong.</li>
+  <li><b>Past a tree and posts</b> (fence posts, trail posts, or boundary monuments) into <b>green forest</b>.</li>
+  <li>Arrive where something <b>shines</b>: water, a falls, or a view.</li>
+  <li>The box is <b>“under, over, in between”</b>: tucked beneath and between things, or literally between two states if the state-line reading is right.</li>
+</ol>
+<p class="small">The author's Postscript rules, which he says contain no clues: nowhere dangerous, nothing under water, no boat needed, no climbing. Within 3 miles of a road. Never on private property except a public trail easement. Never buried, so don't dig. Don't search in snow or extreme heat. Know the local wildlife and hunting seasons, go with a companion, and carry water and a phone.</p>
+
+<h2 id="huntstatus">7. Hunt status and sources</h2>
+<ul class="tight small">
+  <li>Five boxes in total, at most one per state. The four smaller boxes are Forrest Fenn, Pokémon, Past and Future, and Appalachian Footpath; the Lion's Share is the largest. Each smaller box holds a laminated clue to the Lion's Share.</li>
+  <li><b>Pokémon box found in Arkansas</b>, from an author email reported 25 Nov 2026: <a href="https://mysteriouswritings.com/theres-treasure-inside-tti-pokemon-box-found/">Mysterious Writings</a>. No find has been reported for the Past and Future box.</li>
+  <li>Community work on this chapter: <a href="https://mysteriouswritings.substack.com/p/word-search-secret-message-in-theres">word-search secret message</a> · <a href="https://mysteriouswritings.com/theres-treasure-inside-cryptogram-clues-to-the-past-and-present-treasure-box/">cryptogram</a> · <a href="https://mysteriouswritings.com/where-is-the-past-future-box-location-5-clues-in-word-search-say-tennessee/">TN/NC/SC theory</a> · <a href="https://mysteriouswritings.com/top-10-lake-tahoe-clues-for-the-past-future-box/">Lake Tahoe top 10</a> · <a href="https://mysteriouswritings.com/highlights-of-past-future-solution-theory-for-mushroom-rock-tennessee/">Mushroom Rock, TN</a> · <a href="https://mysteriouswritings.com/word-search-clues-top-secret-letter-pairs-theres-treasure-inside/">letter pairs</a> · <a href="https://mysteriouswritings.com/past-future-treasure-box-excel-clue-to-ohio/">“Excel” → Ohio</a> · <a href="https://mysteriouswritings.com/theres-treasure-inside-faq-treasure-hunt-by-jon-collins-black/">FAQ</a></li>
+  <li>Author background: <a href="https://inkl.com/news/x-marks-the-bitcoin-the-treasure-hunt-book-is-back-and-it-s-bigger-than-ever">NC childhood / Emerald Hollow Mine</a> · <a href="https://abc7news.com/post/man-hides-5-treasure-chests-worth-more-2-million-united-states-heres-how-find/15614623/">ABC7 / CNN overview</a></li>
+  <li>New in this report, beyond the sources above: the complete 300-cell accounting, the finding that TN/NC/SC are the only non-O spares, the proof that COKE, OHIO and the X are accidental, the NINE/R1C9 point, the uniqueness of 39/120, and the coin-angle measurement.</li>
+</ul>
+
+<h2>8. Reproduce</h2>
+<p class="small mono">cd work; pdfimages -png ../book-excerpts.pdf scans/img; /opt/homebrew/bin/python3.11 classify.py; python3.11 cryptogram.py; python3.11 coin_angle2.py; python3.11 build_report.py</p>
+<p class="small"><span class="mono">grid.py</span> transcribed grid and finder · <span class="mono">classify.py</span> cell accounting (asserts every message run is an exact anagram and that no message cell overlaps a word) · <span class="mono">cryptogram.py</span> key consistency · <span class="mono">coin_angle2.py</span> coin line fit (RANSAC; <span class="mono">coin_angle.py</span> = first PCA pass) · <span class="mono">search2.py</span> full dictionary sweep · <span class="mono">build_report.py</span> + <span class="mono">template.html</span> this page.</p>
+
+</main>
+<div class="tip" id="tip"></div>
+<script>
+const D = %%DATA%%;
+const grid = document.getElementById('grid'), tip = document.getElementById('tip'), status = document.getElementById('status');
+const catName = {number:'number', direction:'direction', colour:'colour / gem', place:'terrain / place', other:'other'};
+const dirName = {E:'left-to-right', W:'backward', S:'down', NE:'diagonal up-right', SE:'diagonal down-right'};
+const kindName = {word:'placed word', msg:'hidden-message letter', state:'deliberate state letters', spareO:'spare O', ambig:'O: message letter or spare (interchangeable within its run)', random:'random filler'};
+grid.appendChild(Object.assign(document.createElement('div'), {className:'hdr'}));
+for (let c = 0; c < 20; c++) grid.appendChild(Object.assign(document.createElement('div'), {className:'hdr', textContent: c + 1}));
+const cellEls = [];
+D.cells.forEach((row, r) => {
+  grid.appendChild(Object.assign(document.createElement('div'), {className:'hdr', textContent: r + 1}));
+  cellEls.push([]);
+  row.forEach((cell, c) => {
+    const el = document.createElement('div');
+    el.className = 'cell k-' + cell.k;
+    el.textContent = cell.ch;
+    cell.words.forEach(i => {
+      const w = D.words[i];
+      el.classList.add(w.d === 'W' ? 'back' : 'fwd');
+      if (w.cat === 'number' || w.cat === 'direction') el.classList.add('num');
+    });
+    el.addEventListener('mousemove', ev => {
+      let h = `<b>R${r+1}C${c+1} “${cell.ch}”</b>: ${kindName[cell.k]}`;
+      if (cell.words.length) h += '<br>' + cell.words.map(i => `${D.words[i].w} (${catName[D.words[i].cat]}, ${dirName[D.words[i].d]})`).join('<br>');
+      if (cell.msg !== null) h += `<br>message: <b>${D.msgs[cell.msg].txt}</b> (grid run ${D.msgs[cell.msg].raw})`;
+      if (cell.st) h += `<br>spells <b>${cell.st}</b>`;
+      tip.innerHTML = h; tip.classList.add('on');
+      tip.style.left = Math.min(ev.clientX + 14, innerWidth - 330) + 'px'; tip.style.top = (ev.clientY + 14) + 'px';
+    });
+    el.addEventListener('mouseleave', () => tip.classList.remove('on'));
+    grid.appendChild(el); cellEls[r].push(el);
+  });
+});
+document.querySelectorAll('#views button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#views button').forEach(x => x.classList.toggle('on', x === b));
+  grid.className = b.dataset.v === 'all' ? '' : 'v-' + b.dataset.v;
+  clearHL();
+}));
+function clearHL() { grid.classList.remove('hasHL'); document.querySelectorAll('.cell.hl').forEach(e => e.classList.remove('hl')); document.querySelectorAll('tr.hl').forEach(e => e.classList.remove('hl')); }
+function highlight(cells, tr, text) {
+  const same = tr.classList.contains('hl');
+  clearHL();
+  if (same) { status.textContent = 'Hover a cell for details, or click a row in the tables below to highlight it.'; return; }
+  grid.classList.add('hasHL'); tr.classList.add('hl');
+  cells.forEach(([r, c]) => cellEls[r][c].classList.add('hl'));
+  status.innerHTML = text;
+  grid.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+document.querySelectorAll('tr[data-w]').forEach(tr => tr.addEventListener('click', () => {
+  const w = D.words[+tr.dataset.w]; highlight(w.cells, tr, `<b>${w.w}</b>: ${catName[w.cat]}, starts R${w.r}C${w.c}, reads ${dirName[w.d]}. Click again to clear.`);
+}));
+document.querySelectorAll('tr[data-m]').forEach(tr => tr.addEventListener('click', () => {
+  const m = D.msgs[+tr.dataset.m]; highlight(m.cells, tr, `Message run <span class="mono">${m.raw}</span> → <b>${m.txt}</b>. Click again to clear.`);
+}));
+</script>
+</body>
+</html>

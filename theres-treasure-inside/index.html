@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>There's Treasure Inside: the Past and Future box puzzles, solved and mapped</title>
+<style>
+  :root { --ink:#1d232b; --muted:#5c6670; --line:#d9dee3; --bg:#fbfaf7;
+          --w:#2a78d6; --wt:#d7e6f8; --m:#1baf7a; --mt:#d2f0e4; --s:#eb6834; --ok:#1f6f43; --weak:#b2561a; }
+  body { font: 16px/1.55 Georgia, 'Iowan Old Style', serif; color: var(--ink); background: var(--bg); margin: 0; }
+  main { max-width: 1080px; margin: 0 auto; padding: 28px 22px 70px; }
+  h1 { font-size: 1.75rem; margin: 0 0 4px; }
+  h2 { font-size: 1.3rem; margin: 40px 0 10px; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+  h3 { font-size: 1.05rem; margin: 22px 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 18px; font-size: .95rem; }
+  .sans, .tag, button, th, .legend, .small, figcaption, .tip { font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .verdict { background:#fff; border:1px solid var(--line); border-left:5px solid var(--ok); padding: 14px 20px; border-radius: 6px; margin: 12px 0; }
+  .verdict.open { border-left-color: var(--weak); }
+  .verdict h3 { margin: 4px 0 6px; }
+  .poem { font-size: 1.18rem; line-height: 1.6; font-style: italic; margin: 6px 0 4px 6px; }
+  .msgline { font: 600 1.02rem/1.6 'Helvetica Neue', Arial, sans-serif; letter-spacing: .02em; }
+  .tag { display:inline-block; font-size: 12px; line-height: 1.6; padding: 0 8px; border-radius: 10px; color:#fff; vertical-align: 2px; }
+  .tag.ok { background: var(--ok); } .tag.weak { background: var(--weak); } .tag.mid { background:#6b7680; }
+  .figs { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  figure { margin: 0; background:#fff; border:1px solid var(--line); border-radius:6px; padding:6px; }
+  figure img { width:100%; display:block; border-radius:4px; }
+  figcaption { font-size: .84rem; color: var(--muted); padding: 5px 2px 1px; }
+  table { border-collapse: collapse; width: 100%; background:#fff; font-size: .93rem; }
+  th, td { border: 1px solid var(--line); padding: 5px 8px; text-align:left; vertical-align: top; }
+  th { background:#f1efe9; font-size:.82rem; }
+  td.wd, td.pt { font: 600 .95rem 'Helvetica Neue', Arial, sans-serif; }
+  td.pt { color: var(--ok); }
+  .mono { font-family: Menlo, Consolas, monospace; font-size: .88em; }
+  .small { font-size: .86rem; color: var(--muted); }
+  .note { background:#fff7ec; border:1px solid #f0d9b5; border-radius:6px; padding: 10px 14px; margin: 12px 0; }
+  .two { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+  ul.tight li { margin: 3px 0; }
+  tr[data-w], tr[data-m] { cursor: pointer; }
+  tr.hl td { background: #fff3c4; }
+
+  /* ---------- interactive grid ---------- */
+  .gridwrap { background:#fff; border:1px solid var(--line); border-radius:6px; padding: 12px; }
+  .controls { display:flex; flex-wrap:wrap; gap:6px; margin: 0 0 10px; }
+  .controls button { font-size: 13px; padding: 4px 10px; border:1px solid #c9ced3; background:#f6f6f4; border-radius: 14px; cursor:pointer; color: var(--ink); }
+  .controls button.on { background: var(--ink); color:#fff; border-color: var(--ink); }
+  #grid { display:grid; grid-template-columns: 26px repeat(20, minmax(24px, 1fr)); gap: 2px; user-select:none; }
+  #grid .hdr { font: 11px 'Helvetica Neue', Arial, sans-serif; color: var(--muted); text-align:center; align-self:center; }
+  .cell { position: relative; aspect-ratio: 1 / 1; display:flex; align-items:center; justify-content:center;
+          font: 600 15px 'Helvetica Neue', Arial, sans-serif; border-radius: 4px; background:#f3f3f1; color:#9aa0a6; cursor: default; transition: opacity .1s, background .1s; }
+  .k-word  { background: var(--wt); color: #10406f; }
+  .k-msg   { background: var(--mt); color: #0d5a3e; }
+  .k-state { background: var(--s); color: #fff; }
+  .k-spareO, .k-ambig { background: #fff; color: #8a6d00; box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 3px #b9a24a; border-radius: 50%; }
+  .k-ambig { box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 3px #b9a24a; outline: 1px dashed #0d5a3e; outline-offset: -1px; }
+  .k-random { background: repeating-linear-gradient(135deg, #f1f1ef 0 4px, #e4e4e1 4px 6px); color:#9aa0a6; font-weight: 400; }
+  /* layer views */
+  #grid.v-words .cell:not(.k-word) { opacity: .22; }
+  #grid.v-msg   .cell:not(.k-msg):not(.k-ambig) { opacity: .22; }
+  #grid.v-fill  .cell:not(.k-spareO):not(.k-ambig):not(.k-state):not(.k-random) { opacity: .22; }
+  #grid.v-back  .cell:not(.back) { opacity: .2; }
+  #grid.v-fwd   .cell:not(.fwd) { opacity: .2; }
+  #grid.v-num   .cell:not(.num) { opacity: .2; }
+  #grid .cell.hl { opacity: 1 !important; box-shadow: 0 0 0 2px #e0a100, inset 0 0 0 30px rgba(255,214,107,.55); border-radius: 4px; color: var(--ink); }
+  #grid.hasHL .cell:not(.hl) { opacity: .25; }
+  .legend { display:flex; flex-wrap:wrap; gap: 6px 16px; font-size: 13px; color: var(--muted); margin-top: 10px; }
+  .legend i { display:inline-block; width: 16px; height: 16px; border-radius: 3px; vertical-align: -3px; margin-right: 5px; }
+  .tip { position: fixed; z-index: 50; max-width: 320px; padding: 7px 10px; border-radius: 6px; background:#1d232b; color:#fff;
+         font-size: 13px; line-height: 1.4; pointer-events:none; opacity: 0; transition: opacity .1s; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+  .tip.on { opacity: .97; } .tip b { color:#ffd66b; }
+  #status { font: 13px 'Helvetica Neue', Arial, sans-serif; color: var(--muted); min-height: 1.3em; margin: 8px 0 0; }
+
+  /* ---------- cryptogram ---------- */
+  .il { display:flex; flex-wrap:wrap; gap: 6px 16px; margin: 8px 0 14px; }
+  .iw { display:flex; flex-direction:column; align-items:flex-start; }
+  .ic span, .ip span { display:inline-block; width: 13px; text-align:center; }
+  .ic { font: 15px Menlo, Consolas, monospace; color: #8a6d00; }
+  .ip { font: 700 15px Menlo, Consolas, monospace; color: var(--ok); text-transform: uppercase; }
+  table.key { width:auto; font: 13px Menlo, Consolas, monospace; }
+  table.key th, table.key td { padding: 2px 6px; text-align:center; }
+  table.key th.rl { text-align:right; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* ---------- svg ---------- */
+  svg.map { width: 100%; max-width: 560px; background:#fff; border:1px solid var(--line); border-radius:6px; }
+  svg .grat { stroke:#e3e0d6; stroke-width:1; }
+  svg .gl { font: 11px 'Helvetica Neue', Arial, sans-serif; fill: #6b7680; }
+  svg.map text { paint-order: stroke; stroke: #fff; stroke-width: 3.5px; stroke-linejoin: round; }
+  svg .lab { font: 600 12.5px 'Helvetica Neue', Arial, sans-serif; fill: #1d232b; }
+  svg .lab.coin { fill:#8a6d00; }
+  svg .lk { font: italic 15px Georgia, serif; fill:#1c5cab; }
+  svg .st { font: 600 12px 'Helvetica Neue', Arial, sans-serif; letter-spacing: .18em; fill:#8a8f96; }
+  svg .lake { fill:#cde2fb; stroke:#5598e7; stroke-width:1.5; }
+  svg .border { stroke:#e34948; stroke-width:3; stroke-linecap:round; fill:none; }
+  svg .border.thin { stroke-width:2.5; opacity:.9; stroke-dasharray: 7 4; }
+  svg .coinray { stroke:#b9a24a; stroke-width:2.5; stroke-dasharray: 6 4; }
+  svg .hub { fill:none; stroke:#1d232b; stroke-width:2; }
+  svg .vtx { fill:#e34948; } svg .town { fill:#1d232b; }
+  svg .fit { stroke:#2a78d6; stroke-width:2.5; stroke-linecap:round; opacity:.9; }
+  svg .gc { font: 600 14px 'Helvetica Neue', Arial, sans-serif; }
+  svg.stsvg { width:100%; max-width: 720px; background:#fff; border:1px solid var(--line); border-radius:6px; }
+  .coins { display:flex; gap: 18px; flex-wrap: wrap; align-items:flex-start; }
+  .coins figure { width: 312px; }
+  .ev td:nth-child(3) { white-space: nowrap; }
+  @media (max-width: 760px) { .figs, .two { grid-template-columns: 1fr; } .cell { font-size: 11px; } }
+</style>
+</head>
+<body>
+<main>
+
+<h1>There's Treasure Inside: the Past and Future box puzzles</h1>
+<p class="sub">Jon Collins-Black, <i>There's Treasure Inside</i> (2024), chapter XXVI, “The Past and Future Box”: the word search and cryptogram from the 17-page excerpt <span class="mono">book-excerpts.pdf</span>. Report built 26 Nov 2026.</p>
+
+<div class="verdict">
+  <h3>Cryptogram: solved <span class="tag ok">exact</span></h3>
+  <p class="small" style="margin:0">A plain one-for-one letter substitution, as in a newspaper cryptogram (22 letters used, no letter stands for itself). It decodes to a four-line rhyming poem:</p>
+  <div class="poem">From rock to field, from strong to stream,<br>past tree and posts to forest green,<br>arrive you now where beauty sheens.<br>It's under, over, in between.</div>
+</div>
+
+<div class="verdict">
+  <h3>Word search: solved <span class="tag ok">every one of the 300 letters accounted for</span></h3>
+  <p class="small" style="margin:0 0 6px">The letters left over after the placed words are a hidden message. Each word (or pair of short words) is scrambled within its own run of leftover cells, and the message reads top to bottom in normal reading order:</p>
+  <p class="msgline">THERE ARE FIVE CLUES IN THIS WORD SEARCH. BUT DO NOT TELL ANYONE. LINE THEM UP. THERE ARE NO SPECIAL BENDS OR TURNS. JUST REMAIN STEADY TO COMPLETE THE MISSION.</p>
+  <p class="small" style="margin:6px 0 0">The message uses 123 cells plus 3 O's. The placed words cover 122 cells (25 words: numbers, NORTH/WEST, colours, terrain words). The cells left over inside the message area are <b>19 spare O's</b> plus six letters that spell <b>TN, NC, SC</b>. Random letters (Q, Z and X included) appear only in the top row and the bottom two rows.</p>
+</div>
+
+<div class="verdict open">
+  <h3>Location: not confirmed <span class="tag weak">box not reported found</span></h3>
+  <p style="margin:4px 0">The puzzles are solved, but they don't produce a single spot that can be checked from a desk. Two leads hold up when checked against the grid:</p>
+  <ul class="tight">
+    <li><b>Lake Tahoe, at the bend in the California–Nevada border (39°00′N 120°00′W)</b>, my strongest lead. The number words that read backward are NINE, TWELVE, THREE and ZERO. The only valid reading inside the US is <b>39 / 120</b>. NORTH and WEST also read backward. The commemorative coin shows two straight lines that meet in a small circle at <b>134.9°</b>, and the border bends inside the lake at <b>131.4°</b>. The chapter text adds “a state of gold” (California's nickname is the Golden State).</li>
+    <li><b>The Tennessee / North Carolina / South Carolina corner</b>, the author's childhood region. The hand-placed letters TN, NC and SC sit in roughly their real map positions. But the grid has no number words that could give coordinates there.</li>
+  </ul>
+  <p class="small" style="margin:4px 0 0">Status: the fan site Mysterious Writings reports the <i>Pokémon</i> box found in Arkansas, announced 25 Nov 2026. It says the Past and Future box is still unfound. See <a href="#huntstatus">Hunt status and sources</a>.</p>
+</div>
+
+<h2>1. The source pages</h2>
+<div class="figs">
+  <figure><a href="assets/wordsearch_page.jpg"><img src="assets/wordsearch_page.jpg" alt="Word search and cryptogram page"></a><figcaption>Excerpt p. 14 (book p. 226, per searchers): the 20×15 word search, the note “(You may ignore all three letter words and some proper nouns.)”, and the cryptogram.</figcaption></figure>
+  <figure><a href="assets/coins_page.jpg"><img src="assets/coins_page.jpg" alt="Commemorative coin and Casascius coin"></a><figcaption>Excerpt p. 11: Seth Gould's commemorative coin for this box (front: two lines meeting in a small circle; back: moon-like texture) and the gilt-silver 2013 Casascius 1 BTC coin (MS 68), “now in our treasure”. The text says at least one fully loaded coin is in this box.</figcaption></figure>
+  <figure><a href="assets/cover.jpg"><img src="assets/cover.jpg" alt="Cover of the Past and Future Treasure Box edition"></a><figcaption>Cover of the separate <i>Past and Future Treasure Box</i> ebook edition. Its blurb, as quoted by searchers, says: “Consider the author's past and present to help you find this treasure.”</figcaption></figure>
+</div>
+<p class="small">The excerpt also includes the Part Two introduction (five boxes, at most one per state, and a laminated clue to the largest box inside each smaller box), the chapter's Bitcoin / <i>Ready Player One</i> text (Pac-Man, Adventure, Zork, D&amp;D, WarGames, Monty Python and the Holy Grail), and the Postscript safety rules (summarised in <a href="#field">§6</a>).</p>
+
+<h2>2. Word search: solution</h2>
+<div class="gridwrap">
+  <div class="controls" id="views">
+    <button data-v="all" class="on">All layers</button>
+    <button data-v="words">Placed words</button>
+    <button data-v="msg">Hidden message</button>
+    <button data-v="fill">Spare O's, TN/NC/SC, random filler</button>
+    <button data-v="back">Words read backward</button>
+    <button data-v="fwd">Words read forward / down / diagonal</button>
+    <button data-v="num">Number &amp; direction words</button>
+  </div>
+  <div id="grid"></div>
+  <div class="legend">
+    <span><i style="background:var(--wt)"></i>placed word (122)</span>
+    <span><i style="background:var(--mt)"></i>hidden-message letter (123)</span>
+    <span><i style="background:#fff;box-shadow:inset 0 0 0 3px #b9a24a;border-radius:50%"></i>spare O (15 certain)</span>
+    <span><i style="background:#fff;box-shadow:inset 0 0 0 3px #b9a24a;border-radius:50%;outline:1px dashed #0d5a3e"></i>O, either message or spare (7: 3 message + 4 spare)</span>
+    <span><i style="background:var(--s)"></i>TN / NC / SC (6)</span>
+    <span><i style="background:repeating-linear-gradient(135deg,#f1f1ef 0 4px,#e4e4e1 4px 6px)"></i>random filler (27)</span>
+  </div>
+  <div id="status">Hover a cell for details, or click a row in the tables below to highlight it.</div>
+</div>
+
+<h3>How the 300 cells split up</h3>
+<table class="sans" style="width:auto">
+  <tr><th>Cell type</th><th>Cells</th><th>What it means</th></tr>
+  <tr><td>Placed words</td><td>122</td><td>25 ordinary straight-line words, some sharing letters. Every word cell lies outside the message.</td></tr>
+  <tr><td>Hidden message</td><td>123 + 3</td><td>126 letters, scrambled in place, one word or word pair per run.</td></tr>
+  <tr><td>Spare O's</td><td>15 + 4</td><td><b>19</b> spare O's inside the message area. Three rows each have one O that can't be pinned down: it is either a message letter or a spare.</td></tr>
+  <tr><td>TN · NC · SC</td><td>6</td><td>The only spare cells in the message area that are not O. That points to deliberate placement (§5b).</td></tr>
+  <tr><td>Random filler</td><td>27</td><td>Rows 1, 14 and 15 only: QVU·BMA / XZFDQBCCASLIY / APS·NGQZP. These letters fit uniformly random letters far better than English (likelihood ratio ≈ e<sup>25</sup>). The grid's only X is here.</td></tr>
+</table>
+
+<div class="two">
+<div>
+<h3>Hidden message, run by run</h3>
+<table>
+  <tr><th>Grid letters (row order)</th><th>Unscrambled</th><th>Cells</th></tr>
+  <tr data-m="0"><td class="mono">RETEH</td><td class="pt">THERE</td><td class="mono small">R2C2, R2C6</td></tr>
+<tr data-m="1"><td class="mono">REA</td><td class="pt">ARE</td><td class="mono small">R2C8, R2C10</td></tr>
+<tr data-m="2"><td class="mono">UCSIFEVLE</td><td class="pt">FIVE CLUES</td><td class="mono small">R2C12, R2C20</td></tr>
+<tr data-m="3"><td class="mono">NI</td><td class="pt">IN</td><td class="mono small">R3C8, R3C9</td></tr>
+<tr data-m="4"><td class="mono">IHST</td><td class="pt">THIS</td><td class="mono small">R3C11, R3C14</td></tr>
+<tr data-m="5"><td class="mono">OCEHSRARDW</td><td class="pt">WORD SEARCH</td><td class="mono small">R4C10, R4C19</td></tr>
+<tr data-m="6"><td class="mono">OUBTD</td><td class="pt">BUT DO</td><td class="mono small">R5C2, R5C6</td></tr>
+<tr data-m="7"><td class="mono">OELTLNT</td><td class="pt">NOT TELL</td><td class="mono small">R5C9, R5C15</td></tr>
+<tr data-m="8"><td class="mono">NYNEOA</td><td class="pt">ANYONE</td><td class="mono small">R6C9, R6C14</td></tr>
+<tr data-m="9"><td class="mono">LINE</td><td class="pt">LINE</td><td class="mono small">R6C16, R6C19</td></tr>
+<tr data-m="10"><td class="mono">PMUEHT</td><td class="pt">THEM UP</td><td class="mono small">R7C1, R7C6</td></tr>
+<tr data-m="11"><td class="mono">AHREERET</td><td class="pt">THERE ARE</td><td class="mono small">R7C13, R7C20</td></tr>
+<tr data-m="12"><td class="mono">ON</td><td class="pt">NO</td><td class="mono small">R8C2, R8C3</td></tr>
+<tr data-m="13"><td class="mono">LPASIEC</td><td class="pt">SPECIAL</td><td class="mono small">R8C14, R8C20</td></tr>
+<tr data-m="14"><td class="mono">ESDBNOR</td><td class="pt">BENDS OR</td><td class="mono small">R9C2, R9C9</td></tr>
+<tr data-m="15"><td class="mono">SRNTU</td><td class="pt">TURNS</td><td class="mono small">R9C19, R10C4</td></tr>
+<tr data-m="16"><td class="mono">UJTS</td><td class="pt">JUST</td><td class="mono small">R10C16, R10C19</td></tr>
+<tr data-m="17"><td class="mono">RNIEMA</td><td class="pt">REMAIN</td><td class="mono small">R11C2, R11C7</td></tr>
+<tr data-m="18"><td class="mono">ADTTEYOS</td><td class="pt">STEADY TO</td><td class="mono small">R12C2, R12C9</td></tr>
+<tr data-m="19"><td class="mono">MTOPLECE</td><td class="pt">COMPLETE</td><td class="mono small">R13C2, R13C9</td></tr>
+<tr data-m="20"><td class="mono">HET</td><td class="pt">THE</td><td class="mono small">R13C11, R13C13</td></tr>
+<tr data-m="21"><td class="mono">NSIOSMI</td><td class="pt">MISSION</td><td class="mono small">R14C1, R14C7</td></tr>
+</table>
+<p class="small">“LINE” (row 6) is the only message word left unscrambled, so it reads straight across.</p>
+</div>
+<div>
+<h3>Placed words</h3>
+<table>
+  <tr><th>Word</th><th>Type</th><th>Start</th><th>Direction</th><th>Note</th></tr>
+  <tr data-w="0"><td class="wd">NINETEEN</td><td>number</td><td class="mono">R1C10</td><td>→ left-to-right</td><td class="small">= number of spare O&#x27;s in the message zone (see COUNT)</td></tr>
+<tr data-w="1"><td class="wd">NINE</td><td>number</td><td class="mono">R1C12</td><td>← backward</td><td class="small">read backward from R1C12; its final E (R1C9) is the only non-random cell in row 1 not otherwise used</td></tr>
+<tr data-w="2"><td class="wd">THREE</td><td>number</td><td class="mono">R2C7</td><td>↓ down</td><td class="small">column 7, down</td></tr>
+<tr data-w="3"><td class="wd">THREE</td><td>number</td><td class="mono">R12C20</td><td>← backward</td><td class="small">row 12, backward</td></tr>
+<tr data-w="4"><td class="wd">ELEVEN</td><td>number</td><td class="mono">R8C1</td><td>↓ down</td><td class="small"></td></tr>
+<tr data-w="5"><td class="wd">TWELVE</td><td>number</td><td class="mono">R9C18</td><td>← backward</td><td class="small"></td></tr>
+<tr data-w="6"><td class="wd">FIVE</td><td>number</td><td class="mono">R10C5</td><td>→ left-to-right</td><td class="small"></td></tr>
+<tr data-w="7"><td class="wd">ZERO</td><td>number</td><td class="mono">R15C7</td><td>← backward</td><td class="small"></td></tr>
+<tr data-w="8"><td class="wd">NORTH</td><td>direction</td><td class="mono">R4C6</td><td>← backward</td><td class="small"></td></tr>
+<tr data-w="9"><td class="wd">WEST</td><td>direction</td><td class="mono">R7C10</td><td>← backward</td><td class="small"></td></tr>
+<tr data-w="10"><td class="wd">LILAC</td><td>colour / gem</td><td class="mono">R1C8</td><td>← backward</td><td class="small"></td></tr>
+<tr data-w="11"><td class="wd">LEMON</td><td>colour / gem</td><td class="mono">R5C8</td><td>↗ diagonal up</td><td class="small">the alternative OMELET (same diagonal) collides with message letters, so LEMON is the placed word</td></tr>
+<tr data-w="12"><td class="wd">SAPPHIRE</td><td>colour / gem</td><td class="mono">R15C13</td><td>→ left-to-right</td><td class="small"></td></tr>
+<tr data-w="13"><td class="wd">WATER</td><td>terrain / place</td><td class="mono">R5C20</td><td>← backward</td><td class="small"></td></tr>
+<tr data-w="14"><td class="wd">DIVIDE</td><td>terrain / place</td><td class="mono">R7C12</td><td>↘ diagonal down</td><td class="small">could be DIVIDER (R13C18 R shared with QUARRY)</td></tr>
+<tr data-w="15"><td class="wd">PEAKS</td><td>terrain / place</td><td class="mono">R8C8</td><td>← backward</td><td class="small"></td></tr>
+<tr data-w="16"><td class="wd">QUARRY</td><td>terrain / place</td><td class="mono">R13C14</td><td>→ left-to-right</td><td class="small"></td></tr>
+<tr data-w="17"><td class="wd">DIRT</td><td>terrain / place</td><td class="mono">R11C20</td><td>← backward</td><td class="small"></td></tr>
+<tr data-w="18"><td class="wd">RAIL</td><td>terrain / place</td><td class="mono">R3C19</td><td>← backward</td><td class="small"></td></tr>
+<tr data-w="19"><td class="wd">STATE</td><td>terrain / place</td><td class="mono">R7C8</td><td>↘ diagonal down</td><td class="small">diagonal; its T (R10C11) sits exactly between the TN and NC letters</td></tr>
+<tr data-w="20"><td class="wd">ESTATE</td><td>terrain / place</td><td class="mono">R6C7</td><td>← backward</td><td class="small">row 6 backward; may be intended as STATE (R6C6→R6C2) with E shared with THREE</td></tr>
+<tr data-w="21"><td class="wd">COUNT</td><td>other</td><td class="mono">R2C1</td><td>↓ down</td><td class="small">Holy Grail echo with THREE / FIVE (“Five is right out”); also “count the O&#x27;s” → NINETEEN</td></tr>
+<tr data-w="22"><td class="wd">ROUND</td><td>other</td><td class="mono">R3C2</td><td>→ left-to-right</td><td class="small"></td></tr>
+<tr data-w="23"><td class="wd">WALK</td><td>other</td><td class="mono">R11C11</td><td>← backward</td><td class="small"></td></tr>
+<tr data-w="24"><td class="wd">SQUARE</td><td>other</td><td class="mono">R12C10</td><td>→ left-to-right</td><td class="small"></td></tr>
+</table>
+</div>
+</div>
+
+<div class="note">
+<b>Words that are accidents.</b> The book says to ignore three-letter words and “some proper nouns”. Checked against the cell map, the usual extras all cross scrambled message letters or random filler, so the designer can't have placed them on purpose:
+CRETE, SOLON, YEOMAN, LESS and COKE use message cells. OHIO uses a spare O, a message H, DIVIDE's I and another spare O. EX / CEL / MIX use the random X. That weakens theories built on COKE (Mushroom Rock), on the lone X (“EXCEL”, “X marks the spot”), and on the corner letters (shifting QVU and BMA by 19 to get “JON” and “ITH”; “BASIC CIPHER PLAYS”). The arithmetic in those is right, but the letters it starts from are random filler.
+</div>
+
+<h2>3. Cryptogram</h2>
+<div class="gridwrap">
+<div class="il"><div class="iw"><div class="ic"><span>T</span><span>h</span><span>i</span><span>s</span></div><div class="ip"><span>F</span><span>r</span><span>o</span><span>m</span></div></div><div class="iw"><div class="ic"><span>h</span><span>i</span><span>u</span><span>z</span></div><div class="ip"><span>r</span><span>o</span><span>c</span><span>k</span></div></div><div class="iw"><div class="ic"><span>l</span><span>i</span></div><div class="ip"><span>t</span><span>o</span></div></div><div class="iw"><div class="ic"><span>t</span><span>r</span><span>x</span><span>a</span><span>q</span></div><div class="ip"><span>f</span><span>i</span><span>e</span><span>l</span><span>d</span><span>,</span></div></div><div class="iw"><div class="ic"><span>t</span><span>h</span><span>i</span><span>s</span></div><div class="ip"><span>f</span><span>r</span><span>o</span><span>m</span></div></div><div class="iw"><div class="ic"><span>p</span><span>l</span><span>h</span><span>i</span><span>y</span><span>b</span></div><div class="ip"><span>s</span><span>t</span><span>r</span><span>o</span><span>n</span><span>g</span></div></div><div class="iw"><div class="ic"><span>l</span><span>i</span></div><div class="ip"><span>t</span><span>o</span></div></div><div class="iw"><div class="ic"><span>p</span><span>l</span><span>h</span><span>x</span><span>v</span><span>s</span><span>,</span></div><div class="ip"><span>s</span><span>t</span><span>r</span><span>e</span><span>a</span><span>m</span><span>,</span></div></div></div>
+<div class="il"><div class="iw"><div class="ic"><span>m</span><span>v</span><span>p</span><span>l</span></div><div class="ip"><span>p</span><span>a</span><span>s</span><span>t</span></div></div><div class="iw"><div class="ic"><span>l</span><span>h</span><span>x</span><span>x</span></div><div class="ip"><span>t</span><span>r</span><span>e</span><span>e</span></div></div><div class="iw"><div class="ic"><span>v</span><span>y</span><span>q</span></div><div class="ip"><span>a</span><span>n</span><span>d</span></div></div><div class="iw"><div class="ic"><span>m</span><span>i</span><span>p</span><span>l</span><span>p</span></div><div class="ip"><span>p</span><span>o</span><span>s</span><span>t</span><span>s</span></div></div><div class="iw"><div class="ic"><span>l</span><span>i</span></div><div class="ip"><span>t</span><span>o</span></div></div><div class="iw"><div class="ic"><span>t</span><span>i</span><span>h</span><span>x</span><span>p</span><span>l</span></div><div class="ip"><span>f</span><span>o</span><span>r</span><span>e</span><span>s</span><span>t</span></div></div><div class="iw"><div class="ic"><span>b</span><span>h</span><span>x</span><span>x</span><span>y</span><span>,</span></div><div class="ip"><span>g</span><span>r</span><span>e</span><span>e</span><span>n</span><span>,</span></div></div></div>
+<div class="il"><div class="iw"><div class="ic"><span>v</span><span>h</span><span>h</span><span>r</span><span>e</span><span>x</span></div><div class="ip"><span>a</span><span>r</span><span>r</span><span>i</span><span>v</span><span>e</span></div></div><div class="iw"><div class="ic"><span>n</span><span>i</span><span>c</span></div><div class="ip"><span>y</span><span>o</span><span>u</span></div></div><div class="iw"><div class="ic"><span>y</span><span>i</span><span>d</span></div><div class="ip"><span>n</span><span>o</span><span>w</span></div></div><div class="iw"><div class="ic"><span>d</span><span>o</span><span>x</span><span>h</span><span>x</span></div><div class="ip"><span>w</span><span>h</span><span>e</span><span>r</span><span>e</span></div></div><div class="iw"><div class="ic"><span>j</span><span>x</span><span>v</span><span>c</span><span>l</span><span>n</span></div><div class="ip"><span>b</span><span>e</span><span>a</span><span>u</span><span>t</span><span>y</span></div></div><div class="iw"><div class="ic"><span>p</span><span>o</span><span>x</span><span>x</span><span>y</span><span>p</span><span>.</span></div><div class="ip"><span>s</span><span>h</span><span>e</span><span>e</span><span>n</span><span>s</span><span>.</span></div></div></div>
+<div class="il"><div class="iw"><div class="ic"><span>R</span><span>l</span><span>’</span><span>p</span></div><div class="ip"><span>I</span><span>t</span><span>’</span><span>s</span></div></div><div class="iw"><div class="ic"><span>c</span><span>y</span><span>q</span><span>x</span><span>h</span><span>,</span></div><div class="ip"><span>u</span><span>n</span><span>d</span><span>e</span><span>r</span><span>,</span></div></div><div class="iw"><div class="ic"><span>i</span><span>e</span><span>x</span><span>h</span><span>,</span></div><div class="ip"><span>o</span><span>v</span><span>e</span><span>r</span><span>,</span></div></div><div class="iw"><div class="ic"><span>r</span><span>y</span></div><div class="ip"><span>i</span><span>n</span></div></div><div class="iw"><div class="ic"><span>j</span><span>x</span><span>l</span><span>d</span><span>x</span><span>x</span><span>y</span><span>.</span></div><div class="ip"><span>b</span><span>e</span><span>t</span><span>w</span><span>e</span><span>e</span><span>n</span><span>.</span></div></div></div>
+</div>
+<h3>Key</h3>
+<table class="key"><tr><th class="rl">cipher</th><th>a</th><th>b</th><th>c</th><th>d</th><th>e</th><th>h</th><th>i</th><th>j</th><th>l</th><th>m</th><th>n</th><th>o</th><th>p</th><th>q</th><th>r</th><th>s</th><th>t</th><th>u</th><th>v</th><th>x</th><th>y</th><th>z</th></tr><tr><th class="rl">plain</th><td>L</td><td>G</td><td>U</td><td>W</td><td>V</td><td>R</td><td>O</td><td>B</td><td>T</td><td>P</td><td>Y</td><td>H</td><td>S</td><td>D</td><td>I</td><td>M</td><td>F</td><td>C</td><td>A</td><td>E</td><td>N</td><td>K</td></tr></table><table class="key" style="margin-top:8px"><tr><th class="rl">plain</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><th>K</th><th>L</th><th>M</th><th>N</th><th>O</th><th>P</th><th>R</th><th>S</th><th>T</th><th>U</th><th>V</th><th>W</th><th>Y</th></tr><tr><th class="rl">cipher</th><td>v</td><td>j</td><td>u</td><td>q</td><td>x</td><td>t</td><td>b</td><td>o</td><td>r</td><td>z</td><td>a</td><td>s</td><td>y</td><td>i</td><td>m</td><td>h</td><td>p</td><td>l</td><td>c</td><td>e</td><td>d</td><td>n</td></tr></table>
+<ul class="tight small">
+  <li>The solve starts from the obvious pieces. X is the most common letter (18 times), so X = E. <span class="mono">Rl'p</span> = IT'S, <span class="mono">jxldxxy</span> = BETWEEN, and <span class="mono">cyqxh, iexh</span> = UNDER, OVER. The rest follows.</li>
+  <li>“This” (capitalised) and “this” are both cipher for FROM. The fact that they look like English is a coincidence.</li>
+  <li>The key has no keyword pattern. It contains the swapped pairs c↔u and n↔y, and the cycles (h r i o) and (m p s). Plain letters J, Q, X, Z and cipher letters f, g, k, w are unused.</li>
+  <li>The surrounding text (Grandpa counting cars from a lawn chair, “as happy as if basking in the heavens”) is the hint that this is a newspaper cryptogram. Tahoe theorists read “heavens” as Heavenly Mountain Resort. An NC-side equivalent would be Grandfather Mountain, but that is only my speculation.</li>
+</ul>
+
+<h2>4. The commemorative coin</h2>
+<div class="coins">
+  <figure><svg viewBox="0 0 420 420" width="300" class="coin" role="img" aria-label="Commemorative coin with fitted line overlay">
+<defs><clipPath id="cc00"><circle cx="210" cy="205" r="200"/></clipPath></defs>
+<g clip-path="url(#cc00)"><image href="assets/coin_front.jpg" x="0" y="0" width="420" height="420" transform="rotate(0.00 186.8 184.2)"/></g>
+<line x1="186.8" y1="184.2" x2="261.9" y2="344.5" class="fit"/>
+<line x1="186.8" y1="184.2" x2="238.6" y2="41.9" class="fit"/>
+<circle cx="186.8" cy="184.2" r="3.5" fill="#e0a100"/>
+</svg><figcaption>As printed, with fitted lines in blue (RANSAC, 1.5 px RMS). They run at 20.0° and 154.9° clockwise from 12 o'clock, so they are <b>134.9°</b> apart; a simpler fit gave 134.6°. Extended, they meet at the yellow dot on the edge of the small circle, which is itself off the coin's centre.</figcaption></figure>
+  <figure><svg viewBox="0 0 420 420" width="300" class="coin" role="img" aria-label="Commemorative coin with fitted line overlay">
+<defs><clipPath id="cc2001"><circle cx="210" cy="205" r="200"/></clipPath></defs>
+<g clip-path="url(#cc2001)"><image href="assets/coin_front.jpg" x="0" y="0" width="420" height="420" transform="rotate(-20.00 186.8 184.2)"/></g>
+<line x1="186.8" y1="184.2" x2="312.2" y2="309.2" class="fit"/>
+<line x1="186.8" y1="184.2" x2="186.8" y2="32.7" class="fit"/>
+<line x1="186.8" y1="184.2" x2="186.8" y2="-0.8" class="border thin"/>
+<line x1="186.8" y1="184.2" x2="336.9" y2="316.4" class="border thin"/>
+<circle cx="186.8" cy="184.2" r="3.5" fill="#e0a100"/>
+</svg><figcaption>The same coin rotated −20.0° so one line points north. The red dashed lines are the California–Nevada border at its bend: due north along 120°W, and the oblique section at <b>131.4°</b> toward the Colorado River.</figcaption></figure>
+</div>
+<p>It can be read as a minimalist clock (fitting for “past and future”). It also matches the one bend in the CA–NV border. That bend lies <i>inside</i> Lake Tahoe, which would be the small circle. The two angles differ by about 3.5°. A random angle would land that close only about 4% of the time, so this supports the Tahoe lead but doesn't prove it. The coin is inside the box, so this is a clue to the box's location only if Seth Gould designed it that way.</p>
+
+<h2>5. Where the puzzles point</h2>
+<h3>5a. Lake Tahoe: the CA–NV border angle point <span class="tag mid">strongest lead · unconfirmed</span></h3>
+<div class="two">
+<div><svg viewBox="0 0 451 548" class="map" role="img" aria-label="Schematic of Lake Tahoe with the California-Nevada border angle point at 39N 120W">
+<rect x="0" y="0" width="451" height="548" fill="#f6f4ee"/>
+<line x1="20" y1="491.5" x2="431" y2="491.5" class="grat"/><text x="427" y="488.5" class="gl" text-anchor="end">38.9°N</text>
+<line x1="20" y1="376.5" x2="431" y2="376.5" class="grat"/><text x="427" y="373.5" class="gl" text-anchor="end">39.0°N</text>
+<line x1="20" y1="261.5" x2="431" y2="261.5" class="grat"/><text x="427" y="258.5" class="gl" text-anchor="end">39.1°N</text>
+<line x1="20" y1="146.5" x2="431" y2="146.5" class="grat"/><text x="427" y="143.5" class="gl" text-anchor="end">39.2°N</text>
+<line x1="20" y1="31.5" x2="431" y2="31.5" class="grat"/><text x="427" y="28.5" class="gl" text-anchor="end">39.3°N</text>
+<line x1="73.6" y1="20" x2="73.6" y2="538" class="grat"/><text x="76.6" y="534" class="gl">120.2°W</text>
+<line x1="163.0" y1="20" x2="163.0" y2="538" class="grat"/><text x="166.0" y="534" class="gl">120.1°W</text>
+<line x1="252.4" y1="20" x2="252.4" y2="538" class="grat"/><text x="255.4" y="534" class="gl">120.0°W</text>
+<line x1="341.7" y1="20" x2="341.7" y2="538" class="grat"/><text x="344.7" y="534" class="gl">119.9°W</text>
+<polygon points="228.2,104.0 252.4,116.6 297.1,97.1 314.0,149.9 310.5,215.5 306.0,275.3 298.8,325.9 299.7,371.9 296.2,414.5 272.9,442.1 243.4,449.0 198.7,445.5 176.4,428.3 163.0,399.5 145.1,335.1 109.4,278.8 116.5,215.5 127.2,183.3 171.9,158.0 180.9,115.5 207.7,100.5" class="lake"/>
+<text x="141" y="181" class="lk">Lake Tahoe</text>
+<text x="141" y="196" class="gl">(outline schematic)</text>
+<line x1="252.4" y1="20.0" x2="252.4" y2="376.5" class="border"/>
+<line x1="252.4" y1="376.5" x2="537.6" y2="627.6" class="border"/>
+<line x1="252.4" y1="376.5" x2="464.9" y2="588.3" class="coinray"/>
+<circle cx="252.4" cy="376.5" r="13" class="hub"/>
+<circle cx="252.4" cy="376.5" r="4" class="vtx"/>
+<text x="240" y="357" class="lab" text-anchor="end">39°00′N 120°00′W</text>
+<text x="240" y="371" class="gl" text-anchor="end">CA–NV border angle point</text>
+<circle cx="296.2" cy="414.5" r="4" class="town"/><text x="304" y="418" class="lab">Stateline, NV (approx.)</text>
+<text x="38" y="66" class="st">CALIFORNIA</text>
+<text x="275" y="66" class="st">NEVADA</text>
+<text x="428" y="620" class="lab">border: 131.4° from N</text>
+<text x="435" y="606" class="lab coin">coin lines: 134.9° apart</text>
+</svg>
+<p class="small">The shoreline is schematic: it's drawn from approximate shore-town positions, accurate to about 1 km. The border lines and the 39°N/120°W point are exact. <a href="https://www.openstreetmap.org/?mlat=39.0&amp;mlon=-120.0#map=11/39.03/-120.0">Open the point on OpenStreetMap</a>.</p>
+</div>
+<div>
+<table class="ev">
+  <tr><th>Evidence</th><th>Source</th><th>Weight</th></tr>
+  <tr><td>The number words that read <b>backward</b> are NINE, TWELVE, THREE, ZERO. NORTH and WEST also read backward. Paired up, {3, 9, 12, 0} give only one valid US reading: <b>39°N, 120°W</b>. A latitude of 30 would force a longitude of 129°W, which is in the Pacific.</td><td>community reading, checked here (uniqueness is new)</td><td>medium</td></tr>
+  <tr><td>Row 1 reads QVU · LILAC · <b>E</b> · NINETEEN · BMA. The lone E between the two words is used by NINE read backward from R1C12. Without NINE it would be a single filler letter wedged between two placed words.</td><td>new here</td><td>weak–medium</td></tr>
+  <tr><td>39°N 120°W is not an arbitrary round number. It is the point where the CA–NV border turns, in Lake Tahoe.</td><td>geography</td><td>medium</td></tr>
+  <tr><td>Coin: two lines meet inside a small circle at 134.9°. The border turns at 131.4° inside the lake.</td><td>measured here</td><td>medium</td></tr>
+  <tr><td>“Its surface would reflect <i>a state of gold</i>”: California is the Golden State. The box sat in the author's California office. Blurb: “consider the author's past and <i>present</i>.”</td><td>chapter text</td><td>weak–medium</td></tr>
+  <tr><td>STATE (diagonal) and LINE (the only unscrambled message word) give “Stateline”. That is the Nevada town where the border leaves the lake's south-east shore.</td><td>community, checked here</td><td>weak</td></tr>
+  <tr><td>“basking in the heavens”: Heavenly Mountain Resort, which straddles the state line at South Lake Tahoe.</td><td>community</td><td>weak</td></tr>
+</table>
+<p class="small"><b>Limits:</b> the point itself is in open water, and the author says no box is under or reached across water, so 39/120 can only be the area. The poem would then be the walk. The “backward only” filter is chosen after the fact, though it is the filter that NORTH and WEST themselves pass. Words reading forward or down (NINETEEN, FIVE, ELEVEN, the second THREE) are left unused.</p>
+</div>
+</div>
+
+<h3>5b. Tennessee / North Carolina / South Carolina <span class="tag mid">deliberate, but region-level only</span></h3>
+<svg viewBox="0 0 704 278" class="stsvg" role="img" aria-label="TN, NC, SC letters in the grid compared with real state positions">
+<rect x="10" y="10" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="26.0" y="32.0" text-anchor="middle" class="gc" fill="#1d232b">S</text>
+<rect x="44" y="10" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="60.0" y="32.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<rect x="78" y="10" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="94.0" y="32.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="112" y="10" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="128.0" y="32.0" text-anchor="middle" class="gc" fill="#1d232b">N</text>
+<rect x="146" y="10" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="162.0" y="32.0" text-anchor="middle" class="gc" fill="#1d232b">Y</text>
+<rect x="180" y="10" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="196.0" y="32.0" text-anchor="middle" class="gc" fill="#1d232b">N</text>
+<rect x="214" y="10" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="230.0" y="32.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<rect x="248" y="10" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="264.0" y="32.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="282" y="10" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="298.0" y="32.0" text-anchor="middle" class="gc" fill="#1d232b">A</text>
+<rect x="316" y="10" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="332.0" y="32.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="350" y="10" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="366.0" y="32.0" text-anchor="middle" class="gc" fill="#1d232b">L</text>
+<rect x="10" y="44" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="26.0" y="66.0" text-anchor="middle" class="gc" fill="#1d232b">T</text>
+<rect x="44" y="44" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="60.0" y="66.0" text-anchor="middle" class="gc" fill="#1d232b">T</text>
+<rect x="78" y="44" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="94.0" y="66.0" text-anchor="middle" class="gc" fill="#1d232b">S</text>
+<rect x="112" y="44" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="128.0" y="66.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<rect x="146" y="44" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="162.0" y="66.0" text-anchor="middle" class="gc" fill="#1d232b">W</text>
+<rect x="180" y="44" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="196.0" y="66.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="214" y="44" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="230.0" y="66.0" text-anchor="middle" class="gc" fill="#1d232b">D</text>
+<rect x="248" y="44" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="264.0" y="66.0" text-anchor="middle" class="gc" fill="#1d232b">A</text>
+<rect x="282" y="44" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="298.0" y="66.0" text-anchor="middle" class="gc" fill="#1d232b">H</text>
+<rect x="316" y="44" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="332.0" y="66.0" text-anchor="middle" class="gc" fill="#1d232b">R</text>
+<rect x="350" y="44" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="366.0" y="66.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<rect x="10" y="78" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="26.0" y="100.0" text-anchor="middle" class="gc" fill="#1d232b">A</text>
+<rect x="44" y="78" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="60.0" y="100.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<rect x="78" y="78" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="94.0" y="100.0" text-anchor="middle" class="gc" fill="#1d232b">P</text>
+<rect x="112" y="78" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="128.0" y="100.0" text-anchor="middle" class="gc" fill="#1d232b">T</text>
+<rect x="146" y="78" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="162.0" y="100.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="180" y="78" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="196.0" y="100.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="214" y="78" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="230.0" y="100.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="248" y="78" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="264.0" y="100.0" text-anchor="middle" class="gc" fill="#1d232b">I</text>
+<rect x="282" y="78" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="298.0" y="100.0" text-anchor="middle" class="gc" fill="#1d232b">L</text>
+<rect x="316" y="78" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="332.0" y="100.0" text-anchor="middle" class="gc" fill="#1d232b">P</text>
+<rect x="350" y="78" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="366.0" y="100.0" text-anchor="middle" class="gc" fill="#1d232b">A</text>
+<rect x="10" y="112" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="26.0" y="134.0" text-anchor="middle" class="gc" fill="#1d232b">N</text>
+<rect x="44" y="112" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="60.0" y="134.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="78" y="112" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="94.0" y="134.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="112" y="112" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="128.0" y="134.0" text-anchor="middle" class="gc" fill="#1d232b">R</text>
+<rect x="146" y="112" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="162.0" y="134.0" text-anchor="middle" class="gc" fill="#1d232b">A</text>
+<rect x="180" y="112" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="196.0" y="134.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="214" y="112" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="230.0" y="134.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="248" y="112" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="264.0" y="134.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<rect x="282" y="112" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="298.0" y="134.0" text-anchor="middle" class="gc" fill="#1d232b">V</text>
+<rect x="316" y="112" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="332.0" y="134.0" text-anchor="middle" class="gc" fill="#1d232b">L</text>
+<rect x="350" y="112" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="366.0" y="134.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<rect x="10" y="146" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="26.0" y="168.0" text-anchor="middle" class="gc" fill="#1d232b">I</text>
+<rect x="44" y="146" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="60.0" y="168.0" text-anchor="middle" class="gc" fill="#1d232b">V</text>
+<rect x="78" y="146" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="94.0" y="168.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<rect x="112" y="146" width="32" height="32" rx="3" fill="#eb6834" stroke="#c9ced3"/>
+<text x="128.0" y="168.0" text-anchor="middle" class="gc" fill="#fff">T</text>
+<rect x="146" y="146" width="32" height="32" rx="3" fill="#eb6834" stroke="#c9ced3"/>
+<text x="162.0" y="168.0" text-anchor="middle" class="gc" fill="#fff">N</text>
+<rect x="180" y="146" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="196.0" y="168.0" text-anchor="middle" class="gc" fill="#1d232b">T</text>
+<rect x="214" y="146" width="32" height="32" rx="3" fill="#eb6834" stroke="#c9ced3"/>
+<text x="230.0" y="168.0" text-anchor="middle" class="gc" fill="#fff">N</text>
+<rect x="248" y="146" width="32" height="32" rx="3" fill="#eb6834" stroke="#c9ced3"/>
+<text x="264.0" y="168.0" text-anchor="middle" class="gc" fill="#fff">C</text>
+<rect x="282" y="146" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="298.0" y="168.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="316" y="146" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="332.0" y="168.0" text-anchor="middle" class="gc" fill="#1d232b">I</text>
+<rect x="350" y="146" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="366.0" y="168.0" text-anchor="middle" class="gc" fill="#1d232b">U</text>
+<rect x="10" y="180" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="26.0" y="202.0" text-anchor="middle" class="gc" fill="#1d232b">M</text>
+<rect x="44" y="180" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="60.0" y="202.0" text-anchor="middle" class="gc" fill="#1d232b">A</text>
+<rect x="78" y="180" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="94.0" y="202.0" text-anchor="middle" class="gc" fill="#1d232b">K</text>
+<rect x="112" y="180" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="128.0" y="202.0" text-anchor="middle" class="gc" fill="#1d232b">L</text>
+<rect x="146" y="180" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="162.0" y="202.0" text-anchor="middle" class="gc" fill="#1d232b">A</text>
+<rect x="180" y="180" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="196.0" y="202.0" text-anchor="middle" class="gc" fill="#1d232b">W</text>
+<rect x="214" y="180" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="230.0" y="202.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<rect x="248" y="180" width="32" height="32" rx="3" fill="#eb6834" stroke="#c9ced3"/>
+<text x="264.0" y="202.0" text-anchor="middle" class="gc" fill="#fff">S</text>
+<rect x="282" y="180" width="32" height="32" rx="3" fill="#eb6834" stroke="#c9ced3"/>
+<text x="298.0" y="202.0" text-anchor="middle" class="gc" fill="#fff">C</text>
+<rect x="316" y="180" width="32" height="32" rx="3" fill="#fff" stroke="#c9ced3"/>
+<text x="332.0" y="202.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="350" y="180" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="366.0" y="202.0" text-anchor="middle" class="gc" fill="#1d232b">D</text>
+<rect x="10" y="214" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="26.0" y="236.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<rect x="44" y="214" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="60.0" y="236.0" text-anchor="middle" class="gc" fill="#1d232b">Y</text>
+<rect x="78" y="214" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="94.0" y="236.0" text-anchor="middle" class="gc" fill="#1d232b">O</text>
+<rect x="112" y="214" width="32" height="32" rx="3" fill="#d2f0e4" stroke="#c9ced3"/>
+<text x="128.0" y="236.0" text-anchor="middle" class="gc" fill="#1d232b">S</text>
+<rect x="146" y="214" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="162.0" y="236.0" text-anchor="middle" class="gc" fill="#1d232b">S</text>
+<rect x="180" y="214" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="196.0" y="236.0" text-anchor="middle" class="gc" fill="#1d232b">Q</text>
+<rect x="214" y="214" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="230.0" y="236.0" text-anchor="middle" class="gc" fill="#1d232b">U</text>
+<rect x="248" y="214" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="264.0" y="236.0" text-anchor="middle" class="gc" fill="#1d232b">A</text>
+<rect x="282" y="214" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="298.0" y="236.0" text-anchor="middle" class="gc" fill="#1d232b">R</text>
+<rect x="316" y="214" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="332.0" y="236.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<rect x="350" y="214" width="32" height="32" rx="3" fill="#d7e6f8" stroke="#c9ced3"/>
+<text x="366.0" y="236.0" text-anchor="middle" class="gc" fill="#1d232b">E</text>
+<line x1="94.0" y1="60.0" x2="230.0" y2="196.0" stroke="#2a78d6" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+<text x="10" y="268" class="gl">grid rows 6–12, cols 6–16; blue line = STATE (diagonal)</text>
+<rect x="404" y="5" width="300" height="248" fill="#f6f4ee" rx="6"/>
+<circle cx="493" cy="99" r="6" fill="#eb6834"/><text x="502" y="104" class="lab">TN</text>
+<circle cx="625" cy="108" r="6" fill="#eb6834"/><text x="634" y="113" class="lab">NC</text>
+<circle cx="596" cy="157" r="6" fill="#eb6834"/><text x="605" y="162" class="lab">SC</text>
+<circle cx="552" cy="195" r="4" fill="#9aa3ab"/><text x="561" y="200" class="gl">GA</text>
+<circle cx="513" cy="49" r="4" fill="#9aa3ab"/><text x="522" y="54" class="gl">KY</text>
+<circle cx="635" cy="49" r="4" fill="#9aa3ab"/><text x="644" y="54" class="gl">VA</text>
+<text x="414" y="268" class="gl">real state centroids (approx.), same orientation</text>
+</svg>
+<ul class="tight">
+  <li><b>Clearly deliberate:</b> every other spare cell in the message area is an O. These six cells instead spell TN (R10C9–10), NC (R10C12–13) and SC (R11C13–14), laid out roughly like the map: TN west of NC, SC south of NC.</li>
+  <li>The T of STATE (R10C11) sits exactly between TN and NC, like a state line. WATER, DIVIDE(R) and PEAKS fit the Blue Ridge and the Eastern Continental Divide.</li>
+  <li>Collins-Black grew up in North Carolina. Press coverage describes boyhood gem hunting at the Emerald Hollow Mine at the foot of the Brushy Mountains, and Kile's article places him near Statesville. That is the “past” in the blurb.</li>
+  <li><b>Limit:</b> coordinates in that region (35–36°N, 76–84°W) would need SEVEN, EIGHT, THIRTY or EIGHTY, and none of those is in the grid. The six letters name a region, not a spot, and could stand for the author's past rather than where the box is. Community versions: Kile's five clues “TN, NC, SC, STATE, DIVIDER” (Smokies, NC side), and Gary's Mushroom Rock, Signal Mountain TN theory (LILAC/SAPPHIRE/STATE/LINE/COKE). COKE is an accidental word (see note above).</li>
+</ul>
+
+<h3>5c. “Five clues … line them up”</h3>
+<p>The message says there are five clues and tells you to line them up. Nobody has pinned down which five, and I couldn't either. The placed words fall into tidy groups: numbers, NORTH/WEST, colours and gems (LILAC, LEMON, SAPPHIRE), terrain words (WATER, DIVIDE, PEAKS, QUARRY, DIRT, RAIL), and other words (COUNT, ROUND, WALK, SQUARE, (E)STATE). Some observations:</p>
+<ul class="tight">
+  <li>Read as places, “lines” could be lines of latitude and longitude, or a state line. “No special bends or turns” is in any case the ordinary word-search rule that words run straight.</li>
+  <li>Backward-reading words (13) and forward/down/diagonal words (12) split almost evenly. That fits a “past and future” theme: the backward words hold the 39/120 numbers plus NORTH and WEST.</li>
+  <li>COUNT, THREE and FIVE echo the Holy Hand Grenade passage in <i>Monty Python and the Holy Grail</i>, which the chapter names. Counting the spare O's gives NINETEEN, which is also in the grid. That may be playful design or chance.</li>
+</ul>
+
+<h2 id="field">6. The derived instructions</h2>
+<p>Put together, the two puzzles describe a <b>walk</b> rather than coordinates:</p>
+<ol class="tight">
+  <li><b>Start at a rock</b>, a named rock or boulder, and head to a <b>field or meadow</b>.</li>
+  <li><b>From “strong” to a stream.</b> “Strong” is unexplained. It could be a strong current or falls, or a place or feature named Strong.</li>
+  <li><b>Past a tree and posts</b> (fence posts, trail posts, or boundary monuments) into <b>green forest</b>.</li>
+  <li>Arrive where something <b>shines</b>: water, a falls, or a view.</li>
+  <li>The box is <b>“under, over, in between”</b>: tucked beneath and between things, or literally between two states if the state-line reading is right.</li>
+</ol>
+<p class="small">The author's Postscript rules, which he says contain no clues: nowhere dangerous, nothing under water, no boat needed, no climbing. Within 3 miles of a road. Never on private property except a public trail easement. Never buried, so don't dig. Don't search in snow or extreme heat. Know the local wildlife and hunting seasons, go with a companion, and carry water and a phone.</p>
+
+<h2 id="huntstatus">7. Hunt status and sources</h2>
+<ul class="tight small">
+  <li>Five boxes in total, at most one per state. The four smaller boxes are Forrest Fenn, Pokémon, Past and Future, and Appalachian Footpath; the Lion's Share is the largest. Each smaller box holds a laminated clue to the Lion's Share.</li>
+  <li><b>Pokémon box found in Arkansas</b>, from an author email reported 25 Nov 2026: <a href="https://mysteriouswritings.com/theres-treasure-inside-tti-pokemon-box-found/">Mysterious Writings</a>. No find has been reported for the Past and Future box.</li>
+  <li>Community work on this chapter: <a href="https://mysteriouswritings.substack.com/p/word-search-secret-message-in-theres">word-search secret message</a> · <a href="https://mysteriouswritings.com/theres-treasure-inside-cryptogram-clues-to-the-past-and-present-treasure-box/">cryptogram</a> · <a href="https://mysteriouswritings.com/where-is-the-past-future-box-location-5-clues-in-word-search-say-tennessee/">TN/NC/SC theory</a> · <a href="https://mysteriouswritings.com/top-10-lake-tahoe-clues-for-the-past-future-box/">Lake Tahoe top 10</a> · <a href="https://mysteriouswritings.com/highlights-of-past-future-solution-theory-for-mushroom-rock-tennessee/">Mushroom Rock, TN</a> · <a href="https://mysteriouswritings.com/word-search-clues-top-secret-letter-pairs-theres-treasure-inside/">letter pairs</a> · <a href="https://mysteriouswritings.com/past-future-treasure-box-excel-clue-to-ohio/">“Excel” → Ohio</a> · <a href="https://mysteriouswritings.com/theres-treasure-inside-faq-treasure-hunt-by-jon-collins-black/">FAQ</a></li>
+  <li>Author background: <a href="https://inkl.com/news/x-marks-the-bitcoin-the-treasure-hunt-book-is-back-and-it-s-bigger-than-ever">NC childhood / Emerald Hollow Mine</a> · <a href="https://abc7news.com/post/man-hides-5-treasure-chests-worth-more-2-million-united-states-heres-how-find/15614623/">ABC7 / CNN overview</a></li>
+  <li>New in this report, beyond the sources above: the complete 300-cell accounting, the finding that TN/NC/SC are the only non-O spares, the proof that COKE, OHIO and the X are accidental, the NINE/R1C9 point, the uniqueness of 39/120, and the coin-angle measurement.</li>
+</ul>
+
+<h2>8. Reproduce</h2>
+<p class="small mono">cd work; pdfimages -png ../book-excerpts.pdf scans/img; /opt/homebrew/bin/python3.11 classify.py; python3.11 cryptogram.py; python3.11 coin_angle2.py; python3.11 build_report.py</p>
+<p class="small"><span class="mono">grid.py</span> transcribed grid and finder · <span class="mono">classify.py</span> cell accounting (asserts every message run is an exact anagram and that no message cell overlaps a word) · <span class="mono">cryptogram.py</span> key consistency · <span class="mono">coin_angle2.py</span> coin line fit (RANSAC; <span class="mono">coin_angle.py</span> = first PCA pass) · <span class="mono">search2.py</span> full dictionary sweep · <span class="mono">build_report.py</span> + <span class="mono">template.html</span> this page.</p>
+
+</main>
+<div class="tip" id="tip"></div>
+<script>
+const D = {"cells":[[{"ch":"Q","k":"random","words":[],"msg":null,"st":null},{"ch":"V","k":"random","words":[],"msg":null,"st":null},{"ch":"U","k":"random","words":[],"msg":null,"st":null},{"ch":"C","k":"word","words":[10],"msg":null,"st":null},{"ch":"A","k":"word","words":[10],"msg":null,"st":null},{"ch":"L","k":"word","words":[10],"msg":null,"st":null},{"ch":"I","k":"word","words":[10],"msg":null,"st":null},{"ch":"L","k":"word","words":[10],"msg":null,"st":null},{"ch":"E","k":"word","words":[1],"msg":null,"st":null},{"ch":"N","k":"word","words":[0,1],"msg":null,"st":null},{"ch":"I","k":"word","words":[0,1],"msg":null,"st":null},{"ch":"N","k":"word","words":[0,1,11],"msg":null,"st":null},{"ch":"E","k":"word","words":[0],"msg":null,"st":null},{"ch":"T","k":"word","words":[0],"msg":null,"st":null},{"ch":"E","k":"word","words":[0],"msg":null,"st":null},{"ch":"E","k":"word","words":[0],"msg":null,"st":null},{"ch":"N","k":"word","words":[0],"msg":null,"st":null},{"ch":"B","k":"random","words":[],"msg":null,"st":null},{"ch":"M","k":"random","words":[],"msg":null,"st":null},{"ch":"A","k":"random","words":[],"msg":null,"st":null}],[{"ch":"C","k":"word","words":[21],"msg":null,"st":null},{"ch":"R","k":"msg","words":[],"msg":0,"st":null},{"ch":"E","k":"msg","words":[],"msg":0,"st":null},{"ch":"T","k":"msg","words":[],"msg":0,"st":null},{"ch":"E","k":"msg","words":[],"msg":0,"st":null},{"ch":"H","k":"msg","words":[],"msg":0,"st":null},{"ch":"T","k":"word","words":[2],"msg":null,"st":null},{"ch":"R","k":"msg","words":[],"msg":1,"st":null},{"ch":"E","k":"msg","words":[],"msg":1,"st":null},{"ch":"A","k":"msg","words":[],"msg":1,"st":null},{"ch":"O","k":"word","words":[11],"msg":null,"st":null},{"ch":"U","k":"msg","words":[],"msg":2,"st":null},{"ch":"C","k":"msg","words":[],"msg":2,"st":null},{"ch":"S","k":"msg","words":[],"msg":2,"st":null},{"ch":"I","k":"msg","words":[],"msg":2,"st":null},{"ch":"F","k":"msg","words":[],"msg":2,"st":null},{"ch":"E","k":"msg","words":[],"msg":2,"st":null},{"ch":"V","k":"msg","words":[],"msg":2,"st":null},{"ch":"L","k":"msg","words":[],"msg":2,"st":null},{"ch":"E","k":"msg","words":[],"msg":2,"st":null}],[{"ch":"O","k":"word","words":[21],"msg":null,"st":null},{"ch":"R","k":"word","words":[22],"msg":null,"st":null},{"ch":"O","k":"word","words":[22],"msg":null,"st":null},{"ch":"U","k":"word","words":[22],"msg":null,"st":null},{"ch":"N","k":"word","words":[22],"msg":null,"st":null},{"ch":"D","k":"word","words":[22],"msg":null,"st":null},{"ch":"H","k":"word","words":[2],"msg":null,"st":null},{"ch":"N","k":"msg","words":[],"msg":3,"st":null},{"ch":"I","k":"msg","words":[],"msg":3,"st":null},{"ch":"M","k":"word","words":[11],"msg":null,"st":null},{"ch":"I","k":"msg","words":[],"msg":4,"st":null},{"ch":"H","k":"msg","words":[],"msg":4,"st":null},{"ch":"S","k":"msg","words":[],"msg":4,"st":null},{"ch":"T","k":"msg","words":[],"msg":4,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null},{"ch":"L","k":"word","words":[18],"msg":null,"st":null},{"ch":"I","k":"word","words":[18],"msg":null,"st":null},{"ch":"A","k":"word","words":[18],"msg":null,"st":null},{"ch":"R","k":"word","words":[18],"msg":null,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null}],[{"ch":"U","k":"word","words":[21],"msg":null,"st":null},{"ch":"H","k":"word","words":[8],"msg":null,"st":null},{"ch":"T","k":"word","words":[8],"msg":null,"st":null},{"ch":"R","k":"word","words":[8],"msg":null,"st":null},{"ch":"O","k":"word","words":[8],"msg":null,"st":null},{"ch":"N","k":"word","words":[8],"msg":null,"st":null},{"ch":"R","k":"word","words":[2],"msg":null,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null},{"ch":"E","k":"word","words":[11],"msg":null,"st":null},{"ch":"O","k":"ambig","words":[],"msg":5,"st":null},{"ch":"C","k":"msg","words":[],"msg":5,"st":null},{"ch":"E","k":"msg","words":[],"msg":5,"st":null},{"ch":"H","k":"msg","words":[],"msg":5,"st":null},{"ch":"S","k":"msg","words":[],"msg":5,"st":null},{"ch":"R","k":"msg","words":[],"msg":5,"st":null},{"ch":"A","k":"msg","words":[],"msg":5,"st":null},{"ch":"R","k":"msg","words":[],"msg":5,"st":null},{"ch":"D","k":"msg","words":[],"msg":5,"st":null},{"ch":"W","k":"msg","words":[],"msg":5,"st":null},{"ch":"O","k":"ambig","words":[],"msg":null,"st":null}],[{"ch":"N","k":"word","words":[21],"msg":null,"st":null},{"ch":"O","k":"msg","words":[],"msg":6,"st":null},{"ch":"U","k":"msg","words":[],"msg":6,"st":null},{"ch":"B","k":"msg","words":[],"msg":6,"st":null},{"ch":"T","k":"msg","words":[],"msg":6,"st":null},{"ch":"D","k":"msg","words":[],"msg":6,"st":null},{"ch":"E","k":"word","words":[2],"msg":null,"st":null},{"ch":"L","k":"word","words":[11],"msg":null,"st":null},{"ch":"O","k":"msg","words":[],"msg":7,"st":null},{"ch":"E","k":"msg","words":[],"msg":7,"st":null},{"ch":"L","k":"msg","words":[],"msg":7,"st":null},{"ch":"T","k":"msg","words":[],"msg":7,"st":null},{"ch":"L","k":"msg","words":[],"msg":7,"st":null},{"ch":"N","k":"msg","words":[],"msg":7,"st":null},{"ch":"T","k":"msg","words":[],"msg":7,"st":null},{"ch":"R","k":"word","words":[13],"msg":null,"st":null},{"ch":"E","k":"word","words":[13],"msg":null,"st":null},{"ch":"T","k":"word","words":[13],"msg":null,"st":null},{"ch":"A","k":"word","words":[13],"msg":null,"st":null},{"ch":"W","k":"word","words":[13],"msg":null,"st":null}],[{"ch":"T","k":"word","words":[21],"msg":null,"st":null},{"ch":"E","k":"word","words":[20],"msg":null,"st":null},{"ch":"T","k":"word","words":[20],"msg":null,"st":null},{"ch":"A","k":"word","words":[20],"msg":null,"st":null},{"ch":"T","k":"word","words":[20],"msg":null,"st":null},{"ch":"S","k":"word","words":[20],"msg":null,"st":null},{"ch":"E","k":"word","words":[2,20],"msg":null,"st":null},{"ch":"O","k":"ambig","words":[],"msg":null,"st":null},{"ch":"N","k":"msg","words":[],"msg":8,"st":null},{"ch":"Y","k":"msg","words":[],"msg":8,"st":null},{"ch":"N","k":"msg","words":[],"msg":8,"st":null},{"ch":"E","k":"msg","words":[],"msg":8,"st":null},{"ch":"O","k":"ambig","words":[],"msg":8,"st":null},{"ch":"A","k":"msg","words":[],"msg":8,"st":null},{"ch":"O","k":"ambig","words":[],"msg":null,"st":null},{"ch":"L","k":"msg","words":[],"msg":9,"st":null},{"ch":"I","k":"msg","words":[],"msg":9,"st":null},{"ch":"N","k":"msg","words":[],"msg":9,"st":null},{"ch":"E","k":"msg","words":[],"msg":9,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null}],[{"ch":"P","k":"msg","words":[],"msg":10,"st":null},{"ch":"M","k":"msg","words":[],"msg":10,"st":null},{"ch":"U","k":"msg","words":[],"msg":10,"st":null},{"ch":"E","k":"msg","words":[],"msg":10,"st":null},{"ch":"H","k":"msg","words":[],"msg":10,"st":null},{"ch":"T","k":"msg","words":[],"msg":10,"st":null},{"ch":"T","k":"word","words":[9],"msg":null,"st":null},{"ch":"S","k":"word","words":[9,19],"msg":null,"st":null},{"ch":"E","k":"word","words":[9],"msg":null,"st":null},{"ch":"W","k":"word","words":[9],"msg":null,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null},{"ch":"D","k":"word","words":[14],"msg":null,"st":null},{"ch":"A","k":"msg","words":[],"msg":11,"st":null},{"ch":"H","k":"msg","words":[],"msg":11,"st":null},{"ch":"R","k":"msg","words":[],"msg":11,"st":null},{"ch":"E","k":"msg","words":[],"msg":11,"st":null},{"ch":"E","k":"msg","words":[],"msg":11,"st":null},{"ch":"R","k":"msg","words":[],"msg":11,"st":null},{"ch":"E","k":"msg","words":[],"msg":11,"st":null},{"ch":"T","k":"msg","words":[],"msg":11,"st":null}],[{"ch":"E","k":"word","words":[4],"msg":null,"st":null},{"ch":"O","k":"msg","words":[],"msg":12,"st":null},{"ch":"N","k":"msg","words":[],"msg":12,"st":null},{"ch":"S","k":"word","words":[15],"msg":null,"st":null},{"ch":"K","k":"word","words":[15],"msg":null,"st":null},{"ch":"A","k":"word","words":[15],"msg":null,"st":null},{"ch":"E","k":"word","words":[15],"msg":null,"st":null},{"ch":"P","k":"word","words":[15],"msg":null,"st":null},{"ch":"T","k":"word","words":[19],"msg":null,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null},{"ch":"I","k":"word","words":[14],"msg":null,"st":null},{"ch":"L","k":"msg","words":[],"msg":13,"st":null},{"ch":"P","k":"msg","words":[],"msg":13,"st":null},{"ch":"A","k":"msg","words":[],"msg":13,"st":null},{"ch":"S","k":"msg","words":[],"msg":13,"st":null},{"ch":"I","k":"msg","words":[],"msg":13,"st":null},{"ch":"E","k":"msg","words":[],"msg":13,"st":null},{"ch":"C","k":"msg","words":[],"msg":13,"st":null}],[{"ch":"L","k":"word","words":[4],"msg":null,"st":null},{"ch":"E","k":"msg","words":[],"msg":14,"st":null},{"ch":"S","k":"msg","words":[],"msg":14,"st":null},{"ch":"D","k":"msg","words":[],"msg":14,"st":null},{"ch":"B","k":"msg","words":[],"msg":14,"st":null},{"ch":"N","k":"msg","words":[],"msg":14,"st":null},{"ch":"O","k":"ambig","words":[],"msg":14,"st":null},{"ch":"O","k":"ambig","words":[],"msg":null,"st":null},{"ch":"R","k":"msg","words":[],"msg":14,"st":null},{"ch":"A","k":"word","words":[19],"msg":null,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null},{"ch":"E","k":"word","words":[5],"msg":null,"st":null},{"ch":"V","k":"word","words":[5,14],"msg":null,"st":null},{"ch":"L","k":"word","words":[5],"msg":null,"st":null},{"ch":"E","k":"word","words":[5],"msg":null,"st":null},{"ch":"W","k":"word","words":[5],"msg":null,"st":null},{"ch":"T","k":"word","words":[5],"msg":null,"st":null},{"ch":"S","k":"msg","words":[],"msg":15,"st":null},{"ch":"R","k":"msg","words":[],"msg":15,"st":null}],[{"ch":"E","k":"word","words":[4],"msg":null,"st":null},{"ch":"N","k":"msg","words":[],"msg":15,"st":null},{"ch":"T","k":"msg","words":[],"msg":15,"st":null},{"ch":"U","k":"msg","words":[],"msg":15,"st":null},{"ch":"F","k":"word","words":[6],"msg":null,"st":null},{"ch":"I","k":"word","words":[6],"msg":null,"st":null},{"ch":"V","k":"word","words":[6],"msg":null,"st":null},{"ch":"E","k":"word","words":[6],"msg":null,"st":null},{"ch":"T","k":"state","words":[],"msg":null,"st":"TN"},{"ch":"N","k":"state","words":[],"msg":null,"st":"TN"},{"ch":"T","k":"word","words":[19],"msg":null,"st":null},{"ch":"N","k":"state","words":[],"msg":null,"st":"NC"},{"ch":"C","k":"state","words":[],"msg":null,"st":"NC"},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null},{"ch":"I","k":"word","words":[14],"msg":null,"st":null},{"ch":"U","k":"msg","words":[],"msg":16,"st":null},{"ch":"J","k":"msg","words":[],"msg":16,"st":null},{"ch":"T","k":"msg","words":[],"msg":16,"st":null},{"ch":"S","k":"msg","words":[],"msg":16,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null}],[{"ch":"V","k":"word","words":[4],"msg":null,"st":null},{"ch":"R","k":"msg","words":[],"msg":17,"st":null},{"ch":"N","k":"msg","words":[],"msg":17,"st":null},{"ch":"I","k":"msg","words":[],"msg":17,"st":null},{"ch":"E","k":"msg","words":[],"msg":17,"st":null},{"ch":"M","k":"msg","words":[],"msg":17,"st":null},{"ch":"A","k":"msg","words":[],"msg":17,"st":null},{"ch":"K","k":"word","words":[23],"msg":null,"st":null},{"ch":"L","k":"word","words":[23],"msg":null,"st":null},{"ch":"A","k":"word","words":[23],"msg":null,"st":null},{"ch":"W","k":"word","words":[23],"msg":null,"st":null},{"ch":"E","k":"word","words":[19],"msg":null,"st":null},{"ch":"S","k":"state","words":[],"msg":null,"st":"SC"},{"ch":"C","k":"state","words":[],"msg":null,"st":"SC"},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null},{"ch":"D","k":"word","words":[14],"msg":null,"st":null},{"ch":"T","k":"word","words":[17],"msg":null,"st":null},{"ch":"R","k":"word","words":[17],"msg":null,"st":null},{"ch":"I","k":"word","words":[17],"msg":null,"st":null},{"ch":"D","k":"word","words":[17],"msg":null,"st":null}],[{"ch":"E","k":"word","words":[4],"msg":null,"st":null},{"ch":"A","k":"msg","words":[],"msg":18,"st":null},{"ch":"D","k":"msg","words":[],"msg":18,"st":null},{"ch":"T","k":"msg","words":[],"msg":18,"st":null},{"ch":"T","k":"msg","words":[],"msg":18,"st":null},{"ch":"E","k":"msg","words":[],"msg":18,"st":null},{"ch":"Y","k":"msg","words":[],"msg":18,"st":null},{"ch":"O","k":"msg","words":[],"msg":18,"st":null},{"ch":"S","k":"msg","words":[],"msg":18,"st":null},{"ch":"S","k":"word","words":[24],"msg":null,"st":null},{"ch":"Q","k":"word","words":[24],"msg":null,"st":null},{"ch":"U","k":"word","words":[24],"msg":null,"st":null},{"ch":"A","k":"word","words":[24],"msg":null,"st":null},{"ch":"R","k":"word","words":[24],"msg":null,"st":null},{"ch":"E","k":"word","words":[24],"msg":null,"st":null},{"ch":"E","k":"word","words":[3],"msg":null,"st":null},{"ch":"E","k":"word","words":[3,14],"msg":null,"st":null},{"ch":"R","k":"word","words":[3],"msg":null,"st":null},{"ch":"H","k":"word","words":[3],"msg":null,"st":null},{"ch":"T","k":"word","words":[3],"msg":null,"st":null}],[{"ch":"N","k":"word","words":[4],"msg":null,"st":null},{"ch":"M","k":"msg","words":[],"msg":19,"st":null},{"ch":"T","k":"msg","words":[],"msg":19,"st":null},{"ch":"O","k":"msg","words":[],"msg":19,"st":null},{"ch":"P","k":"msg","words":[],"msg":19,"st":null},{"ch":"L","k":"msg","words":[],"msg":19,"st":null},{"ch":"E","k":"msg","words":[],"msg":19,"st":null},{"ch":"C","k":"msg","words":[],"msg":19,"st":null},{"ch":"E","k":"msg","words":[],"msg":19,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null},{"ch":"H","k":"msg","words":[],"msg":20,"st":null},{"ch":"E","k":"msg","words":[],"msg":20,"st":null},{"ch":"T","k":"msg","words":[],"msg":20,"st":null},{"ch":"Q","k":"word","words":[16],"msg":null,"st":null},{"ch":"U","k":"word","words":[16],"msg":null,"st":null},{"ch":"A","k":"word","words":[16],"msg":null,"st":null},{"ch":"R","k":"word","words":[16],"msg":null,"st":null},{"ch":"R","k":"word","words":[16],"msg":null,"st":null},{"ch":"Y","k":"word","words":[16],"msg":null,"st":null},{"ch":"O","k":"spareO","words":[],"msg":null,"st":null}],[{"ch":"N","k":"msg","words":[],"msg":21,"st":null},{"ch":"S","k":"msg","words":[],"msg":21,"st":null},{"ch":"I","k":"msg","words":[],"msg":21,"st":null},{"ch":"O","k":"msg","words":[],"msg":21,"st":null},{"ch":"S","k":"msg","words":[],"msg":21,"st":null},{"ch":"M","k":"msg","words":[],"msg":21,"st":null},{"ch":"I","k":"msg","words":[],"msg":21,"st":null},{"ch":"X","k":"random","words":[],"msg":null,"st":null},{"ch":"Z","k":"random","words":[],"msg":null,"st":null},{"ch":"F","k":"random","words":[],"msg":null,"st":null},{"ch":"D","k":"random","words":[],"msg":null,"st":null},{"ch":"Q","k":"random","words":[],"msg":null,"st":null},{"ch":"B","k":"random","words":[],"msg":null,"st":null},{"ch":"C","k":"random","words":[],"msg":null,"st":null},{"ch":"C","k":"random","words":[],"msg":null,"st":null},{"ch":"A","k":"random","words":[],"msg":null,"st":null},{"ch":"S","k":"random","words":[],"msg":null,"st":null},{"ch":"L","k":"random","words":[],"msg":null,"st":null},{"ch":"I","k":"random","words":[],"msg":null,"st":null},{"ch":"Y","k":"random","words":[],"msg":null,"st":null}],[{"ch":"A","k":"random","words":[],"msg":null,"st":null},{"ch":"P","k":"random","words":[],"msg":null,"st":null},{"ch":"S","k":"random","words":[],"msg":null,"st":null},{"ch":"O","k":"word","words":[7],"msg":null,"st":null},{"ch":"R","k":"word","words":[7],"msg":null,"st":null},{"ch":"E","k":"word","words":[7],"msg":null,"st":null},{"ch":"Z","k":"word","words":[7],"msg":null,"st":null},{"ch":"N","k":"random","words":[],"msg":null,"st":null},{"ch":"G","k":"random","words":[],"msg":null,"st":null},{"ch":"Q","k":"random","words":[],"msg":null,"st":null},{"ch":"Z","k":"random","words":[],"msg":null,"st":null},{"ch":"P","k":"random","words":[],"msg":null,"st":null},{"ch":"S","k":"word","words":[12],"msg":null,"st":null},{"ch":"A","k":"word","words":[12],"msg":null,"st":null},{"ch":"P","k":"word","words":[12],"msg":null,"st":null},{"ch":"P","k":"word","words":[12],"msg":null,"st":null},{"ch":"H","k":"word","words":[12],"msg":null,"st":null},{"ch":"I","k":"word","words":[12],"msg":null,"st":null},{"ch":"R","k":"word","words":[12],"msg":null,"st":null},{"ch":"E","k":"word","words":[12],"msg":null,"st":null}]],"words":[{"id":0,"w":"NINETEEN","cat":"number","d":"E","cells":[[0,9],[0,10],[0,11],[0,12],[0,13],[0,14],[0,15],[0,16]],"back":false,"r":1,"c":10},{"id":1,"w":"NINE","cat":"number","d":"W","cells":[[0,11],[0,10],[0,9],[0,8]],"back":true,"r":1,"c":12},{"id":2,"w":"THREE","cat":"number","d":"S","cells":[[1,6],[2,6],[3,6],[4,6],[5,6]],"back":false,"r":2,"c":7},{"id":3,"w":"THREE","cat":"number","d":"W","cells":[[11,19],[11,18],[11,17],[11,16],[11,15]],"back":true,"r":12,"c":20},{"id":4,"w":"ELEVEN","cat":"number","d":"S","cells":[[7,0],[8,0],[9,0],[10,0],[11,0],[12,0]],"back":false,"r":8,"c":1},{"id":5,"w":"TWELVE","cat":"number","d":"W","cells":[[8,17],[8,16],[8,15],[8,14],[8,13],[8,12]],"back":true,"r":9,"c":18},{"id":6,"w":"FIVE","cat":"number","d":"E","cells":[[9,4],[9,5],[9,6],[9,7]],"back":false,"r":10,"c":5},{"id":7,"w":"ZERO","cat":"number","d":"W","cells":[[14,6],[14,5],[14,4],[14,3]],"back":true,"r":15,"c":7},{"id":8,"w":"NORTH","cat":"direction","d":"W","cells":[[3,5],[3,4],[3,3],[3,2],[3,1]],"back":true,"r":4,"c":6},{"id":9,"w":"WEST","cat":"direction","d":"W","cells":[[6,9],[6,8],[6,7],[6,6]],"back":true,"r":7,"c":10},{"id":10,"w":"LILAC","cat":"colour","d":"W","cells":[[0,7],[0,6],[0,5],[0,4],[0,3]],"back":true,"r":1,"c":8},{"id":11,"w":"LEMON","cat":"colour","d":"NE","cells":[[4,7],[3,8],[2,9],[1,10],[0,11]],"back":false,"r":5,"c":8},{"id":12,"w":"SAPPHIRE","cat":"colour","d":"E","cells":[[14,12],[14,13],[14,14],[14,15],[14,16],[14,17],[14,18],[14,19]],"back":false,"r":15,"c":13},{"id":13,"w":"WATER","cat":"place","d":"W","cells":[[4,19],[4,18],[4,17],[4,16],[4,15]],"back":true,"r":5,"c":20},{"id":14,"w":"DIVIDE","cat":"place","d":"SE","cells":[[6,11],[7,12],[8,13],[9,14],[10,15],[11,16]],"back":false,"r":7,"c":12},{"id":15,"w":"PEAKS","cat":"place","d":"W","cells":[[7,7],[7,6],[7,5],[7,4],[7,3]],"back":true,"r":8,"c":8},{"id":16,"w":"QUARRY","cat":"place","d":"E","cells":[[12,13],[12,14],[12,15],[12,16],[12,17],[12,18]],"back":false,"r":13,"c":14},{"id":17,"w":"DIRT","cat":"place","d":"W","cells":[[10,19],[10,18],[10,17],[10,16]],"back":true,"r":11,"c":20},{"id":18,"w":"RAIL","cat":"place","d":"W","cells":[[2,18],[2,17],[2,16],[2,15]],"back":true,"r":3,"c":19},{"id":19,"w":"STATE","cat":"place","d":"SE","cells":[[6,7],[7,8],[8,9],[9,10],[10,11]],"back":false,"r":7,"c":8},{"id":20,"w":"ESTATE","cat":"place","d":"W","cells":[[5,6],[5,5],[5,4],[5,3],[5,2],[5,1]],"back":true,"r":6,"c":7},{"id":21,"w":"COUNT","cat":"other","d":"S","cells":[[1,0],[2,0],[3,0],[4,0],[5,0]],"back":false,"r":2,"c":1},{"id":22,"w":"ROUND","cat":"other","d":"E","cells":[[2,1],[2,2],[2,3],[2,4],[2,5]],"back":false,"r":3,"c":2},{"id":23,"w":"WALK","cat":"other","d":"W","cells":[[10,10],[10,9],[10,8],[10,7]],"back":true,"r":11,"c":11},{"id":24,"w":"SQUARE","cat":"other","d":"E","cells":[[11,9],[11,10],[11,11],[11,12],[11,13],[11,14]],"back":false,"r":12,"c":10}],"msgs":[{"id":0,"txt":"THERE","cells":[[1,1],[1,2],[1,3],[1,4],[1,5]],"raw":"RETEH","row":2},{"id":1,"txt":"ARE","cells":[[1,7],[1,8],[1,9]],"raw":"REA","row":2},{"id":2,"txt":"FIVE CLUES","cells":[[1,11],[1,12],[1,13],[1,14],[1,15],[1,16],[1,17],[1,18],[1,19]],"raw":"UCSIFEVLE","row":2},{"id":3,"txt":"IN","cells":[[2,7],[2,8]],"raw":"NI","row":3},{"id":4,"txt":"THIS","cells":[[2,10],[2,11],[2,12],[2,13]],"raw":"IHST","row":3},{"id":5,"txt":"WORD SEARCH","cells":[[3,9],[3,10],[3,11],[3,12],[3,13],[3,14],[3,15],[3,16],[3,17],[3,18]],"raw":"OCEHSRARDW","row":4},{"id":6,"txt":"BUT DO","cells":[[4,1],[4,2],[4,3],[4,4],[4,5]],"raw":"OUBTD","row":5},{"id":7,"txt":"NOT TELL","cells":[[4,8],[4,9],[4,10],[4,11],[4,12],[4,13],[4,14]],"raw":"OELTLNT","row":5},{"id":8,"txt":"ANYONE","cells":[[5,8],[5,9],[5,10],[5,11],[5,12],[5,13]],"raw":"NYNEOA","row":6},{"id":9,"txt":"LINE","cells":[[5,15],[5,16],[5,17],[5,18]],"raw":"LINE","row":6},{"id":10,"txt":"THEM UP","cells":[[6,0],[6,1],[6,2],[6,3],[6,4],[6,5]],"raw":"PMUEHT","row":7},{"id":11,"txt":"THERE ARE","cells":[[6,12],[6,13],[6,14],[6,15],[6,16],[6,17],[6,18],[6,19]],"raw":"AHREERET","row":7},{"id":12,"txt":"NO","cells":[[7,1],[7,2]],"raw":"ON","row":8},{"id":13,"txt":"SPECIAL","cells":[[7,13],[7,14],[7,15],[7,16],[7,17],[7,18],[7,19]],"raw":"LPASIEC","row":8},{"id":14,"txt":"BENDS OR","cells":[[8,1],[8,2],[8,3],[8,4],[8,5],[8,6],[8,8]],"raw":"ESDBNOR","row":9},{"id":15,"txt":"TURNS","cells":[[8,18],[8,19],[9,1],[9,2],[9,3]],"raw":"SRNTU","row":9},{"id":16,"txt":"JUST","cells":[[9,15],[9,16],[9,17],[9,18]],"raw":"UJTS","row":10},{"id":17,"txt":"REMAIN","cells":[[10,1],[10,2],[10,3],[10,4],[10,5],[10,6]],"raw":"RNIEMA","row":11},{"id":18,"txt":"STEADY TO","cells":[[11,1],[11,2],[11,3],[11,4],[11,5],[11,6],[11,7],[11,8]],"raw":"ADTTEYOS","row":12},{"id":19,"txt":"COMPLETE","cells":[[12,1],[12,2],[12,3],[12,4],[12,5],[12,6],[12,7],[12,8]],"raw":"MTOPLECE","row":13},{"id":20,"txt":"THE","cells":[[12,10],[12,11],[12,12]],"raw":"HET","row":13},{"id":21,"txt":"MISSION","cells":[[13,0],[13,1],[13,2],[13,3],[13,4],[13,5],[13,6]],"raw":"NSIOSMI","row":14}]};
+const grid = document.getElementById('grid'), tip = document.getElementById('tip'), status = document.getElementById('status');
+const catName = {number:'number', direction:'direction', colour:'colour / gem', place:'terrain / place', other:'other'};
+const dirName = {E:'left-to-right', W:'backward', S:'down', NE:'diagonal up-right', SE:'diagonal down-right'};
+const kindName = {word:'placed word', msg:'hidden-message letter', state:'deliberate state letters', spareO:'spare O', ambig:'O: message letter or spare (interchangeable within its run)', random:'random filler'};
+grid.appendChild(Object.assign(document.createElement('div'), {className:'hdr'}));
+for (let c = 0; c < 20; c++) grid.appendChild(Object.assign(document.createElement('div'), {className:'hdr', textContent: c + 1}));
+const cellEls = [];
+D.cells.forEach((row, r) => {
+  grid.appendChild(Object.assign(document.createElement('div'), {className:'hdr', textContent: r + 1}));
+  cellEls.push([]);
+  row.forEach((cell, c) => {
+    const el = document.createElement('div');
+    el.className = 'cell k-' + cell.k;
+    el.textContent = cell.ch;
+    cell.words.forEach(i => {
+      const w = D.words[i];
+      el.classList.add(w.d === 'W' ? 'back' : 'fwd');
+      if (w.cat === 'number' || w.cat === 'direction') el.classList.add('num');
+    });
+    el.addEventListener('mousemove', ev => {
+      let h = `<b>R${r+1}C${c+1} “${cell.ch}”</b>: ${kindName[cell.k]}`;
+      if (cell.words.length) h += '<br>' + cell.words.map(i => `${D.words[i].w} (${catName[D.words[i].cat]}, ${dirName[D.words[i].d]})`).join('<br>');
+      if (cell.msg !== null) h += `<br>message: <b>${D.msgs[cell.msg].txt}</b> (grid run ${D.msgs[cell.msg].raw})`;
+      if (cell.st) h += `<br>spells <b>${cell.st}</b>`;
+      tip.innerHTML = h; tip.classList.add('on');
+      tip.style.left = Math.min(ev.clientX + 14, innerWidth - 330) + 'px'; tip.style.top = (ev.clientY + 14) + 'px';
+    });
+    el.addEventListener('mouseleave', () => tip.classList.remove('on'));
+    grid.appendChild(el); cellEls[r].push(el);
+  });
+});
+document.querySelectorAll('#views button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#views button').forEach(x => x.classList.toggle('on', x === b));
+  grid.className = b.dataset.v === 'all' ? '' : 'v-' + b.dataset.v;
+  clearHL();
+}));
+function clearHL() { grid.classList.remove('hasHL'); document.querySelectorAll('.cell.hl').forEach(e => e.classList.remove('hl')); document.querySelectorAll('tr.hl').forEach(e => e.classList.remove('hl')); }
+function highlight(cells, tr, text) {
+  const same = tr.classList.contains('hl');
+  clearHL();
+  if (same) { status.textContent = 'Hover a cell for details, or click a row in the tables below to highlight it.'; return; }
+  grid.classList.add('hasHL'); tr.classList.add('hl');
+  cells.forEach(([r, c]) => cellEls[r][c].classList.add('hl'));
+  status.innerHTML = text;
+  grid.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+document.querySelectorAll('tr[data-w]').forEach(tr => tr.addEventListener('click', () => {
+  const w = D.words[+tr.dataset.w]; highlight(w.cells, tr, `<b>${w.w}</b>: ${catName[w.cat]}, starts R${w.r}C${w.c}, reads ${dirName[w.d]}. Click again to clear.`);
+}));
+document.querySelectorAll('tr[data-m]').forEach(tr => tr.addEventListener('click', () => {
+  const m = D.msgs[+tr.dataset.m]; highlight(m.cells, tr, `Message run <span class="mono">${m.raw}</span> → <b>${m.txt}</b>. Click again to clear.`);
+}));
+</script>
+</body>
+</html>
