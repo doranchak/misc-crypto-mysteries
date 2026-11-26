@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>"Weird message from a strange guy": a reading of the rune, German and Chinese sheet</title>
+<style>
+:root{
+  --ink:#1d1d1f; --mute:#5f6368; --line:#d9d9de; --bg:#fbfaf7; --card:#fff;
+  --accent:#1f6fb2; --hi:#ffcc00;
+  --c-border:#c77d00; --c-title:#8e44ad; --c-zhpara:#c0392b; --c-latin:#1f6fb2;
+  --c-runes:#0f8f75; --c-cols:#d35400; --c-lyrics:#d6306f; --c-bottom:#6b7a89;
+  --c-symbol:#e0a000; --c-drawing:#27ae60;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif}
+.wrap{max-width:1320px;margin:0 auto;padding:24px 20px 80px}
+h1{font-size:1.65rem;line-height:1.25;margin:.2em 0 .3em}
+h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--line)}
+h3{font-size:1.05rem;margin:1.4em 0 .4em}
+a{color:var(--accent)}
+.sub{color:var(--mute);margin:0 0 1em}
+.verdict{background:#fff;border:1px solid var(--line);border-left:5px solid var(--accent);padding:14px 18px;border-radius:8px;margin:16px 0}
+.verdict p{margin:.45em 0}
+.g{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Runic","Segoe UI Historic","Apple Symbols","Segoe UI Symbol",sans-serif;letter-spacing:.03em}
+.zh{font-family:"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",sans-serif}
+code{background:#f0efe9;padding:1px 5px;border-radius:4px;font-size:.92em}
+
+/* explorer */
+.toolbar{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:10px 0}
+.toolbar label{display:inline-flex;align-items:center;gap:5px;font-size:.9rem;cursor:pointer;white-space:nowrap}
+.toolbar .sw{display:inline-block;width:11px;height:11px;border-radius:2px}
+.toolbar .sep{width:1px;height:20px;background:var(--line)}
+.toolbar button{font:inherit;font-size:.88rem;padding:3px 10px;border:1px solid var(--line);background:#f6f6f3;border-radius:6px;cursor:pointer}
+.toolbar button:hover{background:#ecebe6}
+.explorer{display:grid;grid-template-columns:minmax(320px,1fr) minmax(380px,560px);gap:18px;align-items:start}
+@media (max-width:980px){.explorer{grid-template-columns:1fr}}
+.stage{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;user-select:none;touch-action:manipulation}
+.stage img{display:block;width:100%;height:auto}
+.stage svg{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair}
+.stage svg .ol{fill:none;stroke-width:2;vector-effect:non-scaling-stroke;opacity:.55}
+.stage svg .act{fill:rgba(255,204,0,.13);stroke:#ff9d00;stroke-width:3;vector-effect:non-scaling-stroke}
+.stage svg .act.pinned{stroke:#e0007a}
+#loupe{position:absolute;width:220px;height:220px;border-radius:50%;border:3px solid #333;box-shadow:0 4px 18px rgba(0,0,0,.35);pointer-events:none;display:none;background:#fff}
+.panel{position:sticky;top:10px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;max-height:calc(100vh - 20px);overflow:auto}
+.panel .hd{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.panel .nm{font-weight:650;font-size:1.05rem}
+.tag{font-size:.74rem;padding:1px 7px;border-radius:10px;color:#fff;white-space:nowrap}
+.conf{font-size:.74rem;padding:1px 7px;border-radius:10px;border:1px solid #bbb;white-space:nowrap}
+.conf.high{background:#e3f4e6;border-color:#8cc79a}
+.conf.medium{background:#fff4d6;border-color:#e2c26b}
+.conf.low{background:#fde5e3;border-color:#e3a19a}
+.conf.na{background:#eee}
+.pinmsg{font-size:.78rem;color:#e0007a;margin-left:auto}
+#zoom{display:block;width:100%;margin:10px 0 4px;background:#fff;border:1px solid #eee;border-radius:4px}
+.zoomctl{display:flex;gap:14px;font-size:.84rem;color:var(--mute);margin-bottom:8px;flex-wrap:wrap}
+.fld{margin:.55em 0}
+.fld .k{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:1px}
+.fld .v{white-space:pre-wrap}
+.fld .v.big{font-size:1.06rem}
+.hint{color:var(--mute);font-size:.9rem}
+.navrow{display:flex;gap:8px;align-items:center;margin-top:8px}
+.navrow select{flex:1;font:inherit;font-size:.88rem;padding:3px;max-width:100%}
+.navrow button{font:inherit;font-size:.88rem;padding:3px 10px;border:1px solid var(--line);background:#f6f6f3;border-radius:6px;cursor:pointer}
+
+/* tables */
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.93rem}
+th,td{border:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left}
+th{background:#f3f2ee;font-weight:600}
+tr.rowhov td{background:#fff8dc}
+tbody tr{cursor:pointer}
+td .tag{font-size:.7rem}
+.key td:first-child{font-size:1.15rem;text-align:center;white-space:nowrap}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 16px}
+.small{font-size:.88rem;color:var(--mute)}
+ul.tight li{margin:.2em 0}
+.lyr td:first-child{white-space:nowrap}
+footer{margin-top:3em;color:var(--mute);font-size:.86rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>"Weird message from a strange guy": runes, mirror-script German and Chinese</h1>
+<p class="sub">Source: r/codes post <a href="https://www.reddit.com/r/codes/comments/1v3em0s/weird_message_from_a_strange_guy_can_anyone/">"Weird message from a strange guy, can anyone…"</a> by u/TheCrow_of_Judgment (a man handed the sheet to the poster). This page gives a region-by-region transcription and translation, plus an interactive explorer for the very busy original.</p>
+
+<div class="verdict">
+<p><b>Short answer:</b> it is not a cipher in the cryptographic sense. The sheet mixes three writing systems, and each can be read:</p>
+<p>1. <b>German in a home-made alphabet.</b> These are the big "Latin" letters: Æ = A, ⊗E = E, ‡ = T, ɟ = D, Γ = L, a flag-letter Þ = CH, and so on (see the key below). The spelling is phonetic and the grammar is broken, but most words come through, for example <i>Freitag 13. März 2026</i>, <i>Abschluss</i>, <i>hastig … ist verkauft</i>, <i>unserer Wohnung, unserer Taschen</i>, <i>Hauses Versicherung</i>, <i>bürgen EUR 35000 €</i>, <i>unserer Erwerber, aber unser</i>, <i>immer</i>, <i>Aufrechterhaltung</i>, <i>die Maximisierung der Kontinuität</i> and <i>auch den spektakulären Unfall</i>.</p>
+<p>2. <b>Runes.</b> Every German line is copied again on the line beneath it, in mirror-image Elder-Futhark-style runes written right to left. For example, the right-hand end of the first rune line reads ᚢᚾᛋᛖᚱᛖᚱ = UNSERER. Even the digits <i>6</i> and <i>35000 €</i> are mirrored.</p>
+<p>3. <b>Chinese.</b> The two side columns carry the theme song of the 1986 <i>Journey to the West</i> TV series, 敢问路在何方 ("Where is the road?"), with idioms tacked onto the end. The paragraph under the title is labelled 结论 ("conclusion"). It is the writer's own Chinese, and it runs parallel to the German: selling the house, the 6th floor, insurance, 35000 euros, a wall and repairs, buying and selling.</p>
+<p><b>What it says, overall:</b> fragmentary personal notes about selling an apartment or house: the buyer, the house insurance, "damage", 35,000 €, wall and roof repairs, a "spectacular accident". They are dated Sunday 1 March and Friday 13 March 2026 and framed by slogan-like lines ("the maximisation of continuity", "maintenance rests on…") and the song. This fits the OP's quoted update, which said the sheets are "written in German", in mirrored Futhark, with "a very popular [Chinese] poem", and describe real-world facts in an artsy way.</p>
+<p class="small">Confidence varies by area. Each region in the explorer has a high, medium or low tag, and the "Still unresolved" section lists the words I could not read. The only photo available is 1080×1490 px, which limits some letters.</p>
+</div>
+
+<h2 id="explorer">Interactive explorer</h2>
+<p class="hint">Hover over any part of the sheet to see an enlarged crop, the glyphs as written, the reading and a translation. <b>Click</b> to pin a region (click again or press <kbd>Esc</kbd> to release). <kbd>←</kbd>/<kbd>→</kbd> step through the regions in reading order. The rune-line crops are mirrored automatically so the runes read normally, left to right. Turn on the <b>Drawing</b> layer to hover over the circles and arrows.</p>
+
+<div class="toolbar" id="toolbar"></div>
+
+<div class="explorer">
+  <div class="stage" id="stage">
+    <img id="page" src="message.webp" alt="The sheet: runes, German in a custom alphabet, Chinese text, a large circle drawing">
+    <svg id="ov" viewBox="0 0 1080 1490" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <mask id="spotmask" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1490">
+          <rect x="0" y="0" width="1080" height="1490" fill="white"/>
+          <g id="spothole"></g>
+        </mask>
+      </defs>
+      <rect id="dim" x="0" y="0" width="1080" height="1490" fill="rgba(20,20,30,.55)" mask="url(#spotmask)" style="display:none"/>
+      <g id="outlines"></g>
+      <g id="activeg"></g>
+    </svg>
+    <canvas id="loupe" width="440" height="440"></canvas>
+  </div>
+  <aside class="panel" id="panel">
+    <div class="hd">
+      <span class="nm" id="p-name">Hover over the sheet</span>
+      <span class="tag" id="p-tag" style="display:none"></span>
+      <span class="conf na" id="p-conf" style="display:none"></span>
+      <span class="pinmsg" id="p-pin"></span>
+    </div>
+    <canvas id="zoom" width="520" height="200"></canvas>
+    <div class="zoomctl">
+      <label><input type="checkbox" id="flip"> mirror crop (makes the rune lines read left→right)</label>
+      <span id="p-dims"></span>
+    </div>
+    <div class="fld"><div class="k">As written (glyph transcription)</div><div class="v g big" id="p-glyphs">–</div></div>
+    <div class="fld"><div class="k">Reading</div><div class="v big" id="p-reading">–</div></div>
+    <div class="fld"><div class="k">English</div><div class="v" id="p-en">–</div></div>
+    <div class="fld"><div class="k">Notes</div><div class="v small" id="p-notes">–</div></div>
+    <div class="navrow">
+      <button id="prev" title="previous (←)">◀</button>
+      <select id="jump"></select>
+      <button id="next" title="next (→)">▶</button>
+    </div>
+  </aside>
+</div>
+
+<h2 id="transcript">Full transcript, in reading order</h2>
+<p class="hint">Hover over or click a row to highlight its area in the explorer. In "As written": <span class="g">·</span> separates words, <span class="g">[…]</span> marks illegible letters and (?) marks uncertain ones.</p>
+<table id="tx">
+  <thead><tr><th>#</th><th>Area</th><th>As written</th><th>Reading</th><th>English</th><th>Conf.</th></tr></thead>
+  <tbody></tbody>
+</table>
+
+<h2 id="key">How to read the German: the writer's alphabet</h2>
+<div class="two">
+<div>
+<h3>"Latin" letters (the big lettering)</h3>
+<table class="key">
+<thead><tr><th>Glyph</th><th>Value</th><th>Evidence on the sheet</th></tr></thead>
+<tbody>
+<tr><td class="g">Æ</td><td>A, Ä; E in the diphthong ÆI</td><td><span class="g">MÆRꞨ</span> März, <span class="g">FRÆI‡ÆG</span> Freitag, <span class="g">RÆIN</span> rein, <span class="g">ÆL⊗ERɟINGS</span> allerdings</td></tr>
+<tr><td class="g">⊗E</td><td>E (a circled X fused with E)</td><td><span class="g">UNS⊗ER⊗ER</span> unserer, <span class="g">BRI⊗EF⊗EN</span> Briefen, <span class="g">IⱧⱧ⊗ER</span> immer</td></tr>
+<tr><td class="g">Ɛ</td><td>E (in the side columns and border rows)</td><td><span class="g">ƐS</span> es, <span class="g">ɟƐR</span> der, <span class="g">ƐRRƐI[H]Ɛ</span> erreiche</td></tr>
+<tr><td class="g">N̲+</td><td>N (a box-like N with a + inside)</td><td>every <span class="g">UNS…</span></td></tr>
+<tr><td class="g">‡</td><td>T (a stroke with two crossbars)</td><td><span class="g">FRÆI‡ÆG</span>, <span class="g">K∝N‡I:NUI:‡Æ‡</span> Kontinuität, <span class="g">VÆRKÆUᚠ‡</span> verkauft</td></tr>
+<tr><td class="g">ɟ</td><td>D (the same stroke with a hooked foot)</td><td><span class="g">ɟI:Ɛ</span> die, <span class="g">ɟÆN</span> den, <span class="g">ɟ⊗ES</span> des</td></tr>
+<tr><td class="g">Γ</td><td>L</td><td><span class="g">UNFÆΓ</span> Unfall, <span class="g">ÆBSÞΓUSS</span> Abschluss, <span class="g">SPÆ<K‡ÆKU'ΓÆR</span></td></tr>
+<tr><td class="g">Þ</td><td>CH (a stroke with a triangular flag)</td><td><span class="g">ÆBSÞΓUSS</span> Abschluss, <span class="g">‡ÆSÞ⊗EN</span> Taschen, <span class="g">ɟ⊗ERÞ</span> "derch" = durch</td></tr>
+<tr><td class="g">[H]</td><td>CH (an H between brackets)</td><td><span class="g">ÆUᚠRƐ[H]‡ƐR…</span> Aufrechter-, <span class="g">SƐ[H]Ɛ</span> Sache, <span class="g">ƐRRƐI[H]Ɛ</span></td></tr>
+<tr><td class="g">Ⱶ</td><td>H (a stroke with a barred box)</td><td><span class="g">ⱵÆS‡IG</span> hastig (confirmed by runes ᚺᚨᛋᛏᛁᚷ), <span class="g">ⱵÆUSÆ</span> Hause</td></tr>
+<tr><td class="g">Ꞩ / ʒ</td><td>Z, S</td><td><span class="g">MÆRꞨ</span> März, <span class="g">ꞨU</span> zu, <span class="g">ꞨUM</span> zum, <span class="g">ʒ⊗EWI:Ɛ</span> sowie</td></tr>
+<tr><td class="g">ᚠ</td><td>F (the fehu rune used as a letter)</td><td><span class="g">ÆUᚠ</span> auf, <span class="g">VÆRKÆUᚠ‡</span> verkauft</td></tr>
+<tr><td class="g">∝</td><td>O (a diamond with two legs, like ᛟ)</td><td><span class="g">K∝N‡I:NUI:‡Æ‡</span> Kontinuität, <span class="g">PƐRS∝NΓI:</span> persönl-</td></tr>
+<tr><td class="g">Ⱨ</td><td>M (a bow-tie-shaped M)</td><td><span class="g">IⱧⱧ⊗ER</span> immer, <span class="g">ⱧÆU⊗ER</span> Mauer</td></tr>
+<tr><td class="g">&lt;, K</td><td>C/K; K also stands for the CH sound</td><td><span class="g">SPÆ&lt;K‡ÆKU'ΓÆR</span> spektakulär, <span class="g">ÆUK</span> auch, <span class="g">SKÆɟ⊗EN</span> Schaden</td></tr>
+<tr><td class="g">I:, ·I·</td><td>I (with dots)</td><td><span class="g">MÆXI:MI:SI:ƐRUNG</span></td></tr>
+<tr><td class="g">·</td><td>word separator</td><td>everywhere</td></tr>
+<tr><td class="g">↑</td><td>arrow marks over some letters: decorative, or perhaps a T</td><td>over the H of HASTIG and the R of RÆIN. Rune line 1 has a T before REIN, so ↑ = T is possible</td></tr>
+</tbody></table>
+</div>
+<div>
+<h3>Rune lines: mirror copies</h3>
+<p>Each line of runes repeats the German line directly above it. It is written <b>right to left</b>, and each rune is drawn <b>mirror-image</b>. If you flip a rune line horizontally (the explorer does this for you), you get ordinary Elder-Futhark-style runes spelling the same German.</p>
+<table class="key">
+<thead><tr><th>Rune</th><th>Value</th><th>Seen in</th></tr></thead>
+<tbody>
+<tr><td class="g">ᚢ</td><td>U</td><td>UNSERER (lines 1, 3, 8)</td></tr>
+<tr><td class="g">ᚾ, +</td><td>N</td><td>UNSERER</td></tr>
+<tr><td class="g">ᛋ</td><td>S</td><td>UNSERER, HASTIG, DES</td></tr>
+<tr><td class="g">ᛖ</td><td>E</td><td>UNSERER, DES</td></tr>
+<tr><td class="g">ᚱ</td><td>R</td><td>UNSERER, ABER</td></tr>
+<tr><td class="g">ᚺ</td><td>H</td><td>HASTIG</td></tr>
+<tr><td class="g">ᚨ</td><td>A</td><td>HASTIG, ABER</td></tr>
+<tr><td class="g">ᛏ</td><td>T</td><td>HASTIG, line 5 (6 ST…)</td></tr>
+<tr><td class="g">ᛁ</td><td>I</td><td>HASTIG, REIN</td></tr>
+<tr><td class="g">ᚷ (X)</td><td>G</td><td>HASTIG</td></tr>
+<tr><td class="g">ᛟ</td><td>for the ⊗E letter</td><td>WEM (line 7), line 5, end of line 1</td></tr>
+<tr><td class="g">ᛞ (⋈)</td><td>D/T (also looks like M)</td><td>DES (line 9)</td></tr>
+<tr><td class="g">ᛒ</td><td>B</td><td>BÜRGEN, ABER</td></tr>
+<tr><td>6, 35000 €</td><td>digits, also mirrored</td><td>line 5 (6 at the right end), line 7</td></tr>
+</tbody></table>
+<p class="small">So the runes add no new information. They confirm the German letters, and they helped to settle HASTIG (line 2), the 6 in line 5 and UNSERER in line 1.</p>
+</div>
+</div>
+
+<h2 id="chinese">The Chinese text</h2>
+<div class="two">
+<div class="card">
+<h3>Side columns: song lyrics + idioms</h3>
+<p>The left column and the right column (top) together give the first verse of <span class="zh">敢问路在何方</span> ("May I ask where the road is?"), the ending theme of CCTV's 1986 <i>Journey to the West</i> (lyrics by Yan Su, sung by Jiang Dawei). u/Business_Bananana identified it in the thread. The writer wrote <span class="zh">翻</span> for <span class="zh">番</span> and <span class="zh">一阵阵</span> for <span class="zh">一场场</span>.</p>
+<table class="lyr">
+<tbody>
+<tr><td class="zh">你挑着担，我牵着马</td><td>You carry the load, I lead the horse</td></tr>
+<tr><td class="zh">迎来日出送走晚霞</td><td>greeting the sunrise, seeing off the sunset glow</td></tr>
+<tr><td class="zh">踏平坎坷成大道</td><td>treading the rough places flat into a highway</td></tr>
+<tr><td class="zh">斗罢艰险又出发</td><td>hardships fought through, we set off again</td></tr>
+<tr><td class="zh">啦啦啦啦啦啦</td><td>la la la la la la</td></tr>
+<tr><td class="zh">一翻翻春秋冬夏</td><td>season after season, spring, autumn, winter, summer</td></tr>
+<tr><td class="zh">一阵阵酸甜苦辣</td><td>bout after bout of sour, sweet, bitter, spicy (life's ups and downs)</td></tr>
+<tr><td class="zh">敢问路在何方？路在脚下</td><td>May I ask where the road is? The road is under your feet.</td></tr>
+<tr><td colspan="2" class="small">Appended idioms (not part of the song):</td></tr>
+<tr><td class="zh">乐极生悲</td><td>extreme joy begets sorrow</td></tr>
+<tr><td class="zh">物极必反</td><td>anything pushed to its extreme turns into its opposite</td></tr>
+<tr><td class="zh">肩并肩，步履一致</td><td>shoulder to shoulder, in step</td></tr>
+<tr><td class="zh">头头是道，为道士之意(?)</td><td>clear and logical: that is the Taoist's meaning (last character uncertain)</td></tr>
+</tbody></table>
+</div>
+<div class="card">
+<h3>The 结论 ("conclusion") paragraph</h3>
+<p>It sits under the German title word ÆBSÞLUSS (<i>Abschluss</i> = conclusion), which the writer glossed in Chinese as <span class="zh">结论</span>. It is the writer's own Chinese, unpunctuated and loosely worded. Its topics match the German lines, so it reads as a Chinese version of the same notes. Characters in (?) are uncertain.</p>
+<table class="lyr">
+<tbody>
+<tr><td class="zh">我们不会寻找探求(?)任何结论 — 虽而是(?)</td><td>We will not search for or pursue any conclusion — although…</td></tr>
+<tr><td class="zh">兄(?)需积极人生，但我们还是强到(?)要(?)我将房子卖掉</td><td>…a positive life is needed, but we were still pushed to the point that I am to sell the house. <span class="small">(≈ German line 2 "…ist verkauft")</span></td></tr>
+<tr><td class="zh">第6层的 还在拼命地寻找做卫生的保险 以致得到35000欧(元)之</td><td>The [one on the] 6th floor is still desperately looking for cleaning/sanitation insurance, so as to obtain 35,000 euros… <span class="small">(≈ lines 5, 6, 7: "6", "Versicherung", "35000 €")</span></td></tr>
+<tr><td class="zh">如何行进呢?! 我们具有泥匠的纠(勾?)缝，此已足够，越墙修，不修，浦(浴?)</td><td>How do we proceed?! We have the mason's pointing [the mortar between bricks]; that is enough already. Repair across the wall(?), no repair, bath-… <span class="small">(≈ line 9 "Mauer", wall)</span></td></tr>
+<tr><td class="zh">室。号遥。遑晓。逢火昌六丈。一量细看不是杨柳是元春、巧姐。鄂(?)极生杯(?)</td><td>…room. [cryptic fragments: "number far", "hurry dawn", "meet fire, flourish six zhang"]. Looked at closely, it is not the willow, it is Yuanchun and Qiaojie (two women in <i>Dream of the Red Chamber</i>). The last four characters look like a garbled 乐极生悲 "extreme joy begets sorrow", which recurs in the right column.</td></tr>
+<tr><td class="zh">象从常春藤。希望之生(火?)并(?)未息火，买卖买卖买卖(?) 题</td><td>Like ivy… The [flame] of hope has not gone out; buy-sell, buy-sell, buy-sell. "Inscribed:" (<span class="zh">题</span> is the usual calligraphy sign-off)</td></tr>
+<tr><td class="g">ΓI · ΓI · 2026 · MÆRꞨ · 01</td><td>…followed by the date line: 1 March 2026. With Γ = L, "ΓI·ΓI" would read LI·LI, perhaps a signature (uncertain).</td></tr>
+</tbody></table>
+</div>
+</div>
+
+<h2 id="unresolved">Still unresolved</h2>
+<ul class="tight">
+<li><b>Line 4</b> <span class="g">UNSÞ·I·SÞ·I·ÞRÆ·I·‡ · Æɟ · ꞨÞ⊗ER · S‡ÆRÆI‡Æ</span>. The rune copy matches it letter for letter, so this is what was written. With Þ = CH it gives "unschi schi chräit … scher stäraita", which is not a German word sequence I can identify.</li>
+<li><b>Line 1</b> after UNSERER. A filled black arrow covers the second word (<span class="g">U[…]⊗EN</span>). Then come <span class="g">RÆIN</span> (rein?) and <span class="g">R⊗EN‡RUSI'⊗EN</span>; the rune copy suggests "TREIN" for the third word.</li>
+<li><b>Line 5</b> <span class="g">S‡⊗ERWÆRR · I · HÆRHÆD⊗E</span>. The Chinese 第6层 ("6th floor") suggests "6. Stock(werk)", but the letters don't spell that.</li>
+<li><b>Line 9</b> <span class="g">K·I·Þ⊗EN</span> could be "kippen" (to tip) or "Küchen" (kitchens), and <span class="g">DÆ&lt;R</span> is probably "Dach" (roof).</li>
+<li><b>Title</b> first word <span class="g">ÆX·I·ꞨÆRK‡</span>, and the end of the far-left column <span class="g">ƐRⱵ∝GΓ</span> (a garbled "Erfolg", success?).</li>
+<li><b>Bottom rows</b> A (end) and C (<span class="g">ƐΓΓƐR · ‡I: · WƐÆU · ɟƐR · KI:ΓI:S · ʒ⊗EWI:Ɛ</span>, of which only "der" and "sowie" are clear).</li>
+<li><b>Top centre</b> <span class="g">G I B U Æ U ɟ ɟ Æ</span> and its runic twin <span class="g">ᚷ ᛁ ᛒ ᚢ ᚨ ᚢ ᛖ ? ᚨ</span>; the symbol groups <span class="g">ᛉ Γ ᚢ ♀</span> (♀ = Venus = Friday); and the ornamental corner blocks.</li>
+</ul>
+<p class="small">A sharper scan would probably settle most of these. The photo posted on Reddit is the only source I had.</p>
+
+<h2 id="method">How this was read</h2>
+<ul class="tight">
+<li>I located the text lines with an ink-density profile, then enlarged every line pair, column and border cell 3–5× for transcription.</li>
+<li>The letter values come from words that can only be one thing: <span class="g">MÆRꞨ</span> (März, next to 2026 and 13), <span class="g">FRÆI‡ÆG</span> (13 March 2026 really is a Friday), <span class="g">ÆBSÞΓUSS</span> (glossed <span class="zh">结论</span>), <span class="g">UNFÆΓ</span>, <span class="g">MÆXI:MI:SI:ƐRUNG</span>, <span class="g">K∝N‡I:NUI:‡Æ‡</span>, and the repeated <span class="g">UNS⊗ER⊗ER</span>.</li>
+<li>The rune lines were checked by reading them right to left with mirrored rune forms. They reproduce the German lines letter for letter, digits included, which also confirmed doubtful Latin letters (the H of HASTIG, the 6 of line 5).</li>
+<li>The Chinese was transcribed by eye. The lyrics were matched against the known song, and the paragraph was cross-checked against the German topics.</li>
+<li>Helpful thread comments: u/sebiroth ("the futhark runes are just German written from right to left"), u/Business_Bananana (the song identification, the idioms and the Chinese middle section), u/Epicon3 (German + Latin + Chinese mix), and the OP's quoted update (mirror Futhark, German, popular Chinese poem).</li>
+</ul>
+
+<footer>Image: the photo from the r/codes post (message.webp, 1080×1490). The region coordinates in the explorer are in image pixels. The drawing outlines are approximate.</footer>
+</div>
+
+<script>
+"use strict";
+const GROUPS = {
+  border:  {label:"Top border & corners", color:"var(--c-border)", hex:"#c77d00", on:true},
+  title:   {label:"Title", color:"var(--c-title)", hex:"#8e44ad", on:true},
+  zhpara:  {label:"Chinese paragraph", color:"var(--c-zhpara)", hex:"#c0392b", on:true},
+  latin:   {label:"German lines", color:"var(--c-latin)", hex:"#1f6fb2", on:true},
+  runes:   {label:"Rune lines", color:"var(--c-runes)", hex:"#0f8f75", on:true},
+  symbol:  {label:"Inline symbols", color:"var(--c-symbol)", hex:"#e0a000", on:true},
+  cols:    {label:"Side columns (German)", color:"var(--c-cols)", hex:"#d35400", on:true},
+  lyrics:  {label:"Side columns (Chinese song)", color:"var(--c-lyrics)", hex:"#d6306f", on:true},
+  bottom:  {label:"Bottom rows & corners", color:"var(--c-bottom)", hex:"#6b7a89", on:true},
+  drawing: {label:"Drawing", color:"var(--c-drawing)", hex:"#27ae60", on:false},
+};
+const R = (x0,y0,x1,y1)=>({t:"rect",x:x0,y:y0,w:x1-x0,h:y1-y0});
+const P = (...pts)=>({t:"poly",pts});
+const E = (cx,cy,rx,ry,ring)=>({t:"ell",cx,cy,rx,ry,ring:!!ring});
+
+const LATY=[[460,512],[562,615],[665,712],[765,812],[865,912],[965,1012],[1065,1118],[1170,1215],[1265,1310]];
+const RUNY=[[512,560],[615,662],[712,762],[812,862],[912,962],[1012,1062],[1118,1168],[1215,1265],[1310,1352]];
+const LX0=138, LX1=926;
+
+const REG = [
+ // ---- top border
+ {id:"corner-tl", g:"border", name:"Top-left corner block", s:R(18,15,135,115),
+  glyphs:"K ᚹƎ K\n♀≡ ɟ ♀≡\nX ᚹƎ ◁", reading:"(ornamental)", en:"No words. A 3×3 block of repeated marks: K, a ᚹ-with-bars bind-rune, and a Venus sign with three crossbars. The centre is a large copy of the writer's D letter (ɟ).", conf:"low",
+  notes:"The four corners all use the same frame (♀≡ marks left and right, ᚹƎ above and below) with a different centre symbol: ɟ, €, a lightning-bolt Z and a diamond on a staff."},
+ {id:"top-date-L", g:"border", name:"Top row: date", s:R(135,18,375,46),
+  glyphs:"2026 MÆRꞨ 13", reading:"2026 März 13", en:"13 March 2026 (a Friday: Friday the 13th)", conf:"high",
+  notes:"Æ = A/Ä, Ꞩ = Z. The same date appears again at the top right (third row)."},
+ {id:"top-sym-L", g:"border", name:"Top row: symbol group (left)", s:R(135,46,375,92),
+  glyphs:"ᛉ  Γ  ᚢ  ♀", reading:"?", en:"♀ is the Venus sign, the traditional planetary symbol for Friday (dies Veneris / vendredi / Freya's day), which matches FREITAG next to it. ᛉ Γ ᚢ (algiz, a laguz-like Γ = L, uruz) are not read.", conf:"low",
+  notes:"The same group is repeated on the right side of the top border."},
+ {id:"top-fri-L", g:"border", name:"Top row: weekday (left)", s:R(135,92,375,115),
+  glyphs:"FRÆI·‡ÆG", reading:"Freitag", en:"Friday", conf:"high", notes:"‡ = T. ÆI = 'ei' (as in RÆIN = rein)."},
+ {id:"top-c1", g:"border", name:"Top centre, first row", s:R(375,18,690,46),
+  glyphs:"◁ | G I B U Æ U ɟ ɟ Æ | ◁", reading:"GIBUÆUDDÆ (?)", en:"Not read. It begins G-I-B-U, like the runic row two cells below.", conf:"low", notes:"The ◁ cells are triangular marks (a mirrored thorn rune?) that frame the centre."},
+ {id:"top-c2", g:"border", name:"Top centre: SKÆɟ⊗EN (Schaden)", s:R(375,46,690,92),
+  glyphs:"Ꞩ K Æ ɟ ⊗E N", reading:"SKÆDEN ≈ Schaden", en:"damage (as in an insurance claim; compare 'Versicherung' in line 6)", conf:"medium",
+  notes:"The writer often writes the SCH/CH sound with K (ÆUK = auch). The ᛉ Γ ᚢ ♀ groups flank it on both sides."},
+ {id:"top-c3", g:"border", name:"Top centre: rune row", s:R(375,92,690,115),
+  glyphs:"⋇ | ᚷ ᛁ ᛒ ᚢ ᚨ ᚢ ᛖ ? ᚨ | ◁", reading:"≈ G I B U A U E ? A", en:"Seems to be a rune version of the word in the first row (G-I-B-U-A-U…). This one is not mirrored. Not read.", conf:"low", notes:""},
+ {id:"top-fri-R", g:"border", name:"Top row: weekday (right)", s:R(690,18,925,46),
+  glyphs:"FRÆI·‡ÆG", reading:"Freitag", en:"Friday", conf:"high", notes:""},
+ {id:"top-sym-R", g:"border", name:"Top row: symbol group (right)", s:R(690,46,925,92),
+  glyphs:"ᛉ  Γ  ᚢ  ♀", reading:"?", en:"Repeat of the left group; ♀ = Venus = Friday.", conf:"low", notes:""},
+ {id:"top-date-R", g:"border", name:"Top row: date (right)", s:R(690,92,925,115),
+  glyphs:"2026·MÆRꞨ·13", reading:"2026 März 13", en:"13 March 2026", conf:"high", notes:""},
+ {id:"corner-tr", g:"border", name:"Top-right corner block", s:R(925,15,1045,115),
+  glyphs:"X ᚹƎ X\n♀≡ € ♀≡\n◁ ᚹƎ ■", reading:"(ornamental)", en:"Ornamental block. The centre is a euro sign €, matching the 35000 € in line 7. One cell is filled solid black.", conf:"low", notes:""},
+
+ // ---- title
+ {id:"title-1", g:"title", name:"Title, word 1", s:P([135,300],[135,250],[205,215],[290,165],[350,145],[360,195],[300,222],[245,252],[205,300]),
+  glyphs:"ÆX · I · ꞨÆRK‡ (?)", reading:"? (EX… ZÄRKT?)", en:"Not read. The letters are fairly clear, but they don't form a German word I can identify.", conf:"low", notes:"The title is written along an arc over the Chinese paragraph."},
+ {id:"title-2", g:"title", name:"Title: ÆBSÞΓUSS (Abschluss)", s:R(395,116,615,184),
+  glyphs:"ÆBSÞΓUSS", reading:"Abschluss", en:"conclusion / closing", conf:"high",
+  notes:"Þ (the triangle-flag letter) = CH, Γ = L. The writer glossed this word in Chinese directly beneath it: 结论 'conclusion'."},
+ {id:"title-gloss", g:"title", name:"Chinese gloss under the title", s:R(445,180,528,212),
+  glyphs:"结论", reading:"jiélùn", en:"conclusion: a Chinese gloss of ABSCHLUSS", conf:"high", notes:"It also heads the Chinese paragraph below."},
+ {id:"title-3", g:"title", name:"Title: W⊗EM", s:R(622,140,728,192),
+  glyphs:"W⊗EM", reading:"wem", en:"(to) whom", conf:"medium", notes:""},
+ {id:"title-4", g:"title", name:"Title: BRI⊗EF⊗EN", s:P([730,170],[810,175],[880,215],[928,262],[928,300],[860,300],[815,255],[760,225],[730,205]),
+  glyphs:"BRI⊗EF⊗EN", reading:"Briefen", en:"letters (dative plural of 'Brief')", conf:"medium",
+  notes:"The whole title is roughly '… Abschluss wem Briefen' ('conclusion — to whom letters'), which is ungrammatical."},
+
+ // ---- Chinese paragraph
+ {id:"zh-1", g:"zhpara", name:"结论 paragraph, line 1", s:R(298,220,805,256),
+  glyphs:"我们不会寻找探求(?)任何结论 — 虽而是(?)", reading:"Wǒmen bú huì xúnzhǎo tànqiú rènhé jiélùn — …", en:"We will not search for or pursue any conclusion — although (?)…", conf:"medium", notes:"The last few characters run into the title letters."},
+ {id:"zh-2", g:"zhpara", name:"结论 paragraph, line 2", s:R(160,256,905,294),
+  glyphs:"兄(?)需积极人生，但我们还是强到(?)要(?)我将房子卖掉", reading:"…xū jījí rénshēng, dàn wǒmen háishì … wǒ jiāng fángzi màidiào", en:"…a positive life is needed, but we were still pushed to the point that I am to sell the house.", conf:"medium",
+  notes:"Parallels German line 2, '…ist verkauft' (is sold)."},
+ {id:"zh-3", g:"zhpara", name:"结论 paragraph, line 3", s:R(148,294,946,337),
+  glyphs:"第6层的 还在拼命地寻找做卫生的保险 以致得到35000欧(元)之", reading:"Dì 6 céng de hái zài pīnmìng de xúnzhǎo zuò wèishēng de bǎoxiǎn, yǐzhì dédào 35000 ōu(yuán) zhī", en:"The [one on the] 6th floor is still desperately looking for cleaning/sanitation insurance, so as to obtain 35,000 euros…", conf:"medium",
+  notes:"Parallels German line 5 ('6 …'), line 6 ('Versicherung' = insurance) and line 7 ('EUR 35000 €')."},
+ {id:"zh-4", g:"zhpara", name:"结论 paragraph, line 4", s:R(138,337,946,377),
+  glyphs:"如何行进呢?! 我们具有泥匠的纠(勾?)缝，此已足够，越墙修，不修，浦(浴?)", reading:"Rúhé xíngjìn ne?! Wǒmen jùyǒu níjiàng de gōufèng, cǐ yǐ zúgòu, yuè qiáng xiū, bù xiū, yù-", en:"How do we proceed?! We have the mason's pointing (the mortar joints); that is enough already. Repair over the wall(?), no repair, bath-…", conf:"low",
+  notes:"墙 'wall' parallels line 9 'Mauer'. If 浦 is really 浴, the next line starts with 室: 浴室 'bathroom'."},
+ {id:"zh-5", g:"zhpara", name:"结论 paragraph, line 5", s:R(138,377,946,410),
+  glyphs:"室。号遥。遑晓。逢火昌六丈。一量细看不是杨柳是元春、巧姐。鄂(?)极生杯(?)", reading:"…shì. … Yì liàng xì kàn, bú shì yángliǔ shì Yuánchūn, Qiǎojiě. …", en:"…room. [cryptic fragments: 'number far', 'hurry dawn', 'meet fire, flourish six zhang']. Looked at closely, it is not the willow, it is Yuanchun and Qiaojie. The last four characters look like a garbled 乐极生悲, 'extreme joy begets sorrow'.", conf:"low",
+  notes:"Yuanchun (元春) and Qiaojie (巧姐) are women of the Jia family in 'Dream of the Red Chamber', the novel reference noted by u/Business_Bananana. 乐极生悲 recurs in the right column."},
+ {id:"zh-6", g:"zhpara", name:"结论 paragraph, line 6", s:R(138,410,585,452),
+  glyphs:"象从常春藤。希望之生(火?)并(?)未息火，买卖买卖买卖(?) 题", reading:"…Xīwàng zhī [huǒ] bìng wèi xī huǒ, mǎimài mǎimài mǎimài. Tí", en:"Like ivy… The [flame] of hope has not gone out; buy-sell, buy-sell, buy-sell. — Inscribed:", conf:"low",
+  notes:"题 at the end is the usual calligraphy sign-off ('inscribed [by]') before a name and date. 买卖 'buying and selling' fits German line 8 'Erwerber' (buyer)."},
+ {id:"zh-date", g:"zhpara", name:"Signature / date line", s:R(585,405,912,452),
+  glyphs:"ΓI · ΓI · 2026 · MÆRꞨ · 01", reading:"LI·LI (?) · 2026 März 01", en:"1 March 2026 (a Sunday). With Γ = L, 'ΓI·ΓI' would read LI·LI, perhaps a name or signature, but this is uncertain.", conf:"medium",
+  notes:"The date is clear. The reading of the first four glyphs is a guess. The underline ties it to the paragraph above."},
+
+ // ---- German Latin lines
+ {id:"lat1", g:"latin", name:"German line 1", s:R(LX0,LATY[0][0],LX1,LATY[0][1]),
+  glyphs:"UNS⊗ER⊗ER · ◎ · U[…]⊗EN · ↑RÆI·N · ↑R⊗EN ↑R‡USI'⊗EN ·", reading:"unserer · [symbol] · u…en · rein (Trein?) · Ren…rusien (?)", en:"of our · … · pure / clean (?) · … (mostly unresolved)", conf:"low",
+  notes:"UNSERER is certain (the rune copy below ends with ᚢᚾᛋᛖᚱᛖᚱ). A filled black arrowhead covers the second word. The rune copy gives roughly T-R-?-E-I-N for the third word, so the ↑ mark over R may be a T."},
+ {id:"lat2", g:"latin", name:"German line 2", s:R(LX0,LATY[1][0],LX1,LATY[1][1]),
+  glyphs:"↑ⱵÆS‡IG · ɟ⊗ERÞ · SURG⊗EN · Φ · I·S · VÆRKÆUᚠ‡ ·", reading:"hastig · derch (= durch) · Sorgen · [Φ] · is(t) · verkauft", en:"hastily · through · worries · … · is · sold", conf:"medium",
+  notes:"HASTIG is confirmed by the rune copy (ᚺᚨᛋᛏᛁᚷ read right to left). Þ = CH, so ɟ⊗ERÞ = 'derch' ≈ durch. Chinese parallel: 将房子卖掉 'to sell the house'."},
+ {id:"lat3", g:"latin", name:"German line 3", s:R(LX0,LATY[2][0],LX1,LATY[2][1]),
+  glyphs:"UNS⊗ER⊗ER · W?⊗ENUNG · UNS⊗ER⊗ER · ‡ÆSÞ⊗EN", reading:"unserer Wohnung · unserer Taschen", en:"of our apartment · of our pockets (bags)", conf:"medium",
+  notes:"TASCHEN = ‡ (T) Æ S Þ (CH) ⊗E N. The second letter of WOHNUNG is smudged."},
+ {id:"lat4", g:"latin", name:"German line 4", s:R(LX0,LATY[3][0],LX1,LATY[3][1]),
+  glyphs:"UNSÞ·I·SÞ·I·ÞRÆ·I·‡ · Æɟ · ꞨÞ⊗ER · S‡ÆRÆI‡Æ", reading:"unschi-schi-chräit · ad · scher · stäraita (?)", en:"Unresolved.", conf:"low",
+  notes:"The rune copy below agrees letter for letter (ᚢᚾᛋ + CH-rune + ᛁᛋ + CH-rune + ᛁ…), so this is what the writer meant to write. It just isn't standard German. The triangle drawing crosses this line."},
+ {id:"lat5", g:"latin", name:"German line 5", s:R(LX0,LATY[4][0],LX1,LATY[4][1]),
+  glyphs:"6 · S‡⊗ERWÆRR · I · ⱵÆRⱵÆD⊗E · ÆL⊗ERɟINGS", reading:"6 · Stœrwärr (?) · i(ch?) · ? · allerdings", en:"6 · … · I (?) · … · however", conf:"low",
+  notes:"The rune copy starts (at its right end) with a mirrored 6, then ᛋᛏᛟ…. The Chinese parallel 第6层 '6th floor' suggests '6. Stock(werk)', but the letters don't spell that. ALLERDINGS is clear."},
+ {id:"lat6", g:"latin", name:"German line 6", s:R(LX0,LATY[5][0],LX1,LATY[5][1]),
+  glyphs:"ÆIN⊗EHM⊗EN · ⊗EUR · ⱵÆUSÆ · VÆRSI(Þ)ÆRUNG", reading:"einnehmen · eur(e) · Hause(s) · Versicherung", en:"collect (take in) · your · house's · insurance", conf:"medium",
+  notes:"The big circle's arc crosses the I of EINNEHMEN. Chinese parallel: 保险 'insurance'."},
+ {id:"lat7", g:"latin", name:"German line 7", s:R(LX0,LATY[6][0],LX1,LATY[6][1]),
+  glyphs:"W⊗EM · BÜRG⊗EN · EUR · 35000€ · ꞨUM", reading:"wem · bürgen · EUR · 35000 € · zum", en:"for whom · to vouch / guarantee · EUR · 35,000 € · to the", conf:"high",
+  notes:"The rune copy repeats '35000 €' in mirror image. Chinese parallel: 以致得到35000欧 'so as to obtain 35,000 euros'."},
+ {id:"lat8", g:"latin", name:"German line 8", s:R(LX0,LATY[7][0],LX1,LATY[7][1]),
+  glyphs:"UNS⊗ER⊗ER · ÆRWÆRB⊗ER · ÆB⊗ER · UNS⊗ER", reading:"unserer · Erwerber · aber · unser", en:"of our · buyer (acquirer) · but · our", conf:"high",
+  notes:"The rune copy ends (left end) with UNSER and ABER. The Chinese paragraph's 买卖买卖 ('buying and selling') fits this line."},
+ {id:"lat9", g:"latin", name:"German line 9", s:R(LX0,LATY[8][0],LX1,LATY[8][1]),
+  glyphs:"ɟ⊗ES · ⱧÆU⊗ER · K·I·Þ⊗EN · IⱧⱧ⊗ER · DÆ<R", reading:"des · Mauer · kippen / Küchen (?) · immer · Dach (?)", en:"of the · wall · (tip over? kitchens?) · always · roof (?)", conf:"medium",
+  notes:"Ⱨ = M, as IMMER shows. The rune copy starts (right end) with ᛞᛖᛋ = DES. Chinese parallel: 墙修 / 不修 'wall repair / no repair'."},
+
+ // ---- rune lines
+ ...[
+  ["UNSERER · T-R-?-E-I-N · …", "Right end, read right to left: ᚢ ᚾ ᛋ ᛖ ᚱ ᛖ ᚱ = UNSERER. The next word reads roughly ᛏ ᚱ ? ᛖ ᛁ ᚾ. The left end has R-U-S-I-ᛟ-N, matching '…RUSIEN'.", "medium"],
+  ["HASTIG · D-E-R(CH) · …", "Right end: ᚺ ᚨ ᛋ ᛏ ᛁ ᚷ = HASTIG. This confirms the first Latin letter is H.", "high"],
+  ["UNSERER · WOHNUNG · UNSERER · TASCHEN", "Right end ᚢᚾᛋᛖᚱᛖᚱ. The left end gives …CHEN of TASCHEN (mirrored).", "medium"],
+  ["UNS-CH-I-S-CH-I-…", "Right end: ᚢ ᚾ ᛋ, a CH-rune, ᛁ ᛋ, a CH-rune, ᛁ…, the same odd letters as the Latin line, so the Latin is not a copying slip.", "medium"],
+  ["6 · S-T-Œ-…", "Right end: a mirrored digit 6, then ᛋ ᛏ ᛟ …", "medium"],
+  ["(copy of line 6)", "Not checked letter by letter; heavily crossed by drawing lines.", "low"],
+  ["WEM · BÜRGEN · EUR · 35000 € · ZUM", "The digits 35000 and the € sign are written mirror-image near the left end. WEM is at the right end (ᛟ stands for ⊗E).", "medium"],
+  ["UNSERER · ERWERBER · ABER · UNSER", "Left end (the last word in reading order): ᚢᚾᛋᛖᚱ = UNSER, preceded by ᚨᛒᛖᚱ = ABER.", "high"],
+  ["DES · MAUER · … · IMMER · …", "Right end: ᛞ ᛖ ᛋ = DES.", "medium"],
+ ].map((d,i)=>({id:"run"+(i+1), g:"runes", name:`Rune line ${i+1} (mirror copy of German line ${i+1})`,
+   s:R(LX0,RUNY[i][0],LX1,RUNY[i][1]), flip:true,
+   glyphs:"Mirrored Elder-Futhark-style runes, read right to left", reading:d[0],
+   en:`Same text as German line ${i+1}.`, conf:d[2], notes:d[1]})),
+
+ // ---- inline symbols
+ {id:"sym-circ", g:"symbol", name:"Circled diamond (line 1)", s:E(385,493,24,24),
+  glyphs:"◎ (a diamond inside a circle)", reading:"(pictogram)", en:"A drawn symbol placed between words; not a letter.", conf:"na", notes:"A thin stroke rises from it toward the top of the big circle."},
+ {id:"sym-phi", g:"symbol", name:"Φ-like mark (line 2)", s:E(634,596,17,20),
+  glyphs:"Φ", reading:"(symbol)", en:"A circle with a vertical stroke between SURGEN and IS. It may be a drawn symbol or part of the drawing (it sits where lines meet).", conf:"low", notes:""},
+
+ // ---- side columns
+ {id:"col-farL", g:"cols", name:"Far-left column", s:R(20,115,60,1352),
+  glyphs:"Æ U ᚠ R Ɛ [H] ‡ Ɛ R Ⱶ Ɛ Γ ‡ U N G · B Ɛ R U Ⱶ ‡ · Ɛ R Ⱶ ∝ G Γ", reading:"Aufrechterhaltung · beruht · ERHOGL (?)", en:"Maintenance (upholding) · rests (on) · ? (perhaps a garbled 'Erfolg', success)", conf:"medium",
+  notes:"Read top to bottom. [H] (an H between brackets) = CH, Ⱶ = H, ∝ = O. The first two words are certain; the last is not."},
+ {id:"col-zhL", g:"lyrics", name:"Left Chinese column (song)", s:R(60,115,98,1352),
+  glyphs:"你挑着担 我牵着马 迎来日出送走晚霞 踏平坎坷成大道 斗罢艰险又出发 啦啦啦啦啦啦 一翻翻春秋冬夏", reading:"Nǐ tiāozhe dàn, wǒ qiānzhe mǎ…", en:"You carry the load, I lead the horse; greeting the sunrise, seeing off the sunset glow; treading the rough places flat into a highway; hardships fought through, we set off again; la la la…; season after season — spring, autumn, winter, summer.", conf:"high",
+  notes:"From 敢问路在何方 'Where is the road?', the ending theme of the 1986 'Journey to the West' TV series (identified by u/Business_Bananana). The sheet writes 翻 for 番. Continued in the right Chinese column."},
+ {id:"col-innL", g:"cols", name:"Inner-left column", s:R(98,115,136,1352),
+  glyphs:"Ɛ S · ɟ I: Ɛ · M Æ X I: M · I: S I: Ɛ R U N G · ɟ Ɛ R · K ∝ N ‡ I: N U I:", reading:"Es · die · Maximisierung · der · Kontinui-", en:"It [is] the maximisation of the continui-", conf:"high",
+  notes:"Continues at the top of the inner-right column ('-tät'). ɟ = D, ‡ = T, ∝ = O."},
+ {id:"col-innR", g:"cols", name:"Inner-right column", s:R(926,115,958,1352),
+  glyphs:"‡ Æ ‡ · Ɛ S · ɟ I: Ɛ · M Æ X I: M I: S I: Ɛ R U N G · ɟ Ɛ R", reading:"-tät · es · die · Maximisierung · der", en:"-ty. It [is] the maximisation of the …", conf:"high",
+  notes:"Ends about two-thirds of the way down; the rest of the column is blank. Continues in the far-right column with 'Kontinuität'."},
+ {id:"col-zhR", g:"lyrics", name:"Right Chinese column (song + idioms)", s:R(958,115,1000,1352),
+  glyphs:"一阵阵酸甜苦辣 敢问路在何方 路在脚下 乐极生悲 物极必反 肩并肩 步履一致 头头是道 为道士之(意?)", reading:"Yí zhènzhèn suān tián kǔ là. Gǎn wèn lù zài héfāng? Lù zài jiǎo xià. Lè jí shēng bēi, wù jí bì fǎn…", en:"Bout after bout of sour, sweet, bitter and spicy. May I ask where the road is? The road is under your feet. — Extreme joy begets sorrow; anything pushed to its extreme turns into its opposite; shoulder to shoulder, in step; clear and logical: that is the Taoist's meaning.", conf:"high",
+  notes:"The lyrics end at 路在脚下 (the original has 一场场 where the sheet has 一阵阵). The four-character idioms that follow are the writer's addition; the last character is unclear."},
+ {id:"col-farR", g:"cols", name:"Far-right column", s:R(1000,115,1042,1352),
+  glyphs:"K ∝ N ‡ I: N U I: ‡ Æ ‡ · ɟ Ɛ R · S Ɛ [H] Ɛ · Ꞩ U · Ɛ R R Ɛ I [H] Ɛ", reading:"Kontinuität · der · Sache · zu · erreiche(n)", en:"…continuity of the matter, to achieve.", conf:"high",
+  notes:"Read with the inner columns: 'Es [ist] die Maximisierung der Kontinuität, es [ist] die Maximisierung der Kontinuität der Sache zu erreichen', i.e. 'It is the maximisation of continuity; it is to achieve the maximisation of the continuity of the matter.'"},
+
+ // ---- bottom rows
+ {id:"bot-A", g:"bottom", name:"Bottom row A (thin)", s:R(135,1352,926,1386),
+  glyphs:"Λ · ʒƐI: · ƐS · ÆUᚠ · PƐRS∝NΓI:[H]ƐR'∝ · ɟƐR · Ⱨ?‡I: · VI: · ꞨU", reading:"… sei es auf persönlicher oder … wie(?) zu", en:"…be it on a personal or the … [level?], to …", conf:"low",
+  notes:"'sei es auf persönlicher oder …' is a normal German construction ('be it on a personal or a … level'). The end of the row is unclear."},
+ {id:"bot-B", g:"bottom", name:"Bottom row B (large letters)", s:R(135,1386,926,1426),
+  glyphs:"ÆUK · ɟÆN · SPÆ<K‡ÆKU'ΓÆR · UNFÆΓ", reading:"auch den spektakulär(en) Unfall", en:"also the spectacular accident", conf:"medium",
+  notes:"K for CH (ÆUK = auch), Γ = L, < = C/K."},
+ {id:"bot-C", g:"bottom", name:"Bottom row C (thin)", s:R(135,1426,926,1463),
+  glyphs:"ƐΓΓƐR · ‡I: · WƐÆU · ɟƐR · KI:ΓI:S · ʒ⊗EWI:Ɛ ·", reading:"eller · di · weau · der · kilis · sowie (?)", en:"Unresolved; '… der … sowie' ('… the … as well as').", conf:"low", notes:""},
+ {id:"corner-bl", g:"bottom", name:"Bottom-left corner block", s:R(18,1352,135,1466),
+  glyphs:"ᛉ ᚹƎ ᛉ\n♀≡ ϟ ♀≡\n⋇ ᚹƎ ᛉ", reading:"(ornamental)", en:"Ornamental block with a lightning-bolt or Z shape at the centre.", conf:"low", notes:""},
+ {id:"corner-br", g:"bottom", name:"Bottom-right corner block", s:R(926,1352,1045,1466),
+  glyphs:"ᛉ ᚹƎ ᛉ\n♀≡ ◇| ♀≡\nᛉ ᚹƎ ᛉ", reading:"(ornamental)", en:"Ornamental block with a diamond on a staff at the centre (like the Ing rune ᛜ on a stem).", conf:"low", notes:""},
+
+ // ---- drawing (approximate)
+ {id:"d-big", g:"drawing", name:"Drawing: large circle", s:E(527,872,400,398,true),
+  glyphs:"(drawing)", reading:"", en:"A large circle around most of the German and rune block. Inside it are three smaller circles, curved dividing lines, a triangle and arrows: loosely like a yin-yang (taijitu), which would fit the Taoist idioms. It does not appear to encode letters.", conf:"na", notes:"Outlines are approximate."},
+ {id:"d-up", g:"drawing", name:"Drawing: upper inner circle", s:E(567,570,133,95,true),
+  glyphs:"(drawing)", reading:"", en:"Upper inner circle, touching the top of the big circle; black arrowheads sit on its rim.", conf:"na", notes:""},
+ {id:"d-ll", g:"drawing", name:"Drawing: lower-left inner circle", s:E(280,1020,90,110,true),
+  glyphs:"(drawing)", reading:"", en:"Lower-left inner circle.", conf:"na", notes:""},
+ {id:"d-lr", g:"drawing", name:"Drawing: lower-right inner circle", s:E(790,1005,100,115,true),
+  glyphs:"(drawing)", reading:"", en:"Lower-right inner circle; the 35000 € of line 7 runs into it.", conf:"na", notes:""},
+ ...[[470,478],[624,538],[197,942],[750,1103]].map((p,i)=>({id:"d-arrow"+(i+1), g:"drawing", name:`Drawing: black arrowhead ${i+1}`, s:E(p[0],p[1],22,22),
+   glyphs:"(drawing)", reading:"", en:"A filled, feathered black arrowhead on one of the circle lines, marking a direction of travel around the figure.", conf:"na", notes:i===0?"This one covers the second word of German line 1.":""})),
+];
+
+// reading order: border, title, Chinese paragraph, German/rune pairs, symbols, side columns, bottom, drawing
+(function(){
+  const order=["corner-tl","top-date-L","top-sym-L","top-fri-L","top-c1","top-c2","top-c3","top-fri-R","top-sym-R","top-date-R","corner-tr",
+    "title-1","title-2","title-gloss","title-3","title-4","zh-1","zh-2","zh-3","zh-4","zh-5","zh-6","zh-date"];
+  for(let i=1;i<=9;i++){order.push("lat"+i,"run"+i); if(i===1)order.push("sym-circ"); if(i===2)order.push("sym-phi");}
+  order.push("col-farL","col-innL","col-innR","col-farR","col-zhL","col-zhR","bot-A","bot-B","bot-C","corner-bl","corner-br");
+  const rank=id=>{const k=order.indexOf(id);return k<0?1000+REG.findIndex(r=>r.id===id):k;};
+  REG.sort((a,b)=>rank(a.id)-rank(b.id));
+})();
+
+// ---------- geometry helpers
+function bbox(s){
+  if(s.t==="rect") return {x:s.x,y:s.y,w:s.w,h:s.h};
+  if(s.t==="ell") return {x:s.cx-s.rx,y:s.cy-s.ry,w:2*s.rx,h:2*s.ry};
+  let xs=s.pts.map(p=>p[0]), ys=s.pts.map(p=>p[1]);
+  let x0=Math.min(...xs),y0=Math.min(...ys); return {x:x0,y:y0,w:Math.max(...xs)-x0,h:Math.max(...ys)-y0};
+}
+function area(s){
+  if(s.t==="rect") return s.w*s.h;
+  if(s.t==="ell") return s.ring? 2*Math.PI*Math.max(s.rx,s.ry)*14 : Math.PI*s.rx*s.ry;
+  let a=0; const p=s.pts; for(let i=0;i<p.length;i++){const j=(i+1)%p.length; a+=p[i][0]*p[j][1]-p[j][0]*p[i][1];} return Math.abs(a/2);
+}
+function hit(s,x,y){
+  if(s.t==="rect") return x>=s.x&&x<=s.x+s.w&&y>=s.y&&y<=s.y+s.h;
+  if(s.t==="ell"){const dx=(x-s.cx)/s.rx, dy=(y-s.cy)/s.ry, q=Math.sqrt(dx*dx+dy*dy);
+    return s.ring? Math.abs(q-1)*Math.min(s.rx,s.ry)<14 : q<=1;}
+  let c=false; const p=s.pts;
+  for(let i=0,j=p.length-1;i<p.length;j=i++){
+    if(((p[i][1]>y)!==(p[j][1]>y)) && (x < (p[j][0]-p[i][0])*(y-p[i][1])/(p[j][1]-p[i][1])+p[i][0])) c=!c;}
+  return c;
+}
+const NS="http://www.w3.org/2000/svg";
+function shapeEl(s,cls){
+  let el;
+  if(s.t==="rect"){el=document.createElementNS(NS,"rect");el.setAttribute("x",s.x);el.setAttribute("y",s.y);el.setAttribute("width",s.w);el.setAttribute("height",s.h);el.setAttribute("rx",3);}
+  else if(s.t==="ell"){el=document.createElementNS(NS,"ellipse");el.setAttribute("cx",s.cx);el.setAttribute("cy",s.cy);el.setAttribute("rx",s.rx);el.setAttribute("ry",s.ry);}
+  else {el=document.createElementNS(NS,"polygon");el.setAttribute("points",s.pts.map(p=>p.join(",")).join(" "));}
+  if(cls) el.setAttribute("class",cls);
+  return el;
+}
+
+// ---------- state
+const img=document.getElementById("page"), svg=document.getElementById("ov");
+const outlines=document.getElementById("outlines"), activeg=document.getElementById("activeg");
+const dim=document.getElementById("dim"), spothole=document.getElementById("spothole");
+const loupe=document.getElementById("loupe"), stage=document.getElementById("stage");
+const opts={outlines:true, spotlight:true, loupe:false};
+let active=null, pinned=false, flipUser=null;
+
+function enabled(r){return GROUPS[r.g].on;}
+function ordered(){return REG.filter(enabled);}
+
+// ---------- toolbar
+const tb=document.getElementById("toolbar");
+function mkCheck(label,checked,onchange,sw){
+  const l=document.createElement("label"); const c=document.createElement("input"); c.type="checkbox"; c.checked=checked;
+  c.addEventListener("change",()=>onchange(c.checked)); l.appendChild(c);
+  if(sw){const s=document.createElement("span");s.className="sw";s.style.background=sw;l.appendChild(s);}
+  l.appendChild(document.createTextNode(label)); tb.appendChild(l); return c;
+}
+for(const [k,g] of Object.entries(GROUPS)) g.box=mkCheck(g.label,g.on,v=>{g.on=v;drawOutlines();fillJump();if(active&&!enabled(active)){setActive(null,false);}},g.hex);
+function enableGroup(k){const g=GROUPS[k]; if(!g.on){g.on=true;g.box.checked=true;drawOutlines();fillJump();}}
+tb.appendChild(Object.assign(document.createElement("span"),{className:"sep"}));
+mkCheck("outlines",opts.outlines,v=>{opts.outlines=v;drawOutlines();});
+mkCheck("spotlight",opts.spotlight,v=>{opts.spotlight=v;drawActive();});
+mkCheck("loupe (3×)",opts.loupe,v=>{opts.loupe=v;if(!v)loupe.style.display="none";});
+
+function drawOutlines(){
+  outlines.innerHTML="";
+  if(!opts.outlines) return;
+  for(const r of REG){ if(!enabled(r)) continue;
+    const el=shapeEl(r.s,"ol"); el.setAttribute("stroke",GROUPS[r.g].hex); outlines.appendChild(el);}
+}
+function drawActive(){
+  activeg.innerHTML=""; spothole.innerHTML="";
+  if(!active){dim.style.display="none";return;}
+  const el=shapeEl(active.s,"act"+(pinned?" pinned":"")); activeg.appendChild(el);
+  if(opts.spotlight){
+    let hs=active.s;
+    if(hs.t==="ell"&&hs.ring){ const ring=shapeEl(hs); ring.setAttribute("fill","none"); ring.setAttribute("stroke","black"); ring.setAttribute("stroke-width","26"); spothole.appendChild(ring);}
+    else { const h=shapeEl(hs); h.setAttribute("fill","black"); spothole.appendChild(h);}
+    dim.style.display="";
+  } else dim.style.display="none";
+}
+
+// ---------- panel
+const $=id=>document.getElementById(id);
+const zoom=$("zoom"), flipBox=$("flip");
+function confLabel(c){return {high:"high confidence",medium:"medium confidence",low:"low confidence",na:"not text"}[c]||c;}
+function setActive(r,pin){
+  if(pin!==undefined) pinned=pin;
+  active=r; flipUser=null;
+  drawActive();
+  if(!r){ $("p-name").textContent="Hover over the sheet"; $("p-tag").style.display="none"; $("p-conf").style.display="none";
+    $("p-pin").textContent=""; ["p-glyphs","p-reading","p-en","p-notes"].forEach(i=>$(i).textContent="–"); drawZoom(null); syncRows(); return;}
+  $("p-name").textContent=r.name;
+  const t=$("p-tag"); t.style.display=""; t.textContent=GROUPS[r.g].label; t.style.background=GROUPS[r.g].hex;
+  const c=$("p-conf"); c.style.display=""; c.className="conf "+r.conf; c.textContent=confLabel(r.conf);
+  $("p-pin").textContent=pinned?"pinned (Esc to release)":"";
+  $("p-glyphs").textContent=r.glyphs||"–";
+  $("p-glyphs").className="v big "+(r.g==="lyrics"||(r.id.startsWith("zh-")&&r.id!=="zh-date")||r.id==="title-gloss"?"zh":"g");
+  $("p-reading").textContent=r.reading||"–";
+  $("p-en").textContent=r.en||"–";
+  $("p-notes").textContent=r.notes||"–";
+  flipBox.checked=!!r.flip;
+  drawZoom(r);
+  const sel=$("jump"); sel.value=r.id;
+  syncRows();
+}
+function drawZoom(r){
+  const ctx=zoom.getContext("2d"); const dpr=window.devicePixelRatio||1;
+  const cssW=zoom.clientWidth||480;
+  if(!r||!img.complete){zoom.width=cssW*dpr;zoom.height=60*dpr;zoom.style.height="60px";ctx.clearRect(0,0,zoom.width,zoom.height);$("p-dims").textContent="";return;}
+  const flip=flipBox.checked;
+  const b=bbox(r.s), pad=6;
+  let x=Math.max(0,b.x-pad), y=Math.max(0,b.y-pad), w=Math.min(img.naturalWidth,b.x+b.w+pad)-x, h=Math.min(img.naturalHeight,b.y+b.h+pad)-y;
+  // segment layout
+  let segs=[], layout="single";
+  let grid=null;
+  if(h>w*4.5){ // tall column -> strips laid out in a grid, chosen to maximise zoom
+    const maxHc=620, g=8; let best=null;
+    for(let n=3;n<=24;n++) for(let rows=1;rows<=3;rows++){
+      const cols=Math.ceil(n/rows); if(cols*rows-n>=cols) continue;
+      const sh=Math.ceil(h/n);
+      const sc=Math.min((cssW-g*(cols-1))/(w*cols),(maxHc-g*(rows-1))/(sh*rows));
+      if(!best||sc>best.sc+1e-6) best={n,rows,cols,sh,sc};
+    }
+    for(let i=0;i<best.n;i++){const sy=y+i*best.sh; if(sy>=y+h) break; segs.push({x,y:sy,w,h:Math.min(best.sh,y+h-sy)});}
+    grid=best; layout="cols";
+  } else if(w>h*6){ // wide line -> stacked rows, row count chosen to maximise zoom
+    let n=2, bs=0; for(let k=2;k<=6;k++){const sc=Math.min(cssW/Math.ceil(w/k),(640-8*(k-1))/(h*k)); if(sc>bs){bs=sc;n=k;}}
+    const sw=Math.ceil(w/n);
+    for(let i=0;i<n;i++){const sx=x+i*sw; segs.push({x:sx,y,w:Math.min(sw,x+w-sx),h});}
+    if(flip) segs.reverse();
+    layout="rows";
+  } else segs=[{x,y,w,h}];
+  const gap=8, maxH=560;
+  let scale, outW, outH;
+  if(layout==="cols"){ scale=grid.sc; outW=cssW; outH=grid.rows*grid.sh*scale+gap*(grid.rows-1); }
+  else if(layout==="rows"){ const sw=Math.max(...segs.map(q=>q.w)); scale=Math.min(cssW/sw, (640-gap*(segs.length-1))/(h*segs.length)); outW=cssW; outH=segs.length*h*scale+gap*(segs.length-1); }
+  else { scale=Math.min(cssW/w, maxH/h, 6); outW=cssW; outH=h*scale; }
+  zoom.width=Math.round(outW*dpr); zoom.height=Math.round(outH*dpr); zoom.style.height=outH+"px";
+  ctx.setTransform(dpr,0,0,dpr,0,0); ctx.fillStyle="#fff"; ctx.fillRect(0,0,outW,outH);
+  ctx.imageSmoothingQuality="high";
+  segs.forEach((s,i)=>{
+    let dx,dy,dw=s.w*scale,dh=s.h*scale;
+    if(layout==="cols"){dx=(i%grid.cols)*(w*scale+gap);dy=Math.floor(i/grid.cols)*(grid.sh*scale+gap);}
+    else if(layout==="rows"){dx=0;dy=i*(h*scale+gap);}
+    else {dx=(outW-dw)/2;dy=0;}
+    ctx.save();
+    if(flip){ctx.translate(dx+dw,dy);ctx.scale(-1,1);ctx.drawImage(img,s.x,s.y,s.w,s.h,0,0,dw,dh);}
+    else ctx.drawImage(img,s.x,s.y,s.w,s.h,dx,dy,dw,dh);
+    ctx.restore();
+    if(layout!=="single"){ctx.fillStyle="rgba(0,0,0,.45)";ctx.font="11px system-ui";ctx.fillText(String(i+1),dx+3,dy+12);}
+  });
+  $("p-dims").textContent=`${Math.round(scale*10)/10}× · ${layout==="cols"?"column cut into strips, read strip 1 → "+segs.length+", top→bottom":layout==="rows"?"line cut into "+segs.length+" rows"+(flip?" (mirrored: now reads left→right)":""):""}`;
+}
+flipBox.addEventListener("change",()=>{ if(active) drawZoom(active); });
+window.addEventListener("resize",()=>{ if(active) drawZoom(active); });
+
+// ---------- hover / click on the stage
+function evtXY(e){
+  const rc=svg.getBoundingClientRect();
+  const cx=(e.touches?e.touches[0].clientX:e.clientX), cy=(e.touches?e.touches[0].clientY:e.clientY);
+  return {x:(cx-rc.left)/rc.width*1080, y:(cy-rc.top)/rc.height*1490, px:cx-rc.left, py:cy-rc.top, rc};
+}
+function pick(x,y){
+  let best=null, ba=Infinity;
+  for(const r of REG){ if(!enabled(r)) continue; if(hit(r.s,x,y)){const a=area(r.s); if(a<ba){ba=a;best=r;}}}
+  return best;
+}
+svg.addEventListener("mousemove",e=>{
+  const p=evtXY(e);
+  if(!pinned){ const r=pick(p.x,p.y); if(r!==active) setActive(r); }
+  if(opts.loupe) drawLoupe(p);
+});
+svg.addEventListener("mouseleave",()=>{ loupe.style.display="none"; if(!pinned) setActive(null); });
+svg.addEventListener("click",e=>{
+  const p=evtXY(e); const r=pick(p.x,p.y);
+  if(pinned && (r===active||!r)) { setActive(r,false); }
+  else setActive(r, !!r);
+});
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="SELECT"||e.target.tagName==="INPUT") { if(e.key!=="Escape") return; }
+  if(e.key==="Escape"){ if(pinned){pinned=false; drawActive(); $("p-pin").textContent="";} else setActive(null); }
+  else if(e.key==="ArrowRight"||e.key==="ArrowLeft"){ step(e.key==="ArrowRight"?1:-1); e.preventDefault(); }
+});
+function step(d){
+  const L=ordered(); if(!L.length) return;
+  let i=active?L.indexOf(active):-1; i=(i+d+L.length)%L.length; setActive(L[i],true);
+}
+$("prev").onclick=()=>step(-1); $("next").onclick=()=>step(1);
+function fillJump(){
+  const sel=$("jump"); sel.innerHTML="";
+  const o0=document.createElement("option"); o0.value=""; o0.textContent="— jump to a region —"; sel.appendChild(o0);
+  for(const [k,g] of Object.entries(GROUPS)){
+    if(!g.on) continue;
+    const og=document.createElement("optgroup"); og.label=g.label; sel.appendChild(og);
+    for(const r of REG.filter(q=>q.g===k)){const o=document.createElement("option"); o.value=r.id; o.textContent=r.name; og.appendChild(o);}
+  }
+  if(active) sel.value=active.id;
+}
+$("jump").addEventListener("change",e=>{ const r=REG.find(q=>q.id===e.target.value); if(r) setActive(r,true); });
+
+// ---------- loupe
+function drawLoupe(p){
+  const W=220, k=3; // css px; k = magnification relative to the on-screen image
+  const ctx=loupe.getContext("2d"); ctx.setTransform(2,0,0,2,0,0);
+  ctx.fillStyle="#fff"; ctx.fillRect(0,0,W,W);
+  // magnify relative to the displayed size: k× the on-screen scale
+  const zx=p.x-(W/2)/(k*p.rc.width/1080), zy=p.y-(W/2)/(k*p.rc.height/1490);
+  const zw=W/(k*p.rc.width/1080), zh=W/(k*p.rc.height/1490);
+  ctx.imageSmoothingQuality="high";
+  ctx.drawImage(img,zx,zy,zw,zh,0,0,W,W);
+  ctx.strokeStyle="rgba(255,0,80,.6)"; ctx.beginPath(); ctx.moveTo(W/2-8,W/2);ctx.lineTo(W/2+8,W/2);ctx.moveTo(W/2,W/2-8);ctx.lineTo(W/2,W/2+8);ctx.stroke();
+  let lx=p.px+24, ly=p.py-W-24;
+  if(lx+W>p.rc.width) lx=p.px-W-24; if(ly<0) ly=p.py+24;
+  loupe.style.left=lx+"px"; loupe.style.top=ly+"px"; loupe.style.display="block";
+}
+
+// ---------- transcript table
+const tbody=document.querySelector("#tx tbody");
+function syncRows(){ for(const tr of tbody.rows) tr.classList.toggle("rowhov", !!active && tr.dataset.id===active.id); }
+function fillTable(){
+  let n=0;
+  for(const r of REG){
+    if(r.g==="drawing") continue;
+    const tr=document.createElement("tr"); tr.dataset.id=r.id;
+    const isZh = r.g==="lyrics"||(r.id.startsWith("zh-")&&r.id!=="zh-date")||r.id==="title-gloss";
+    tr.innerHTML=`<td>${++n}</td><td><span class="tag" style="background:${GROUPS[r.g].hex}">${GROUPS[r.g].label}</span><br>${r.name}</td>`+
+      `<td class="${isZh?'zh':'g'}"></td><td></td><td></td><td><span class="conf ${r.conf}">${r.conf==="na"?"n/a":r.conf}</span></td>`;
+    tr.cells[2].textContent=r.glyphs; tr.cells[3].textContent=r.reading; tr.cells[4].textContent=r.en;
+    tr.addEventListener("mouseenter",()=>{ if(!pinned) setActive(GROUPS[r.g].on?r:null); });
+    tr.addEventListener("click",()=>{ enableGroup(r.g); setActive(r,true); document.getElementById("explorer").scrollIntoView({behavior:"smooth"}); });
+    tbody.appendChild(tr);
+  }
+  tbody.addEventListener("mouseleave",()=>{ if(!pinned) setActive(null); });
+}
+
+// ---------- init
+function init(){ drawOutlines(); fillJump(); fillTable(); setActive(null); }
+if(img.complete) init(); else img.addEventListener("load",init);
+</script>
+</body>
+</html>

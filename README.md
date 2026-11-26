@@ -21,6 +21,7 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 - [The Lost Spiral](https://doranchak.github.io/misc-crypto-mysteries/the-lost-spiral)
 - [TikTok comment (Russian)](https://doranchak.github.io/misc-crypto-mysteries/tiktok-comment)
 - [Vowel cipher](https://doranchak.github.io/misc-crypto-mysteries/vowel-cipher)
+- [Weird message from a strange guy](https://doranchak.github.io/misc-crypto-mysteries/weird-message-from-a-strange-guy)
 - [XMR Monero wallet cipher](https://doranchak.github.io/misc-crypto-mysteries/xmr-monero-wallet)
 - [Z340-inspired art codes](https://doranchak.github.io/misc-crypto-mysteries/z340-inspired-art-codes)
 - [Zodiac hat cipher](https://doranchak.github.io/misc-crypto-mysteries/zodiac-hat)
