@@ -88,11 +88,15 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 <a href="https://doranchak.github.io/misc-crypto-mysteries/the-lost-spiral">The Lost Spiral</a>
 </td>
 <td align="center" valign="top" width="25%">
-<a href="https://doranchak.github.io/misc-crypto-mysteries/tiktok-comment"><img src="thumbnails/tiktok-comment.jpg" width="180" alt="TikTok comment of arrows and digits"></a><br>
-<a href="https://doranchak.github.io/misc-crypto-mysteries/tiktok-comment">TikTok comment (Russian)</a>
+<a href="https://doranchak.github.io/misc-crypto-mysteries/tifinagh-youtube-post"><img src="thumbnails/tifinagh-youtube-post.jpg" width="180" alt="White Tifinagh letters on a dark YouTube post"></a><br>
+<a href="https://doranchak.github.io/misc-crypto-mysteries/tifinagh-youtube-post">Tifinagh YouTube post (Kabyle)</a>
 </td>
 </tr>
 <tr>
+<td align="center" valign="top" width="25%">
+<a href="https://doranchak.github.io/misc-crypto-mysteries/tiktok-comment"><img src="thumbnails/tiktok-comment.jpg" width="180" alt="TikTok comment of arrows and digits"></a><br>
+<a href="https://doranchak.github.io/misc-crypto-mysteries/tiktok-comment">TikTok comment (Russian)</a>
+</td>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/vowel-cipher"><img src="thumbnails/vowel-cipher.jpg" width="180" alt="Letter-digit pairs decoding to THIS IS A VOWEL CIPHER"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/vowel-cipher">Vowel cipher</a>
@@ -105,12 +109,12 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 <a href="https://doranchak.github.io/misc-crypto-mysteries/xmr-monero-wallet"><img src="thumbnails/xmr-monero-wallet.jpg" width="180" alt="Lines of angular cipher symbols"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/xmr-monero-wallet">XMR Monero wallet cipher</a>
 </td>
+</tr>
+<tr>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/z340-inspired-art-codes"><img src="thumbnails/z340-inspired-art-codes.jpg" width="180" alt="Sketch beside a grid of three-digit numbers"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/z340-inspired-art-codes">Z340-inspired art codes</a>
 </td>
-</tr>
-<tr>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/zodiac-hat"><img src="thumbnails/zodiac-hat.jpg" width="180" alt="Red cap embroidered with Zodiac cipher symbols"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/zodiac-hat">Zodiac hat cipher</a>
