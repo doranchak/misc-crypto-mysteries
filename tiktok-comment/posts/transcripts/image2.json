@@ -1,0 +1,12 @@
+{
+ "image": "image2.png",
+ "cipher": "ש3↑2←|↑2→|↓4←! С3← М→|↓4←|↑ В3↓→|2↑2← Х↑2←|2→|2←|2↓|2↑, О4→|3↑|5↓←|↑←|4↑2←|6↓→.",
+ "uncertain": [
+  "line 1 is Hebrew shown right-to-left (on screen: '!←4↓|→2↑|←2↑3ש'); transcribed in logical order starting at ש",
+  "'04→' at the start of the last line read as anchor О, not the digit 0"
+ ],
+ "computed": "שלום! СО МНОЙ ВСЁ ХОРОШО, ОТДЫХАЮ.",
+ "reading_ru": "שלום! Со мной всё хорошо, отдыхаю.",
+ "english": "Shalom! I'm fine, I'm having a rest.",
+ "slips": []
+}

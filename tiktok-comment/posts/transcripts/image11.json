@@ -1,0 +1,11 @@
+{
+ "image": "image11.png",
+ "cipher": "Н↓4←|3↑2→|2←|6↓2→ И2↓←|→|4←|2→|2↑2→|5↓2← В О→|2↑3→|2↓←|3↑3←|2↓4→|↑|0.",
+ "uncertain": [
+  "'О→' in ОПИСАНИИ is drawn like a zero; it is the anchor О. The final '0.' is the repeat-letter chunk (ИИ)"
+ ],
+ "computed": "НОВАЯ ИСТОРИЯ В ОПИСАНИИ.",
+ "reading_ru": "Новая история в описании.",
+ "english": "New story in the description.",
+ "slips": []
+}

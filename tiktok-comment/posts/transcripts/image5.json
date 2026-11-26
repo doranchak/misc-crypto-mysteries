@@ -1,0 +1,19 @@
+{
+ "image": "image5.png",
+ "cipher": "П→|2↑2→|↑2←|↓2←|2↓4→! Д4←|2→|2↓2→|↓4← М↑3←|↓4→|4↓2← З↑→|↓4←|2↓3→|2↓→ Н↑4← Б5↓2→|3↑←|↓2←, К↓←|↑4→|↑4←|3↓4→|2↑|↓4←... Н↓4← Я В↓2←|2↓2→|↑2→|2↓4←|2↑2→|↓→|3↓← С П←|2→|↓→|3↑→|4←|↓ Н↓4←|2↑2→|5↓→|↑← И2↓←|→|4←|2→|2↑2→|↓4←!",
+ "uncertain": [
+  "line 3 starts with anchor З (ЗДЕСЬ), not the digit 3"
+ ],
+ "computed": "ПРИВЕТ! ДАВНО МЕНЯ ЗДЕСЬ НЕ БЫЛО, КОНЕЧНО... НО Я ВЕРНУЛСЯ С ПОРЦИЕЙ НОЖ?Ъ ИСТОРИЙ!",
+ "reading_ru": "Привет! Давно меня здесь не было, конечно... Но я вернулся с порцией новых историй!",
+ "english": "Hi! I haven't been around here for a long time, of course... But I'm back with a fresh batch of stories!",
+ "slips": [
+  {
+   "token": "Н↓4←|2↑2→|5↓→|↑←",
+   "computed": "НОЖ?Ъ",
+   "intended": "НОВЫХ",
+   "fix": "2↑2→ should be 3↑2→ (О→В); the remaining chunks then give Ы, Х",
+   "kind": "author slip"
+  }
+ ]
+}

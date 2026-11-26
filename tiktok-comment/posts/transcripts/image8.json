@@ -1,0 +1,28 @@
+{
+ "image": "image8.png",
+ "cipher": "Н2↑4←|3↓3→|↓→|3↑3←|2↓3→ В4↓2→|3↑4←|2↓2→|2↓2←|3↑4→|↑4←|→ П3→|2↑|3↓←|↓! И↓← О↑→|2↑←|↓3→|↑3←|2↓2→|↓→|3↓← С2↑→|↑3←|↓3→|2↓2←|→|↑2←|↑3→|↓4← Ч3↑4←|2↓2→|↑2→|↓4←|3↑3→|3↓3←|↑2→|↓2←|3↑2→|5↓→|4↑→ Ч3↑4←|↓→|2↑←|2↓4→! Я У3↑2→|2← В↓2→|↑|↓4←|↓2→ Е↑3→|3↓3← Д3↓4← Э3↑4→|4←|3↑3→|3↓3←, Н↓4← Н↑ Р3↑2←|↓3→|3↓3← Н↑4← С↑←|3↓→|3←|5↑|2↓2→ Е↑3→|3↓3← П2↑←|2↓3→|↑→|↑, А У3↑2→ Т2↑4←|↓3→ Б3↓←|↑2→|↑2←|0 Н↑4← З↓→|2↑4←|2↓2→, К2↑←|2↓→ О↑4→ Н2↑4←|↓3→|4↓|5↑←|2←|↓|2↓4→|←|3↓← :О З↑3←|3↓4→|4← Т2↑4←|2↓→|2↑←|2↓2→|2↓2→ З↓→|2↑4←|6↓→! :D",
+ "computed": "НАСЧЁТ ВЧЕРШНЕЁ ПТИЦЫ! ИМ ОКАЗАЛСЯ СИБИРСКИЙ ЧЕРНОГОЛОВЫИ ЧЕКАН! Я УЖЕ ВИДЕЛ ЕГО ДО ЭТОГО, НО НИ РАЗУ НЕ СЛЫШАЛ ЕГО ПЕСНИ, А УЖ ТЕМ БОЛЕЕ НЕ ЗНАЛ, КАК ОН НАЗЫВАЕТСЯ :О ЗАТО ТЕПЕРЬ ЗНАЮ! :D",
+ "uncertain": [
+  "О↑→|2↑←|↓3→|… (ОКАЗАЛСЯ): the vertical arrow in the third chunk is washed out; ↓ is the only grid-valid choice (↑ falls off the grid).",
+  "Several other arrowheads are blurred (white text over a bright, defocused bird); all were confirmed by the decode producing fluent Russian.",
+  ":О before ЗАТО read as an emoticon; the following З↑3← is the anchor З, not the digit 3. Likewise З↓→|… (ЗНАЛ, ЗНАЮ)."
+ ],
+ "reading_ru": "Насчёт вчерашней птицы! Им оказался сибирский черноголовый чекан! Я уже видел его до этого, но ни разу не слышал его песни, а уж тем более не знал, как он называется :О Зато теперь знаю! :D",
+ "english": "About yesterday's bird! It turned out to be a Siberian stonechat! I'd seen it before, but I'd never heard its song, let alone known what it was called :O But now I know! :D",
+ "slips": [
+  {
+   "token": "В4↓2→|3↑4←|2↓2→|2↓2←|3↑4→|↑4←|→",
+   "computed": "ВЧЕРШНЕЁ",
+   "intended": "ВЧЕРАШНЕЙ",
+   "fix": "А skipped (2↓2← goes Р→Ш directly instead of 3↑2←|5↓) and last chunk → (Е→Ё) should be ↓ (Е→Й); both chunks clearly legible",
+   "kind": "author slip"
+  },
+  {
+   "token": "Ч3↑4←|2↓2→|↑2→|↓4←|3↑3→|3↓3←|↑2→|↓2←|3↑2→|5↓→|4↑→",
+   "computed": "ЧЕРНОГОЛОВЫИ",
+   "intended": "ЧЕРНОГОЛОВЫЙ",
+   "fix": "last chunk 4↑→ lands on И; Й would be 3↑3←",
+   "kind": "misspelling in plaintext"
+  }
+ ]
+}

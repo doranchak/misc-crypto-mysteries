@@ -1,0 +1,19 @@
+{
+ "image": "image4.png",
+ "cipher": "В3↓|2↑2←|↓3→|4↓← У4↑4→|↓|↑2←|↓2→|2↓|2↑4←|↓2→|3↓2→|3↑|3↓←|↑← И2↓←|→|4←|2→|2↑2→|↓4←! Я Х↑2←|↓4→|4← С3↑→|↓4←|↓2→|2↑2←|3↓4→|2↓ С2↑3←|↑→|↓← У2↑→|2↓←|↑3→ П3↑←|4↓|2↑→. Р3↑2←|3↓3→|0|↑2←|2↑←|↓3→|↑3←|2↓2→ М2↑3←|2↓3→|↑3← - С↑2←|2↑←|↓3→|↑3←|2↓2→|2↑2←, Ч↑|4← Н↑4← П→|2←|4→|2↑|↑2←. А В3↓2←|4→ С О4→|↓←|↑3←|↑3→ Н2↑4←|4↓4→|4↑4←|2↓2→|↑2→|2↓←|2↓→ П→|2←|3↑→|2↓→|↑2←|↓3→|3↓.",
+ "computed": "ВРЕМЯ УДИВИТЕЛЬНЫХ ИСТОРИЙ! Я ХОЧУ СДЕЛАТЬ СЕБЕ УКУС ПАУК. РАССКАЗАЛ МАМЕ - СКАЗАЛА, ЧТО НЕ ПРОТИВ. А ВОТ С ОТЦОМ НАЧАЛИСЬ ПРОБЛЕМЫ.",
+ "uncertain": [
+  "Text is clear after isolating the blue channel; no doubtful glyphs."
+ ],
+ "reading_ru": "Время удивительных историй! Я хочу сделать себе укус паука. Рассказал маме — сказала, что не против. А вот с отцом начались проблемы.",
+ "english": "Storytime! I want to get myself a spider-bite piercing. I told Mom, and she said she doesn't mind. But with Dad, the problems started.",
+ "slips": [
+  {
+   "token": "П3↑←|4↓|2↑→.",
+   "computed": "ПАУК",
+   "intended": "ПАУКА",
+   "fix": "word ends after К (period follows); the genitive needs one more chunk 2↑← (К→А). 'Укус паука' = spider-bite (lip) piercing",
+   "kind": "misspelling in plaintext"
+  }
+ ]
+}

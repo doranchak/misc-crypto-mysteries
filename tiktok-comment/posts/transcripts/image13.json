@@ -1,0 +1,11 @@
+{
+ "image": "image13.png",
+ "cipher": "П→|2↑2→|↑2←|↓2←|2↓4→! М↑3←|↓4→|4↓2← З2↓3←|3↑2→|4↓2←|↑4→ С3↓2←|6↑2→|6↓2←|4↑→|3↓2→|5↑←|↓2←, И Э3↑4→|4← М↓3←|↑ П2↑←|2↓2→|3↑|5↓→|3↑3← Т2↑|↓3←|↓3→|4←|↑→! Я Д↓|↑4←|→|↓←|2↓4→|2↑|↓3← :(",
+ "uncertain": [
+  "'32↓3←' at the start of line 2 read as anchor З + 2↓3← (З and 3 look alike in this font); decodes to ЗОВУТ"
+ ],
+ "reading_ru": "Привет! Меня зовут Сюгюльгё, и это мой первый тикток! Я диабетик :(",
+ "english": "Hi! My name is Syugyulgyo, and this is my first TikTok! I'm diabetic :(",
+ "slips": [],
+ "computed": "ПРИВЕТ! МЕНЯ ЗОВУТ СЮГЮЛЬГЁ, И ЭТО МОЙ ПЕРВЫЙ ТИКТОК! Я ДИАБЕТИК :("
+}

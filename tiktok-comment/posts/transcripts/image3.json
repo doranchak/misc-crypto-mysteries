@@ -1,0 +1,33 @@
+{
+ "image": "image3.png",
+ "cipher": "Н2↑4←|2↓→|↑3→|2↓3←|↑→|↓2← У М↑3←|↓4→|4↓2, Б2↓→|4↓|3↑2→|2↓, О4→ Э3↑4→|4←|3↑3→⟳ М↑→|2↓2←|3↑2←, О4→ Э3↑4→|2↑|3↓2← Т↓4←|↑→|←|2→|2↓→|3↑←⟳|2↓ Л4↓←|6↑3→|↓4←|↓, М2↑3←|2↓→|↓2→|2↑→|↓←|2↑3←|2↓2→|3↓2→|3↑|↓4← Б↓←|3→|↓|↓3←|2↑3→|↑|2↓←|3↓→|↑←",
+ "uncertain": [
+  "'⟳' after 'Э3↑4→|4←|3↑3→' is rendered with a space before it but no bar; treated as part of ЭТОГО"
+ ],
+ "computed": "НАКИПЛО У МЕН⁇, БЛЯТЬ, ОТ ЭТОГО МИРА, ОТ ЭТИХ ТУПОРЫЛЫ? ЛЮДЕЙ, МАКСИМАЛЬНО БЕЗМОЗГЛЫХ",
+ "reading_ru": "Накипело у меня, блять, от этого мира, от этих тупорылых людей, максимально безмозглых",
+ "english": "I've had it up to here, fuck, with this world, with these thick-skulled people, utterly brainless",
+ "slips": [
+  {
+   "token": "Н2↑4←|2↓→|↑3→|2↓3←|↑→|↓2←",
+   "computed": "НАКИПЛО",
+   "intended": "НАКИПЕЛО",
+   "fix": "Е skipped: after П the walk should go 2↑← (Е) then ↓2→ (Л), not ↑→ straight to Л",
+   "kind": "misspelling in plaintext"
+  },
+  {
+   "token": "М↑3←|↓4→|4↓2,",
+   "computed": "МЕН⁇",
+   "intended": "МЕНЯ",
+   "fix": "last chunk '4↓2' has no arrow after the 2; should be 4↓2←",
+   "kind": "author slip"
+  },
+  {
+   "token": "Т↓4←|↑→|←|2→|2↓→|3↑←⟳|2↓",
+   "computed": "ТУПОРЫЛЫ? (standard ⟳ returns to Ы, then 2↓ falls off the grid)",
+   "intended": "ТУПОРЫЛЫХ",
+   "fix": "final 2↓ was measured from Л (the letter before ⟳), not from Ы; from Ы it should be ↑←",
+   "kind": "author slip"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "image": "image18.png",
+ "cipher": "З↑→|↓4←|2↓3→|2↓→ Я В А4→|5↓←|5↑|↓3←|0. Я К2↑←|3↓2→|3↑2←|→|2↓|2↑←|2↓2→|↓→|3↓← П← С↑2←|2↑←|2↓2→|2↑2←|2↓3→ :ε Т3↑4←|2↓→|↑→|2← К2↑←|3↓4→|3↑4←|2↓2→|↓→|3↓← Н2↑4← Д↓2←|2→|2↓3←|2↑←.",
+ "uncertain": [
+  "first line partly covered by TikTok's 'Find related content' search bar: the ↓ in ЗДЕСЬ's '2↓3→' and the → of 'А4→' are hidden; both restored from the decoding",
+  "':ε' is an emoticon (reversed-3 face), not cipher"
+ ],
+ "computed": "ЗДЕСЬ Я В АДЫГЕЕ. Я КАРАБКАЛСЯ ПО СКАЛАМ :ε ТАКЖЕ КАТАЛСЯ НА ДЖИПЕ.",
+ "reading_ru": "Здесь я в Адыгее. Я карабкался по скалам :ε Также катался на джипе.",
+ "english": "Here I am in Adygea. I clambered over the rocks :ε Also rode around in a jeep.",
+ "slips": []
+}

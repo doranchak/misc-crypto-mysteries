@@ -1,0 +1,17 @@
+{
+ "image": "image1.png",
+ "cipher": "С3↑3←|↑3→|3↓3←|3↑4→|2↓|4↓2← Я Л2↑2←|2↓3→|↓2←|←|3↑2→|3↓2← П←|3→|2↑→|↑|↓4←|↓2→ С Д3↓2←|↓2←|3↑3→|4↓→|↓2←|4↑→|↑→ Н2↑4← К2↑→|2←|3↓2→|2→|2↑|2↓2←|2↑2←.",
+ "computed": "СА?Й?ИЪ Я ЛАМПОВО ПОСИДЕЛ С ДРУЗЬЯМИ НА КВАРТИРЕ.",
+ "uncertain": [],
+ "reading_ru": "Сегодня я лампово посидел с друзьями на квартире.",
+ "english": "Today I had a cosy hangout with friends at someone's flat.",
+ "slips": [
+  {
+   "token": "С3↑3←|↑3→|3↓3←|3↑4→|2↓|4↓2←",
+   "computed": "СА?Й?ИЪ (falls off grid)",
+   "intended": "СЕГОДНЯ",
+   "fix": "first chunk 3↑3← should be 2↑3← (С→Е); the 3 is clearly legible",
+   "kind": "author slip"
+  }
+ ]
+}

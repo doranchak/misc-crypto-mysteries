@@ -1,0 +1,42 @@
+{
+ "image": "image14.png",
+ "cipher": "Э3↑4→|4← Ф↑←|4→|4← С М↓3←|2↑|↓| П→|2←|3↑3→|4↓3←|2↑2→|←|↑3→ П← Л↑2←|2↓3→|↓3←! М→|↑4← О↓4→|3↑4←|↓4→3↓ Н↓2←|3↑2←|2→|↓2→|2↓|←|3↓← Г4↓3←|2↑2→|4↓|3↑2→|2↓ О3↑4→|2↓|↓4←|↑3→|2↓3←. В Э3↑4→|4←|4→ Р3↑2←|↓3→ Я Х↑2←|3↑4→|↓|↓2← Д4←|2↓2→|↑2←|↓→|↓← З↑3← П←|3→|2↑2←|↓→|↓2←|↑→. С2←|2↑←|2↓2→|3↑|2← Я У↓|4↑→|↓→ С Д3↓4←|2→|2←|3↑3→|↓→ В Л↑2←|2↓3→, А О4→|0|↓4←|4↑4→|4← У3↑2→|2← П←|→|↑→|↑←|↓→ Д4←|2↓2→|3↓2→|4←|4↑, Н2↑4←|3↓4→|↑3←|3→|2↓4←|4↑2→|5↓2←|4↑4→|2↓←|2↓→ Н2↑4← З↑3←|→|3↓→|2←|2↓|4↑|↓4→|0|2↓4←|2↓→ Р3↑2←|4→|↓|2↓4←|2→|↓2←|4↑→|2↓|2↓←, Р3↑2←|2↓4→|↑4←|0 П→|2↑2→|↓2←|↑2←|↑3→|3←|2→|5↓2←|4↑|↓ К А6↓|3↑2→|2←|→|←|2→|2→|↓4←. Я П2↓2→|2↑→|3↑4←|2↓2→|↓→|3↑← П→|2←|↑4→|↑|↓3←|3→|2↓4←|↑4→|2↓ В2↓2→|2↓4←|↑4→|2←|2↓2→,",
+ "uncertain": [
+  "Text isolated from the tree photo by colour ((G+B)/2 − R); every chunk read cleanly after that, no guesses needed.",
+  "Anchors З (ЗА, ЗАБРОШЕННУЮ) look identical to the digit 3 in this font; read as З from position and decoding."
+ ],
+ "reading_ru": "Это фото с моей прогулки по лесу! Мне очень нравится гулять одному. В этот раз я ходил далеко за посёлок. Сперва я ушёл с дороги в лес, а оттуда уже поплёл дальше, наткнувшись на заброшенную радиорубку, ранее прилегавшей к аэропорту. Я пытался проникнуть внутрь,",
+ "english": "This is a photo from my walk in the woods! I really like walking alone. This time I went far beyond the village. First I left the road into the forest, and from there trudged on further, coming across an abandoned radio hut that used to belong to the airport. I tried to get inside,",
+ "slips": [
+  {
+   "token": "О↓4→|3↑4←|↓4→3↓",
+   "computed": "ОЧЕЬ",
+   "intended": "ОЧЕНЬ",
+   "fix": "missing bar: ↓4→|3↓",
+   "kind": "author slip"
+  },
+  {
+   "token": "П2↓2→|2↑→|3↑4←|2↓2→|↓→|3↑←",
+   "computed": "ПЫТАЛСВ",
+   "intended": "ПЫТАЛСЯ",
+   "fix": "last chunk 3↑← should be 3↓← (С→Я); confirmed at high zoom, the arrow points up",
+   "kind": "author slip"
+  },
+  {
+   "token": "П←|→|↑→|↑←|↓→",
+   "computed": "ПОПЛЁЛ",
+   "intended": "ПОПЛЁЛ",
+   "fix": "decodes as written; colloquial for standard поплёлся ('trudged')",
+   "kind": "misspelling in plaintext"
+  },
+  {
+   "token": "П→|2↑2→|↓2←|↑2←|↑3→|3←|2→|5↓2←|4↑|↓",
+   "computed": "ПРИЛЕГАВШЕЙ",
+   "intended": "ПРИЛЕГАВШЕЙ",
+   "fix": "decodes as written; grammatically it should be прилегавшую (agreeing with радиорубку)",
+   "kind": "misspelling in plaintext"
+  }
+ ],
+ "note": "Text continues on another slide (ends with a comma).",
+ "computed": "ЭТО ФОТО С МОЕЙ ПРОГУЛКИ ПО ЛЕСУ! МНЕ ОЧЕЬ НРАВИТСЯ ГУЛЯТЬ ОДНОМУ. В ЭТОТ РАЗ Я ХОДИЛ ДАЛЕКО ЗА ПОСЁЛОК. СПЕРВА Я УШЁЛ С ДОРОГИ В ЛЕС, А ОТТУДА УЖЕ ПОПЛЁЛ ДАЛЬШЕ, НАТКНУВШИСЬ НА ЗАБРОШЕННУЮ РАДИОРУБКУ, РАНЕЕ ПРИЛЕГАВШЕЙ К АЭРОПОРТУ. Я ПЫТАЛСВ ПРОНИКНУТЬ ВНУТРЬ,"
+}

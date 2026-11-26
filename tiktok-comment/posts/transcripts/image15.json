@@ -1,0 +1,21 @@
+{
+ "image": "image15.png",
+ "cipher": "Н↑4←|↑4→|4←|2→|2↓2→|↓4← Я У↑3→|↑←|3↓→|3←|5↑|2↓2→ И И↑|↓4←|↓4→|↓|2↑|3↓3←|3↑3→|3↓←|3↑→|2↓2←|2←|3↑2→|2←|2↓2→ П← П2↑←|↓4→|↑|5↓2← Е4↓→|4↑ О3↑4→|2↓|2↓4← П3→|2↑|3↓←|3← — В5↓2→|↓3←|3↑→|↑←|2↑←! И3↓2← З↑←|4↓2←|2↑→|↑3→ Т3↑4←|2↓→|↑3→|4← К↓→|3↑2←|3↓3→|2↑→|↑2←|5↓→|4↑3←!",
+ "computed": "НЕДАВНО Я УСЛЫШАЛ И ИДЕНТИФИЦИРОВАЛ ПО ПЕНИЯ ЕЩЁ ОДНУ ПТИЦУ — ВЬЮРКА! ИХ ЗВУКИ ТАКИЕ КРАСИВЫЕ!",
+ "uncertain": [
+  "Low-res blue text on a bird photo: most horizontal arrowheads (← vs →) are not legible. Each was set by the grid constraint plus Russian; every word had a single valid reading (e.g. В5↓2→|↓3←|3↑→|↑←|2↑← is the only fit giving ВЬЮРКА).",
+  "Line 6 starts with the anchor З (З↑←|4↓2←|2↑→|↑3→ = ЗВУКИ), which looks identical to the digit 3; the preceding И3↓2← (ИХ) is its own word.",
+  "Final chunk of ИДЕНТИФИЦИРОВАЛ (2↓2→) and of КРАСИВЫЕ (4↑3←): direction inferred, image too blurred."
+ ],
+ "reading_ru": "Недавно я услышал и идентифицировал по пению ещё одну птицу — вьюрка! Их звуки такие красивые!",
+ "english": "Recently I heard and identified one more bird by its song: a brambling! Their sounds are so beautiful!",
+ "slips": [
+  {
+   "token": "П2↑←|↓4→|↑|5↓2←",
+   "computed": "ПЕНИЯ",
+   "intended": "ПЕНИЮ",
+   "fix": "last chunk 5↓2← should be 5↓3← (И→Ю); digit 2 is clearly legible",
+   "kind": "author slip"
+  }
+ ]
+}
