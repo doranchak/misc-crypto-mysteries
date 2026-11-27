@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marker code on a monitor bezel: deciphered</title>
+<style>
+:root{--bg:#fbfaf7;--panel:#fff;--ink:#1f2328;--muted:#667085;--line:#e5e1d8;--soft:#f3f0e8;
+  --accent:#7a3e9d;--blue:#2a6f97;--good:#2f7d4f;--good-soft:#e1f1e7;--warn:#a16207;--warn-soft:#fbefd0;
+  --bezel:#d9d9db;--marker:#8e3fb0;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#14171a;--panel:#1b1f23;--ink:#e6e8ea;--muted:#9aa4af;--line:#2c333a;
+  --soft:#22272c;--accent:#c79be3;--blue:#6db3dc;--good:#6cc08b;--good-soft:#1c3025;--warn:#e0b050;--warn-soft:#3a3018;--bezel:#c9c9cc}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header,main{max-width:1180px;margin:0 auto;padding:0 22px}
+header{padding-top:28px}
+h1{font-size:27px;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:14px}
+h2{font-size:21px;margin:0 0 8px}
+section{margin-top:40px}
+a{color:var(--blue)}
+.status{display:inline-block;background:var(--good-soft);color:var(--good);border:1px solid var(--good);border-radius:6px;padding:5px 10px;font-weight:600;margin-top:12px}
+.muted{color:var(--muted)} .small{font-size:13px}
+code{font-family:var(--mono);background:var(--soft);padding:1px 5px;border-radius:4px;font-size:13px}
+.answer{background:linear-gradient(#e4e4e6,#cfcfd2);color:var(--marker);border-radius:10px;padding:22px 26px;font:700 24px/1.55 "Marker Felt","Chalkboard SE",ui-rounded,sans-serif;
+  letter-spacing:.07em;white-space:pre-line;border:1px solid #b9b9bd}
+.answer .sic{opacity:.7;font-weight:400;font-size:15px;letter-spacing:0;color:#444}
+.reading{margin-top:10px;font-size:15.5px}
+figure{margin:0}
+.photo img{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block}
+.photo figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+.twocol{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:860px){.twocol{grid-template-columns:1fr}}
+.bline{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:flex-end;padding:14px 0;border-bottom:1px solid var(--line)}
+.bline .ln{width:22px;color:var(--muted);font-size:12px;align-self:center}
+.word{display:flex;flex-direction:column;align-items:center}
+.glyphs{display:flex;gap:3px;align-items:flex-end;background:var(--bezel);padding:4px;border-radius:6px}
+.gt img{display:block;border-radius:3px}
+.gt figcaption{text-align:center;font:700 13px var(--mono);color:#333;margin-top:2px}
+.gt.dim figcaption{color:#a16207}
+.wl{margin-top:5px;font-size:16px;font-weight:700;letter-spacing:.12em;color:var(--accent)}
+.wl .sic{font-weight:400;font-size:12px;letter-spacing:0;color:var(--muted)}
+table{border-collapse:collapse;width:100%;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:14px}
+th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{background:var(--soft);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+tr:last-child td{border-bottom:0}
+td.L{font:700 20px var(--mono);color:var(--accent);width:44px;text-align:center}
+td.occ{background:var(--bezel);width:330px} td.occ img{height:44px;width:auto;margin:2px;border-radius:3px;vertical-align:middle}
+td.ws{font-size:12.5px;color:var(--muted);width:200px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;width:54px}
+ol.steps li,ul.notes li{margin:7px 0}
+.note{background:var(--warn-soft);border-left:4px solid var(--warn);padding:8px 12px;border-radius:4px;font-size:14px}
+.stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.card b{display:block;font-size:22px;color:var(--accent)}
+.card span{font-size:13px;color:var(--muted)}
+#enc-in{width:100%;font:16px var(--mono);padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);text-transform:uppercase}
+#enc-out{background:var(--bezel);border-radius:10px;padding:14px;margin-top:10px;min-height:80px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:2px 1px}
+#enc-out img{height:48px;width:auto;border-radius:2px}
+#enc-out .sp{width:24px} #enc-out .br{flex-basis:100%;height:6px}
+#enc-out .x{height:48px;min-width:26px;display:inline-flex;align-items:center;justify-content:center;color:#555;border:1px dashed #777;border-radius:3px;font:600 18px var(--mono);padding:0 4px}
+footer{max-width:1180px;margin:50px auto 60px;padding:0 22px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+<h1>Marker code on a monitor bezel: deciphered</h1>
+<div class="sub">Source: <a href="https://www.reddit.com/r/codes/comments/1y6pz29/anyone_recognize_this_code/">“Anyone recognize this code?”</a>, r/codes, posted by <a href="https://www.reddit.com/user/DrunkensAndDragons/">u/DrunkensAndDragons</a>. Photo from that post.
+The poster's context: <i>“Written in marker directly on computer monitor. There is another note on computer in english, same marker, that says ‘the gods can see that which you can see’.
+So a personal reminder to not look at bad things on the internet?”</i></div>
+<div class="status">Solved: a home-made alphabet, one glyph per letter, in plain English</div>
+</header>
+<main>
+
+<section id="answer">
+<h2>What it says</h2>
+<div class="answer">NOFAP TO POWER IMBALANCES
+ONLY TO CONSENTING JOYFUL
+BEAUTY &amp; AESTETICS <span class="sic">[sic: aesthetics, written without the H]</span></div>
+<p class="reading">With punctuation: <b>“NoFap to power imbalances. Only to consenting, joyful beauty &amp; aesthetics.”</b></p>
+<p>The poster's guess was close. It is a personal rule about what not to look at online. <i>NoFap</i> is the online pledge and community for abstaining from masturbation (“fap” is slang for it).
+The note narrows that pledge: nothing involving power imbalances, only material that is consenting and joyful, “beauty &amp; aesthetics”.
+That fits the English note in the same marker, “the gods can see that which you can see”.</p>
+<p class="muted small">All 60 glyphs fit one key: 19 letters plus the &amp;, with nothing left over and no glyph read two ways.
+The weakest spot is the shadowed end of line 2 (JOYFUL), but its O, Y, U and L are glyphs that already appear in clearer words (see <a href="#loose">loose ends</a>).</p>
+</section>
+
+<section id="photo" class="twocol">
+<figure class="photo"><a href="monitor.jpg"><img src="img/photo.jpg" alt="the purple marker writing on the silver bottom bezel of an Apple display"></a>
+<figcaption>The post's photo: purple marker on the silver bottom bezel of an Apple display (click for full size).</figcaption></figure>
+<div>
+<h2>How it was cracked</h2>
+<ol class="steps">
+<li><b>Gaps give word lengths.</b> The three lines split into words of 5·2·5·10 / 4·2·10·6 / 6·&amp;·9 glyphs. The lone <b>&amp;</b> is an ordinary ampersand, so the text is probably English.</li>
+<li><b>A repeated short word.</b> The 2-glyph word <i>arch-over-triangle + dot</i> appears in the same place on lines 1 and 2. Guess <b>TO</b> (dot = O).</li>
+<li><b>A crib that checks itself.</b> The 10-glyph word in line 2 has the repeat pattern <code>a b c d e c f g c h</code> (the Z-stroke ring at 3rd, 6th and 9th place).
+Of the seven words in a 60,000-word English list with that pattern, only <b>CONSENTING</b> has O 2nd and T 7th. Those two letters were already fixed by TO.</li>
+<li><b>The rest falls out.</b> With C O N S E T I G known, line 1's 10-glyph word reads I?BAL?NCES = <b>IMBALANCES</b>, and line 3 reads B E A U T Y = <b>BEAUTY</b> and A E S T E T I C S.
+Line 2 starts O N L Y = <b>ONLY</b>, and its last word O Y ? U L can only be <b>JOYFUL</b>.</li>
+<li><b>Line 1.</b> Now only four glyphs are unknown: N O ? A ? / ? O ? E ? before IMBALANCES. The crossed loop at the start is the same glyph as the 4th letter of JOYFUL, so it is <b>F</b>.
+That gives <b>NOFAP</b> and <b>POWER</b>, and “power imbalances” is a common phrase.</li>
+</ol>
+<figure class="photo" style="margin-top:12px"><img src="img/strip.jpg" alt="the three lines of glyphs, straightened and contrast-enhanced">
+<figcaption>The writing straightened (rotated 2.6°) and contrast-enhanced. The right end of line 2 is in shadow on the original.</figcaption></figure>
+</div>
+</section>
+
+<section id="lines">
+<h2>Line by line</h2>
+<p class="muted small">Every glyph is cut from the photo, with its letter under it. Hover over a glyph for its position (L<i>line</i>.<i>glyph</i>). Amber letters are in the shadowed end of line 2.</p>
+<div class="bline"><span class="ln">1</span><div class="word"><div class="glyphs"><figure class="gt"><img src="img/g1_01.jpg" width="84" height="60" alt="glyph 1.1, read as N" title="L1.1: ring on a Z-stroke"><figcaption>N</figcaption></figure><figure class="gt"><img src="img/g1_02.jpg" width="23" height="60" alt="glyph 1.2, read as O" title="L1.2: dot"><figcaption>O</figcaption></figure><figure class="gt"><img src="img/g1_03.jpg" width="44" height="60" alt="glyph 1.3, read as F" title="L1.3: crossed loop over triangle"><figcaption>F</figcaption></figure><figure class="gt"><img src="img/g1_04.jpg" width="33" height="60" alt="glyph 1.4, read as A" title="L1.4: head-loop-stem"><figcaption>A</figcaption></figure><figure class="gt"><img src="img/g1_05.jpg" width="33" height="60" alt="glyph 1.5, read as P" title="L1.5: head-loop-triangle"><figcaption>P</figcaption></figure></div><div class="wl">NOFAP</div></div><div class="word"><div class="glyphs"><figure class="gt"><img src="img/g1_06.jpg" width="56" height="60" alt="glyph 1.6, read as T" title="L1.6: arch over triangle"><figcaption>T</figcaption></figure><figure class="gt"><img src="img/g1_07.jpg" width="25" height="60" alt="glyph 1.7, read as O" title="L1.7: dot"><figcaption>O</figcaption></figure></div><div class="wl">TO</div></div><div class="word"><div class="glyphs"><figure class="gt"><img src="img/g1_08.jpg" width="35" height="60" alt="glyph 1.8, read as P" title="L1.8: head-loop-triangle"><figcaption>P</figcaption></figure><figure class="gt"><img src="img/g1_09.jpg" width="23" height="60" alt="glyph 1.9, read as O" title="L1.9: dot"><figcaption>O</figcaption></figure><figure class="gt"><img src="img/g1_10.jpg" width="31" height="60" alt="glyph 1.10, read as W" title="L1.10: loop on stem, arms up"><figcaption>W</figcaption></figure><figure class="gt"><img src="img/g1_11.jpg" width="40" height="60" alt="glyph 1.11, read as E" title="L1.11: ring with two strokes"><figcaption>E</figcaption></figure><figure class="gt"><img src="img/g1_12.jpg" width="38" height="60" alt="glyph 1.12, read as R" title="L1.12: head-loop-stem with tick"><figcaption>R</figcaption></figure></div><div class="wl">POWER</div></div><div class="word"><div class="glyphs"><figure class="gt"><img src="img/g1_13.jpg" width="56" height="60" alt="glyph 1.13, read as I" title="L1.13: ring on a bar"><figcaption>I</figcaption></figure><figure class="gt"><img src="img/g1_14.jpg" width="29" height="60" alt="glyph 1.14, read as M" title="L1.14: A with looped crossbar"><figcaption>M</figcaption></figure><figure class="gt"><img src="img/g1_15.jpg" width="35" height="60" alt="glyph 1.15, read as B" title="L1.15: 8 with blobs and tick"><figcaption>B</figcaption></figure><figure class="gt"><img src="img/g1_16.jpg" width="23" height="60" alt="glyph 1.16, read as A" title="L1.16: head-loop-stem"><figcaption>A</figcaption></figure><figure class="gt"><img src="img/g1_17.jpg" width="42" height="60" alt="glyph 1.17, read as L" title="L1.17: loop and flag"><figcaption>L</figcaption></figure><figure class="gt"><img src="img/g1_18.jpg" width="31" height="60" alt="glyph 1.18, read as A" title="L1.18: head-loop-stem (legs)"><figcaption>A</figcaption></figure><figure class="gt"><img src="img/g1_19.jpg" width="46" height="60" alt="glyph 1.19, read as N" title="L1.19: ring on a Z-stroke (joined)"><figcaption>N</figcaption></figure><figure class="gt"><img src="img/g1_20.jpg" width="42" height="60" alt="glyph 1.20, read as C" title="L1.20: ring with tail"><figcaption>C</figcaption></figure><figure class="gt"><img src="img/g1_21.jpg" width="44" height="60" alt="glyph 1.21, read as E" title="L1.21: ring with two strokes"><figcaption>E</figcaption></figure><figure class="gt"><img src="img/g1_22.jpg" width="54" height="60" alt="glyph 1.22, read as S" title="L1.22: § with top bar"><figcaption>S</figcaption></figure></div><div class="wl">IMBALANCES</div></div></div><div class="bline"><span class="ln">2</span><div class="word"><div class="glyphs"><figure class="gt"><img src="img/g2_01.jpg" width="29" height="60" alt="glyph 2.1, read as O" title="L2.1: dot"><figcaption>O</figcaption></figure><figure class="gt"><img src="img/g2_02.jpg" width="64" height="60" alt="glyph 2.2, read as N" title="L2.2: ring on a Z-stroke"><figcaption>N</figcaption></figure><figure class="gt"><img src="img/g2_03.jpg" width="59" height="60" alt="glyph 2.3, read as L" title="L2.3: loop and flag"><figcaption>L</figcaption></figure><figure class="gt"><img src="img/g2_04.jpg" width="51" height="60" alt="glyph 2.4, read as Y" title="L2.4: stem, ring, wings"><figcaption>Y</figcaption></figure></div><div class="wl">ONLY</div></div><div class="word"><div class="glyphs"><figure class="gt"><img src="img/g2_05.jpg" width="64" height="60" alt="glyph 2.5, read as T" title="L2.5: arch over triangle"><figcaption>T</figcaption></figure><figure class="gt"><img src="img/g2_06.jpg" width="27" height="60" alt="glyph 2.6, read as O" title="L2.6: dot"><figcaption>O</figcaption></figure></div><div class="wl">TO</div></div><div class="word"><div class="glyphs"><figure class="gt"><img src="img/g2_07.jpg" width="44" height="60" alt="glyph 2.7, read as C" title="L2.7: ring with tail"><figcaption>C</figcaption></figure><figure class="gt"><img src="img/g2_08.jpg" width="27" height="60" alt="glyph 2.8, read as O" title="L2.8: dot"><figcaption>O</figcaption></figure><figure class="gt"><img src="img/g2_09.jpg" width="66" height="60" alt="glyph 2.9, read as N" title="L2.9: ring on a Z-stroke"><figcaption>N</figcaption></figure><figure class="gt"><img src="img/g2_10.jpg" width="45" height="60" alt="glyph 2.10, read as S" title="L2.10: § with top bar"><figcaption>S</figcaption></figure><figure class="gt"><img src="img/g2_11.jpg" width="46" height="60" alt="glyph 2.11, read as E" title="L2.11: ring with two strokes"><figcaption>E</figcaption></figure><figure class="gt"><img src="img/g2_12.jpg" width="64" height="60" alt="glyph 2.12, read as N" title="L2.12: ring on a Z-stroke"><figcaption>N</figcaption></figure><figure class="gt"><img src="img/g2_13.jpg" width="56" height="60" alt="glyph 2.13, read as T" title="L2.13: arch over triangle (kite)"><figcaption>T</figcaption></figure><figure class="gt"><img src="img/g2_14.jpg" width="69" height="60" alt="glyph 2.14, read as I" title="L2.14: ring on a bar"><figcaption>I</figcaption></figure><figure class="gt"><img src="img/g2_15.jpg" width="66" height="60" alt="glyph 2.15, read as N" title="L2.15: ring on a Z-stroke"><figcaption>N</figcaption></figure><figure class="gt"><img src="img/g2_16.jpg" width="61" height="60" alt="glyph 2.16, read as G" title="L2.16: ring with hooked tail"><figcaption>G</figcaption></figure></div><div class="wl">CONSENTING</div></div><div class="word"><div class="glyphs"><figure class="gt dim"><img src="img/g2_17.jpg" width="55" height="60" alt="glyph 2.17, read as J" title="L2.17: bars and hook"><figcaption>J</figcaption></figure><figure class="gt dim"><img src="img/g2_18.jpg" width="21" height="60" alt="glyph 2.18, read as O" title="L2.18: dot"><figcaption>O</figcaption></figure><figure class="gt dim"><img src="img/g2_19.jpg" width="41" height="60" alt="glyph 2.19, read as Y" title="L2.19: stem, ring, wings"><figcaption>Y</figcaption></figure><figure class="gt dim"><img src="img/g2_20.jpg" width="29" height="60" alt="glyph 2.20, read as F" title="L2.20: crossed loop over triangle"><figcaption>F</figcaption></figure><figure class="gt dim"><img src="img/g2_21.jpg" width="30" height="60" alt="glyph 2.21, read as U" title="L2.21: loop with rising stem"><figcaption>U</figcaption></figure><figure class="gt dim"><img src="img/g2_22.jpg" width="45" height="60" alt="glyph 2.22, read as L" title="L2.22: loop and flag"><figcaption>L</figcaption></figure></div><div class="wl">JOYFUL</div></div></div><div class="bline"><span class="ln">3</span><div class="word"><div class="glyphs"><figure class="gt"><img src="img/g3_01.jpg" width="45" height="60" alt="glyph 3.1, read as B" title="L3.1: 8 with blobs and tick"><figcaption>B</figcaption></figure><figure class="gt"><img src="img/g3_02.jpg" width="51" height="60" alt="glyph 3.2, read as E" title="L3.2: ring with two strokes"><figcaption>E</figcaption></figure><figure class="gt"><img src="img/g3_03.jpg" width="33" height="60" alt="glyph 3.3, read as A" title="L3.3: head-loop-stem"><figcaption>A</figcaption></figure><figure class="gt"><img src="img/g3_04.jpg" width="31" height="60" alt="glyph 3.4, read as U" title="L3.4: loop with rising stem"><figcaption>U</figcaption></figure><figure class="gt"><img src="img/g3_05.jpg" width="66" height="60" alt="glyph 3.5, read as T" title="L3.5: arch over triangle (winged)"><figcaption>T</figcaption></figure><figure class="gt"><img src="img/g3_06.jpg" width="60" height="60" alt="glyph 3.6, read as Y" title="L3.6: stem, ring, wings"><figcaption>Y</figcaption></figure></div><div class="wl">BEAUTY</div></div><div class="word"><div class="glyphs"><figure class="gt"><img src="img/g3_07.jpg" width="55" height="60" alt="glyph 3.7, read as &amp;" title="L3.7: ampersand"><figcaption>&amp;</figcaption></figure></div><div class="wl">&amp;</div></div><div class="word"><div class="glyphs"><figure class="gt"><img src="img/g3_08.jpg" width="30" height="60" alt="glyph 3.8, read as A" title="L3.8: head-loop-stem"><figcaption>A</figcaption></figure><figure class="gt"><img src="img/g3_09.jpg" width="42" height="60" alt="glyph 3.9, read as E" title="L3.9: ring with two strokes"><figcaption>E</figcaption></figure><figure class="gt"><img src="img/g3_10.jpg" width="37" height="60" alt="glyph 3.10, read as S" title="L3.10: § with top bar"><figcaption>S</figcaption></figure><figure class="gt"><img src="img/g3_11.jpg" width="54" height="60" alt="glyph 3.11, read as T" title="L3.11: arch over triangle"><figcaption>T</figcaption></figure><figure class="gt"><img src="img/g3_12.jpg" width="46" height="60" alt="glyph 3.12, read as E" title="L3.12: ring with two strokes"><figcaption>E</figcaption></figure><figure class="gt"><img src="img/g3_13.jpg" width="63" height="60" alt="glyph 3.13, read as T" title="L3.13: arch over triangle"><figcaption>T</figcaption></figure><figure class="gt"><img src="img/g3_14.jpg" width="62" height="60" alt="glyph 3.14, read as I" title="L3.14: ring on a bar"><figcaption>I</figcaption></figure><figure class="gt"><img src="img/g3_15.jpg" width="42" height="60" alt="glyph 3.15, read as C" title="L3.15: ring with tail"><figcaption>C</figcaption></figure><figure class="gt"><img src="img/g3_16.jpg" width="41" height="60" alt="glyph 3.16, read as S" title="L3.16: § with top bar"><figcaption>S</figcaption></figure></div><div class="wl">AESTETICS <span class="sic">[sic]</span></div></div></div>
+</section>
+
+<section id="key">
+<h2>The alphabet</h2>
+<p>Every occurrence of each letter, cut from the photo. Some glyphs look like dressed-up Latin letters (B like an 8, S like §, F a crossed loop like a cursive f, L a looped ℓ, W like ψ, O a plain dot); others look made up.
+I checked Theban, Agrippa's Celestial, Malachim, Daedric, Atlantean, Kryptonian and Unown, and none of them matches, so this looks like the writer's own alphabet.</p>
+<table>
+<thead><tr><th>Letter</th><th>Every occurrence</th><th>Shape</th><th>Words it appears in</th><th class="n">Count</th></tr></thead>
+<tbody>
+<tr><td class="L">A</td><td class="occ"><img src="img/g1_04.jpg" width="33" height="60" alt="A" title="L1.4"><img src="img/g1_16.jpg" width="23" height="60" alt="A" title="L1.16"><img src="img/g1_18.jpg" width="31" height="60" alt="A" title="L1.18"><img src="img/g3_03.jpg" width="33" height="60" alt="A" title="L3.3"><img src="img/g3_08.jpg" width="30" height="60" alt="A" title="L3.8"></td><td>Filled head over a small loop on a stem (like ♀). Also drawn with two little legs (L1.18) and with the loop squeezed shut (L3.8).</td><td class="ws">NOFAP, IMBALANCES, BEAUTY, AESTETICS</td><td class="n">5</td></tr><tr><td class="L">B</td><td class="occ"><img src="img/g1_15.jpg" width="35" height="60" alt="B" title="L1.15"><img src="img/g3_01.jpg" width="45" height="60" alt="B" title="L3.1"></td><td>An 8 with filled blobs at top and bottom and a tick to the right.</td><td class="ws">IMBALANCES, BEAUTY</td><td class="n">2</td></tr><tr><td class="L">C</td><td class="occ"><img src="img/g1_20.jpg" width="42" height="60" alt="C" title="L1.20"><img src="img/g2_07.jpg" width="44" height="60" alt="C" title="L2.7"><img src="img/g3_15.jpg" width="42" height="60" alt="C" title="L3.15"></td><td>Small ring with a tail to the right (o–).</td><td class="ws">IMBALANCES, CONSENTING, AESTETICS</td><td class="n">3</td></tr><tr><td class="L">E</td><td class="occ"><img src="img/g1_11.jpg" width="40" height="60" alt="E" title="L1.11"><img src="img/g1_21.jpg" width="44" height="60" alt="E" title="L1.21"><img src="img/g2_11.jpg" width="46" height="60" alt="E" title="L2.11"><img src="img/g3_02.jpg" width="51" height="60" alt="E" title="L3.2"><img src="img/g3_09.jpg" width="42" height="60" alt="E" title="L3.9"><img src="img/g3_12.jpg" width="46" height="60" alt="E" title="L3.12"></td><td>Ring with two strokes to the right (o=). In L1.21 the upper stroke floats free.</td><td class="ws">POWER, IMBALANCES, CONSENTING, BEAUTY, AESTETICS</td><td class="n">6</td></tr><tr><td class="L">F</td><td class="occ"><img src="img/g1_03.jpg" width="44" height="60" alt="F" title="L1.3"><img src="img/g2_20.jpg" width="29" height="60" alt="F" title="L2.20"></td><td>Loop crossed by a bar, over a filled down-pointing triangle; the crossed loop is like a cursive f. The second F (L2.20) is in shadow.</td><td class="ws">NOFAP, JOYFUL</td><td class="n">2</td></tr><tr><td class="L">G</td><td class="occ"><img src="img/g2_16.jpg" width="61" height="60" alt="G" title="L2.16"></td><td>Ring whose tail runs right and then turns down.</td><td class="ws">CONSENTING</td><td class="n">1</td></tr><tr><td class="L">I</td><td class="occ"><img src="img/g1_13.jpg" width="56" height="60" alt="I" title="L1.13"><img src="img/g2_14.jpg" width="69" height="60" alt="I" title="L2.14"><img src="img/g3_14.jpg" width="62" height="60" alt="I" title="L3.14"></td><td>Ring threaded on a horizontal bar (–o–).</td><td class="ws">IMBALANCES, CONSENTING, AESTETICS</td><td class="n">3</td></tr><tr><td class="L">J</td><td class="occ"><img src="img/g2_17.jpg" width="55" height="60" alt="J" title="L2.17"></td><td>Two short bars, then a hook like a 9. Only once, in the shadowed end of line 2.</td><td class="ws">JOYFUL</td><td class="n">1</td></tr><tr><td class="L">L</td><td class="occ"><img src="img/g1_17.jpg" width="42" height="60" alt="L" title="L1.17"><img src="img/g2_03.jpg" width="59" height="60" alt="L" title="L2.3"><img src="img/g2_22.jpg" width="45" height="60" alt="L" title="L2.22"></td><td>Loop at lower left rising into a filled triangle: a looped ℓ with a flag.</td><td class="ws">IMBALANCES, ONLY, JOYFUL</td><td class="n">3</td></tr><tr><td class="L">M</td><td class="occ"><img src="img/g1_14.jpg" width="29" height="60" alt="M" title="L1.14"></td><td>An A shape with a loop where the crossbar would be.</td><td class="ws">IMBALANCES</td><td class="n">1</td></tr><tr><td class="L">N</td><td class="occ"><img src="img/g1_01.jpg" width="84" height="60" alt="N" title="L1.1"><img src="img/g1_19.jpg" width="46" height="60" alt="N" title="L1.19"><img src="img/g2_02.jpg" width="64" height="60" alt="N" title="L2.2"><img src="img/g2_09.jpg" width="66" height="60" alt="N" title="L2.9"><img src="img/g2_12.jpg" width="64" height="60" alt="N" title="L2.12"><img src="img/g2_15.jpg" width="66" height="60" alt="N" title="L2.15"></td><td>Ring on a Z-shaped stroke: the left end hooks down, the right end hooks up. In L1.19 the left hook is replaced by the stroke joining it to the A before it.</td><td class="ws">NOFAP, IMBALANCES, ONLY, CONSENTING</td><td class="n">6</td></tr><tr><td class="L">O</td><td class="occ"><img src="img/g1_02.jpg" width="23" height="60" alt="O" title="L1.2"><img src="img/g1_07.jpg" width="25" height="60" alt="O" title="L1.7"><img src="img/g1_09.jpg" width="23" height="60" alt="O" title="L1.9"><img src="img/g2_01.jpg" width="29" height="60" alt="O" title="L2.1"><img src="img/g2_06.jpg" width="27" height="60" alt="O" title="L2.6"><img src="img/g2_08.jpg" width="27" height="60" alt="O" title="L2.8"><img src="img/g2_18.jpg" width="21" height="60" alt="O" title="L2.18"></td><td>A filled dot.</td><td class="ws">NOFAP, TO, POWER, ONLY, CONSENTING, JOYFUL</td><td class="n">7</td></tr><tr><td class="L">P</td><td class="occ"><img src="img/g1_05.jpg" width="33" height="60" alt="P" title="L1.5"><img src="img/g1_08.jpg" width="35" height="60" alt="P" title="L1.8"></td><td>Filled head, loop, and a filled triangle hanging down to the left.</td><td class="ws">NOFAP, POWER</td><td class="n">2</td></tr><tr><td class="L">R</td><td class="occ"><img src="img/g1_12.jpg" width="38" height="60" alt="R" title="L1.12"></td><td>The A shape (head, loop, stem) with a tick to the right.</td><td class="ws">POWER</td><td class="n">1</td></tr><tr><td class="L">S</td><td class="occ"><img src="img/g1_22.jpg" width="54" height="60" alt="S" title="L1.22"><img src="img/g2_10.jpg" width="45" height="60" alt="S" title="L2.10"><img src="img/g3_10.jpg" width="37" height="60" alt="S" title="L3.10"><img src="img/g3_16.jpg" width="41" height="60" alt="S" title="L3.16"></td><td>A §-like squiggle with a bar across the top.</td><td class="ws">IMBALANCES, CONSENTING, AESTETICS</td><td class="n">4</td></tr><tr><td class="L">T</td><td class="occ"><img src="img/g1_06.jpg" width="56" height="60" alt="T" title="L1.6"><img src="img/g2_05.jpg" width="64" height="60" alt="T" title="L2.5"><img src="img/g2_13.jpg" width="56" height="60" alt="T" title="L2.13"><img src="img/g3_05.jpg" width="66" height="60" alt="T" title="L3.5"><img src="img/g3_11.jpg" width="54" height="60" alt="T" title="L3.11"><img src="img/g3_13.jpg" width="63" height="60" alt="T" title="L3.13"></td><td>Filled down-pointing triangle with an arch or loop on top. Drawn compact as a kite (L2.13) and spread out like wings (L3.5).</td><td class="ws">TO, CONSENTING, BEAUTY, AESTETICS</td><td class="n">6</td></tr><tr><td class="L">U</td><td class="occ"><img src="img/g2_21.jpg" width="30" height="60" alt="U" title="L2.21"><img src="img/g3_04.jpg" width="31" height="60" alt="U" title="L3.4"></td><td>Loop at the bottom with a stem rising on the right (like ꝺ).</td><td class="ws">JOYFUL, BEAUTY</td><td class="n">2</td></tr><tr><td class="L">W</td><td class="occ"><img src="img/g1_10.jpg" width="31" height="60" alt="W" title="L1.10"></td><td>Loop on a stem with two arms raised (like ψ).</td><td class="ws">POWER</td><td class="n">1</td></tr><tr><td class="L">Y</td><td class="occ"><img src="img/g2_04.jpg" width="51" height="60" alt="Y" title="L2.4"><img src="img/g2_19.jpg" width="41" height="60" alt="Y" title="L2.19"><img src="img/g3_06.jpg" width="60" height="60" alt="Y" title="L3.6"></td><td>Stem on top, then a ring, then two filled wings.</td><td class="ws">ONLY, JOYFUL, BEAUTY</td><td class="n">3</td></tr><tr><td class="L">&amp;</td><td class="occ"><img src="img/g3_07.jpg" width="55" height="60" alt="&" title="L3.7"></td><td>An ordinary ampersand.</td><td class="ws">&amp;</td><td class="n">1</td></tr>
+</tbody></table>
+<p class="muted small">Not used on the monitor, so unknown: D H K Q V X Z.</p>
+</section>
+
+<section id="checks">
+<h2>How sure is this?</h2>
+<div class="stat">
+<div class="card"><b>60 / 60</b><span>glyphs decoded with one key; no glyph has two readings</span></div>
+<div class="card"><b>14 of 19</b><span>letters occur in two or more different words, so they are cross-checked (only G J M R W appear in a single word)</span></div>
+<div class="card"><b>4 of 10</b><span>blind solver restarts found exactly this key, which was also the top score</span></div>
+<div class="card"><b>−135 vs ≤ −215</b><span>solver score for this text vs. the best of 10 shuffled-glyph controls</span></div>
+</div>
+<p>Blind check: I replaced the 19 letter classes with anonymous symbols and kept the word gaps. A simulated-annealing solver, given no cribs, scored each candidate key by how well every group splits into common English words.
+It found exactly this key in 4 of 10 restarts, and no other key scored as high. The same solver run on shuffled glyphs (same symbols and word lengths, order randomised) never scored better than −215, against −135 here.</p>
+<p class="note">Caveat: the blind check uses my final grouping of glyph shapes into letters. A few of those groupings were settled with the decoding in hand: the joined N at L1.19, the legged A at L1.18 and squeezed A at L3.8, the kite and winged T at L2.13 and L3.5, and the shadowed F at L2.20.
+The decisive steps don't depend on them. TO, CONSENTING, IMBALANCES and BEAUTY come from glyphs that are clearly the same shape.</p>
+</section>
+
+<section id="loose">
+<h2>Loose ends</h2>
+<ul class="notes">
+<li><b>AESTETICS.</b> The last word has nine glyphs, A‑E‑S‑T‑E‑T‑I‑C‑S. Both T's are the same arch-over-triangle glyph used in TO and CONSENTING, and there is no extra glyph between them. So the H is missing on the monitor itself, not lost in the decoding (compare the US spelling <i>esthetics</i>).</li>
+<li><b>Shadowed end of line 2.</b> The last six glyphs, JOYFUL, sit where the bezel is in shadow and the photo is soft.
+O (dot), Y (stem-ring-wings), U (loop with rising stem) and L (loop and flag) match their clearer copies elsewhere. The 4th glyph is a blurred loop-with-bar of the same outline as the F at L1.3, and the first is a hook with two bars on its left; J is its only occurrence.
+“?OY?UL” has no other English fit, so the word itself is secure even though the J and F glyphs are not well seen.</li>
+<li><b>Variant forms.</b> A is drawn three ways and T three ways (see the alphabet table). N loses its left hook where it is joined to the A before it in IMBALANCES. In line 1 one E's upper stroke floats free of the ring.
+None of these changes the reading of any word.</li>
+<li><b>Not ink.</b> A whitish smudge sits in the gap after the first TO in line 1, and a faint grey dash sits above the E at the start of line 3. Neither is purple marker, and neither is needed for any word.</li>
+</ul>
+</section>
+
+<section id="encode">
+<h2>Write in it</h2>
+<p class="muted small">Type text to render it with glyphs cut from the photo. Letters the monitor never uses (D H K Q V X Z) show as dashed boxes.</p>
+<input id="enc-in" value="The gods can see that which you can see" maxlength="140" aria-label="text to encode">
+<div id="enc-out" aria-live="polite"></div>
+</section>
+
+</main>
+<footer>
+Photo and question: <a href="https://www.reddit.com/user/DrunkensAndDragons/">u/DrunkensAndDragons</a> on <a href="https://www.reddit.com/r/codes/comments/1y6pz29/anyone_recognize_this_code/">r/codes</a>.
+Page generated by <code>build_report.py</code> from <code>monitor.jpg</code>. Solver and checks are in <code>work/</code>.
+</footer>
+<script>
+const G = {"A": {"src": "img/g1_04.jpg", "w": 33, "h": 60}, "B": {"src": "img/g3_01.jpg", "w": 45, "h": 60}, "C": {"src": "img/g1_20.jpg", "w": 42, "h": 60}, "E": {"src": "img/g3_09.jpg", "w": 42, "h": 60}, "F": {"src": "img/g1_03.jpg", "w": 44, "h": 60}, "G": {"src": "img/g2_16.jpg", "w": 61, "h": 60}, "I": {"src": "img/g1_13.jpg", "w": 56, "h": 60}, "J": {"src": "img/g2_17.jpg", "w": 55, "h": 60}, "L": {"src": "img/g2_03.jpg", "w": 59, "h": 60}, "M": {"src": "img/g1_14.jpg", "w": 29, "h": 60}, "N": {"src": "img/g2_02.jpg", "w": 64, "h": 60}, "O": {"src": "img/g2_01.jpg", "w": 29, "h": 60}, "P": {"src": "img/g1_05.jpg", "w": 33, "h": 60}, "R": {"src": "img/g1_12.jpg", "w": 38, "h": 60}, "S": {"src": "img/g3_10.jpg", "w": 37, "h": 60}, "T": {"src": "img/g1_06.jpg", "w": 56, "h": 60}, "U": {"src": "img/g3_04.jpg", "w": 31, "h": 60}, "W": {"src": "img/g1_10.jpg", "w": 31, "h": 60}, "Y": {"src": "img/g2_04.jpg", "w": 51, "h": 60}, "&": {"src": "img/g3_07.jpg", "w": 55, "h": 60}};
+const inp = document.getElementById('enc-in'), out = document.getElementById('enc-out');
+function render(){
+  out.textContent = '';
+  for (const ch of inp.value.toUpperCase()){
+    if (ch === ' '){ const s=document.createElement('span'); s.className='sp'; out.appendChild(s); continue; }
+    if (ch === '\n'){ const s=document.createElement('span'); s.className='br'; out.appendChild(s); continue; }
+    const g = G[ch];
+    if (g){ const im=document.createElement('img'); im.src=g.src; im.alt=ch; im.title=ch; out.appendChild(im); }
+    else { const s=document.createElement('span'); s.className='x'; s.textContent=ch; s.title='not on the monitor'; out.appendChild(s); }
+  }
+}
+inp.addEventListener('input', render); render();
+</script>
+</body>
+</html>

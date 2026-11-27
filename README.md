@@ -58,6 +58,10 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 </tr>
 <tr>
 <td align="center" valign="top" width="25%">
+<a href="https://doranchak.github.io/misc-crypto-mysteries/gods-can-see-monitor-cipher"><img src="thumbnails/gods-can-see-monitor-cipher.jpg" width="180" alt="Purple marker glyphs on a silver monitor bezel"></a><br>
+<a href="https://doranchak.github.io/misc-crypto-mysteries/gods-can-see-monitor-cipher">Marker code on a monitor bezel</a>
+</td>
+<td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/mock-trial-cipher"><img src="thumbnails/mock-trial-cipher.jpg" width="180" alt="Page of arrow and triangle glyphs"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/mock-trial-cipher">Mock trial cipher</a>
 </td>
@@ -69,12 +73,12 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 <a href="https://doranchak.github.io/misc-crypto-mysteries/pigpen-notebook-cipher"><img src="thumbnails/pigpen-notebook-cipher.jpg" width="180" alt="Pigpen-style glyphs inside a hand-drawn circle"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/pigpen-notebook-cipher">Pigpen notebook cipher</a>
 </td>
+</tr>
+<tr>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/caesar-shift-per-word"><img src="thumbnails/caesar-shift-per-word.jpg" width="180" alt="Bar chart of forward and backward shifts per word"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/caesar-shift-per-word">Rudranshkh's Caesar-shift-per-word cipher</a>
 </td>
-</tr>
-<tr>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/solid-camp6739-code"><img src="thumbnails/solid-camp6739-code.jpg" width="180" alt="Letters decoded from colour-coded number triples"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/solid-camp6739-code">Solid-Camp6739's code of triples</a>
@@ -87,12 +91,12 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 <a href="https://doranchak.github.io/misc-crypto-mysteries/tech-tools-substitution-cipher"><img src="thumbnails/tech-tools-substitution-cipher.jpg" width="180" alt="Graph paper filled with symbol glyphs"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/tech-tools-substitution-cipher">Tech tools substitution cipher</a>
 </td>
+</tr>
+<tr>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/the-lost-spiral"><img src="thumbnails/the-lost-spiral.jpg" width="180" alt="Parchment with a spiral of letter-number labels"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/the-lost-spiral">The Lost Spiral</a>
 </td>
-</tr>
-<tr>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/tifinagh-youtube-post"><img src="thumbnails/tifinagh-youtube-post.jpg" width="180" alt="White Tifinagh letters on a dark YouTube post"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/tifinagh-youtube-post">Tifinagh YouTube post (Kabyle)</a>
@@ -105,12 +109,12 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 <a href="https://doranchak.github.io/misc-crypto-mysteries/vowel-cipher"><img src="thumbnails/vowel-cipher.jpg" width="180" alt="Letter-digit pairs decoding to THIS IS A VOWEL CIPHER"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/vowel-cipher">Vowel cipher</a>
 </td>
+</tr>
+<tr>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/class-chalkboard-code"><img src="thumbnails/class-chalkboard-code.jpg" width="180" alt="Chalk glyphs on a green chalkboard beside pine trees"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/class-chalkboard-code">Weird code on class chalkboard</a>
 </td>
-</tr>
-<tr>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/weird-message-from-a-strange-guy"><img src="thumbnails/weird-message-from-a-strange-guy.jpg" width="180" alt="Bordered page of runes and Chinese text"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/weird-message-from-a-strange-guy">Weird message from a strange guy</a>
@@ -123,6 +127,8 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 <a href="https://doranchak.github.io/misc-crypto-mysteries/z340-inspired-art-codes"><img src="thumbnails/z340-inspired-art-codes.jpg" width="180" alt="Sketch beside a grid of three-digit numbers"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/z340-inspired-art-codes">Z340-inspired art codes</a>
 </td>
+</tr>
+<tr>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/zodiac-hat"><img src="thumbnails/zodiac-hat.jpg" width="180" alt="Red cap embroidered with Zodiac cipher symbols"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/zodiac-hat">Zodiac hat cipher</a>
