@@ -1,0 +1,886 @@
+{
+ "page_box": [
+  2250,
+  100,
+  3200,
+  1850
+ ],
+ "page_size": [
+  950,
+  1750
+ ],
+ "columns": {
+  "1": [
+   {
+    "kind": "B",
+    "val": "+",
+    "note": "start bar (cross)",
+    "box": [
+     88,
+     50,
+     228,
+     115
+    ],
+    "img": "images/glyphs/c1_00.png"
+   },
+   {
+    "kind": "L",
+    "val": "H",
+    "note": "small centred circle low on the stem (stem above it)",
+    "box": [
+     84,
+     115,
+     224,
+     230
+    ],
+    "img": "images/glyphs/c1_01.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     90,
+     230,
+     230,
+     270
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "I",
+    "note": "centred circle right at the top",
+    "box": [
+     72,
+     270,
+     212,
+     355
+    ],
+    "img": "images/glyphs/c1_03.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     83,
+     355,
+     223,
+     395
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "I",
+    "note": "centred circle right at the top",
+    "box": [
+     68,
+     395,
+     208,
+     480
+    ],
+    "img": "images/glyphs/c1_05.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     66,
+     480,
+     206,
+     510
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "I",
+    "note": "centred circle right at the top",
+    "box": [
+     60,
+     510,
+     200,
+     600
+    ],
+    "img": "images/glyphs/c1_07.png"
+   },
+   {
+    "kind": "<",
+    "val": "",
+    "note": "",
+    "box": [
+     58,
+     600,
+     198,
+     650
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "I",
+    "note": "centred circle right at the top",
+    "box": [
+     58,
+     650,
+     198,
+     750
+    ],
+    "img": "images/glyphs/c1_09.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     79,
+     750,
+     219,
+     795
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "M",
+    "note": "three small circles on the right",
+    "box": [
+     48,
+     795,
+     188,
+     940
+    ],
+    "img": "images/glyphs/c1_11.png"
+   },
+   {
+    "kind": "<",
+    "val": "",
+    "note": "",
+    "box": [
+     45,
+     940,
+     185,
+     1000
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "M",
+    "note": "three small circles on the right",
+    "box": [
+     48,
+     1000,
+     188,
+     1155
+    ],
+    "img": "images/glyphs/c1_13.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     58,
+     1155,
+     198,
+     1200
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "O",
+    "note": "big centred circle",
+    "box": [
+     41,
+     1200,
+     181,
+     1300
+    ],
+    "img": "images/glyphs/c1_15.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     48,
+     1300,
+     188,
+     1350
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "O",
+    "note": "big centred circle",
+    "box": [
+     27,
+     1350,
+     167,
+     1455
+    ],
+    "img": "images/glyphs/c1_17.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     47,
+     1455,
+     187,
+     1500
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "N",
+    "note": "two circles on the left",
+    "box": [
+     27,
+     1500,
+     167,
+     1625
+    ],
+    "img": "images/glyphs/c1_19.png"
+   },
+   {
+    "kind": "B",
+    "val": "+",
+    "note": "end bar (cross) = full stop",
+    "box": [
+     17,
+     1625,
+     157,
+     1700
+    ],
+    "img": "images/glyphs/c1_20.png"
+   }
+  ],
+  "2": [
+   {
+    "kind": "B",
+    "val": "\u22a4",
+    "note": "start bar",
+    "box": [
+     351,
+     65,
+     491,
+     100
+    ],
+    "img": "images/glyphs/c2_00.png"
+   },
+   {
+    "kind": "L",
+    "val": "I",
+    "note": "centred circle right at the top",
+    "box": [
+     346,
+     95,
+     486,
+     190
+    ],
+    "img": "images/glyphs/c2_01.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     362,
+     190,
+     502,
+     225
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "T",
+    "note": "two arches",
+    "box": [
+     340,
+     225,
+     480,
+     325
+    ],
+    "img": "images/glyphs/c2_03.png"
+   },
+   {
+    "kind": "<",
+    "val": "",
+    "note": "",
+    "box": [
+     323,
+     325,
+     463,
+     370
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "I",
+    "note": "centred circle right at the top",
+    "box": [
+     340,
+     370,
+     480,
+     450
+    ],
+    "img": "images/glyphs/c2_05.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     356,
+     450,
+     496,
+     480
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "S",
+    "note": "hook up-right, then centred circle",
+    "box": [
+     331,
+     480,
+     471,
+     605
+    ],
+    "img": "images/glyphs/c2_07.png"
+   },
+   {
+    "kind": "<",
+    "val": "",
+    "note": "",
+    "box": [
+     341,
+     605,
+     481,
+     632
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "T",
+    "note": "two arches",
+    "box": [
+     318,
+     632,
+     458,
+     725
+    ],
+    "img": "images/glyphs/c2_09.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     326,
+     725,
+     466,
+     760
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "H",
+    "note": "small centred circle low on the stem",
+    "box": [
+     312,
+     760,
+     452,
+     860
+    ],
+    "img": "images/glyphs/c2_11.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     325,
+     860,
+     465,
+     895
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "E",
+    "note": "small right circle above a centred circle",
+    "box": [
+     303,
+     895,
+     443,
+     995
+    ],
+    "img": "images/glyphs/c2_13.png"
+   },
+   {
+    "kind": "<",
+    "val": "",
+    "note": "",
+    "box": [
+     276,
+     995,
+     416,
+     1040
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "Y",
+    "note": "two stacked circles (lower one drawn off-centre)",
+    "box": [
+     303,
+     1040,
+     443,
+     1165
+    ],
+    "img": "images/glyphs/c2_15.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     327,
+     1165,
+     467,
+     1210
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "E",
+    "note": "small right circle above a centred circle",
+    "box": [
+     303,
+     1210,
+     443,
+     1340
+    ],
+    "img": "images/glyphs/c2_17.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     320,
+     1340,
+     460,
+     1380
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "A",
+    "note": "one circle on the left",
+    "box": [
+     303,
+     1380,
+     443,
+     1470
+    ],
+    "img": "images/glyphs/c2_19.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     324,
+     1470,
+     464,
+     1515
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "R",
+    "note": "left curl at top, right c-hook at bottom",
+    "box": [
+     305,
+     1515,
+     445,
+     1625
+    ],
+    "img": "images/glyphs/c2_21.png"
+   },
+   {
+    "kind": "<",
+    "val": "",
+    "note": "",
+    "box": [
+     303,
+     1625,
+     443,
+     1690
+    ],
+    "img": null
+   }
+  ],
+  "3": [
+   {
+    "kind": "L",
+    "val": "2",
+    "note": "ticks L L R L = 0010",
+    "box": [
+     589,
+     75,
+     729,
+     195
+    ],
+    "img": "images/glyphs/c3_00.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     599,
+     195,
+     739,
+     230
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "0",
+    "note": "ticks L L L L = 0000",
+    "box": [
+     587,
+     230,
+     727,
+     320
+    ],
+    "img": "images/glyphs/c3_02.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     599,
+     320,
+     739,
+     350
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "2",
+    "note": "ticks L L R L = 0010",
+    "box": [
+     586,
+     350,
+     726,
+     460
+    ],
+    "img": "images/glyphs/c3_04.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     588,
+     460,
+     728,
+     510
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "6",
+    "note": "ticks L R R L = 0110 (ink overwritten)",
+    "box": [
+     587,
+     510,
+     727,
+     610
+    ],
+    "img": "images/glyphs/c3_06.png"
+   },
+   {
+    "kind": "<",
+    "val": "",
+    "note": "",
+    "box": [
+     581,
+     610,
+     721,
+     650
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "R",
+    "note": "left curl at top, right c-hook at bottom",
+    "box": [
+     574,
+     650,
+     714,
+     750
+    ],
+    "img": "images/glyphs/c3_08.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     572,
+     750,
+     712,
+     790
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "I",
+    "note": "centred circle right at the top",
+    "box": [
+     573,
+     790,
+     713,
+     860
+    ],
+    "img": "images/glyphs/c3_10.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     572,
+     860,
+     712,
+     930
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "G",
+    "note": "c-hook on the right, low",
+    "box": [
+     562,
+     930,
+     702,
+     1045
+    ],
+    "img": "images/glyphs/c3_12.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     583,
+     1045,
+     723,
+     1090
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "H",
+    "note": "small centred circle low on the stem",
+    "box": [
+     553,
+     1090,
+     693,
+     1205
+    ],
+    "img": "images/glyphs/c3_14.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     575,
+     1205,
+     715,
+     1245
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "T",
+    "note": "two arches",
+    "box": [
+     552,
+     1245,
+     692,
+     1360
+    ],
+    "img": "images/glyphs/c3_16.png"
+   },
+   {
+    "kind": "<",
+    "val": "",
+    "note": "",
+    "box": [
+     557,
+     1360,
+     697,
+     1410
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "N",
+    "note": "two circles on the left",
+    "box": [
+     562,
+     1410,
+     702,
+     1500
+    ],
+    "img": "images/glyphs/c3_18.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     587,
+     1500,
+     727,
+     1540
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "O",
+    "note": "big centred circle",
+    "box": [
+     555,
+     1540,
+     695,
+     1640
+    ],
+    "img": "images/glyphs/c3_20.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "letter separator: word runs on into column 4",
+    "box": [
+     569,
+     1640,
+     709,
+     1700
+    ],
+    "img": null
+   }
+  ],
+  "4": [
+   {
+    "kind": "L",
+    "val": "N",
+    "note": "two circles on the left",
+    "box": [
+     771,
+     75,
+     911,
+     190
+    ],
+    "img": "images/glyphs/c4_00.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     770,
+     190,
+     910,
+     230
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "O",
+    "note": "big centred circle",
+    "box": [
+     769,
+     230,
+     909,
+     320
+    ],
+    "img": "images/glyphs/c4_02.png"
+   },
+   {
+    "kind": ">",
+    "val": "",
+    "note": "",
+    "box": [
+     768,
+     320,
+     908,
+     360
+    ],
+    "img": null
+   },
+   {
+    "kind": "L",
+    "val": "W",
+    "note": "three circles: left, right, left",
+    "box": [
+     766,
+     360,
+     906,
+     480
+    ],
+    "img": "images/glyphs/c4_04.png"
+   },
+   {
+    "kind": "B",
+    "val": ".",
+    "note": "bottom bar = full stop",
+    "box": [
+     765,
+     480,
+     905,
+     525
+    ],
+    "img": "images/glyphs/c4_05.png"
+   }
+  ]
+ }
+}

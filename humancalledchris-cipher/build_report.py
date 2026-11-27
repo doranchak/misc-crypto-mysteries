@@ -1,0 +1,373 @@
+"""Build index.html (report + visualizer + encoder) from glyph_boxes.json.
+Run make_crops.py first."""
+import json, os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+data = json.load(open(os.path.join(HERE, 'glyph_boxes.json')))
+
+KEY_NOTES = {
+    'A': 'one circle on the left', 'B': 'one circle on the right', 'C': 'big c-hook on the right',
+    'D': 'diagonal into the stem, curl off the lower left', 'E': 'small right circle over a centred circle',
+    'F': 'small c-hook on the right, high', 'G': 'small c-hook on the right, low',
+    'H': 'small centred circle, low (dot/stem above)', 'I': 'centred circle at the very top',
+    'J': 'centred circle, a little larger/lower than I', 'K': 'flag on top right, circle bottom right',
+    'L': 'centred circle with a hook below', 'M': 'three circles on the right', 'N': 'two circles on the left',
+    'O': 'big centred circle', 'P': 'circle on the left with a flick to the right',
+    'Q': 'curl on the left over a big circle', 'R': 'curl top left, c-hook bottom right',
+    'S': 'hook up to the right over a centred circle', 'T': 'two arches (∩ ∩)',
+    'U': 'two cups (∪ ∪)', 'V': 'two cups (nearly identical to U in the key)',
+    'W': 'three circles: left, right, left', 'X': 'cup, circle, arch',
+    'Y': 'two stacked circles', 'Z': 'circle over a λ-shaped foot',
+}
+
+HTML = r'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stem script cipher by u/HumanCalledChris and partner: solved</title>
+<style>
+:root{--ink:#1d2330;--muted:#5d6577;--line:#d9dde6;--bg:#f6f7f9;--card:#fff;--accent:#c0392b;--hl:#ffd54a;--blue:#2c4f9e}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+main{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+h1{font-size:1.75rem;margin:0 0 4px}
+h2{font-size:1.25rem;margin:36px 0 10px;padding-top:6px;border-top:1px solid var(--line)}
+h3{font-size:1.02rem;margin:18px 0 6px}
+.sub{color:var(--muted);margin:0 0 18px}
+a{color:var(--blue)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.answer{border-left:5px solid #2e7d32}
+.answer .pt{font:600 1.35rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;margin:6px 0}
+.answer .en{font-size:1.1rem;margin:8px 0 0}
+.tag{display:inline-block;background:#e8f5e9;color:#1b5e20;border-radius:20px;padding:1px 10px;font-size:.8rem;font-weight:600;vertical-align:middle}
+ul.tight{margin:6px 0;padding-left:22px} ul.tight li{margin:3px 0}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.viz{display:grid;grid-template-columns:minmax(0,520px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:900px){.viz{grid-template-columns:1fr}}
+.photo{position:relative;background:#222;border-radius:8px;overflow:hidden}
+.photo svg{display:block;width:100%;height:auto}
+.gbox{fill:transparent;stroke:transparent;stroke-width:4;cursor:pointer}
+.gbox.sep{stroke-dasharray:6 5}
+.show-boxes .gbox{stroke:rgba(255,255,255,.35)}
+.gbox.on{fill:rgba(255,213,74,.35);stroke:var(--hl)}
+.olbl{font:700 34px ui-monospace,Menlo,monospace;fill:#ffeb3b;paint-order:stroke;stroke:#000;stroke-width:6px;pointer-events:none}
+.olbl.sep{font-size:28px;fill:#9fe0ff}
+.hide-letters .olbl{display:none}
+.controls{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0 0;font-size:.92rem;color:var(--muted)}
+.reading .colrow{margin:0 0 14px}
+.reading .colhead{font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.chips{display:flex;flex-wrap:wrap;gap:3px;align-items:center}
+.chip{font:600 1.05rem ui-monospace,Menlo,monospace;min-width:1.7em;text-align:center;padding:2px 4px;border-radius:5px;background:#eef1f6;cursor:pointer;border:1px solid transparent}
+.chip.sep{background:none;color:#7a8296;min-width:1em;font-weight:400}
+.chip.bar{background:none;color:#7a8296}
+.chip.on{background:var(--hl);border-color:#e0a800}
+.detail{display:flex;gap:14px;align-items:center;min-height:132px;margin-top:8px}
+.detail img{height:120px;border-radius:6px;border:1px solid var(--line);background:#fff}
+.detail .big{font:700 2.6rem ui-monospace,Menlo,monospace;color:var(--accent);min-width:1.4em;text-align:center}
+.detail .txt{color:var(--muted);font-size:.95rem}
+.strip{display:flex;flex-wrap:wrap;align-items:flex-end;gap:2px;margin:4px 0 16px}
+.g{display:flex;flex-direction:column;align-items:center;cursor:pointer;border-radius:6px;padding:3px;border:1px solid transparent}
+.g img{width:77px;height:auto;border-radius:4px}
+.g span{font:700 1rem ui-monospace,Menlo,monospace;margin-top:2px}
+.g.on{background:#fff3c4;border-color:#e0a800}
+.g.s span{color:#8a93a6;font-weight:400}
+.g.s{align-self:center}
+.keygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.kc{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:center}
+.kc .L{font:700 1.4rem ui-monospace,Menlo,monospace;grid-row:span 2}
+.kc .pics{display:flex;gap:6px;align-items:center}
+.kc img{height:64px;border-radius:4px}
+.kc svg{height:64px;width:40px;background:#fbfbfd;border:1px solid #eceef3;border-radius:4px}
+.kc .n{grid-column:1 / -1;font-size:.78rem;color:var(--muted);line-height:1.3}
+.kc.used{border-color:#9ccc65;box-shadow:0 0 0 1px #9ccc65 inset}
+table.bits{border-collapse:collapse;font-size:.95rem}
+table.bits th,table.bits td{border:1px solid var(--line);padding:4px 10px;text-align:center}
+table.bits th{background:#eef1f6}
+table.bits img{height:52px;vertical-align:middle}
+.enc textarea{width:100%;font:1rem ui-monospace,Menlo,monospace;padding:8px;border:1px solid var(--line);border-radius:6px;min-height:58px}
+.enc .row{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:8px 0;font-size:.92rem;color:var(--muted)}
+#encout{overflow-x:auto;background:#fdfdf8;border:1px solid var(--line);border-radius:8px;padding:12px;min-height:120px;background-image:repeating-linear-gradient(#fdfdf8 0 33px,#dfe3ea 33px 34px)}
+#encwarn{color:var(--accent);font-size:.9rem}
+.note{font-size:.95rem}
+.small{font-size:.86rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+<h1>A stem-script cipher made by u/HumanCalledChris and their partner <span class="tag">SOLVED</span></h1>
+<p class="sub">Source: <a href="https://www.reddit.com/r/ciphers/comments/1y6606y/created_a_cipher_with_my_partner/">r/ciphers: &ldquo;Created a cipher with my partner&rdquo;</a> by u/HumanCalledChris.
+The poster's hint: <em>&ldquo;You basically read it from top to bottom and &lsquo;&lt;&rsquo; indicates a new word while &lsquo;&gt;&rsquo; indicates the next letter!!&rdquo;</em></p>
+
+<div class="card answer">
+  <div class="small">Plaintext, column by column (left to right):</div>
+  <div class="pt">HIII IM MOON.<br>IT IS THE YEAR 2026 RIGHT NO&#8209; NOW.</div>
+  <p class="en">&ldquo;Hiii, I'm Moon. It is the year 2026 right now.&rdquo;</p>
+  <p class="small" style="margin:6px 0 0">The key on the left page of the photo is a simple substitution (26 letters, 10 digits and a full stop), so this is a straight reading of the glyphs, not a guess.
+  The only oddity: column 3 ends with <span class="mono">N&rsaquo;O&rsaquo;</span>, where the trailing letter break means the word runs on, and column 4 then writes <span class="mono">N&rsaquo;O&rsaquo;W</span> in full. The writer evidently began &ldquo;NOW&rdquo; at the foot of one column and restarted it at the top of the next.</p>
+</div>
+
+<h2>How the script works</h2>
+<ul class="tight">
+  <li>Every glyph is a set of small marks (circles, c-hooks, arches, cups, ticks) hung on a <b>vertical stem</b>. A whole line of text is one continuous stem, read <b>top to bottom</b>, columns left to right.</li>
+  <li>Between glyphs the stem kinks: a kink pointing <b>right (&rsaquo;)</b> = next letter of the same word; a kink pointing <b>left (&lsaquo;)</b> = new word. These are the key's &ldquo;Letter &gt;&rdquo; and &ldquo;Word &lt;&rdquo; drawn sideways on a vertical line.</li>
+  <li><b>Digits are 4-bit binary.</b> Each digit is four ticks down the stem; a tick on the left is 0 and a tick on the right is 1, most significant bit on top. 1&nbsp;=&nbsp;LLLR (0001), 2&nbsp;=&nbsp;LLRL (0010), &hellip; 9&nbsp;=&nbsp;RLLR (1001), 0&nbsp;=&nbsp;LLLL. The key never says this, but all ten digits in it follow the rule exactly, and it is how the year <b>2026</b> in column 3 reads.</li>
+  <li><b>Bars frame sentences.</b> The key's full stop is a horizontal bar at the foot of the stem (&#8869;). Column 1 has a cross bar at both ends, column 2 opens with a bar, and column 4 closes with the &#8869; full stop.</li>
+  <li>Letters that look alike are told apart by <b>where</b> the mark sits. <b>H</b> is a small circle low on the stem with stem above it, while <b>I</b> is a circle tight against the top of its segment. That is what separates the H and I in &ldquo;HIII&rdquo;, &ldquo;THE&rdquo; and &ldquo;RIGHT&rdquo;.</li>
+</ul>
+
+<h2>Visualizer</h2>
+<p class="note">Hover or tap any glyph on the photo, or any letter on the right, to see it highlighted on both sides with a close-up.</p>
+<div class="viz">
+  <div>
+    <div class="photo" id="photo"></div>
+    <div class="controls">
+      <label><input type="checkbox" id="tglLetters" checked> letters on photo</label>
+      <label><input type="checkbox" id="tglBoxes"> show glyph boxes</label>
+      <label><input type="checkbox" id="tglSeps" checked> label separators</label>
+    </div>
+  </div>
+  <div class="card reading">
+    <div id="reading"></div>
+    <div class="detail" id="detail"><div class="txt">Hover a glyph&hellip;</div></div>
+  </div>
+</div>
+
+<h2>Glyph-by-glyph transcription</h2>
+<p class="note">Each column of the message cut into its glyphs (contrast slightly raised). &rsaquo; / &lsaquo; mark the letter and word kinks between them.</p>
+<div id="strips"></div>
+
+<h2>The key</h2>
+<p class="note">For each symbol: the key glyph cut from the left page of the photo, my redrawing (used by the encoder below) and a short description. Green outlines mark symbols that occur in the message.</p>
+<div class="keygrid" id="keygrid"></div>
+
+<h3>Digits: a 4-bit binary code</h3>
+<div style="overflow-x:auto"><table class="bits" id="bits"></table></div>
+
+<h2>Encoder</h2>
+<div class="card enc">
+  <p class="small" style="margin-top:0">Type English text to write it in the script. Letters, digits, spaces and full stops are supported; anything else is dropped. Long text wraps into new columns. A word split across columns keeps its &rsaquo; break, just as column&nbsp;3 does. With the defaults (11 letters per column, new column after a full stop) the sample text reproduces the original's layout, and shows that only the <span class="mono">W</span> of &ldquo;NOW&rdquo; needed to go in column&nbsp;4.</p>
+  <textarea id="encin">Hiii im Moon. It is the year 2026 right now.</textarea>
+  <div class="row">
+    <label>letters per column <input type="number" id="encper" value="11" min="3" max="40" style="width:4em"></label>
+    <label><input type="checkbox" id="enclbl" checked> show letters</label>
+    <label><input type="checkbox" id="encbars" checked> start/end bars</label>
+    <label><input type="checkbox" id="encnewcol" checked> new column after each full stop</label>
+    <span id="encwarn"></span>
+  </div>
+  <div id="encout"></div>
+</div>
+
+<h2>Notes and caveats</h2>
+<ul class="tight note">
+  <li><b>H vs I vs J.</b> In the key, I and J are almost the same glyph (a centred circle near the top, J a little larger). The message only needs H and I, and context settles every case: <i>HIII, IT, IS, THE, RIGHT</i>.</li>
+  <li><b>U vs V</b> also look nearly identical in the key, but neither letter occurs in the message.</li>
+  <li><b>Y</b> in &ldquo;YEAR&rdquo; has its lower circle drawn off to the right rather than straight under the upper one. The word around it leaves no doubt.</li>
+  <li>The final digit 6 of <b>2026</b> has heavy, overwritten ink, but its ticks still read L&nbsp;R&nbsp;R&nbsp;L&nbsp;=&nbsp;0110&nbsp;=&nbsp;6.</li>
+  <li>&ldquo;Moon&rdquo; is presumably a nickname. The literal reading of column&nbsp;1 is <span class="mono">HIII IM MOON</span> (no apostrophe; the key has none).</li>
+  <li>Several glyphs echo their Latin letters: a b-bowl for B, a c-hook for C, three bumps for M and two for N (an m and an n turned on their side), a ring for O.</li>
+  <li>I could not open the Reddit thread from here (blocked), so this solution rests on the photo alone.</li>
+</ul>
+<p class="small">Files: <code>reading_data.py</code> (transcription with pixel ranges), <code>make_crops.py</code> (cuts the glyph images), <code>build_report.py</code> (writes this page). Original photo: <a href="images/original.png">images/original.png</a>.</p>
+</main>
+
+<script>
+const DATA = __DATA__;
+const KEYNOTES = __KEYNOTES__;
+
+/* ---------- redrawn glyphs: stem at x=0, glyph spans y 0..100 ---------- */
+const c=(x,y,r)=>({t:'c',x,y,r}), p=d=>({t:'p',d});
+const GL = {
+ A:[c(-9,58,9)], B:[c(9,48,9)],
+ C:[p('M22,28 Q3,26 2,40 L2,62 Q3,76 22,74')],
+ D:[p('M-15,8 L0,40'),p('M0,58 Q-2,80 -22,84')],
+ E:[c(8,24,8),c(0,62,13)],
+ F:[p('M20,12 Q3,10 2,22 Q3,34 20,34')],
+ G:[p('M20,58 Q3,56 2,70 Q3,84 20,84')],
+ H:[c(0,64,11)], I:[c(0,20,12)], J:[c(0,36,16)],
+ K:[p('M0,14 Q8,8 20,12'),c(9,72,9)],
+ L:[c(0,24,12),p('M0,62 Q1,80 16,80')],
+ M:[c(7,24,7),c(7,50,7),c(7,76,7)],
+ N:[c(-8,36,8),c(-8,64,8)],
+ O:[c(0,58,20)],
+ P:[c(-9,42,9),p('M0,40 Q8,33 20,38')],
+ Q:[p('M0,32 Q-10,30 -16,40'),c(3,68,17)],
+ R:[p('M-15,10 Q-3,14 0,38'),p('M18,58 Q3,56 2,70 Q3,84 18,84')],
+ S:[p('M0,40 Q2,16 20,10'),p('M0,44 L-12,50'),c(0,70,13)],
+ T:[p('M-12,40 Q-10,18 0,16 Q10,18 12,40'),p('M-20,88 Q-18,56 0,54 Q18,56 20,88')],
+ U:[p('M-16,14 Q-12,38 0,42 Q12,38 16,14'),p('M-16,50 Q-12,74 0,78 Q12,74 16,50')],
+ V:[p('M-16,16 L0,40 L16,16'),p('M-16,52 L0,76 L16,52')],
+ W:[c(-8,22,8),c(8,50,8),c(-8,78,8)],
+ X:[p('M-18,10 Q-14,30 0,32 Q14,30 18,10'),c(0,50,12),p('M-16,90 Q-14,70 0,68 Q14,70 16,90')],
+ Y:[c(0,30,12),c(0,68,12)],
+ Z:[c(0,28,13),p('M-14,62 L0,52'),p('M0,52 Q6,66 16,88')],
+};
+const DIGITS='0123456789';
+for(const d of DIGITS){
+  const bits=parseInt(d,10).toString(2).padStart(4,'0');
+  GL[d]=[...bits].map((b,i)=>{const y=16+i*22;return p(b==='1'?`M0,${y} L15,${y}`:`M-15,${y} L0,${y}`);});
+}
+const bitsOf=d=>parseInt(d,10).toString(2).padStart(4,'0');
+
+function glyphSVG(sym, y0){
+  const els=GL[sym]||[]; let s=`<path d="M0,${y0} L0,${y0+100}"/>`;
+  for(const e of els){
+    if(e.t==='c') s+=`<circle cx="${e.x}" cy="${y0+e.y}" r="${e.r}"/>`;
+    else s+=`<path transform="translate(0,${y0})" d="${e.d}"/>`;
+  }
+  return s;
+}
+function keySVG(sym){
+  return `<svg viewBox="-28 -6 56 112"><g fill="none" stroke="#1d2a5a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">${glyphSVG(sym,0)}</g></svg>`;
+}
+
+/* ---------- visualizer ---------- */
+const [PW,PH]=DATA.page_size;
+const items=[]; // flat list
+for(const col of Object.keys(DATA.columns)){
+  DATA.columns[col].forEach((r,i)=>items.push({...r,col:+col,i,id:`c${col}_${i}`}));
+}
+function sepChar(k){return k==='>'?'›':'‹';}
+function barSym(r){ return r.val==='.'?'⊥':r.val; }
+
+(function buildPhoto(){
+  let s=`<svg viewBox="0 0 ${PW} ${PH}" id="psvg"><image href="images/page.jpg" width="${PW}" height="${PH}"/>`;
+  for(const r of items){
+    const [x0,y0,x1,y1]=r.box; const sep=(r.kind==='>'||r.kind==='<');
+    s+=`<rect class="gbox${sep?' sep':''}" data-id="${r.id}" x="${x0}" y="${y0}" width="${x1-x0}" height="${y1-y0}" rx="8"/>`;
+    const t=r.kind==='L'?r.val:(sep?sepChar(r.kind):barSym(r));
+    const fs=sep?' sep':'';
+    s+=`<text class="olbl${fs}" x="${x1+4}" y="${(y0+y1)/2+11}">${t}</text>`;
+  }
+  s+='</svg>';
+  document.getElementById('photo').innerHTML=s;
+})();
+
+(function buildReading(){
+  const names={1:'Column 1',2:'Column 2',3:'Column 3',4:'Column 4'};
+  let h='';
+  for(const col of Object.keys(DATA.columns)){
+    h+=`<div class="colrow"><div class="colhead">${names[col]}</div><div class="chips">`;
+    DATA.columns[col].forEach((r,i)=>{
+      const id=`c${col}_${i}`; const k=r.kind;
+      const cls=k==='L'?'chip':(k==='B'?'chip bar':'chip sep');
+      const t=k==='L'?r.val:(k==='B'?barSym(r):sepChar(k));
+      h+=`<span class="${cls}" data-id="${id}" title="${k==='L'?'letter':k==='B'?'bar':(k==='>'?'next letter':'new word')}">${t}</span>`;
+    });
+    h+='</div></div>';
+  }
+  document.getElementById('reading').innerHTML=h;
+})();
+
+(function buildStrips(){
+  let h='';
+  for(const col of Object.keys(DATA.columns)){
+    h+=`<h3>Column ${col}</h3><div class="strip">`;
+    DATA.columns[col].forEach((r,i)=>{
+      const id=`c${col}_${i}`;
+      if(r.kind==='>'||r.kind==='<') h+=`<div class="g s" data-id="${id}"><span>${sepChar(r.kind)}</span></div>`;
+      else h+=`<div class="g" data-id="${id}"><img src="${r.img}" alt="${r.val}"><span>${r.kind==='B'?barSym(r):r.val}</span></div>`;
+    });
+    h+='</div>';
+  }
+  document.getElementById('strips').innerHTML=h;
+})();
+
+const byId=Object.fromEntries(items.map(r=>[r.id,r]));
+let current=null;
+function highlight(id){
+  if(current===id)return; current=id;
+  document.querySelectorAll('.on').forEach(e=>e.classList.remove('on'));
+  if(!id)return;
+  document.querySelectorAll(`[data-id="${id}"]`).forEach(e=>e.classList.add('on'));
+  const r=byId[id]; const det=document.getElementById('detail');
+  if(r.kind==='>'||r.kind==='<'){
+    det.innerHTML=`<div class="big">${sepChar(r.kind)}</div><div class="txt"><b>${r.kind==='>'?'Letter break':'Word break'}</b>: the stem kinks to the ${r.kind==='>'?'right (key: &ldquo;Letter &gt;&rdquo;)':'left (key: &ldquo;Word &lt;&rdquo;)'}.${r.note?'<br>'+r.note:''}</div>`;
+  } else {
+    let extra='';
+    if(DIGITS.includes(r.val)) extra=`<br>binary ${bitsOf(r.val)} &rarr; ${r.val}`;
+    det.innerHTML=`<img src="${r.img}" alt=""><div class="big">${r.kind==='B'?barSym(r):r.val}</div><div class="txt">Column ${r.col}, ${r.kind==='B'?'bar':'glyph '+(r.i+1)}<br>${r.note||''}${extra}</div>`;
+  }
+}
+document.addEventListener('mouseover',e=>{const t=e.target.closest('[data-id]'); if(t)highlight(t.dataset.id);});
+document.addEventListener('click',e=>{const t=e.target.closest('[data-id]'); if(t)highlight(t.dataset.id);});
+const photo=document.getElementById('photo');
+document.getElementById('tglLetters').onchange=e=>photo.classList.toggle('hide-letters',!e.target.checked);
+document.getElementById('tglBoxes').onchange=e=>photo.classList.toggle('show-boxes',e.target.checked);
+document.getElementById('tglSeps').onchange=e=>document.querySelectorAll('.olbl.sep').forEach(t=>t.style.display=e.target.checked?'':'none');
+
+/* ---------- key grid ---------- */
+(function buildKey(){
+  const used=new Set(items.filter(r=>r.kind==='L').map(r=>r.val));
+  let h='';
+  for(const k of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'){
+    h+=`<div class="kc${used.has(k)?' used':''}"><div class="L">${k}</div><div class="pics"><img src="images/key/${k}.png" alt="key ${k}">${keySVG(k)}</div><div class="n">${KEYNOTES[k]}</div></div>`;
+  }
+  document.getElementById('keygrid').innerHTML=h;
+  let t='<tr><th>digit</th>'; for(const d of '1234567890') t+=`<th>${d}</th>`; t+='<th>.</th></tr>';
+  t+='<tr><th>key glyph</th>'; for(const d of '1234567890') t+=`<td><img src="images/key/${d}.png" alt="${d}"></td>`; t+='<td><img src="images/key/dot.png" alt="."></td></tr>';
+  t+='<tr><th>ticks (top&rarr;bottom)</th>'; for(const d of '1234567890') t+=`<td class="mono">${[...bitsOf(d)].map(b=>b==='1'?'R':'L').join(' ')}</td>`; t+='<td>bar</td></tr>';
+  t+='<tr><th>binary (L=0, R=1)</th>'; for(const d of '1234567890') t+=`<td class="mono">${bitsOf(d)}</td>`; t+='<td></td></tr>';
+  document.getElementById('bits').innerHTML=t;
+})();
+
+/* ---------- encoder ---------- */
+function encode(){
+  const raw=document.getElementById('encin').value.toUpperCase();
+  const per=Math.max(3,+document.getElementById('encper').value||12);
+  const showL=document.getElementById('enclbl').checked, bars=document.getElementById('encbars').checked;
+  const dropped=new Set();
+  // token stream: letters, '>' , '<', '.'
+  const toks=[];
+  const sentences=raw.split(/(\.)/);
+  for(const part of sentences){
+    if(part==='.'){ if(toks.length&&toks[toks.length-1]!=='.')toks.push('.'); continue; }
+    const words=part.split(/\s+/).map(w=>[...w].filter(ch=>{const ok=GL[ch]!==undefined; if(!ok)dropped.add(ch); return ok;}).join('')).filter(Boolean);
+    words.forEach((w,wi)=>{
+      if(wi>0 || (toks.length && toks[toks.length-1]!=='.')) { if(toks.length && toks[toks.length-1]!=='.') toks.push('<'); }
+      [...w].forEach((ch,ci)=>{ if(ci>0)toks.push('>'); toks.push(ch); });
+    });
+  }
+  // split into columns of at most `per` glyphs; optionally start a new column after each full stop
+  const newcol=document.getElementById('encnewcol').checked;
+  const cols=[]; let cur={toks:[],start:true}, n=0;
+  const flush=(startNext)=>{ if(cur.toks.length)cols.push(cur); cur={toks:[],start:startNext}; n=0; };
+  for(let i=0;i<toks.length;i++){
+    const t=toks[i];
+    if(t==='.'){ cur.toks.push('.'); if(newcol && i<toks.length-1) flush(true); continue; }
+    if(t==='>'||t==='<'){ cur.toks.push(t); continue; }
+    if(n>=per) flush(cur.toks.length>0 && cur.toks[cur.toks.length-1]==='.');
+    cur.toks.push(t); n++;
+  }
+  flush(false);
+  // render
+  const SEP=24, GH=100, colW=90, sc=0.62;
+  let maxH=0; const parts=[];
+  cols.forEach((col,ci)=>{
+    let y=12, s='', lbl='';
+    if(bars && col.start){ s+=`<path d="M-20,${y} L20,${y}"/>`; }
+    const tk=col.toks;
+    for(let k=0;k<tk.length;k++){
+      const t=tk[k];
+      if(t==='>'||t==='<'){ const tip=t==='>'?14:-14; s+=`<path d="M0,${y} L${tip},${y+SEP/2} L0,${y+SEP}"/>`; y+=SEP; }
+      else if(t==='.'){ s+=`<path d="M0,${y} L0,${y+8} M-20,${y+8} L20,${y+8}"/>`; y+=18;
+        if(bars && k<tk.length-1){ s+=`<path d="M-20,${y} L20,${y}"/>`; } }
+      else { s+=glyphSVG(t,y); if(showL) lbl+=`<text x="30" y="${y+56}">${t}</text>`; y+=GH; }
+    }
+    maxH=Math.max(maxH,y+12);
+    parts.push(`<g transform="translate(${ci*colW+40},0)"><g fill="none" stroke="#1b1b1b" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">${s}</g><g font-family="ui-monospace,Menlo,monospace" font-size="20" font-weight="700" fill="#c0392b">${lbl}</g></g>`);
+  });
+  const W=cols.length*colW+40;
+  document.getElementById('encout').innerHTML=cols.length?`<svg width="${W*sc}" height="${maxH*sc}" viewBox="0 0 ${W} ${maxH}">${parts.join('')}</svg>`:'';
+  document.getElementById('encwarn').textContent=dropped.size?('dropped: '+[...dropped].map(c=>c===' '?'space':c).join(' ')):'';
+}
+['encin','encper','enclbl','encbars','encnewcol'].forEach(id=>{const e=document.getElementById(id); e.addEventListener('input',encode); e.addEventListener('change',encode);});
+encode();
+</script>
+</body>
+</html>
+'''
+
+html = HTML.replace('__DATA__', json.dumps(data)).replace('__KEYNOTES__', json.dumps(KEY_NOTES))
+open(os.path.join(HERE, 'index.html'), 'w').write(html)
+print('wrote index.html', len(html))
