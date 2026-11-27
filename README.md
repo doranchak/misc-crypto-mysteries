@@ -102,15 +102,19 @@ A place for a random assortment of crypto mysteries and curiosities (solved and 
 <a href="https://doranchak.github.io/misc-crypto-mysteries/vowel-cipher">Vowel cipher</a>
 </td>
 <td align="center" valign="top" width="25%">
+<a href="https://doranchak.github.io/misc-crypto-mysteries/class-chalkboard-code"><img src="thumbnails/class-chalkboard-code.jpg" width="180" alt="Chalk glyphs on a green chalkboard beside pine trees"></a><br>
+<a href="https://doranchak.github.io/misc-crypto-mysteries/class-chalkboard-code">Weird code on class chalkboard</a>
+</td>
+<td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/weird-message-from-a-strange-guy"><img src="thumbnails/weird-message-from-a-strange-guy.jpg" width="180" alt="Bordered page of runes and Chinese text"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/weird-message-from-a-strange-guy">Weird message from a strange guy</a>
 </td>
+</tr>
+<tr>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/xmr-monero-wallet"><img src="thumbnails/xmr-monero-wallet.jpg" width="180" alt="Lines of angular cipher symbols"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/xmr-monero-wallet">XMR Monero wallet cipher</a>
 </td>
-</tr>
-<tr>
 <td align="center" valign="top" width="25%">
 <a href="https://doranchak.github.io/misc-crypto-mysteries/z340-inspired-art-codes"><img src="thumbnails/z340-inspired-art-codes.jpg" width="180" alt="Sketch beside a grid of three-digit numbers"></a><br>
 <a href="https://doranchak.github.io/misc-crypto-mysteries/z340-inspired-art-codes">Z340-inspired art codes</a>

@@ -42,6 +42,7 @@ SPEC = {
     "friend-two-ciphers-base64-caesar": ("shot:", (130, 280, 655, 630), None),
     "bulgarian-treasure-hunt-cipher": ("bulgarian-treasure-hunt-cipher/card.jpg", (125, 0, 1475, 900), None),
     "spanish-class-checkerboard-cipher": ("spanish-class-checkerboard-cipher/pic1.jpeg", (100, 150, 2900, 2017), None),
+    "class-chalkboard-code": ("class-chalkboard-code/chalkboard.jpg", (715, 1200, 2095, 2130), None),
     "cipher-leads-to-an-image": ("cipher-leads-to-an-image/qkhHnIc.png", (180, 420, 1950, 1960), "auto"),
     "disturbed-student-enciphered-journal": ("disturbed-student-enciphered-journal/page 1.webp", (40, 60, 1040, 727), None),
     "oliver-twist-thrift-store": ("oliver-twist-thrift-store/book1.jpeg", (150, 250, 2900, 2083), None),

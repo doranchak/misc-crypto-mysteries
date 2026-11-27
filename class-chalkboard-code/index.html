@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weird code on class chalkboard: deciphered</title>
+<style>
+:root{--bg:#fbfaf7;--panel:#fff;--ink:#1f2328;--muted:#667085;--line:#e5e1d8;--soft:#f3f0e8;
+  --accent:#2f6b55;--blue:#2a6f97;--good:#2f7d4f;--good-soft:#e1f1e7;--warn:#a16207;--warn-soft:#fbefd0;
+  --board:#2e4a43;--chalk:#f1e3b4;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#14171a;--panel:#1b1f23;--ink:#e6e8ea;--muted:#9aa4af;--line:#2c333a;
+  --soft:#22272c;--accent:#7cc4a6;--blue:#6db3dc;--good:#6cc08b;--good-soft:#1c3025;--warn:#e0b050;--warn-soft:#3a3018}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header,main{max-width:1100px;margin:0 auto;padding:0 22px}
+header{padding-top:28px}
+h1{font-size:27px;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:14px}
+h2{font-size:21px;margin:0 0 8px}
+section{margin-top:40px}
+a{color:var(--blue)}
+.status{display:inline-block;background:var(--good-soft);color:var(--good);border:1px solid var(--good);border-radius:6px;padding:5px 10px;font-weight:600;margin-top:12px}
+.muted{color:var(--muted)} .small{font-size:13px}
+code{font-family:var(--mono);background:var(--soft);padding:1px 5px;border-radius:4px;font-size:13px}
+.answer{background:var(--board);color:var(--chalk);border-radius:10px;padding:22px 26px;font:600 22px/1.5 "Chalkboard SE","Comic Sans MS",ui-rounded,sans-serif;
+  letter-spacing:.06em;white-space:pre-line;box-shadow:inset 0 0 0 6px #d9d5cc33}
+.answer .sic{opacity:.75;font-weight:400;font-size:15px;letter-spacing:0}
+.twocol{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:820px){.twocol{grid-template-columns:1fr}}
+figure{margin:0}
+.photo img{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);display:block}
+.photo figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+.bline{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;padding:12px 0;border-bottom:1px solid var(--line)}
+.bline .ln{width:22px;color:var(--muted);font-size:12px;align-self:center}
+.word img{display:block;max-width:100%;height:auto;border-radius:5px}
+.word figcaption{display:flex;flex-direction:column;align-items:center;margin-top:4px}
+.word .gl{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.word b{font-size:16px;letter-spacing:.12em;color:var(--accent)}
+table{border-collapse:collapse;width:100%;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:14px}
+th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{background:var(--soft);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+tr:last-child td{border-bottom:0}
+td.L{font:700 20px var(--mono);color:var(--accent);width:44px;text-align:center}
+td.gimg{width:90px} td.gimg img{display:block;border-radius:4px}
+td.gn{font-family:var(--mono);font-size:17px;width:60px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;width:60px}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.card h3{margin:0 0 4px;font-size:14px}
+.card p{margin:0;font-size:13.5px}
+ul.notes li{margin:6px 0}
+.note{background:var(--warn-soft);border-left:4px solid var(--warn);padding:8px 12px;border-radius:4px;font-size:14px}
+#enc-in{width:100%;font:16px var(--mono);padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);text-transform:uppercase}
+#enc-out{background:var(--board);border-radius:10px;padding:14px;margin-top:10px;min-height:80px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:2px 1px}
+#enc-out img{height:46px;width:auto;border-radius:2px}
+#enc-out .sp{width:22px} #enc-out .br{flex-basis:100%;height:6px}
+#enc-out .x{height:46px;min-width:26px;display:inline-flex;align-items:center;justify-content:center;color:#f1e3b4aa;border:1px dashed #f1e3b466;border-radius:3px;font:600 18px var(--mono);padding:0 4px}
+footer{max-width:1100px;margin:50px auto 60px;padding:0 22px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+<h1>Weird code on class chalkboard: deciphered</h1>
+<div class="sub">Source: <a href="https://www.reddit.com/r/Decoders/comments/1y66thf/weird_code_on_class_chalkboard/">“Weird code on class chalkboard”</a>,
+r/Decoders, posted by <a href="https://www.reddit.com/user/Heyxlistenx/">u/Heyxlistenx</a>. Photo from that post.</div>
+<div class="status">Solved: a home-made “look-alike” alphabet, one glyph per letter</div>
+</header>
+<main>
+
+<section id="answer">
+<h2>What it says</h2>
+<div class="answer">THE 10 COMMANDS!
+I SHALL NOT STILL <span class="sic">[sic: the commandment is “steal”]</span>
+I SHALL NOT KILL
+I SHALL NOT COMMIT ADULTERY
+WE US A STUDENT
+REMEMBER
+♥</div>
+<p class="muted small">Every glyph on the board fits one key, with no leftovers. The two odd spots, STILL and “WE US”, are written that way on the board and are not decoding errors (see <a href="#loose">loose ends</a>).</p>
+</section>
+
+<section id="board" class="twocol">
+<figure class="photo"><a href="chalkboard.jpg"><img src="img/text-block.jpg" alt="the enciphered block on the chalkboard"></a>
+<figcaption>The enciphered block (click for the full 3000×4000 photo).</figcaption></figure>
+<div>
+<h2>How it was cracked</h2>
+<p>Three lines start with the same run of glyphs, <code>! 8H577 nō⊥</code>: a 1-letter word, a 5-letter word ending in a double letter, and a 3-letter word.
+That run is <b>I SHALL NOT</b>, and the words after it confirm it: <code>ꓘ!77</code> = KILL and <code>Ↄōmm!⊥ 5ᗡ∩7⊥≡12 4</code> = COMMIT ADULTERY.
+The heading <code>⊥H≡ 10 Ↄōmm5nᗡ8!</code> then reads <b>THE 10 COMMANDS!</b>.</p>
+<p>Those three lines give the key for 16 letters. The last two lines then read straight off it (<b>WE US A STUDENT / REMEMBER</b>).
+The only new glyphs there are <b>W</b>, which is drawn normally, and <code>13</code> = <b>B</b>, which is drawn like the <code>12</code> = R next to it.</p>
+<p>There is no key, shift or transposition. Each letter is just drawn in a disguised form: turned upside down, mirrored, broken into pieces, or swapped for a digit that looks a bit like it.</p>
+<figure class="photo" style="margin-top:14px"><img src="img/drawings.jpg" alt="drawings above the code: jail, Cardiac Arrest heart, policeman">
+<figcaption>Above the code, the same board has crime-and-punishment cartoons: a stick figure in JAIL, a heart holding handcuffs (“Cardiac Arrest”), and a policeman.
+A list of “shall not” rules fits that theme.</figcaption></figure>
+</div>
+</section>
+
+<section id="lines">
+<h2>Line by line</h2>
+<p class="muted small">Each word is cut from the photo. Under each word: my glyph transcription, then the plaintext.</p>
+<div class="bline"><span class="ln">1</span><figure class="word"><img src="img/w00.jpg" width="111" height="58" alt="THE in the chalk alphabet"><figcaption><span class="gl">⊥ H ≡</span><b>THE</b></figcaption></figure><figure class="word"><img src="img/w01.jpg" width="78" height="48" alt="10 in the chalk alphabet"><figcaption><span class="gl">1 0</span><b>10</b></figcaption></figure><figure class="word"><img src="img/w02.jpg" width="307" height="60" alt="COMMANDS! in the chalk alphabet"><figcaption><span class="gl">Ↄ ō m m 5 n ᗡ 8 !</span><b>COMMANDS!</b></figcaption></figure></div><div class="bline"><span class="ln">2</span><figure class="word"><img src="img/w03.jpg" width="25" height="57" alt="I in the chalk alphabet"><figcaption><span class="gl">!</span><b>I</b></figcaption></figure><figure class="word"><img src="img/w04.jpg" width="163" height="55" alt="SHALL in the chalk alphabet"><figcaption><span class="gl">8 H 5 7 7</span><b>SHALL</b></figcaption></figure><figure class="word"><img src="img/w05.jpg" width="111" height="50" alt="NOT in the chalk alphabet"><figcaption><span class="gl">n ō ⊥</span><b>NOT</b></figcaption></figure><figure class="word"><img src="img/w06.jpg" width="145" height="72" alt="STILL in the chalk alphabet"><figcaption><span class="gl">8 ⊥ ! 7 7</span><b>STILL</b></figcaption></figure></div><div class="bline"><span class="ln">3</span><figure class="word"><img src="img/w07.jpg" width="21" height="61" alt="I in the chalk alphabet"><figcaption><span class="gl">!</span><b>I</b></figcaption></figure><figure class="word"><img src="img/w08.jpg" width="151" height="46" alt="SHALL in the chalk alphabet"><figcaption><span class="gl">8 H 5 7 7</span><b>SHALL</b></figcaption></figure><figure class="word"><img src="img/w09.jpg" width="100" height="49" alt="NOT in the chalk alphabet"><figcaption><span class="gl">n ō ⊥</span><b>NOT</b></figcaption></figure><figure class="word"><img src="img/w10.jpg" width="110" height="50" alt="KILL in the chalk alphabet"><figcaption><span class="gl">ꓘ ! 7 7</span><b>KILL</b></figcaption></figure></div><div class="bline"><span class="ln">4</span><figure class="word"><img src="img/w11.jpg" width="19" height="39" alt="I in the chalk alphabet"><figcaption><span class="gl">!</span><b>I</b></figcaption></figure><figure class="word"><img src="img/w12.jpg" width="171" height="46" alt="SHALL in the chalk alphabet"><figcaption><span class="gl">8 H 5 7 7</span><b>SHALL</b></figcaption></figure><figure class="word"><img src="img/w13.jpg" width="118" height="55" alt="NOT in the chalk alphabet"><figcaption><span class="gl">n ō ⊥</span><b>NOT</b></figcaption></figure></div><div class="bline"><span class="ln">5</span><figure class="word"><img src="img/w14.jpg" width="223" height="47" alt="COMMIT in the chalk alphabet"><figcaption><span class="gl">Ↄ ō m m ! ⊥</span><b>COMMIT</b></figcaption></figure></div><div class="bline"><span class="ln">6</span><figure class="word"><img src="img/w15.jpg" width="228" height="48" alt="ADULTERY in the chalk alphabet"><figcaption><span class="gl">5 ᗡ ∩ 7 ⊥ ≡ 12 4</span><b>ADULTERY</b></figcaption></figure></div><div class="bline"><span class="ln">7</span><figure class="word"><img src="img/w16.jpg" width="81" height="52" alt="WE in the chalk alphabet"><figcaption><span class="gl">W ≡</span><b>WE</b></figcaption></figure><figure class="word"><img src="img/w17.jpg" width="63" height="48" alt="US in the chalk alphabet"><figcaption><span class="gl">∩ 8</span><b>US</b></figcaption></figure><figure class="word"><img src="img/w18.jpg" width="38" height="47" alt="A in the chalk alphabet"><figcaption><span class="gl">5</span><b>A</b></figcaption></figure><figure class="word"><img src="img/w19.jpg" width="244" height="52" alt="STUDENT in the chalk alphabet"><figcaption><span class="gl">8 ⊥ ∩ ᗡ ≡ n ⊥</span><b>STUDENT</b></figcaption></figure></div><div class="bline"><span class="ln">8</span><figure class="word"><img src="img/w20.jpg" width="349" height="60" alt="REMEMBER in the chalk alphabet"><figcaption><span class="gl">12 ≡ m ≡ m 13 ≡ 12</span><b>REMEMBER</b></figcaption></figure></div>
+</section>
+
+<section id="key">
+<h2>The alphabet</h2>
+<p>Each sample is cut from the board. “Count” is how many times the letter appears in the decoded text.</p>
+<table>
+<thead><tr><th>Letter</th><th>Glyph</th><th></th><th>How it is made</th><th class="n">Count</th></tr></thead>
+<tbody>
+<tr><td class="L">A</td><td class="gimg"><img src="img/g_A.jpg" width="51" height="65" alt="glyph for A"></td><td class="gn">5</td><td>digit 5 stands in for A</td><td class="n">6</td></tr><tr><td class="L">B</td><td class="gimg"><img src="img/g_B.jpg" width="64" height="79" alt="glyph for B"></td><td class="gn">13</td><td>B split apart: stem + bumps = “1” + “3”</td><td class="n">1</td></tr><tr><td class="L">C</td><td class="gimg"><img src="img/g_C.jpg" width="54" height="59" alt="glyph for C"></td><td class="gn">Ↄ·</td><td>mirrored C, with a dot inside</td><td class="n">2</td></tr><tr><td class="L">D</td><td class="gimg"><img src="img/g_D.jpg" width="49" height="65" alt="glyph for D"></td><td class="gn">ᗡ·</td><td>mirrored D (bowl on the left, stem on the right), with a dot inside</td><td class="n">3</td></tr><tr><td class="L">E</td><td class="gimg"><img src="img/g_E.jpg" width="45" height="51" alt="glyph for E"></td><td class="gn">≡</td><td>E with its spine left off: three bars</td><td class="n">7</td></tr><tr><td class="L">H</td><td class="gimg"><img src="img/g_H.jpg" width="46" height="53" alt="glyph for H"></td><td class="gn">H</td><td>unchanged</td><td class="n">4</td></tr><tr><td class="L">I</td><td class="gimg"><img src="img/g_I.jpg" width="31" height="84" alt="glyph for I"></td><td class="gn">!</td><td>lower-case i turned upside down (dot at the bottom)</td><td class="n">6</td></tr><tr><td class="L">K</td><td class="gimg"><img src="img/g_K.jpg" width="60" height="65" alt="glyph for K"></td><td class="gn">ꓘ</td><td>mirrored K</td><td class="n">1</td></tr><tr><td class="L">L</td><td class="gimg"><img src="img/g_L.jpg" width="45" height="54" alt="glyph for L"></td><td class="gn">7</td><td>L turned 180° (⅂), which reads as a 7</td><td class="n">11</td></tr><tr><td class="L">M</td><td class="gimg"><img src="img/g_M.jpg" width="66" height="62" alt="glyph for M"></td><td class="gn">m</td><td>peaked roof over three legs: a pointed lower-case m</td><td class="n">6</td></tr><tr><td class="L">N</td><td class="gimg"><img src="img/g_N.jpg" width="69" height="64" alt="glyph for N"></td><td class="gn">n</td><td>peaked roof over two legs: a pointed lower-case n</td><td class="n">5</td></tr><tr><td class="L">O</td><td class="gimg"><img src="img/g_O.jpg" width="51" height="64" alt="glyph for O"></td><td class="gn">ō</td><td>O with a bar over it</td><td class="n">5</td></tr><tr><td class="L">R</td><td class="gimg"><img src="img/g_R.jpg" width="78" height="71" alt="glyph for R"></td><td class="gn">12</td><td>R split apart: stem + bowl-and-leg = “1” + “2”</td><td class="n">3</td></tr><tr><td class="L">S</td><td class="gimg"><img src="img/g_S.jpg" width="43" height="62" alt="glyph for S"></td><td class="gn">8</td><td>digit 8 stands in for S</td><td class="n">7</td></tr><tr><td class="L">T</td><td class="gimg"><img src="img/g_T.jpg" width="57" height="52" alt="glyph for T"></td><td class="gn">⊥</td><td>T turned upside down</td><td class="n">9</td></tr><tr><td class="L">U</td><td class="gimg"><img src="img/g_U.jpg" width="42" height="59" alt="glyph for U"></td><td class="gn">∩</td><td>U turned upside down</td><td class="n">3</td></tr><tr><td class="L">W</td><td class="gimg"><img src="img/g_W.jpg" width="70" height="70" alt="glyph for W"></td><td class="gn">W</td><td>unchanged (seen only once)</td><td class="n">1</td></tr><tr><td class="L">Y</td><td class="gimg"><img src="img/g_Y.jpg" width="50" height="68" alt="glyph for Y"></td><td class="gn">4</td><td>a squared-off y shaped like a 4 (Ч); partly covered by the tree</td><td class="n">1</td></tr>
+</tbody></table>
+<p class="muted small">Not on the board, so unknown: F G J P Q V X Z. The heading's “10” is written in ordinary digits: its 0 has no bar, unlike every lettered O.</p>
+<div class="groups">
+<div class="card"><h3>Turned 180°</h3><p>T → ⊥, U → ∩, i → !, L → 7</p></div>
+<div class="card"><h3>Mirrored</h3><p>C → Ↄ, D → ᗡ, K → ꓘ (C and D also get a dot)</p></div>
+<div class="card"><h3>Broken apart</h3><p>E → ≡ (no spine), B → 1 3, R → 1 2</p></div>
+<div class="card"><h3>Digit stand-ins</h3><p>A → 5, S → 8, Y → 4</p></div>
+<div class="card"><h3>Peaked lower case</h3><p>m and n drawn as a roof over 3 or 2 legs</p></div>
+<div class="card"><h3>Barely changed</h3><p>O gets an overbar; H and W are drawn normally</p></div>
+</div>
+</section>
+
+<section id="loose">
+<h2>Loose ends</h2>
+<ul class="notes">
+<li><b>STILL, not STEAL.</b> The word is <code>8⊥!77</code> = S‑T‑I‑L‑L. The writer's E (<code>≡</code>) appears 7 times elsewhere and is not used here, so the misspelling is on the board, not in the decoding.
+It is either a slip (“steal”/“still”) or a joke.</li>
+<li><b>“WE US A STUDENT”.</b> <code>∩</code> must be U, because it is the U in both ADULTERY and STUDENT. So <code>∩8</code> can only be US, and the line really does say “WE US A STUDENT / REMEMBER”.
+The board does not show what was meant (maybe “we, as a student, remember…”, or deliberately broken English to match the STILL joke).</li>
+<li><b>COMMANDS, not COMMANDMENTS.</b> Only eight glyphs follow the 10: <code>Ↄ ō m m 5 n ᗡ 8</code>. A small ✓ touches the foot of the D. It belongs to the trail of check marks below, not to the word.</li>
+<li><b>Check marks.</b> About six ✓ marks trail down from the end of line 1, across the end of STILL, toward the trees.
+None of them is needed for any word. They may be someone ticking the STILL line, or birds belonging to the moon-and-pines drawing.</li>
+<li><b>Specks under the lines</b> are irregular chalk crumbs. They do not line up with the letters and carry no pattern.
+The dark band behind THE is an eraser smear. The chalk over it is crisp, so the smear came first.
+In THE the T's two strokes don't touch and the H's crossbar is only a dot; on the other lines H has a full crossbar.</li>
+<li><b>Small glyph variants.</b> The I in line 4 is a plain stroke with no dot. The first R of REMEMBER has its “2” redrawn. The Y at the end of ADULTERY runs into the base of the left pine.</li>
+</ul>
+</section>
+
+<section id="encode">
+<h2>Write in it</h2>
+<p class="muted small">Type text to render it with glyphs cut from the board. Letters the board never uses (F G J P Q V X Z) show as dashed boxes.</p>
+<input id="enc-in" value="I shall not steal" maxlength="120" aria-label="text to encode">
+<div id="enc-out" aria-live="polite"></div>
+</section>
+
+</main>
+<footer>
+Photo and puzzle: u/Heyxlistenx on <a href="https://www.reddit.com/r/Decoders/comments/1y66thf/weird_code_on_class_chalkboard/">r/Decoders</a>.
+Page generated by <code>build_report.py</code> from <code>chalkboard.jpg</code>.
+</footer>
+<script>
+const G = {"A": {"src": "img/g_A.jpg", "w": 51, "h": 65}, "B": {"src": "img/g_B.jpg", "w": 64, "h": 79}, "C": {"src": "img/g_C.jpg", "w": 54, "h": 59}, "D": {"src": "img/g_D.jpg", "w": 49, "h": 65}, "E": {"src": "img/g_E.jpg", "w": 45, "h": 51}, "H": {"src": "img/g_H.jpg", "w": 46, "h": 53}, "I": {"src": "img/g_I.jpg", "w": 31, "h": 84}, "K": {"src": "img/g_K.jpg", "w": 60, "h": 65}, "L": {"src": "img/g_L.jpg", "w": 45, "h": 54}, "M": {"src": "img/g_M.jpg", "w": 66, "h": 62}, "N": {"src": "img/g_N.jpg", "w": 69, "h": 64}, "O": {"src": "img/g_O.jpg", "w": 51, "h": 64}, "R": {"src": "img/g_R.jpg", "w": 78, "h": 71}, "S": {"src": "img/g_S.jpg", "w": 43, "h": 62}, "T": {"src": "img/g_T.jpg", "w": 57, "h": 52}, "U": {"src": "img/g_U.jpg", "w": 42, "h": 59}, "W": {"src": "img/g_W.jpg", "w": 70, "h": 70}, "Y": {"src": "img/g_Y.jpg", "w": 50, "h": 68}};
+const inp = document.getElementById('enc-in'), out = document.getElementById('enc-out');
+function render(){
+  out.textContent = '';
+  for (const ch of inp.value.toUpperCase()){
+    if (ch === ' '){ const s=document.createElement('span'); s.className='sp'; out.appendChild(s); continue; }
+    if (ch === '\n'){ const s=document.createElement('span'); s.className='br'; out.appendChild(s); continue; }
+    const g = G[ch];
+    if (g){ const im=document.createElement('img'); im.src=g.src; im.alt=ch; im.title=ch; out.appendChild(im); }
+    else { const s=document.createElement('span'); s.className='x'; s.textContent=ch; s.title='not on the board'; out.appendChild(s); }
+  }
+}
+inp.addEventListener('input', render); render();
+</script>
+</body>
+</html>
